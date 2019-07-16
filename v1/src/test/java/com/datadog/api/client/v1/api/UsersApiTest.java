@@ -14,6 +14,7 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.v1.ApiException;
 import com.datadog.api.client.v1.model.Error400;
 import com.datadog.api.client.v1.model.Error403;
+import com.datadog.api.client.v1.model.User;
 import com.datadog.api.client.v1.model.UserCreatePayload;
 import com.datadog.api.client.v1.model.UserCreateResponse;
 import com.datadog.api.client.v1.model.UserDisableResponse;
@@ -21,10 +22,15 @@ import com.datadog.api.client.v1.model.UserGetAllResponse;
 import com.datadog.api.client.v1.model.UserGetResponse;
 import com.datadog.api.client.v1.model.UserUpdatePayload;
 import com.datadog.api.client.v1.model.UserUpdateResponse;
+import org.junit.After;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Ignore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,90 +38,103 @@ import java.util.Map;
 /**
  * API tests for UsersApi
  */
-@Ignore
-public class UsersApiTest {
+public class UsersApiTest extends V1ApiTest {
 
-    private final UsersApi api = new UsersApi();
+    private static UsersApi api;
+    private final String testingUserHandle = "testinguser@datadoghq.com";
+    private final String testingUserName = "Testing User";
+    private final UserCreatePayload.AccessRoleEnum testingUserAR = UserCreatePayload.AccessRoleEnum.ST;
+    private ArrayList<String> disableUsers = null;
 
-    
-    /**
-     * Create user
-     *
-     * ### Overview Create a user for your organization. ### ARGUMENTS * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:   *  **st** (standard user),   *  **adm** (admin user),   *  **ro** (read-only user). *Note: users can be created with admin access role      only with application keys belonging to administrators.*
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createUserTest() throws ApiException {
-        UserCreatePayload userCreatePayload = null;
-        UserCreateResponse response = api.createUser(userCreatePayload);
-
-        // TODO: test validations
+    @Before
+    public void resetDisableUsers() {
+        disableUsers = new ArrayList<String>();
     }
-    
+
+    @BeforeClass
+    public static void initApi() {
+        api = new UsersApi(generalApiClient);
+    }
+
+    @After
+    public void disableUsers() throws ApiException {
+        if (disableUsers != null) {
+            for (String handle: disableUsers) {
+                UserGetResponse ugr = api.getUser(handle);
+                if (!ugr.getUser().getDisabled()) {
+                    api.disableUser(handle);
+                }
+            }
+        }
+    }
+
     /**
-     * Disable user
-     *
-     * ### Overview Delete a user from an organization. **Note**: This endpoint can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user.
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * Create, modify and disable user object, also test getting it
      */
     @Test
-    public void disableUserTest() throws ApiException {
-        String userHandle = null;
-        UserDisableResponse response = api.disableUser(userHandle);
+    public void userCreateModifyDisableTest() throws ApiException {
+        // Test creating user
+        UserCreatePayload userCreatePayload = new UserCreatePayload();
+        userCreatePayload.setAccessRole(testingUserAR);
+        userCreatePayload.setHandle(testingUserHandle);
+        userCreatePayload.setName(testingUserName);
+        UserCreateResponse response = api.createUser(userCreatePayload);
+        // If something fails, make sure we disable the user
+        disableUsers.add(testingUserHandle);
 
-        // TODO: test validations
+        User user = response.getUser();
+        assertEquals(testingUserHandle, user.getHandle());
+        assertEquals(testingUserName, user.getName());
+        assertEquals(testingUserAR.toString(), user.getAccessRole().toString());
+
+        // Now test updating user
+        UserUpdatePayload userUpdatePayload = new UserUpdatePayload();
+        userUpdatePayload.setName("Updated Name");
+        userUpdatePayload.setDisabled(false);
+        UserUpdateResponse response2 = api.updateUser(user.getHandle(), userUpdatePayload);
+
+        user = response2.getUser();
+        assertEquals("Updated Name", user.getName());
+
+        // Now test getting user
+        UserGetResponse response3 = api.getUser(user.getHandle());
+        user = response3.getUser();
+        assertEquals(testingUserHandle, user.getHandle());
+        assertEquals("Updated Name", user.getName());
+        assertEquals(testingUserAR.toString(), user.getAccessRole().toString());
+        assertEquals(false, user.getDisabled());
+
+        // Now test disabling user
+        api.disableUser(user.getHandle());
+        UserGetResponse response4 = api.getUser(user.getHandle());
+        user = response4.getUser();
+        assertEquals(true, user.getDisabled());
     }
     
     /**
      * Get all users
-     *
-     * ### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
-     *
-     * @throws ApiException
-     *          if the Api call fails
      */
     @Test
     public void getAllUsersTest() throws ApiException {
+        ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
+        for (String prefix: prefixes) {
+            UserCreatePayload userCreatePayload = new UserCreatePayload();
+            userCreatePayload.setAccessRole(testingUserAR);
+            userCreatePayload.setHandle(prefix + testingUserHandle);
+            userCreatePayload.setName(prefix + testingUserName);
+            UserCreateResponse response = api.createUser(userCreatePayload);
+            disableUsers.add(response.getUser().getHandle());
+        }
         UserGetAllResponse response = api.getAllUsers();
-
-        // TODO: test validations
+        List<User> users = response.getUsers();
+        for (String prefix: prefixes) {
+            boolean found = false;
+            for (User user: users) {
+                if (user.getHandle().equals(prefix + testingUserHandle)) {
+                    found = true;
+                }
+            }
+            assertTrue(String.format("User %s%s not found", prefix, testingUserHandle), found);
+        }
     }
-    
-    /**
-     * Get user
-     *
-     * ### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getUserTest() throws ApiException {
-        String userHandle = null;
-        UserGetResponse response = api.getUser(userHandle);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update user
-     *
-     * ### Overview Update a user informations **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:   *  **st** (standard user),   *  **adm** (admin user),   *  **ro** (read-only user).
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updateUserTest() throws ApiException {
-        String userHandle = null;
-        UserUpdatePayload userUpdatePayload = null;
-        UserUpdateResponse response = api.updateUser(userHandle, userUpdatePayload);
-
-        // TODO: test validations
-    }
-    
 }
