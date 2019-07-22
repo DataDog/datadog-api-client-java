@@ -2,7 +2,6 @@
 
 Datadog API Collection
 - API version: 1.0
-- Generated with: apigentools version 0.1.0.dev1 (image: apigentools:local); spec repo commit 36cefa8
 
 Collection of all Datadog Public endpoints.
 
@@ -125,8 +124,10 @@ Class | Method | HTTP request | Description
 *DowntimesApi* | [**getAllDowntimes**](docs/DowntimesApi.md#getAllDowntimes) | **GET** /api/v1/downtime | Get all downtimes
 *DowntimesApi* | [**getDowntime**](docs/DowntimesApi.md#getDowntime) | **GET** /api/v1/downtime/{downtime_id} | Get a downtime
 *DowntimesApi* | [**updateDowntime**](docs/DowntimesApi.md#updateDowntime) | **PUT** /api/v1/downtime/{downtime_id} | Update a downtime
+*MonitorsApi* | [**createMonitor**](docs/MonitorsApi.md#createMonitor) | **POST** /api/v1/monitor | Create a new Monitor
 *MonitorsApi* | [**deleteMonitor**](docs/MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete the specified monitor.
 *MonitorsApi* | [**editMonitor**](docs/MonitorsApi.md#editMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit the specified monitor
+*MonitorsApi* | [**getAllMonitors**](docs/MonitorsApi.md#getAllMonitors) | **GET** /api/v1/monitor | Get details about the specified monitor.
 *MonitorsApi* | [**getMonitor**](docs/MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get details about the specified monitor.
 *MonitorsApi* | [**validateMonitor**](docs/MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | 
 *UsersApi* | [**createUser**](docs/UsersApi.md#createUser) | **POST** /api/v1/user | Create user
