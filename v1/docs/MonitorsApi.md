@@ -4,11 +4,89 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createMonitor**](MonitorsApi.md#createMonitor) | **POST** /api/v1/monitor | Create a new Monitor
 [**deleteMonitor**](MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete the specified monitor.
 [**editMonitor**](MonitorsApi.md#editMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit the specified monitor
+[**getAllMonitors**](MonitorsApi.md#getAllMonitors) | **GET** /api/v1/monitor | Get details about the specified monitor.
 [**getMonitor**](MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get details about the specified monitor.
 [**validateMonitor**](MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | 
 
+
+<a name="createMonitor"></a>
+# **createMonitor**
+> Monitor createMonitor(monitor)
+
+Create a new Monitor
+
+### Overview Create a monitor using the specified options ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to create
+
+### Example
+```java
+// Import classes:
+import com.datadog.api.client.v1.ApiClient;
+import com.datadog.api.client.v1.ApiException;
+import com.datadog.api.client.v1.Configuration;
+import com.datadog.api.client.v1.auth.*;
+import com.datadog.api.client.v1.models.*;
+import com.datadog.api.client.v1.api.MonitorsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.datadoghq.com");
+    
+    // Configure API key authorization: apiKeyAuth
+    ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+    apiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure API key authorization: appKeyAuth
+    ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+    appKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //appKeyAuth.setApiKeyPrefix("Token");
+
+    MonitorsApi apiInstance = new MonitorsApi(defaultClient);
+    Monitor monitor = new Monitor(); // Monitor | Monitor request object
+    try {
+      Monitor result = apiInstance.createMonitor(monitor);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MonitorsApi#createMonitor");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **monitor** | [**Monitor**](Monitor.md)| Monitor request object |
+
+### Return type
+
+[**Monitor**](Monitor.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
 
 <a name="deleteMonitor"></a>
 # **deleteMonitor**
@@ -167,6 +245,90 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Authentication error |  -  |
 **404** | Monitor Not Found error |  -  |
+
+<a name="getAllMonitors"></a>
+# **getAllMonitors**
+> List&lt;Monitor&gt; getAllMonitors(groupStates, name, tags, monitorTags, withDowntimes)
+
+Get details about the specified monitor.
+
+### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39; * **&#x60;name&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A string to filter monitors by name * **&#x60;tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0 * **&#x60;monitor_tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app) * **&#x60;with_downtimes&#x60;** [*optional* *default*&#x3D;&#x3D;**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
+
+### Example
+```java
+// Import classes:
+import com.datadog.api.client.v1.ApiClient;
+import com.datadog.api.client.v1.ApiException;
+import com.datadog.api.client.v1.Configuration;
+import com.datadog.api.client.v1.auth.*;
+import com.datadog.api.client.v1.models.*;
+import com.datadog.api.client.v1.api.MonitorsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.datadoghq.com");
+    
+    // Configure API key authorization: apiKeyAuth
+    ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+    apiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure API key authorization: appKeyAuth
+    ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+    appKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //appKeyAuth.setApiKeyPrefix("Token");
+
+    MonitorsApi apiInstance = new MonitorsApi(defaultClient);
+    String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
+    String name = "name_example"; // String | 
+    String tags = "tags_example"; // String | 
+    String monitorTags = "monitorTags_example"; // String | 
+    Boolean withDowntimes = true; // Boolean | 
+    try {
+      List<Monitor> result = apiInstance.getAllMonitors(groupStates, name, tags, monitorTags, withDowntimes);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MonitorsApi#getAllMonitors");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupStates** | **String**| When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. | [optional]
+ **name** | **String**|  | [optional]
+ **tags** | **String**|  | [optional]
+ **monitorTags** | **String**|  | [optional]
+ **withDowntimes** | **Boolean**|  | [optional]
+
+### Return type
+
+[**List&lt;Monitor&gt;**](Monitor.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
 
 <a name="getMonitor"></a>
 # **getMonitor**
