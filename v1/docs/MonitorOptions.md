@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **notifyNoData** | **Boolean** |  |  [optional]
 **renotifyInterval** | **Long** |  |  [optional]
 **requireFullWindow** | **Boolean** |  |  [optional]
-**silenced** | **String** |  |  [optional]
+**silenced** | **Map&lt;String, Long&gt;** |  |  [optional]
 **syntheticsCheckId** | **Long** |  |  [optional]
 **thresholds** | [**MonitorThresholds**](MonitorThresholds.md) |  |  [optional]
 **timeoutH** | **Integer** |  |  [optional]
