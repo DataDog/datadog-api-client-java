@@ -8,23 +8,26 @@ import org.junit.BeforeClass;
 public abstract class V1ApiTest {
     protected static ApiClient generalApiClient = null;
 
+    static String TEST_API_KEY_NAME="DD_TEST_CLIENT_API_KEY";
+    static String TEST_APP_KEY_NAME="DD_TEST_CLIENT_APP_KEY";
+
     @BeforeClass
     public static void initGeneralApiClient() {
         generalApiClient = new ApiClient();
 
         // Configure API key authorization: apiKeyAuth
-        String apiKey = System.getenv("DATADOG_API_KEY");
+        String apiKey = System.getenv(TEST_API_KEY_NAME);
         if (apiKey == null) {
-            System.err.println("DATADOG_API_KEY not set, exiting");
+            System.err.printf("%s not set, exiting", TEST_API_KEY_NAME);
             System.exit(1);
         }
         ApiKeyAuth apiKeyAuth = (ApiKeyAuth) generalApiClient.getAuthentication("apiKeyAuth");
         apiKeyAuth.setApiKey(apiKey);
 
         // Configure API key authorization: appKeyAuth
-        String appKey = System.getenv("DATADOG_APP_KEY");
+        String appKey = System.getenv(TEST_APP_KEY_NAME);
         if (appKey == null) {
-            System.err.println("DATADOG_APP_KEY not set, exiting");
+            System.err.printf("%s not set, exiting", TEST_APP_KEY_NAME);
             System.exit(1);
         }
         ApiKeyAuth appKeyAuth = (ApiKeyAuth) generalApiClient.getAuthentication("appKeyAuth");
