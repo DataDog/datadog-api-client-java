@@ -7,14 +7,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
-
 package com.datadog.api.client.v1.api;
 
 import com.datadog.api.client.v1.ApiException;
 import com.datadog.api.client.v1.model.AWSAccount;
+import com.datadog.api.client.v1.model.DeleteAWSByIdentifier;
 import com.datadog.api.client.v1.model.Error400;
 import com.datadog.api.client.v1.model.Error404;
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -26,12 +28,27 @@ import java.util.Map;
 /**
  * API tests for AwsIntegrationApi
  */
-@Ignore
-public class AwsIntegrationApiTest {
+public class AwsIntegrationApiTest extends V1ApiTest  {
 
-    private final AwsIntegrationApi api = new AwsIntegrationApi();
+    private static AwsIntegrationApi api;
+    private static List<AWSAccount> accountsToDelete;
 
-    
+    @BeforeClass
+    public static void initApi() {
+        api = new AwsIntegrationApi(generalApiClient);
+        accountsToDelete = new ArrayList<AWSAccount>();
+    }
+
+    @After
+    public void removeAccounts() throws ApiException {
+        DeleteAWSByIdentifier deleteAccountID = new DeleteAWSByIdentifier();
+        for (int i=0; i<accountsToDelete.size(); i++) {
+            deleteAccountID.setAccountId(accountsToDelete.get(i).getAccountId());
+            deleteAccountID.setRoleName(accountsToDelete.get(i).getRoleName());
+            api.deleteAWSAccount(deleteAccountID);
+        }
+    }
+
     /**
      * Create an AWS Account
      *
@@ -42,29 +59,67 @@ public class AwsIntegrationApiTest {
      */
     @Test
     public void createAWSAccountTest() throws ApiException {
-        AWSAccount awSAccount = null;
-        Map<String, String> response = api.createAWSAccount(awSAccount);
+        //Test Creating and deleting an AWS Account with just the account_id and role_name
+        AWSAccount awsAccount = new AWSAccount();
+        awsAccount.setAccountId("java_123456");
+        awsAccount.setRoleName("java_testRoleName");
 
-        // TODO: test validations
+        Map<String, String> createResponse = api.createAWSAccount(awsAccount);
+        accountsToDelete.add(awsAccount);
+        assertNotNull(createResponse.get("external_id"));
+        removeAccounts();
+
+        //Test Creating and deleting an AWS account with all the optional fields too
+        Map<String, Boolean> accountSpecificNamespaceRules = new HashMap<String, Boolean>();
+        List<String> hostTags = new ArrayList<String>();
+        hostTags.add("javaTag:one");
+        hostTags.add("java:success");
+        accountSpecificNamespaceRules.put("api_gateway", true);
+        awsAccount.setAccountId("java_123456");
+        awsAccount.setRoleName("java_testRoleName");
+        awsAccount.setHostTags(hostTags);
+        awsAccount.addFilterTagsItem("dontCollect:java");
+        awsAccount.setAccountSpecificNamespaceRules(accountSpecificNamespaceRules);
+        Map<String, String> createResponse2 = api.createAWSAccount(awsAccount);
+        accountsToDelete.add(awsAccount);
+        assertNotNull(createResponse2.get("external_id"));
+        removeAccounts();
     }
-    
+
     /**
-     * Delete an AWS Account
+     * Create an AWS Account with a missing account id
+     * Expected to throw an API Exception
      *
-     * ### Overview Delete the AWS Account matching the specified account_id and role_name parameters ### ARGUMENTS * **&#x60;account_id&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this account_id.&#39; * **&#x60;role_name&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this role_name.&#39;
+     * ### Overview Create the AWS Account with the provided values * **&#x60;account_id&#x60;** [*required*]: Your AWS Account ID without dashes. Consult the Datadog AWS   integration to learn more about your AWS account ID. * **&#x60;role_name&#x60;** [*required*]: Your Datadog role delegation name. For more information about you   AWS account Role name, see the Datadog AWS integration configuration info. * **&#x60;access_key_id&#x60;** [*optional*, *default* &#x3D; **None**]: If your AWS account is a GovCloud or   China account, enter the corresponding Access Key ID. * **&#x60;filter_tags&#x60;** [*optional*, *default* &#x3D; **None**]: The array of EC2 tags (in the form key:value)   defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ?   (for single characters) and * (for multiple characters) can also be used. Only hosts that match one   of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given   tag can also be excluded by adding ! before the tag.   e.x. env:production,instance-type:c1.*,!region:us-east-1 For more information on EC2 tagging,   see the AWS tagging documentation * **&#x60;host_tags&#x60;** [*optional*, *default* &#x3D; **None**]: Array of tags (in the form key:value) to add   to all hosts and metrics reporting through this integration. * **&#x60;account_specific_namespace_rules&#x60;** [*optional*, *default* &#x3D; **None**]: An object (in the form   {\&quot;namespace1\&quot;:true/false, \&quot;namespace2\&quot;:true/false}) that enables or disables metric collection for   specific AWS namespaces for this AWS account only. A list of namespaces can be found at the   /v1/integration/aws/available_namespace_rules endpoint.
      *
      * @throws ApiException
      *          if the Api call fails
      */
-    @Test
-    public void deleteAWSAccountTest() throws ApiException {
-        String accountId = null;
-        String roleName = null;
-        Object response = api.deleteAWSAccount(accountId, roleName);
-
-        // TODO: test validations
+    @Test(expected = ApiException.class)
+    public void createAWSAccountMissingIDTest() throws ApiException {
+        //Test an exception is thrown if you're missing the account_id field
+        AWSAccount awsAccount = new AWSAccount();
+        awsAccount.setRoleName("java_testRoleName");
+        Map<String, String> createResponse = api.createAWSAccount(awsAccount);
     }
-    
+
+    /**
+     * Create an AWS Account with a missing role name
+     * Expected to throw an API Exception
+     *
+     * ### Overview Create the AWS Account with the provided values * **&#x60;account_id&#x60;** [*required*]: Your AWS Account ID without dashes. Consult the Datadog AWS   integration to learn more about your AWS account ID. * **&#x60;role_name&#x60;** [*required*]: Your Datadog role delegation name. For more information about you   AWS account Role name, see the Datadog AWS integration configuration info. * **&#x60;access_key_id&#x60;** [*optional*, *default* &#x3D; **None**]: If your AWS account is a GovCloud or   China account, enter the corresponding Access Key ID. * **&#x60;filter_tags&#x60;** [*optional*, *default* &#x3D; **None**]: The array of EC2 tags (in the form key:value)   defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ?   (for single characters) and * (for multiple characters) can also be used. Only hosts that match one   of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given   tag can also be excluded by adding ! before the tag.   e.x. env:production,instance-type:c1.*,!region:us-east-1 For more information on EC2 tagging,   see the AWS tagging documentation * **&#x60;host_tags&#x60;** [*optional*, *default* &#x3D; **None**]: Array of tags (in the form key:value) to add   to all hosts and metrics reporting through this integration. * **&#x60;account_specific_namespace_rules&#x60;** [*optional*, *default* &#x3D; **None**]: An object (in the form   {\&quot;namespace1\&quot;:true/false, \&quot;namespace2\&quot;:true/false}) that enables or disables metric collection for   specific AWS namespaces for this AWS account only. A list of namespaces can be found at the   /v1/integration/aws/available_namespace_rules endpoint.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test(expected = ApiException.class)
+    public void createAWSAccountMissingRoleNameTest() throws ApiException {
+        //Test an exception is thrown if you're missing the account_id field
+        AWSAccount awsAccount = new AWSAccount();
+        awsAccount.setAccountId("java_accountID");
+        Map<String, String> createResponse = api.createAWSAccount(awsAccount);
+    }
+
     /**
      * Get Installed AWS Accounts
      *
@@ -75,14 +130,38 @@ public class AwsIntegrationApiTest {
      */
     @Test
     public void getAllAWSAccountsTest() throws ApiException {
-        String accountId = null;
-        String roleName = null;
-        String accessKeyId = null;
-        Map<String, List<Object>> response = api.getAllAWSAccounts(accountId, roleName, accessKeyId);
+        List<AWSAccount> awsAccounts = new ArrayList<AWSAccount>();
+        DeleteAWSByIdentifier deleteAccountID = new DeleteAWSByIdentifier();
+        Map<String, List<Object>> response;
+        Map<String, Boolean> accountSpecificNamespaceRules = new HashMap<String, Boolean>();
+        List<String> hostTags = new ArrayList<String>();
 
-        // TODO: test validations
+        accountSpecificNamespaceRules.put("api_gateway", false);
+        hostTags.add("java_test_tag:value");
+
+        for (int i=0; i<5; i++) {
+            awsAccounts.add(new AWSAccount());
+            awsAccounts.get(i).setAccountId(String.format("Java Client Account ID_%s", i));
+            awsAccounts.get(i).setRoleName(String.format("Java CLient Role Name_%s", i));
+            awsAccounts.get(i).addFilterTagsItem("dontCollect:java");
+            awsAccounts.get(i).setHostTags(hostTags);
+            awsAccounts.get(i).setAccountSpecificNamespaceRules(accountSpecificNamespaceRules);
+            api.createAWSAccount(awsAccounts.get(i));
+            accountsToDelete.add(awsAccounts.get(i));
+        }
+
+        List<AWSAccount> awsAllAccounts = api.getAllAWSAccounts(null, null, null).get("accounts");
+        assertTrue(awsAllAccounts.size() == 5);
+        AWSAccount acct;
+        for (int i=0; i<awsAllAccounts.size(); i++) {
+            acct = awsAllAccounts.get(i);
+            assertEquals(acct.getAccountId(), String.format("Java Client Account ID_%s", i));
+            assertEquals(acct.getRoleName(), String.format("Java CLient Role Name_%s", i));
+            assertEquals(acct.getAccountSpecificNamespaceRules(), accountSpecificNamespaceRules);
+            assertEquals(acct.getHostTags(), hostTags);
+        }
     }
-    
+
     /**
      * Update an AWS Account
      *
@@ -94,9 +173,23 @@ public class AwsIntegrationApiTest {
     @Test
     public void updateAWSAccountTest() throws ApiException {
         AWSAccount awSAccount = null;
-        Object response = api.updateAWSAccount(awSAccount);
+        // Object response = api.updateAWSAccount(awSAccount);
+        AWSAccount awsAccount = new AWSAccount();
+        awsAccount.setAccountId("java_123456");
+        awsAccount.setRoleName("java_testRoleName");
 
-        // TODO: test validations
+        Map<String, String> createResponse = api.createAWSAccount(awsAccount);
+        accountsToDelete.add(awsAccount);
+
+        List<String> hostTags = new ArrayList<String>();
+        hostTags.add("javaTag:one");
+        hostTags.add("java:success");
+        awsAccount.setHostTags(hostTags);
+
+        api.updateAWSAccount(awsAccount, awsAccount.getAccountId(), awsAccount.getRoleName(), null);
+
+        AWSAccount newAccount = api.getAllAWSAccounts(awsAccount.getAccountId(), awsAccount.getRoleName(), null).get("accounts").get(0);
+        assertEquals(awsAccount, newAccount);
     }
-    
+
 }

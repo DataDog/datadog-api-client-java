@@ -38,6 +38,7 @@ import java.util.Map;
 /**
  * API tests for UsersApi
  */
+@Ignore
 public class UsersApiTest extends V1ApiTest {
 
     private static UsersApi api;
@@ -110,7 +111,7 @@ public class UsersApiTest extends V1ApiTest {
         user = response4.getUser();
         assertEquals(true, user.getDisabled());
     }
-    
+
     /**
      * Get all users
      */
