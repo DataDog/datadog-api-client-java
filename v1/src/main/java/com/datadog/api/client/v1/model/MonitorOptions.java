@@ -23,7 +23,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * MonitorOptions
@@ -141,7 +143,7 @@ public class MonitorOptions {
 
   public static final String SERIALIZED_NAME_SILENCED = "silenced";
   @SerializedName(SERIALIZED_NAME_SILENCED)
-  private String silenced;
+  private Map<String, Long> silenced = new HashMap<String, Long>();
 
   public static final String SERIALIZED_NAME_SYNTHETICS_CHECK_ID = "synthetics_check_id";
   @SerializedName(SERIALIZED_NAME_SYNTHETICS_CHECK_ID)
@@ -435,8 +437,16 @@ public class MonitorOptions {
     this.requireFullWindow = requireFullWindow;
   }
 
-  public MonitorOptions silenced(String silenced) {
+  public MonitorOptions silenced(Map<String, Long> silenced) {
     this.silenced = silenced;
+    return this;
+  }
+
+  public MonitorOptions putSilencedItem(String key, Long silencedItem) {
+    if (this.silenced == null) {
+      this.silenced = new HashMap<String, Long>();
+    }
+    this.silenced.put(key, silencedItem);
     return this;
   }
 
@@ -445,11 +455,11 @@ public class MonitorOptions {
    * @return silenced
   **/
   @ApiModelProperty(value = "")
-  public String getSilenced() {
+  public Map<String, Long> getSilenced() {
     return silenced;
   }
 
-  public void setSilenced(String silenced) {
+  public void setSilenced(Map<String, Long> silenced) {
     this.silenced = silenced;
   }
 
