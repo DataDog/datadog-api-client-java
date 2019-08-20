@@ -1,26 +1,32 @@
 package com.test;
 
 import com.datadog.api.client.v1.*;
+import com.datadog.api.client.v1.api.*;
 import com.datadog.api.client.v1.auth.*;
 import com.datadog.api.client.v1.model.*;
-import com.datadog.api.client.v1.api.*;
 
-import java.io.File;
 import java.util.*;
+
+import org.openapitools.jackson.nullable.JsonNullable;
 
 public class App {
     public static int downtimes(ApiClient c) {
+        // turn on debugging
+        c.setDebugging(true);
         // get DowntimesAPI instance
         DowntimesApi apiInstance = new DowntimesApi(c);
 
         // create a new downtime
         Downtime d = new Downtime();
         d.setScope(Arrays.asList("foo:bar"));
+        // for nullable fields, it's possible to set explicit null like this
+        d.setEnd(null);
+
         Downtime created = null;
         try {
             created = apiInstance.createDowntime(d);
         } catch (ApiException e) {
-            System.err.println("Exception when calling downtimes operation");
+            System.err.println("Exception when creating a downtime");
             e.printStackTrace();
             return 1;
         }
@@ -29,11 +35,14 @@ public class App {
 
         // modify the downtime
         created.setMessage("changed message");
+        // for nullable fields, it's possible to unset explicit null like this
+        created.setEnd_JsonNullable(JsonNullable.<Long>undefined());
+
         Downtime modified = null;
         try {
             modified = apiInstance.updateDowntime(created.getId(), created);
         } catch (ApiException e) {
-            System.err.println("Exception when calling downtimes operation");
+            System.err.println("Exception when updating a downtime");
             e.printStackTrace();
             return 1;
         }
@@ -47,7 +56,7 @@ public class App {
         try {
             cids = apiInstance.cancelDowntimesByScope(req);
         } catch (ApiException e) {
-            System.err.println("Exception when calling downtimes operation");
+            System.err.println("Exception when cancelling a downtime");
             e.printStackTrace();
             return 1;
         }
