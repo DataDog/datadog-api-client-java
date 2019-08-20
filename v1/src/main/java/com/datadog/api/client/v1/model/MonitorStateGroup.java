@@ -15,57 +15,48 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.client.v1.model.MonitorOverallStates;
 import com.datadog.api.client.v1.model.MonitorStateGroupValue;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * MonitorStateGroup
  */
 
 public class MonitorStateGroup {
-  public static final String SERIALIZED_NAME_LAST_DATA_TS = "last_data_ts";
-  @SerializedName(SERIALIZED_NAME_LAST_DATA_TS)
+  public static final String JSON_PROPERTY_LAST_DATA_TS = "last_data_ts";
   private Long lastDataTs;
 
-  public static final String SERIALIZED_NAME_LAST_NODATA_TS = "last_nodata_ts";
-  @SerializedName(SERIALIZED_NAME_LAST_NODATA_TS)
+  public static final String JSON_PROPERTY_LAST_NODATA_TS = "last_nodata_ts";
   private Long lastNodataTs;
 
-  public static final String SERIALIZED_NAME_LAST_NOTIFIED_TS = "last_notified_ts";
-  @SerializedName(SERIALIZED_NAME_LAST_NOTIFIED_TS)
+  public static final String JSON_PROPERTY_LAST_NOTIFIED_TS = "last_notified_ts";
   private Long lastNotifiedTs;
 
-  public static final String SERIALIZED_NAME_LAST_RESOLVED_TS = "last_resolved_ts";
-  @SerializedName(SERIALIZED_NAME_LAST_RESOLVED_TS)
+  public static final String JSON_PROPERTY_LAST_RESOLVED_TS = "last_resolved_ts";
   private Long lastResolvedTs;
 
-  public static final String SERIALIZED_NAME_LAST_TRIGGERED_TS = "last_triggered_ts";
-  @SerializedName(SERIALIZED_NAME_LAST_TRIGGERED_TS)
+  public static final String JSON_PROPERTY_LAST_TRIGGERED_TS = "last_triggered_ts";
   private Long lastTriggeredTs;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private MonitorOverallStates status;
 
-  public static final String SERIALIZED_NAME_TRIGGERING_VALUE = "triggering_value";
-  @SerializedName(SERIALIZED_NAME_TRIGGERING_VALUE)
-  private MonitorStateGroupValue triggeringValue = null;
+  public static final String JSON_PROPERTY_TRIGGERING_VALUE = "triggering_value";
+  private MonitorStateGroupValue triggeringValue;
+
 
   public MonitorStateGroup lastDataTs(Long lastDataTs) {
+    
     this.lastDataTs = lastDataTs;
     return this;
   }
@@ -74,16 +65,24 @@ public class MonitorStateGroup {
    * Get lastDataTs
    * @return lastDataTs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LAST_DATA_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getLastDataTs() {
     return lastDataTs;
   }
+
+
 
   public void setLastDataTs(Long lastDataTs) {
     this.lastDataTs = lastDataTs;
   }
 
+
   public MonitorStateGroup lastNodataTs(Long lastNodataTs) {
+    
     this.lastNodataTs = lastNodataTs;
     return this;
   }
@@ -92,16 +91,24 @@ public class MonitorStateGroup {
    * Get lastNodataTs
    * @return lastNodataTs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getLastNodataTs() {
     return lastNodataTs;
   }
+
+
 
   public void setLastNodataTs(Long lastNodataTs) {
     this.lastNodataTs = lastNodataTs;
   }
 
+
   public MonitorStateGroup lastNotifiedTs(Long lastNotifiedTs) {
+    
     this.lastNotifiedTs = lastNotifiedTs;
     return this;
   }
@@ -110,16 +117,24 @@ public class MonitorStateGroup {
    * Get lastNotifiedTs
    * @return lastNotifiedTs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LAST_NOTIFIED_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getLastNotifiedTs() {
     return lastNotifiedTs;
   }
+
+
 
   public void setLastNotifiedTs(Long lastNotifiedTs) {
     this.lastNotifiedTs = lastNotifiedTs;
   }
 
+
   public MonitorStateGroup lastResolvedTs(Long lastResolvedTs) {
+    
     this.lastResolvedTs = lastResolvedTs;
     return this;
   }
@@ -128,16 +143,24 @@ public class MonitorStateGroup {
    * Get lastResolvedTs
    * @return lastResolvedTs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LAST_RESOLVED_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getLastResolvedTs() {
     return lastResolvedTs;
   }
+
+
 
   public void setLastResolvedTs(Long lastResolvedTs) {
     this.lastResolvedTs = lastResolvedTs;
   }
 
+
   public MonitorStateGroup lastTriggeredTs(Long lastTriggeredTs) {
+    
     this.lastTriggeredTs = lastTriggeredTs;
     return this;
   }
@@ -146,16 +169,24 @@ public class MonitorStateGroup {
    * Get lastTriggeredTs
    * @return lastTriggeredTs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getLastTriggeredTs() {
     return lastTriggeredTs;
   }
+
+
 
   public void setLastTriggeredTs(Long lastTriggeredTs) {
     this.lastTriggeredTs = lastTriggeredTs;
   }
 
+
   public MonitorStateGroup message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -164,16 +195,24 @@ public class MonitorStateGroup {
    * Get message
    * @return message
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getMessage() {
     return message;
   }
+
+
 
   public void setMessage(String message) {
     this.message = message;
   }
 
+
   public MonitorStateGroup name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -182,16 +221,24 @@ public class MonitorStateGroup {
    * Get name
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public MonitorStateGroup status(MonitorOverallStates status) {
+    
     this.status = status;
     return this;
   }
@@ -200,16 +247,24 @@ public class MonitorStateGroup {
    * Get status
    * @return status
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public MonitorOverallStates getStatus() {
     return status;
   }
+
+
 
   public void setStatus(MonitorOverallStates status) {
     this.status = status;
   }
 
+
   public MonitorStateGroup triggeringValue(MonitorStateGroupValue triggeringValue) {
+    
     this.triggeringValue = triggeringValue;
     return this;
   }
@@ -218,10 +273,16 @@ public class MonitorStateGroup {
    * Get triggeringValue
    * @return triggeringValue
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRIGGERING_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public MonitorStateGroupValue getTriggeringValue() {
     return triggeringValue;
   }
+
+
 
   public void setTriggeringValue(MonitorStateGroupValue triggeringValue) {
     this.triggeringValue = triggeringValue;

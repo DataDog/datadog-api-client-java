@@ -13,25 +13,24 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * CancelDowntimesByScopeRequest
  */
 
 public class CancelDowntimesByScopeRequest {
-  public static final String SERIALIZED_NAME_SCOPE = "scope";
-  @SerializedName(SERIALIZED_NAME_SCOPE)
+  public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
 
+
   public CancelDowntimesByScopeRequest scope(String scope) {
+    
     this.scope = scope;
     return this;
   }
@@ -41,9 +40,14 @@ public class CancelDowntimesByScopeRequest {
    * @return scope
   **/
   @ApiModelProperty(example = "host:myserver", required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getScope() {
     return scope;
   }
+
+
 
   public void setScope(String scope) {
     this.scope = scope;

@@ -16,14 +16,12 @@ import java.util.Arrays;
 import com.datadog.api.client.v1.model.Creator;
 import com.datadog.api.client.v1.model.MonitorOptions;
 import com.datadog.api.client.v1.model.MonitorOverallStates;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.threeten.bp.OffsetDateTime;
@@ -33,62 +31,48 @@ import org.threeten.bp.OffsetDateTime;
  */
 
 public class Monitor {
-  public static final String SERIALIZED_NAME_CREATED = "created";
-  @SerializedName(SERIALIZED_NAME_CREATED)
+  public static final String JSON_PROPERTY_CREATED = "created";
   private String created;
 
-  public static final String SERIALIZED_NAME_CREATOR = "creator";
-  @SerializedName(SERIALIZED_NAME_CREATOR)
-  private Creator creator = null;
+  public static final String JSON_PROPERTY_CREATOR = "creator";
+  private Creator creator;
 
-  public static final String SERIALIZED_NAME_DELETED = "deleted";
-  @SerializedName(SERIALIZED_NAME_DELETED)
+  public static final String JSON_PROPERTY_DELETED = "deleted";
   private OffsetDateTime deleted;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private Long id;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  public static final String SERIALIZED_NAME_MODIFIED = "modified";
-  @SerializedName(SERIALIZED_NAME_MODIFIED)
+  public static final String JSON_PROPERTY_MODIFIED = "modified";
   private String modified;
 
-  public static final String SERIALIZED_NAME_MULTI = "multi";
-  @SerializedName(SERIALIZED_NAME_MULTI)
+  public static final String JSON_PROPERTY_MULTI = "multi";
   private Boolean multi;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private MonitorOptions options = null;
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  private MonitorOptions options;
 
-  public static final String SERIALIZED_NAME_OVERALL_STATE = "overall_state";
-  @SerializedName(SERIALIZED_NAME_OVERALL_STATE)
+  public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
   private MonitorOverallStates overallState;
 
-  public static final String SERIALIZED_NAME_QUERY = "query";
-  @SerializedName(SERIALIZED_NAME_QUERY)
+  public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
-  private MonitorOptions state = null;
+  public static final String JSON_PROPERTY_STATE = "state";
+  private MonitorOptions state;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<String> tags = new ArrayList<String>();
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   /**
    * The type of the monitor
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     QUERY_ALERT("query alert"),
     
@@ -112,6 +96,7 @@ public class Monitor {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -121,6 +106,7 @@ public class Monitor {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -129,26 +115,14 @@ public class Monitor {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+
   public Monitor created(String created) {
+    
     this.created = created;
     return this;
   }
@@ -157,16 +131,24 @@ public class Monitor {
    * Get created
    * @return created
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCreated() {
     return created;
   }
+
+
 
   public void setCreated(String created) {
     this.created = created;
   }
 
+
   public Monitor creator(Creator creator) {
+    
     this.creator = creator;
     return this;
   }
@@ -175,16 +157,24 @@ public class Monitor {
    * Get creator
    * @return creator
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Creator getCreator() {
     return creator;
   }
+
+
 
   public void setCreator(Creator creator) {
     this.creator = creator;
   }
 
+
   public Monitor deleted(OffsetDateTime deleted) {
+    
     this.deleted = deleted;
     return this;
   }
@@ -193,16 +183,24 @@ public class Monitor {
    * Get deleted
    * @return deleted
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DELETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getDeleted() {
     return deleted;
   }
+
+
 
   public void setDeleted(OffsetDateTime deleted) {
     this.deleted = deleted;
   }
 
+
   public Monitor id(Long id) {
+    
     this.id = id;
     return this;
   }
@@ -211,16 +209,24 @@ public class Monitor {
    * ID of this monitor
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of this monitor")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getId() {
     return id;
   }
+
+
 
   public void setId(Long id) {
     this.id = id;
   }
 
+
   public Monitor message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -229,16 +235,24 @@ public class Monitor {
    * A message to include with notifications for this monitor.
    * @return message
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "A message to include with notifications for this monitor.")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getMessage() {
     return message;
   }
+
+
 
   public void setMessage(String message) {
     this.message = message;
   }
 
+
   public Monitor modified(String modified) {
+    
     this.modified = modified;
     return this;
   }
@@ -247,16 +261,24 @@ public class Monitor {
    * Get modified
    * @return modified
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getModified() {
     return modified;
   }
+
+
 
   public void setModified(String modified) {
     this.modified = modified;
   }
 
+
   public Monitor multi(Boolean multi) {
+    
     this.multi = multi;
     return this;
   }
@@ -265,16 +287,24 @@ public class Monitor {
    * Get multi
    * @return multi
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MULTI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getMulti() {
     return multi;
   }
+
+
 
   public void setMulti(Boolean multi) {
     this.multi = multi;
   }
 
+
   public Monitor name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -283,16 +313,24 @@ public class Monitor {
    * Get name
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public Monitor options(MonitorOptions options) {
+    
     this.options = options;
     return this;
   }
@@ -301,16 +339,24 @@ public class Monitor {
    * Get options
    * @return options
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public MonitorOptions getOptions() {
     return options;
   }
+
+
 
   public void setOptions(MonitorOptions options) {
     this.options = options;
   }
 
+
   public Monitor overallState(MonitorOverallStates overallState) {
+    
     this.overallState = overallState;
     return this;
   }
@@ -319,16 +365,24 @@ public class Monitor {
    * Get overallState
    * @return overallState
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public MonitorOverallStates getOverallState() {
     return overallState;
   }
+
+
 
   public void setOverallState(MonitorOverallStates overallState) {
     this.overallState = overallState;
   }
 
+
   public Monitor query(String query) {
+    
     this.query = query;
     return this;
   }
@@ -338,15 +392,22 @@ public class Monitor {
    * @return query
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getQuery() {
     return query;
   }
+
+
 
   public void setQuery(String query) {
     this.query = query;
   }
 
+
   public Monitor state(MonitorOptions state) {
+    
     this.state = state;
     return this;
   }
@@ -355,16 +416,24 @@ public class Monitor {
    * Get state
    * @return state
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public MonitorOptions getState() {
     return state;
   }
+
+
 
   public void setState(MonitorOptions state) {
     this.state = state;
   }
 
+
   public Monitor tags(List<String> tags) {
+    
     this.tags = tags;
     return this;
   }
@@ -381,16 +450,24 @@ public class Monitor {
    * Get tags
    * @return tags
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getTags() {
     return tags;
   }
+
+
 
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
+
   public Monitor type(TypeEnum type) {
+    
     this.type = type;
     return this;
   }
@@ -400,9 +477,14 @@ public class Monitor {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "The type of the monitor")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TypeEnum getType() {
     return type;
   }
+
+
 
   public void setType(TypeEnum type) {
     this.type = type;

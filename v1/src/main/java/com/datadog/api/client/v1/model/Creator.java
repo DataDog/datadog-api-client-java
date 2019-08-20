@@ -13,33 +13,30 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Creator
  */
 
 public class Creator {
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+  public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
-  public static final String SERIALIZED_NAME_HANDLE = "handle";
-  @SerializedName(SERIALIZED_NAME_HANDLE)
+  public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+
   public Creator email(String email) {
+    
     this.email = email;
     return this;
   }
@@ -48,16 +45,24 @@ public class Creator {
    * Get email
    * @return email
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getEmail() {
     return email;
   }
+
+
 
   public void setEmail(String email) {
     this.email = email;
   }
 
+
   public Creator handle(String handle) {
+    
     this.handle = handle;
     return this;
   }
@@ -66,16 +71,24 @@ public class Creator {
    * Get handle
    * @return handle
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getHandle() {
     return handle;
   }
+
+
 
   public void setHandle(String handle) {
     this.handle = handle;
   }
 
+
   public Creator name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -84,10 +97,16 @@ public class Creator {
    * Get name
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
+
 
   public void setName(String name) {
     this.name = name;

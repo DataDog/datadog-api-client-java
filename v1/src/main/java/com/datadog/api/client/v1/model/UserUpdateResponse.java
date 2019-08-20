@@ -14,25 +14,24 @@ package com.datadog.api.client.v1.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.client.v1.model.User;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * UserUpdateResponse
  */
 
 public class UserUpdateResponse {
-  public static final String SERIALIZED_NAME_USER = "user";
-  @SerializedName(SERIALIZED_NAME_USER)
-  private User user = null;
+  public static final String JSON_PROPERTY_USER = "user";
+  private User user;
+
 
   public UserUpdateResponse user(User user) {
+    
     this.user = user;
     return this;
   }
@@ -41,10 +40,16 @@ public class UserUpdateResponse {
    * Get user
    * @return user
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public User getUser() {
     return user;
   }
+
+
 
   public void setUser(User user) {
     this.user = user;

@@ -11,8 +11,9 @@ Method | HTTP request | Description
 [**updateUser**](UsersApi.md#updateUser) | **PUT** /api/v1/user/{user_handle} | Update user
 
 
-<a name="createUser"></a>
-# **createUser**
+
+## createUser
+
 > UserCreateResponse createUser(userCreatePayload)
 
 Create user
@@ -20,6 +21,7 @@ Create user
 ### Overview Create a user for your organization. ### ARGUMENTS * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:   *  **st** (standard user),   *  **adm** (admin user),   *  **ro** (read-only user). *Note: users can be created with admin access role      only with application keys belonging to administrators.*
 
 ### Example
+
 ```java
 // Import classes:
 import com.datadog.api.client.v1.ApiClient;
@@ -30,39 +32,40 @@ import com.datadog.api.client.v1.models.*;
 import com.datadog.api.client.v1.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.datadoghq.com");
-    
-    // Configure API key authorization: apiKeyAuth
-    ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-    apiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyAuth.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: appKeyAuth
-    ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-    appKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    UserCreatePayload userCreatePayload = new UserCreatePayload(); // UserCreatePayload | User object that needs to be created
-    try {
-      UserCreateResponse result = apiInstance.createUser(userCreatePayload);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#createUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        UserCreatePayload userCreatePayload = new UserCreatePayload(); // UserCreatePayload | User object that needs to be created
+        try {
+            UserCreateResponse result = apiInstance.createUser(userCreatePayload);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#createUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -78,18 +81,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | User created |  -  |
-**400** | Bad Request |  -  |
-**403** | Authentication error |  -  |
+| **200** | User created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-<a name="disableUser"></a>
-# **disableUser**
+
+## disableUser
+
 > UserDisableResponse disableUser(userHandle)
 
 Disable user
@@ -97,6 +101,7 @@ Disable user
 ### Overview Delete a user from an organization. **Note**: This endpoint can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user.
 
 ### Example
+
 ```java
 // Import classes:
 import com.datadog.api.client.v1.ApiClient;
@@ -107,39 +112,40 @@ import com.datadog.api.client.v1.models.*;
 import com.datadog.api.client.v1.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.datadoghq.com");
-    
-    // Configure API key authorization: apiKeyAuth
-    ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-    apiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyAuth.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: appKeyAuth
-    ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-    appKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String userHandle = test@datadoghq.com; // String | The handle of the user
-    try {
-      UserDisableResponse result = apiInstance.disableUser(userHandle);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#disableUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String userHandle = test@datadoghq.com; // String | The handle of the user
+        try {
+            UserDisableResponse result = apiInstance.disableUser(userHandle);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#disableUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -155,18 +161,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: applcation/json
+- **Content-Type**: Not defined
+- **Accept**: applcation/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | User disabled |  -  |
-**400** | Bad Request |  -  |
-**403** | Authentication error |  -  |
+| **200** | User disabled |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-<a name="getAllUsers"></a>
-# **getAllUsers**
+
+## getAllUsers
+
 > UserGetAllResponse getAllUsers()
 
 Get all users
@@ -174,6 +181,7 @@ Get all users
 ### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
 
 ### Example
+
 ```java
 // Import classes:
 import com.datadog.api.client.v1.ApiClient;
@@ -184,38 +192,39 @@ import com.datadog.api.client.v1.models.*;
 import com.datadog.api.client.v1.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.datadoghq.com");
-    
-    // Configure API key authorization: apiKeyAuth
-    ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-    apiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyAuth.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: appKeyAuth
-    ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-    appKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    try {
-      UserGetAllResponse result = apiInstance.getAllUsers();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#getAllUsers");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        try {
+            UserGetAllResponse result = apiInstance.getAllUsers();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getAllUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -228,18 +237,19 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Authentication error |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-<a name="getUser"></a>
-# **getUser**
+
+## getUser
+
 > UserGetResponse getUser(userHandle)
 
 Get user
@@ -247,6 +257,7 @@ Get user
 ### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
 
 ### Example
+
 ```java
 // Import classes:
 import com.datadog.api.client.v1.ApiClient;
@@ -257,39 +268,40 @@ import com.datadog.api.client.v1.models.*;
 import com.datadog.api.client.v1.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.datadoghq.com");
-    
-    // Configure API key authorization: apiKeyAuth
-    ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-    apiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyAuth.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: appKeyAuth
-    ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-    appKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String userHandle = test@datadoghq.com; // String | The id of the user
-    try {
-      UserGetResponse result = apiInstance.getUser(userHandle);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#getUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String userHandle = test@datadoghq.com; // String | The id of the user
+        try {
+            UserGetResponse result = apiInstance.getUser(userHandle);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -305,18 +317,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK for get user |  -  |
-**400** | Bad Request |  -  |
-**403** | Authentication error |  -  |
+| **200** | OK for get user |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-<a name="updateUser"></a>
-# **updateUser**
+
+## updateUser
+
 > UserUpdateResponse updateUser(userHandle, userUpdatePayload)
 
 Update user
@@ -324,6 +337,7 @@ Update user
 ### Overview Update a user informations **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:   *  **st** (standard user),   *  **adm** (admin user),   *  **ro** (read-only user).
 
 ### Example
+
 ```java
 // Import classes:
 import com.datadog.api.client.v1.ApiClient;
@@ -334,40 +348,41 @@ import com.datadog.api.client.v1.models.*;
 import com.datadog.api.client.v1.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.datadoghq.com");
-    
-    // Configure API key authorization: apiKeyAuth
-    ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-    apiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyAuth.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: appKeyAuth
-    ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-    appKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String userHandle = test@datadoghq.com; // String | The id of the user
-    UserUpdatePayload userUpdatePayload = new UserUpdatePayload(); // UserUpdatePayload | Description of the update
-    try {
-      UserUpdateResponse result = apiInstance.updateUser(userHandle, userUpdatePayload);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#updateUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String userHandle = test@datadoghq.com; // String | The id of the user
+        UserUpdatePayload userUpdatePayload = new UserUpdatePayload(); // UserUpdatePayload | Description of the update
+        try {
+            UserUpdateResponse result = apiInstance.updateUser(userHandle, userUpdatePayload);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#updateUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -384,13 +399,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | User updated |  -  |
-**400** | Bad Request |  -  |
-**403** | Authentication error |  -  |
+| **200** | User updated |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 

@@ -13,14 +13,12 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,11 +27,12 @@ import java.util.List;
  */
 
 public class CanceledDowntimesIds {
-  public static final String SERIALIZED_NAME_CANCELLED_IDS = "cancelled_ids";
-  @SerializedName(SERIALIZED_NAME_CANCELLED_IDS)
-  private List<Integer> cancelledIds = new ArrayList<Integer>();
+  public static final String JSON_PROPERTY_CANCELLED_IDS = "cancelled_ids";
+  private List<Integer> cancelledIds = null;
+
 
   public CanceledDowntimesIds cancelledIds(List<Integer> cancelledIds) {
+    
     this.cancelledIds = cancelledIds;
     return this;
   }
@@ -50,10 +49,16 @@ public class CanceledDowntimesIds {
    * Get cancelledIds
    * @return cancelledIds
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "[123456789,123456790]", value = "")
+  @JsonProperty(JSON_PROPERTY_CANCELLED_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Integer> getCancelledIds() {
     return cancelledIds;
   }
+
+
 
   public void setCancelledIds(List<Integer> cancelledIds) {
     this.cancelledIds = cancelledIds;

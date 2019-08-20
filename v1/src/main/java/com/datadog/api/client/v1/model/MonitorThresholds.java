@@ -13,41 +13,36 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * MonitorThresholds
  */
 
 public class MonitorThresholds {
-  public static final String SERIALIZED_NAME_CRITICAL = "critical";
-  @SerializedName(SERIALIZED_NAME_CRITICAL)
+  public static final String JSON_PROPERTY_CRITICAL = "critical";
   private Integer critical;
 
-  public static final String SERIALIZED_NAME_CRITICAL_RECOVERY = "critical_recovery";
-  @SerializedName(SERIALIZED_NAME_CRITICAL_RECOVERY)
+  public static final String JSON_PROPERTY_CRITICAL_RECOVERY = "critical_recovery";
   private Integer criticalRecovery;
 
-  public static final String SERIALIZED_NAME_OK = "ok";
-  @SerializedName(SERIALIZED_NAME_OK)
+  public static final String JSON_PROPERTY_OK = "ok";
   private Integer ok;
 
-  public static final String SERIALIZED_NAME_WARNING = "warning";
-  @SerializedName(SERIALIZED_NAME_WARNING)
+  public static final String JSON_PROPERTY_WARNING = "warning";
   private Integer warning;
 
-  public static final String SERIALIZED_NAME_WARNING_RECOVERY = "warning_recovery";
-  @SerializedName(SERIALIZED_NAME_WARNING_RECOVERY)
+  public static final String JSON_PROPERTY_WARNING_RECOVERY = "warning_recovery";
   private Integer warningRecovery;
 
+
   public MonitorThresholds critical(Integer critical) {
+    
     this.critical = critical;
     return this;
   }
@@ -56,16 +51,24 @@ public class MonitorThresholds {
    * Get critical
    * @return critical
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CRITICAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getCritical() {
     return critical;
   }
+
+
 
   public void setCritical(Integer critical) {
     this.critical = critical;
   }
 
+
   public MonitorThresholds criticalRecovery(Integer criticalRecovery) {
+    
     this.criticalRecovery = criticalRecovery;
     return this;
   }
@@ -74,16 +77,24 @@ public class MonitorThresholds {
    * Get criticalRecovery
    * @return criticalRecovery
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getCriticalRecovery() {
     return criticalRecovery;
   }
+
+
 
   public void setCriticalRecovery(Integer criticalRecovery) {
     this.criticalRecovery = criticalRecovery;
   }
 
+
   public MonitorThresholds ok(Integer ok) {
+    
     this.ok = ok;
     return this;
   }
@@ -92,16 +103,24 @@ public class MonitorThresholds {
    * Get ok
    * @return ok
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getOk() {
     return ok;
   }
+
+
 
   public void setOk(Integer ok) {
     this.ok = ok;
   }
 
+
   public MonitorThresholds warning(Integer warning) {
+    
     this.warning = warning;
     return this;
   }
@@ -110,16 +129,24 @@ public class MonitorThresholds {
    * Get warning
    * @return warning
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getWarning() {
     return warning;
   }
+
+
 
   public void setWarning(Integer warning) {
     this.warning = warning;
   }
 
+
   public MonitorThresholds warningRecovery(Integer warningRecovery) {
+    
     this.warningRecovery = warningRecovery;
     return this;
   }
@@ -128,10 +155,16 @@ public class MonitorThresholds {
    * Get warningRecovery
    * @return warningRecovery
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WARNING_RECOVERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getWarningRecovery() {
     return warningRecovery;
   }
+
+
 
   public void setWarningRecovery(Integer warningRecovery) {
     this.warningRecovery = warningRecovery;

@@ -11,7 +11,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;

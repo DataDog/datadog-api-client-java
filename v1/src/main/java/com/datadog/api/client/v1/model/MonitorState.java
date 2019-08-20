@@ -15,14 +15,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.client.v1.model.MonitorOverallStates;
 import com.datadog.api.client.v1.model.MonitorStateGroup;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,19 +29,18 @@ import java.util.List;
  */
 
 public class MonitorState {
-  public static final String SERIALIZED_NAME_GROUPS = "groups";
-  @SerializedName(SERIALIZED_NAME_GROUPS)
-  private List<MonitorStateGroup> groups = new ArrayList<MonitorStateGroup>();
+  public static final String JSON_PROPERTY_GROUPS = "groups";
+  private List<MonitorStateGroup> groups = null;
 
-  public static final String SERIALIZED_NAME_MONITOR_ID = "monitor_id";
-  @SerializedName(SERIALIZED_NAME_MONITOR_ID)
+  public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
   private Integer monitorId;
 
-  public static final String SERIALIZED_NAME_OVERALL_STATE = "overall_state";
-  @SerializedName(SERIALIZED_NAME_OVERALL_STATE)
+  public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
   private MonitorOverallStates overallState;
 
+
   public MonitorState groups(List<MonitorStateGroup> groups) {
+    
     this.groups = groups;
     return this;
   }
@@ -60,16 +57,24 @@ public class MonitorState {
    * Get groups
    * @return groups
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<MonitorStateGroup> getGroups() {
     return groups;
   }
+
+
 
   public void setGroups(List<MonitorStateGroup> groups) {
     this.groups = groups;
   }
 
+
   public MonitorState monitorId(Integer monitorId) {
+    
     this.monitorId = monitorId;
     return this;
   }
@@ -78,16 +83,24 @@ public class MonitorState {
    * Get monitorId
    * @return monitorId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getMonitorId() {
     return monitorId;
   }
+
+
 
   public void setMonitorId(Integer monitorId) {
     this.monitorId = monitorId;
   }
 
+
   public MonitorState overallState(MonitorOverallStates overallState) {
+    
     this.overallState = overallState;
     return this;
   }
@@ -96,10 +109,16 @@ public class MonitorState {
    * Get overallState
    * @return overallState
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public MonitorOverallStates getOverallState() {
     return overallState;
   }
+
+
 
   public void setOverallState(MonitorOverallStates overallState) {
     this.overallState = overallState;

@@ -14,14 +14,12 @@ package com.datadog.api.client.v1.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.client.v1.model.MonitorThresholds;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,14 +30,12 @@ import java.util.Map;
  */
 
 public class MonitorOptions {
-  public static final String SERIALIZED_NAME_AGGREGATION = "aggregation";
-  @SerializedName(SERIALIZED_NAME_AGGREGATION)
+  public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private String aggregation;
 
   /**
    * Gets or Sets deviceIds
    */
-  @JsonAdapter(DeviceIdsEnum.Adapter.class)
   public enum DeviceIdsEnum {
     LAPTOP_LARGE("laptop_large"),
     
@@ -53,6 +49,7 @@ public class MonitorOptions {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -62,6 +59,7 @@ public class MonitorOptions {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static DeviceIdsEnum fromValue(String value) {
       for (DeviceIdsEnum b : DeviceIdsEnum.values()) {
         if (b.value.equals(value)) {
@@ -70,94 +68,65 @@ public class MonitorOptions {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<DeviceIdsEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DeviceIdsEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public DeviceIdsEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return DeviceIdsEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_DEVICE_IDS = "device_ids";
-  @SerializedName(SERIALIZED_NAME_DEVICE_IDS)
-  private List<DeviceIdsEnum> deviceIds = new ArrayList<DeviceIdsEnum>();
+  public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
+  private List<DeviceIdsEnum> deviceIds = null;
 
-  public static final String SERIALIZED_NAME_ENABLE_LOGS_SAMPLE = "enable_logs_sample";
-  @SerializedName(SERIALIZED_NAME_ENABLE_LOGS_SAMPLE)
+  public static final String JSON_PROPERTY_ENABLE_LOGS_SAMPLE = "enable_logs_sample";
   private Boolean enableLogsSample;
 
-  public static final String SERIALIZED_NAME_ESCALATION_MESSAGE = "escalation_message";
-  @SerializedName(SERIALIZED_NAME_ESCALATION_MESSAGE)
+  public static final String JSON_PROPERTY_ESCALATION_MESSAGE = "escalation_message";
   private String escalationMessage;
 
-  public static final String SERIALIZED_NAME_EVALUATION_DELAY = "evaluation_delay";
-  @SerializedName(SERIALIZED_NAME_EVALUATION_DELAY)
+  public static final String JSON_PROPERTY_EVALUATION_DELAY = "evaluation_delay";
   private Long evaluationDelay;
 
-  public static final String SERIALIZED_NAME_INCLUDE_TAGS = "include_tags";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_TAGS)
+  public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
   private Boolean includeTags;
 
-  public static final String SERIALIZED_NAME_LOCKED = "locked";
-  @SerializedName(SERIALIZED_NAME_LOCKED)
+  public static final String JSON_PROPERTY_LOCKED = "locked";
   private Boolean locked;
 
-  public static final String SERIALIZED_NAME_MIN_FAILURE_DURATION = "min_failure_duration";
-  @SerializedName(SERIALIZED_NAME_MIN_FAILURE_DURATION)
+  public static final String JSON_PROPERTY_MIN_FAILURE_DURATION = "min_failure_duration";
   private Long minFailureDuration;
 
-  public static final String SERIALIZED_NAME_MIN_LOCATION_FAILED = "min_location_failed";
-  @SerializedName(SERIALIZED_NAME_MIN_LOCATION_FAILED)
+  public static final String JSON_PROPERTY_MIN_LOCATION_FAILED = "min_location_failed";
   private Long minLocationFailed;
 
-  public static final String SERIALIZED_NAME_NEW_HOST_DELAY = "new_host_delay";
-  @SerializedName(SERIALIZED_NAME_NEW_HOST_DELAY)
+  public static final String JSON_PROPERTY_NEW_HOST_DELAY = "new_host_delay";
   private Long newHostDelay;
 
-  public static final String SERIALIZED_NAME_NO_DATA_TIMEFRAME = "no_data_timeframe";
-  @SerializedName(SERIALIZED_NAME_NO_DATA_TIMEFRAME)
+  public static final String JSON_PROPERTY_NO_DATA_TIMEFRAME = "no_data_timeframe";
   private Long noDataTimeframe;
 
-  public static final String SERIALIZED_NAME_NOTIFY_AUDIT = "notify_audit";
-  @SerializedName(SERIALIZED_NAME_NOTIFY_AUDIT)
+  public static final String JSON_PROPERTY_NOTIFY_AUDIT = "notify_audit";
   private Boolean notifyAudit;
 
-  public static final String SERIALIZED_NAME_NOTIFY_NO_DATA = "notify_no_data";
-  @SerializedName(SERIALIZED_NAME_NOTIFY_NO_DATA)
+  public static final String JSON_PROPERTY_NOTIFY_NO_DATA = "notify_no_data";
   private Boolean notifyNoData;
 
-  public static final String SERIALIZED_NAME_RENOTIFY_INTERVAL = "renotify_interval";
-  @SerializedName(SERIALIZED_NAME_RENOTIFY_INTERVAL)
+  public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
   private Long renotifyInterval;
 
-  public static final String SERIALIZED_NAME_REQUIRE_FULL_WINDOW = "require_full_window";
-  @SerializedName(SERIALIZED_NAME_REQUIRE_FULL_WINDOW)
+  public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
   private Boolean requireFullWindow;
 
-  public static final String SERIALIZED_NAME_SILENCED = "silenced";
-  @SerializedName(SERIALIZED_NAME_SILENCED)
-  private Map<String, Long> silenced = new HashMap<String, Long>();
+  public static final String JSON_PROPERTY_SILENCED = "silenced";
+  private Map<String, Long> silenced = null;
 
-  public static final String SERIALIZED_NAME_SYNTHETICS_CHECK_ID = "synthetics_check_id";
-  @SerializedName(SERIALIZED_NAME_SYNTHETICS_CHECK_ID)
+  public static final String JSON_PROPERTY_SYNTHETICS_CHECK_ID = "synthetics_check_id";
   private Long syntheticsCheckId;
 
-  public static final String SERIALIZED_NAME_THRESHOLDS = "thresholds";
-  @SerializedName(SERIALIZED_NAME_THRESHOLDS)
-  private MonitorThresholds thresholds = null;
+  public static final String JSON_PROPERTY_THRESHOLDS = "thresholds";
+  private MonitorThresholds thresholds;
 
-  public static final String SERIALIZED_NAME_TIMEOUT_H = "timeout_h";
-  @SerializedName(SERIALIZED_NAME_TIMEOUT_H)
+  public static final String JSON_PROPERTY_TIMEOUT_H = "timeout_h";
   private Integer timeoutH;
 
+
   public MonitorOptions aggregation(String aggregation) {
+    
     this.aggregation = aggregation;
     return this;
   }
@@ -166,16 +135,24 @@ public class MonitorOptions {
    * Get aggregation
    * @return aggregation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getAggregation() {
     return aggregation;
   }
+
+
 
   public void setAggregation(String aggregation) {
     this.aggregation = aggregation;
   }
 
+
   public MonitorOptions deviceIds(List<DeviceIdsEnum> deviceIds) {
+    
     this.deviceIds = deviceIds;
     return this;
   }
@@ -192,16 +169,24 @@ public class MonitorOptions {
    * Get deviceIds
    * @return deviceIds
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<DeviceIdsEnum> getDeviceIds() {
     return deviceIds;
   }
+
+
 
   public void setDeviceIds(List<DeviceIdsEnum> deviceIds) {
     this.deviceIds = deviceIds;
   }
 
+
   public MonitorOptions enableLogsSample(Boolean enableLogsSample) {
+    
     this.enableLogsSample = enableLogsSample;
     return this;
   }
@@ -210,16 +195,24 @@ public class MonitorOptions {
    * Get enableLogsSample
    * @return enableLogsSample
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ENABLE_LOGS_SAMPLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getEnableLogsSample() {
     return enableLogsSample;
   }
+
+
 
   public void setEnableLogsSample(Boolean enableLogsSample) {
     this.enableLogsSample = enableLogsSample;
   }
 
+
   public MonitorOptions escalationMessage(String escalationMessage) {
+    
     this.escalationMessage = escalationMessage;
     return this;
   }
@@ -228,16 +221,24 @@ public class MonitorOptions {
    * Get escalationMessage
    * @return escalationMessage
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ESCALATION_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getEscalationMessage() {
     return escalationMessage;
   }
+
+
 
   public void setEscalationMessage(String escalationMessage) {
     this.escalationMessage = escalationMessage;
   }
 
+
   public MonitorOptions evaluationDelay(Long evaluationDelay) {
+    
     this.evaluationDelay = evaluationDelay;
     return this;
   }
@@ -246,16 +247,24 @@ public class MonitorOptions {
    * Get evaluationDelay
    * @return evaluationDelay
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EVALUATION_DELAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getEvaluationDelay() {
     return evaluationDelay;
   }
+
+
 
   public void setEvaluationDelay(Long evaluationDelay) {
     this.evaluationDelay = evaluationDelay;
   }
 
+
   public MonitorOptions includeTags(Boolean includeTags) {
+    
     this.includeTags = includeTags;
     return this;
   }
@@ -264,16 +273,24 @@ public class MonitorOptions {
    * Get includeTags
    * @return includeTags
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getIncludeTags() {
     return includeTags;
   }
+
+
 
   public void setIncludeTags(Boolean includeTags) {
     this.includeTags = includeTags;
   }
 
+
   public MonitorOptions locked(Boolean locked) {
+    
     this.locked = locked;
     return this;
   }
@@ -282,16 +299,24 @@ public class MonitorOptions {
    * Get locked
    * @return locked
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LOCKED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getLocked() {
     return locked;
   }
+
+
 
   public void setLocked(Boolean locked) {
     this.locked = locked;
   }
 
+
   public MonitorOptions minFailureDuration(Long minFailureDuration) {
+    
     this.minFailureDuration = minFailureDuration;
     return this;
   }
@@ -302,16 +327,24 @@ public class MonitorOptions {
    * maximum: 7200
    * @return minFailureDuration
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getMinFailureDuration() {
     return minFailureDuration;
   }
+
+
 
   public void setMinFailureDuration(Long minFailureDuration) {
     this.minFailureDuration = minFailureDuration;
   }
 
+
   public MonitorOptions minLocationFailed(Long minLocationFailed) {
+    
     this.minLocationFailed = minLocationFailed;
     return this;
   }
@@ -320,16 +353,24 @@ public class MonitorOptions {
    * Get minLocationFailed
    * @return minLocationFailed
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getMinLocationFailed() {
     return minLocationFailed;
   }
+
+
 
   public void setMinLocationFailed(Long minLocationFailed) {
     this.minLocationFailed = minLocationFailed;
   }
 
+
   public MonitorOptions newHostDelay(Long newHostDelay) {
+    
     this.newHostDelay = newHostDelay;
     return this;
   }
@@ -338,16 +379,24 @@ public class MonitorOptions {
    * Get newHostDelay
    * @return newHostDelay
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NEW_HOST_DELAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getNewHostDelay() {
     return newHostDelay;
   }
+
+
 
   public void setNewHostDelay(Long newHostDelay) {
     this.newHostDelay = newHostDelay;
   }
 
+
   public MonitorOptions noDataTimeframe(Long noDataTimeframe) {
+    
     this.noDataTimeframe = noDataTimeframe;
     return this;
   }
@@ -356,16 +405,24 @@ public class MonitorOptions {
    * Get noDataTimeframe
    * @return noDataTimeframe
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NO_DATA_TIMEFRAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getNoDataTimeframe() {
     return noDataTimeframe;
   }
+
+
 
   public void setNoDataTimeframe(Long noDataTimeframe) {
     this.noDataTimeframe = noDataTimeframe;
   }
 
+
   public MonitorOptions notifyAudit(Boolean notifyAudit) {
+    
     this.notifyAudit = notifyAudit;
     return this;
   }
@@ -374,16 +431,24 @@ public class MonitorOptions {
    * Get notifyAudit
    * @return notifyAudit
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NOTIFY_AUDIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getNotifyAudit() {
     return notifyAudit;
   }
+
+
 
   public void setNotifyAudit(Boolean notifyAudit) {
     this.notifyAudit = notifyAudit;
   }
 
+
   public MonitorOptions notifyNoData(Boolean notifyNoData) {
+    
     this.notifyNoData = notifyNoData;
     return this;
   }
@@ -392,16 +457,24 @@ public class MonitorOptions {
    * Get notifyNoData
    * @return notifyNoData
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NOTIFY_NO_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getNotifyNoData() {
     return notifyNoData;
   }
+
+
 
   public void setNotifyNoData(Boolean notifyNoData) {
     this.notifyNoData = notifyNoData;
   }
 
+
   public MonitorOptions renotifyInterval(Long renotifyInterval) {
+    
     this.renotifyInterval = renotifyInterval;
     return this;
   }
@@ -410,16 +483,24 @@ public class MonitorOptions {
    * Get renotifyInterval
    * @return renotifyInterval
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getRenotifyInterval() {
     return renotifyInterval;
   }
+
+
 
   public void setRenotifyInterval(Long renotifyInterval) {
     this.renotifyInterval = renotifyInterval;
   }
 
+
   public MonitorOptions requireFullWindow(Boolean requireFullWindow) {
+    
     this.requireFullWindow = requireFullWindow;
     return this;
   }
@@ -428,16 +509,24 @@ public class MonitorOptions {
    * Get requireFullWindow
    * @return requireFullWindow
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_REQUIRE_FULL_WINDOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getRequireFullWindow() {
     return requireFullWindow;
   }
+
+
 
   public void setRequireFullWindow(Boolean requireFullWindow) {
     this.requireFullWindow = requireFullWindow;
   }
 
+
   public MonitorOptions silenced(Map<String, Long> silenced) {
+    
     this.silenced = silenced;
     return this;
   }
@@ -454,16 +543,24 @@ public class MonitorOptions {
    * Get silenced
    * @return silenced
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SILENCED)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
   public Map<String, Long> getSilenced() {
     return silenced;
   }
+
+
 
   public void setSilenced(Map<String, Long> silenced) {
     this.silenced = silenced;
   }
 
+
   public MonitorOptions syntheticsCheckId(Long syntheticsCheckId) {
+    
     this.syntheticsCheckId = syntheticsCheckId;
     return this;
   }
@@ -472,16 +569,24 @@ public class MonitorOptions {
    * Get syntheticsCheckId
    * @return syntheticsCheckId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getSyntheticsCheckId() {
     return syntheticsCheckId;
   }
+
+
 
   public void setSyntheticsCheckId(Long syntheticsCheckId) {
     this.syntheticsCheckId = syntheticsCheckId;
   }
 
+
   public MonitorOptions thresholds(MonitorThresholds thresholds) {
+    
     this.thresholds = thresholds;
     return this;
   }
@@ -490,16 +595,24 @@ public class MonitorOptions {
    * Get thresholds
    * @return thresholds
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THRESHOLDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public MonitorThresholds getThresholds() {
     return thresholds;
   }
+
+
 
   public void setThresholds(MonitorThresholds thresholds) {
     this.thresholds = thresholds;
   }
 
+
   public MonitorOptions timeoutH(Integer timeoutH) {
+    
     this.timeoutH = timeoutH;
     return this;
   }
@@ -508,10 +621,16 @@ public class MonitorOptions {
    * Get timeoutH
    * @return timeoutH
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TIMEOUT_H)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getTimeoutH() {
     return timeoutH;
   }
+
+
 
   public void setTimeoutH(Integer timeoutH) {
     this.timeoutH = timeoutH;
