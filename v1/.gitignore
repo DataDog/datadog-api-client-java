@@ -19,3 +19,9 @@ hs_err_pid*
 target
 .gradle
 build
+
+# IDE files
+.classpath
+.project
+.settings
+.travis.yml
