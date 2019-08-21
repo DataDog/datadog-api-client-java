@@ -189,6 +189,9 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
         api.updateAWSAccount(awsAccount, awsAccount.getAccountId(), awsAccount.getRoleName(), null);
 
         AWSAccount newAccount = api.getAllAWSAccounts(awsAccount.getAccountId(), awsAccount.getRoleName(), null).get("accounts").get(0);
+        // collection fields are intialized to null on the objects, but returned as empty list/map by API
+        awsAccount.setAccountSpecificNamespaceRules(new HashMap<String, Boolean>());
+        awsAccount.setFilterTags(new ArrayList<String>());
         assertEquals(awsAccount, newAccount);
     }
 

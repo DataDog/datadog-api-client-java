@@ -13,41 +13,36 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * MonitorStateGroupValue
  */
 
 public class MonitorStateGroupValue {
-  public static final String SERIALIZED_NAME_FROM_TS = "from_ts";
-  @SerializedName(SERIALIZED_NAME_FROM_TS)
+  public static final String JSON_PROPERTY_FROM_TS = "from_ts";
   private Float fromTs;
 
-  public static final String SERIALIZED_NAME_LEFT = "left";
-  @SerializedName(SERIALIZED_NAME_LEFT)
+  public static final String JSON_PROPERTY_LEFT = "left";
   private Float left;
 
-  public static final String SERIALIZED_NAME_RIGHT = "right";
-  @SerializedName(SERIALIZED_NAME_RIGHT)
+  public static final String JSON_PROPERTY_RIGHT = "right";
   private Float right;
 
-  public static final String SERIALIZED_NAME_TO_TS = "to_ts";
-  @SerializedName(SERIALIZED_NAME_TO_TS)
+  public static final String JSON_PROPERTY_TO_TS = "to_ts";
   private Long toTs;
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+  public static final String JSON_PROPERTY_VALUE = "value";
   private Float value;
 
+
   public MonitorStateGroupValue fromTs(Float fromTs) {
+    
     this.fromTs = fromTs;
     return this;
   }
@@ -56,16 +51,24 @@ public class MonitorStateGroupValue {
    * Get fromTs
    * @return fromTs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FROM_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Float getFromTs() {
     return fromTs;
   }
+
+
 
   public void setFromTs(Float fromTs) {
     this.fromTs = fromTs;
   }
 
+
   public MonitorStateGroupValue left(Float left) {
+    
     this.left = left;
     return this;
   }
@@ -74,16 +77,24 @@ public class MonitorStateGroupValue {
    * Get left
    * @return left
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LEFT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Float getLeft() {
     return left;
   }
+
+
 
   public void setLeft(Float left) {
     this.left = left;
   }
 
+
   public MonitorStateGroupValue right(Float right) {
+    
     this.right = right;
     return this;
   }
@@ -92,16 +103,24 @@ public class MonitorStateGroupValue {
    * Get right
    * @return right
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Float getRight() {
     return right;
   }
+
+
 
   public void setRight(Float right) {
     this.right = right;
   }
 
+
   public MonitorStateGroupValue toTs(Long toTs) {
+    
     this.toTs = toTs;
     return this;
   }
@@ -110,16 +129,24 @@ public class MonitorStateGroupValue {
    * Get toTs
    * @return toTs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TO_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getToTs() {
     return toTs;
   }
+
+
 
   public void setToTs(Long toTs) {
     this.toTs = toTs;
   }
 
+
   public MonitorStateGroupValue value(Float value) {
+    
     this.value = value;
     return this;
   }
@@ -128,10 +155,16 @@ public class MonitorStateGroupValue {
    * Get value
    * @return value
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Float getValue() {
     return value;
   }
+
+
 
   public void setValue(Float value) {
     this.value = value;

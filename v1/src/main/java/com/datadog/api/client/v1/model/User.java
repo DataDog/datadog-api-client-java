@@ -13,14 +13,12 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * User
@@ -30,7 +28,6 @@ public class User {
   /**
    * Gets or Sets accessRole
    */
-  @JsonAdapter(AccessRoleEnum.Adapter.class)
   public enum AccessRoleEnum {
     ST("st"),
     
@@ -44,6 +41,7 @@ public class User {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -53,6 +51,7 @@ public class User {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static AccessRoleEnum fromValue(String value) {
       for (AccessRoleEnum b : AccessRoleEnum.values()) {
         if (b.value.equals(value)) {
@@ -61,58 +60,38 @@ public class User {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<AccessRoleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AccessRoleEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public AccessRoleEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return AccessRoleEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_ACCESS_ROLE = "access_role";
-  @SerializedName(SERIALIZED_NAME_ACCESS_ROLE)
+  public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";
   private AccessRoleEnum accessRole;
 
-  public static final String SERIALIZED_NAME_DISABLED = "disabled";
-  @SerializedName(SERIALIZED_NAME_DISABLED)
+  public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+  public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
-  public static final String SERIALIZED_NAME_HANDLE = "handle";
-  @SerializedName(SERIALIZED_NAME_HANDLE)
+  public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
-  public static final String SERIALIZED_NAME_ICON = "icon";
-  @SerializedName(SERIALIZED_NAME_ICON)
+  public static final String JSON_PROPERTY_ICON = "icon";
   private String icon;
 
-  public static final String SERIALIZED_NAME_IS_ADMIN = "is_admin";
-  @SerializedName(SERIALIZED_NAME_IS_ADMIN)
+  public static final String JSON_PROPERTY_IS_ADMIN = "is_admin";
   private Boolean isAdmin;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
+  public static final String JSON_PROPERTY_ROLE = "role";
   private String role;
 
-  public static final String SERIALIZED_NAME_VERIFIED = "verified";
-  @SerializedName(SERIALIZED_NAME_VERIFIED)
+  public static final String JSON_PROPERTY_VERIFIED = "verified";
   private Boolean verified;
 
+
   public User accessRole(AccessRoleEnum accessRole) {
+    
     this.accessRole = accessRole;
     return this;
   }
@@ -121,16 +100,24 @@ public class User {
    * Get accessRole
    * @return accessRole
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public AccessRoleEnum getAccessRole() {
     return accessRole;
   }
+
+
 
   public void setAccessRole(AccessRoleEnum accessRole) {
     this.accessRole = accessRole;
   }
 
+
   public User disabled(Boolean disabled) {
+    
     this.disabled = disabled;
     return this;
   }
@@ -139,16 +126,24 @@ public class User {
    * Get disabled
    * @return disabled
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "")
+  @JsonProperty(JSON_PROPERTY_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getDisabled() {
     return disabled;
   }
+
+
 
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 
+
   public User email(String email) {
+    
     this.email = email;
     return this;
   }
@@ -157,16 +152,24 @@ public class User {
    * Get email
    * @return email
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "test@datadoghq.com", value = "")
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getEmail() {
     return email;
   }
+
+
 
   public void setEmail(String email) {
     this.email = email;
   }
 
+
   public User handle(String handle) {
+    
     this.handle = handle;
     return this;
   }
@@ -175,16 +178,24 @@ public class User {
    * Get handle
    * @return handle
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "test@datadoghq.com", value = "")
+  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getHandle() {
     return handle;
   }
+
+
 
   public void setHandle(String handle) {
     this.handle = handle;
   }
 
+
   public User icon(String icon) {
+    
     this.icon = icon;
     return this;
   }
@@ -193,16 +204,24 @@ public class User {
    * Get icon
    * @return icon
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "/path/to/matching/gravatar/icon", value = "")
+  @JsonProperty(JSON_PROPERTY_ICON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getIcon() {
     return icon;
   }
+
+
 
   public void setIcon(String icon) {
     this.icon = icon;
   }
 
+
   public User isAdmin(Boolean isAdmin) {
+    
     this.isAdmin = isAdmin;
     return this;
   }
@@ -211,16 +230,24 @@ public class User {
    * Get isAdmin
    * @return isAdmin
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "")
+  @JsonProperty(JSON_PROPERTY_IS_ADMIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getIsAdmin() {
     return isAdmin;
   }
+
+
 
   public void setIsAdmin(Boolean isAdmin) {
     this.isAdmin = isAdmin;
   }
 
+
   public User name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -229,16 +256,24 @@ public class User {
    * Get name
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "test user", value = "")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public User role(String role) {
+    
     this.role = role;
     return this;
   }
@@ -247,16 +282,24 @@ public class User {
    * Get role
    * @return role
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ROLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getRole() {
     return role;
   }
+
+
 
   public void setRole(String role) {
     this.role = role;
   }
 
+
   public User verified(Boolean verified) {
+    
     this.verified = verified;
     return this;
   }
@@ -265,10 +308,16 @@ public class User {
    * Get verified
    * @return verified
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "")
+  @JsonProperty(JSON_PROPERTY_VERIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getVerified() {
     return verified;
   }
+
+
 
   public void setVerified(Boolean verified) {
     this.verified = verified;

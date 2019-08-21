@@ -13,14 +13,12 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,31 +29,27 @@ import java.util.Map;
  */
 
 public class AWSAccount {
-  public static final String SERIALIZED_NAME_ACCESS_KEY_ID = "access_key_id";
-  @SerializedName(SERIALIZED_NAME_ACCESS_KEY_ID)
+  public static final String JSON_PROPERTY_ACCESS_KEY_ID = "access_key_id";
   private String accessKeyId;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+  public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_SPECIFIC_NAMESPACE_RULES = "account_specific_namespace_rules";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_SPECIFIC_NAMESPACE_RULES)
-  private Map<String, Boolean> accountSpecificNamespaceRules = new HashMap<String, Boolean>();
+  public static final String JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES = "account_specific_namespace_rules";
+  private Map<String, Boolean> accountSpecificNamespaceRules = null;
 
-  public static final String SERIALIZED_NAME_FILTER_TAGS = "filter_tags";
-  @SerializedName(SERIALIZED_NAME_FILTER_TAGS)
-  private List<String> filterTags = new ArrayList<String>();
+  public static final String JSON_PROPERTY_FILTER_TAGS = "filter_tags";
+  private List<String> filterTags = null;
 
-  public static final String SERIALIZED_NAME_HOST_TAGS = "host_tags";
-  @SerializedName(SERIALIZED_NAME_HOST_TAGS)
-  private List<String> hostTags = new ArrayList<String>();
+  public static final String JSON_PROPERTY_HOST_TAGS = "host_tags";
+  private List<String> hostTags = null;
 
-  public static final String SERIALIZED_NAME_ROLE_NAME = "role_name";
-  @SerializedName(SERIALIZED_NAME_ROLE_NAME)
+  public static final String JSON_PROPERTY_ROLE_NAME = "role_name";
   private String roleName;
 
+
   public AWSAccount accessKeyId(String accessKeyId) {
+    
     this.accessKeyId = accessKeyId;
     return this;
   }
@@ -64,16 +58,24 @@ public class AWSAccount {
    * Get accessKeyId
    * @return accessKeyId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCESS_KEY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getAccessKeyId() {
     return accessKeyId;
   }
+
+
 
   public void setAccessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;
   }
 
+
   public AWSAccount accountId(String accountId) {
+    
     this.accountId = accountId;
     return this;
   }
@@ -82,16 +84,24 @@ public class AWSAccount {
    * Get accountId
    * @return accountId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1234567", value = "")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getAccountId() {
     return accountId;
   }
+
+
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
 
+
   public AWSAccount accountSpecificNamespaceRules(Map<String, Boolean> accountSpecificNamespaceRules) {
+    
     this.accountSpecificNamespaceRules = accountSpecificNamespaceRules;
     return this;
   }
@@ -108,16 +118,24 @@ public class AWSAccount {
    * Get accountSpecificNamespaceRules
    * @return accountSpecificNamespaceRules
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "{\"auto_scaling\":false}", value = "")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Map<String, Boolean> getAccountSpecificNamespaceRules() {
     return accountSpecificNamespaceRules;
   }
+
+
 
   public void setAccountSpecificNamespaceRules(Map<String, Boolean> accountSpecificNamespaceRules) {
     this.accountSpecificNamespaceRules = accountSpecificNamespaceRules;
   }
 
+
   public AWSAccount filterTags(List<String> filterTags) {
+    
     this.filterTags = filterTags;
     return this;
   }
@@ -134,16 +152,24 @@ public class AWSAccount {
    * Get filterTags
    * @return filterTags
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "[\"<KEY>:<VALUE>\"]", value = "")
+  @JsonProperty(JSON_PROPERTY_FILTER_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getFilterTags() {
     return filterTags;
   }
+
+
 
   public void setFilterTags(List<String> filterTags) {
     this.filterTags = filterTags;
   }
 
+
   public AWSAccount hostTags(List<String> hostTags) {
+    
     this.hostTags = hostTags;
     return this;
   }
@@ -160,16 +186,24 @@ public class AWSAccount {
    * Get hostTags
    * @return hostTags
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "[\"<KEY>:<VALUE>\"]", value = "")
+  @JsonProperty(JSON_PROPERTY_HOST_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getHostTags() {
     return hostTags;
   }
+
+
 
   public void setHostTags(List<String> hostTags) {
     this.hostTags = hostTags;
   }
 
+
   public AWSAccount roleName(String roleName) {
+    
     this.roleName = roleName;
     return this;
   }
@@ -178,10 +212,16 @@ public class AWSAccount {
    * Get roleName
    * @return roleName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "DatadogAWSIntegrationRole", value = "")
+  @JsonProperty(JSON_PROPERTY_ROLE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getRoleName() {
     return roleName;
   }
+
+
 
   public void setRoleName(String roleName) {
     this.roleName = roleName;

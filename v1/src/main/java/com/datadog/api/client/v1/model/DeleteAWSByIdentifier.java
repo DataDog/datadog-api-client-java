@@ -13,29 +13,27 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * DeleteAWSByIdentifier
  */
 
 public class DeleteAWSByIdentifier {
-  public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+  public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
-  public static final String SERIALIZED_NAME_ROLE_NAME = "role_name";
-  @SerializedName(SERIALIZED_NAME_ROLE_NAME)
+  public static final String JSON_PROPERTY_ROLE_NAME = "role_name";
   private String roleName;
 
+
   public DeleteAWSByIdentifier accountId(String accountId) {
+    
     this.accountId = accountId;
     return this;
   }
@@ -45,15 +43,22 @@ public class DeleteAWSByIdentifier {
    * @return accountId
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getAccountId() {
     return accountId;
   }
+
+
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
 
+
   public DeleteAWSByIdentifier roleName(String roleName) {
+    
     this.roleName = roleName;
     return this;
   }
@@ -63,9 +68,14 @@ public class DeleteAWSByIdentifier {
    * @return roleName
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ROLE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getRoleName() {
     return roleName;
   }
+
+
 
   public void setRoleName(String roleName) {
     this.roleName = roleName;

@@ -14,14 +14,12 @@ package com.datadog.api.client.v1.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.client.v1.model.User;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,11 +28,12 @@ import java.util.List;
  */
 
 public class UserGetAllResponse {
-  public static final String SERIALIZED_NAME_USERS = "users";
-  @SerializedName(SERIALIZED_NAME_USERS)
-  private List<User> users = new ArrayList<User>();
+  public static final String JSON_PROPERTY_USERS = "users";
+  private List<User> users = null;
+
 
   public UserGetAllResponse users(List<User> users) {
+    
     this.users = users;
     return this;
   }
@@ -51,10 +50,16 @@ public class UserGetAllResponse {
    * Get users
    * @return users
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_USERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<User> getUsers() {
     return users;
   }
+
+
 
   public void setUsers(List<User> users) {
     this.users = users;

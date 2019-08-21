@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessRole** | [**AccessRoleEnum**](#AccessRoleEnum) |  |  [optional]
+**email** | **String** |  |  [optional]
 **handle** | **String** |  | 
 **name** | **String** |  |  [optional]
 

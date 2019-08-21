@@ -14,114 +14,129 @@ package com.datadog.api.client.v1.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.client.v1.model.DowntimeRecurrence;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 
 /**
  * Downtime
  */
 
 public class Downtime {
-  public static final String SERIALIZED_NAME_ACTIVE = "active";
-  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
-  public static final String SERIALIZED_NAME_CANCELED = "canceled";
-  @SerializedName(SERIALIZED_NAME_CANCELED)
-  private Long canceled;
+  public static final String JSON_PROPERTY_CANCELED = "canceled";
+  private JsonNullable<Long> canceled = JsonNullable.<Long>undefined();
 
-  public static final String SERIALIZED_NAME_CREATOR_ID = "creator_id";
-  @SerializedName(SERIALIZED_NAME_CREATOR_ID)
+  public static final String JSON_PROPERTY_CREATOR_ID = "creator_id";
   private Integer creatorId;
 
-  public static final String SERIALIZED_NAME_DISABLED = "disabled";
-  @SerializedName(SERIALIZED_NAME_DISABLED)
+  public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
 
-  public static final String SERIALIZED_NAME_DOWNTIME_TYPE = "downtime_type";
-  @SerializedName(SERIALIZED_NAME_DOWNTIME_TYPE)
+  public static final String JSON_PROPERTY_DOWNTIME_TYPE = "downtime_type";
   private Integer downtimeType;
 
-  public static final String SERIALIZED_NAME_END = "end";
-  @SerializedName(SERIALIZED_NAME_END)
-  private Long end;
+  public static final String JSON_PROPERTY_END = "end";
+  private JsonNullable<Long> end = JsonNullable.<Long>undefined();
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private Long id;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  public static final String SERIALIZED_NAME_MONITOR_ID = "monitor_id";
-  @SerializedName(SERIALIZED_NAME_MONITOR_ID)
-  private Integer monitorId;
+  public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
+  private JsonNullable<Integer> monitorId = JsonNullable.<Integer>undefined();
 
-  public static final String SERIALIZED_NAME_MONITOR_TAGS = "monitor_tags";
-  @SerializedName(SERIALIZED_NAME_MONITOR_TAGS)
-  private List<String> monitorTags = new ArrayList<String>();
+  public static final String JSON_PROPERTY_MONITOR_TAGS = "monitor_tags";
+  private List<String> monitorTags = null;
 
-  public static final String SERIALIZED_NAME_PARENT_ID = "parent_id";
-  @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  private Integer parentId;
+  public static final String JSON_PROPERTY_PARENT_ID = "parent_id";
+  private JsonNullable<Integer> parentId = JsonNullable.<Integer>undefined();
 
-  public static final String SERIALIZED_NAME_RECURRENCE = "recurrence";
-  @SerializedName(SERIALIZED_NAME_RECURRENCE)
-  private DowntimeRecurrence recurrence = null;
+  public static final String JSON_PROPERTY_RECURRENCE = "recurrence";
+  private JsonNullable<DowntimeRecurrence> recurrence = JsonNullable.<DowntimeRecurrence>undefined();
 
-  public static final String SERIALIZED_NAME_SCOPE = "scope";
-  @SerializedName(SERIALIZED_NAME_SCOPE)
-  private List<String> scope = new ArrayList<String>();
+  public static final String JSON_PROPERTY_SCOPE = "scope";
+  private List<String> scope = null;
 
-  public static final String SERIALIZED_NAME_START = "start";
-  @SerializedName(SERIALIZED_NAME_START)
+  public static final String JSON_PROPERTY_START = "start";
   private Long start;
 
-  public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
-  @SerializedName(SERIALIZED_NAME_TIMEZONE)
+  public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private String timezone;
 
-  public static final String SERIALIZED_NAME_UPDATER_ID = "updater_id";
-  @SerializedName(SERIALIZED_NAME_UPDATER_ID)
+  public static final String JSON_PROPERTY_UPDATER_ID = "updater_id";
   private Integer updaterId;
+
 
    /**
    * Get active
    * @return active
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "")
+  @JsonProperty(JSON_PROPERTY_ACTIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getActive() {
     return active;
   }
+
+
+
 
    /**
    * Get canceled
    * @return canceled
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1412799983", value = "")
+
   public Long getCanceled() {
+    
+    if (canceled == null) {
+      canceled = JsonNullable.<Long>undefined();
+    }
+    return canceled.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CANCELED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getCanceled_JsonNullable() {
     return canceled;
   }
+
+
 
    /**
    * Get creatorId
    * @return creatorId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "123456", value = "")
+  @JsonProperty(JSON_PROPERTY_CREATOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getCreatorId() {
     return creatorId;
   }
 
+
+
+
   public Downtime disabled(Boolean disabled) {
+    
     this.disabled = disabled;
     return this;
   }
@@ -130,26 +145,41 @@ public class Downtime {
    * Get disabled
    * @return disabled
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "")
+  @JsonProperty(JSON_PROPERTY_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getDisabled() {
     return disabled;
   }
+
+
 
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 
+
    /**
    * Get downtimeType
    * @return downtimeType
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "2", value = "")
+  @JsonProperty(JSON_PROPERTY_DOWNTIME_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getDowntimeType() {
     return downtimeType;
   }
 
+
+
+
   public Downtime end(Long end) {
-    this.end = end;
+    this.end = JsonNullable.<Long>of(end);
+    
     return this;
   }
 
@@ -157,25 +187,48 @@ public class Downtime {
    * Get end
    * @return end
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1412793983", value = "")
+
   public Long getEnd() {
+        return end.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_END)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getEnd_JsonNullable() {
     return end;
   }
 
-  public void setEnd(Long end) {
+  @JsonProperty(JSON_PROPERTY_END)
+  public void setEnd_JsonNullable(JsonNullable<Long> end) {
     this.end = end;
   }
+
+  public void setEnd(Long end) {
+    this.end = JsonNullable.<Long>of(end);
+  }
+
 
    /**
    * Get id
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1625", value = "")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getId() {
     return id;
   }
 
+
+
+
   public Downtime message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -184,17 +237,25 @@ public class Downtime {
    * Get message
    * @return message
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "Message on the downtime", value = "")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getMessage() {
     return message;
   }
+
+
 
   public void setMessage(String message) {
     this.message = message;
   }
 
+
   public Downtime monitorId(Integer monitorId) {
-    this.monitorId = monitorId;
+    this.monitorId = JsonNullable.<Integer>of(monitorId);
+    
     return this;
   }
 
@@ -202,16 +263,32 @@ public class Downtime {
    * Get monitorId
    * @return monitorId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "123456", value = "")
+
   public Integer getMonitorId() {
+        return monitorId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getMonitorId_JsonNullable() {
     return monitorId;
   }
 
-  public void setMonitorId(Integer monitorId) {
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  public void setMonitorId_JsonNullable(JsonNullable<Integer> monitorId) {
     this.monitorId = monitorId;
   }
 
+  public void setMonitorId(Integer monitorId) {
+    this.monitorId = JsonNullable.<Integer>of(monitorId);
+  }
+
+
   public Downtime monitorTags(List<String> monitorTags) {
+    
     this.monitorTags = monitorTags;
     return this;
   }
@@ -228,17 +305,25 @@ public class Downtime {
    * Get monitorTags
    * @return monitorTags
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "[\"*\"]", value = "")
+  @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getMonitorTags() {
     return monitorTags;
   }
+
+
 
   public void setMonitorTags(List<String> monitorTags) {
     this.monitorTags = monitorTags;
   }
 
+
   public Downtime parentId(Integer parentId) {
-    this.parentId = parentId;
+    this.parentId = JsonNullable.<Integer>of(parentId);
+    
     return this;
   }
 
@@ -246,17 +331,33 @@ public class Downtime {
    * Get parentId
    * @return parentId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "123", value = "")
+
   public Integer getParentId() {
+        return parentId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getParentId_JsonNullable() {
     return parentId;
   }
 
-  public void setParentId(Integer parentId) {
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  public void setParentId_JsonNullable(JsonNullable<Integer> parentId) {
     this.parentId = parentId;
   }
 
+  public void setParentId(Integer parentId) {
+    this.parentId = JsonNullable.<Integer>of(parentId);
+  }
+
+
   public Downtime recurrence(DowntimeRecurrence recurrence) {
-    this.recurrence = recurrence;
+    this.recurrence = JsonNullable.<DowntimeRecurrence>of(recurrence);
+    
     return this;
   }
 
@@ -264,16 +365,32 @@ public class Downtime {
    * Get recurrence
    * @return recurrence
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public DowntimeRecurrence getRecurrence() {
+        return recurrence.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_RECURRENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<DowntimeRecurrence> getRecurrence_JsonNullable() {
     return recurrence;
   }
 
-  public void setRecurrence(DowntimeRecurrence recurrence) {
+  @JsonProperty(JSON_PROPERTY_RECURRENCE)
+  public void setRecurrence_JsonNullable(JsonNullable<DowntimeRecurrence> recurrence) {
     this.recurrence = recurrence;
   }
 
+  public void setRecurrence(DowntimeRecurrence recurrence) {
+    this.recurrence = JsonNullable.<DowntimeRecurrence>of(recurrence);
+  }
+
+
   public Downtime scope(List<String> scope) {
+    
     this.scope = scope;
     return this;
   }
@@ -290,16 +407,24 @@ public class Downtime {
    * Get scope
    * @return scope
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "[\"env:staging\"]", value = "")
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getScope() {
     return scope;
   }
+
+
 
   public void setScope(List<String> scope) {
     this.scope = scope;
   }
 
+
   public Downtime start(Long start) {
+    
     this.start = start;
     return this;
   }
@@ -308,16 +433,24 @@ public class Downtime {
    * Get start
    * @return start
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1412792983", value = "")
+  @JsonProperty(JSON_PROPERTY_START)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getStart() {
     return start;
   }
+
+
 
   public void setStart(Long start) {
     this.start = start;
   }
 
+
   public Downtime timezone(String timezone) {
+    
     this.timezone = timezone;
     return this;
   }
@@ -326,23 +459,36 @@ public class Downtime {
    * Get timezone
    * @return timezone
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "America/New_York", value = "")
+  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTimezone() {
     return timezone;
   }
+
+
 
   public void setTimezone(String timezone) {
     this.timezone = timezone;
   }
 
+
    /**
    * Get updaterId
    * @return updaterId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "123456", value = "")
+  @JsonProperty(JSON_PROPERTY_UPDATER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getUpdaterId() {
     return updaterId;
   }
+
+
 
 
   @Override

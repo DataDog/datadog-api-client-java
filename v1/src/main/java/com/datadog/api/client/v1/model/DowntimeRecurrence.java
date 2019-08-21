@@ -13,43 +13,40 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 
 /**
  * DowntimeRecurrence
  */
 
 public class DowntimeRecurrence {
-  public static final String SERIALIZED_NAME_PERIOD = "period";
-  @SerializedName(SERIALIZED_NAME_PERIOD)
+  public static final String JSON_PROPERTY_PERIOD = "period";
   private Integer period;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
-  public static final String SERIALIZED_NAME_UNTIL_DATE = "until_date";
-  @SerializedName(SERIALIZED_NAME_UNTIL_DATE)
-  private Long untilDate;
+  public static final String JSON_PROPERTY_UNTIL_DATE = "until_date";
+  private JsonNullable<Long> untilDate = JsonNullable.<Long>undefined();
 
-  public static final String SERIALIZED_NAME_UNTIL_OCCURRENCES = "until_occurrences";
-  @SerializedName(SERIALIZED_NAME_UNTIL_OCCURRENCES)
-  private Integer untilOccurrences;
+  public static final String JSON_PROPERTY_UNTIL_OCCURRENCES = "until_occurrences";
+  private JsonNullable<Integer> untilOccurrences = JsonNullable.<Integer>undefined();
 
-  public static final String SERIALIZED_NAME_WEEK_DAYS = "week_days";
-  @SerializedName(SERIALIZED_NAME_WEEK_DAYS)
-  private List<String> weekDays = new ArrayList<String>();
+  public static final String JSON_PROPERTY_WEEK_DAYS = "week_days";
+  private List<String> weekDays = null;
+
 
   public DowntimeRecurrence period(Integer period) {
+    
     this.period = period;
     return this;
   }
@@ -58,16 +55,24 @@ public class DowntimeRecurrence {
    * Get period
    * @return period
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
+  @JsonProperty(JSON_PROPERTY_PERIOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getPeriod() {
     return period;
   }
+
+
 
   public void setPeriod(Integer period) {
     this.period = period;
   }
 
+
   public DowntimeRecurrence type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -76,17 +81,25 @@ public class DowntimeRecurrence {
    * Get type
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "weeks", value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getType() {
     return type;
   }
+
+
 
   public void setType(String type) {
     this.type = type;
   }
 
+
   public DowntimeRecurrence untilDate(Long untilDate) {
-    this.untilDate = untilDate;
+    this.untilDate = JsonNullable.<Long>of(untilDate);
+    
     return this;
   }
 
@@ -94,17 +107,33 @@ public class DowntimeRecurrence {
    * Get untilDate
    * @return untilDate
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1447786293", value = "")
+
   public Long getUntilDate() {
+        return untilDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_UNTIL_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getUntilDate_JsonNullable() {
     return untilDate;
   }
 
-  public void setUntilDate(Long untilDate) {
+  @JsonProperty(JSON_PROPERTY_UNTIL_DATE)
+  public void setUntilDate_JsonNullable(JsonNullable<Long> untilDate) {
     this.untilDate = untilDate;
   }
 
+  public void setUntilDate(Long untilDate) {
+    this.untilDate = JsonNullable.<Long>of(untilDate);
+  }
+
+
   public DowntimeRecurrence untilOccurrences(Integer untilOccurrences) {
-    this.untilOccurrences = untilOccurrences;
+    this.untilOccurrences = JsonNullable.<Integer>of(untilOccurrences);
+    
     return this;
   }
 
@@ -112,16 +141,32 @@ public class DowntimeRecurrence {
    * Get untilOccurrences
    * @return untilOccurrences
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "2", value = "")
+
   public Integer getUntilOccurrences() {
+        return untilOccurrences.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_UNTIL_OCCURRENCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getUntilOccurrences_JsonNullable() {
     return untilOccurrences;
   }
 
-  public void setUntilOccurrences(Integer untilOccurrences) {
+  @JsonProperty(JSON_PROPERTY_UNTIL_OCCURRENCES)
+  public void setUntilOccurrences_JsonNullable(JsonNullable<Integer> untilOccurrences) {
     this.untilOccurrences = untilOccurrences;
   }
 
+  public void setUntilOccurrences(Integer untilOccurrences) {
+    this.untilOccurrences = JsonNullable.<Integer>of(untilOccurrences);
+  }
+
+
   public DowntimeRecurrence weekDays(List<String> weekDays) {
+    
     this.weekDays = weekDays;
     return this;
   }
@@ -138,10 +183,16 @@ public class DowntimeRecurrence {
    * Get weekDays
    * @return weekDays
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "[\"Mon\",\"Tue\"]", value = "")
+  @JsonProperty(JSON_PROPERTY_WEEK_DAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getWeekDays() {
     return weekDays;
   }
+
+
 
   public void setWeekDays(List<String> weekDays) {
     this.weekDays = weekDays;

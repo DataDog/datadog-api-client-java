@@ -13,14 +13,12 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * UserCreatePayload
@@ -30,7 +28,6 @@ public class UserCreatePayload {
   /**
    * Gets or Sets accessRole
    */
-  @JsonAdapter(AccessRoleEnum.Adapter.class)
   public enum AccessRoleEnum {
     ST("st"),
     
@@ -44,6 +41,7 @@ public class UserCreatePayload {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -53,6 +51,7 @@ public class UserCreatePayload {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static AccessRoleEnum fromValue(String value) {
       for (AccessRoleEnum b : AccessRoleEnum.values()) {
         if (b.value.equals(value)) {
@@ -61,34 +60,23 @@ public class UserCreatePayload {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<AccessRoleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AccessRoleEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public AccessRoleEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return AccessRoleEnum.fromValue(value);
-      }
-    }
   }
 
-  public static final String SERIALIZED_NAME_ACCESS_ROLE = "access_role";
-  @SerializedName(SERIALIZED_NAME_ACCESS_ROLE)
+  public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";
   private AccessRoleEnum accessRole;
 
-  public static final String SERIALIZED_NAME_HANDLE = "handle";
-  @SerializedName(SERIALIZED_NAME_HANDLE)
+  public static final String JSON_PROPERTY_EMAIL = "email";
+  private String email;
+
+  public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+
   public UserCreatePayload accessRole(AccessRoleEnum accessRole) {
+    
     this.accessRole = accessRole;
     return this;
   }
@@ -97,16 +85,50 @@ public class UserCreatePayload {
    * Get accessRole
    * @return accessRole
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "st", value = "")
+  @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public AccessRoleEnum getAccessRole() {
     return accessRole;
   }
+
+
 
   public void setAccessRole(AccessRoleEnum accessRole) {
     this.accessRole = accessRole;
   }
 
+
+  public UserCreatePayload email(String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "test@datadoghq.com", value = "")
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getEmail() {
+    return email;
+  }
+
+
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
   public UserCreatePayload handle(String handle) {
+    
     this.handle = handle;
     return this;
   }
@@ -116,15 +138,22 @@ public class UserCreatePayload {
    * @return handle
   **/
   @ApiModelProperty(example = "test@datadoghq.com", required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getHandle() {
     return handle;
   }
+
+
 
   public void setHandle(String handle) {
     this.handle = handle;
   }
 
+
   public UserCreatePayload name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -133,10 +162,16 @@ public class UserCreatePayload {
    * Get name
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "test user", value = "")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
+
 
   public void setName(String name) {
     this.name = name;
@@ -153,13 +188,14 @@ public class UserCreatePayload {
     }
     UserCreatePayload userCreatePayload = (UserCreatePayload) o;
     return Objects.equals(this.accessRole, userCreatePayload.accessRole) &&
+        Objects.equals(this.email, userCreatePayload.email) &&
         Objects.equals(this.handle, userCreatePayload.handle) &&
         Objects.equals(this.name, userCreatePayload.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessRole, handle, name);
+    return Objects.hash(accessRole, email, handle, name);
   }
 
 
@@ -168,6 +204,7 @@ public class UserCreatePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserCreatePayload {\n");
     sb.append("    accessRole: ").append(toIndentedString(accessRole)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
