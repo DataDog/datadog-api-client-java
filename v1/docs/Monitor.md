@@ -34,7 +34,7 @@ EVENT_ALERT | &quot;event alert&quot;
 PROCESS_ALERT | &quot;process alert&quot;
 LOG_ALERT | &quot;log alert&quot;
 METRIC_ALERT | &quot;metric alert&quot;
-SYNTHETICS | &quot;synthetics&quot;
+SYNTHETICS_ALERT | &quot;synthetics alert&quot;
 
 
 

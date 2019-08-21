@@ -88,7 +88,7 @@ public class Monitor {
     
     METRIC_ALERT("metric alert"),
     
-    SYNTHETICS("synthetics");
+    SYNTHETICS_ALERT("synthetics alert");
 
     private String value;
 
