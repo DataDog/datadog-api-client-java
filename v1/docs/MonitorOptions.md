@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **requireFullWindow** | **Boolean** |  |  [optional]
 **silenced** | **Map&lt;String, Long&gt;** |  |  [optional]
 **syntheticsCheckId** | **Long** |  |  [optional]
+**thresholdWindows** | [**MonitorThresholdWindows**](MonitorThresholdWindows.md) |  |  [optional]
 **thresholds** | [**MonitorThresholds**](MonitorThresholds.md) |  |  [optional]
 **timeoutH** | **Integer** |  |  [optional]
 
