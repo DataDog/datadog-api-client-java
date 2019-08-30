@@ -21,8 +21,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * MonitorState
@@ -30,26 +31,26 @@ import java.util.List;
 
 public class MonitorState {
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  private List<MonitorStateGroup> groups = null;
+  private Map<String, MonitorStateGroup> groups = null;
 
   public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
-  private Integer monitorId;
+  private Long monitorId;
 
   public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
   private MonitorOverallStates overallState;
 
 
-  public MonitorState groups(List<MonitorStateGroup> groups) {
+  public MonitorState groups(Map<String, MonitorStateGroup> groups) {
     
     this.groups = groups;
     return this;
   }
 
-  public MonitorState addGroupsItem(MonitorStateGroup groupsItem) {
+  public MonitorState putGroupsItem(String key, MonitorStateGroup groupsItem) {
     if (this.groups == null) {
-      this.groups = new ArrayList<MonitorStateGroup>();
+      this.groups = new HashMap<String, MonitorStateGroup>();
     }
-    this.groups.add(groupsItem);
+    this.groups.put(key, groupsItem);
     return this;
   }
 
@@ -62,18 +63,18 @@ public class MonitorState {
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<MonitorStateGroup> getGroups() {
+  public Map<String, MonitorStateGroup> getGroups() {
     return groups;
   }
 
 
 
-  public void setGroups(List<MonitorStateGroup> groups) {
+  public void setGroups(Map<String, MonitorStateGroup> groups) {
     this.groups = groups;
   }
 
 
-  public MonitorState monitorId(Integer monitorId) {
+  public MonitorState monitorId(Long monitorId) {
     
     this.monitorId = monitorId;
     return this;
@@ -88,13 +89,13 @@ public class MonitorState {
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getMonitorId() {
+  public Long getMonitorId() {
     return monitorId;
   }
 
 
 
-  public void setMonitorId(Integer monitorId) {
+  public void setMonitorId(Long monitorId) {
     this.monitorId = monitorId;
   }
 

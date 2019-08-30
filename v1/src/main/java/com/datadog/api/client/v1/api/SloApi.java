@@ -216,7 +216,7 @@ public class SloApi {
      </table>
    */
   public ApiResponse<ServiceLevelObjectiveDeleted> deleteSloWithHttpInfo(Long sloId) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // verify the required parameter 'sloId' is set
     if (sloId == null) {
@@ -365,7 +365,7 @@ public class SloApi {
      </table>
    */
   public ApiResponse<ServiceLevelObjectiveResponse> getSloWithHttpInfo(String sloId) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // verify the required parameter 'sloId' is set
     if (sloId == null) {
@@ -434,7 +434,7 @@ public class SloApi {
      </table>
    */
   public ApiResponse<ServiceLevelObjectiveResponse> getSlosWithHttpInfo(String ids) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
     if (ids == null) {

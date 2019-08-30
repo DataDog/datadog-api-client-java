@@ -203,7 +203,7 @@ public class AwsIntegrationApi {
      </table>
    */
   public ApiResponse<Map<String, List<AWSAccount>>> getAllAWSAccountsWithHttpInfo(String accountId, String roleName, String accessKeyId) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";

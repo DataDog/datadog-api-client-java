@@ -13,6 +13,7 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.client.v1.model.MonitorThresholdWindows;
 import com.datadog.api.client.v1.model.MonitorThresholds;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -117,6 +118,9 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_SYNTHETICS_CHECK_ID = "synthetics_check_id";
   private Long syntheticsCheckId;
+
+  public static final String JSON_PROPERTY_THRESHOLD_WINDOWS = "threshold_windows";
+  private MonitorThresholdWindows thresholdWindows;
 
   public static final String JSON_PROPERTY_THRESHOLDS = "thresholds";
   private MonitorThresholds thresholds;
@@ -585,6 +589,32 @@ public class MonitorOptions {
   }
 
 
+  public MonitorOptions thresholdWindows(MonitorThresholdWindows thresholdWindows) {
+    
+    this.thresholdWindows = thresholdWindows;
+    return this;
+  }
+
+   /**
+   * Get thresholdWindows
+   * @return thresholdWindows
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THRESHOLD_WINDOWS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public MonitorThresholdWindows getThresholdWindows() {
+    return thresholdWindows;
+  }
+
+
+
+  public void setThresholdWindows(MonitorThresholdWindows thresholdWindows) {
+    this.thresholdWindows = thresholdWindows;
+  }
+
+
   public MonitorOptions thresholds(MonitorThresholds thresholds) {
     
     this.thresholds = thresholds;
@@ -663,13 +693,14 @@ public class MonitorOptions {
         Objects.equals(this.requireFullWindow, monitorOptions.requireFullWindow) &&
         Objects.equals(this.silenced, monitorOptions.silenced) &&
         Objects.equals(this.syntheticsCheckId, monitorOptions.syntheticsCheckId) &&
+        Objects.equals(this.thresholdWindows, monitorOptions.thresholdWindows) &&
         Objects.equals(this.thresholds, monitorOptions.thresholds) &&
         Objects.equals(this.timeoutH, monitorOptions.timeoutH);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, deviceIds, enableLogsSample, escalationMessage, evaluationDelay, includeTags, locked, minFailureDuration, minLocationFailed, newHostDelay, noDataTimeframe, notifyAudit, notifyNoData, renotifyInterval, requireFullWindow, silenced, syntheticsCheckId, thresholds, timeoutH);
+    return Objects.hash(aggregation, deviceIds, enableLogsSample, escalationMessage, evaluationDelay, includeTags, locked, minFailureDuration, minLocationFailed, newHostDelay, noDataTimeframe, notifyAudit, notifyNoData, renotifyInterval, requireFullWindow, silenced, syntheticsCheckId, thresholdWindows, thresholds, timeoutH);
   }
 
 
@@ -694,6 +725,7 @@ public class MonitorOptions {
     sb.append("    requireFullWindow: ").append(toIndentedString(requireFullWindow)).append("\n");
     sb.append("    silenced: ").append(toIndentedString(silenced)).append("\n");
     sb.append("    syntheticsCheckId: ").append(toIndentedString(syntheticsCheckId)).append("\n");
+    sb.append("    thresholdWindows: ").append(toIndentedString(thresholdWindows)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("    timeoutH: ").append(toIndentedString(timeoutH)).append("\n");
     sb.append("}");
