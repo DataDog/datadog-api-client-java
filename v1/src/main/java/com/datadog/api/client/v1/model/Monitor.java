@@ -16,6 +16,7 @@ import java.util.Arrays;
 import com.datadog.api.client.v1.model.Creator;
 import com.datadog.api.client.v1.model.MonitorOptions;
 import com.datadog.api.client.v1.model.MonitorOverallStates;
+import com.datadog.api.client.v1.model.MonitorState;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
 
 public class Monitor {
   public static final String JSON_PROPERTY_CREATED = "created";
-  private String created;
+  private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_CREATOR = "creator";
   private Creator creator;
@@ -47,7 +48,7 @@ public class Monitor {
   private String message;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
-  private String modified;
+  private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_MULTI = "multi";
   private Boolean multi;
@@ -65,7 +66,7 @@ public class Monitor {
   private String query;
 
   public static final String JSON_PROPERTY_STATE = "state";
-  private MonitorOptions state;
+  private MonitorState state;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -121,7 +122,7 @@ public class Monitor {
   private TypeEnum type;
 
 
-  public Monitor created(String created) {
+  public Monitor created(OffsetDateTime created) {
     
     this.created = created;
     return this;
@@ -136,13 +137,13 @@ public class Monitor {
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getCreated() {
+  public OffsetDateTime getCreated() {
     return created;
   }
 
 
 
-  public void setCreated(String created) {
+  public void setCreated(OffsetDateTime created) {
     this.created = created;
   }
 
@@ -251,7 +252,7 @@ public class Monitor {
   }
 
 
-  public Monitor modified(String modified) {
+  public Monitor modified(OffsetDateTime modified) {
     
     this.modified = modified;
     return this;
@@ -266,13 +267,13 @@ public class Monitor {
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getModified() {
+  public OffsetDateTime getModified() {
     return modified;
   }
 
 
 
-  public void setModified(String modified) {
+  public void setModified(OffsetDateTime modified) {
     this.modified = modified;
   }
 
@@ -406,7 +407,7 @@ public class Monitor {
   }
 
 
-  public Monitor state(MonitorOptions state) {
+  public Monitor state(MonitorState state) {
     
     this.state = state;
     return this;
@@ -421,13 +422,13 @@ public class Monitor {
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public MonitorOptions getState() {
+  public MonitorState getState() {
     return state;
   }
 
 
 
-  public void setState(MonitorOptions state) {
+  public void setState(MonitorState state) {
     this.state = state;
   }
 

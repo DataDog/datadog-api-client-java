@@ -142,7 +142,7 @@ public class UsersApi {
      </table>
    */
   public ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHandle) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // verify the required parameter 'userHandle' is set
     if (userHandle == null) {
@@ -207,7 +207,7 @@ public class UsersApi {
      </table>
    */
   public ApiResponse<UserGetAllResponse> getAllUsersWithHttpInfo() throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // create path and map variables
     String localVarPath = "/api/v1/user";
@@ -268,7 +268,7 @@ public class UsersApi {
      </table>
    */
   public ApiResponse<UserGetResponse> getUserWithHttpInfo(String userHandle) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // verify the required parameter 'userHandle' is set
     if (userHandle == null) {

@@ -138,7 +138,7 @@ public class MonitorsApi {
      </table>
    */
   public ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // verify the required parameter 'monitorId' is set
     if (monitorId == null) {
@@ -287,7 +287,7 @@ public class MonitorsApi {
      </table>
    */
   public ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates, String name, String tags, String monitorTags, Boolean withDowntimes) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // create path and map variables
     String localVarPath = "/api/v1/monitor";
@@ -355,7 +355,7 @@ public class MonitorsApi {
      </table>
    */
   public ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String groupStates) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // verify the required parameter 'monitorId' is set
     if (monitorId == null) {

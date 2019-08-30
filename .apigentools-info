@@ -1,10 +1,8 @@
 {
-    "additional_stamps": [
-        "openapi-generator-commit=4575b30"
-    ],
-    "apigentools_version": "0.2.0.dev1",
-    "codegen_version": "4.1.1-SNAPSHOT",
+    "additional_stamps": [],
+    "apigentools_version": "0.2.0",
+    "codegen_version": "4.1.1",
     "info_version": "1",
-    "image": null,
-    "spec_repo_commit": "f8f1492"
+    "image": "apigentools/apigentools:0.2.0",
+    "spec_repo_commit": "7e8e006"
 }

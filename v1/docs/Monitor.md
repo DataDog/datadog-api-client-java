@@ -6,18 +6,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **String** |  |  [optional]
+**created** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **creator** | [**Creator**](Creator.md) |  |  [optional]
 **deleted** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **id** | **Long** | ID of this monitor |  [optional]
 **message** | **String** | A message to include with notifications for this monitor. |  [optional]
-**modified** | **String** |  |  [optional]
+**modified** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **multi** | **Boolean** |  |  [optional]
 **name** | **String** |  |  [optional]
 **options** | [**MonitorOptions**](MonitorOptions.md) |  |  [optional]
 **overallState** | [**MonitorOverallStates**](MonitorOverallStates.md) |  |  [optional]
 **query** | **String** |  | 
-**state** | [**MonitorOptions**](MonitorOptions.md) |  |  [optional]
+**state** | [**MonitorState**](MonitorState.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | The type of the monitor | 
 

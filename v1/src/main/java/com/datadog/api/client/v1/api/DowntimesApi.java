@@ -70,7 +70,7 @@ public class DowntimesApi {
      </table>
    */
   public ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // verify the required parameter 'downtimeId' is set
     if (downtimeId == null) {
@@ -265,7 +265,7 @@ public class DowntimesApi {
      </table>
    */
   public ApiResponse<List<Downtime>> getAllDowntimesWithHttpInfo(Boolean currentOnly) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // create path and map variables
     String localVarPath = "/api/v1/downtime";
@@ -325,7 +325,7 @@ public class DowntimesApi {
      </table>
    */
   public ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws ApiException {
-    Object localVarPostBody = new Object();
+    Object localVarPostBody = null;
     
     // verify the required parameter 'downtimeId' is set
     if (downtimeId == null) {

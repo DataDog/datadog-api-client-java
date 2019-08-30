@@ -33,7 +33,7 @@ public class MonitorState {
   private List<MonitorStateGroup> groups = null;
 
   public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
-  private Integer monitorId;
+  private Long monitorId;
 
   public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
   private MonitorOverallStates overallState;
@@ -73,7 +73,7 @@ public class MonitorState {
   }
 
 
-  public MonitorState monitorId(Integer monitorId) {
+  public MonitorState monitorId(Long monitorId) {
     
     this.monitorId = monitorId;
     return this;
@@ -88,13 +88,13 @@ public class MonitorState {
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getMonitorId() {
+  public Long getMonitorId() {
     return monitorId;
   }
 
 
 
-  public void setMonitorId(Integer monitorId) {
+  public void setMonitorId(Long monitorId) {
     this.monitorId = monitorId;
   }
 

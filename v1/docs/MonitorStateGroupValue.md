@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fromTs** | **Float** |  |  [optional]
+**fromTs** | **Long** |  |  [optional]
 **left** | **Float** |  |  [optional]
 **right** | **Float** |  |  [optional]
 **toTs** | **Long** |  |  [optional]

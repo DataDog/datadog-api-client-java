@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **groups** | [**List&lt;MonitorStateGroup&gt;**](MonitorStateGroup.md) |  |  [optional]
-**monitorId** | **Integer** |  |  [optional]
+**monitorId** | **Long** |  |  [optional]
 **overallState** | [**MonitorOverallStates**](MonitorOverallStates.md) |  |  [optional]
 
 

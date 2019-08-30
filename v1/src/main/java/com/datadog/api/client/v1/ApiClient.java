@@ -671,7 +671,7 @@ public class ApiClient {
       }
     }
 
-    Entity<?> entity = serialize(body, formParams, contentType);
+    Entity<?> entity = (body == null) ? Entity.json("") : serialize(body, formParams, contentType);
 
     Response response = null;
 
@@ -683,12 +683,7 @@ public class ApiClient {
       } else if ("PUT".equals(method)) {
         response = invocationBuilder.put(entity);
       } else if ("DELETE".equals(method)) {
-        // if body is null or Object, no entity was passed in => call delete without payload
-        if (body == null || body.getClass() == java.lang.Object.class) {
-          response = invocationBuilder.delete();
-        } else {
-          response = invocationBuilder.method("DELETE", entity);
-        }
+        response = invocationBuilder.method("DELETE", entity);
       } else if ("PATCH".equals(method)) {
         response = invocationBuilder.method("PATCH", entity);
       } else if ("HEAD".equals(method)) {
@@ -756,8 +751,8 @@ public class ApiClient {
       // Set logger to ALL
       java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME).setLevel(java.util.logging.Level.ALL);
     } else {
-      // suppress warnings for payloads with DELETE calls
-      java.util.logging.Logger.getLogger("org.glassfish.jersey").setLevel(java.util.logging.Level.SEVERE);
+      // suppress warnings for payloads with DELETE calls:
+      java.util.logging.Logger.getLogger("org.glassfish.jersey.client").setLevel(java.util.logging.Level.SEVERE);
     }
     performAdditionalClientConfiguration(clientConfig);
     return ClientBuilder.newClient(clientConfig);

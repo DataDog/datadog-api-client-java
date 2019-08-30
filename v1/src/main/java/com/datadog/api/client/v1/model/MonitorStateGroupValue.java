@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class MonitorStateGroupValue {
   public static final String JSON_PROPERTY_FROM_TS = "from_ts";
-  private Float fromTs;
+  private Long fromTs;
 
   public static final String JSON_PROPERTY_LEFT = "left";
   private Float left;
@@ -41,7 +41,7 @@ public class MonitorStateGroupValue {
   private Float value;
 
 
-  public MonitorStateGroupValue fromTs(Float fromTs) {
+  public MonitorStateGroupValue fromTs(Long fromTs) {
     
     this.fromTs = fromTs;
     return this;
@@ -56,13 +56,13 @@ public class MonitorStateGroupValue {
   @JsonProperty(JSON_PROPERTY_FROM_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getFromTs() {
+  public Long getFromTs() {
     return fromTs;
   }
 
 
 
-  public void setFromTs(Float fromTs) {
+  public void setFromTs(Long fromTs) {
     this.fromTs = fromTs;
   }
 
