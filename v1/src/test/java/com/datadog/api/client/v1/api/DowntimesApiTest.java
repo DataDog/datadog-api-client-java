@@ -137,7 +137,7 @@ public class DowntimesApiTest extends V1ApiTest {
         for (String prefix: prefixes) {
             boolean found = false;
             for (Downtime downtime: allDowntimes) {
-                if (downtime.getMessage().equals(prefix + testingDowntimeMessage)) {
+                if (downtime.getMessage() != null && downtime.getMessage().equals(prefix + testingDowntimeMessage)) {
                     found = true;
                 }
             }
@@ -169,7 +169,7 @@ public class DowntimesApiTest extends V1ApiTest {
         for (String prefix: prefixes) {
             boolean found = false;
             for (Downtime downtime: allDowntimes) {
-                if (downtime.getMessage().equals(prefix + testingDowntimeMessage)) {
+                if (downtime.getMessage() != null && downtime.getMessage().equals(prefix + testingDowntimeMessage)) {
                     found = true;
                     if (prefix == "3") {
                         assertNull(downtime.getCanceled());
