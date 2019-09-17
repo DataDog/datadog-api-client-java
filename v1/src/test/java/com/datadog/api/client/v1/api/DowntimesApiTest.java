@@ -45,6 +45,7 @@ public class DowntimesApiTest extends V1ApiTest {
     private final String testingDowntimeRecurrenceType = "weeks";
     private final Integer testingDowntimeRecurrencePeriod = 1;
     private final List<String> testingDowntimeRecurrenceWeekDays = Arrays.asList("Mon", "Tue");
+    private final Integer testingUntilDowntimeRecurrenceOccurrences = 10;
 
     @Before
     public void resetDeleteDowntimes() {
@@ -79,7 +80,8 @@ public class DowntimesApiTest extends V1ApiTest {
         DowntimeRecurrence recurrence = new DowntimeRecurrence()
             .type(testingDowntimeRecurrenceType)
             .period(testingDowntimeRecurrencePeriod)
-            .weekDays(testingDowntimeRecurrenceWeekDays);
+            .weekDays(testingDowntimeRecurrenceWeekDays)
+            .untilOccurrences(testingUntilDowntimeRecurrenceOccurrences);
 
         Downtime downtime = new Downtime()
             .scope(testingDowntimeScope)
@@ -101,6 +103,7 @@ public class DowntimesApiTest extends V1ApiTest {
         assertEquals(testingDowntimeRecurrenceType, obtained.getRecurrence().getType());
         assertEquals(testingDowntimeRecurrencePeriod, obtained.getRecurrence().getPeriod());
         assertEquals(testingDowntimeRecurrenceWeekDays, obtained.getRecurrence().getWeekDays());
+        assertEquals(testingUntilDowntimeRecurrenceOccurrences, obtained.getRecurrence().getUntilOccurrences());
 
         // test updating downtime
         downtime.setMessage("New message");
@@ -113,6 +116,7 @@ public class DowntimesApiTest extends V1ApiTest {
         assertEquals(testingDowntimeRecurrenceType, obtained.getRecurrence().getType());
         assertEquals(testingDowntimeRecurrencePeriod, obtained.getRecurrence().getPeriod());
         assertEquals(testingDowntimeRecurrenceWeekDays, obtained.getRecurrence().getWeekDays());
+        assertEquals(testingUntilDowntimeRecurrenceOccurrences, obtained.getRecurrence().getUntilOccurrences());
 
         // test canceling downtime
         api.cancelDowntime(downtimeId);
