@@ -75,21 +75,23 @@ public class Monitor {
    * The type of the monitor
    */
   public enum TypeEnum {
-    QUERY_ALERT("query alert"),
-    
     COMPOSITE("composite"),
     
-    SERVICE_CHECK("service check"),
-    
     EVENT_ALERT("event alert"),
-    
-    PROCESS_ALERT("process alert"),
     
     LOG_ALERT("log alert"),
     
     METRIC_ALERT("metric alert"),
     
-    SYNTHETICS_ALERT("synthetics alert");
+    PROCESS_ALERT("process alert"),
+    
+    QUERY_ALERT("query alert"),
+    
+    SERVICE_CHECK("service check"),
+    
+    SYNTHETICS_ALERT("synthetics alert"),
+    
+    TRACE_ANALYTICS_ALERT("trace-analytics alert");
 
     private String value;
 

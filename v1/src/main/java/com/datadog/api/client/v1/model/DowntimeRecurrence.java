@@ -109,6 +109,7 @@ public class DowntimeRecurrence {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1447786293", value = "")
+  @com.fasterxml.jackson.annotation.JsonIgnore
 
   public Long getUntilDate() {
         return untilDate.orElse(null);
@@ -143,6 +144,7 @@ public class DowntimeRecurrence {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2", value = "")
+  @com.fasterxml.jackson.annotation.JsonIgnore
 
   public Integer getUntilOccurrences() {
         return untilOccurrences.orElse(null);
