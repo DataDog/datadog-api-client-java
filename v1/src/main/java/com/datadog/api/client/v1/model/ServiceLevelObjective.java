@@ -210,6 +210,7 @@ public class ServiceLevelObjective {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A user-defined description of the service level objective. Always included in service level objective responses (but may be null). Optional in create/update requests.")
+  @com.fasterxml.jackson.annotation.JsonIgnore
 
   public String getDescription() {
         return description.orElse(null);

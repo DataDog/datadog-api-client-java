@@ -22,19 +22,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum MonitorOverallStates {
   
-  OK("OK"),
-  
-  WARN("Warn"),
-  
   ALERT("Alert"),
-  
-  NO_DATA("No Data"),
   
   IGNORED("Ignored"),
   
+  NO_DATA("No Data"),
+  
+  OK("OK"),
+  
   SKIPPED("Skipped"),
   
-  UNKNOWN("Unknown");
+  UNKNOWN("Unknown"),
+  
+  WARN("Warn");
 
   private String value;
 

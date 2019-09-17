@@ -6,11 +6,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**critical** | **Integer** |  |  [optional]
-**criticalRecovery** | **Integer** |  |  [optional]
-**ok** | **Integer** |  |  [optional]
-**warning** | **Integer** |  |  [optional]
-**warningRecovery** | **Integer** |  |  [optional]
+**critical** | **Float** |  |  [optional]
+**criticalRecovery** | **Float** |  |  [optional]
+**ok** | **Float** |  |  [optional]
+**warning** | **Float** |  |  [optional]
+**warningRecovery** | **Float** |  |  [optional]
 
 
 

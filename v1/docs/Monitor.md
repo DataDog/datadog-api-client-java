@@ -27,14 +27,15 @@ Name | Type | Description | Notes
 
 Name | Value
 ---- | -----
-QUERY_ALERT | &quot;query alert&quot;
 COMPOSITE | &quot;composite&quot;
-SERVICE_CHECK | &quot;service check&quot;
 EVENT_ALERT | &quot;event alert&quot;
-PROCESS_ALERT | &quot;process alert&quot;
 LOG_ALERT | &quot;log alert&quot;
 METRIC_ALERT | &quot;metric alert&quot;
+PROCESS_ALERT | &quot;process alert&quot;
+QUERY_ALERT | &quot;query alert&quot;
+SERVICE_CHECK | &quot;service check&quot;
 SYNTHETICS_ALERT | &quot;synthetics alert&quot;
+TRACE_ANALYTICS_ALERT | &quot;trace-analytics alert&quot;
 
 
 

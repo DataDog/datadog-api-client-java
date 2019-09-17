@@ -5,19 +5,19 @@
 ## Enum
 
 
-* `OK` (value: `"OK"`)
-
-* `WARN` (value: `"Warn"`)
-
 * `ALERT` (value: `"Alert"`)
+
+* `IGNORED` (value: `"Ignored"`)
 
 * `NO_DATA` (value: `"No Data"`)
 
-* `IGNORED` (value: `"Ignored"`)
+* `OK` (value: `"OK"`)
 
 * `SKIPPED` (value: `"Skipped"`)
 
 * `UNKNOWN` (value: `"Unknown"`)
+
+* `WARN` (value: `"Warn"`)
 
 
 

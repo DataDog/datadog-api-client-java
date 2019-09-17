@@ -26,22 +26,22 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class MonitorThresholds {
   public static final String JSON_PROPERTY_CRITICAL = "critical";
-  private Integer critical;
+  private Float critical;
 
   public static final String JSON_PROPERTY_CRITICAL_RECOVERY = "critical_recovery";
-  private Integer criticalRecovery;
+  private Float criticalRecovery;
 
   public static final String JSON_PROPERTY_OK = "ok";
-  private Integer ok;
+  private Float ok;
 
   public static final String JSON_PROPERTY_WARNING = "warning";
-  private Integer warning;
+  private Float warning;
 
   public static final String JSON_PROPERTY_WARNING_RECOVERY = "warning_recovery";
-  private Integer warningRecovery;
+  private Float warningRecovery;
 
 
-  public MonitorThresholds critical(Integer critical) {
+  public MonitorThresholds critical(Float critical) {
     
     this.critical = critical;
     return this;
@@ -56,18 +56,18 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getCritical() {
+  public Float getCritical() {
     return critical;
   }
 
 
 
-  public void setCritical(Integer critical) {
+  public void setCritical(Float critical) {
     this.critical = critical;
   }
 
 
-  public MonitorThresholds criticalRecovery(Integer criticalRecovery) {
+  public MonitorThresholds criticalRecovery(Float criticalRecovery) {
     
     this.criticalRecovery = criticalRecovery;
     return this;
@@ -82,18 +82,18 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getCriticalRecovery() {
+  public Float getCriticalRecovery() {
     return criticalRecovery;
   }
 
 
 
-  public void setCriticalRecovery(Integer criticalRecovery) {
+  public void setCriticalRecovery(Float criticalRecovery) {
     this.criticalRecovery = criticalRecovery;
   }
 
 
-  public MonitorThresholds ok(Integer ok) {
+  public MonitorThresholds ok(Float ok) {
     
     this.ok = ok;
     return this;
@@ -108,18 +108,18 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getOk() {
+  public Float getOk() {
     return ok;
   }
 
 
 
-  public void setOk(Integer ok) {
+  public void setOk(Float ok) {
     this.ok = ok;
   }
 
 
-  public MonitorThresholds warning(Integer warning) {
+  public MonitorThresholds warning(Float warning) {
     
     this.warning = warning;
     return this;
@@ -134,18 +134,18 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getWarning() {
+  public Float getWarning() {
     return warning;
   }
 
 
 
-  public void setWarning(Integer warning) {
+  public void setWarning(Float warning) {
     this.warning = warning;
   }
 
 
-  public MonitorThresholds warningRecovery(Integer warningRecovery) {
+  public MonitorThresholds warningRecovery(Float warningRecovery) {
     
     this.warningRecovery = warningRecovery;
     return this;
@@ -160,13 +160,13 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_WARNING_RECOVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getWarningRecovery() {
+  public Float getWarningRecovery() {
     return warningRecovery;
   }
 
 
 
-  public void setWarningRecovery(Integer warningRecovery) {
+  public void setWarningRecovery(Float warningRecovery) {
     this.warningRecovery = warningRecovery;
   }
 

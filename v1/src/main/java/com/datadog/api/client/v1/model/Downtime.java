@@ -95,12 +95,14 @@ public class Downtime {
 
 
 
+
    /**
    * Get canceled
    * @return canceled
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1412799983", value = "")
+  @com.fasterxml.jackson.annotation.JsonIgnore
 
   public Long getCanceled() {
     
@@ -117,6 +119,11 @@ public class Downtime {
     return canceled;
   }
 
+  @JsonProperty(JSON_PROPERTY_CANCELED)
+  private void setCanceled_JsonNullable(JsonNullable<Long> canceled) {
+    this.canceled = canceled;
+  }
+
 
 
    /**
@@ -131,6 +138,7 @@ public class Downtime {
   public Integer getCreatorId() {
     return creatorId;
   }
+
 
 
 
@@ -177,6 +185,7 @@ public class Downtime {
 
 
 
+
   public Downtime end(Long end) {
     this.end = JsonNullable.<Long>of(end);
     
@@ -189,6 +198,7 @@ public class Downtime {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1412793983", value = "")
+  @com.fasterxml.jackson.annotation.JsonIgnore
 
   public Long getEnd() {
         return end.orElse(null);
@@ -223,6 +233,7 @@ public class Downtime {
   public Long getId() {
     return id;
   }
+
 
 
 
@@ -265,6 +276,7 @@ public class Downtime {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "123456", value = "")
+  @com.fasterxml.jackson.annotation.JsonIgnore
 
   public Integer getMonitorId() {
         return monitorId.orElse(null);
@@ -333,6 +345,7 @@ public class Downtime {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "123", value = "")
+  @com.fasterxml.jackson.annotation.JsonIgnore
 
   public Integer getParentId() {
         return parentId.orElse(null);
@@ -367,6 +380,7 @@ public class Downtime {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @com.fasterxml.jackson.annotation.JsonIgnore
 
   public DowntimeRecurrence getRecurrence() {
         return recurrence.orElse(null);
@@ -487,6 +501,7 @@ public class Downtime {
   public Integer getUpdaterId() {
     return updaterId;
   }
+
 
 
 
