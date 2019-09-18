@@ -2,10 +2,7 @@
 
 This repository contains a Java API client for [Datadog API](https://docs.datadoghq.com/api/).  
 The code is generated using [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
-and [apigentools](https://github.com/DataDog/apigentools). All modifications (except the
-example application and unittests) should be changed directly in
-[datadog-api-spec repo](https://github.com/DataDog/datadog-api-spec), which contains the OpenAPI
-spec for the Datadog API as well as configuration for the tools used for code generation.
+and [apigentools](https://github.com/DataDog/apigentools).
 
 ## Layout
 
@@ -30,3 +27,14 @@ to dependencies of your project by adding following entry to your `pom.xml` depe
 
 All the documentation for this package is available through `v1/README.md` and Javadocs
 on Maven Central.
+
+## Contributing
+
+As most of the code in this repository is generated, we will only accept PRs for files
+that are not modified by our code-generation machinery (changes to the generated files
+would get overwritten). A list of files that we will happily accept contributions for
+follows:
+
+* `v1/.gitignore`
+* `v1/pom.xml`
+* `v1/src/test/*`
