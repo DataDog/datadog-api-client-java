@@ -24,4 +24,14 @@ build
 .classpath
 .project
 .settings
+
+# Files produced by openapi-generator that we don't want/need
 .travis.yml
+build.gradle
+build.sbt
+git_push.sh
+gradle.properties
+gradle/
+gradlew
+gradlew.bat
+settings.gradle
