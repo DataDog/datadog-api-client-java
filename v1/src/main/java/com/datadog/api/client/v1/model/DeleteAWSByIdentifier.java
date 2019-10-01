@@ -42,7 +42,7 @@ public class DeleteAWSByIdentifier {
    * Get accountId
    * @return accountId
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "1234567", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -67,7 +67,7 @@ public class DeleteAWSByIdentifier {
    * Get roleName
    * @return roleName
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "DatadogAWSIntegrationRole", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ROLE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
