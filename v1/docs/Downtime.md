@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **end** | **Long** |  |  [optional]
 **id** | **Long** |  |  [optional]
 **message** | **String** |  |  [optional]
-**monitorId** | **Integer** |  |  [optional]
+**monitorId** | **Long** |  |  [optional]
 **monitorTags** | **List&lt;String&gt;** |  |  [optional]
 **parentId** | **Integer** |  |  [optional]
 **recurrence** | [**DowntimeRecurrence**](DowntimeRecurrence.md) |  |  [optional]

@@ -55,7 +55,7 @@ public class Downtime {
   private String message;
 
   public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
-  private JsonNullable<Integer> monitorId = JsonNullable.<Integer>undefined();
+  private JsonNullable<Long> monitorId = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_MONITOR_TAGS = "monitor_tags";
   private List<String> monitorTags = null;
@@ -264,8 +264,8 @@ public class Downtime {
   }
 
 
-  public Downtime monitorId(Integer monitorId) {
-    this.monitorId = JsonNullable.<Integer>of(monitorId);
+  public Downtime monitorId(Long monitorId) {
+    this.monitorId = JsonNullable.<Long>of(monitorId);
     
     return this;
   }
@@ -278,24 +278,24 @@ public class Downtime {
   @ApiModelProperty(example = "123456", value = "")
   @com.fasterxml.jackson.annotation.JsonIgnore
 
-  public Integer getMonitorId() {
+  public Long getMonitorId() {
         return monitorId.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getMonitorId_JsonNullable() {
+  public JsonNullable<Long> getMonitorId_JsonNullable() {
     return monitorId;
   }
 
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
-  public void setMonitorId_JsonNullable(JsonNullable<Integer> monitorId) {
+  public void setMonitorId_JsonNullable(JsonNullable<Long> monitorId) {
     this.monitorId = monitorId;
   }
 
-  public void setMonitorId(Integer monitorId) {
-    this.monitorId = JsonNullable.<Integer>of(monitorId);
+  public void setMonitorId(Long monitorId) {
+    this.monitorId = JsonNullable.<Long>of(monitorId);
   }
 
 
