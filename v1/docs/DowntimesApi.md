@@ -97,7 +97,11 @@ null (empty response body)
 
 Cancel downtimes by scope
 
-### Overview DELETE all Downtimes that match the scope of X ### Arguments * **&#x60;scope&#x60;** [*required*]: Cancel all downtimes with the given scope(s),   e.g.: &#x60;env:prod&#x60;, &#x60;role:db,role:db-slave&#x60;
+### Overview
+DELETE all Downtimes that match the scope of X
+### Arguments
+* **`scope`** [*required*]: Cancel all downtimes with the given scope(s),
+  e.g.: `env:prod`, `role:db,role:db-slave`
 
 ### Example
 
@@ -177,7 +181,47 @@ Name | Type | Description  | Notes
 
 Schedule a downtime
 
-* **&#x60;scope&#x60;** [*required*]: The scope(s) to which the downtime applies, e.g. &#x60;host:app2&#x60;.   Provide multiple scopes as a comma-separated list, e.g. &#x60;env:dev,env:prod&#x60;. The   resulting downtime applies to sources that matches ALL provided scopes (i.e.   &#x60;env:dev&#x60; **AND** &#x60;env:prod&#x60;), NOT any of them. * **&#x60;monitor_tags&#x60;** [*optional*, *default*&#x3D;**no monitor tag filter**]: A comma-separated   list of monitor tags, i.e. tags that are applied directly to monitors, *not* tags   that are used in monitor queries (which are filtered by the &#x60;scope&#x60; parameter), to   which the downtime applies. The resulting downtime applies to monitors that match   ALL provided monitor tags (i.e. &#x60;service:postgres&#x60; **AND** &#x60;team:frontend&#x60;), NOT any of them. * **&#x60;monitor_id&#x60;** [*optional*, *default*&#x3D;**None**]: A single monitor to which the downtime   applies. If not provided, the downtime applies to all monitors. * **&#x60;start&#x60;** [*optional*, *default*&#x3D;**None**]: POSIX timestamp to start the downtime.   If not provided, the downtime starts the moment it is created. * **&#x60;end&#x60;** [*optional*, *default*&#x3D;**None**]: POSIX timestamp to end the downtime.   If not provided, the downtime is in effect indefinitely (i.e. until you cancel it). * **&#x60;message&#x60;** [*optional*, *default*&#x3D;**None**]: A message to include with notifications   for this downtime. Email notifications can be sent to specific users by using    the same &#39;@username&#39; notation as events * **&#x60;timezone&#x60;** [*optional*, *default* &#x3D; **UTC**]: The timezone for the downtime. * **&#x60;recurrence&#x60;** [*optional*, *default*&#x3D;**None**]: An object defining the recurrence of the   downtime with a variety of parameters:   * **&#x60;type&#x60;** the type of recurrence. Choose from: &#x60;days&#x60;, &#x60;weeks&#x60;, &#x60;months&#x60;, &#x60;years&#x60;.   * **&#x60;period&#x60;** how often to repeat as an integer. For example to repeat every 3 days,     select a type of &#x60;days&#x60; and a period of &#x60;3&#x60;.   * **&#x60;week_days&#x60;** (optional) a list of week days to repeat on. Choose from: &#x60;Mon&#x60;,     &#x60;Tue&#x60;, &#x60;Wed&#x60;, &#x60;Thu&#x60;, &#x60;Fri&#x60;, &#x60;Sat&#x60; or &#x60;Sun&#x60;. Only applicable when &#x60;type&#x60; is &#x60;weeks&#x60;.     **First letter must be capitalized.**   * **&#x60;until_occurrences&#x60;** (optional) how many times the downtime is rescheduled.     **&#x60;until_occurrences&#x60; and &#x60;until_date&#x60;** are mutually exclusive   * **&#x60;until_date&#x60;** (optional) the date at which the recurrence should end     as a POSIX timestmap. **&#x60;until_occurrences&#x60; and &#x60;until_date&#x60;** are mutually exclusive
+* **`scope`** [*required*]: The scope(s) to which the downtime applies, e.g. `host:app2`.
+  Provide multiple scopes as a comma-separated list, e.g. `env:dev,env:prod`. The
+  resulting downtime applies to sources that matches ALL provided scopes (i.e.
+  `env:dev` **AND** `env:prod`), NOT any of them.
+
+* **`monitor_tags`** [*optional*, *default*=**no monitor tag filter**]: A comma-separated
+  list of monitor tags, i.e. tags that are applied directly to monitors, *not* tags
+  that are used in monitor queries (which are filtered by the `scope` parameter), to
+  which the downtime applies. The resulting downtime applies to monitors that match
+  ALL provided monitor tags (i.e. `service:postgres` **AND** `team:frontend`), NOT any of them.
+
+* **`monitor_id`** [*optional*, *default*=**None**]: A single monitor to which the downtime
+  applies. If not provided, the downtime applies to all monitors.
+
+* **`start`** [*optional*, *default*=**None**]: POSIX timestamp to start the downtime.
+  If not provided, the downtime starts the moment it is created.
+
+* **`end`** [*optional*, *default*=**None**]: POSIX timestamp to end the downtime.
+  If not provided, the downtime is in effect indefinitely (i.e. until you cancel it).
+
+* **`message`** [*optional*, *default*=**None**]: A message to include with notifications
+  for this downtime. Email notifications can be sent to specific users by using
+   the same '@username' notation as events
+
+* **`timezone`** [*optional*, *default* = **UTC**]: The timezone for the downtime.
+* **`recurrence`** [*optional*, *default*=**None**]: An object defining the recurrence of the
+  downtime with a variety of parameters:
+
+  * **`type`** the type of recurrence. Choose from: `days`, `weeks`, `months`, `years`.
+
+  * **`period`** how often to repeat as an integer. For example to repeat every 3 days,
+    select a type of `days` and a period of `3`.
+
+  * **`week_days`** (optional) a list of week days to repeat on. Choose from: `Mon`,
+    `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`.
+    **First letter must be capitalized.**
+  * **`until_occurrences`** (optional) how many times the downtime is rescheduled.
+    **`until_occurrences` and `until_date`** are mutually exclusive
+
+  * **`until_date`** (optional) the date at which the recurrence should end
+    as a POSIX timestmap. **`until_occurrences` and `until_date`** are mutually exclusive
 
 ### Example
 
@@ -256,7 +300,11 @@ Name | Type | Description  | Notes
 
 Get all downtimes
 
-### Overview Get All Scheduled Downtimes ### ARGUMENTS * **&#x60;current_only&#x60;** [*optional*, *default* &#x3D; **False**]: Only return downtimes   that are active when the request is made.&#39;
+### Overview
+Get All Scheduled Downtimes
+### Arguments
+* **`current_only`** [*optional*, *default* = **False**]: Only return downtimes
+  that are active when the request is made.'
 
 ### Example
 
@@ -335,7 +383,10 @@ Name | Type | Description  | Notes
 
 Get a downtime
 
-### Overview Get Downtime Detail by downtime_id ### Arguments This endpoint takes no JSON arguments.\&quot;
+### Overview
+Get Downtime Detail by downtime_id
+### Arguments
+This endpoint takes no JSON arguments."
 
 ### Example
 
@@ -414,7 +465,52 @@ Name | Type | Description  | Notes
 
 Update a downtime
 
-### Overview Update a single Downtime by downtime_id. ### Arguments * **&#x60;id&#x60;** [*required*]: The integer id of the downtime to be updated * **&#x60;scope&#x60;** [*required*]: The scope to which the downtime applies, e.g. &#39;host:app2&#39;.   Provide multiple scopes as a comma-separated list, e.g. &#39;env:dev,env:prod&#39;.   The resulting downtime applies to sources that matches ALL provided scopes   (i.e. env:dev AND env:prod), NOT any of them. * **&#x60;monitor_tags&#x60;** [*optional*, *default*&#x3D;**no monitor tag filter**]: A comma-separated   list of monitor tags, i.e. tags that are applied directly to monitors, *not* tags that   are used in monitor queries (which are filtered by the &#x60;scope&#x60; parameter), to which   the downtime applies. The resulting downtime applies to monitors that match ALL provided   monitor tags (i.e. &#x60;service:postgres&#x60; **AND** &#x60;team:frontend&#x60;), NOT any of them. * **&#x60;monitor_id&#x60;** [*optional*, *default*&#x3D;**None**]: A single monitor to which the downtime   applies. If not provided, the downtime applies to all monitors. * **&#x60;start&#x60;** [*optional*, *default* &#x3D; **original start**]: POSIX timestamp to start   the downtime. * **&#x60;end&#x60;** [*optional*, *default* &#x3D; **original end**]: POSIX timestamp to end the downtime.   If not provided, the downtime is in effect indefinitely (i.e. until you cancel it). * **&#x60;message&#x60;** [*required*, *default* &#x3D; **original message**]: A message to include with   notifications for this downtime. Email notifications can be sent to specific users by   using the same &#39;@username&#39; notation as events * **&#x60;timezone&#x60;** [*optional*, default &#x3D; **original timezone** ]: The timezone for the downtime. * **&#x60;recurrence&#x60;** [*optional*, *default* &#x3D; **original recurrence**]: An object defining the   recurrence of the downtime with a variety of parameters:     * **&#x60;type&#x60;** the type of recurrence. Choose from: &#x60;days&#x60;, &#x60;weeks&#x60;, &#x60;months&#x60;, &#x60;years&#x60;.     * **&#x60;period&#x60;** how often to repeat as an integer. For example to repeat every 3 days,       select a type of &#x60;days&#x60; and a period of &#x60;3&#x60;.     * **&#x60;week_days&#x60;** (optional) a list of week days to repeat on. Choose from: &#x60;Mon&#x60;, &#x60;Tue&#x60;,       &#x60;Wed&#x60;, &#x60;Thu&#x60;, &#x60;Fri&#x60;, &#x60;Sat&#x60; or &#x60;Sun&#x60;. Only applicable when &#x60;type&#x60; is &#x60;weeks&#x60;.       **First letter must be capitalized.**     * **&#x60;until_occurrences&#x60;** (optional) how many times the downtime is rescheduled.       **&#x60;until_occurrences&#x60; and &#x60;until_date&#x60;** are mutually exclusive     * **&#x60;until_date&#x60;** (optional) the date at which the recurrence should end as a POSIX       timestmap. **&#x60;until_occurrences&#x60; and &#x60;until_date&#x60;** are mutually exclusive
+### Overview
+Update a single Downtime by downtime_id.
+### Arguments
+* **`id`** [*required*]: The integer id of the downtime to be updated
+* **`scope`** [*required*]: The scope to which the downtime applies, e.g. 'host:app2'.
+  Provide multiple scopes as a comma-separated list, e.g. 'env:dev,env:prod'.
+  The resulting downtime applies to sources that matches ALL provided scopes
+  (i.e. env:dev AND env:prod), NOT any of them.
+
+* **`monitor_tags`** [*optional*, *default*=**no monitor tag filter**]: A comma-separated
+  list of monitor tags, i.e. tags that are applied directly to monitors, *not* tags that
+  are used in monitor queries (which are filtered by the `scope` parameter), to which
+  the downtime applies. The resulting downtime applies to monitors that match ALL provided
+  monitor tags (i.e. `service:postgres` **AND** `team:frontend`), NOT any of them.
+
+* **`monitor_id`** [*optional*, *default*=**None**]: A single monitor to which the downtime
+  applies. If not provided, the downtime applies to all monitors.
+
+* **`start`** [*optional*, *default* = **original start**]: POSIX timestamp to start
+  the downtime.
+
+* **`end`** [*optional*, *default* = **original end**]: POSIX timestamp to end the downtime.
+  If not provided, the downtime is in effect indefinitely (i.e. until you cancel it).
+
+* **`message`** [*required*, *default* = **original message**]: A message to include with
+  notifications for this downtime. Email notifications can be sent to specific users by
+  using the same '@username' notation as events
+
+* **`timezone`** [*optional*, default = **original timezone** ]: The timezone for the downtime.
+* **`recurrence`** [*optional*, *default* = **original recurrence**]: An object defining the
+  recurrence of the downtime with a variety of parameters:
+
+    * **`type`** the type of recurrence. Choose from: `days`, `weeks`, `months`, `years`.
+
+    * **`period`** how often to repeat as an integer. For example to repeat every 3 days,
+      select a type of `days` and a period of `3`.
+
+    * **`week_days`** (optional) a list of week days to repeat on. Choose from: `Mon`, `Tue`,
+      `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`.
+      **First letter must be capitalized.**
+
+    * **`until_occurrences`** (optional) how many times the downtime is rescheduled.
+      **`until_occurrences` and `until_date`** are mutually exclusive
+
+    * **`until_date`** (optional) the date at which the recurrence should end as a POSIX
+      timestmap. **`until_occurrences` and `until_date`** are mutually exclusive
 
 ### Example
 
