@@ -45,7 +45,7 @@ public class UsersApi {
 
   /**
    * Create user
-   * ### Overview Create a user for your organization. ### ARGUMENTS * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:   *  **st** (standard user),   *  **adm** (admin user),   *  **ro** (read-only user). *Note: users can be created with admin access role      only with application keys belonging to administrators.*
+   * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user). *Note: users can be created with admin access role      only with application keys belonging to administrators.*
    * @param userCreatePayload User object that needs to be created (required)
    * @return UserCreateResponse
    * @throws ApiException if fails to make API call
@@ -63,7 +63,7 @@ public class UsersApi {
 
   /**
    * Create user
-   * ### Overview Create a user for your organization. ### ARGUMENTS * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:   *  **st** (standard user),   *  **adm** (admin user),   *  **ro** (read-only user). *Note: users can be created with admin access role      only with application keys belonging to administrators.*
+   * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user). *Note: users can be created with admin access role      only with application keys belonging to administrators.*
    * @param userCreatePayload User object that needs to be created (required)
    * @return ApiResponse&lt;UserCreateResponse&gt;
    * @throws ApiException if fails to make API call

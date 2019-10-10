@@ -23,17 +23,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for MonitorThresholdWindows
+ * Model tests for MonitorThresholdWindowOptions
  */
-public class MonitorThresholdWindowsTest {
-    private final MonitorThresholdWindows model = new MonitorThresholdWindows();
+public class MonitorThresholdWindowOptionsTest {
+    private final MonitorThresholdWindowOptions model = new MonitorThresholdWindowOptions();
 
     /**
-     * Model tests for MonitorThresholdWindows
+     * Model tests for MonitorThresholdWindowOptions
      */
     @Test
-    public void testMonitorThresholdWindows() {
-        // TODO: test MonitorThresholdWindows
+    public void testMonitorThresholdWindowOptions() {
+        // TODO: test MonitorThresholdWindowOptions
     }
 
     /**

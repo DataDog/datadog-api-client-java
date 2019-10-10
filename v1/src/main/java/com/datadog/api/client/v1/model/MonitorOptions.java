@@ -13,7 +13,7 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.client.v1.model.MonitorThresholdWindows;
+import com.datadog.api.client.v1.model.MonitorThresholdWindowOptions;
 import com.datadog.api.client.v1.model.MonitorThresholds;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -120,7 +120,7 @@ public class MonitorOptions {
   private Long syntheticsCheckId;
 
   public static final String JSON_PROPERTY_THRESHOLD_WINDOWS = "threshold_windows";
-  private MonitorThresholdWindows thresholdWindows;
+  private MonitorThresholdWindowOptions thresholdWindows;
 
   public static final String JSON_PROPERTY_THRESHOLDS = "thresholds";
   private MonitorThresholds thresholds;
@@ -589,7 +589,7 @@ public class MonitorOptions {
   }
 
 
-  public MonitorOptions thresholdWindows(MonitorThresholdWindows thresholdWindows) {
+  public MonitorOptions thresholdWindows(MonitorThresholdWindowOptions thresholdWindows) {
     
     this.thresholdWindows = thresholdWindows;
     return this;
@@ -604,13 +604,13 @@ public class MonitorOptions {
   @JsonProperty(JSON_PROPERTY_THRESHOLD_WINDOWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public MonitorThresholdWindows getThresholdWindows() {
+  public MonitorThresholdWindowOptions getThresholdWindows() {
     return thresholdWindows;
   }
 
 
 
-  public void setThresholdWindows(MonitorThresholdWindows thresholdWindows) {
+  public void setThresholdWindows(MonitorThresholdWindowOptions thresholdWindows) {
     this.thresholdWindows = thresholdWindows;
   }
 

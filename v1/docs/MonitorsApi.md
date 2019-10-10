@@ -19,7 +19,10 @@ Method | HTTP request | Description
 
 Create a new Monitor
 
-### Overview Create a monitor using the specified options ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to create
+### Overview
+Create a monitor using the specified options
+### Arguments
+* **`Monitor`** [*required*] The Monitor Object to create
 
 ### Example
 
@@ -98,7 +101,10 @@ Name | Type | Description  | Notes
 
 Delete the specified monitor.
 
-### Overview Delete the specified monitor ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
+### Overview
+Delete the specified monitor
+### Arguments
+* **`monitor_id`** [*required*]: The id of the monitor.
 
 ### Example
 
@@ -179,7 +185,10 @@ Name | Type | Description  | Notes
 
 Edit the specified monitor
 
-### Overview Edit the specified monitor. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
+### Overview
+Edit the specified monitor.
+### Arguments
+* **`monitor_id`** [*required*]: The id of the monitor.
 
 ### Example
 
@@ -262,7 +271,14 @@ Name | Type | Description  | Notes
 
 Get details about the specified monitor.
 
-### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39; * **&#x60;name&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A string to filter monitors by name * **&#x60;tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0 * **&#x60;monitor_tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app) * **&#x60;with_downtimes&#x60;** [*optional* *default*&#x3D;&#x3D;**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
+### Overview
+Get details about the specified monitor from your organization.
+### Arguments
+* **`group_states`** [*optional* *default*=**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example 'alert,warn'
+* **`name`** [*optional* *default*==**None**] A string to filter monitors by name
+* **`tags`** [*optional* *default*==**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0
+* **`monitor_tags`** [*optional* *default*==**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app)
+* **`with_downtimes`** [*optional* *default*==**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
 
 ### Example
 
@@ -349,7 +365,11 @@ Name | Type | Description  | Notes
 
 Get details about the specified monitor.
 
-### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor. * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39;
+### Overview
+Get details about the specified monitor from your organization.
+### Arguments
+* **`monitor_id`** [*required*]: The id of the monitor.
+* **`group_states`** [*optional* *default*=**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example 'alert,warn'
 
 ### Example
 
@@ -431,7 +451,10 @@ Name | Type | Description  | Notes
 
 
 
-### Overview Validate the monitor provided in the request ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to validate summary: Validate the provided monitor
+### Overview
+Validate the monitor provided in the request
+### Arguments
+* **`Monitor`** [*required*] The Monitor Object to validate summary: Validate the provided monitor
 
 ### Example
 

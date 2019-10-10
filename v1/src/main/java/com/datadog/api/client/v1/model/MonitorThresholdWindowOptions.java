@@ -21,10 +21,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * MonitorThresholdWindows
+ * MonitorThresholdWindowOptions
  */
 
-public class MonitorThresholdWindows {
+public class MonitorThresholdWindowOptions {
   public static final String JSON_PROPERTY_RECOVERY_WINDOW = "recovery_window";
   private String recoveryWindow;
 
@@ -32,7 +32,7 @@ public class MonitorThresholdWindows {
   private String triggerWindow;
 
 
-  public MonitorThresholdWindows recoveryWindow(String recoveryWindow) {
+  public MonitorThresholdWindowOptions recoveryWindow(String recoveryWindow) {
     
     this.recoveryWindow = recoveryWindow;
     return this;
@@ -58,7 +58,7 @@ public class MonitorThresholdWindows {
   }
 
 
-  public MonitorThresholdWindows triggerWindow(String triggerWindow) {
+  public MonitorThresholdWindowOptions triggerWindow(String triggerWindow) {
     
     this.triggerWindow = triggerWindow;
     return this;
@@ -92,9 +92,9 @@ public class MonitorThresholdWindows {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorThresholdWindows monitorThresholdWindows = (MonitorThresholdWindows) o;
-    return Objects.equals(this.recoveryWindow, monitorThresholdWindows.recoveryWindow) &&
-        Objects.equals(this.triggerWindow, monitorThresholdWindows.triggerWindow);
+    MonitorThresholdWindowOptions monitorThresholdWindowOptions = (MonitorThresholdWindowOptions) o;
+    return Objects.equals(this.recoveryWindow, monitorThresholdWindowOptions.recoveryWindow) &&
+        Objects.equals(this.triggerWindow, monitorThresholdWindowOptions.triggerWindow);
   }
 
   @Override
@@ -106,7 +106,7 @@ public class MonitorThresholdWindows {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MonitorThresholdWindows {\n");
+    sb.append("class MonitorThresholdWindowOptions {\n");
     sb.append("    recoveryWindow: ").append(toIndentedString(recoveryWindow)).append("\n");
     sb.append("    triggerWindow: ").append(toIndentedString(triggerWindow)).append("\n");
     sb.append("}");

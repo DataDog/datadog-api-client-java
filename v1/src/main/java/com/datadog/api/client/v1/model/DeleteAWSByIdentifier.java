@@ -39,10 +39,10 @@ public class DeleteAWSByIdentifier {
   }
 
    /**
-   * Get accountId
+   * Delete the AWS account that matches this account_id.
    * @return accountId
   **/
-  @ApiModelProperty(example = "1234567", required = true, value = "")
+  @ApiModelProperty(example = "1234567", required = true, value = "Delete the AWS account that matches this account_id.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -64,10 +64,10 @@ public class DeleteAWSByIdentifier {
   }
 
    /**
-   * Get roleName
+   * Delete the AWS account that matches this role_name.
    * @return roleName
   **/
-  @ApiModelProperty(example = "DatadogAWSIntegrationRole", required = true, value = "")
+  @ApiModelProperty(example = "DatadogAWSIntegrationRole", required = true, value = "Delete the AWS account that matches this role_name.")
   @JsonProperty(JSON_PROPERTY_ROLE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
