@@ -6,7 +6,7 @@ and [apigentools](https://github.com/DataDog/apigentools).
 
 ## Layout
 
-It is the intention of this repository to contain per-major-version API client packages. Right
+This repository contains per-major-version API client packages. Right
 now, Datadog only has one API version - `v1` - so that is the only module present. If/when
 there is another version of the API, we will add a different package for it. The end goal is
 to be able to use API clients for different major versions of the API side-by-side.
