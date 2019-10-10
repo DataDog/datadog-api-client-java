@@ -112,6 +112,7 @@ Disable user
 
 ### Overview
 Delete a user from an organization.
+
 **Note**: This endpoint can only be used with application keys belonging to administrators.
 ### Arguments
 * **`id`** [*required*]: The handle of the user.
@@ -357,13 +358,21 @@ Name | Type | Description  | Notes
 Update user
 
 ### Overview
-Update a user informations
+Update a user informations.
+
 **Note**: It can only be used with application keys belonging to administrators.
 ### Arguments
-* **`id`** [*required*]: The handle of the user. * **`name`** [*optional*, *default*=**None**]: The new name of the user. * **`email`** [*optional*, *default*=**None**]: The new email of the user. * **`disabled`** [*optional*, *default*=**None**]: The new disabled status of the user. * **`access_role`** [*optional*, *default*=**st**]: The access role of the user. Choose from:
-  *  **st** (standard user),
-  *  **adm** (admin user),
-  *  **ro** (read-only user).
+* **`id`** [*required*]: The handle of the user.
+* **`name`** [*optional*, *default*=**None**]: The new name of the user.
+* **`email`** [*optional*, *default*=**None**]: The new email of the user.
+* **`disabled`** [*optional*, *default*=**None**]: The new disabled status of the user.
+* **`access_role`** [*optional*, *default*=**st**]: The access role of the user. Choose from:
+
+  *  **st** (standard user)
+
+  *  **adm** (admin user)
+
+  *  **ro** (read-only user)
 
 ### Example
 
