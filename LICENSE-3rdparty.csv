@@ -1,0 +1,9 @@
+
+Component,Origin,License,Copyright
+import,io.swagger,Apache-2.0,Copyright 2018 SmartBear Software
+import,com.google.code.findbugs,LGPL,
+import,org.glassfish.jersey,Eclipse Public License - v 2.0,
+import,com.fasterxml.jackson,Apache License 2.0,
+import,org.openapitools,Apache License 2.0,
+import,com.github.joschi.jackson,BSD 2-Clause "Simplified" License,
+import,junit,EPL-1.0
