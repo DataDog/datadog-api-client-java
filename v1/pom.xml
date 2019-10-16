@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.datadog.api.client</groupId>
-    <artifactId>datadog-v1</artifactId>
+    <groupId>com.datadoghq</groupId>
+    <artifactId>datadog-api-v1-client</artifactId>
     <packaging>jar</packaging>
-    <name>datadog-v1</name>
+    <name>datadog-api-v1-client</name>
     <version>1.0.0</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>Java client library for Datadog API v1</description>
@@ -14,7 +14,7 @@
         <url>https://github.com/DataDog/datadog-api-client-java</url>
     </scm>
     <parent>
-        <groupId>com.datadog.api.client</groupId>
+        <groupId>com.datadoghq</groupId>
         <artifactId>datadog-api-clients</artifactId>
         <version>1.0.0</version>
     </parent>
@@ -219,7 +219,7 @@
             <artifactId>jsr305</artifactId>
             <version>3.0.2</version>
         </dependency>
-        
+
         <!-- HTTP client: jersey-client -->
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
