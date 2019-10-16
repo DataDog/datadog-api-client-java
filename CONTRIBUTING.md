@@ -25,7 +25,7 @@ when submitting your PR:
 * Summarize your PR with a meaningful title, [see later on this doc](#pull-request-title).
 
 Your pull request must pass all CI tests. If you're seeing
-an error and don't think it's your fault, it may not be! [Join us on Slack][3]
+an error and don't think it's your fault, it may not be! [Join us on Slack][2]
 or send us an email, and together we'll get it sorted out.
 
 ### Keep it small, focused
