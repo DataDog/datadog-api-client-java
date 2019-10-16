@@ -11,7 +11,7 @@ Steps to reproduce the behavior:
 3. Scroll down to '....'
 4. See error
 
-** Logs **
+**Logs**
 Any relevant logs messages (for example, error level log or Stacktraces)
 
 **Expected behavior**
