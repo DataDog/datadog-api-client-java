@@ -1,8 +1,8 @@
 **Describe the bug**
 A clear and concise description of what the bug is.
 
-**Resource Name and version**
-The name and version of the impacted resource
+**Version**
+The version of the impacted client
 
 **To Reproduce**
 Steps to reproduce the behavior:
@@ -12,7 +12,7 @@ Steps to reproduce the behavior:
 4. See error
 
 ** Logs **
-Any relevant Cloudwatch logs and stack event messages
+Any relevant logs messages (for example, error level log or Stacktraces)
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.

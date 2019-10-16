@@ -9,8 +9,7 @@ To propose improvements, feel free to submit a PR.
 
 * If you have a feature request, you should [contact support][1] so the request
 can be properly tracked.
-* If you can't find anything useful, please contact our [support][1] and
-  [send them your logs][2].
+* If you can't find anything useful, please contact our [support][1].
 * Finally, you can open a Github issue.
 
 ## Pull Requests
@@ -55,6 +54,5 @@ happier!
 
 
 [1]: https://docs.datadoghq.com/help
-[2]: https://docs.datadoghq.com/agent/troubleshooting/#send-a-flare
-[3]: https://datadoghq.slack.com
+[2]: https://datadoghq.slack.com
 
