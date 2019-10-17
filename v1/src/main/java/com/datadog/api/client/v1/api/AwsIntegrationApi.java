@@ -9,7 +9,6 @@ import com.datadog.api.client.v1.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.client.v1.model.AWSAccount;
-import com.datadog.api.client.v1.model.DeleteAWSByIdentifier;
 import com.datadog.api.client.v1.model.Error400;
 import com.datadog.api.client.v1.model.Error404;
 
@@ -105,7 +104,7 @@ public class AwsIntegrationApi {
   /**
    * Delete an AWS Account
    * ### Overview Delete the AWS Account matching the specified account_id and role_name parameters ### Arguments * **&#x60;account_id&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this account_id.  * **&#x60;role_name&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this role_name.
-   * @param deleteAWSByIdentifier AWS request object (required)
+   * @param awSAccount AWS request object (required)
    * @return Object
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -115,14 +114,14 @@ public class AwsIntegrationApi {
         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public Object deleteAWSAccount(DeleteAWSByIdentifier deleteAWSByIdentifier) throws ApiException {
-    return deleteAWSAccountWithHttpInfo(deleteAWSByIdentifier).getData();
+  public Object deleteAWSAccount(AWSAccount awSAccount) throws ApiException {
+    return deleteAWSAccountWithHttpInfo(awSAccount).getData();
       }
 
   /**
    * Delete an AWS Account
    * ### Overview Delete the AWS Account matching the specified account_id and role_name parameters ### Arguments * **&#x60;account_id&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this account_id.  * **&#x60;role_name&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this role_name.
-   * @param deleteAWSByIdentifier AWS request object (required)
+   * @param awSAccount AWS request object (required)
    * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -132,12 +131,12 @@ public class AwsIntegrationApi {
         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Object> deleteAWSAccountWithHttpInfo(DeleteAWSByIdentifier deleteAWSByIdentifier) throws ApiException {
-    Object localVarPostBody = deleteAWSByIdentifier;
+  public ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount awSAccount) throws ApiException {
+    Object localVarPostBody = awSAccount;
     
-    // verify the required parameter 'deleteAWSByIdentifier' is set
-    if (deleteAWSByIdentifier == null) {
-      throw new ApiException(400, "Missing the required parameter 'deleteAWSByIdentifier' when calling deleteAWSAccount");
+    // verify the required parameter 'awSAccount' is set
+    if (awSAccount == null) {
+      throw new ApiException(400, "Missing the required parameter 'awSAccount' when calling deleteAWSAccount");
     }
     
     // create path and map variables

@@ -18,9 +18,9 @@ to dependencies of your project by adding following entry to your `pom.xml` depe
 
 ```
     <dependency>
-      <groupId>com.datadog.api.client</groupId>
-      <artifactId>datadog-v1</artifactId>
-      <version>${datadog-v1-client-version}</version>
+      <groupId>com.datadoghq</groupId>
+      <artifactId>datadog-api-v1-client</artifactId>
+      <version>${datadog-api-v1-client-version}</version>
       <scope>compile</scope>
     </dependency>
 ```
