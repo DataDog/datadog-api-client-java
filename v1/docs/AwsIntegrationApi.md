@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ## deleteAWSAccount
 
-> Object deleteAWSAccount(deleteAWSByIdentifier)
+> Object deleteAWSAccount(awSAccount)
 
 Delete an AWS Account
 
@@ -160,9 +160,9 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        DeleteAWSByIdentifier deleteAWSByIdentifier = new DeleteAWSByIdentifier(); // DeleteAWSByIdentifier | AWS request object
+        AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
         try {
-            Object result = apiInstance.deleteAWSAccount(deleteAWSByIdentifier);
+            Object result = apiInstance.deleteAWSAccount(awSAccount);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#deleteAWSAccount");
@@ -180,7 +180,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deleteAWSByIdentifier** | [**DeleteAWSByIdentifier**](DeleteAWSByIdentifier.md)| AWS request object |
+ **awSAccount** | [**AWSAccount**](AWSAccount.md)| AWS request object |
 
 ### Return type
 
