@@ -11,7 +11,6 @@ package com.datadog.api.client.v1.api;
 
 import com.datadog.api.client.v1.ApiException;
 import com.datadog.api.client.v1.model.AWSAccount;
-import com.datadog.api.client.v1.model.DeleteAWSByIdentifier;
 import com.datadog.api.client.v1.model.Error400;
 import com.datadog.api.client.v1.model.Error404;
 import static org.junit.Assert.*;
@@ -41,11 +40,8 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
 
     @After
     public void removeAccounts() throws ApiException {
-        DeleteAWSByIdentifier deleteAccountID = new DeleteAWSByIdentifier();
         for (int i=0; i<accountsToDelete.size(); i++) {
-            deleteAccountID.setAccountId(accountsToDelete.get(i).getAccountId());
-            deleteAccountID.setRoleName(accountsToDelete.get(i).getRoleName());
-            api.deleteAWSAccount(deleteAccountID);
+            api.deleteAWSAccount(accountsToDelete);
         }
     }
 
@@ -131,7 +127,6 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
     @Test
     public void getAllAWSAccountsTest() throws ApiException {
         List<AWSAccount> awsAccounts = new ArrayList<AWSAccount>();
-        DeleteAWSByIdentifier deleteAccountID = new DeleteAWSByIdentifier();
         Map<String, List<Object>> response;
         Map<String, Boolean> accountSpecificNamespaceRules = new HashMap<String, Boolean>();
         List<String> hostTags = new ArrayList<String>();
