@@ -23,21 +23,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Error400
+ * Error415
  */
 
-public class Error400 {
+public class Error415 {
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = new ArrayList<String>();
 
 
-  public Error400 errors(List<String> errors) {
+  public Error415 errors(List<String> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public Error400 addErrorsItem(String errorsItem) {
+  public Error415 addErrorsItem(String errorsItem) {
     this.errors.add(errorsItem);
     return this;
   }
@@ -69,8 +69,8 @@ public class Error400 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error400 error400 = (Error400) o;
-    return Objects.equals(this.errors, error400.errors);
+    Error415 error415 = (Error415) o;
+    return Objects.equals(this.errors, error415.errors);
   }
 
   @Override
@@ -82,7 +82,7 @@ public class Error400 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error400 {\n");
+    sb.append("class Error415 {\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
