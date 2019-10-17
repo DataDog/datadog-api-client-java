@@ -40,8 +40,8 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
 
     @After
     public void removeAccounts() throws ApiException {
-        for (int i=0; i<accountsToDelete.size(); i++) {
-            api.deleteAWSAccount(accountsToDelete);
+        for (AWSAccount account: accountsToDelete) {
+            api.deleteAWSAccount(account);
         }
     }
 
