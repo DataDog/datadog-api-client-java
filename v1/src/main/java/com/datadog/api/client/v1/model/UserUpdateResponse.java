@@ -20,10 +20,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * UserUpdateResponse
  */
+@JsonPropertyOrder({
+  UserUpdateResponse.JSON_PROPERTY_USER
+})
 
 public class UserUpdateResponse {
   public static final String JSON_PROPERTY_USER = "user";

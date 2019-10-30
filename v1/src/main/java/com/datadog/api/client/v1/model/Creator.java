@@ -19,10 +19,16 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Creator
  */
+@JsonPropertyOrder({
+  Creator.JSON_PROPERTY_EMAIL,
+  Creator.JSON_PROPERTY_HANDLE,
+  Creator.JSON_PROPERTY_NAME
+})
 
 public class Creator {
   public static final String JSON_PROPERTY_EMAIL = "email";

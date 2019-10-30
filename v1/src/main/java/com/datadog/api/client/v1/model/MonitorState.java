@@ -24,10 +24,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * MonitorState
  */
+@JsonPropertyOrder({
+  MonitorState.JSON_PROPERTY_GROUPS,
+  MonitorState.JSON_PROPERTY_MONITOR_ID,
+  MonitorState.JSON_PROPERTY_OVERALL_STATE
+})
 
 public class MonitorState {
   public static final String JSON_PROPERTY_GROUPS = "groups";

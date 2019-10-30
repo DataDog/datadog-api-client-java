@@ -26,11 +26,28 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (name, description, tags, etc.).
  */
 @ApiModel(description = "A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (name, description, tags, etc.).")
+@JsonPropertyOrder({
+  ServiceLevelObjective.JSON_PROPERTY_CREATED_AT,
+  ServiceLevelObjective.JSON_PROPERTY_CREATOR,
+  ServiceLevelObjective.JSON_PROPERTY_DESCRIPTION,
+  ServiceLevelObjective.JSON_PROPERTY_GROUPS,
+  ServiceLevelObjective.JSON_PROPERTY_ID,
+  ServiceLevelObjective.JSON_PROPERTY_MODIFIED_AT,
+  ServiceLevelObjective.JSON_PROPERTY_MONITOR_IDS,
+  ServiceLevelObjective.JSON_PROPERTY_MONITOR_TAGS,
+  ServiceLevelObjective.JSON_PROPERTY_NAME,
+  ServiceLevelObjective.JSON_PROPERTY_QUERY,
+  ServiceLevelObjective.JSON_PROPERTY_TAGS,
+  ServiceLevelObjective.JSON_PROPERTY_THRESHOLDS,
+  ServiceLevelObjective.JSON_PROPERTY_TYPE,
+  ServiceLevelObjective.JSON_PROPERTY_TYPE_ID
+})
 
 public class ServiceLevelObjective {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";

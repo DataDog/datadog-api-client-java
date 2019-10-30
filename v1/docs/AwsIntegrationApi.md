@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## createAWSAccount
 
-> Map&lt;String, String&gt; createAWSAccount(awSAccount)
+> AWSAccountCreateResponse createAWSAccount(awSAccount)
 
 Create an AWS Account
 
@@ -76,7 +76,7 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
         try {
-            Map<String, String> result = apiInstance.createAWSAccount(awSAccount);
+            AWSAccountCreateResponse result = apiInstance.createAWSAccount(awSAccount);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#createAWSAccount");
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Map&lt;String, String&gt;**
+[**AWSAccountCreateResponse**](AWSAccountCreateResponse.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ## getAllAWSAccounts
 
-> Map&lt;String, List&lt;AWSAccount&gt;&gt; getAllAWSAccounts(accountId, roleName, accessKeyId)
+> AWSAccountListResponse getAllAWSAccounts(accountId, roleName, accessKeyId)
 
 Get Installed AWS Accounts
 
@@ -253,7 +253,7 @@ public class Example {
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id.
         try {
-            Map<String, List<AWSAccount>> result = apiInstance.getAllAWSAccounts(accountId, roleName, accessKeyId);
+            AWSAccountListResponse result = apiInstance.getAllAWSAccounts(accountId, roleName, accessKeyId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#getAllAWSAccounts");
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map&lt;String, List&lt;AWSAccount&gt;&gt;**](List.md)
+[**AWSAccountListResponse**](AWSAccountListResponse.md)
 
 ### Authorization
 

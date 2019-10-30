@@ -13,6 +13,7 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.client.v1.model.AWSAccount;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,44 +25,48 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Error405
+ * AWSAccountListResponse
  */
 @JsonPropertyOrder({
-  Error405.JSON_PROPERTY_ERRORS
+  AWSAccountListResponse.JSON_PROPERTY_ACCOUNTS
 })
 
-public class Error405 {
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<String> errors = new ArrayList<String>();
+public class AWSAccountListResponse {
+  public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
+  private List<AWSAccount> accounts = null;
 
 
-  public Error405 errors(List<String> errors) {
+  public AWSAccountListResponse accounts(List<AWSAccount> accounts) {
     
-    this.errors = errors;
+    this.accounts = accounts;
     return this;
   }
 
-  public Error405 addErrorsItem(String errorsItem) {
-    this.errors.add(errorsItem);
+  public AWSAccountListResponse addAccountsItem(AWSAccount accountsItem) {
+    if (this.accounts == null) {
+      this.accounts = new ArrayList<AWSAccount>();
+    }
+    this.accounts.add(accountsItem);
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * Get accounts
+   * @return accounts
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getErrors() {
-    return errors;
+  public List<AWSAccount> getAccounts() {
+    return accounts;
   }
 
 
 
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
+  public void setAccounts(List<AWSAccount> accounts) {
+    this.accounts = accounts;
   }
 
 
@@ -73,21 +78,21 @@ public class Error405 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error405 error405 = (Error405) o;
-    return Objects.equals(this.errors, error405.errors);
+    AWSAccountListResponse awSAccountListResponse = (AWSAccountListResponse) o;
+    return Objects.equals(this.accounts, awSAccountListResponse.accounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(accounts);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error405 {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class AWSAccountListResponse {\n");
+    sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

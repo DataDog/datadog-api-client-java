@@ -19,10 +19,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * MonitorThresholds
  */
+@JsonPropertyOrder({
+  MonitorThresholds.JSON_PROPERTY_CRITICAL,
+  MonitorThresholds.JSON_PROPERTY_CRITICAL_RECOVERY,
+  MonitorThresholds.JSON_PROPERTY_OK,
+  MonitorThresholds.JSON_PROPERTY_UNKNOWN,
+  MonitorThresholds.JSON_PROPERTY_WARNING,
+  MonitorThresholds.JSON_PROPERTY_WARNING_RECOVERY
+})
 
 public class MonitorThresholds {
   public static final String JSON_PROPERTY_CRITICAL = "critical";
@@ -33,6 +42,9 @@ public class MonitorThresholds {
 
   public static final String JSON_PROPERTY_OK = "ok";
   private Float ok;
+
+  public static final String JSON_PROPERTY_UNKNOWN = "unknown";
+  private Float unknown;
 
   public static final String JSON_PROPERTY_WARNING = "warning";
   private Float warning;
@@ -119,6 +131,32 @@ public class MonitorThresholds {
   }
 
 
+  public MonitorThresholds unknown(Float unknown) {
+    
+    this.unknown = unknown;
+    return this;
+  }
+
+   /**
+   * Get unknown
+   * @return unknown
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_UNKNOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Float getUnknown() {
+    return unknown;
+  }
+
+
+
+  public void setUnknown(Float unknown) {
+    this.unknown = unknown;
+  }
+
+
   public MonitorThresholds warning(Float warning) {
     
     this.warning = warning;
@@ -183,13 +221,14 @@ public class MonitorThresholds {
     return Objects.equals(this.critical, monitorThresholds.critical) &&
         Objects.equals(this.criticalRecovery, monitorThresholds.criticalRecovery) &&
         Objects.equals(this.ok, monitorThresholds.ok) &&
+        Objects.equals(this.unknown, monitorThresholds.unknown) &&
         Objects.equals(this.warning, monitorThresholds.warning) &&
         Objects.equals(this.warningRecovery, monitorThresholds.warningRecovery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(critical, criticalRecovery, ok, warning, warningRecovery);
+    return Objects.hash(critical, criticalRecovery, ok, unknown, warning, warningRecovery);
   }
 
 
@@ -200,6 +239,7 @@ public class MonitorThresholds {
     sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
     sb.append("    criticalRecovery: ").append(toIndentedString(criticalRecovery)).append("\n");
     sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
+    sb.append("    unknown: ").append(toIndentedString(unknown)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("    warningRecovery: ").append(toIndentedString(warningRecovery)).append("\n");
     sb.append("}");

@@ -19,49 +19,43 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Error405
+ * AWSAccountCreateResponse
  */
 @JsonPropertyOrder({
-  Error405.JSON_PROPERTY_ERRORS
+  AWSAccountCreateResponse.JSON_PROPERTY_EXTERNAL_ID
 })
 
-public class Error405 {
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<String> errors = new ArrayList<String>();
+public class AWSAccountCreateResponse {
+  public static final String JSON_PROPERTY_EXTERNAL_ID = "external_id";
+  private String externalId;
 
 
-  public Error405 errors(List<String> errors) {
+  public AWSAccountCreateResponse externalId(String externalId) {
     
-    this.errors = errors;
-    return this;
-  }
-
-  public Error405 addErrorsItem(String errorsItem) {
-    this.errors.add(errorsItem);
+    this.externalId = externalId;
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * Get externalId
+   * @return externalId
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getErrors() {
-    return errors;
+  public String getExternalId() {
+    return externalId;
   }
 
 
 
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
   }
 
 
@@ -73,21 +67,21 @@ public class Error405 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error405 error405 = (Error405) o;
-    return Objects.equals(this.errors, error405.errors);
+    AWSAccountCreateResponse awSAccountCreateResponse = (AWSAccountCreateResponse) o;
+    return Objects.equals(this.externalId, awSAccountCreateResponse.externalId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(externalId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error405 {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class AWSAccountCreateResponse {\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

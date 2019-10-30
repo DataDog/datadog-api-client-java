@@ -22,10 +22,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * ServiceLevelObjectiveResponse
  */
+@JsonPropertyOrder({
+  ServiceLevelObjectiveResponse.JSON_PROPERTY_DATA,
+  ServiceLevelObjectiveResponse.JSON_PROPERTY_ERRORS
+})
 
 public class ServiceLevelObjectiveResponse {
   public static final String JSON_PROPERTY_DATA = "data";

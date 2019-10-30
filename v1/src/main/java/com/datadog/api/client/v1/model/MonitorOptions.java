@@ -25,10 +25,33 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * MonitorOptions
  */
+@JsonPropertyOrder({
+  MonitorOptions.JSON_PROPERTY_AGGREGATION,
+  MonitorOptions.JSON_PROPERTY_DEVICE_IDS,
+  MonitorOptions.JSON_PROPERTY_ENABLE_LOGS_SAMPLE,
+  MonitorOptions.JSON_PROPERTY_ESCALATION_MESSAGE,
+  MonitorOptions.JSON_PROPERTY_EVALUATION_DELAY,
+  MonitorOptions.JSON_PROPERTY_INCLUDE_TAGS,
+  MonitorOptions.JSON_PROPERTY_LOCKED,
+  MonitorOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
+  MonitorOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
+  MonitorOptions.JSON_PROPERTY_NEW_HOST_DELAY,
+  MonitorOptions.JSON_PROPERTY_NO_DATA_TIMEFRAME,
+  MonitorOptions.JSON_PROPERTY_NOTIFY_AUDIT,
+  MonitorOptions.JSON_PROPERTY_NOTIFY_NO_DATA,
+  MonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL,
+  MonitorOptions.JSON_PROPERTY_REQUIRE_FULL_WINDOW,
+  MonitorOptions.JSON_PROPERTY_SILENCED,
+  MonitorOptions.JSON_PROPERTY_SYNTHETICS_CHECK_ID,
+  MonitorOptions.JSON_PROPERTY_THRESHOLD_WINDOWS,
+  MonitorOptions.JSON_PROPERTY_THRESHOLDS,
+  MonitorOptions.JSON_PROPERTY_TIMEOUT_H
+})
 
 public class MonitorOptions {
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";

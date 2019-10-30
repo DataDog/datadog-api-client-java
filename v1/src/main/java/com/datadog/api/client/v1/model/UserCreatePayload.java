@@ -19,10 +19,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * UserCreatePayload
  */
+@JsonPropertyOrder({
+  UserCreatePayload.JSON_PROPERTY_ACCESS_ROLE,
+  UserCreatePayload.JSON_PROPERTY_EMAIL,
+  UserCreatePayload.JSON_PROPERTY_HANDLE,
+  UserCreatePayload.JSON_PROPERTY_NAME
+})
 
 public class UserCreatePayload {
   /**
