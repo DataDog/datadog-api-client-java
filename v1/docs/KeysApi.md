@@ -1,29 +1,32 @@
-# SloApi
+# KeysApi
 
 All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bulkPartialDeleteSlo**](SloApi.md#bulkPartialDeleteSlo) | **POST** /api/v1/slo/bulk_delete | Delete (or partially delete) multiple service level objective objects.
-[**checkCanDeleteSlo**](SloApi.md#checkCanDeleteSlo) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted.
-[**createSlo**](SloApi.md#createSlo) | **POST** /api/v1/slo | Create a service level objective object.
-[**deleteSlo**](SloApi.md#deleteSlo) | **DELETE** /api/v1/slo/{slo_id} | Delete the specified service level objective object.
-[**editSlo**](SloApi.md#editSlo) | **PUT** /api/v1/slo/{slo_id} | Edit the specified service level objective
-[**getSlo**](SloApi.md#getSlo) | **GET** /api/v1/slo/{slo_id} | Get a service level objective object
-[**getSlos**](SloApi.md#getSlos) | **GET** /api/v1/slo | Get multiple service level objective objects by their IDs.
-[**historyForSlo**](SloApi.md#historyForSlo) | **GET** /api/v1/slo/{slo_id}/history | Get the history of the service level objective.
+[**createAPIKey**](KeysApi.md#createAPIKey) | **POST** /api/v1/api_key | Create an API key with a given name.
+[**createApplicationKey**](KeysApi.md#createApplicationKey) | **POST** /api/v1/application_key | Create an application key with a given name.
+[**deleteAPIKey**](KeysApi.md#deleteAPIKey) | **DELETE** /api/v1/api_key/{api_key} | Delete a given API key.
+[**deleteApplicationKey**](KeysApi.md#deleteApplicationKey) | **DELETE** /api/v1/application_key/{app_key} | Delete a given application key.
+[**editAPIKey**](KeysApi.md#editAPIKey) | **PUT** /api/v1/api_key/{api_key} | Edit an API key name.
+[**editApplicationKey**](KeysApi.md#editApplicationKey) | **PUT** /api/v1/application_key/{app_key} | Edit an application key name.
+[**getAPIKey**](KeysApi.md#getAPIKey) | **GET** /api/v1/api_key/{api_key} | Get a given API key.
+[**getAllAPIKeys**](KeysApi.md#getAllAPIKeys) | **GET** /api/v1/api_key | Get all API keys available for your account.
+[**getAllApplicationKeys**](KeysApi.md#getAllApplicationKeys) | **GET** /api/v1/application_key | Get all application keys available for your account.
+[**getApplicationKey**](KeysApi.md#getApplicationKey) | **GET** /api/v1/application_key/{app_key} | Get a given application key.
 
 
 
-## bulkPartialDeleteSlo
+## createAPIKey
 
-> ServiceLevelObjectivesBulkDeleted bulkPartialDeleteSlo(requestBody)
+> ApiKeyResponse createAPIKey(apiKey)
 
-Delete (or partially delete) multiple service level objective objects.
+Create an API key with a given name.
 
-### Overview
-Delete (or partially delete) multiple service level objective objects.
-This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
+## Overview
+Creates an API key
+### ARGUMENTS
+* **`name`** [*required*]: Name of your API key.
 
 ### Example
 
@@ -34,7 +37,7 @@ import com.datadog.api.client.v1.ApiException;
 import com.datadog.api.client.v1.Configuration;
 import com.datadog.api.client.v1.auth.*;
 import com.datadog.api.client.v1.models.*;
-import com.datadog.api.client.v1.api.SloApi;
+import com.datadog.api.client.v1.api.KeysApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -53,13 +56,13 @@ public class Example {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //appKeyAuth.setApiKeyPrefix("Token");
 
-        SloApi apiInstance = new SloApi(defaultClient);
-        Map<String, List<SloTimeframe>> requestBody = new HashMap(); // Map<String, List<SloTimeframe>> | Thresholds by service level objective object ID
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        ApiKey apiKey = new ApiKey(); // ApiKey | 
         try {
-            ServiceLevelObjectivesBulkDeleted result = apiInstance.bulkPartialDeleteSlo(requestBody);
+            ApiKeyResponse result = apiInstance.createAPIKey(apiKey);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SloApi#bulkPartialDeleteSlo");
+            System.err.println("Exception when calling KeysApi#createAPIKey");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -74,11 +77,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**Map&lt;String, List&lt;SloTimeframe&gt;&gt;**](List.md)| Thresholds by service level objective object ID |
+ **apiKey** | [**ApiKey**](ApiKey.md)|  | [optional]
 
 ### Return type
 
-[**ServiceLevelObjectivesBulkDeleted**](ServiceLevelObjectivesBulkDeleted.md)
+[**ApiKeyResponse**](ApiKeyResponse.md)
 
 ### Authorization
 
@@ -94,20 +97,20 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
 
 
-## checkCanDeleteSlo
+## createApplicationKey
 
-> CheckCanDeleteServiceLevelObjectiveResponse checkCanDeleteSlo(ids)
+> ApplicationKeyResponse createApplicationKey(applicationKey)
 
-Check if SLOs can be safely deleted.
+Create an application key with a given name.
 
-### Overview
-Check if an SLO can be safely deleted without disrupting dashboards for example.
-### Arguments
-* **`ids`** [*required*]: The ID (csv) of the service level objective objects to check.
+## Overview
+Create an application key with a given name.
+### ARGUMENTS
+* **`name`** [*required*]: Name of your application key.
 
 ### Example
 
@@ -118,7 +121,7 @@ import com.datadog.api.client.v1.ApiException;
 import com.datadog.api.client.v1.Configuration;
 import com.datadog.api.client.v1.auth.*;
 import com.datadog.api.client.v1.models.*;
-import com.datadog.api.client.v1.api.SloApi;
+import com.datadog.api.client.v1.api.KeysApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -137,13 +140,13 @@ public class Example {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //appKeyAuth.setApiKeyPrefix("Token");
 
-        SloApi apiInstance = new SloApi(defaultClient);
-        String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects (e.g. \"id1,id2,id3\").
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        ApplicationKey applicationKey = new ApplicationKey(); // ApplicationKey | 
         try {
-            CheckCanDeleteServiceLevelObjectiveResponse result = apiInstance.checkCanDeleteSlo(ids);
+            ApplicationKeyResponse result = apiInstance.createApplicationKey(applicationKey);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SloApi#checkCanDeleteSlo");
+            System.err.println("Exception when calling KeysApi#createApplicationKey");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -158,11 +161,95 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects (e.g. \&quot;id1,id2,id3\&quot;). |
+ **applicationKey** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
 
 ### Return type
 
-[**CheckCanDeleteServiceLevelObjectiveResponse**](CheckCanDeleteServiceLevelObjectiveResponse.md)
+[**ApplicationKeyResponse**](ApplicationKeyResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+
+
+## deleteAPIKey
+
+> ApiKeyResponse deleteAPIKey(apiKey)
+
+Delete a given API key.
+
+## Overview
+Delete a given API key.
+### ARGUMENTS
+This endpoint takes no JSON arguments.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.client.v1.ApiClient;
+import com.datadog.api.client.v1.ApiException;
+import com.datadog.api.client.v1.Configuration;
+import com.datadog.api.client.v1.auth.*;
+import com.datadog.api.client.v1.models.*;
+import com.datadog.api.client.v1.api.KeysApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        String apiKey = "apiKey_example"; // String | The specific API key you are working with
+        try {
+            ApiKeyResponse result = apiInstance.deleteAPIKey(apiKey);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling KeysApi#deleteAPIKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The specific API key you are working with |
+
+### Return type
+
+[**ApiKeyResponse**](ApiKeyResponse.md)
 
 ### Authorization
 
@@ -178,274 +265,20 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-
-
-## createSlo
-
-> ServiceLevelObjectiveResponse createSlo(serviceLevelObjective)
-
-Create a service level objective object.
-
-### Overview
-Create a service level objective object.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.client.v1.ApiClient;
-import com.datadog.api.client.v1.ApiException;
-import com.datadog.api.client.v1.Configuration;
-import com.datadog.api.client.v1.auth.*;
-import com.datadog.api.client.v1.models.*;
-import com.datadog.api.client.v1.api.SloApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        SloApi apiInstance = new SloApi(defaultClient);
-        ServiceLevelObjective serviceLevelObjective = new ServiceLevelObjective(); // ServiceLevelObjective | Service level objective request object
-        try {
-            ServiceLevelObjectiveResponse result = apiInstance.createSlo(serviceLevelObjective);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SloApi#createSlo");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceLevelObjective** | [**ServiceLevelObjective**](ServiceLevelObjective.md)| Service level objective request object |
-
-### Return type
-
-[**ServiceLevelObjectiveResponse**](ServiceLevelObjectiveResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-
-
-## deleteSlo
-
-> ServiceLevelObjectiveDeleted deleteSlo(sloId)
-
-Delete the specified service level objective object.
-
-### Overview
-Delete the specified service level objective object.
-### Arguments
-* **`slo_id`** [*required*]: The ID of the service level objective object
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.client.v1.ApiClient;
-import com.datadog.api.client.v1.ApiException;
-import com.datadog.api.client.v1.Configuration;
-import com.datadog.api.client.v1.auth.*;
-import com.datadog.api.client.v1.models.*;
-import com.datadog.api.client.v1.api.SloApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        SloApi apiInstance = new SloApi(defaultClient);
-        Long sloId = 56L; // Long | The id of the service level objective
-        try {
-            ServiceLevelObjectiveDeleted result = apiInstance.deleteSlo(sloId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SloApi#deleteSlo");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sloId** | **Long**| The id of the service level objective |
-
-### Return type
-
-[**ServiceLevelObjectiveDeleted**](ServiceLevelObjectiveDeleted.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
-
-
-## editSlo
-
-> ServiceLevelObjectiveResponse editSlo(sloId, serviceLevelObjective)
-
-Edit the specified service level objective
-
-### Overview
-Edit the specified service level objective object.
-### Arguments
-* **`slo_id`** [*required*]: The ID of the service level objective object
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.client.v1.ApiClient;
-import com.datadog.api.client.v1.ApiException;
-import com.datadog.api.client.v1.Configuration;
-import com.datadog.api.client.v1.auth.*;
-import com.datadog.api.client.v1.models.*;
-import com.datadog.api.client.v1.api.SloApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        SloApi apiInstance = new SloApi(defaultClient);
-        String sloId = "sloId_example"; // String | The ID of the service level objective object
-        ServiceLevelObjective serviceLevelObjective = new ServiceLevelObjective(); // ServiceLevelObjective | The edited service level objective request object.
-        try {
-            ServiceLevelObjectiveResponse result = apiInstance.editSlo(sloId, serviceLevelObjective);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SloApi#editSlo");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective object |
- **serviceLevelObjective** | [**ServiceLevelObjective**](ServiceLevelObjective.md)| The edited service level objective request object. |
-
-### Return type
-
-[**ServiceLevelObjectiveResponse**](ServiceLevelObjectiveResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
 
-## getSlo
+## deleteApplicationKey
 
-> ServiceLevelObjectiveResponse getSlo(sloId)
+> ApplicationKeyResponse deleteApplicationKey(appKey)
 
-Get a service level objective object
+Delete a given application key.
 
-### Overview
-Get a service level objective object.
-### Arguments
-* **`slo_id`** [*required*]: The ID of the service level objective object
+## Overview
+Delete a given application key.
+### ARGUMENTS
+* **`name`** [*required*]: Name of your application key.
 
 ### Example
 
@@ -456,7 +289,7 @@ import com.datadog.api.client.v1.ApiException;
 import com.datadog.api.client.v1.Configuration;
 import com.datadog.api.client.v1.auth.*;
 import com.datadog.api.client.v1.models.*;
-import com.datadog.api.client.v1.api.SloApi;
+import com.datadog.api.client.v1.api.KeysApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -475,13 +308,13 @@ public class Example {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //appKeyAuth.setApiKeyPrefix("Token");
 
-        SloApi apiInstance = new SloApi(defaultClient);
-        String sloId = "sloId_example"; // String | The ID of the service level objective object
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        String appKey = "appKey_example"; // String | The specific APP key you are working with
         try {
-            ServiceLevelObjectiveResponse result = apiInstance.getSlo(sloId);
+            ApplicationKeyResponse result = apiInstance.deleteApplicationKey(appKey);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SloApi#getSlo");
+            System.err.println("Exception when calling KeysApi#deleteApplicationKey");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -496,11 +329,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective object |
+ **appKey** | **String**| The specific APP key you are working with |
 
 ### Return type
 
-[**ServiceLevelObjectiveResponse**](ServiceLevelObjectiveResponse.md)
+[**ApplicationKeyResponse**](ApplicationKeyResponse.md)
 
 ### Authorization
 
@@ -516,22 +349,20 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
+| **404** | Not Found |  -  |
 
 
-## getSlos
+## editAPIKey
 
-> ServiceLevelObjectiveResponse getSlos(ids)
+> ApiKeyResponse editAPIKey(apiKey, apiKey)
 
-Get multiple service level objective objects by their IDs.
+Edit an API key name.
 
-### Overview
-Get multiple service level objective objects by their IDs.
-### Arguments
-* **`ids`** [*required*]: A comma separated list of the IDs of the service level
-  objectives objects (e.g. "id1,id2,id3").
+## Overview
+Edit an API key name.
+### ARGUMENTS
+* **`name`** [*required*]: Name of your API key.
 
 ### Example
 
@@ -542,7 +373,7 @@ import com.datadog.api.client.v1.ApiException;
 import com.datadog.api.client.v1.Configuration;
 import com.datadog.api.client.v1.auth.*;
 import com.datadog.api.client.v1.models.*;
-import com.datadog.api.client.v1.api.SloApi;
+import com.datadog.api.client.v1.api.KeysApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -561,13 +392,14 @@ public class Example {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //appKeyAuth.setApiKeyPrefix("Token");
 
-        SloApi apiInstance = new SloApi(defaultClient);
-        String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects (e.g. \"id1,id2,id3\").
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        String apiKey = "apiKey_example"; // String | The specific API key you are working with
+        ApiKey apiKey = new ApiKey(); // ApiKey | 
         try {
-            ServiceLevelObjectiveResponse result = apiInstance.getSlos(ids);
+            ApiKeyResponse result = apiInstance.editAPIKey(apiKey, apiKey);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SloApi#getSlos");
+            System.err.println("Exception when calling KeysApi#editAPIKey");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -582,11 +414,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects (e.g. \&quot;id1,id2,id3\&quot;). |
+ **apiKey** | **String**| The specific API key you are working with |
+ **apiKey** | [**ApiKey**](ApiKey.md)|  | [optional]
 
 ### Return type
 
-[**ServiceLevelObjectiveResponse**](ServiceLevelObjectiveResponse.md)
+[**ApiKeyResponse**](ApiKeyResponse.md)
 
 ### Authorization
 
@@ -594,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details
@@ -602,22 +435,20 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
 
-## historyForSlo
+## editApplicationKey
 
-> HistoryServiceLevelObjectiveResponse historyForSlo(sloId, fromTs, toTs)
+> ApplicationKeyResponse editApplicationKey(appKey, applicationKey)
 
-Get the history of the service level objective.
+Edit an application key name.
 
-### Overview
-Get the SLO history data
-### Arguments
-* **`slo_id`** [*required*]: The ID of the service level objective object
-* **`from_ts`** [*required*]: The `from` timestamp in epoch seconds for the query timeframe
-* **`to_ts`** [*required*]: The `to` timestamp in epoch seconds for the query timeframe
+## Overview
+Edit an application key name.
+### ARGUMENTS
+* **`name`** [*required*]: Name of your application key.
 
 ### Example
 
@@ -628,7 +459,7 @@ import com.datadog.api.client.v1.ApiException;
 import com.datadog.api.client.v1.Configuration;
 import com.datadog.api.client.v1.auth.*;
 import com.datadog.api.client.v1.models.*;
-import com.datadog.api.client.v1.api.SloApi;
+import com.datadog.api.client.v1.api.KeysApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -647,15 +478,14 @@ public class Example {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //appKeyAuth.setApiKeyPrefix("Token");
 
-        SloApi apiInstance = new SloApi(defaultClient);
-        String sloId = "sloId_example"; // String | The ID of the service level objective object
-        String fromTs = "fromTs_example"; // String | The `from` timestamp for the query window in epoch seconds
-        String toTs = "toTs_example"; // String | The `to` timestamp for the query window in epoch seconds
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        String appKey = "appKey_example"; // String | The specific APP key you are working with
+        ApplicationKey applicationKey = new ApplicationKey(); // ApplicationKey | 
         try {
-            HistoryServiceLevelObjectiveResponse result = apiInstance.historyForSlo(sloId, fromTs, toTs);
+            ApplicationKeyResponse result = apiInstance.editApplicationKey(appKey, applicationKey);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SloApi#historyForSlo");
+            System.err.println("Exception when calling KeysApi#editApplicationKey");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -670,13 +500,96 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective object |
- **fromTs** | **String**| The &#x60;from&#x60; timestamp for the query window in epoch seconds |
- **toTs** | **String**| The &#x60;to&#x60; timestamp for the query window in epoch seconds |
+ **appKey** | **String**| The specific APP key you are working with |
+ **applicationKey** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
 
 ### Return type
 
-[**HistoryServiceLevelObjectiveResponse**](HistoryServiceLevelObjectiveResponse.md)
+[**ApplicationKeyResponse**](ApplicationKeyResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## getAPIKey
+
+> ApiKeyResponse getAPIKey(apiKey)
+
+Get a given API key.
+
+## Overview
+Get a given API key.
+### ARGUMENTS
+This endpoint takes no JSON arguments.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.client.v1.ApiClient;
+import com.datadog.api.client.v1.ApiException;
+import com.datadog.api.client.v1.Configuration;
+import com.datadog.api.client.v1.auth.*;
+import com.datadog.api.client.v1.models.*;
+import com.datadog.api.client.v1.api.KeysApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        String apiKey = "apiKey_example"; // String | The specific API key you are working with
+        try {
+            ApiKeyResponse result = apiInstance.getAPIKey(apiKey);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling KeysApi#getAPIKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The specific API key you are working with |
+
+### Return type
+
+[**ApiKeyResponse**](ApiKeyResponse.md)
 
 ### Authorization
 
@@ -692,6 +605,248 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## getAllAPIKeys
+
+> ApiKeyListResponse getAllAPIKeys()
+
+Get all API keys available for your account.
+
+## Overview
+Get all API keys available for your account.
+### ARGUMENTS
+This endpoint takes no JSON arguments.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.client.v1.ApiClient;
+import com.datadog.api.client.v1.ApiException;
+import com.datadog.api.client.v1.Configuration;
+import com.datadog.api.client.v1.auth.*;
+import com.datadog.api.client.v1.models.*;
+import com.datadog.api.client.v1.api.KeysApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        try {
+            ApiKeyListResponse result = apiInstance.getAllAPIKeys();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling KeysApi#getAllAPIKeys");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ApiKeyListResponse**](ApiKeyListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
+
+## getAllApplicationKeys
+
+> ApplicationKeyListResponse getAllApplicationKeys()
+
+Get all application keys available for your account.
+
+## Overview
+Get all application keys available for your account.
+### ARGUMENTS
+This endpoint takes no JSON arguments.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.client.v1.ApiClient;
+import com.datadog.api.client.v1.ApiException;
+import com.datadog.api.client.v1.Configuration;
+import com.datadog.api.client.v1.auth.*;
+import com.datadog.api.client.v1.models.*;
+import com.datadog.api.client.v1.api.KeysApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        try {
+            ApplicationKeyListResponse result = apiInstance.getAllApplicationKeys();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling KeysApi#getAllApplicationKeys");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ApplicationKeyListResponse**](ApplicationKeyListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
+
+## getApplicationKey
+
+> ApplicationKeyResponse getApplicationKey(appKey)
+
+Get a given application key.
+
+## Overview
+Get a given application key.
+### ARGUMENTS
+This endpoint takes no JSON arguments.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.client.v1.ApiClient;
+import com.datadog.api.client.v1.ApiException;
+import com.datadog.api.client.v1.Configuration;
+import com.datadog.api.client.v1.auth.*;
+import com.datadog.api.client.v1.models.*;
+import com.datadog.api.client.v1.api.KeysApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        KeysApi apiInstance = new KeysApi(defaultClient);
+        String appKey = "appKey_example"; // String | The specific APP key you are working with
+        try {
+            ApplicationKeyResponse result = apiInstance.getApplicationKey(appKey);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling KeysApi#getApplicationKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appKey** | **String**| The specific APP key you are working with |
+
+### Return type
+
+[**ApplicationKeyResponse**](ApplicationKeyResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 

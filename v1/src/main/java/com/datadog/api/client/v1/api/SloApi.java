@@ -8,10 +8,12 @@ import com.datadog.api.client.v1.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.datadog.api.client.v1.model.CheckCanDeleteServiceLevelObjectiveResponse;
 import com.datadog.api.client.v1.model.Error400;
 import com.datadog.api.client.v1.model.Error401;
 import com.datadog.api.client.v1.model.Error403;
 import com.datadog.api.client.v1.model.Error404;
+import com.datadog.api.client.v1.model.HistoryServiceLevelObjectiveResponse;
 import com.datadog.api.client.v1.model.ServiceLevelObjective;
 import com.datadog.api.client.v1.model.ServiceLevelObjectiveDeleted;
 import com.datadog.api.client.v1.model.ServiceLevelObjectiveResponse;
@@ -110,6 +112,75 @@ public class SloApi {
 
     GenericType<ServiceLevelObjectivesBulkDeleted> localVarReturnType = new GenericType<ServiceLevelObjectivesBulkDeleted>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Check if SLOs can be safely deleted.
+   * ### Overview Check if an SLO can be safely deleted without disrupting dashboards for example. ### Arguments * **&#x60;ids&#x60;** [*required*]: The ID (csv) of the service level objective objects to check.
+   * @param ids A comma separated list of the IDs of the service level objectives objects (e.g. \&quot;id1,id2,id3\&quot;). (required)
+   * @return CheckCanDeleteServiceLevelObjectiveResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+   */
+  public CheckCanDeleteServiceLevelObjectiveResponse checkCanDeleteSlo(String ids) throws ApiException {
+    return checkCanDeleteSloWithHttpInfo(ids).getData();
+      }
+
+  /**
+   * Check if SLOs can be safely deleted.
+   * ### Overview Check if an SLO can be safely deleted without disrupting dashboards for example. ### Arguments * **&#x60;ids&#x60;** [*required*]: The ID (csv) of the service level objective objects to check.
+   * @param ids A comma separated list of the IDs of the service level objectives objects (e.g. \&quot;id1,id2,id3\&quot;). (required)
+   * @return ApiResponse&lt;CheckCanDeleteServiceLevelObjectiveResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<CheckCanDeleteServiceLevelObjectiveResponse> checkCanDeleteSloWithHttpInfo(String ids) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'ids' is set
+    if (ids == null) {
+      throw new ApiException(400, "Missing the required parameter 'ids' when calling checkCanDeleteSlo");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/slo/can_delete";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<CheckCanDeleteServiceLevelObjectiveResponse> localVarReturnType = new GenericType<CheckCanDeleteServiceLevelObjectiveResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Create a service level objective object.
@@ -267,7 +338,7 @@ public class SloApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public ServiceLevelObjectiveResponse editSlo(Long sloId, ServiceLevelObjective serviceLevelObjective) throws ApiException {
+  public ServiceLevelObjectiveResponse editSlo(String sloId, ServiceLevelObjective serviceLevelObjective) throws ApiException {
     return editSloWithHttpInfo(sloId, serviceLevelObjective).getData();
       }
 
@@ -288,7 +359,7 @@ public class SloApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ServiceLevelObjectiveResponse> editSloWithHttpInfo(Long sloId, ServiceLevelObjective serviceLevelObjective) throws ApiException {
+  public ApiResponse<ServiceLevelObjectiveResponse> editSloWithHttpInfo(String sloId, ServiceLevelObjective serviceLevelObjective) throws ApiException {
     Object localVarPostBody = serviceLevelObjective;
     
     // verify the required parameter 'sloId' is set
@@ -466,6 +537,91 @@ public class SloApi {
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ServiceLevelObjectiveResponse> localVarReturnType = new GenericType<ServiceLevelObjectiveResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get the history of the service level objective.
+   * ### Overview Get the SLO history data ### Arguments * **&#x60;slo_id&#x60;** [*required*]: The ID of the service level objective object * **&#x60;from_ts&#x60;** [*required*]: The &#x60;from&#x60; timestamp in epoch seconds for the query timeframe * **&#x60;to_ts&#x60;** [*required*]: The &#x60;to&#x60; timestamp in epoch seconds for the query timeframe
+   * @param sloId The ID of the service level objective object (required)
+   * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds (required)
+   * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds (required)
+   * @return HistoryServiceLevelObjectiveResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+   */
+  public HistoryServiceLevelObjectiveResponse historyForSlo(String sloId, String fromTs, String toTs) throws ApiException {
+    return historyForSloWithHttpInfo(sloId, fromTs, toTs).getData();
+      }
+
+  /**
+   * Get the history of the service level objective.
+   * ### Overview Get the SLO history data ### Arguments * **&#x60;slo_id&#x60;** [*required*]: The ID of the service level objective object * **&#x60;from_ts&#x60;** [*required*]: The &#x60;from&#x60; timestamp in epoch seconds for the query timeframe * **&#x60;to_ts&#x60;** [*required*]: The &#x60;to&#x60; timestamp in epoch seconds for the query timeframe
+   * @param sloId The ID of the service level objective object (required)
+   * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds (required)
+   * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds (required)
+   * @return ApiResponse&lt;HistoryServiceLevelObjectiveResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<HistoryServiceLevelObjectiveResponse> historyForSloWithHttpInfo(String sloId, String fromTs, String toTs) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'sloId' is set
+    if (sloId == null) {
+      throw new ApiException(400, "Missing the required parameter 'sloId' when calling historyForSlo");
+    }
+    
+    // verify the required parameter 'fromTs' is set
+    if (fromTs == null) {
+      throw new ApiException(400, "Missing the required parameter 'fromTs' when calling historyForSlo");
+    }
+    
+    // verify the required parameter 'toTs' is set
+    if (toTs == null) {
+      throw new ApiException(400, "Missing the required parameter 'toTs' when calling historyForSlo");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/slo/{slo_id}/history"
+      .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<HistoryServiceLevelObjectiveResponse> localVarReturnType = new GenericType<HistoryServiceLevelObjectiveResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }
