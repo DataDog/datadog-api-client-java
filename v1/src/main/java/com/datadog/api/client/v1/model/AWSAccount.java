@@ -23,10 +23,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * AWSAccount
  */
+@JsonPropertyOrder({
+  AWSAccount.JSON_PROPERTY_ACCESS_KEY_ID,
+  AWSAccount.JSON_PROPERTY_ACCOUNT_ID,
+  AWSAccount.JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES,
+  AWSAccount.JSON_PROPERTY_FILTER_TAGS,
+  AWSAccount.JSON_PROPERTY_HOST_TAGS,
+  AWSAccount.JSON_PROPERTY_ROLE_NAME
+})
 
 public class AWSAccount {
   public static final String JSON_PROPERTY_ACCESS_KEY_ID = "access_key_id";

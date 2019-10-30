@@ -19,10 +19,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * MonitorThresholdWindowOptions
  */
+@JsonPropertyOrder({
+  MonitorThresholdWindowOptions.JSON_PROPERTY_RECOVERY_WINDOW,
+  MonitorThresholdWindowOptions.JSON_PROPERTY_TRIGGER_WINDOW
+})
 
 public class MonitorThresholdWindowOptions {
   public static final String JSON_PROPERTY_RECOVERY_WINDOW = "recovery_window";

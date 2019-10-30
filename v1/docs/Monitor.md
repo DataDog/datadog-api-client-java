@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **name** | **String** |  |  [optional]
 **options** | [**MonitorOptions**](MonitorOptions.md) |  |  [optional]
 **overallState** | [**MonitorOverallStates**](MonitorOverallStates.md) |  |  [optional]
-**query** | **String** |  | 
+**query** | **String** |  |  [optional]
 **state** | [**MonitorState**](MonitorState.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
-**type** | [**TypeEnum**](#TypeEnum) | The type of the monitor | 
+**type** | [**TypeEnum**](#TypeEnum) | The type of the monitor |  [optional]
 
 
 

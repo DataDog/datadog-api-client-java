@@ -21,10 +21,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Error429
  */
+@JsonPropertyOrder({
+  Error429.JSON_PROPERTY_ERRORS
+})
 
 public class Error429 {
   public static final String JSON_PROPERTY_ERRORS = "errors";

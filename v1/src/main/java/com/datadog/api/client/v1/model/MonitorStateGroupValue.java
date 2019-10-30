@@ -19,10 +19,18 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * MonitorStateGroupValue
  */
+@JsonPropertyOrder({
+  MonitorStateGroupValue.JSON_PROPERTY_FROM_TS,
+  MonitorStateGroupValue.JSON_PROPERTY_LEFT,
+  MonitorStateGroupValue.JSON_PROPERTY_RIGHT,
+  MonitorStateGroupValue.JSON_PROPERTY_TO_TS,
+  MonitorStateGroupValue.JSON_PROPERTY_VALUE
+})
 
 public class MonitorStateGroupValue {
   public static final String JSON_PROPERTY_FROM_TS = "from_ts";

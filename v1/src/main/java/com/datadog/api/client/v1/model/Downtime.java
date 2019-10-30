@@ -24,10 +24,29 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Downtime
  */
+@JsonPropertyOrder({
+  Downtime.JSON_PROPERTY_ACTIVE,
+  Downtime.JSON_PROPERTY_CANCELED,
+  Downtime.JSON_PROPERTY_CREATOR_ID,
+  Downtime.JSON_PROPERTY_DISABLED,
+  Downtime.JSON_PROPERTY_DOWNTIME_TYPE,
+  Downtime.JSON_PROPERTY_END,
+  Downtime.JSON_PROPERTY_ID,
+  Downtime.JSON_PROPERTY_MESSAGE,
+  Downtime.JSON_PROPERTY_MONITOR_ID,
+  Downtime.JSON_PROPERTY_MONITOR_TAGS,
+  Downtime.JSON_PROPERTY_PARENT_ID,
+  Downtime.JSON_PROPERTY_RECURRENCE,
+  Downtime.JSON_PROPERTY_SCOPE,
+  Downtime.JSON_PROPERTY_START,
+  Downtime.JSON_PROPERTY_TIMEZONE,
+  Downtime.JSON_PROPERTY_UPDATER_ID
+})
 
 public class Downtime {
   public static final String JSON_PROPERTY_ACTIVE = "active";

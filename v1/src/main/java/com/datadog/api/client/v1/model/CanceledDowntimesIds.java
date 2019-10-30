@@ -21,10 +21,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * CanceledDowntimesIds
  */
+@JsonPropertyOrder({
+  CanceledDowntimesIds.JSON_PROPERTY_CANCELLED_IDS
+})
 
 public class CanceledDowntimesIds {
   public static final String JSON_PROPERTY_CANCELLED_IDS = "cancelled_ids";

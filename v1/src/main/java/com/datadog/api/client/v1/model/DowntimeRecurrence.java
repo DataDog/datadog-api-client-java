@@ -23,10 +23,18 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * DowntimeRecurrence
  */
+@JsonPropertyOrder({
+  DowntimeRecurrence.JSON_PROPERTY_PERIOD,
+  DowntimeRecurrence.JSON_PROPERTY_TYPE,
+  DowntimeRecurrence.JSON_PROPERTY_UNTIL_DATE,
+  DowntimeRecurrence.JSON_PROPERTY_UNTIL_OCCURRENCES,
+  DowntimeRecurrence.JSON_PROPERTY_WEEK_DAYS
+})
 
 public class DowntimeRecurrence {
   public static final String JSON_PROPERTY_PERIOD = "period";

@@ -20,10 +20,18 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * SloThreshold
  */
+@JsonPropertyOrder({
+  SloThreshold.JSON_PROPERTY_TARGET,
+  SloThreshold.JSON_PROPERTY_TARGET_DISPLAY,
+  SloThreshold.JSON_PROPERTY_TIMEFRAME,
+  SloThreshold.JSON_PROPERTY_WARNING,
+  SloThreshold.JSON_PROPERTY_WARNING_DISPLAY
+})
 
 public class SloThreshold {
   public static final String JSON_PROPERTY_TARGET = "target";

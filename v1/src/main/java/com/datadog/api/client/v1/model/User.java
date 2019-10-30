@@ -19,10 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * User
  */
+@JsonPropertyOrder({
+  User.JSON_PROPERTY_ACCESS_ROLE,
+  User.JSON_PROPERTY_DISABLED,
+  User.JSON_PROPERTY_EMAIL,
+  User.JSON_PROPERTY_HANDLE,
+  User.JSON_PROPERTY_ICON,
+  User.JSON_PROPERTY_IS_ADMIN,
+  User.JSON_PROPERTY_NAME,
+  User.JSON_PROPERTY_ROLE,
+  User.JSON_PROPERTY_VERIFIED
+})
 
 public class User {
   /**

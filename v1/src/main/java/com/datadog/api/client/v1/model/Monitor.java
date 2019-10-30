@@ -26,10 +26,27 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.threeten.bp.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Monitor
  */
+@JsonPropertyOrder({
+  Monitor.JSON_PROPERTY_CREATED,
+  Monitor.JSON_PROPERTY_CREATOR,
+  Monitor.JSON_PROPERTY_DELETED,
+  Monitor.JSON_PROPERTY_ID,
+  Monitor.JSON_PROPERTY_MESSAGE,
+  Monitor.JSON_PROPERTY_MODIFIED,
+  Monitor.JSON_PROPERTY_MULTI,
+  Monitor.JSON_PROPERTY_NAME,
+  Monitor.JSON_PROPERTY_OPTIONS,
+  Monitor.JSON_PROPERTY_OVERALL_STATE,
+  Monitor.JSON_PROPERTY_QUERY,
+  Monitor.JSON_PROPERTY_STATE,
+  Monitor.JSON_PROPERTY_TAGS,
+  Monitor.JSON_PROPERTY_TYPE
+})
 
 public class Monitor {
   public static final String JSON_PROPERTY_CREATED = "created";
@@ -394,9 +411,10 @@ public class Monitor {
    * Get query
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getQuery() {
     return query;
@@ -479,9 +497,10 @@ public class Monitor {
    * The type of the monitor
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "The type of the monitor")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of the monitor")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;

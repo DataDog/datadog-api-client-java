@@ -22,10 +22,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * UserGetAllResponse
  */
+@JsonPropertyOrder({
+  UserGetAllResponse.JSON_PROPERTY_USERS
+})
 
 public class UserGetAllResponse {
   public static final String JSON_PROPERTY_USERS = "users";

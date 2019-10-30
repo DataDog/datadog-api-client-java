@@ -21,10 +21,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * MonitorStateGroup
  */
+@JsonPropertyOrder({
+  MonitorStateGroup.JSON_PROPERTY_LAST_DATA_TS,
+  MonitorStateGroup.JSON_PROPERTY_LAST_NODATA_TS,
+  MonitorStateGroup.JSON_PROPERTY_LAST_NOTIFIED_TS,
+  MonitorStateGroup.JSON_PROPERTY_LAST_RESOLVED_TS,
+  MonitorStateGroup.JSON_PROPERTY_LAST_TRIGGERED_TS,
+  MonitorStateGroup.JSON_PROPERTY_MESSAGE,
+  MonitorStateGroup.JSON_PROPERTY_NAME,
+  MonitorStateGroup.JSON_PROPERTY_STATUS,
+  MonitorStateGroup.JSON_PROPERTY_TRIGGERING_VALUE
+})
 
 public class MonitorStateGroup {
   public static final String JSON_PROPERTY_LAST_DATA_TS = "last_data_ts";

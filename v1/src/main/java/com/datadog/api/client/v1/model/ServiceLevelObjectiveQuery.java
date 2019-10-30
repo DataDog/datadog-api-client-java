@@ -19,11 +19,16 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * A metric SLI query. Required if type is \&quot;metric\&quot;.
  */
 @ApiModel(description = "A metric SLI query. Required if type is \"metric\".")
+@JsonPropertyOrder({
+  ServiceLevelObjectiveQuery.JSON_PROPERTY_DENOMINATOR,
+  ServiceLevelObjectiveQuery.JSON_PROPERTY_NUMERATOR
+})
 
 public class ServiceLevelObjectiveQuery {
   public static final String JSON_PROPERTY_DENOMINATOR = "denominator";

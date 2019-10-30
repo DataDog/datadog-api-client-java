@@ -21,10 +21,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * ServiceLevelObjectivesBulkDeletedData
  */
+@JsonPropertyOrder({
+  ServiceLevelObjectivesBulkDeletedData.JSON_PROPERTY_DELETED,
+  ServiceLevelObjectivesBulkDeletedData.JSON_PROPERTY_UPDATED
+})
 
 public class ServiceLevelObjectivesBulkDeletedData {
   public static final String JSON_PROPERTY_DELETED = "deleted";
