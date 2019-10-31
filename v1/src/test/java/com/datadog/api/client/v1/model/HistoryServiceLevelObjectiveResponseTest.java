@@ -11,45 +11,49 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.v1.model.HistoryServiceLevelObjectiveResponseData;
+import com.datadog.api.client.v1.model.HistoryServiceLevelObjectiveResponseError;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for DeleteAWSByIdentifier
+ * Model tests for HistoryServiceLevelObjectiveResponse
  */
-public class DeleteAWSByIdentifierTest {
-    private final DeleteAWSByIdentifier model = new DeleteAWSByIdentifier();
+public class HistoryServiceLevelObjectiveResponseTest {
+    private final HistoryServiceLevelObjectiveResponse model = new HistoryServiceLevelObjectiveResponse();
 
     /**
-     * Model tests for DeleteAWSByIdentifier
+     * Model tests for HistoryServiceLevelObjectiveResponse
      */
     @Test
-    public void testDeleteAWSByIdentifier() {
-        // TODO: test DeleteAWSByIdentifier
+    public void testHistoryServiceLevelObjectiveResponse() {
+        // TODO: test HistoryServiceLevelObjectiveResponse
     }
 
     /**
-     * Test the property 'accountId'
+     * Test the property 'data'
      */
     @Test
-    public void accountIdTest() {
-        // TODO: test accountId
+    public void dataTest() {
+        // TODO: test data
     }
 
     /**
-     * Test the property 'roleName'
+     * Test the property 'errors'
      */
     @Test
-    public void roleNameTest() {
-        // TODO: test roleName
+    public void errorsTest() {
+        // TODO: test errors
     }
 
 }

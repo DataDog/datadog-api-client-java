@@ -13,50 +13,60 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.client.v1.model.User;
+import com.datadog.api.client.v1.model.ApplicationKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * UserGetResponse
+ * ApplicationKeyListResponse
  */
 @JsonPropertyOrder({
-  UserGetResponse.JSON_PROPERTY_USER
+  ApplicationKeyListResponse.JSON_PROPERTY_APPLICATION_KEYS
 })
 
-public class UserGetResponse {
-  public static final String JSON_PROPERTY_USER = "user";
-  private User user;
+public class ApplicationKeyListResponse {
+  public static final String JSON_PROPERTY_APPLICATION_KEYS = "application_keys";
+  private List<ApplicationKey> applicationKeys = null;
 
 
-  public UserGetResponse user(User user) {
+  public ApplicationKeyListResponse applicationKeys(List<ApplicationKey> applicationKeys) {
     
-    this.user = user;
+    this.applicationKeys = applicationKeys;
+    return this;
+  }
+
+  public ApplicationKeyListResponse addApplicationKeysItem(ApplicationKey applicationKeysItem) {
+    if (this.applicationKeys == null) {
+      this.applicationKeys = new ArrayList<ApplicationKey>();
+    }
+    this.applicationKeys.add(applicationKeysItem);
     return this;
   }
 
    /**
-   * Get user
-   * @return user
+   * Get applicationKeys
+   * @return applicationKeys
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonProperty(JSON_PROPERTY_APPLICATION_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public User getUser() {
-    return user;
+  public List<ApplicationKey> getApplicationKeys() {
+    return applicationKeys;
   }
 
 
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setApplicationKeys(List<ApplicationKey> applicationKeys) {
+    this.applicationKeys = applicationKeys;
   }
 
 
@@ -68,21 +78,21 @@ public class UserGetResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserGetResponse userGetResponse = (UserGetResponse) o;
-    return Objects.equals(this.user, userGetResponse.user);
+    ApplicationKeyListResponse applicationKeyListResponse = (ApplicationKeyListResponse) o;
+    return Objects.equals(this.applicationKeys, applicationKeyListResponse.applicationKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user);
+    return Objects.hash(applicationKeys);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserGetResponse {\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("class ApplicationKeyListResponse {\n");
+    sb.append("    applicationKeys: ").append(toIndentedString(applicationKeys)).append("\n");
     sb.append("}");
     return sb.toString();
   }

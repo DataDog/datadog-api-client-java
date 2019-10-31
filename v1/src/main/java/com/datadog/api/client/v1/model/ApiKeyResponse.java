@@ -13,7 +13,7 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.client.v1.model.User;
+import com.datadog.api.client.v1.model.ApiKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,40 +23,40 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * UserCreateResponse
+ * ApiKeyResponse
  */
 @JsonPropertyOrder({
-  UserCreateResponse.JSON_PROPERTY_USER
+  ApiKeyResponse.JSON_PROPERTY_API_KEY
 })
 
-public class UserCreateResponse {
-  public static final String JSON_PROPERTY_USER = "user";
-  private User user;
+public class ApiKeyResponse {
+  public static final String JSON_PROPERTY_API_KEY = "api_key";
+  private ApiKey apiKey;
 
 
-  public UserCreateResponse user(User user) {
+  public ApiKeyResponse apiKey(ApiKey apiKey) {
     
-    this.user = user;
+    this.apiKey = apiKey;
     return this;
   }
 
    /**
-   * Get user
-   * @return user
+   * Get apiKey
+   * @return apiKey
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public User getUser() {
-    return user;
+  public ApiKey getApiKey() {
+    return apiKey;
   }
 
 
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setApiKey(ApiKey apiKey) {
+    this.apiKey = apiKey;
   }
 
 
@@ -68,21 +68,21 @@ public class UserCreateResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserCreateResponse userCreateResponse = (UserCreateResponse) o;
-    return Objects.equals(this.user, userCreateResponse.user);
+    ApiKeyResponse apiKeyResponse = (ApiKeyResponse) o;
+    return Objects.equals(this.apiKey, apiKeyResponse.apiKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user);
+    return Objects.hash(apiKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserCreateResponse {\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("class ApiKeyResponse {\n");
+    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

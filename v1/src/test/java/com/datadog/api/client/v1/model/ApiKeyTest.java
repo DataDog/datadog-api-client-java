@@ -11,7 +11,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.v1.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,25 +23,49 @@ import org.junit.Test;
 
 
 /**
- * Model tests for UserUpdateResponse
+ * Model tests for ApiKey
  */
-public class UserUpdateResponseTest {
-    private final UserUpdateResponse model = new UserUpdateResponse();
+public class ApiKeyTest {
+    private final ApiKey model = new ApiKey();
 
     /**
-     * Model tests for UserUpdateResponse
+     * Model tests for ApiKey
      */
     @Test
-    public void testUserUpdateResponse() {
-        // TODO: test UserUpdateResponse
+    public void testApiKey() {
+        // TODO: test ApiKey
     }
 
     /**
-     * Test the property 'user'
+     * Test the property 'created'
      */
     @Test
-    public void userTest() {
-        // TODO: test user
+    public void createdTest() {
+        // TODO: test created
+    }
+
+    /**
+     * Test the property 'createdBy'
+     */
+    @Test
+    public void createdByTest() {
+        // TODO: test createdBy
+    }
+
+    /**
+     * Test the property 'key'
+     */
+    @Test
+    public void keyTest() {
+        // TODO: test key
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
     }
 
 }

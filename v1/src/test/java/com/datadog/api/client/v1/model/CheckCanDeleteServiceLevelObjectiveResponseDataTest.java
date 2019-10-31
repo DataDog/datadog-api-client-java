@@ -17,55 +17,33 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for UserCreatePayload
+ * Model tests for CheckCanDeleteServiceLevelObjectiveResponseData
  */
-public class UserCreatePayloadTest {
-    private final UserCreatePayload model = new UserCreatePayload();
+public class CheckCanDeleteServiceLevelObjectiveResponseDataTest {
+    private final CheckCanDeleteServiceLevelObjectiveResponseData model = new CheckCanDeleteServiceLevelObjectiveResponseData();
 
     /**
-     * Model tests for UserCreatePayload
+     * Model tests for CheckCanDeleteServiceLevelObjectiveResponseData
      */
     @Test
-    public void testUserCreatePayload() {
-        // TODO: test UserCreatePayload
+    public void testCheckCanDeleteServiceLevelObjectiveResponseData() {
+        // TODO: test CheckCanDeleteServiceLevelObjectiveResponseData
     }
 
     /**
-     * Test the property 'accessRole'
+     * Test the property 'ok'
      */
     @Test
-    public void accessRoleTest() {
-        // TODO: test accessRole
-    }
-
-    /**
-     * Test the property 'email'
-     */
-    @Test
-    public void emailTest() {
-        // TODO: test email
-    }
-
-    /**
-     * Test the property 'handle'
-     */
-    @Test
-    public void handleTest() {
-        // TODO: test handle
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
+    public void okTest() {
+        // TODO: test ok
     }
 
 }

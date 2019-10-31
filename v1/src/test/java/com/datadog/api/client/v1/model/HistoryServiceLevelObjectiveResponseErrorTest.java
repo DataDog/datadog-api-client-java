@@ -11,7 +11,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.v1.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,25 +23,25 @@ import org.junit.Test;
 
 
 /**
- * Model tests for UserCreateResponse
+ * Model tests for HistoryServiceLevelObjectiveResponseError
  */
-public class UserCreateResponseTest {
-    private final UserCreateResponse model = new UserCreateResponse();
+public class HistoryServiceLevelObjectiveResponseErrorTest {
+    private final HistoryServiceLevelObjectiveResponseError model = new HistoryServiceLevelObjectiveResponseError();
 
     /**
-     * Model tests for UserCreateResponse
+     * Model tests for HistoryServiceLevelObjectiveResponseError
      */
     @Test
-    public void testUserCreateResponse() {
-        // TODO: test UserCreateResponse
+    public void testHistoryServiceLevelObjectiveResponseError() {
+        // TODO: test HistoryServiceLevelObjectiveResponseError
     }
 
     /**
-     * Test the property 'user'
+     * Test the property 'error'
      */
     @Test
-    public void userTest() {
-        // TODO: test user
+    public void errorTest() {
+        // TODO: test error
     }
 
 }

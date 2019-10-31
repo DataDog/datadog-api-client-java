@@ -13,7 +13,6 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.client.v1.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,40 +22,40 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * UserUpdateResponse
+ * HistoryServiceLevelObjectiveResponseError
  */
 @JsonPropertyOrder({
-  UserUpdateResponse.JSON_PROPERTY_USER
+  HistoryServiceLevelObjectiveResponseError.JSON_PROPERTY_ERROR
 })
 
-public class UserUpdateResponse {
-  public static final String JSON_PROPERTY_USER = "user";
-  private User user;
+public class HistoryServiceLevelObjectiveResponseError {
+  public static final String JSON_PROPERTY_ERROR = "error";
+  private String error;
 
 
-  public UserUpdateResponse user(User user) {
+  public HistoryServiceLevelObjectiveResponseError error(String error) {
     
-    this.user = user;
+    this.error = error;
     return this;
   }
 
    /**
-   * Get user
-   * @return user
+   * human readable error
+   * @return error
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_USER)
+  @ApiModelProperty(value = "human readable error")
+  @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public User getUser() {
-    return user;
+  public String getError() {
+    return error;
   }
 
 
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setError(String error) {
+    this.error = error;
   }
 
 
@@ -68,21 +67,21 @@ public class UserUpdateResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserUpdateResponse userUpdateResponse = (UserUpdateResponse) o;
-    return Objects.equals(this.user, userUpdateResponse.user);
+    HistoryServiceLevelObjectiveResponseError historyServiceLevelObjectiveResponseError = (HistoryServiceLevelObjectiveResponseError) o;
+    return Objects.equals(this.error, historyServiceLevelObjectiveResponseError.error);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user);
+    return Objects.hash(error);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserUpdateResponse {\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("class HistoryServiceLevelObjectiveResponseError {\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");
     return sb.toString();
   }

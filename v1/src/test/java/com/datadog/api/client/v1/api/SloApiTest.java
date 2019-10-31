@@ -96,7 +96,7 @@ public class SloApiTest {
      */
     @Test
     public void editSloTest() throws ApiException {
-        Long sloId = null;
+        String sloId = null;
         ServiceLevelObjective serviceLevelObjective = null;
         ServiceLevelObjectiveResponse response = api.editSlo(sloId, serviceLevelObjective);
 

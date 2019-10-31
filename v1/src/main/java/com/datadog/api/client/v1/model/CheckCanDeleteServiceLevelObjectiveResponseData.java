@@ -13,7 +13,6 @@ package com.datadog.api.client.v1.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.client.v1.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,48 +24,49 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * UserGetAllResponse
+ * An array of service level objective objects.
  */
+@ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
-  UserGetAllResponse.JSON_PROPERTY_USERS
+  CheckCanDeleteServiceLevelObjectiveResponseData.JSON_PROPERTY_OK
 })
 
-public class UserGetAllResponse {
-  public static final String JSON_PROPERTY_USERS = "users";
-  private List<User> users = null;
+public class CheckCanDeleteServiceLevelObjectiveResponseData {
+  public static final String JSON_PROPERTY_OK = "ok";
+  private List<String> ok = null;
 
 
-  public UserGetAllResponse users(List<User> users) {
+  public CheckCanDeleteServiceLevelObjectiveResponseData ok(List<String> ok) {
     
-    this.users = users;
+    this.ok = ok;
     return this;
   }
 
-  public UserGetAllResponse addUsersItem(User usersItem) {
-    if (this.users == null) {
-      this.users = new ArrayList<User>();
+  public CheckCanDeleteServiceLevelObjectiveResponseData addOkItem(String okItem) {
+    if (this.ok == null) {
+      this.ok = new ArrayList<String>();
     }
-    this.users.add(usersItem);
+    this.ok.add(okItem);
     return this;
   }
 
    /**
-   * Get users
-   * @return users
+   * An array of of SLO IDs that can be safely deleted.
+   * @return ok
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_USERS)
+  @ApiModelProperty(value = "An array of of SLO IDs that can be safely deleted.")
+  @JsonProperty(JSON_PROPERTY_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<User> getUsers() {
-    return users;
+  public List<String> getOk() {
+    return ok;
   }
 
 
 
-  public void setUsers(List<User> users) {
-    this.users = users;
+  public void setOk(List<String> ok) {
+    this.ok = ok;
   }
 
 
@@ -78,21 +78,21 @@ public class UserGetAllResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserGetAllResponse userGetAllResponse = (UserGetAllResponse) o;
-    return Objects.equals(this.users, userGetAllResponse.users);
+    CheckCanDeleteServiceLevelObjectiveResponseData checkCanDeleteServiceLevelObjectiveResponseData = (CheckCanDeleteServiceLevelObjectiveResponseData) o;
+    return Objects.equals(this.ok, checkCanDeleteServiceLevelObjectiveResponseData.ok);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(users);
+    return Objects.hash(ok);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserGetAllResponse {\n");
-    sb.append("    users: ").append(toIndentedString(users)).append("\n");
+    sb.append("class CheckCanDeleteServiceLevelObjectiveResponseData {\n");
+    sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
     sb.append("}");
     return sb.toString();
   }

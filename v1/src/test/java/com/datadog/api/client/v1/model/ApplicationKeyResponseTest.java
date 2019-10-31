@@ -11,40 +11,38 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.v1.model.User;
+import com.datadog.api.client.v1.model.ApplicationKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for UserGetAllResponse
+ * Model tests for ApplicationKeyResponse
  */
-public class UserGetAllResponseTest {
-    private final UserGetAllResponse model = new UserGetAllResponse();
+public class ApplicationKeyResponseTest {
+    private final ApplicationKeyResponse model = new ApplicationKeyResponse();
 
     /**
-     * Model tests for UserGetAllResponse
+     * Model tests for ApplicationKeyResponse
      */
     @Test
-    public void testUserGetAllResponse() {
-        // TODO: test UserGetAllResponse
+    public void testApplicationKeyResponse() {
+        // TODO: test ApplicationKeyResponse
     }
 
     /**
-     * Test the property 'users'
+     * Test the property 'applicationKey'
      */
     @Test
-    public void usersTest() {
-        // TODO: test users
+    public void applicationKeyTest() {
+        // TODO: test applicationKey
     }
 
 }

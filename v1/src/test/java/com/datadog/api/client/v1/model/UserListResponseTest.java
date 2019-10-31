@@ -18,31 +18,33 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for UserGetResponse
+ * Model tests for UserListResponse
  */
-public class UserGetResponseTest {
-    private final UserGetResponse model = new UserGetResponse();
+public class UserListResponseTest {
+    private final UserListResponse model = new UserListResponse();
 
     /**
-     * Model tests for UserGetResponse
+     * Model tests for UserListResponse
      */
     @Test
-    public void testUserGetResponse() {
-        // TODO: test UserGetResponse
+    public void testUserListResponse() {
+        // TODO: test UserListResponse
     }
 
     /**
-     * Test the property 'user'
+     * Test the property 'users'
      */
     @Test
-    public void userTest() {
-        // TODO: test user
+    public void usersTest() {
+        // TODO: test users
     }
 
 }

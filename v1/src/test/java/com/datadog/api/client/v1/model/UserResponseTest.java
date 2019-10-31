@@ -11,6 +11,7 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.v1.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,49 +24,25 @@ import org.junit.Test;
 
 
 /**
- * Model tests for UserUpdatePayload
+ * Model tests for UserResponse
  */
-public class UserUpdatePayloadTest {
-    private final UserUpdatePayload model = new UserUpdatePayload();
+public class UserResponseTest {
+    private final UserResponse model = new UserResponse();
 
     /**
-     * Model tests for UserUpdatePayload
+     * Model tests for UserResponse
      */
     @Test
-    public void testUserUpdatePayload() {
-        // TODO: test UserUpdatePayload
+    public void testUserResponse() {
+        // TODO: test UserResponse
     }
 
     /**
-     * Test the property 'accessRole'
+     * Test the property 'user'
      */
     @Test
-    public void accessRoleTest() {
-        // TODO: test accessRole
-    }
-
-    /**
-     * Test the property 'disabled'
-     */
-    @Test
-    public void disabledTest() {
-        // TODO: test disabled
-    }
-
-    /**
-     * Test the property 'email'
-     */
-    @Test
-    public void emailTest() {
-        // TODO: test email
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
+    public void userTest() {
+        // TODO: test user
     }
 
 }
