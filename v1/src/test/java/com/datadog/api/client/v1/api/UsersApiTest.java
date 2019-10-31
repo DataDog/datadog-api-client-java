@@ -12,28 +12,18 @@
 package com.datadog.api.client.v1.api;
 
 import com.datadog.api.client.v1.ApiException;
-import com.datadog.api.client.v1.model.Error400;
-import com.datadog.api.client.v1.model.Error403;
 import com.datadog.api.client.v1.model.User;
-import com.datadog.api.client.v1.model.UserCreatePayload;
-import com.datadog.api.client.v1.model.UserCreateResponse;
-import com.datadog.api.client.v1.model.UserDisableResponse;
-import com.datadog.api.client.v1.model.UserGetAllResponse;
-import com.datadog.api.client.v1.model.UserGetResponse;
-import com.datadog.api.client.v1.model.UserUpdatePayload;
-import com.datadog.api.client.v1.model.UserUpdateResponse;
+import com.datadog.api.client.v1.model.UserListResponse;
+import com.datadog.api.client.v1.model.UserResponse;
 import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.Ignore;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for UsersApi
@@ -43,7 +33,7 @@ public class UsersApiTest extends V1ApiTest {
     private static UsersApi api;
     private final String testingUserHandle = "testinguser@datadoghq.com";
     private final String testingUserName = "Testing User";
-    private final UserCreatePayload.AccessRoleEnum testingUserAR = UserCreatePayload.AccessRoleEnum.ST;
+    private final User.AccessRoleEnum testingUserAR = User.AccessRoleEnum.ST;
     private ArrayList<String> disableUsers = null;
 
     @Before
@@ -60,7 +50,7 @@ public class UsersApiTest extends V1ApiTest {
     public void disableUsers() throws ApiException {
         if (disableUsers != null) {
             for (String handle: disableUsers) {
-                UserGetResponse ugr = api.getUser(handle);
+                UserResponse ugr = api.getUser(handle);
                 if (!ugr.getUser().getDisabled()) {
                     api.disableUser(handle);
                 }
@@ -74,41 +64,37 @@ public class UsersApiTest extends V1ApiTest {
     @Test
     public void userCreateModifyDisableTest() throws ApiException {
         // Test creating user
-        UserCreatePayload userCreatePayload = new UserCreatePayload();
-        userCreatePayload.setAccessRole(testingUserAR);
-        userCreatePayload.setHandle(testingUserHandle);
-        userCreatePayload.setName(testingUserName);
-        UserCreateResponse response = api.createUser(userCreatePayload);
+        User user = new User();
+        user.setAccessRole(testingUserAR);
+        user.setHandle(testingUserHandle);
+        user.setName(testingUserName);
+        UserResponse response = api.createUser(user);
         // If something fails, make sure we disable the user
         disableUsers.add(testingUserHandle);
 
-        User user = response.getUser();
+        user = response.getUser();
         assertEquals(testingUserHandle, user.getHandle());
         assertEquals(testingUserName, user.getName());
         assertEquals(testingUserAR.toString(), user.getAccessRole().toString());
 
         // Now test updating user
-        UserUpdatePayload userUpdatePayload = new UserUpdatePayload();
-        userUpdatePayload.setName("Updated Name");
-        userUpdatePayload.setDisabled(false);
-        UserUpdateResponse response2 = api.updateUser(user.getHandle(), userUpdatePayload);
+        user.setName("Updated Name");
+        user.setDisabled(false);
+        response = api.updateUser(user.getHandle(), user);
 
-        user = response2.getUser();
-        assertEquals("Updated Name", user.getName());
+        assertEquals("Updated Name", response.getUser().getName());
 
         // Now test getting user
-        UserGetResponse response3 = api.getUser(user.getHandle());
-        user = response3.getUser();
-        assertEquals(testingUserHandle, user.getHandle());
-        assertEquals("Updated Name", user.getName());
-        assertEquals(testingUserAR.toString(), user.getAccessRole().toString());
-        assertEquals(false, user.getDisabled());
+        response = api.getUser(user.getHandle());
+        assertEquals(testingUserHandle, response.getUser().getHandle());
+        assertEquals("Updated Name", response.getUser().getName());
+        assertEquals(testingUserAR.toString(), response.getUser().getAccessRole().toString());
+        assertEquals(false, response.getUser().getDisabled());
 
         // Now test disabling user
         api.disableUser(user.getHandle());
-        UserGetResponse response4 = api.getUser(user.getHandle());
-        user = response4.getUser();
-        assertEquals(true, user.getDisabled());
+        response = api.getUser(user.getHandle());
+        assertEquals(true, response.getUser().getDisabled());
     }
     
     /**
@@ -116,16 +102,16 @@ public class UsersApiTest extends V1ApiTest {
      */
     @Test
     public void getAllUsersTest() throws ApiException {
-        ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
+        ArrayList<String> prefixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
         for (String prefix: prefixes) {
-            UserCreatePayload userCreatePayload = new UserCreatePayload();
-            userCreatePayload.setAccessRole(testingUserAR);
-            userCreatePayload.setHandle(prefix + testingUserHandle);
-            userCreatePayload.setName(prefix + testingUserName);
-            UserCreateResponse response = api.createUser(userCreatePayload);
+            User user = new User();
+            user.setAccessRole(testingUserAR);
+            user.setHandle(prefix + testingUserHandle);
+            user.setName(prefix + testingUserName);
+            UserResponse response = api.createUser(user);
             disableUsers.add(response.getUser().getHandle());
         }
-        UserGetAllResponse response = api.getAllUsers();
+        UserListResponse response = api.getAllUsers();
         List<User> users = response.getUsers();
         for (String prefix: prefixes) {
             boolean found = false;
