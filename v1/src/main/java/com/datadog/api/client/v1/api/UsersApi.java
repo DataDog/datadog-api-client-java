@@ -10,13 +10,10 @@ import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.client.v1.model.Error400;
 import com.datadog.api.client.v1.model.Error403;
-import com.datadog.api.client.v1.model.UserCreatePayload;
-import com.datadog.api.client.v1.model.UserCreateResponse;
+import com.datadog.api.client.v1.model.User;
 import com.datadog.api.client.v1.model.UserDisableResponse;
-import com.datadog.api.client.v1.model.UserGetAllResponse;
-import com.datadog.api.client.v1.model.UserGetResponse;
-import com.datadog.api.client.v1.model.UserUpdatePayload;
-import com.datadog.api.client.v1.model.UserUpdateResponse;
+import com.datadog.api.client.v1.model.UserListResponse;
+import com.datadog.api.client.v1.model.UserResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,9 +42,9 @@ public class UsersApi {
 
   /**
    * Create user
-   * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user). *Note: users can be created with admin access role      only with application keys belonging to administrators.*
-   * @param userCreatePayload User object that needs to be created (required)
-   * @return UserCreateResponse
+   * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user).    **Note**: users can be created with admin access role      only with application keys belonging to administrators.
+   * @param user User object that needs to be created (required)
+   * @return UserResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -57,15 +54,15 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public UserCreateResponse createUser(UserCreatePayload userCreatePayload) throws ApiException {
-    return createUserWithHttpInfo(userCreatePayload).getData();
+  public UserResponse createUser(User user) throws ApiException {
+    return createUserWithHttpInfo(user).getData();
       }
 
   /**
    * Create user
-   * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user). *Note: users can be created with admin access role      only with application keys belonging to administrators.*
-   * @param userCreatePayload User object that needs to be created (required)
-   * @return ApiResponse&lt;UserCreateResponse&gt;
+   * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user).    **Note**: users can be created with admin access role      only with application keys belonging to administrators.
+   * @param user User object that needs to be created (required)
+   * @return ApiResponse&lt;UserResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -75,12 +72,12 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<UserCreateResponse> createUserWithHttpInfo(UserCreatePayload userCreatePayload) throws ApiException {
-    Object localVarPostBody = userCreatePayload;
+  public ApiResponse<UserResponse> createUserWithHttpInfo(User user) throws ApiException {
+    Object localVarPostBody = user;
     
-    // verify the required parameter 'userCreatePayload' is set
-    if (userCreatePayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'userCreatePayload' when calling createUser");
+    // verify the required parameter 'user' is set
+    if (user == null) {
+      throw new ApiException(400, "Missing the required parameter 'user' when calling createUser");
     }
     
     // create path and map variables
@@ -106,7 +103,7 @@ public class UsersApi {
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<UserCreateResponse> localVarReturnType = new GenericType<UserCreateResponse>() {};
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -179,7 +176,7 @@ public class UsersApi {
   /**
    * Get all users
    * ### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
-   * @return UserGetAllResponse
+   * @return UserListResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -189,14 +186,14 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public UserGetAllResponse getAllUsers() throws ApiException {
+  public UserListResponse getAllUsers() throws ApiException {
     return getAllUsersWithHttpInfo().getData();
       }
 
   /**
    * Get all users
    * ### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
-   * @return ApiResponse&lt;UserGetAllResponse&gt;
+   * @return ApiResponse&lt;UserListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -206,7 +203,7 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<UserGetAllResponse> getAllUsersWithHttpInfo() throws ApiException {
+  public ApiResponse<UserListResponse> getAllUsersWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -232,14 +229,14 @@ public class UsersApi {
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<UserGetAllResponse> localVarReturnType = new GenericType<UserGetAllResponse>() {};
+    GenericType<UserListResponse> localVarReturnType = new GenericType<UserListResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Get user
    * ### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
    * @param userHandle The id of the user (required)
-   * @return UserGetResponse
+   * @return UserResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -249,7 +246,7 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public UserGetResponse getUser(String userHandle) throws ApiException {
+  public UserResponse getUser(String userHandle) throws ApiException {
     return getUserWithHttpInfo(userHandle).getData();
       }
 
@@ -257,7 +254,7 @@ public class UsersApi {
    * Get user
    * ### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
    * @param userHandle The id of the user (required)
-   * @return ApiResponse&lt;UserGetResponse&gt;
+   * @return ApiResponse&lt;UserResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -267,7 +264,7 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<UserGetResponse> getUserWithHttpInfo(String userHandle) throws ApiException {
+  public ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userHandle' is set
@@ -299,15 +296,15 @@ public class UsersApi {
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<UserGetResponse> localVarReturnType = new GenericType<UserGetResponse>() {};
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Update user
    * ### Overview Update a user informations.  **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user)    *  **adm** (admin user)    *  **ro** (read-only user)
    * @param userHandle The id of the user (required)
-   * @param userUpdatePayload Description of the update (required)
-   * @return UserUpdateResponse
+   * @param user Description of the update (required)
+   * @return UserResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -317,16 +314,16 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public UserUpdateResponse updateUser(String userHandle, UserUpdatePayload userUpdatePayload) throws ApiException {
-    return updateUserWithHttpInfo(userHandle, userUpdatePayload).getData();
+  public UserResponse updateUser(String userHandle, User user) throws ApiException {
+    return updateUserWithHttpInfo(userHandle, user).getData();
       }
 
   /**
    * Update user
    * ### Overview Update a user informations.  **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user)    *  **adm** (admin user)    *  **ro** (read-only user)
    * @param userHandle The id of the user (required)
-   * @param userUpdatePayload Description of the update (required)
-   * @return ApiResponse&lt;UserUpdateResponse&gt;
+   * @param user Description of the update (required)
+   * @return ApiResponse&lt;UserResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -336,17 +333,17 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<UserUpdateResponse> updateUserWithHttpInfo(String userHandle, UserUpdatePayload userUpdatePayload) throws ApiException {
-    Object localVarPostBody = userUpdatePayload;
+  public ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User user) throws ApiException {
+    Object localVarPostBody = user;
     
     // verify the required parameter 'userHandle' is set
     if (userHandle == null) {
       throw new ApiException(400, "Missing the required parameter 'userHandle' when calling updateUser");
     }
     
-    // verify the required parameter 'userUpdatePayload' is set
-    if (userUpdatePayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'userUpdatePayload' when calling updateUser");
+    // verify the required parameter 'user' is set
+    if (user == null) {
+      throw new ApiException(400, "Missing the required parameter 'user' when calling updateUser");
     }
     
     // create path and map variables
@@ -373,7 +370,7 @@ public class UsersApi {
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<UserUpdateResponse> localVarReturnType = new GenericType<UserUpdateResponse>() {};
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

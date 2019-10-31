@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createUser
 
-> UserCreateResponse createUser(userCreatePayload)
+> UserResponse createUser(user)
 
 Create user
 
@@ -29,8 +29,10 @@ Create a user for your organization.
 
   *  **adm** (admin user),
 
-  *  **ro** (read-only user). *Note: users can be created with admin access role
-     only with application keys belonging to administrators.*
+  *  **ro** (read-only user).
+
+  **Note**: users can be created with admin access role
+     only with application keys belonging to administrators.
 
 ### Example
 
@@ -61,9 +63,9 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        UserCreatePayload userCreatePayload = new UserCreatePayload(); // UserCreatePayload | User object that needs to be created
+        User user = new User(); // User | User object that needs to be created
         try {
-            UserCreateResponse result = apiInstance.createUser(userCreatePayload);
+            UserResponse result = apiInstance.createUser(user);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#createUser");
@@ -81,11 +83,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userCreatePayload** | [**UserCreatePayload**](UserCreatePayload.md)| User object that needs to be created |
+ **user** | [**User**](User.md)| User object that needs to be created |
 
 ### Return type
 
-[**UserCreateResponse**](UserCreateResponse.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -191,7 +193,7 @@ Name | Type | Description  | Notes
 
 ## getAllUsers
 
-> UserGetAllResponse getAllUsers()
+> UserListResponse getAllUsers()
 
 Get all users
 
@@ -230,7 +232,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         try {
-            UserGetAllResponse result = apiInstance.getAllUsers();
+            UserListResponse result = apiInstance.getAllUsers();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getAllUsers");
@@ -249,7 +251,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserGetAllResponse**](UserGetAllResponse.md)
+[**UserListResponse**](UserListResponse.md)
 
 ### Authorization
 
@@ -270,7 +272,7 @@ This endpoint does not need any parameter.
 
 ## getUser
 
-> UserGetResponse getUser(userHandle)
+> UserResponse getUser(userHandle)
 
 Get user
 
@@ -310,7 +312,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The id of the user
         try {
-            UserGetResponse result = apiInstance.getUser(userHandle);
+            UserResponse result = apiInstance.getUser(userHandle);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getUser");
@@ -332,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGetResponse**](UserGetResponse.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -353,7 +355,7 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-> UserUpdateResponse updateUser(userHandle, userUpdatePayload)
+> UserResponse updateUser(userHandle, user)
 
 Update user
 
@@ -404,9 +406,9 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The id of the user
-        UserUpdatePayload userUpdatePayload = new UserUpdatePayload(); // UserUpdatePayload | Description of the update
+        User user = new User(); // User | Description of the update
         try {
-            UserUpdateResponse result = apiInstance.updateUser(userHandle, userUpdatePayload);
+            UserResponse result = apiInstance.updateUser(userHandle, user);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#updateUser");
@@ -425,11 +427,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userHandle** | [**String**](.md)| The id of the user |
- **userUpdatePayload** | [**UserUpdatePayload**](UserUpdatePayload.md)| Description of the update |
+ **user** | [**User**](User.md)| Description of the update |
 
 ### Return type
 
-[**UserUpdateResponse**](UserUpdateResponse.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
