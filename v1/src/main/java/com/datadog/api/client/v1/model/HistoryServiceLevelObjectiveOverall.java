@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class HistoryServiceLevelObjectiveOverall {
   public static final String JSON_PROPERTY_HISTORY = "history";
-  private List<List> history = null;
+  private List<List<BigDecimal>> history = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -58,15 +58,15 @@ public class HistoryServiceLevelObjectiveOverall {
   private Float uptime;
 
 
-  public HistoryServiceLevelObjectiveOverall history(List<List> history) {
+  public HistoryServiceLevelObjectiveOverall history(List<List<BigDecimal>> history) {
     
     this.history = history;
     return this;
   }
 
-  public HistoryServiceLevelObjectiveOverall addHistoryItem(List<List<BigDecimal>> historyItem) {
+  public HistoryServiceLevelObjectiveOverall addHistoryItem(List<BigDecimal> historyItem) {
     if (this.history == null) {
-      this.history = new ArrayList<List>();
+      this.history = new ArrayList<List<BigDecimal>>();
     }
     this.history.add(historyItem);
     return this;
@@ -81,13 +81,13 @@ public class HistoryServiceLevelObjectiveOverall {
   @JsonProperty(JSON_PROPERTY_HISTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<List> getHistory() {
+  public List<List<BigDecimal>> getHistory() {
     return history;
   }
 
 
 
-  public void setHistory(List<List> history) {
+  public void setHistory(List<List<BigDecimal>> history) {
     this.history = history;
   }
 

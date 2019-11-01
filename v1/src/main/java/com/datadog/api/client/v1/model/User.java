@@ -30,9 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   User.JSON_PROPERTY_EMAIL,
   User.JSON_PROPERTY_HANDLE,
   User.JSON_PROPERTY_ICON,
-  User.JSON_PROPERTY_IS_ADMIN,
   User.JSON_PROPERTY_NAME,
-  User.JSON_PROPERTY_ROLE,
   User.JSON_PROPERTY_VERIFIED
 })
 
@@ -89,14 +87,8 @@ public class User {
   public static final String JSON_PROPERTY_ICON = "icon";
   private String icon;
 
-  public static final String JSON_PROPERTY_IS_ADMIN = "is_admin";
-  private Boolean isAdmin;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
-  public static final String JSON_PROPERTY_ROLE = "role";
-  private String role;
 
   public static final String JSON_PROPERTY_VERIFIED = "verified";
   private Boolean verified;
@@ -206,12 +198,6 @@ public class User {
   }
 
 
-  public User icon(String icon) {
-    
-    this.icon = icon;
-    return this;
-  }
-
    /**
    * Get icon
    * @return icon
@@ -227,35 +213,6 @@ public class User {
 
 
 
-  public void setIcon(String icon) {
-    this.icon = icon;
-  }
-
-
-  public User isAdmin(Boolean isAdmin) {
-    
-    this.isAdmin = isAdmin;
-    return this;
-  }
-
-   /**
-   * Get isAdmin
-   * @return isAdmin
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-  @JsonProperty(JSON_PROPERTY_IS_ADMIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsAdmin() {
-    return isAdmin;
-  }
-
-
-
-  public void setIsAdmin(Boolean isAdmin) {
-    this.isAdmin = isAdmin;
-  }
 
 
   public User name(String name) {
@@ -284,38 +241,6 @@ public class User {
   }
 
 
-  public User role(String role) {
-    
-    this.role = role;
-    return this;
-  }
-
-   /**
-   * Get role
-   * @return role
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ROLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getRole() {
-    return role;
-  }
-
-
-
-  public void setRole(String role) {
-    this.role = role;
-  }
-
-
-  public User verified(Boolean verified) {
-    
-    this.verified = verified;
-    return this;
-  }
-
    /**
    * Get verified
    * @return verified
@@ -331,9 +256,6 @@ public class User {
 
 
 
-  public void setVerified(Boolean verified) {
-    this.verified = verified;
-  }
 
 
   @Override
@@ -350,15 +272,13 @@ public class User {
         Objects.equals(this.email, user.email) &&
         Objects.equals(this.handle, user.handle) &&
         Objects.equals(this.icon, user.icon) &&
-        Objects.equals(this.isAdmin, user.isAdmin) &&
         Objects.equals(this.name, user.name) &&
-        Objects.equals(this.role, user.role) &&
         Objects.equals(this.verified, user.verified);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessRole, disabled, email, handle, icon, isAdmin, name, role, verified);
+    return Objects.hash(accessRole, disabled, email, handle, icon, name, verified);
   }
 
 
@@ -371,9 +291,7 @@ public class User {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
-    sb.append("    isAdmin: ").append(toIndentedString(isAdmin)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
     sb.append("}");
     return sb.toString();

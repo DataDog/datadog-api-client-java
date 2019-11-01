@@ -11,9 +11,7 @@ Name | Type | Description | Notes
 **email** | **String** |  |  [optional]
 **handle** | **String** |  |  [optional]
 **icon** | **String** |  |  [optional]
-**isAdmin** | **Boolean** |  |  [optional]
 **name** | **String** |  |  [optional]
-**role** | **String** |  |  [optional]
 **verified** | **Boolean** |  |  [optional]
 
 
