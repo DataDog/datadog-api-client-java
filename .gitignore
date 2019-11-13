@@ -1,3 +1,8 @@
+.project
+.settings
+.idea
+**/.DS_Store
+
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -19,3 +24,19 @@ hs_err_pid*
 target
 .gradle
 build
+
+# IDE files
+.classpath
+.project
+.settings
+
+# Files produced by openapi-generator that we don't want/need
+.travis.yml
+build.gradle
+build.sbt
+git_push.sh
+gradle.properties
+gradle/
+gradlew
+gradlew.bat
+settings.gradle

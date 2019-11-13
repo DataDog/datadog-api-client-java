@@ -38,7 +38,7 @@ public class KeysApiTest {
 
     private final KeysApi api = new KeysApi();
 
-    
+
     /**
      * Create an API key with a given name.
      *
@@ -54,7 +54,7 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Create an application key with a given name.
      *
@@ -70,7 +70,7 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Delete a given API key.
      *
@@ -86,7 +86,7 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Delete a given application key.
      *
@@ -102,7 +102,7 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Edit an API key name.
      *
@@ -119,7 +119,7 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Edit an application key name.
      *
@@ -136,7 +136,7 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get a given API key.
      *
@@ -152,7 +152,7 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get all API keys available for your account.
      *
@@ -167,7 +167,7 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get all application keys available for your account.
      *
@@ -182,7 +182,7 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get a given application key.
      *
@@ -198,5 +198,5 @@ public class KeysApiTest {
 
         // TODO: test validations
     }
-    
+
 }

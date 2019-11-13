@@ -1,7 +1,7 @@
-package com.datadog.api.client.v1.api;
+package com.datadog.api.v1.client.api;
 
-import com.datadog.api.client.v1.ApiClient;
-import com.datadog.api.client.v1.auth.ApiKeyAuth;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.auth.ApiKeyAuth;
 
 import org.junit.BeforeClass;
 

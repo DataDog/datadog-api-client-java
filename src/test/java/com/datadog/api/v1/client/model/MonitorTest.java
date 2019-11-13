@@ -14,7 +14,6 @@ package com.datadog.api.v1.client.model;
 import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.MonitorOptions;
 import com.datadog.api.v1.client.model.MonitorOverallStates;
-import com.datadog.api.v1.client.model.MonitorState;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

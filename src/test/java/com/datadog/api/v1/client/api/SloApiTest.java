@@ -12,12 +12,10 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.CheckCanDeleteServiceLevelObjectiveResponse;
 import com.datadog.api.v1.client.model.Error400;
 import com.datadog.api.v1.client.model.Error401;
 import com.datadog.api.v1.client.model.Error403;
 import com.datadog.api.v1.client.model.Error404;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveResponse;
 import com.datadog.api.v1.client.model.ServiceLevelObjective;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveDeleted;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveResponse;
@@ -39,7 +37,7 @@ public class SloApiTest {
 
     private final SloApi api = new SloApi();
 
-    
+
     /**
      * Delete (or partially delete) multiple service level objective objects.
      *
@@ -55,23 +53,7 @@ public class SloApiTest {
 
         // TODO: test validations
     }
-    
-    /**
-     * Check if SLOs can be safely deleted.
-     *
-     * ### Overview Check if an SLO can be safely deleted without disrupting dashboards for example. ### Arguments * **&#x60;ids&#x60;** [*required*]: The ID (csv) of the service level objective objects to check.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void checkCanDeleteSloTest() throws ApiException {
-        String ids = null;
-        CheckCanDeleteServiceLevelObjectiveResponse response = api.checkCanDeleteSlo(ids);
 
-        // TODO: test validations
-    }
-    
     /**
      * Create a service level objective object.
      *
@@ -87,7 +69,7 @@ public class SloApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Delete the specified service level objective object.
      *
@@ -103,7 +85,7 @@ public class SloApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Edit the specified service level objective
      *
@@ -120,7 +102,7 @@ public class SloApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get a service level objective object
      *
@@ -136,7 +118,7 @@ public class SloApiTest {
 
         // TODO: test validations
     }
-    
+
     /**
      * Get multiple service level objective objects by their IDs.
      *
@@ -152,23 +134,5 @@ public class SloApiTest {
 
         // TODO: test validations
     }
-    
-    /**
-     * Get the history of the service level objective.
-     *
-     * ### Overview Get the SLO history data ### Arguments * **&#x60;slo_id&#x60;** [*required*]: The ID of the service level objective object * **&#x60;from_ts&#x60;** [*required*]: The &#x60;from&#x60; timestamp in epoch seconds for the query timeframe * **&#x60;to_ts&#x60;** [*required*]: The &#x60;to&#x60; timestamp in epoch seconds for the query timeframe
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void historyForSloTest() throws ApiException {
-        String sloId = null;
-        String fromTs = null;
-        String toTs = null;
-        HistoryServiceLevelObjectiveResponse response = api.historyForSlo(sloId, fromTs, toTs);
 
-        // TODO: test validations
-    }
-    
 }

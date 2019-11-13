@@ -61,14 +61,6 @@ public class MonitorThresholdsTest {
     }
 
     /**
-     * Test the property 'unknown'
-     */
-    @Test
-    public void unknownTest() {
-        // TODO: test unknown
-    }
-
-    /**
      * Test the property 'warning'
      */
     @Test

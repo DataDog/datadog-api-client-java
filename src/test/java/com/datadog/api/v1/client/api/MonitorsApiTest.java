@@ -12,128 +12,168 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error401;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.Error404;
 import com.datadog.api.v1.client.model.Monitor;
+import com.datadog.api.v1.client.model.MonitorOptions;
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.Ignore;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for MonitorsApi
  */
-@Ignore
-public class MonitorsApiTest {
+public class MonitorsApiTest extends V1ApiTest {
 
-    private final MonitorsApi api = new MonitorsApi();
+    private static MonitorsApi api;
+    private ArrayList<Long> deleteMonitors = null;
 
-    
-    /**
-     * Create a new Monitor
-     *
-     * ### Overview Create a monitor using the specified options ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to create
-     *
-     * @throws ApiException
-     *          if the Api call fails
+    private final String testingMonitorName = "Bytes received on host0";
+    private final Monitor.TypeEnum testingMonitorType = Monitor.TypeEnum.METRIC_ALERT;
+    private final String testingMonitorQuery = "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100";
+    private final String testingMonitorMessage = "We may need to add web hosts if this is consistently high.";
+    private final List<String> testingMonitorTags = Arrays.asList("app:webserver", "frontend");
+    private final Boolean testingMonitorOptionsNotifyNoData = true;
+    private final Long testingMonitorOptionsNoDataTimeframe = 20L;
+
+    @Before
+    public void resetDeleteMonitors() {
+        deleteMonitors = new ArrayList<Long>();
+    }
+
+    @BeforeClass
+    public static void initApi() {
+        api = new MonitorsApi(generalApiClient);
+    }
+
+    @After
+    public void deleteMonitors() throws ApiException {
+        if (deleteMonitors != null) {
+            for (Long id : deleteMonitors) {
+                try {
+                    api.getMonitor(id, "all");
+                } catch (ApiException e) {
+                    // doesn't exist => continue
+                    continue;
+                }
+                api.deleteMonitor(id);
+            }
+        }
+    }
+
+   /**
+     * Create, modify and delete monitor object, also test getting it
      */
     @Test
-    public void createMonitorTest() throws ApiException {
-        Monitor monitor = null;
-        Monitor response = api.createMonitor(monitor);
+    public void monitorCreateModifyDeleteTest() throws ApiException {
+        MonitorOptions options = new MonitorOptions()
+            .notifyNoData(testingMonitorOptionsNotifyNoData)
+            .noDataTimeframe(testingMonitorOptionsNoDataTimeframe);
 
-        // TODO: test validations
-    }
-    
-    /**
-     * Delete the specified monitor.
-     *
-     * ### Overview Delete the specified monitor ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteMonitorTest() throws ApiException {
-        Long monitorId = null;
-        Map<String, Long> response = api.deleteMonitor(monitorId);
+        Monitor monitor = new Monitor()
+            .name(testingMonitorName)
+            .type(testingMonitorType)
+            .query(testingMonitorQuery)
+            .message(testingMonitorMessage)
+            .tags(testingMonitorTags)
+            .options(options);
 
-        // TODO: test validations
-    }
-    
-    /**
-     * Edit the specified monitor
-     *
-     * ### Overview Edit the specified monitor. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void editMonitorTest() throws ApiException {
-        Long monitorId = null;
-        Monitor monitor = null;
-        Monitor response = api.editMonitor(monitorId, monitor);
+        // test creating monitor
+        Monitor obtained = api.createMonitor(monitor);
+        Long monitorId = obtained.getId();
+        deleteMonitors.add(monitorId);
 
-        // TODO: test validations
+        // test getting monitor
+        obtained = api.getMonitor(monitorId, "all");
+        assertEquals(testingMonitorName, obtained.getName());
+        assertEquals(testingMonitorType, obtained.getType());
+        assertEquals(testingMonitorQuery, obtained.getQuery());
+        assertEquals(testingMonitorMessage, obtained.getMessage());
+        assertEquals(testingMonitorTags, obtained.getTags());
+        assertEquals(testingMonitorOptionsNotifyNoData, obtained.getOptions().getNotifyNoData());
+        assertEquals(testingMonitorOptionsNoDataTimeframe, obtained.getOptions().getNoDataTimeframe());
+
+        // test updating monitor
+        obtained.setName("New name");
+        obtained = api.editMonitor(monitorId, obtained);
+
+        assertEquals("New name", obtained.getName());
+        assertEquals(testingMonitorType, obtained.getType());
+        assertEquals(testingMonitorQuery, obtained.getQuery());
+        assertEquals(testingMonitorMessage, obtained.getMessage());
+        assertEquals(testingMonitorTags, obtained.getTags());
+        assertEquals(testingMonitorOptionsNotifyNoData, obtained.getOptions().getNotifyNoData());
+        assertEquals(testingMonitorOptionsNoDataTimeframe, obtained.getOptions().getNoDataTimeframe());
+
+        // test deleting monitor
+        api.deleteMonitor(monitorId);
+        try {
+            api.getMonitor(monitorId, "all");
+            // junit 4 doesn't have better support for asserting that method threw an error
+            assertTrue(false);
+        } catch (ApiException e) {
+            // noop
+        }
     }
-    
-    /**
-     * Get details about the specified monitor.
-     *
-     * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39; * **&#x60;name&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A string to filter monitors by name * **&#x60;tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0 * **&#x60;monitor_tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app) * **&#x60;with_downtimes&#x60;** [*optional* *default*&#x3D;&#x3D;**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
-     *
-     * @throws ApiException
-     *          if the Api call fails
+
+   /**
+     * Get all monitors
      */
     @Test
     public void getAllMonitorsTest() throws ApiException {
-        String groupStates = null;
-        String name = null;
-        String tags = null;
-        String monitorTags = null;
-        Boolean withDowntimes = null;
-        List<Monitor> response = api.getAllMonitors(groupStates, name, tags, monitorTags, withDowntimes);
-
-        // TODO: test validations
+        ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
+        for (String prefix: prefixes) {
+            Monitor monitor = new Monitor()
+                .name(prefix + testingMonitorName)
+                .type(testingMonitorType)
+                .query(testingMonitorQuery);
+            Monitor created = api.createMonitor(monitor);
+            deleteMonitors.add(created.getId());
+        }
+        List<Monitor> allMonitors = api.getAllMonitors(null, null, null, null, null);
+        for (String prefix: prefixes) {
+            boolean found = false;
+            for (Monitor monitor: allMonitors) {
+                if (monitor.getName().equals(prefix + testingMonitorName)) {
+                    found = true;
+                }
+            }
+            assertTrue(String.format("Monitor %s%s not found", prefix, testingMonitorName), found);
+        }
     }
-    
+
     /**
-     * Get details about the specified monitor.
-     *
-     * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor. * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39;
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * Validate monitor
      */
-    @Test
-    public void getMonitorTest() throws ApiException {
-        Long monitorId = null;
-        String groupStates = null;
-        Monitor response = api.getMonitor(monitorId, groupStates);
 
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * ### Overview Validate the monitor provided in the request ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to validate summary: Validate the provided monitor
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void validateMonitorTest() throws ApiException {
-        Monitor monitor = null;
-        Monitor response = api.validateMonitor(monitor);
+     @Test
+     public void validateMonitorTest() throws ApiException {
+        MonitorOptions options = new MonitorOptions()
+            .notifyNoData(testingMonitorOptionsNotifyNoData)
+            .noDataTimeframe(testingMonitorOptionsNoDataTimeframe);
 
-        // TODO: test validations
-    }
-    
+        Monitor monitor = new Monitor()
+            .name(testingMonitorName)
+            .type(testingMonitorType)
+            .query(testingMonitorQuery)
+            .message(testingMonitorMessage)
+            .tags(testingMonitorTags)
+            .options(options);
+
+        // if this doesn't throw exception, everything is fine
+        api.validateMonitor(monitor);
+
+        monitor.setQuery("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} ><><>< whaaaaaaa?");
+        try {
+            api.validateMonitor(monitor);
+            // junit 4 doesn't have better support for asserting that method threw an error
+            assertTrue(false);
+        } catch (ApiException e) {
+            // noop
+        }
+     }
 }

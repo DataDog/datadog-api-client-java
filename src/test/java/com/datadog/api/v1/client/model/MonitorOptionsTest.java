@@ -11,7 +11,6 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.model.MonitorThresholdWindowOptions;
 import com.datadog.api.v1.client.model.MonitorThresholds;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -176,14 +175,6 @@ public class MonitorOptionsTest {
     @Test
     public void syntheticsCheckIdTest() {
         // TODO: test syntheticsCheckId
-    }
-
-    /**
-     * Test the property 'thresholdWindows'
-     */
-    @Test
-    public void thresholdWindowsTest() {
-        // TODO: test thresholdWindows
     }
 
     /**
