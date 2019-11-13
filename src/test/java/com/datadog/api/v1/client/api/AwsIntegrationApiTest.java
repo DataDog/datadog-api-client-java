@@ -166,7 +166,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
     public void updateAWSAccountTest() throws ApiException {
         // Object response = api.updateAWSAccount(awSAccount);
         AWSAccount awsAccount = new AWSAccount();
-        awsAccount.setAccountId("java_123456");
+        awsAccount.setAccountId("java_1234567");
         awsAccount.setRoleName("java_testRoleName");
 
         api.createAWSAccount(awsAccount);
