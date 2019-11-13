@@ -1,9 +1,9 @@
 package com.test;
 
-import com.datadog.api.client.v1.*;
-import com.datadog.api.client.v1.api.*;
-import com.datadog.api.client.v1.auth.*;
-import com.datadog.api.client.v1.model.*;
+import com.datadog.api.v1.client.*;
+import com.datadog.api.v1.client.api.*;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.model.*;
 
 import java.util.*;
 
