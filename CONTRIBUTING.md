@@ -5,6 +5,18 @@ First of all, thanks for contributing!
 This document provides some basic guidelines for contributing to this repository.
 To propose improvements, feel free to submit a PR.
 
+As most of the code in this repository is generated, we will only accept PRs for files
+that are not modified by our code-generation machinery (changes to the generated files
+would get overwritten). We happily accept contributions to files that are listed in:
+
+* `.openapi-generator-ignore`
+
+as well as the following files:
+
+* `pom.xml`
+* `README.md`
+* `src/test/*`
+
 ## Submitting issues
 
 * If you have a feature request, you should [contact support][1] so the request
@@ -55,4 +67,3 @@ happier!
 
 [1]: https://docs.datadoghq.com/help
 [2]: https://datadoghq.slack.com
-
