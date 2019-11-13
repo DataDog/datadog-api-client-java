@@ -8,8 +8,7 @@ RUN dnf install -y java-1.8.0-openjdk-headless maven && \
 # be changed very often and so maven dependency installation will be cached.
 # Unfortunately there seems to be no way to download all scope:test
 # dependencies, but at least this downloads most of them.
-RUN mkdir -p /tmp/mock-pom-structure
-COPY pom.xml /tmp/mock-pom-structure
+COPY pom.xml /tmp/mock-pom-structure/
 RUN mvn --batch-mode -f /tmp/mock-pom-structure/pom.xml dependency:go-offline
 
 ENTRYPOINT ["mvn"]
