@@ -1,4 +1,8 @@
-# datadog-api-client
+# datadog-api-client-java
+
+This repository contains a Java API client for the [Datadog API](https://docs.datadoghq.com/api/).
+The code is generated using [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+and [apigentools](https://github.com/DataDog/apigentools).
 
 Datadog API Collection
 
@@ -82,7 +86,7 @@ public class AwsIntegrationApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
-        
+
         // Configure API key authorization: apiKeyAuth
         ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
         apiKeyAuth.setApiKey("YOUR API KEY");
@@ -143,7 +147,7 @@ Class | Method | HTTP request | Description
 *MonitorsApi* | [**editMonitor**](docs/MonitorsApi.md#editMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit the specified monitor
 *MonitorsApi* | [**getAllMonitors**](docs/MonitorsApi.md#getAllMonitors) | **GET** /api/v1/monitor | Get details about the specified monitor.
 *MonitorsApi* | [**getMonitor**](docs/MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get details about the specified monitor.
-*MonitorsApi* | [**validateMonitor**](docs/MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | 
+*MonitorsApi* | [**validateMonitor**](docs/MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate |
 *SloApi* | [**bulkPartialDeleteSlo**](docs/SloApi.md#bulkPartialDeleteSlo) | **POST** /api/v1/slo/bulk_delete | Delete (or partially delete) multiple service level objective objects.
 *SloApi* | [**checkCanDeleteSlo**](docs/SloApi.md#checkCanDeleteSlo) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted.
 *SloApi* | [**createSlo**](docs/SloApi.md#createSlo) | **POST** /api/v1/slo | Create a service level objective object.
@@ -242,6 +246,3 @@ Authentication schemes defined for the API:
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
-
-
-
