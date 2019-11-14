@@ -47,7 +47,7 @@ public class DowntimesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Downtime not found error </td><td>  -  </td></tr>
      </table>
    */
@@ -65,7 +65,7 @@ public class DowntimesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Downtime not found error </td><td>  -  </td></tr>
      </table>
    */
