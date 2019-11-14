@@ -132,30 +132,12 @@ Class | Method | HTTP request | Description
 *DowntimesApi* | [**getAllDowntimes**](docs/DowntimesApi.md#getAllDowntimes) | **GET** /api/v1/downtime | Get all downtimes
 *DowntimesApi* | [**getDowntime**](docs/DowntimesApi.md#getDowntime) | **GET** /api/v1/downtime/{downtime_id} | Get a downtime
 *DowntimesApi* | [**updateDowntime**](docs/DowntimesApi.md#updateDowntime) | **PUT** /api/v1/downtime/{downtime_id} | Update a downtime
-*KeysApi* | [**createAPIKey**](docs/KeysApi.md#createAPIKey) | **POST** /api/v1/api_key | Create an API key with a given name.
-*KeysApi* | [**createApplicationKey**](docs/KeysApi.md#createApplicationKey) | **POST** /api/v1/application_key | Create an application key with a given name.
-*KeysApi* | [**deleteAPIKey**](docs/KeysApi.md#deleteAPIKey) | **DELETE** /api/v1/api_key/{key} | Delete a given API key.
-*KeysApi* | [**deleteApplicationKey**](docs/KeysApi.md#deleteApplicationKey) | **DELETE** /api/v1/application_key/{key} | Delete a given application key.
-*KeysApi* | [**editAPIKey**](docs/KeysApi.md#editAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key name.
-*KeysApi* | [**editApplicationKey**](docs/KeysApi.md#editApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key name.
-*KeysApi* | [**getAPIKey**](docs/KeysApi.md#getAPIKey) | **GET** /api/v1/api_key/{key} | Get a given API key.
-*KeysApi* | [**getAllAPIKeys**](docs/KeysApi.md#getAllAPIKeys) | **GET** /api/v1/api_key | Get all API keys available for your account.
-*KeysApi* | [**getAllApplicationKeys**](docs/KeysApi.md#getAllApplicationKeys) | **GET** /api/v1/application_key | Get all application keys available for your account.
-*KeysApi* | [**getApplicationKey**](docs/KeysApi.md#getApplicationKey) | **GET** /api/v1/application_key/{key} | Get a given application key.
 *MonitorsApi* | [**createMonitor**](docs/MonitorsApi.md#createMonitor) | **POST** /api/v1/monitor | Create a new Monitor
 *MonitorsApi* | [**deleteMonitor**](docs/MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete the specified monitor.
 *MonitorsApi* | [**editMonitor**](docs/MonitorsApi.md#editMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit the specified monitor
 *MonitorsApi* | [**getAllMonitors**](docs/MonitorsApi.md#getAllMonitors) | **GET** /api/v1/monitor | Get details about the specified monitor.
 *MonitorsApi* | [**getMonitor**](docs/MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get details about the specified monitor.
 *MonitorsApi* | [**validateMonitor**](docs/MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate |
-*SloApi* | [**bulkPartialDeleteSlo**](docs/SloApi.md#bulkPartialDeleteSlo) | **POST** /api/v1/slo/bulk_delete | Delete (or partially delete) multiple service level objective objects.
-*SloApi* | [**checkCanDeleteSlo**](docs/SloApi.md#checkCanDeleteSlo) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted.
-*SloApi* | [**createSlo**](docs/SloApi.md#createSlo) | **POST** /api/v1/slo | Create a service level objective object.
-*SloApi* | [**deleteSlo**](docs/SloApi.md#deleteSlo) | **DELETE** /api/v1/slo/{slo_id} | Delete the specified service level objective object.
-*SloApi* | [**editSlo**](docs/SloApi.md#editSlo) | **PUT** /api/v1/slo/{slo_id} | Edit the specified service level objective
-*SloApi* | [**getSlo**](docs/SloApi.md#getSlo) | **GET** /api/v1/slo/{slo_id} | Get a service level objective object
-*SloApi* | [**getSlos**](docs/SloApi.md#getSlos) | **GET** /api/v1/slo | Get multiple service level objective objects by their IDs.
-*SloApi* | [**historyForSlo**](docs/SloApi.md#historyForSlo) | **GET** /api/v1/slo/{slo_id}/history | Get the history of the service level objective.
 *UsersApi* | [**createUser**](docs/UsersApi.md#createUser) | **POST** /api/v1/user | Create user
 *UsersApi* | [**disableUser**](docs/UsersApi.md#disableUser) | **DELETE** /api/v1/user/{user_handle} | Disable user
 *UsersApi* | [**getAllUsers**](docs/UsersApi.md#getAllUsers) | **GET** /api/v1/user | Get all users
@@ -168,16 +150,8 @@ Class | Method | HTTP request | Description
  - [AWSAccount](docs/AWSAccount.md)
  - [AWSAccountCreateResponse](docs/AWSAccountCreateResponse.md)
  - [AWSAccountListResponse](docs/AWSAccountListResponse.md)
- - [ApiKey](docs/ApiKey.md)
- - [ApiKeyListResponse](docs/ApiKeyListResponse.md)
- - [ApiKeyResponse](docs/ApiKeyResponse.md)
- - [ApplicationKey](docs/ApplicationKey.md)
- - [ApplicationKeyListResponse](docs/ApplicationKeyListResponse.md)
- - [ApplicationKeyResponse](docs/ApplicationKeyResponse.md)
  - [CancelDowntimesByScopeRequest](docs/CancelDowntimesByScopeRequest.md)
  - [CanceledDowntimesIds](docs/CanceledDowntimesIds.md)
- - [CheckCanDeleteServiceLevelObjectiveResponse](docs/CheckCanDeleteServiceLevelObjectiveResponse.md)
- - [CheckCanDeleteServiceLevelObjectiveResponseData](docs/CheckCanDeleteServiceLevelObjectiveResponseData.md)
  - [Creator](docs/Creator.md)
  - [Downtime](docs/Downtime.md)
  - [DowntimeRecurrence](docs/DowntimeRecurrence.md)
@@ -192,14 +166,6 @@ Class | Method | HTTP request | Description
  - [Error429](docs/Error429.md)
  - [Error500](docs/Error500.md)
  - [Error503](docs/Error503.md)
- - [HistoryServiceLevelObjectiveGroups](docs/HistoryServiceLevelObjectiveGroups.md)
- - [HistoryServiceLevelObjectiveMetrics](docs/HistoryServiceLevelObjectiveMetrics.md)
- - [HistoryServiceLevelObjectiveMetricsSeries](docs/HistoryServiceLevelObjectiveMetricsSeries.md)
- - [HistoryServiceLevelObjectiveMetricsSeriesMetadata](docs/HistoryServiceLevelObjectiveMetricsSeriesMetadata.md)
- - [HistoryServiceLevelObjectiveOverall](docs/HistoryServiceLevelObjectiveOverall.md)
- - [HistoryServiceLevelObjectiveResponse](docs/HistoryServiceLevelObjectiveResponse.md)
- - [HistoryServiceLevelObjectiveResponseData](docs/HistoryServiceLevelObjectiveResponseData.md)
- - [HistoryServiceLevelObjectiveResponseError](docs/HistoryServiceLevelObjectiveResponseError.md)
  - [Monitor](docs/Monitor.md)
  - [MonitorOptions](docs/MonitorOptions.md)
  - [MonitorOverallStates](docs/MonitorOverallStates.md)
@@ -208,15 +174,6 @@ Class | Method | HTTP request | Description
  - [MonitorStateGroupValue](docs/MonitorStateGroupValue.md)
  - [MonitorThresholdWindowOptions](docs/MonitorThresholdWindowOptions.md)
  - [MonitorThresholds](docs/MonitorThresholds.md)
- - [ServiceLevelObjective](docs/ServiceLevelObjective.md)
- - [ServiceLevelObjectiveDeleted](docs/ServiceLevelObjectiveDeleted.md)
- - [ServiceLevelObjectiveQuery](docs/ServiceLevelObjectiveQuery.md)
- - [ServiceLevelObjectiveResponse](docs/ServiceLevelObjectiveResponse.md)
- - [ServiceLevelObjectivesBulkDeleted](docs/ServiceLevelObjectivesBulkDeleted.md)
- - [ServiceLevelObjectivesBulkDeletedData](docs/ServiceLevelObjectivesBulkDeletedData.md)
- - [ServiceLevelObjectivesBulkDeletedErrors](docs/ServiceLevelObjectivesBulkDeletedErrors.md)
- - [SloThreshold](docs/SloThreshold.md)
- - [SloTimeframe](docs/SloTimeframe.md)
  - [User](docs/User.md)
  - [UserDisableResponse](docs/UserDisableResponse.md)
  - [UserListResponse](docs/UserListResponse.md)
@@ -226,8 +183,8 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 Authentication schemes defined for the API:
-### apiKeyAuth
 
+### apiKeyAuth
 
 - **Type**: API key
 - **API key parameter name**: api_key
