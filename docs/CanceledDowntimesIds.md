@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cancelledIds** | **List&lt;Integer&gt;** |  |  [optional]
+**cancelledIds** | **List&lt;Long&gt;** |  |  [optional]
 
 
 

@@ -81,7 +81,7 @@ public class Downtime {
   private List<String> monitorTags = null;
 
   public static final String JSON_PROPERTY_PARENT_ID = "parent_id";
-  private JsonNullable<Integer> parentId = JsonNullable.<Integer>undefined();
+  private JsonNullable<Long> parentId = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_RECURRENCE = "recurrence";
   private JsonNullable<DowntimeRecurrence> recurrence = JsonNullable.<DowntimeRecurrence>undefined();
@@ -346,8 +346,8 @@ public class Downtime {
   }
 
 
-  public Downtime parentId(Integer parentId) {
-    this.parentId = JsonNullable.<Integer>of(parentId);
+  public Downtime parentId(Long parentId) {
+    this.parentId = JsonNullable.<Long>of(parentId);
     
     return this;
   }
@@ -360,24 +360,24 @@ public class Downtime {
   @ApiModelProperty(example = "123", value = "")
   @JsonIgnore
 
-  public Integer getParentId() {
+  public Long getParentId() {
         return parentId.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Integer> getParentId_JsonNullable() {
+  public JsonNullable<Long> getParentId_JsonNullable() {
     return parentId;
   }
   
   @JsonProperty(JSON_PROPERTY_PARENT_ID)
-  public void setParentId_JsonNullable(JsonNullable<Integer> parentId) {
+  public void setParentId_JsonNullable(JsonNullable<Long> parentId) {
     this.parentId = parentId;
   }
 
-  public void setParentId(Integer parentId) {
-    this.parentId = JsonNullable.<Integer>of(parentId);
+  public void setParentId(Long parentId) {
+    this.parentId = JsonNullable.<Long>of(parentId);
   }
 
 
