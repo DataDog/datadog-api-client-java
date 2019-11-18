@@ -32,18 +32,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class CanceledDowntimesIds {
   public static final String JSON_PROPERTY_CANCELLED_IDS = "cancelled_ids";
-  private List<Integer> cancelledIds = null;
+  private List<Long> cancelledIds = null;
 
 
-  public CanceledDowntimesIds cancelledIds(List<Integer> cancelledIds) {
+  public CanceledDowntimesIds cancelledIds(List<Long> cancelledIds) {
     
     this.cancelledIds = cancelledIds;
     return this;
   }
 
-  public CanceledDowntimesIds addCancelledIdsItem(Integer cancelledIdsItem) {
+  public CanceledDowntimesIds addCancelledIdsItem(Long cancelledIdsItem) {
     if (this.cancelledIds == null) {
-      this.cancelledIds = new ArrayList<Integer>();
+      this.cancelledIds = new ArrayList<Long>();
     }
     this.cancelledIds.add(cancelledIdsItem);
     return this;
@@ -58,12 +58,12 @@ public class CanceledDowntimesIds {
   @JsonProperty(JSON_PROPERTY_CANCELLED_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Integer> getCancelledIds() {
+  public List<Long> getCancelledIds() {
     return cancelledIds;
   }
 
 
-  public void setCancelledIds(List<Integer> cancelledIds) {
+  public void setCancelledIds(List<Long> cancelledIds) {
     this.cancelledIds = cancelledIds;
   }
 

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **message** | **String** |  |  [optional]
 **monitorId** | **Long** |  |  [optional]
 **monitorTags** | **List&lt;String&gt;** |  |  [optional]
-**parentId** | **Integer** |  |  [optional]
+**parentId** | **Long** |  |  [optional]
 **recurrence** | [**DowntimeRecurrence**](DowntimeRecurrence.md) |  |  [optional]
 **scope** | **List&lt;String&gt;** |  |  [optional]
 **start** | **Long** |  |  [optional]
