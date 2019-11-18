@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 / 2019-18-11
+## 1.0.0 / 2019-11-18
 
 Initial release of the Java client for Datadog API
 
