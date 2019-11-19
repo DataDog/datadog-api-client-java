@@ -14,7 +14,7 @@ jobs:
       displayName: Build the Image
       inputs:
         command: build
-        Dockerfile: Dockerfile.test
+        Dockerfile: Dockerfile.test.v1
         arguments: -t datadog-java-integration-test
     - script: docker run --env DD_TEST_CLIENT_API_KEY --env DD_TEST_CLIENT_APP_KEY datadog-java-integration-test
       displayName: Run integration tests
