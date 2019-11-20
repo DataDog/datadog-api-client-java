@@ -37,16 +37,16 @@ public class MonitorStateGroupValue {
   private Long fromTs;
 
   public static final String JSON_PROPERTY_LEFT = "left";
-  private Float left;
+  private Double left;
 
   public static final String JSON_PROPERTY_RIGHT = "right";
-  private Float right;
+  private Double right;
 
   public static final String JSON_PROPERTY_TO_TS = "to_ts";
   private Long toTs;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private Float value;
+  private Double value;
 
 
   public MonitorStateGroupValue fromTs(Long fromTs) {
@@ -74,7 +74,7 @@ public class MonitorStateGroupValue {
   }
 
 
-  public MonitorStateGroupValue left(Float left) {
+  public MonitorStateGroupValue left(Double left) {
     
     this.left = left;
     return this;
@@ -89,17 +89,17 @@ public class MonitorStateGroupValue {
   @JsonProperty(JSON_PROPERTY_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getLeft() {
+  public Double getLeft() {
     return left;
   }
 
 
-  public void setLeft(Float left) {
+  public void setLeft(Double left) {
     this.left = left;
   }
 
 
-  public MonitorStateGroupValue right(Float right) {
+  public MonitorStateGroupValue right(Double right) {
     
     this.right = right;
     return this;
@@ -114,12 +114,12 @@ public class MonitorStateGroupValue {
   @JsonProperty(JSON_PROPERTY_RIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getRight() {
+  public Double getRight() {
     return right;
   }
 
 
-  public void setRight(Float right) {
+  public void setRight(Double right) {
     this.right = right;
   }
 
@@ -149,7 +149,7 @@ public class MonitorStateGroupValue {
   }
 
 
-  public MonitorStateGroupValue value(Float value) {
+  public MonitorStateGroupValue value(Double value) {
     
     this.value = value;
     return this;
@@ -164,12 +164,12 @@ public class MonitorStateGroupValue {
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getValue() {
+  public Double getValue() {
     return value;
   }
 
 
-  public void setValue(Float value) {
+  public void setValue(Double value) {
     this.value = value;
   }
 

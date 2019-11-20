@@ -35,25 +35,25 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class MonitorThresholds {
   public static final String JSON_PROPERTY_CRITICAL = "critical";
-  private Float critical;
+  private Double critical;
 
   public static final String JSON_PROPERTY_CRITICAL_RECOVERY = "critical_recovery";
-  private Float criticalRecovery;
+  private Double criticalRecovery;
 
   public static final String JSON_PROPERTY_OK = "ok";
-  private Float ok;
+  private Double ok;
 
   public static final String JSON_PROPERTY_UNKNOWN = "unknown";
-  private Float unknown;
+  private Double unknown;
 
   public static final String JSON_PROPERTY_WARNING = "warning";
-  private Float warning;
+  private Double warning;
 
   public static final String JSON_PROPERTY_WARNING_RECOVERY = "warning_recovery";
-  private Float warningRecovery;
+  private Double warningRecovery;
 
 
-  public MonitorThresholds critical(Float critical) {
+  public MonitorThresholds critical(Double critical) {
     
     this.critical = critical;
     return this;
@@ -68,17 +68,17 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getCritical() {
+  public Double getCritical() {
     return critical;
   }
 
 
-  public void setCritical(Float critical) {
+  public void setCritical(Double critical) {
     this.critical = critical;
   }
 
 
-  public MonitorThresholds criticalRecovery(Float criticalRecovery) {
+  public MonitorThresholds criticalRecovery(Double criticalRecovery) {
     
     this.criticalRecovery = criticalRecovery;
     return this;
@@ -93,17 +93,17 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getCriticalRecovery() {
+  public Double getCriticalRecovery() {
     return criticalRecovery;
   }
 
 
-  public void setCriticalRecovery(Float criticalRecovery) {
+  public void setCriticalRecovery(Double criticalRecovery) {
     this.criticalRecovery = criticalRecovery;
   }
 
 
-  public MonitorThresholds ok(Float ok) {
+  public MonitorThresholds ok(Double ok) {
     
     this.ok = ok;
     return this;
@@ -118,17 +118,17 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getOk() {
+  public Double getOk() {
     return ok;
   }
 
 
-  public void setOk(Float ok) {
+  public void setOk(Double ok) {
     this.ok = ok;
   }
 
 
-  public MonitorThresholds unknown(Float unknown) {
+  public MonitorThresholds unknown(Double unknown) {
     
     this.unknown = unknown;
     return this;
@@ -143,17 +143,17 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_UNKNOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getUnknown() {
+  public Double getUnknown() {
     return unknown;
   }
 
 
-  public void setUnknown(Float unknown) {
+  public void setUnknown(Double unknown) {
     this.unknown = unknown;
   }
 
 
-  public MonitorThresholds warning(Float warning) {
+  public MonitorThresholds warning(Double warning) {
     
     this.warning = warning;
     return this;
@@ -168,17 +168,17 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getWarning() {
+  public Double getWarning() {
     return warning;
   }
 
 
-  public void setWarning(Float warning) {
+  public void setWarning(Double warning) {
     this.warning = warning;
   }
 
 
-  public MonitorThresholds warningRecovery(Float warningRecovery) {
+  public MonitorThresholds warningRecovery(Double warningRecovery) {
     
     this.warningRecovery = warningRecovery;
     return this;
@@ -193,12 +193,12 @@ public class MonitorThresholds {
   @JsonProperty(JSON_PROPERTY_WARNING_RECOVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Float getWarningRecovery() {
+  public Double getWarningRecovery() {
     return warningRecovery;
   }
 
 
-  public void setWarningRecovery(Float warningRecovery) {
+  public void setWarningRecovery(Double warningRecovery) {
     this.warningRecovery = warningRecovery;
   }
 
