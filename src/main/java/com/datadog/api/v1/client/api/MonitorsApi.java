@@ -59,8 +59,8 @@ public class MonitorsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public Monitor createMonitor(Monitor monitor, CreateMonitorParams localVarParams) throws ApiException {
-    return createMonitorWithHttpInfo(monitor, localVarParams).getData();
+  public Monitor createMonitor(Monitor monitor) throws ApiException {
+    return createMonitorWithHttpInfo(monitor).getData();
   }
 
   /**
@@ -110,13 +110,6 @@ public class MonitorsApi {
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
-  // DeleteMonitorParams Parameters for the method 'deleteMonitor'
-  public static class DeleteMonitorParams {
-    
-
-    
-  }
-
   /**
    * Delete the specified monitor.
    * ### Overview Delete the specified monitor ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
@@ -132,8 +125,8 @@ public class MonitorsApi {
         <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
      </table>
    */
-  public Map<String, Long> deleteMonitor(Long monitorId, DeleteMonitorParams localVarParams) throws ApiException {
-    return deleteMonitorWithHttpInfo(monitorId, localVarParams).getData();
+  public Map<String, Long> deleteMonitor(Long monitorId) throws ApiException {
+    return deleteMonitorWithHttpInfo(monitorId).getData();
   }
 
   /**
@@ -186,13 +179,6 @@ public class MonitorsApi {
     GenericType<Map<String, Long>> localVarReturnType = new GenericType<Map<String, Long>>() {};
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
-  // EditMonitorParams Parameters for the method 'editMonitor'
-  public static class EditMonitorParams {
-    
-
-    
-  }
-
   /**
    * Edit the specified monitor
    * ### Overview Edit the specified monitor. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
@@ -209,8 +195,8 @@ public class MonitorsApi {
         <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
      </table>
    */
-  public Monitor editMonitor(Long monitorId, Monitor monitor, EditMonitorParams localVarParams) throws ApiException {
-    return editMonitorWithHttpInfo(monitorId, monitor, localVarParams).getData();
+  public Monitor editMonitor(Long monitorId, Monitor monitor) throws ApiException {
+    return editMonitorWithHttpInfo(monitorId, monitor).getData();
   }
 
   /**
@@ -268,46 +254,34 @@ public class MonitorsApi {
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
-  // GetAllMonitorsParams Parameters for the method 'getAllMonitors'
-  public static class GetAllMonitorsParams {
-    
+  // GetAllMonitorsOpts Optional parameters for the method 'getAllMonitors'
+  public static class GetAllMonitorsOpts {
     public String groupStates;
-    
     public String name;
-    
     public String tags;
-    
     public String monitorTags;
-    
     public Boolean withDowntimes;
-    
 
-    
-    public GetAllMonitorsParams groupStates(String groupStates) {
+    public GetAllMonitorsOpts groupStates(String groupStates) {
       this.groupStates = groupStates;
       return this;
     }
-    
-    public GetAllMonitorsParams name(String name) {
+    public GetAllMonitorsOpts name(String name) {
       this.name = name;
       return this;
     }
-    
-    public GetAllMonitorsParams tags(String tags) {
+    public GetAllMonitorsOpts tags(String tags) {
       this.tags = tags;
       return this;
     }
-    
-    public GetAllMonitorsParams monitorTags(String monitorTags) {
+    public GetAllMonitorsOpts monitorTags(String monitorTags) {
       this.monitorTags = monitorTags;
       return this;
     }
-    
-    public GetAllMonitorsParams withDowntimes(Boolean withDowntimes) {
+    public GetAllMonitorsOpts withDowntimes(Boolean withDowntimes) {
       this.withDowntimes = withDowntimes;
       return this;
     }
-    
   }
 
   /**
@@ -327,8 +301,8 @@ public class MonitorsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public List<Monitor> getAllMonitors(GetAllMonitorsParams localVarParams) throws ApiException {
-    return getAllMonitorsWithHttpInfo(localVarParams).getData();
+  public List<Monitor> getAllMonitors(GetAllMonitorsOpts localVarOptionals) throws ApiException {
+    return getAllMonitorsWithHttpInfo(localVarOptionals).getData();
   }
 
   /**
@@ -348,7 +322,7 @@ public class MonitorsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(GetAllMonitorsParams localVarParams) throws ApiException {
+  public ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(GetAllMonitorsOpts localVarOptionals) throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v1/monitor";
@@ -359,11 +333,11 @@ public class MonitorsApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", localVarParams.groupStates));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", localVarParams.name));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", localVarParams.tags));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "monitor_tags", localVarParams.monitorTags));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", localVarParams.withDowntimes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", localVarOptionals.groupStates));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", localVarOptionals.name));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", localVarOptionals.tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "monitor_tags", localVarOptionals.monitorTags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", localVarOptionals.withDowntimes));
 
     
     
@@ -383,18 +357,14 @@ public class MonitorsApi {
     GenericType<List<Monitor>> localVarReturnType = new GenericType<List<Monitor>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
-  // GetMonitorParams Parameters for the method 'getMonitor'
-  public static class GetMonitorParams {
-    
+  // GetMonitorOpts Optional parameters for the method 'getMonitor'
+  public static class GetMonitorOpts {
     public String groupStates;
-    
 
-    
-    public GetMonitorParams groupStates(String groupStates) {
+    public GetMonitorOpts groupStates(String groupStates) {
       this.groupStates = groupStates;
       return this;
     }
-    
   }
 
   /**
@@ -412,8 +382,8 @@ public class MonitorsApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public Monitor getMonitor(Long monitorId, GetMonitorParams localVarParams) throws ApiException {
-    return getMonitorWithHttpInfo(monitorId, localVarParams).getData();
+  public Monitor getMonitor(Long monitorId, GetMonitorOpts localVarOptionals) throws ApiException {
+    return getMonitorWithHttpInfo(monitorId, localVarOptionals).getData();
   }
 
   /**
@@ -431,7 +401,7 @@ public class MonitorsApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, GetMonitorParams localVarParams) throws ApiException {
+  public ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, GetMonitorOpts localVarOptionals) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'monitorId' is set
     if (monitorId == null) {
@@ -447,7 +417,7 @@ public class MonitorsApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", localVarParams.groupStates));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", localVarOptionals.groupStates));
 
     
     
@@ -467,13 +437,6 @@ public class MonitorsApi {
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
-  // ValidateMonitorParams Parameters for the method 'validateMonitor'
-  public static class ValidateMonitorParams {
-    
-
-    
-  }
-
   /**
    * 
    * ### Overview Validate the monitor provided in the request ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to validate summary: Validate the provided monitor
@@ -487,8 +450,8 @@ public class MonitorsApi {
         <tr><td> 400 </td><td> Invalid JSON </td><td>  -  </td></tr>
      </table>
    */
-  public Monitor validateMonitor(Monitor monitor, ValidateMonitorParams localVarParams) throws ApiException {
-    return validateMonitorWithHttpInfo(monitor, localVarParams).getData();
+  public Monitor validateMonitor(Monitor monitor) throws ApiException {
+    return validateMonitorWithHttpInfo(monitor).getData();
   }
 
   /**

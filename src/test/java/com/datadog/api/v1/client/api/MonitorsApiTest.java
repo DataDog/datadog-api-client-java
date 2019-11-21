@@ -55,7 +55,8 @@ public class MonitorsApiTest extends V1ApiTest {
         if (deleteMonitors != null) {
             for (Long id : deleteMonitors) {
                 try {
-                    api.getMonitor(id, "all");
+                    MonitorsApi.GetMonitorOpts opts = new MonitorsApi.GetMonitorOpts().groupStates("all");
+                    api.getMonitor(id, opts);
                 } catch (ApiException e) {
                     // doesn't exist => continue
                     continue;
@@ -88,7 +89,8 @@ public class MonitorsApiTest extends V1ApiTest {
         deleteMonitors.add(monitorId);
 
         // test getting monitor
-        obtained = api.getMonitor(monitorId, "all");
+        MonitorsApi.GetMonitorOpts opts = new MonitorsApi.GetMonitorOpts().groupStates("all");
+        obtained = api.getMonitor(monitorId, opts);
         assertEquals(testingMonitorName, obtained.getName());
         assertEquals(testingMonitorType, obtained.getType());
         assertEquals(testingMonitorQuery, obtained.getQuery());
@@ -112,7 +114,8 @@ public class MonitorsApiTest extends V1ApiTest {
         // test deleting monitor
         api.deleteMonitor(monitorId);
         try {
-            api.getMonitor(monitorId, "all");
+            opts = new MonitorsApi.GetMonitorOpts().groupStates("all");
+            api.getMonitor(monitorId, opts);
             // junit 4 doesn't have better support for asserting that method threw an error
             assertTrue(false);
         } catch (ApiException e) {
@@ -134,7 +137,8 @@ public class MonitorsApiTest extends V1ApiTest {
             Monitor created = api.createMonitor(monitor);
             deleteMonitors.add(created.getId());
         }
-        List<Monitor> allMonitors = api.getAllMonitors(null, null, null, null, null);
+        MonitorsApi.GetAllMonitorsOpts opts = new MonitorsApi.GetAllMonitorsOpts();
+        List<Monitor> allMonitors = api.getAllMonitors(opts);
         for (String prefix: prefixes) {
             boolean found = false;
             for (Monitor monitor: allMonitors) {

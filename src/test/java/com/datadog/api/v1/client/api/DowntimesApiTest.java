@@ -132,7 +132,8 @@ public class DowntimesApiTest extends V1ApiTest {
             Downtime created = api.createDowntime(downtime);
             deleteDowntimes.add(created.getId());
         }
-        List<Downtime> allDowntimes = api.getAllDowntimes(false);
+        DowntimesApi.GetAllDowntimesOpts opts = new DowntimesApi.GetAllDowntimesOpts().currentOnly(false);
+        List<Downtime> allDowntimes = api.getAllDowntimes(opts);
         for (String prefix: prefixes) {
             boolean found = false;
             for (Downtime downtime: allDowntimes) {
@@ -164,7 +165,8 @@ public class DowntimesApiTest extends V1ApiTest {
         api.cancelDowntimesByScope(new CancelDowntimesByScopeRequest().scope(testingDowntimeScope.get(0)));
 
         // verify that downtimes 1 and 2 are canceled
-        List<Downtime> allDowntimes = api.getAllDowntimes(false);
+        DowntimesApi.GetAllDowntimesOpts opts = new DowntimesApi.GetAllDowntimesOpts().currentOnly(false);
+        List<Downtime> allDowntimes = api.getAllDowntimes(opts);
         for (String prefix: prefixes) {
             boolean found = false;
             for (Downtime downtime: allDowntimes) {

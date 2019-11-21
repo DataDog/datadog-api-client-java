@@ -59,8 +59,8 @@ public class AwsIntegrationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public AWSAccountCreateResponse createAWSAccount(AWSAccount awSAccount, CreateAWSAccountParams localVarParams) throws ApiException {
-    return createAWSAccountWithHttpInfo(awSAccount, localVarParams).getData();
+  public AWSAccountCreateResponse createAWSAccount(AWSAccount awSAccount) throws ApiException {
+    return createAWSAccountWithHttpInfo(awSAccount).getData();
   }
 
   /**
@@ -110,13 +110,6 @@ public class AwsIntegrationApi {
     GenericType<AWSAccountCreateResponse> localVarReturnType = new GenericType<AWSAccountCreateResponse>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
-  // DeleteAWSAccountParams Parameters for the method 'deleteAWSAccount'
-  public static class DeleteAWSAccountParams {
-    
-
-    
-  }
-
   /**
    * Delete an AWS Account
    * ### Overview Delete the AWS Account matching the specified account_id and role_name parameters ### Arguments * **&#x60;account_id&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this account_id.  * **&#x60;role_name&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this role_name.
@@ -130,8 +123,8 @@ public class AwsIntegrationApi {
         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public Object deleteAWSAccount(AWSAccount awSAccount, DeleteAWSAccountParams localVarParams) throws ApiException {
-    return deleteAWSAccountWithHttpInfo(awSAccount, localVarParams).getData();
+  public Object deleteAWSAccount(AWSAccount awSAccount) throws ApiException {
+    return deleteAWSAccountWithHttpInfo(awSAccount).getData();
   }
 
   /**
@@ -181,32 +174,24 @@ public class AwsIntegrationApi {
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
-  // GetAllAWSAccountsParams Parameters for the method 'getAllAWSAccounts'
-  public static class GetAllAWSAccountsParams {
-    
+  // GetAllAWSAccountsOpts Optional parameters for the method 'getAllAWSAccounts'
+  public static class GetAllAWSAccountsOpts {
     public String accountId;
-    
     public String roleName;
-    
     public String accessKeyId;
-    
 
-    
-    public GetAllAWSAccountsParams accountId(String accountId) {
+    public GetAllAWSAccountsOpts accountId(String accountId) {
       this.accountId = accountId;
       return this;
     }
-    
-    public GetAllAWSAccountsParams roleName(String roleName) {
+    public GetAllAWSAccountsOpts roleName(String roleName) {
       this.roleName = roleName;
       return this;
     }
-    
-    public GetAllAWSAccountsParams accessKeyId(String accessKeyId) {
+    public GetAllAWSAccountsOpts accessKeyId(String accessKeyId) {
       this.accessKeyId = accessKeyId;
       return this;
     }
-    
   }
 
   /**
@@ -225,8 +210,8 @@ public class AwsIntegrationApi {
         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public AWSAccountListResponse getAllAWSAccounts(GetAllAWSAccountsParams localVarParams) throws ApiException {
-    return getAllAWSAccountsWithHttpInfo(localVarParams).getData();
+  public AWSAccountListResponse getAllAWSAccounts(GetAllAWSAccountsOpts localVarOptionals) throws ApiException {
+    return getAllAWSAccountsWithHttpInfo(localVarOptionals).getData();
   }
 
   /**
@@ -245,7 +230,7 @@ public class AwsIntegrationApi {
         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(GetAllAWSAccountsParams localVarParams) throws ApiException {
+  public ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(GetAllAWSAccountsOpts localVarOptionals) throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";
@@ -256,9 +241,9 @@ public class AwsIntegrationApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", localVarParams.accountId));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", localVarParams.roleName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", localVarParams.accessKeyId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", localVarOptionals.accountId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", localVarOptionals.roleName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", localVarOptionals.accessKeyId));
 
     
     
@@ -278,32 +263,24 @@ public class AwsIntegrationApi {
     GenericType<AWSAccountListResponse> localVarReturnType = new GenericType<AWSAccountListResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
-  // UpdateAWSAccountParams Parameters for the method 'updateAWSAccount'
-  public static class UpdateAWSAccountParams {
-    
+  // UpdateAWSAccountOpts Optional parameters for the method 'updateAWSAccount'
+  public static class UpdateAWSAccountOpts {
     public String accountId;
-    
     public String roleName;
-    
     public String accessKeyId;
-    
 
-    
-    public UpdateAWSAccountParams accountId(String accountId) {
+    public UpdateAWSAccountOpts accountId(String accountId) {
       this.accountId = accountId;
       return this;
     }
-    
-    public UpdateAWSAccountParams roleName(String roleName) {
+    public UpdateAWSAccountOpts roleName(String roleName) {
       this.roleName = roleName;
       return this;
     }
-    
-    public UpdateAWSAccountParams accessKeyId(String accessKeyId) {
+    public UpdateAWSAccountOpts accessKeyId(String accessKeyId) {
       this.accessKeyId = accessKeyId;
       return this;
     }
-    
   }
 
   /**
@@ -322,8 +299,8 @@ public class AwsIntegrationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public Object updateAWSAccount(AWSAccount awSAccount, UpdateAWSAccountParams localVarParams) throws ApiException {
-    return updateAWSAccountWithHttpInfo(awSAccount, localVarParams).getData();
+  public Object updateAWSAccount(AWSAccount awSAccount, UpdateAWSAccountOpts localVarOptionals) throws ApiException {
+    return updateAWSAccountWithHttpInfo(awSAccount, localVarOptionals).getData();
   }
 
   /**
@@ -342,7 +319,7 @@ public class AwsIntegrationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount awSAccount, UpdateAWSAccountParams localVarParams) throws ApiException {
+  public ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount awSAccount, UpdateAWSAccountOpts localVarOptionals) throws ApiException {
     Object localVarPostBody = awSAccount;
     // verify the required parameter 'awSAccount' is set
     if (awSAccount == null) {
@@ -357,9 +334,9 @@ public class AwsIntegrationApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", localVarParams.accountId));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", localVarParams.roleName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", localVarParams.accessKeyId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", localVarOptionals.accountId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", localVarOptionals.roleName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", localVarOptionals.accessKeyId));
 
     
     
