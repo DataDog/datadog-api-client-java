@@ -61,8 +61,8 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public UserResponse createUser(User user) throws ApiException {
-    return createUserWithHttpInfo(user).getData();
+  public UserResponse createUser(User user, CreateUserParams localVarParams) throws ApiException {
+    return createUserWithHttpInfo(user, localVarParams).getData();
   }
 
   /**
@@ -113,6 +113,13 @@ public class UsersApi {
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
+  // DisableUserParams Parameters for the method 'disableUser'
+  public static class DisableUserParams {
+    
+
+    
+  }
+
   /**
    * Disable user
    * ### Overview Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user.
@@ -127,8 +134,8 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public UserDisableResponse disableUser(String userHandle) throws ApiException {
-    return disableUserWithHttpInfo(userHandle).getData();
+  public UserDisableResponse disableUser(String userHandle, DisableUserParams localVarParams) throws ApiException {
+    return disableUserWithHttpInfo(userHandle, localVarParams).getData();
   }
 
   /**
@@ -180,6 +187,13 @@ public class UsersApi {
     GenericType<UserDisableResponse> localVarReturnType = new GenericType<UserDisableResponse>() {};
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
+  // GetAllUsersParams Parameters for the method 'getAllUsers'
+  public static class GetAllUsersParams {
+    
+
+    
+  }
+
   /**
    * Get all users
    * ### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
@@ -193,8 +207,8 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public UserListResponse getAllUsers() throws ApiException {
-    return getAllUsersWithHttpInfo().getData();
+  public UserListResponse getAllUsers(GetAllUsersParams localVarParams) throws ApiException {
+    return getAllUsersWithHttpInfo(localVarParams).getData();
   }
 
   /**
@@ -240,6 +254,13 @@ public class UsersApi {
     GenericType<UserListResponse> localVarReturnType = new GenericType<UserListResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
+  // GetUserParams Parameters for the method 'getUser'
+  public static class GetUserParams {
+    
+
+    
+  }
+
   /**
    * Get user
    * ### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
@@ -254,8 +275,8 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public UserResponse getUser(String userHandle) throws ApiException {
-    return getUserWithHttpInfo(userHandle).getData();
+  public UserResponse getUser(String userHandle, GetUserParams localVarParams) throws ApiException {
+    return getUserWithHttpInfo(userHandle, localVarParams).getData();
   }
 
   /**
@@ -307,6 +328,13 @@ public class UsersApi {
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
+  // UpdateUserParams Parameters for the method 'updateUser'
+  public static class UpdateUserParams {
+    
+
+    
+  }
+
   /**
    * Update user
    * ### Overview Update a user informations.  **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user)    *  **adm** (admin user)    *  **ro** (read-only user)
@@ -322,8 +350,8 @@ public class UsersApi {
         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
      </table>
    */
-  public UserResponse updateUser(String userHandle, User user) throws ApiException {
-    return updateUserWithHttpInfo(userHandle, user).getData();
+  public UserResponse updateUser(String userHandle, User user, UpdateUserParams localVarParams) throws ApiException {
+    return updateUserWithHttpInfo(userHandle, user, localVarParams).getData();
   }
 
   /**

@@ -55,13 +55,14 @@ public class MonitorsApiTest extends V1ApiTest {
         if (deleteMonitors != null) {
             for (Long id : deleteMonitors) {
                 try {
-                    MonitorsApi.GetMonitorOpts opts = new MonitorsApi.GetMonitorOpts().groupStates("all");
+                    MonitorsApi.GetMonitorParams opts = new MonitorsApi.GetMonitorParams()
+                        .groupStates("all");
                     api.getMonitor(id, opts);
                 } catch (ApiException e) {
                     // doesn't exist => continue
                     continue;
                 }
-                api.deleteMonitor(id);
+                api.deleteMonitor(id, null);
             }
         }
     }
@@ -84,12 +85,12 @@ public class MonitorsApiTest extends V1ApiTest {
             .options(options);
 
         // test creating monitor
-        Monitor obtained = api.createMonitor(monitor);
+        Monitor obtained = api.createMonitor(monitor, null);
         Long monitorId = obtained.getId();
         deleteMonitors.add(monitorId);
 
         // test getting monitor
-        MonitorsApi.GetMonitorOpts opts = new MonitorsApi.GetMonitorOpts().groupStates("all");
+        MonitorsApi.GetMonitorParams opts = new MonitorsApi.GetMonitorParams().groupStates("all");
         obtained = api.getMonitor(monitorId, opts);
         assertEquals(testingMonitorName, obtained.getName());
         assertEquals(testingMonitorType, obtained.getType());
@@ -101,7 +102,7 @@ public class MonitorsApiTest extends V1ApiTest {
 
         // test updating monitor
         obtained.setName("New name");
-        obtained = api.editMonitor(monitorId, obtained);
+        obtained = api.editMonitor(monitorId, obtained, null);
 
         assertEquals("New name", obtained.getName());
         assertEquals(testingMonitorType, obtained.getType());
@@ -112,9 +113,9 @@ public class MonitorsApiTest extends V1ApiTest {
         assertEquals(testingMonitorOptionsNoDataTimeframe, obtained.getOptions().getNoDataTimeframe());
 
         // test deleting monitor
-        api.deleteMonitor(monitorId);
+        api.deleteMonitor(monitorId, null);
         try {
-            opts = new MonitorsApi.GetMonitorOpts().groupStates("all");
+            opts = new MonitorsApi.GetMonitorParams().groupStates("all");
             api.getMonitor(monitorId, opts);
             // junit 4 doesn't have better support for asserting that method threw an error
             assertTrue(false);
@@ -134,10 +135,10 @@ public class MonitorsApiTest extends V1ApiTest {
                 .name(prefix + testingMonitorName)
                 .type(testingMonitorType)
                 .query(testingMonitorQuery);
-            Monitor created = api.createMonitor(monitor);
+            Monitor created = api.createMonitor(monitor, null);
             deleteMonitors.add(created.getId());
         }
-        MonitorsApi.GetAllMonitorsOpts opts = new MonitorsApi.GetAllMonitorsOpts();
+        MonitorsApi.GetAllMonitorsParams opts = new MonitorsApi.GetAllMonitorsParams();
         List<Monitor> allMonitors = api.getAllMonitors(opts);
         for (String prefix: prefixes) {
             boolean found = false;
@@ -169,11 +170,11 @@ public class MonitorsApiTest extends V1ApiTest {
             .options(options);
 
         // if this doesn't throw exception, everything is fine
-        api.validateMonitor(monitor);
+        api.validateMonitor(monitor, null);
 
         monitor.setQuery("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} ><><>< whaaaaaaa?");
         try {
-            api.validateMonitor(monitor);
+            api.validateMonitor(monitor, null);
             // junit 4 doesn't have better support for asserting that method threw an error
             assertTrue(false);
         } catch (ApiException e) {

@@ -57,12 +57,12 @@ public class DowntimesApiTest extends V1ApiTest {
         if (deleteDowntimes != null) {
             for (Long id : deleteDowntimes) {
                 try {
-                    api.getDowntime(id);
+                    api.getDowntime(id, null);
                 } catch (ApiException e) {
                     // doesn't exist => continue
                     continue;
                 }
-                api.cancelDowntime(id);
+                api.cancelDowntime(id, null);
             }
         }
     }
@@ -85,12 +85,12 @@ public class DowntimesApiTest extends V1ApiTest {
             .recurrence(recurrence);
 
         // test creating downtime
-        Downtime obtained = api.createDowntime(downtime);
+        Downtime obtained = api.createDowntime(downtime, null);
         Long downtimeId = obtained.getId();
         deleteDowntimes.add(downtimeId);
 
         // test getting downtime
-        obtained = api.getDowntime(downtimeId);
+        obtained = api.getDowntime(downtimeId, null);
         assertEquals(testingDowntimeScope, obtained.getScope());
         assertEquals(testingDowntimeMessage, obtained.getMessage());
         assertEquals(testingDowntimeStart, obtained.getStart());
@@ -102,7 +102,7 @@ public class DowntimesApiTest extends V1ApiTest {
 
         // test updating downtime
         downtime.setMessage("New message");
-        obtained = api.updateDowntime(downtimeId, downtime);
+        obtained = api.updateDowntime(downtimeId, downtime, null);
 
         assertEquals(testingDowntimeScope, obtained.getScope());
         assertEquals("New message", obtained.getMessage());
@@ -114,8 +114,8 @@ public class DowntimesApiTest extends V1ApiTest {
         assertEquals(testingUntilDowntimeRecurrenceOccurrences, obtained.getRecurrence().getUntilOccurrences());
 
         // test canceling downtime
-        api.cancelDowntime(downtimeId);
-        obtained = api.getDowntime(downtimeId);
+        api.cancelDowntime(downtimeId, null);
+        obtained = api.getDowntime(downtimeId, null);
         assertNotNull(obtained.getCanceled());
     }
 
@@ -129,10 +129,10 @@ public class DowntimesApiTest extends V1ApiTest {
             Downtime downtime = new Downtime()
                 .scope(testingDowntimeScope)
                 .message(prefix + testingDowntimeMessage);
-            Downtime created = api.createDowntime(downtime);
+            Downtime created = api.createDowntime(downtime, null);
             deleteDowntimes.add(created.getId());
         }
-        DowntimesApi.GetAllDowntimesOpts opts = new DowntimesApi.GetAllDowntimesOpts().currentOnly(false);
+        DowntimesApi.GetAllDowntimesParams opts = new DowntimesApi.GetAllDowntimesParams().currentOnly(false);
         List<Downtime> allDowntimes = api.getAllDowntimes(opts);
         for (String prefix: prefixes) {
             boolean found = false;
@@ -157,15 +157,15 @@ public class DowntimesApiTest extends V1ApiTest {
             Downtime downtime = new Downtime()
                 .scope(prefix == "3" ? differentScope : testingDowntimeScope)
                 .message(prefix + testingDowntimeMessage);
-            Downtime created = api.createDowntime(downtime);
+            Downtime created = api.createDowntime(downtime, null);
             deleteDowntimes.add(created.getId());
         }
 
         // cancel downtimes 1 and 2
-        api.cancelDowntimesByScope(new CancelDowntimesByScopeRequest().scope(testingDowntimeScope.get(0)));
+        api.cancelDowntimesByScope(new CancelDowntimesByScopeRequest().scope(testingDowntimeScope.get(0)), null);
 
         // verify that downtimes 1 and 2 are canceled
-        DowntimesApi.GetAllDowntimesOpts opts = new DowntimesApi.GetAllDowntimesOpts().currentOnly(false);
+        DowntimesApi.GetAllDowntimesParams opts = new DowntimesApi.GetAllDowntimesParams().currentOnly(false);
         List<Downtime> allDowntimes = api.getAllDowntimes(opts);
         for (String prefix: prefixes) {
             boolean found = false;

@@ -58,8 +58,8 @@ public class DowntimesApi {
         <tr><td> 404 </td><td> Downtime not found error </td><td>  -  </td></tr>
      </table>
    */
-  public void cancelDowntime(Long downtimeId) throws ApiException {
-    cancelDowntimeWithHttpInfo(downtimeId).getData();
+  public void cancelDowntime(Long downtimeId, CancelDowntimeParams localVarParams) throws ApiException {
+    cancelDowntimeWithHttpInfo(downtimeId, localVarParams).getData();
   }
 
   /**
@@ -130,8 +130,8 @@ public class DowntimesApi {
         <tr><td> 404 </td><td> No downtimes found error </td><td>  -  </td></tr>
      </table>
    */
-  public CanceledDowntimesIds cancelDowntimesByScope(CancelDowntimesByScopeRequest cancelDowntimesByScopeRequest) throws ApiException {
-    return cancelDowntimesByScopeWithHttpInfo(cancelDowntimesByScopeRequest).getData();
+  public CanceledDowntimesIds cancelDowntimesByScope(CancelDowntimesByScopeRequest cancelDowntimesByScopeRequest, CancelDowntimesByScopeParams localVarParams) throws ApiException {
+    return cancelDowntimesByScopeWithHttpInfo(cancelDowntimesByScopeRequest, localVarParams).getData();
   }
 
   /**
@@ -182,6 +182,13 @@ public class DowntimesApi {
     GenericType<CanceledDowntimesIds> localVarReturnType = new GenericType<CanceledDowntimesIds>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
+  // CreateDowntimeParams Parameters for the method 'createDowntime'
+  public static class CreateDowntimeParams {
+    
+
+    
+  }
+
   /**
    * Schedule a downtime
    * * **&#x60;scope&#x60;** [*required*]: The scope(s) to which the downtime applies, e.g. &#x60;host:app2&#x60;.   Provide multiple scopes as a comma-separated list, e.g. &#x60;env:dev,env:prod&#x60;. The   resulting downtime applies to sources that matches ALL provided scopes (i.e.   &#x60;env:dev&#x60; **AND** &#x60;env:prod&#x60;), NOT any of them.  * **&#x60;monitor_tags&#x60;** [*optional*, *default*&#x3D;**no monitor tag filter**]: A comma-separated   list of monitor tags, i.e. tags that are applied directly to monitors, *not* tags   that are used in monitor queries (which are filtered by the &#x60;scope&#x60; parameter), to   which the downtime applies. The resulting downtime applies to monitors that match   ALL provided monitor tags (i.e. &#x60;service:postgres&#x60; **AND** &#x60;team:frontend&#x60;), NOT any of them.  * **&#x60;monitor_id&#x60;** [*optional*, *default*&#x3D;**None**]: A single monitor to which the downtime   applies. If not provided, the downtime applies to all monitors.  * **&#x60;start&#x60;** [*optional*, *default*&#x3D;**None**]: POSIX timestamp to start the downtime.   If not provided, the downtime starts the moment it is created.  * **&#x60;end&#x60;** [*optional*, *default*&#x3D;**None**]: POSIX timestamp to end the downtime.   If not provided, the downtime is in effect indefinitely (i.e. until you cancel it).  * **&#x60;message&#x60;** [*optional*, *default*&#x3D;**None**]: A message to include with notifications   for this downtime. Email notifications can be sent to specific users by using    the same &#39;@username&#39; notation as events  * **&#x60;timezone&#x60;** [*optional*, *default* &#x3D; **UTC**]: The timezone for the downtime. * **&#x60;recurrence&#x60;** [*optional*, *default*&#x3D;**None**]: An object defining the recurrence of the   downtime with a variety of parameters:    * **&#x60;type&#x60;** the type of recurrence. Choose from: &#x60;days&#x60;, &#x60;weeks&#x60;, &#x60;months&#x60;, &#x60;years&#x60;.    * **&#x60;period&#x60;** how often to repeat as an integer. For example to repeat every 3 days,     select a type of &#x60;days&#x60; and a period of &#x60;3&#x60;.    * **&#x60;week_days&#x60;** (optional) a list of week days to repeat on. Choose from: &#x60;Mon&#x60;,     &#x60;Tue&#x60;, &#x60;Wed&#x60;, &#x60;Thu&#x60;, &#x60;Fri&#x60;, &#x60;Sat&#x60; or &#x60;Sun&#x60;. Only applicable when &#x60;type&#x60; is &#x60;weeks&#x60;.     **First letter must be capitalized.**   * **&#x60;until_occurrences&#x60;** (optional) how many times the downtime is rescheduled.     **&#x60;until_occurrences&#x60; and &#x60;until_date&#x60;** are mutually exclusive    * **&#x60;until_date&#x60;** (optional) the date at which the recurrence should end     as a POSIX timestmap. **&#x60;until_occurrences&#x60; and &#x60;until_date&#x60;** are mutually exclusive
@@ -195,8 +202,8 @@ public class DowntimesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public Downtime createDowntime(Downtime downtime) throws ApiException {
-    return createDowntimeWithHttpInfo(downtime).getData();
+  public Downtime createDowntime(Downtime downtime, CreateDowntimeParams localVarParams) throws ApiException {
+    return createDowntimeWithHttpInfo(downtime, localVarParams).getData();
   }
 
   /**
@@ -246,14 +253,18 @@ public class DowntimesApi {
     GenericType<Downtime> localVarReturnType = new GenericType<Downtime>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
-  // GetAllDowntimesOpts Optional parameters for the method 'getAllDowntimes'
-  public static class GetAllDowntimesOpts {
+  // GetAllDowntimesParams Parameters for the method 'getAllDowntimes'
+  public static class GetAllDowntimesParams {
+    
     public Boolean currentOnly;
+    
 
-    public GetAllDowntimesOpts currentOnly(Boolean currentOnly) {
+    
+    public GetAllDowntimesParams currentOnly(Boolean currentOnly) {
       this.currentOnly = currentOnly;
       return this;
     }
+    
   }
 
   /**
@@ -269,8 +280,8 @@ public class DowntimesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public List<Downtime> getAllDowntimes(GetAllDowntimesOpts localVarOptionals) throws ApiException {
-    return getAllDowntimesWithHttpInfo(localVarOptionals).getData();
+  public List<Downtime> getAllDowntimes(GetAllDowntimesParams localVarParams) throws ApiException {
+    return getAllDowntimesWithHttpInfo(localVarParams).getData();
   }
 
   /**
@@ -286,7 +297,7 @@ public class DowntimesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<List<Downtime>> getAllDowntimesWithHttpInfo(GetAllDowntimesOpts localVarOptionals) throws ApiException {
+  public ApiResponse<List<Downtime>> getAllDowntimesWithHttpInfo(GetAllDowntimesParams localVarParams) throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v1/downtime";
@@ -297,7 +308,7 @@ public class DowntimesApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", localVarOptionals.currentOnly));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", localVarParams.currentOnly));
 
     
     
@@ -317,6 +328,13 @@ public class DowntimesApi {
     GenericType<List<Downtime>> localVarReturnType = new GenericType<List<Downtime>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
+  // GetDowntimeParams Parameters for the method 'getDowntime'
+  public static class GetDowntimeParams {
+    
+
+    
+  }
+
   /**
    * Get a downtime
    * ### Overview Get Downtime Detail by downtime_id ### Arguments This endpoint takes no JSON arguments.\&quot;
@@ -330,8 +348,8 @@ public class DowntimesApi {
         <tr><td> 404 </td><td> Downtime not found error </td><td>  -  </td></tr>
      </table>
    */
-  public Downtime getDowntime(Long downtimeId) throws ApiException {
-    return getDowntimeWithHttpInfo(downtimeId).getData();
+  public Downtime getDowntime(Long downtimeId, GetDowntimeParams localVarParams) throws ApiException {
+    return getDowntimeWithHttpInfo(downtimeId, localVarParams).getData();
   }
 
   /**
@@ -382,6 +400,13 @@ public class DowntimesApi {
     GenericType<Downtime> localVarReturnType = new GenericType<Downtime>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
+  // UpdateDowntimeParams Parameters for the method 'updateDowntime'
+  public static class UpdateDowntimeParams {
+    
+
+    
+  }
+
   /**
    * Update a downtime
    * ### Overview Update a single Downtime by downtime_id. ### Arguments * **&#x60;id&#x60;** [*required*]: The integer id of the downtime to be updated * **&#x60;scope&#x60;** [*required*]: The scope to which the downtime applies, e.g. &#39;host:app2&#39;.   Provide multiple scopes as a comma-separated list, e.g. &#39;env:dev,env:prod&#39;.   The resulting downtime applies to sources that matches ALL provided scopes   (i.e. env:dev AND env:prod), NOT any of them.  * **&#x60;monitor_tags&#x60;** [*optional*, *default*&#x3D;**no monitor tag filter**]: A comma-separated   list of monitor tags, i.e. tags that are applied directly to monitors, *not* tags that   are used in monitor queries (which are filtered by the &#x60;scope&#x60; parameter), to which   the downtime applies. The resulting downtime applies to monitors that match ALL provided   monitor tags (i.e. &#x60;service:postgres&#x60; **AND** &#x60;team:frontend&#x60;), NOT any of them.  * **&#x60;monitor_id&#x60;** [*optional*, *default*&#x3D;**None**]: A single monitor to which the downtime   applies. If not provided, the downtime applies to all monitors.  * **&#x60;start&#x60;** [*optional*, *default* &#x3D; **original start**]: POSIX timestamp to start   the downtime.  * **&#x60;end&#x60;** [*optional*, *default* &#x3D; **original end**]: POSIX timestamp to end the downtime.   If not provided, the downtime is in effect indefinitely (i.e. until you cancel it).  * **&#x60;message&#x60;** [*required*, *default* &#x3D; **original message**]: A message to include with   notifications for this downtime. Email notifications can be sent to specific users by   using the same &#39;@username&#39; notation as events  * **&#x60;timezone&#x60;** [*optional*, default &#x3D; **original timezone** ]: The timezone for the downtime. * **&#x60;recurrence&#x60;** [*optional*, *default* &#x3D; **original recurrence**]: An object defining the   recurrence of the downtime with a variety of parameters:      * **&#x60;type&#x60;** the type of recurrence. Choose from: &#x60;days&#x60;, &#x60;weeks&#x60;, &#x60;months&#x60;, &#x60;years&#x60;.      * **&#x60;period&#x60;** how often to repeat as an integer. For example to repeat every 3 days,       select a type of &#x60;days&#x60; and a period of &#x60;3&#x60;.      * **&#x60;week_days&#x60;** (optional) a list of week days to repeat on. Choose from: &#x60;Mon&#x60;, &#x60;Tue&#x60;,       &#x60;Wed&#x60;, &#x60;Thu&#x60;, &#x60;Fri&#x60;, &#x60;Sat&#x60; or &#x60;Sun&#x60;. Only applicable when &#x60;type&#x60; is &#x60;weeks&#x60;.       **First letter must be capitalized.**      * **&#x60;until_occurrences&#x60;** (optional) how many times the downtime is rescheduled.       **&#x60;until_occurrences&#x60; and &#x60;until_date&#x60;** are mutually exclusive      * **&#x60;until_date&#x60;** (optional) the date at which the recurrence should end as a POSIX       timestmap. **&#x60;until_occurrences&#x60; and &#x60;until_date&#x60;** are mutually exclusive
@@ -397,8 +422,8 @@ public class DowntimesApi {
         <tr><td> 404 </td><td> Downtime not found error </td><td>  -  </td></tr>
      </table>
    */
-  public Downtime updateDowntime(Long downtimeId, Downtime downtime) throws ApiException {
-    return updateDowntimeWithHttpInfo(downtimeId, downtime).getData();
+  public Downtime updateDowntime(Long downtimeId, Downtime downtime, UpdateDowntimeParams localVarParams) throws ApiException {
+    return updateDowntimeWithHttpInfo(downtimeId, downtime, localVarParams).getData();
   }
 
   /**
