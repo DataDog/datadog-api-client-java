@@ -50,9 +50,9 @@ public class UsersApiTest extends V1ApiTest {
     public void disableUsers() throws ApiException {
         if (disableUsers != null) {
             for (String handle: disableUsers) {
-                UserResponse ugr = api.getUser(handle);
+                UserResponse ugr = api.getUser(handle, null);
                 if (!ugr.getUser().getDisabled()) {
-                    api.disableUser(handle);
+                    api.disableUser(handle, null);
                 }
             }
         }
@@ -68,7 +68,7 @@ public class UsersApiTest extends V1ApiTest {
         user.setAccessRole(testingUserAR);
         user.setHandle(testingUserHandle);
         user.setName(testingUserName);
-        UserResponse response = api.createUser(user);
+        UserResponse response = api.createUser(user, null);
         // If something fails, make sure we disable the user
         disableUsers.add(testingUserHandle);
 
@@ -80,20 +80,20 @@ public class UsersApiTest extends V1ApiTest {
         // Now test updating user
         user.setName("Updated Name");
         user.setDisabled(false);
-        response = api.updateUser(user.getHandle(), user);
+        response = api.updateUser(user.getHandle(), user, null);
 
         assertEquals("Updated Name", response.getUser().getName());
 
         // Now test getting user
-        response = api.getUser(user.getHandle());
+        response = api.getUser(user.getHandle(), null);
         assertEquals(testingUserHandle, response.getUser().getHandle());
         assertEquals("Updated Name", response.getUser().getName());
         assertEquals(testingUserAR.toString(), response.getUser().getAccessRole().toString());
         assertEquals(false, response.getUser().getDisabled());
 
         // Now test disabling user
-        api.disableUser(user.getHandle());
-        response = api.getUser(user.getHandle());
+        api.disableUser(user.getHandle(), null);
+        response = api.getUser(user.getHandle(), null);
         assertEquals(true, response.getUser().getDisabled());
     }
 
@@ -108,10 +108,10 @@ public class UsersApiTest extends V1ApiTest {
             user.setAccessRole(testingUserAR);
             user.setHandle(prefix + testingUserHandle);
             user.setName(prefix + testingUserName);
-            UserResponse response = api.createUser(user);
+            UserResponse response = api.createUser(user, null);
             disableUsers.add(response.getUser().getHandle());
         }
-        UserListResponse response = api.getAllUsers();
+        UserListResponse response = api.getAllUsers(null);
         List<User> users = response.getUsers();
         for (String prefix: prefixes) {
             boolean found = false;
