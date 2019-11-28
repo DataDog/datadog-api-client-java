@@ -49,6 +49,8 @@ public class MonitorsApi {
   /**
    * Create a new Monitor
    * ### Overview Create a monitor using the specified options ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to create
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
+   
    * @param monitor Monitor request object (required)
    * @return Monitor
    * @throws ApiException if fails to make API call
@@ -66,6 +68,8 @@ public class MonitorsApi {
   /**
    * Create a new Monitor
    * ### Overview Create a monitor using the specified options ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to create
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
+   
    * @param monitor Monitor request object (required)
    * @return ApiResponse&lt;Monitor&gt;
    * @throws ApiException if fails to make API call
@@ -94,7 +98,7 @@ public class MonitorsApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };
@@ -120,7 +124,9 @@ public class MonitorsApi {
   /**
    * Delete the specified monitor.
    * ### Overview Delete the specified monitor ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param monitorId The id of the monitor (required)
+   
    * @return Map&lt;String, Long&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -139,7 +145,9 @@ public class MonitorsApi {
   /**
    * Delete the specified monitor.
    * ### Overview Delete the specified monitor ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param monitorId The id of the monitor (required)
+   
    * @return ApiResponse&lt;Map&lt;String, Long&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -170,7 +178,7 @@ public class MonitorsApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };
@@ -196,7 +204,10 @@ public class MonitorsApi {
   /**
    * Edit the specified monitor
    * ### Overview Edit the specified monitor. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param monitorId The id of the monitor (required)
+   
+   
    * @param monitor Monitor request object (required)
    * @return Monitor
    * @throws ApiException if fails to make API call
@@ -216,7 +227,10 @@ public class MonitorsApi {
   /**
    * Edit the specified monitor
    * ### Overview Edit the specified monitor. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param monitorId The id of the monitor (required)
+   
+   
    * @param monitor Monitor request object (required)
    * @return ApiResponse&lt;Monitor&gt;
    * @throws ApiException if fails to make API call
@@ -252,7 +266,7 @@ public class MonitorsApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };
@@ -313,11 +327,17 @@ public class MonitorsApi {
   /**
    * Get details about the specified monitor.
    * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39; * **&#x60;name&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A string to filter monitors by name * **&#x60;tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0 * **&#x60;monitor_tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app) * **&#x60;with_downtimes&#x60;** [*optional* *default*&#x3D;&#x3D;**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
-   * @param groupStates When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. (optional)
-   * @param name  (optional)
-   * @param tags  (optional)
-   * @param monitorTags  (optional)
-   * @param withDowntimes  (optional)
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    * @return List&lt;Monitor&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -334,11 +354,17 @@ public class MonitorsApi {
   /**
    * Get details about the specified monitor.
    * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39; * **&#x60;name&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A string to filter monitors by name * **&#x60;tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0 * **&#x60;monitor_tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app) * **&#x60;with_downtimes&#x60;** [*optional* *default*&#x3D;&#x3D;**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
-   * @param groupStates When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. (optional)
-   * @param name  (optional)
-   * @param tags  (optional)
-   * @param monitorTags  (optional)
-   * @param withDowntimes  (optional)
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    * @return ApiResponse&lt;List&lt;Monitor&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -367,7 +393,7 @@ public class MonitorsApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };
@@ -400,8 +426,11 @@ public class MonitorsApi {
   /**
    * Get details about the specified monitor.
    * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor. * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39;
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param monitorId The id of the monitor (required)
-   * @param groupStates When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. (optional)
+   
+   
+   
    * @return Monitor
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -419,8 +448,11 @@ public class MonitorsApi {
   /**
    * Get details about the specified monitor.
    * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor. * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39;
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param monitorId The id of the monitor (required)
-   * @param groupStates When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. (optional)
+   
+   
+   
    * @return ApiResponse&lt;Monitor&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -451,7 +483,7 @@ public class MonitorsApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };
@@ -477,6 +509,8 @@ public class MonitorsApi {
   /**
    * 
    * ### Overview Validate the monitor provided in the request ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to validate summary: Validate the provided monitor
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
+   
    * @param monitor Monitor request object (required)
    * @return Monitor
    * @throws ApiException if fails to make API call
@@ -494,6 +528,8 @@ public class MonitorsApi {
   /**
    * 
    * ### Overview Validate the monitor provided in the request ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to validate summary: Validate the provided monitor
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
+   
    * @param monitor Monitor request object (required)
    * @return ApiResponse&lt;Monitor&gt;
    * @throws ApiException if fails to make API call
@@ -522,7 +558,7 @@ public class MonitorsApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };

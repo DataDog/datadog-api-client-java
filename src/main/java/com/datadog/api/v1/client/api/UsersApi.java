@@ -50,6 +50,8 @@ public class UsersApi {
   /**
    * Create user
    * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user).    **Note**: users can be created with admin access role      only with application keys belonging to administrators.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
+   
    * @param user User object that needs to be created (required)
    * @return UserResponse
    * @throws ApiException if fails to make API call
@@ -68,6 +70,8 @@ public class UsersApi {
   /**
    * Create user
    * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user).    **Note**: users can be created with admin access role      only with application keys belonging to administrators.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
+   
    * @param user User object that needs to be created (required)
    * @return ApiResponse&lt;UserResponse&gt;
    * @throws ApiException if fails to make API call
@@ -97,7 +101,7 @@ public class UsersApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };
@@ -123,7 +127,9 @@ public class UsersApi {
   /**
    * Disable user
    * ### Overview Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param userHandle The handle of the user (required)
+   
    * @return UserDisableResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -141,7 +147,9 @@ public class UsersApi {
   /**
    * Disable user
    * ### Overview Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param userHandle The handle of the user (required)
+   
    * @return ApiResponse&lt;UserDisableResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -171,7 +179,7 @@ public class UsersApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "applcation/json"
     };
@@ -197,6 +205,7 @@ public class UsersApi {
   /**
    * Get all users
    * ### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @return UserListResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -214,6 +223,7 @@ public class UsersApi {
   /**
    * Get all users
    * ### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @return ApiResponse&lt;UserListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -238,7 +248,7 @@ public class UsersApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };
@@ -264,7 +274,9 @@ public class UsersApi {
   /**
    * Get user
    * ### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param userHandle The id of the user (required)
+   
    * @return UserResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -282,7 +294,9 @@ public class UsersApi {
   /**
    * Get user
    * ### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param userHandle The id of the user (required)
+   
    * @return ApiResponse&lt;UserResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -312,7 +326,7 @@ public class UsersApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };
@@ -338,7 +352,10 @@ public class UsersApi {
   /**
    * Update user
    * ### Overview Update a user informations.  **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user)    *  **adm** (admin user)    *  **ro** (read-only user)
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param userHandle The id of the user (required)
+   
+   
    * @param user Description of the update (required)
    * @return UserResponse
    * @throws ApiException if fails to make API call
@@ -357,7 +374,10 @@ public class UsersApi {
   /**
    * Update user
    * ### Overview Update a user informations.  **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user)    *  **adm** (admin user)    *  **ro** (read-only user)
+   * @param localVarParams The Object encapsulating the parameters to be passed to the API endpoint
    * @param userHandle The id of the user (required)
+   
+   
    * @param user Description of the update (required)
    * @return ApiResponse&lt;UserResponse&gt;
    * @throws ApiException if fails to make API call
@@ -392,7 +412,7 @@ public class UsersApi {
 
     
     
-    
+     
     final String[] localVarAccepts = {
       "application/json"
     };
