@@ -84,6 +84,9 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User user) throws ApiEx
       this.user = user;
     }
     
+    public UserResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
 
     /**
      * Execute createUser request
