@@ -101,7 +101,11 @@ null (empty response body)
 
 Cancel downtimes by scope
 
-### Overview DELETE all Downtimes that match the scope of X ### Arguments * **&#x60;scope&#x60;** [*required*]: Cancel all downtimes with the given scope(s),   e.g.: &#x60;env:prod&#x60;, &#x60;role:db,role:db-slave&#x60;
+### Overview
+DELETE all Downtimes that match the scope of X
+### Arguments
+* **`scope`** [*required*]: Cancel all downtimes with the given scope(s),
+  e.g.: `env:prod`, `role:db,role:db-slave`
 
 ### Example
 
@@ -367,7 +371,10 @@ Name | Type | Description  | Notes
 
 Get a downtime
 
-### Overview Get Downtime Detail by downtime_id ### Arguments This endpoint takes no JSON arguments.\&quot;
+### Overview
+Get Downtime Detail by downtime_id
+### Arguments
+This endpoint takes no JSON arguments."
 
 ### Example
 

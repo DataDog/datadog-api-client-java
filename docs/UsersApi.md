@@ -21,7 +21,21 @@ Method | HTTP request | Description
 
 Create user
 
-### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user).    **Note**: users can be created with admin access role      only with application keys belonging to administrators.
+### Overview
+Create a user for your organization.
+### Arguments
+* **`handle`** [*required*]: The user handle, must be a valid email.
+* **`name`** [*optional*, *default*=**None**]: The name of the user.
+* **`access_role`** [*optional*, *default*=**st**]: The access role of the user. Choose from:
+
+  *  **st** (standard user),
+
+  *  **adm** (admin user),
+
+  *  **ro** (read-only user).
+
+  **Note**: users can be created with admin access role
+     only with application keys belonging to administrators.
 
 ### Example
 
@@ -105,7 +119,12 @@ Name | Type | Description  | Notes
 
 Disable user
 
-### Overview Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user.
+### Overview
+Delete a user from an organization.
+
+**Note**: This endpoint can only be used with application keys belonging to administrators.
+### Arguments
+* **`id`** [*required*]: The handle of the user.
 
 ### Example
 
@@ -187,7 +206,10 @@ Name | Type | Description  | Notes
 
 Get all users
 
-### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
+### Overview
+Get all users for your organization.
+### Arguments
+This endpoint takes no JSON argument.
 
 ### Example
 
@@ -265,7 +287,10 @@ This endpoint does not need any parameter.
 
 Get user
 
-### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
+### Overview
+Get a user details.
+### Arguments
+* **`user_handle`** [*required*]: The handle of the user.
 
 ### Example
 
