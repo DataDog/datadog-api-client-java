@@ -14,10 +14,7 @@ Method | HTTP request | Description
 
 ## createUser
 
-
-> UserResponse createUser(user).execute();
-
-> UserResponse createUser(user).execute();
+> UserResponse createUser(user)
 
 Create user
 
@@ -67,9 +64,8 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         User user = new User(); // User | User object that needs to be created
-        try { 
-            UserResponse result = api.createUser(user)
-                .execute();
+        try {
+            UserResponse result = apiInstance.createUser(user);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#createUser");
@@ -112,10 +108,7 @@ Name | Type | Description  | Notes
 
 ## disableUser
 
-
-> UserDisableResponse disableUser(userHandle).execute();
-
-> UserDisableResponse disableUser(userHandle).execute();
+> UserDisableResponse disableUser(userHandle)
 
 Disable user
 
@@ -156,9 +149,8 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The handle of the user
-        try { 
-            UserDisableResponse result = api.disableUser(userHandle)
-                .execute();
+        try {
+            UserDisableResponse result = apiInstance.disableUser(userHandle);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#disableUser");
@@ -201,8 +193,7 @@ Name | Type | Description  | Notes
 
 ## getAllUsers
 
-
-> UserListResponse getAllUsers().execute();
+> UserListResponse getAllUsers()
 
 Get all users
 
@@ -240,9 +231,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        try { 
-            UserListResponse result = api.getAllUsers()
-                .execute();
+        try {
+            UserListResponse result = apiInstance.getAllUsers();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getAllUsers");
@@ -282,8 +272,7 @@ This endpoint does not need any parameter.
 
 ## getUser
 
-
-> UserResponse getUser(userHandle).execute();
+> UserResponse getUser(userHandle)
 
 Get user
 
@@ -322,9 +311,8 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The id of the user
-        try { 
-            UserResponse result = api.getUser(userHandle)
-                .execute();
+        try {
+            UserResponse result = apiInstance.getUser(userHandle);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getUser");
@@ -367,16 +355,26 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-
-> UserResponse updateUser(userHandle, user).execute();
-
-Update user
-
-> UserResponse updateUser(userHandle, user).execute();
+> UserResponse updateUser(userHandle, user)
 
 Update user
 
-### Overview Update a user informations.  **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user)    *  **adm** (admin user)    *  **ro** (read-only user)
+### Overview
+Update a user informations.
+
+**Note**: It can only be used with application keys belonging to administrators.
+### Arguments
+* **`id`** [*required*]: The handle of the user.
+* **`name`** [*optional*, *default*=**None**]: The new name of the user.
+* **`email`** [*optional*, *default*=**None**]: The new email of the user.
+* **`disabled`** [*optional*, *default*=**None**]: The new disabled status of the user.
+* **`access_role`** [*optional*, *default*=**st**]: The access role of the user. Choose from:
+
+  *  **st** (standard user)
+
+  *  **adm** (admin user)
+
+  *  **ro** (read-only user)
 
 ### Example
 
@@ -409,9 +407,8 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The id of the user
         User user = new User(); // User | Description of the update
-        try { 
-            UserResponse result = api.updateUser(userHandle, user)
-                .execute();
+        try {
+            UserResponse result = apiInstance.updateUser(userHandle, user);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#updateUser");

@@ -13,10 +13,7 @@ Method | HTTP request | Description
 
 ## createAWSAccount
 
-
-> AWSAccountCreateResponse createAWSAccount(awSAccount).execute();
-
-> AWSAccountCreateResponse createAWSAccount(awSAccount).execute();
+> AWSAccountCreateResponse createAWSAccount(awSAccount)
 
 Create an AWS Account
 
@@ -78,9 +75,8 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
-        try { 
-            AWSAccountCreateResponse result = api.createAWSAccount(awSAccount)
-                .execute();
+        try {
+            AWSAccountCreateResponse result = apiInstance.createAWSAccount(awSAccount);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#createAWSAccount");
@@ -122,10 +118,7 @@ Name | Type | Description  | Notes
 
 ## deleteAWSAccount
 
-
-> Object deleteAWSAccount(awSAccount).execute();
-
-> Object deleteAWSAccount(awSAccount).execute();
+> Object deleteAWSAccount(awSAccount)
 
 Delete an AWS Account
 
@@ -168,9 +161,8 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
-        try { 
-            Object result = api.deleteAWSAccount(awSAccount)
-                .execute();
+        try {
+            Object result = apiInstance.deleteAWSAccount(awSAccount);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#deleteAWSAccount");
@@ -212,16 +204,21 @@ Name | Type | Description  | Notes
 
 ## getAllAWSAccounts
 
-
-> AWSAccountListResponse getAllAWSAccounts().accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
-
-Get Installed AWS Accounts
-
-> AWSAccountListResponse getAllAWSAccounts().accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
+> AWSAccountListResponse getAllAWSAccounts(accountId, roleName, accessKeyId)
 
 Get Installed AWS Accounts
 
-### Overview Get All Installed AWS Accounts ### Arguments * **&#x60;account_id&#x60;** [*optional*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this account_id.  * **&#x60;role_name&#x60;** [*optional*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this role_name.  * **&#x60;access_key_id&#x60;** [*optional*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this access_key_id.
+### Overview
+Get All Installed AWS Accounts
+### Arguments
+* **`account_id`** [*optional*, *default* = **None**]: Only return AWS accounts that
+  matches this account_id.
+
+* **`role_name`** [*optional*, *default* = **None**]: Only return AWS accounts that
+  matches this role_name.
+
+* **`access_key_id`** [*optional*, *default* = **None**]: Only return AWS accounts that
+  matches this access_key_id.
 
 ### Example
 
@@ -255,12 +252,8 @@ public class Example {
         String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id.
-        try { 
-            AWSAccountListResponse result = api.getAllAWSAccounts()
-                .accountId(accountId)
-                .roleName(roleName)
-                .accessKeyId(accessKeyId)
-                .execute();
+        try {
+            AWSAccountListResponse result = apiInstance.getAllAWSAccounts(accountId, roleName, accessKeyId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#getAllAWSAccounts");
@@ -305,8 +298,7 @@ Name | Type | Description  | Notes
 
 ## updateAWSAccount
 
-
-> Object updateAWSAccount(awSAccount).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
+> Object updateAWSAccount(awSAccount, accountId, roleName, accessKeyId)
 
 Update an AWS Account
 
@@ -319,11 +311,34 @@ Update the AWS Account based on the provided values
 * **`role_name`** [*required if account_id is specified*, *default* = **None**]: Only return AWS accounts that
   matches this role_name.
 
-> Object updateAWSAccount(awSAccount).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
+* **`access_key_id`** [*required if none of the other two options are specified*, *default* = **None**]: Only return AWS accounts that
+  matches this access_key_id.
 
-Update an AWS Account
+### Payload
+* **`account_id`** [*required*]: Your AWS Account ID without dashes. Consult the Datadog AWS
+  integration to learn more about your AWS account ID.
 
-### Overview Update the AWS Account based on the provided values ### Arguments * **&#x60;account_id&#x60;** [*required if role_name is specified*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this account_id.  * **&#x60;role_name&#x60;** [*required if account_id is specified*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this role_name.  * **&#x60;access_key_id&#x60;** [*required if none of the other two options are specified*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this access_key_id.  ### Payload * **&#x60;account_id&#x60;** [*required*]: Your AWS Account ID without dashes. Consult the Datadog AWS   integration to learn more about your AWS account ID.  * **&#x60;role_name&#x60;** [*required*]: Your Datadog role delegation name. For more information about you   AWS account Role name, see the Datadog AWS integration configuration info.  * **&#x60;access_key_id&#x60;** [*optional*, *default* &#x3D; **None**]: If your AWS account is a GovCloud or   China account, enter the corresponding Access Key ID.  * **&#x60;filter_tags&#x60;** [*optional*, *default* &#x3D; **None**]: The array of EC2 tags (in the form key:value)   defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ?   (for single characters) and * (for multiple characters) can also be used. Only hosts that match one   of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given   tag can also be excluded by adding ! before the tag.   e.g. env:production,instance-type:c1.*,!region:us-east-1 For more information on EC2 tagging,   see the AWS tagging documentation.  * **&#x60;host_tags&#x60;** [*optional*, *default* &#x3D; **None**]: Array of tags (in the form key:value) to add   to all hosts and metrics reporting through this integration.  * **&#x60;account_specific_namespace_rules&#x60;** [*optional*, *default* &#x3D; **None**]: An object (in the form   {\&quot;namespace1\&quot;:true/false, \&quot;namespace2\&quot;:true/false}) that enables or disables metric collection for   specific AWS namespaces for this AWS account only. A list of namespaces can be found at the   /v1/integration/aws/available_namespace_rules endpoint.
+* **`role_name`** [*required*]: Your Datadog role delegation name. For more information about you
+  AWS account Role name, see the Datadog AWS integration configuration info.
+
+* **`access_key_id`** [*optional*, *default* = **None**]: If your AWS account is a GovCloud or
+  China account, enter the corresponding Access Key ID.
+
+* **`filter_tags`** [*optional*, *default* = **None**]: The array of EC2 tags (in the form key:value)
+  defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ?
+  (for single characters) and * (for multiple characters) can also be used. Only hosts that match one
+  of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given
+  tag can also be excluded by adding ! before the tag.
+  e.g. env:production,instance-type:c1.*,!region:us-east-1 For more information on EC2 tagging,
+  see the AWS tagging documentation.
+
+* **`host_tags`** [*optional*, *default* = **None**]: Array of tags (in the form key:value) to add
+  to all hosts and metrics reporting through this integration.
+
+* **`account_specific_namespace_rules`** [*optional*, *default* = **None**]: An object (in the form
+  {"namespace1":true/false, "namespace2":true/false}) that enables or disables metric collection for
+  specific AWS namespaces for this AWS account only. A list of namespaces can be found at the
+  /v1/integration/aws/available_namespace_rules endpoint.
 
 ### Example
 
@@ -355,15 +370,11 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
-        String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
-        String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name. *It is required if account_id is specified.*
-        String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.*
-        try { 
-            Object result = api.updateAWSAccount(awSAccount)
-                .accountId(accountId)
-                .roleName(roleName)
-                .accessKeyId(accessKeyId)
-                .execute();
+        String accountId = "accountId_example"; // String | 
+        String roleName = "roleName_example"; // String | 
+        String accessKeyId = "accessKeyId_example"; // String | 
+        try {
+            Object result = apiInstance.updateAWSAccount(awSAccount, accountId, roleName, accessKeyId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#updateAWSAccount");
@@ -382,9 +393,9 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **awSAccount** | [**AWSAccount**](AWSAccount.md)| AWS request object |
- **accountId** | **String**| Only return AWS accounts that matches this account_id. | [optional]
- **roleName** | **String**| Only return AWS accounts that matches this role_name. *It is required if account_id is specified.* | [optional]
- **accessKeyId** | **String**| Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.* | [optional]
+ **accountId** | **String**|  | [optional]
+ **roleName** | **String**|  | [optional]
+ **accessKeyId** | **String**|  | [optional]
 
 ### Return type
 
