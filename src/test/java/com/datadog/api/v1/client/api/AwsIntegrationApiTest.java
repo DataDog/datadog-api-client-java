@@ -89,7 +89,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
         awsAccountFull.addFilterTagsItem("dontCollect:java");
         awsAccountFull.setAccountSpecificNamespaceRules(accountSpecificNamespaceRules);
         AWSAccountCreateResponse createResponse2 = api.createAWSAccount(awsAccountFull).execute();
-        accountsToDelete.add(awsAccount);
+        accountsToDelete.add(awsAccountFull);
         assertNotNull(createResponse2.getExternalId());
     }
 
