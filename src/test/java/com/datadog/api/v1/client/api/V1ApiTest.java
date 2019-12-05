@@ -67,14 +67,33 @@ public abstract class V1ApiTest {
         return IOUtils.toString(this.getClass().getResourceAsStream(path), "UTF-8");
     }
 
-    public MappingBuilder beginStub(String Urlpath, String fixturePath ) throws IOException {
-        MappingBuilder stub = get(urlMatching(Urlpath + "?.*"))
-        .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
+    public MappingBuilder setupStub(String Urlpath, String fixturePath, String httpMethod) throws IOException {
+        MappingBuilder stub = null;
+
+        switch(httpMethod) {
+            case "get" :
+                stub = get(urlMatching(Urlpath + "\\?.*"));
+                break;
+            case "post" :
+                stub = post(urlMatching(Urlpath + "\\?.*"));
+                break;
+            case "put" :
+                stub = put(urlMatching(Urlpath + "\\?.*"));
+                break;
+            case "delete" :
+                stub = delete(urlMatching(Urlpath + "\\?.*"));
+                break;
+        }
+        stub.withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
         .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
         .willReturn(aResponse()
             .withStatus(200)
             .withHeader("Content-Type", "application/json")
             .withBody(this.getFixture(fixturePath)));
         return stub;
+    }
+
+    public void beginStub(MappingBuilder stub) {
+        stubFor(stub);
     }
 }
