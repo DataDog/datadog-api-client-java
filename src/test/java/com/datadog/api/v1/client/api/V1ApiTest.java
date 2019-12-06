@@ -1,13 +1,13 @@
 package com.datadog.api.v1.client.api;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+
 import java.io.IOException;
 
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.github.tomakehurst.wiremock.stubbing.StubMapping;
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.BeforeClass;

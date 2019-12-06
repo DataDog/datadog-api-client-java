@@ -10,6 +10,11 @@
 
 package com.datadog.api.v1.client.api;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static org.junit.Assert.assertEquals;
+
+import java.io.IOException;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.ApiKey;
 import com.datadog.api.v1.client.model.ApiKeyListResponse;
@@ -17,21 +22,10 @@ import com.datadog.api.v1.client.model.ApiKeyResponse;
 import com.datadog.api.v1.client.model.ApplicationKey;
 import com.datadog.api.v1.client.model.ApplicationKeyListResponse;
 import com.datadog.api.v1.client.model.ApplicationKeyResponse;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.Error404;
-import com.datadog.api.v1.client.model.Error409;
-import org.junit.Test;
-import org.junit.Ignore;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * API tests for KeysApi
@@ -55,13 +49,12 @@ public class KeysApiTest extends V1ApiTest{
      */
     @Test
     public void createAPIKeyTest() throws ApiException, IOException {
-        String apiKeyName = "Test Name";
+        String apiKeyName = "TestName";
         MappingBuilder stub = setupStub(apiUri, fixturePrefix+"/create_api_key.json", "post");
         stubFor(stub);
 
         ApiKey apiKey = new ApiKey().name(apiKeyName);
-        KeysApi.CreateAPIKeyParams opts = new KeysApi.CreateAPIKeyParams();
-        ApiKeyResponse response = api.createAPIKey(apiKey, opts);
+        ApiKeyResponse response = api.createAPIKey(apiKey).execute();
 
         // Assert values match whats in create_api_key.json
         assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -82,13 +75,12 @@ public class KeysApiTest extends V1ApiTest{
      */
     @Test
     public void createApplicationKeyTest() throws ApiException, IOException {
-        String appKeyName = "Test Name";
+        String appKeyName = "TestName";
         MappingBuilder stub = setupStub(appUri, fixturePrefix+"/create_app_key.json", "post");
         stubFor(stub);
 
         ApplicationKey applicationKey = new ApplicationKey().name(appKeyName);
-        KeysApi.CreateApplicationKeyParams opts = new KeysApi.CreateApplicationKeyParams();
-        ApplicationKeyResponse response = api.createApplicationKey(applicationKey, opts);
+        ApplicationKeyResponse response = api.createApplicationKey(applicationKey).execute();
 
         // Assert values match whats in create_app_key.json
         assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -103,15 +95,21 @@ public class KeysApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
-    @Ignore
-    public void deleteAPIKeyTest() throws ApiException {
-        String key = null;
-        KeysApi.DeleteAPIKeyParams opts = new KeysApi.DeleteAPIKeyParams();
-        ApiKeyResponse response = api.deleteAPIKey(key, opts);
+    public void deleteAPIKeyTest() throws ApiException, IOException {
+        String apiKeyName = "TestName";
+        MappingBuilder stub = setupStub(apiUri+"/"+apiKeyName, fixturePrefix+"/delete_api_key.json", "delete");
+        stubFor(stub);
+        ApiKeyResponse response = api.deleteAPIKey(apiKeyName).execute();
 
-        // TODO: test validations
+        // Assert values match whats in delete_api_key.json
+        assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
+        assertEquals(response.getApiKey().getName(), "<API_KEY_NAME>");
+        assertEquals(response.getApiKey().getKey(), "3111111111111111aaaaaaaaaaaaaaaa");
+        assertEquals(response.getApiKey().getCreated(), "2019-04-05 09:47:00");
     }
 
     /**
@@ -121,15 +119,20 @@ public class KeysApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
-    @Ignore
-    public void deleteApplicationKeyTest() throws ApiException {
-        String key = null;
-        KeysApi.DeleteApplicationKeyParams opts = new KeysApi.DeleteApplicationKeyParams();
-        ApplicationKeyResponse response = api.deleteApplicationKey(key, opts);
+    public void deleteApplicationKeyTest() throws ApiException, IOException {
+        String appKeyName = "TestName";
+        MappingBuilder stub = setupStub(appUri+"/"+appKeyName, fixturePrefix+"/delete_app_key.json", "delete");
+        stubFor(stub);
+        ApplicationKeyResponse response = api.deleteApplicationKey(appKeyName).execute();
 
-        // TODO: test validations
+        // Assert values match whats in delete_api_key.json
+        assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
+        assertEquals(response.getApplicationKey().getHash(), "31111111111111111111aaaaaaaaaaaaaaaaaaaa");
+        assertEquals(response.getApplicationKey().getName(), "<APP_KEY_NAME>");
     }
 
     /**
@@ -139,16 +142,24 @@ public class KeysApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
-    @Ignore
-    public void editAPIKeyTest() throws ApiException {
-        String key = null;
-        ApiKey apiKey = null;
-        KeysApi.EditAPIKeyParams opts = new KeysApi.EditAPIKeyParams();
-        ApiKeyResponse response = api.editAPIKey(key, apiKey, opts);
+    public void editAPIKeyTest() throws ApiException, IOException {
+        String apiKeyName = "TestName";
+        MappingBuilder stub = setupStub(apiUri+"/"+apiKeyName, fixturePrefix+"/edit_api_key.json", "put");
+        stubFor(stub);
 
-        // TODO: test validations
+        // We're mocking the response so the query param we select can be anything
+        ApiKey apiKey = new ApiKey().name("TestName");
+        ApiKeyResponse response = api.editAPIKey(apiKeyName, apiKey).execute();
+
+        // Assert values match whats in edit_api_key.json
+        assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
+        assertEquals(response.getApiKey().getName(), "<API_KEY_NAME>");
+        assertEquals(response.getApiKey().getKey(), "3111111111111111aaaaaaaaaaaaaaaa");
+        assertEquals(response.getApiKey().getCreated(), "2019-04-05 09:47:00");
     }
 
     /**
@@ -158,16 +169,23 @@ public class KeysApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
-    @Ignore
-    public void editApplicationKeyTest() throws ApiException {
-        String key = null;
-        ApplicationKey applicationKey = null;
-        KeysApi.EditApplicationKeyParams opts = new KeysApi.EditApplicationKeyParams();
-        ApplicationKeyResponse response = api.editApplicationKey(key, applicationKey, opts);
+    public void editApplicationKeyTest() throws ApiException, IOException {
+        // We're mocking the response so the query param we select can be anything
+        String appKeyName = "TestName";
+        MappingBuilder stub = setupStub(appUri+"/"+appKeyName, fixturePrefix+"/edit_app_key.json", "put");
+        stubFor(stub);
 
-        // TODO: test validations
+        ApplicationKey applicationKey = new ApplicationKey().name("<NEW_APP_KEY_NAME>");
+        ApplicationKeyResponse response = api.editApplicationKey(appKeyName, applicationKey).execute();
+
+        // Assert values match whats in edit_api_key.json
+        assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
+        assertEquals(response.getApplicationKey().getHash(), "31111111111111111111aaaaaaaaaaaaaaaaaaaa");
+        assertEquals(response.getApplicationKey().getName(), "<NEW_APP_KEY_NAME>");
     }
 
     /**
@@ -177,16 +195,23 @@ public class KeysApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
-    @Ignore
-    public void getAPIKeyTest() throws ApiException {
-        String key = null;
-        KeysApi.GetAPIKeyParams opts = new KeysApi.GetAPIKeyParams();
-        ApiKeyResponse response = api.getAPIKey(key, opts);
+    public void getAPIKeyTest() throws ApiException, IOException {
+        // We're mocking the response so the query param we select can be anything
+        String key = "TestName";
+        MappingBuilder stub = setupStub(apiUri+"/"+key, fixturePrefix+"/get_api_key.json", "get");
+        stubFor(stub);
 
-        // TODO: test validations
-    }
+        ApiKeyResponse response = api.getAPIKey(key).execute();
+
+        // Assert values match whats in get_api_key.json
+        assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
+        assertEquals(response.getApiKey().getName(), "<API_KEY_NAME>");
+        assertEquals(response.getApiKey().getKey(), "3111111111111111aaaaaaaaaaaaaaaa");
+        assertEquals(response.getApiKey().getCreated(), "2019-04-05 09:47:00");    }
 
     /**
      * Get all API keys available for your account.
@@ -195,14 +220,28 @@ public class KeysApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
-    @Ignore
-    public void getAllAPIKeysTest() throws ApiException {
-        KeysApi.GetAllAPIKeysParams opts = new KeysApi.GetAllAPIKeysParams();
-        ApiKeyListResponse response = api.getAllAPIKeys(opts);
+    public void getAllAPIKeysTest() throws ApiException, IOException {
+        MappingBuilder stub = setupStub(apiUri, fixturePrefix+"/get_all_api_keys.json", "get");
+        stubFor(stub);
 
-        // TODO: test validations
+        ApiKeyListResponse response = api.getAllAPIKeys().execute();
+
+        // Assert values match whats in get_all_api_keys.json
+        assertEquals(response.getApiKeys().size(), 2);
+
+        assertEquals(response.getApiKeys().get(0).getCreatedBy(), "john@example.com");
+        assertEquals(response.getApiKeys().get(0).getName(), "<API_KEY_NAME>");
+        assertEquals(response.getApiKeys().get(0).getKey(), "1111111111111111aaaaaaaaaaaaaaaa");
+        assertEquals(response.getApiKeys().get(0).getCreated(), "2019-04-05 09:20:30");
+
+        assertEquals(response.getApiKeys().get(1).getCreatedBy(), "jane@example.com");
+        assertEquals(response.getApiKeys().get(1).getName(), "<API_KEY_NAME_2>");
+        assertEquals(response.getApiKeys().get(1).getKey(), "2111111111111111aaaaaaaaaaaaaaaa");
+        assertEquals(response.getApiKeys().get(1).getCreated(), "2019-04-05 09:19:53");
     }
 
     /**
@@ -212,14 +251,26 @@ public class KeysApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
-    @Ignore
-    public void getAllApplicationKeysTest() throws ApiException {
-        KeysApi.GetAllApplicationKeysParams opts = new KeysApi.GetAllApplicationKeysParams();
-        ApplicationKeyListResponse response = api.getAllApplicationKeys(opts);
+    public void getAllApplicationKeysTest() throws ApiException, IOException {
+        MappingBuilder stub = setupStub(appUri, fixturePrefix+"/get_all_app_keys.json", "get");
+        stubFor(stub);
 
-        // TODO: test validations
+        ApplicationKeyListResponse response = api.getAllApplicationKeys().execute();
+
+        // Assert values match whats in get_app_key.json
+        assertEquals(response.getApplicationKeys().size(), 2);
+
+        assertEquals(response.getApplicationKeys().get(0).getOwner(), "john@example.com");
+        assertEquals(response.getApplicationKeys().get(0).getHash(), "11111111111111111111aaaaaaaaaaaaaaaaaaaa");
+        assertEquals(response.getApplicationKeys().get(0).getName(), "<APP_KEY_NAME>");
+
+        assertEquals(response.getApplicationKeys().get(1).getOwner(), "jane@example.com");
+        assertEquals(response.getApplicationKeys().get(1).getHash(), "21111111111111111111aaaaaaaaaaaaaaaaaaaa");
+        assertEquals(response.getApplicationKeys().get(1).getName(), "<APP_KEY_NAME_2>");
     }
 
     /**
@@ -229,15 +280,22 @@ public class KeysApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
-    @Ignore
-    public void getApplicationKeyTest() throws ApiException {
-        String key = null;
-        KeysApi.GetApplicationKeyParams opts = new KeysApi.GetApplicationKeyParams();
-        ApplicationKeyResponse response = api.getApplicationKey(key, opts);
+    public void getApplicationKeyTest() throws ApiException, IOException {
+        // We're mocking the response so the query param we select can be anything
+        String key = "TestName";
+        MappingBuilder stub = setupStub(appUri+"/"+key, fixturePrefix+"/get_app_key.json", "get");
+        stubFor(stub);
 
-        // TODO: test validations
+        ApplicationKeyResponse response = api.getApplicationKey(key).execute();
+
+        // Assert values match whats in get_app_key.json
+        assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
+        assertEquals(response.getApplicationKey().getHash(), "31111111111111111111aaaaaaaaaaaaaaaaaaaa");
+        assertEquals(response.getApplicationKey().getName(), "<APP_KEY_NAME>");
     }
 
 }

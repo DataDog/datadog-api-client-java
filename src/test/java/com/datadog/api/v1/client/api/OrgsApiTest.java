@@ -8,34 +8,31 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.api;
+
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static org.junit.Assert.assertEquals;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.Error415;
-import java.io.File;
 import com.datadog.api.v1.client.model.IdpResponse;
-import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import com.datadog.api.v1.client.model.Org;
-import com.datadog.api.v1.client.model.OrgCreateBody;
 import com.datadog.api.v1.client.model.OrgBilling;
-import com.datadog.api.v1.client.model.OrgSubscription;
+import com.datadog.api.v1.client.model.OrgCreateBody;
 import com.datadog.api.v1.client.model.OrgCreateResponse;
 import com.datadog.api.v1.client.model.OrgListResponse;
 import com.datadog.api.v1.client.model.OrgResponse;
+import com.datadog.api.v1.client.model.OrgSettings;
+import com.datadog.api.v1.client.model.OrgSettingsSaml;
+import com.datadog.api.v1.client.model.OrgSettingsSamlAutocreateUsersDomains;
+import com.datadog.api.v1.client.model.OrgSubscription;
+import com.github.tomakehurst.wiremock.client.MappingBuilder;
+
 import org.junit.Test;
-import org.junit.Ignore;
-import static org.junit.Assert.*;
-
-import java.io.IOException;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for OrgsApi
@@ -67,8 +64,7 @@ public class OrgsApiTest extends V1ApiTest{
         .name("My Org")
         .billing(new OrgBilling().type("parent_billing"))
         .subscription(new OrgSubscription().type("pro"));
-        OrgsApi.CreateChildOrgParams opts = null;
-        OrgCreateResponse response = api.createChildOrg(orgCreateBody, opts);
+        OrgCreateResponse response = api.createChildOrg(orgCreateBody).execute();
 
         // Assert values match whats in create_child_org.json
         assertEquals(response.getOrg().getName(), "My Org");
@@ -98,8 +94,7 @@ public class OrgsApiTest extends V1ApiTest{
         MappingBuilder stub = setupStub(apiUri, fixturePrefix+"/get_orgs.json", "get");
         stubFor(stub);
 
-        OrgsApi.GetOrgParams opts = null;
-        OrgListResponse response = api.getOrg(opts);
+        OrgListResponse response = api.getOrg().execute();
 
         // Assert values match whats in get_orgs.json fixture
         assertEquals(response.getOrgs().size(), 1);
@@ -115,7 +110,7 @@ public class OrgsApiTest extends V1ApiTest{
      * ## Overview Updates the organization ### ARGUMENTS * **&#x60;name&#x60;** [*optional*]: The organization name.  * **&#x60;settings&#x60;** [*optional*]: A JSON array of settings. Settings include:    * **&#x60;saml&#x60;**: Set the boolean property **enabled** to enable or disable single sign on with SAML. See the [SAML documentation](https://docs.datadoghq.com/account_management/saml) for more information about all SAML settings.    * **&#x60;saml_idp_initiated_login&#x60;**: has one property **enabled** (boolean).    * **&#x60;saml_strict_mode&#x60;**: has one property **enabled** (boolean).    * **&#x60;saml_autocreate_users_domains&#x60;**: has two properties: **enabled** (boolean) and **domains** which is a list of domains without the @ symbol.
      *
      * @throws ApiException
-     *          if the Api call fails
+     *          if the Api call fail
      * @throws IOException
      *          if the fixture file cannot be loaded
      */
@@ -125,9 +120,23 @@ public class OrgsApiTest extends V1ApiTest{
         MappingBuilder stub = setupStub(apiUri + "/" + publicId, fixturePrefix+"/update_org.json", "put");
         stubFor(stub);
 
-        Org org = null;
-        OrgsApi.UpdateOrgParams opts = null;
-        OrgResponse response = api.updateOrg(publicId, org, opts);
+        // Update Body can contain anything since we're mocking the response
+        // Just confirmation that the proper fields can be set
+        Org org = new Org().name("My Org").settings(
+            new OrgSettings().saml(
+                new OrgSettingsSaml().enabled(true)
+            )
+            .samlIdpInitiatedLogin(
+                new OrgSettingsSaml().enabled(true)
+            )
+            .samlStrictMode(
+                new OrgSettingsSaml().enabled(true)
+            )
+            .samlAutocreateUsersDomains(
+                new OrgSettingsSamlAutocreateUsersDomains().enabled(true).addDomainsItem("my-org.com").addDomainsItem("example.com")
+            )
+        );
+        OrgResponse response = api.updateOrg(publicId, org).execute();
 
         // Assert values match whats in update_orgs.json fixture
         assertEquals(response.getOrg().getPublicId(), "axd2s");
@@ -138,7 +147,10 @@ public class OrgsApiTest extends V1ApiTest{
         assertEquals(response.getOrg().getSettings().getSamlIdpInitiatedLogin().getEnabled(), true);
         assertEquals(response.getOrg().getSettings().getSaml().getEnabled(), true);
         assertEquals(response.getOrg().getSettings().getSamlIdpEndpoint(), "https://idp.datadoghq.com/idp/profile/SAML2/POST/SSO");
-        // assertEquals(response.getOrg().getSettings().getSamlAutocreateUsersDomains().getDomains(), new ArrayList("my-org.com","example.com"));
+        List<String> expectedDomains = new ArrayList<String>();
+        expectedDomains.add("my-org.com");
+        expectedDomains.add("example.com");
+        assertEquals(response.getOrg().getSettings().getSamlAutocreateUsersDomains().getDomains(), expectedDomains);
         assertEquals(response.getOrg().getSettings().getSamlAutocreateUsersDomains().getEnabled(), true);
         assertEquals(response.getOrg().getSettings().getSamlLoginUrl(), "https://app.datadoghq.com/account/login/id/c81e728d9");
         assertEquals(response.getOrg().getSettings().getSamlIdpMetadataUploaded(), true);
@@ -162,9 +174,8 @@ public class OrgsApiTest extends V1ApiTest{
         beginStub(stub);
 
         String publicId = "123456";
-        OrgsApi.UploadIdPForOrgParams localVarParams = new OrgsApi.UploadIdPForOrgParams();
-        localVarParams.idpFile = new File("meta_file");
-        IdpResponse response = api.uploadIdPForOrg(publicId, localVarParams);
+        File idpFile = new File("meta_file");
+        IdpResponse response = api.uploadIdPForOrg(publicId).idpFile(idpFile).execute(); //.uploadIdPForOrg(publicId);
 
         assertEquals(response.getMessage(), "IdP metadata successfully uploaded for org Datadog HQ");
     }
