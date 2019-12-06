@@ -21,6 +21,8 @@ import com.datadog.api.v1.client.model.IdpResponse;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import com.datadog.api.v1.client.model.Org;
 import com.datadog.api.v1.client.model.OrgCreateBody;
+import com.datadog.api.v1.client.model.OrgBilling;
+import com.datadog.api.v1.client.model.OrgSubscription;
 import com.datadog.api.v1.client.model.OrgCreateResponse;
 import com.datadog.api.v1.client.model.OrgListResponse;
 import com.datadog.api.v1.client.model.OrgResponse;
@@ -41,7 +43,8 @@ import java.util.Map;
 public class OrgsApiTest extends V1ApiTest{
 
     private final OrgsApi api = new OrgsApi(generalApiUnitTestClient);
-
+    private final String apiUri = "/api/v1/org";
+    private final String fixturePrefix = "org_fixtures";
 
     /**
      * Create child-organization.
@@ -50,18 +53,34 @@ public class OrgsApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
-    public void createChildOrgTest() throws ApiException {
-        OrgCreateBody orgCreateBody = null;
-        // OrgCreateResponse response = api.createChildOrg(orgCreateBody);
-        // MappingBuilder stub = beginStub("/api/v1/downtime/", "org_fixtures/get_orgs.json");
-        // stub.withQueryParam("current_only", equalTo("false"));
-        // stubFor(stub);
+    public void createChildOrgTest() throws ApiException, IOException {
+        MappingBuilder stub = setupStub(apiUri, fixturePrefix+"/create_child_org.json", "post");
+        stubFor(stub);
 
-        // DowntimesApi.GetAllDowntimesParams opts = new DowntimesApi.GetAllDowntimesParams().currentOnly(false);
-        // System.out.printf("%s\n", api.getAllDowntimes(opts));
-        // TODO: test validations
+        // CreateBody can contain anything since we're mocking the response
+        // Just confirmation that the proper fields can be set
+        OrgCreateBody orgCreateBody = new OrgCreateBody()
+        .name("My Org")
+        .billing(new OrgBilling().type("parent_billing"))
+        .subscription(new OrgSubscription().type("pro"));
+        OrgsApi.CreateChildOrgParams opts = null;
+        OrgCreateResponse response = api.createChildOrg(orgCreateBody, opts);
+
+        // Assert values match whats in create_child_org.json
+        assertEquals(response.getOrg().getName(), "My Org");
+        assertEquals(response.getOrg().getPublicId(), "axd2s");
+        assertEquals(response.getOrg().getSubscription().getType(), "pro");
+        assertEquals(response.getOrg().getBilling().getType(), "parent_billing");
+        assertEquals(response.getUser().getName(), "Organization admin");
+        assertEquals(response.getUser().getHandle(), "test@datadoghq.com");
+        assertEquals(response.getApiKey().getCreatedBy(), "user");
+        assertEquals(response.getApiKey().getKey(), "6ccdfb88ff1aa63192c326");
+        assertEquals(response.getApplicationKey().getOwner(), "Organization admin");
+        assertEquals(response.getApplicationKey().getHash(), "88e5ae6a71f51d1d5a0071a24f");
     }
 
     /**
@@ -71,12 +90,23 @@ public class OrgsApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture file cannot be loaded
      */
     @Test
-    public void getOrgTest() throws ApiException {
-        // OrgListResponse response = api.getOrg();
+    public void getOrgTest() throws ApiException, IOException {
+        MappingBuilder stub = setupStub(apiUri, fixturePrefix+"/get_orgs.json", "get");
+        stubFor(stub);
 
-        // TODO: test validations
+        OrgsApi.GetOrgParams opts = null;
+        OrgListResponse response = api.getOrg(opts);
+
+        // Assert values match whats in get_orgs.json fixture
+        assertEquals(response.getOrgs().size(), 1);
+        assertEquals(response.getOrgs().get(0).getName(), "My Org");
+        assertEquals(response.getOrgs().get(0).getPublicId(), "axd2s");
+        assertEquals(response.getOrgs().get(0).getBilling().getType(), "bill-parent");
+        assertEquals(response.getOrgs().get(0).getSubscription().getType(), "pro");
     }
 
     /**
@@ -86,14 +116,34 @@ public class OrgsApiTest extends V1ApiTest{
      *
      * @throws ApiException
      *          if the Api call fails
+     * @throws IOException
+     *          if the fixture file cannot be loaded
      */
     @Test
-    public void updateOrgTest() throws ApiException {
-        String publicId = null;
-        Org org = null;
-        // OrgResponse response = api.updateOrg(publicId, org);
+    public void updateOrgTest() throws ApiException, IOException {
+        String publicId = "12345";
+        MappingBuilder stub = setupStub(apiUri + "/" + publicId, fixturePrefix+"/update_org.json", "put");
+        stubFor(stub);
 
-        // TODO: test validations
+        Org org = null;
+        OrgsApi.UpdateOrgParams opts = null;
+        OrgResponse response = api.updateOrg(publicId, org, opts);
+
+        // Assert values match whats in update_orgs.json fixture
+        assertEquals(response.getOrg().getPublicId(), "axd2s");
+        assertEquals(response.getOrg().getName(), "My Org");
+        assertEquals(response.getOrg().getBilling(), new OrgBilling());
+        assertEquals(response.getOrg().getCreated(), "2016-10-06 21:41:12");
+        assertEquals(response.getOrg().getSettings().getSamlCanBeEnabled(), true);
+        assertEquals(response.getOrg().getSettings().getSamlIdpInitiatedLogin().getEnabled(), true);
+        assertEquals(response.getOrg().getSettings().getSaml().getEnabled(), true);
+        assertEquals(response.getOrg().getSettings().getSamlIdpEndpoint(), "https://idp.datadoghq.com/idp/profile/SAML2/POST/SSO");
+        // assertEquals(response.getOrg().getSettings().getSamlAutocreateUsersDomains().getDomains(), new ArrayList("my-org.com","example.com"));
+        assertEquals(response.getOrg().getSettings().getSamlAutocreateUsersDomains().getEnabled(), true);
+        assertEquals(response.getOrg().getSettings().getSamlLoginUrl(), "https://app.datadoghq.com/account/login/id/c81e728d9");
+        assertEquals(response.getOrg().getSettings().getSamlIdpMetadataUploaded(), true);
+        assertEquals(response.getOrg().getSettings().getSamlStrictMode().getEnabled(), true);
+        assertEquals(response.getOrg().getSubscription().getType(), "pro");
     }
 
     /**
@@ -108,7 +158,7 @@ public class OrgsApiTest extends V1ApiTest{
      */
     @Test
     public void uploadIdPForOrgTest() throws ApiException, IOException {
-        MappingBuilder stub = setupStub("/api/v1/org/123456/idp_metadata", "org_fixtures/update_idp_meta.json", "post");
+        MappingBuilder stub = setupStub(apiUri+"/123456/idp_metadata", fixturePrefix+"/update_idp_meta.json", "post");
         beginStub(stub);
 
         String publicId = "123456";
