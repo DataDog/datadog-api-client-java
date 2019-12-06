@@ -13,7 +13,8 @@ Method | HTTP request | Description
 
 ## createAWSAccount
 
-> AWSAccountCreateResponse createAWSAccount(awSAccount)
+
+> AWSAccountCreateResponse createAWSAccount(awSAccount).execute();
 
 Create an AWS Account
 
@@ -75,8 +76,9 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
-        try {
-            AWSAccountCreateResponse result = apiInstance.createAWSAccount(awSAccount);
+        try { 
+            AWSAccountCreateResponse result = api.createAWSAccount(awSAccount)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#createAWSAccount");
@@ -118,7 +120,8 @@ Name | Type | Description  | Notes
 
 ## deleteAWSAccount
 
-> Object deleteAWSAccount(awSAccount)
+
+> Object deleteAWSAccount(awSAccount).execute();
 
 Delete an AWS Account
 
@@ -161,8 +164,9 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
-        try {
-            Object result = apiInstance.deleteAWSAccount(awSAccount);
+        try { 
+            Object result = api.deleteAWSAccount(awSAccount)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#deleteAWSAccount");
@@ -204,7 +208,8 @@ Name | Type | Description  | Notes
 
 ## getAllAWSAccounts
 
-> AWSAccountListResponse getAllAWSAccounts(accountId, roleName, accessKeyId)
+
+> AWSAccountListResponse getAllAWSAccounts().accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
 Get Installed AWS Accounts
 
@@ -252,8 +257,12 @@ public class Example {
         String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id.
-        try {
-            AWSAccountListResponse result = apiInstance.getAllAWSAccounts(accountId, roleName, accessKeyId);
+        try { 
+            AWSAccountListResponse result = api.getAllAWSAccounts()
+                .accountId(accountId)
+                .roleName(roleName)
+                .accessKeyId(accessKeyId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#getAllAWSAccounts");
@@ -298,7 +307,8 @@ Name | Type | Description  | Notes
 
 ## updateAWSAccount
 
-> Object updateAWSAccount(awSAccount, accountId, roleName, accessKeyId)
+
+> Object updateAWSAccount(awSAccount).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
 Update an AWS Account
 
@@ -370,11 +380,15 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
-        String accountId = "accountId_example"; // String | 
-        String roleName = "roleName_example"; // String | 
-        String accessKeyId = "accessKeyId_example"; // String | 
-        try {
-            Object result = apiInstance.updateAWSAccount(awSAccount, accountId, roleName, accessKeyId);
+        String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
+        String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name. *It is required if account_id is specified.*
+        String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.*
+        try { 
+            Object result = api.updateAWSAccount(awSAccount)
+                .accountId(accountId)
+                .roleName(roleName)
+                .accessKeyId(accessKeyId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#updateAWSAccount");
@@ -393,9 +407,9 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **awSAccount** | [**AWSAccount**](AWSAccount.md)| AWS request object |
- **accountId** | **String**|  | [optional]
- **roleName** | **String**|  | [optional]
- **accessKeyId** | **String**|  | [optional]
+ **accountId** | **String**| Only return AWS accounts that matches this account_id. | [optional]
+ **roleName** | **String**| Only return AWS accounts that matches this role_name. *It is required if account_id is specified.* | [optional]
+ **accessKeyId** | **String**| Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.* | [optional]
 
 ### Return type
 

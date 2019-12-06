@@ -14,7 +14,8 @@ Method | HTTP request | Description
 
 ## createUser
 
-> UserResponse createUser(user)
+
+> UserResponse createUser(user).execute();
 
 Create user
 
@@ -64,8 +65,9 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         User user = new User(); // User | User object that needs to be created
-        try {
-            UserResponse result = apiInstance.createUser(user);
+        try { 
+            UserResponse result = api.createUser(user)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#createUser");
@@ -108,7 +110,8 @@ Name | Type | Description  | Notes
 
 ## disableUser
 
-> UserDisableResponse disableUser(userHandle)
+
+> UserDisableResponse disableUser(userHandle).execute();
 
 Disable user
 
@@ -149,8 +152,9 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The handle of the user
-        try {
-            UserDisableResponse result = apiInstance.disableUser(userHandle);
+        try { 
+            UserDisableResponse result = api.disableUser(userHandle)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#disableUser");
@@ -193,7 +197,8 @@ Name | Type | Description  | Notes
 
 ## getAllUsers
 
-> UserListResponse getAllUsers()
+
+> UserListResponse getAllUsers().execute();
 
 Get all users
 
@@ -231,8 +236,9 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        try {
-            UserListResponse result = apiInstance.getAllUsers();
+        try { 
+            UserListResponse result = api.getAllUsers()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getAllUsers");
@@ -272,7 +278,8 @@ This endpoint does not need any parameter.
 
 ## getUser
 
-> UserResponse getUser(userHandle)
+
+> UserResponse getUser(userHandle).execute();
 
 Get user
 
@@ -311,8 +318,9 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The id of the user
-        try {
-            UserResponse result = apiInstance.getUser(userHandle);
+        try { 
+            UserResponse result = api.getUser(userHandle)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getUser");
@@ -355,7 +363,8 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-> UserResponse updateUser(userHandle, user)
+
+> UserResponse updateUser(userHandle, user).execute();
 
 Update user
 
@@ -407,8 +416,9 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The id of the user
         User user = new User(); // User | Description of the update
-        try {
-            UserResponse result = apiInstance.updateUser(userHandle, user);
+        try { 
+            UserResponse result = api.updateUser(userHandle, user)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#updateUser");
