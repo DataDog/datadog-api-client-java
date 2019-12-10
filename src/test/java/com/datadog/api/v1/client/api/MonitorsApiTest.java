@@ -8,10 +8,10 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.model.CanDeleteMonitorResponse;
 import com.datadog.api.v1.client.model.Monitor;
 import com.datadog.api.v1.client.model.MonitorOptions;
 import static org.junit.Assert.*;
@@ -176,4 +176,76 @@ public class MonitorsApiTest extends V1ApiTest {
             // noop
         }
      }
+
+    /**
+     * Can Delete monitor
+     */
+
+    @Test
+    public void canDeleteMonitorTest() throws ApiException {
+        // Create basic Monitor to use in can_delete test
+        MonitorOptions options = new MonitorOptions()
+            .notifyNoData(testingMonitorOptionsNotifyNoData)
+            .noDataTimeframe(testingMonitorOptionsNoDataTimeframe);
+
+        Monitor monitor = new Monitor()
+            .name(testingMonitorName)
+            .type(testingMonitorType)
+            .query(testingMonitorQuery)
+            .message(testingMonitorMessage)
+            .tags(testingMonitorTags)
+            .options(options);
+        Monitor created = api.createMonitor(monitor).execute();
+        deleteMonitors.add(created.getId());
+
+        // Verify we can delete this monitor
+        List<Long> monitorIds = new ArrayList<Long>();
+        monitorIds.add(created.getId());
+        CanDeleteMonitorResponse resp = api.canDeleteMonitor().monitorIds(monitorIds).execute();
+
+        assertEquals(resp.getData().getOk(), monitorIds);
+        assertNull(resp.getErrors());
+
+        // Create a second and composite monitor
+        Monitor monitorTwo = new Monitor()
+            .name("Test Monitor 2")
+            .type(testingMonitorType)
+            .query(testingMonitorQuery)
+            .message(testingMonitorMessage)
+            .tags(testingMonitorTags)
+            .options(options);
+        Monitor createdTwo = api.createMonitor(monitorTwo).execute();
+        deleteMonitors.add(createdTwo.getId());
+
+        Monitor compositeMonitor = new Monitor()
+            .name("Test Composite Monitor Test Nick")
+            .type(Monitor.TypeEnum.COMPOSITE)
+            .query(created.getId() + " && " + createdTwo.getId())
+            .message(testingMonitorMessage)
+            .tags(testingMonitorTags)
+            .options(options);
+        Monitor createdComposite = api.createMonitor(compositeMonitor).execute();
+        deleteMonitors.add(createdComposite.getId());
+
+        // Verify we can't delete this monitor
+        List<Long> monitorIdsComposite = new ArrayList<Long>();
+        monitorIdsComposite.add(created.getId());
+        monitorIdsComposite.add(createdTwo.getId());
+
+        CanDeleteMonitorResponse respComposite = null;
+        boolean apiError = false;
+        try {
+            respComposite = api.canDeleteMonitor().monitorIds(monitorIdsComposite).execute();
+        } catch (ApiException e) {
+            apiError = true;
+            System.out.printf((e.getResponseBody()));
+        }
+
+        // Delete the composite monitor right away so we can always properly cleanup
+        api.deleteMonitor(createdComposite.getId()).execute();
+
+        assertTrue(apiError);
+        assertNull(respComposite);
+
+    }
 }
