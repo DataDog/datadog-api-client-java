@@ -8,6 +8,7 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.datadog.api.v1.client.model.CanDeleteMonitorResponse;
 import com.datadog.api.v1.client.model.Error400;
 import com.datadog.api.v1.client.model.Error401;
 import com.datadog.api.v1.client.model.Error403;
@@ -37,6 +38,115 @@ public class MonitorsApi {
 
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+private ApiResponse<CanDeleteMonitorResponse> canDeleteMonitorWithHttpInfo(List<Long> monitorIds) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'monitorIds' is set
+    if (monitorIds == null) {
+      throw new ApiException(400, "Missing the required parameter 'monitorIds' when calling canDeleteMonitor");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/monitor/can_delete";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "monitor_ids", monitorIds));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<CanDeleteMonitorResponse> localVarReturnType = new GenericType<CanDeleteMonitorResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIcanDeleteMonitorRequest {
+    private List<Long> monitorIds;
+
+    private APIcanDeleteMonitorRequest() {
+    }
+    
+
+    /**
+     * Set monitorIds
+     * @param monitorIds The ids of the monitor to check (required)
+     * @return APIcanDeleteMonitorRequest
+     */
+    public APIcanDeleteMonitorRequest monitorIds(List<Long> monitorIds) {
+      this.monitorIds = monitorIds;
+      return this;
+    }
+    
+
+    /**
+     * Execute canDeleteMonitor request
+     * @return CanDeleteMonitorResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Deletion conflict error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public CanDeleteMonitorResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute canDeleteMonitor request with HTTP info returned
+     * @return ApiResponse&lt;CanDeleteMonitorResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Deletion conflict error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<CanDeleteMonitorResponse> executeWithHttpInfo() throws ApiException {
+      return canDeleteMonitorWithHttpInfo(monitorIds);
+    }
+  }
+
+  /**
+   * Check if the given monitors can be deleted.
+   * ### Overview Check if the given monitors can be deleted. ### Arguments * **&#x60;monitor_ids&#x60;** [*required*]: The ids of the monitors to check if can be deleted.
+   
+   * @return canDeleteMonitorRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIcanDeleteMonitorRequest canDeleteMonitor() throws ApiException {
+    return new APIcanDeleteMonitorRequest();
   }
 
 private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor monitor) throws ApiException {

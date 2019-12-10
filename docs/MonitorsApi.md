@@ -4,6 +4,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**canDeleteMonitor**](MonitorsApi.md#canDeleteMonitor) | **GET** /api/v1/monitor/can_delete | Check if the given monitors can be deleted.
 [**createMonitor**](MonitorsApi.md#createMonitor) | **POST** /api/v1/monitor | Create a new Monitor
 [**deleteMonitor**](MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete the specified monitor.
 [**editMonitor**](MonitorsApi.md#editMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit the specified monitor
@@ -11,6 +12,93 @@ Method | HTTP request | Description
 [**getMonitor**](MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get details about the specified monitor.
 [**validateMonitor**](MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | 
 
+
+
+## canDeleteMonitor
+
+
+> CanDeleteMonitorResponse canDeleteMonitor().monitorIds(monitorIds).execute();
+
+Check if the given monitors can be deleted.
+
+### Overview
+Check if the given monitors can be deleted.
+### Arguments
+* **`monitor_ids`** [*required*]: The ids of the monitors to check if can be deleted.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.MonitorsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        MonitorsApi apiInstance = new MonitorsApi(defaultClient);
+        List<Long> monitorIds = Arrays.asList(); // List<Long> | The ids of the monitor to check
+        try { 
+            CanDeleteMonitorResponse result = api.canDeleteMonitor()
+                .monitorIds(monitorIds)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MonitorsApi#canDeleteMonitor");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **monitorIds** | [**List&lt;Long&gt;**](Long.md)| The ids of the monitor to check |
+
+### Return type
+
+[**CanDeleteMonitorResponse**](CanDeleteMonitorResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication error |  -  |
+| **409** | Deletion conflict error |  -  |
 
 
 ## createMonitor
