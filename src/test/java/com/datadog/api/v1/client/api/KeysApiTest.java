@@ -26,6 +26,15 @@ import com.github.tomakehurst.wiremock.client.MappingBuilder;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import com.datadog.api.v1.client.model.Error400;
+import com.datadog.api.v1.client.model.Error403;
+import com.datadog.api.v1.client.model.Error404;
+import com.datadog.api.v1.client.model.Error409;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * API tests for KeysApi
@@ -36,7 +45,6 @@ public class KeysApiTest extends V1ApiTest{
     private final String apiUri = "/api/v1/api_key";
     private final String appUri = "/api/v1/application_key";
     private final String fixturePrefix = "keys_fixtures";
-
     /**
      * Create an API key with a given name.
      *
@@ -62,7 +70,7 @@ public class KeysApiTest extends V1ApiTest{
         assertEquals(response.getApiKey().getKey(), "3111111111111111aaaaaaaaaaaaaaaa");
         assertEquals(response.getApiKey().getCreated(), "2019-04-05 09:47:00");
     }
-
+  
     /**
      * Create an application key with a given name.
      *
@@ -112,6 +120,7 @@ public class KeysApiTest extends V1ApiTest{
         assertEquals(response.getApiKey().getCreated(), "2019-04-05 09:47:00");
     }
 
+
     /**
      * Delete a given application key.
      *
@@ -134,6 +143,7 @@ public class KeysApiTest extends V1ApiTest{
         assertEquals(response.getApplicationKey().getHash(), "31111111111111111111aaaaaaaaaaaaaaaaaaaa");
         assertEquals(response.getApplicationKey().getName(), "<APP_KEY_NAME>");
     }
+
 
     /**
      * Edit an API key name.
@@ -162,6 +172,7 @@ public class KeysApiTest extends V1ApiTest{
         assertEquals(response.getApiKey().getCreated(), "2019-04-05 09:47:00");
     }
 
+
     /**
      * Edit an application key name.
      *
@@ -188,6 +199,7 @@ public class KeysApiTest extends V1ApiTest{
         assertEquals(response.getApplicationKey().getName(), "<NEW_APP_KEY_NAME>");
     }
 
+
     /**
      * Get a given API key.
      *
@@ -212,6 +224,7 @@ public class KeysApiTest extends V1ApiTest{
         assertEquals(response.getApiKey().getName(), "<API_KEY_NAME>");
         assertEquals(response.getApiKey().getKey(), "3111111111111111aaaaaaaaaaaaaaaa");
         assertEquals(response.getApiKey().getCreated(), "2019-04-05 09:47:00");    }
+
 
     /**
      * Get all API keys available for your account.
@@ -244,6 +257,7 @@ public class KeysApiTest extends V1ApiTest{
         assertEquals(response.getApiKeys().get(1).getCreated(), "2019-04-05 09:19:53");
     }
 
+
     /**
      * Get all application keys available for your account.
      *
@@ -272,6 +286,7 @@ public class KeysApiTest extends V1ApiTest{
         assertEquals(response.getApplicationKeys().get(1).getHash(), "21111111111111111111aaaaaaaaaaaaaaaaaaaa");
         assertEquals(response.getApplicationKeys().get(1).getName(), "<APP_KEY_NAME_2>");
     }
+
 
     /**
      * Get a given application key.
