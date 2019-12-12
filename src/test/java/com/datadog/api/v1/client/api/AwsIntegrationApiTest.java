@@ -69,7 +69,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
     public void createAWSAccountTest() throws ApiException {
         //Test Creating an AWS Account with just the account_id and role_name
         AWSAccount awsAccount = new AWSAccount();
-        awsAccount.setAccountId(String.format("java_%d", System.currentTimeMillis() % 10000000));
+        awsAccount.setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
         awsAccount.setRoleName("java_testRoleName");
 
         AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccount).execute();
@@ -83,7 +83,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
         hostTags.add("javaTag:one");
         hostTags.add("java:success");
         accountSpecificNamespaceRules.put("api_gateway", true);
-        awsAccountFull.setAccountId(String.format("java_%d", System.currentTimeMillis() % 10000000));
+        awsAccountFull.setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
         awsAccountFull.setRoleName("java_testRoleName");
         awsAccountFull.setHostTags(hostTags);
         awsAccountFull.addFilterTagsItem("dontCollect:java");
@@ -123,7 +123,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
     public void createAWSAccountMissingRoleNameTest() throws ApiException {
         //Test an exception is thrown if you're missing the role_name field
         AWSAccount awsAccount = new AWSAccount();
-        awsAccount.setAccountId(String.format("java_%d", System.currentTimeMillis() % 10000000));
+        awsAccount.setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
         api.createAWSAccount(awsAccount).execute();
     }
 
@@ -146,7 +146,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
 
         for (int i=0; i<5; i++) {
             awsAccounts.add(new AWSAccount());
-            awsAccounts.get(i).setAccountId(String.format("java_%d", System.currentTimeMillis() % 10000000));
+            awsAccounts.get(i).setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
             awsAccounts.get(i).setRoleName(String.format("Java Client Role Name_%s", i));
             awsAccounts.get(i).addFilterTagsItem("dontCollect:java");
             awsAccounts.get(i).setHostTags(hostTags);
@@ -174,7 +174,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
     public void updateAWSAccountTest() throws ApiException {
         // Object response = api.updateAWSAccount(awSAccount);
         AWSAccount awsAccount = new AWSAccount();
-        awsAccount.setAccountId(String.format("java_%d", System.currentTimeMillis() % 10000000));
+        awsAccount.setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
         awsAccount.setRoleName("java_testRoleName");
 
         api.createAWSAccount(awsAccount).execute();
