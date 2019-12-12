@@ -1,15 +1,27 @@
 package com.datadog.api.v1.client.api;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+
+import java.io.IOException;
+
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
+import com.github.tomakehurst.wiremock.client.MappingBuilder;
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
+import org.apache.commons.io.IOUtils;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 
 public abstract class V1ApiTest {
     protected static ApiClient generalApiClient = null;
+    protected static ApiClient generalApiUnitTestClient = null;
 
     static String TEST_API_KEY_NAME="DD_TEST_CLIENT_API_KEY";
     static String TEST_APP_KEY_NAME="DD_TEST_CLIENT_APP_KEY";
+
+    @Rule
+    public WireMockRule wireMockRule = new WireMockRule();
 
     @BeforeClass
     public static void initGeneralApiClient() {
@@ -32,5 +44,56 @@ public abstract class V1ApiTest {
         }
         ApiKeyAuth appKeyAuth = (ApiKeyAuth) generalApiClient.getAuthentication("appKeyAuth");
         appKeyAuth.setApiKey(appKey);
+    }
+
+    @BeforeClass
+    public static void initGeneralApiUnitTestClient() {
+        generalApiUnitTestClient = new ApiClient();
+
+        // WireMock defaults to listening on localhost port 8080
+        // http://wiremock.org/docs/configuration/
+        generalApiUnitTestClient.setBasePath("http://localhost:8080");
+
+        // Configure API key authorization with fake key
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) generalApiUnitTestClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey(TEST_API_KEY_NAME);
+
+        // Configure API key authorization with fake key
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) generalApiUnitTestClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey(TEST_APP_KEY_NAME);
+    }
+
+    public String getFixture(String path) throws IOException {
+        return IOUtils.toString(this.getClass().getResourceAsStream(path), "UTF-8");
+    }
+
+    public MappingBuilder setupStub(String Urlpath, String fixturePath, String httpMethod) throws IOException {
+        MappingBuilder stub = null;
+
+        switch(httpMethod) {
+            case "get" :
+                stub = get(urlMatching(Urlpath + "\\?.*"));
+                break;
+            case "post" :
+                stub = post(urlMatching(Urlpath + "\\?.*"));
+                break;
+            case "put" :
+                stub = put(urlMatching(Urlpath + "\\?.*"));
+                break;
+            case "delete" :
+                stub = delete(urlMatching(Urlpath + "\\?.*"));
+                break;
+        }
+        stub.withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
+        .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
+        .willReturn(aResponse()
+            .withStatus(200)
+            .withHeader("Content-Type", "application/json")
+            .withBody(this.getFixture(fixturePath)));
+        return stub;
+    }
+
+    public void beginStub(MappingBuilder stub) {
+        stubFor(stub);
     }
 }
