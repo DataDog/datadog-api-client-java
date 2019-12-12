@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aggregation** | **String** |  |  [optional]
+**aggregation** | [**MonitorOptionsAggregation**](MonitorOptionsAggregation.md) |  |  [optional]
 **deviceIds** | [**List&lt;DeviceIdsEnum&gt;**](#List&lt;DeviceIdsEnum&gt;) |  |  [optional]
 **enableLogsSample** | **Boolean** |  |  [optional]
 **escalationMessage** | **String** |  |  [optional]
