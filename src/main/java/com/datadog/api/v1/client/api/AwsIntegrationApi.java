@@ -12,6 +12,7 @@ import com.datadog.api.v1.client.model.AWSAccount;
 import com.datadog.api.v1.client.model.AWSAccountCreateResponse;
 import com.datadog.api.v1.client.model.AWSAccountListResponse;
 import com.datadog.api.v1.client.model.Error400;
+import com.datadog.api.v1.client.model.Error403;
 import com.datadog.api.v1.client.model.Error404;
 
 import java.util.ArrayList;
@@ -93,6 +94,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -110,6 +112,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -186,6 +189,7 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount awSAccount) 
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -203,6 +207,7 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount awSAccount) 
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -225,6 +230,102 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount awSAccount) 
   
   public APIdeleteAWSAccountRequest deleteAWSAccount(AWSAccount awSAccount) throws ApiException {
     return new APIdeleteAWSAccountRequest(awSAccount);
+  }
+
+private ApiResponse<Error400> generateNewAWSExternalIDWithHttpInfo(AWSAccountCreateResponse awSAccountCreateResponse) throws ApiException {
+    Object localVarPostBody = awSAccountCreateResponse;
+    
+    // verify the required parameter 'awSAccountCreateResponse' is set
+    if (awSAccountCreateResponse == null) {
+      throw new ApiException(400, "Missing the required parameter 'awSAccountCreateResponse' when calling generateNewAWSExternalID");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/generate_new_external_id";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<Error400> localVarReturnType = new GenericType<Error400>() {};
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIgenerateNewAWSExternalIDRequest {
+    private AWSAccountCreateResponse awSAccountCreateResponse;
+
+    private APIgenerateNewAWSExternalIDRequest(AWSAccountCreateResponse awSAccountCreateResponse) {
+      this.awSAccountCreateResponse = awSAccountCreateResponse;
+    }
+    
+
+    /**
+     * Execute generateNewAWSExternalID request
+     * @return Error400
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public Error400 execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute generateNewAWSExternalID request with HTTP info returned
+     * @return ApiResponse&lt;Error400&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<Error400> executeWithHttpInfo() throws ApiException {
+      return generateNewAWSExternalIDWithHttpInfo(awSAccountCreateResponse);
+    }
+  }
+
+  /**
+   * Generate New External ID
+   * ###Overview Generate new AWS external ID for a specific integrated account ### Arguments * **&#x60;account_id&#x60;** [*required*]: Generate new external ID for the AWS account that   matches this account_id.  * **&#x60;role_name&#x60;** [*required*]: Generate new external ID for the AWS account that   matches this role_name.
+   * @param awSAccountCreateResponse Generate New AWS External ID request object (require)
+   * @return generateNewAWSExternalIDRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIgenerateNewAWSExternalIDRequest generateNewAWSExternalID(AWSAccountCreateResponse awSAccountCreateResponse) throws ApiException {
+    return new APIgenerateNewAWSExternalIDRequest(awSAccountCreateResponse);
   }
 
 private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String accountId, String roleName, String accessKeyId) throws ApiException {
@@ -313,6 +414,7 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -331,6 +433,7 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -353,6 +456,95 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
   
   public APIgetAllAWSAccountsRequest getAllAWSAccounts() throws ApiException {
     return new APIgetAllAWSAccountsRequest();
+  }
+
+private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/available_namespace_rules";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistAvailableAWSNamespacesRequest {
+
+    private APIlistAvailableAWSNamespacesRequest() {
+    }
+    
+
+    /**
+     * Execute listAvailableAWSNamespaces request
+     * @return List&lt;String&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public List<String> execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listAvailableAWSNamespaces request with HTTP info returned
+     * @return ApiResponse&lt;List&lt;String&gt;&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<List<String>> executeWithHttpInfo() throws ApiException {
+      return listAvailableAWSNamespacesWithHttpInfo();
+    }
+  }
+
+  /**
+   * List available namespaces.
+   * ### Overview List all namespace rules for a given Datadog-AWS integration.
+   
+   * @return listAvailableAWSNamespacesRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistAvailableAWSNamespacesRequest listAvailableAWSNamespaces() throws ApiException {
+    return new APIlistAvailableAWSNamespacesRequest();
   }
 
 private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount awSAccount, String accountId, String roleName, String accessKeyId) throws ApiException {
@@ -448,6 +640,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount awSAccount, 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -465,6 +658,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount awSAccount, 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
      
      */
