@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.MonitorOptionsAggregation;
 import com.datadog.api.v1.client.model.MonitorThresholdWindowOptions;
 import com.datadog.api.v1.client.model.MonitorThresholds;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -55,7 +56,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class MonitorOptions {
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
-  private String aggregation;
+  private MonitorOptionsAggregation aggregation;
 
   /**
    * Gets or Sets deviceIds
@@ -152,7 +153,7 @@ public class MonitorOptions {
   private Integer timeoutH;
 
 
-  public MonitorOptions aggregation(String aggregation) {
+  public MonitorOptions aggregation(MonitorOptionsAggregation aggregation) {
     
     this.aggregation = aggregation;
     return this;
@@ -167,12 +168,12 @@ public class MonitorOptions {
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getAggregation() {
+  public MonitorOptionsAggregation getAggregation() {
     return aggregation;
   }
 
 
-  public void setAggregation(String aggregation) {
+  public void setAggregation(MonitorOptionsAggregation aggregation) {
     this.aggregation = aggregation;
   }
 
