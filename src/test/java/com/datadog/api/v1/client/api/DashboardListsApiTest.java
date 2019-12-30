@@ -30,7 +30,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     private ArrayList<Long> dashboardListsToDelete;
 
     @Before
-    public void resetDeleteDowntimes() {
+    public void resetDashboardListsToDelete() {
         dashboardListsToDelete = new ArrayList<Long>();
     }
 
