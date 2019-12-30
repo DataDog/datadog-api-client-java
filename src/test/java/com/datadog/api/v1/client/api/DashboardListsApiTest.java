@@ -42,26 +42,26 @@ public class DashboardListsApiTest extends V1ApiTest {
     @Test
     public void dashboardListCreateModifyDeleteTest() throws ApiException {
 
-    	long start = System.currentTimeMillis();
-    	DashboardList testDashboardList = new DashboardList().name(String.format("dash %d", start));
+        long start = System.currentTimeMillis();
+        DashboardList testDashboardList = new DashboardList().name(String.format("dash %d", start));
 
-    	// Create dashboard list
-    	DashboardList dashboardList = api.createDashboardList(testDashboardList).execute();
+        // Create dashboard list
+        DashboardList dashboardList = api.createDashboardList(testDashboardList).execute();
         dashboardListsToDelete.add(dashboardList.getId());
-    	assertEquals(dashboardList.getName(), testDashboardList.getName());
+        assertEquals(dashboardList.getName(), testDashboardList.getName());
 
         // Get the dashboard list
-       	dashboardList = api.getDashboardList(dashboardList.getId()).execute();
-       	assertEquals(dashboardList.getName(), testDashboardList.getName());
+        dashboardList = api.getDashboardList(dashboardList.getId()).execute();
+        assertEquals(dashboardList.getName(), testDashboardList.getName());
 
-    	// Edit the dashboard list
-    	DashboardList editedDashboardList = new DashboardList().name(String.format("updated dash %d", start));
-    	dashboardList = api.updateDashboardList(dashboardList.getId(), editedDashboardList).execute();
-    	assertEquals(dashboardList.getName(), editedDashboardList.getName());
+        // Edit the dashboard list
+        DashboardList editedDashboardList = new DashboardList().name(String.format("updated dash %d", start));
+        dashboardList = api.updateDashboardList(dashboardList.getId(), editedDashboardList).execute();
+        assertEquals(dashboardList.getName(), editedDashboardList.getName());
 
-    	// Delete the dashboard list
-    	DashboardListDeleteResponse res = api.deleteDashboardList(dashboardList.getId()).execute();
-    	assertEquals(res.getDeletedDashboardListId(), dashboardList.getId());
+        // Delete the dashboard list
+        DashboardListDeleteResponse res = api.deleteDashboardList(dashboardList.getId()).execute();
+        assertEquals(res.getDeletedDashboardListId(), dashboardList.getId());
     }
 
     @After
