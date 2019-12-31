@@ -8,5 +8,4 @@
 # Documentation
 *.md                    @DataDog/baklava @DataDog/integrations-tools-and-libraries
 LICENSE                 @DataDog/baklava @DataDog/integrations-tools-and-libraries
-NOTICE                  @DataDog/baklava @DataDog/integrations-tools-and-libraries
 LICENSE-3rdparty.csv    @DataDog/baklava @DataDog/integrations-tools-and-libraries
