@@ -19,48 +19,42 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Error404
+ * DashboardListDeleteResponse
  */
 @JsonPropertyOrder({
-  Error404.JSON_PROPERTY_ERRORS
+  DashboardListDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID
 })
 
-public class Error404 {
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<String> errors = new ArrayList<String>();
+public class DashboardListDeleteResponse {
+  public static final String JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID = "deleted_dashboard_list_id";
+  private Long deletedDashboardListId;
 
 
-  public Error404 errors(List<String> errors) {
+  public DashboardListDeleteResponse deletedDashboardListId(Long deletedDashboardListId) {
     
-    this.errors = errors;
-    return this;
-  }
-
-  public Error404 addErrorsItem(String errorsItem) {
-    this.errors.add(errorsItem);
+    this.deletedDashboardListId = deletedDashboardListId;
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * ID of the deleted dashboard list
+   * @return deletedDashboardListId
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the deleted dashboard list")
+  @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getErrors() {
-    return errors;
+  public Long getDeletedDashboardListId() {
+    return deletedDashboardListId;
   }
 
 
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
+  public void setDeletedDashboardListId(Long deletedDashboardListId) {
+    this.deletedDashboardListId = deletedDashboardListId;
   }
 
 
@@ -72,21 +66,21 @@ public class Error404 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error404 error404 = (Error404) o;
-    return Objects.equals(this.errors, error404.errors);
+    DashboardListDeleteResponse dashboardListDeleteResponse = (DashboardListDeleteResponse) o;
+    return Objects.equals(this.deletedDashboardListId, dashboardListDeleteResponse.deletedDashboardListId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(deletedDashboardListId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error404 {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class DashboardListDeleteResponse {\n");
+    sb.append("    deletedDashboardListId: ").append(toIndentedString(deletedDashboardListId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

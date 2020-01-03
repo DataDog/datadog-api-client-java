@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.DashboardList;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,43 +25,47 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Error404
+ * DashboardListListResponse
  */
 @JsonPropertyOrder({
-  Error404.JSON_PROPERTY_ERRORS
+  DashboardListListResponse.JSON_PROPERTY_DASHBOARD_LISTS
 })
 
-public class Error404 {
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<String> errors = new ArrayList<String>();
+public class DashboardListListResponse {
+  public static final String JSON_PROPERTY_DASHBOARD_LISTS = "dashboard_lists";
+  private List<DashboardList> dashboardLists = null;
 
 
-  public Error404 errors(List<String> errors) {
+  public DashboardListListResponse dashboardLists(List<DashboardList> dashboardLists) {
     
-    this.errors = errors;
+    this.dashboardLists = dashboardLists;
     return this;
   }
 
-  public Error404 addErrorsItem(String errorsItem) {
-    this.errors.add(errorsItem);
+  public DashboardListListResponse addDashboardListsItem(DashboardList dashboardListsItem) {
+    if (this.dashboardLists == null) {
+      this.dashboardLists = new ArrayList<DashboardList>();
+    }
+    this.dashboardLists.add(dashboardListsItem);
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * List of all your dashboard lists
+   * @return dashboardLists
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of all your dashboard lists")
+  @JsonProperty(JSON_PROPERTY_DASHBOARD_LISTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getErrors() {
-    return errors;
+  public List<DashboardList> getDashboardLists() {
+    return dashboardLists;
   }
 
 
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
+  public void setDashboardLists(List<DashboardList> dashboardLists) {
+    this.dashboardLists = dashboardLists;
   }
 
 
@@ -72,21 +77,21 @@ public class Error404 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error404 error404 = (Error404) o;
-    return Objects.equals(this.errors, error404.errors);
+    DashboardListListResponse dashboardListListResponse = (DashboardListListResponse) o;
+    return Objects.equals(this.dashboardLists, dashboardListListResponse.dashboardLists);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(dashboardLists);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error404 {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class DashboardListListResponse {\n");
+    sb.append("    dashboardLists: ").append(toIndentedString(dashboardLists)).append("\n");
     sb.append("}");
     return sb.toString();
   }
