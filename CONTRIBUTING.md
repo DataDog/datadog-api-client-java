@@ -116,7 +116,6 @@ This section lists the labels we use to help us track and manage issues and pull
 | `stale`                       | Issues and Pull Requests | Stale - Bot reminder.
 | `stale/exempt`                | Issues and Pull Requests | Exempt from being marked as stale.
 
-
 [1]: https://github.com/DataDog/datadog-api-client-java/issues/
 [2]: https://github.com/DataDog/datadog-api-client-java/issues/new
 [3]: https://docs.datadoghq.com/help
