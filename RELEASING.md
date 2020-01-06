@@ -28,6 +28,3 @@ This project does not have a strict release schedule. However, we would make a r
 ## Release
 
 Note that once the release process is started, nobody should be merging/pushing anything.
-
-## TODO
-Update this section once we start releasing this project to maven
