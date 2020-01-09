@@ -3,6 +3,7 @@ package com.datadog.api.v1.client.api;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
@@ -26,6 +27,7 @@ public abstract class V1ApiTest {
     @BeforeClass
     public static void initGeneralApiClient() {
         generalApiClient = new ApiClient();
+        HashMap<String, String> secrets = new HashMap<String, String>();
 
         // Configure API key authorization: apiKeyAuth
         String apiKey = System.getenv(TEST_API_KEY_NAME);
@@ -33,8 +35,7 @@ public abstract class V1ApiTest {
             System.err.printf("%s not set, exiting", TEST_API_KEY_NAME);
             System.exit(1);
         }
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) generalApiClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey(apiKey);
+        secrets.put("apiKeyAuth", apiKey);
 
         // Configure API key authorization: appKeyAuth
         String appKey = System.getenv(TEST_APP_KEY_NAME);
@@ -42,8 +43,8 @@ public abstract class V1ApiTest {
             System.err.printf("%s not set, exiting", TEST_APP_KEY_NAME);
             System.exit(1);
         }
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) generalApiClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey(appKey);
+        secrets.put("appKeyAuth", appKey);
+        generalApiClient.configureApiKeys(secrets);
     }
 
     @BeforeClass
