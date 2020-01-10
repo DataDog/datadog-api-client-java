@@ -137,9 +137,12 @@ public class ApiClient {
   /**
    * Helper method to configure authentications.
    *
+   * NOTE: This method respects API key aliases using `x-lookup` property
+   *       from OpenAPI specification.
+   *
    * @param secrets Hash map from authentication name to its secret.
    */
-  public void configureAuthentications(HashMap<String, String> secrets) {
+  public void configureApiKeys(HashMap<String, String> secrets) {
     for (Map.Entry<String, Authentication> authEntry : authentications.entrySet()) {
       Authentication auth = authEntry.getValue();
       if (auth instanceof ApiKeyAuth) {
