@@ -50,6 +50,7 @@ import com.datadog.api.v1.client.auth.HttpBasicAuth;
 import com.datadog.api.v1.client.auth.HttpBearerAuth;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
 
+
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
@@ -134,7 +135,7 @@ public class ApiClient {
   }
 
   /**
-   * Helper method to configuruge authentications.
+   * Helper method to configure authentications.
    *
    * @param secrets Hash map from authentication name to its secret.
    */
@@ -143,6 +144,7 @@ public class ApiClient {
       Authentication auth = authEntry.getValue();
       if (auth instanceof ApiKeyAuth) {
         String name = authEntry.getKey();
+        // respect x-lookup property
         name = authenticationLookup.getOrDefault(name, name);
         if (secrets.containsKey(name)) {
           ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
