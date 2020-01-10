@@ -86,7 +86,7 @@ public class ApiClient {
     authentications = Collections.unmodifiableMap(authentications);
 
     // Setup authentication lookup (key: authentication alias, value: authentication name)
-    authenticationLookup = new Map<String, String>();
+    authenticationLookup = new HashMap<String, String>();
     authenticationLookup.add("apiKeyAuthHeader", "apiKeyAuth");
   }
 
