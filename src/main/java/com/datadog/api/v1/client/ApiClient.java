@@ -50,22 +50,6 @@ import com.datadog.api.v1.client.auth.HttpBasicAuth;
 import com.datadog.api.v1.client.auth.HttpBearerAuth;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
 
-class MultiMap<K, V> {
-  private Map<K, Collection<V>> map = new HashMap<>();
-
-  public void add(K key, V value) {
-    if (map.get(key) == null) {
-      map.put(key, new ArrayList<V>());
-    }
-    map.get(key).add(value);
-  }
-
-  public Collection<V> get(Object key) {
-    return map.get(key);
-  }
-}
-
-
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
@@ -79,7 +63,7 @@ public class ApiClient {
   protected String tempFolderPath = null;
 
   protected Map<String, Authentication> authentications;
-  protected MultiMap<String, String> authenticationLookup;
+  protected Map<String, String> authenticationLookup;
 
   protected DateFormat dateFormat;
 
@@ -100,11 +84,9 @@ public class ApiClient {
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 
-    // Setup authentication lookup (key: authentication alias, value: authentication names)
-    authenticationLookup = new MultiMap<String, String>();
-    authenticationLookup.add("apiKeyAuth", "apiKeyAuth");
-    authenticationLookup.add("apiKeyAuth", "apiKeyAuthHeader");
-    authenticationLookup.add("appKeyAuth", "appKeyAuth");
+    // Setup authentication lookup (key: authentication alias, value: authentication name)
+    authenticationLookup = new Map<String, String>();
+    authenticationLookup.add("apiKeyAuthHeader", "apiKeyAuth");
   }
 
   /**
@@ -153,14 +135,18 @@ public class ApiClient {
 
   /**
    * Helper method to configuruge authentications.
+   *
    * @param secrets Hash map from authentication name to its secret.
    */
   public void configureAuthentications(HashMap<String, String> secrets) {
-    for (Map.Entry<String, String> secret: secrets.entrySet()) {
-      String apiKey = secret.getValue();
-      for (String name: authenticationLookup.get(secret.getKey())) {
-        ApiKeyAuth authentication = (ApiKeyAuth) getAuthentication(name);
-        authentication.setApiKey(apiKey);
+    for (Map.Entry<String, Authentication> authEntry : authentications.entrySet()) {
+      Authentication auth = authEntry.getValue();
+      if (auth instanceof ApiKeyAuth) {
+        String name = authEntry.getKey();
+        name = authenticationLookup.getOrDefault(name, name);
+        if (secrets.containsKey(name)) {
+          ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
+        }
       }
     }
   }
