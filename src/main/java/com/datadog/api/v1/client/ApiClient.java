@@ -87,7 +87,9 @@ public class ApiClient {
 
     // Setup authentication lookup (key: authentication alias, value: authentication name)
     authenticationLookup = new HashMap<String, String>();
-    authenticationLookup.put("apiKeyAuthHeader", "apiKeyAuth");
+    authenticationLookup.put("apiKeyAuth", "appKeyAuth");
+    authenticationLookup.put("apiKeyAuthHeader", "appKeyAuth");
+    authenticationLookup.put("appKeyAuth", "appKeyAuth");
   }
 
   /**
@@ -135,28 +137,6 @@ public class ApiClient {
   }
 
   /**
-   * Helper method to configure authentications.
-   *
-   * NOTE: This method respects API key aliases using `x-lookup` property
-   *       from OpenAPI specification.
-   *
-   * @param secrets Hash map from authentication name to its secret.
-   */
-  public void configureApiKeys(HashMap<String, String> secrets) {
-    for (Map.Entry<String, Authentication> authEntry : authentications.entrySet()) {
-      Authentication auth = authEntry.getValue();
-      if (auth instanceof ApiKeyAuth) {
-        String name = authEntry.getKey();
-        // respect x-lookup property
-        name = authenticationLookup.getOrDefault(name, name);
-        if (secrets.containsKey(name)) {
-          ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
-        }
-      }
-    }
-  }
-
-  /**
    * Helper method to set username for the first HTTP basic authentication.
    * @param username Username
    */
@@ -196,6 +176,28 @@ public class ApiClient {
       }
     }
     throw new RuntimeException("No API key authentication configured!");
+  }
+
+  /**
+   * Helper method to configure authentications.
+   *
+   * NOTE: This method respects API key aliases using "x-lookup" property
+   *       from OpenAPI specification.
+   *
+   * @param secrets Hash map from authentication name to its secret.
+   */
+  public void configureApiKeys(HashMap<String, String> secrets) {
+    for (Map.Entry<String, Authentication> authEntry : authentications.entrySet()) {
+      Authentication auth = authEntry.getValue();
+      if (auth instanceof ApiKeyAuth) {
+        String name = authEntry.getKey();
+        // respect x-lookup property
+        name = authenticationLookup.getOrDefault(name, name);
+        if (secrets.containsKey(name)) {
+          ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
+        }
+      }
+    }
   }
 
   /**
