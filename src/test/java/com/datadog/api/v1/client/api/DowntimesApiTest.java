@@ -85,7 +85,7 @@ public class DowntimesApiTest extends V1ApiTest {
             .recurrence(recurrence);
 
         // test creating downtime
-        Downtime obtained = api.createDowntime(downtime).execute();
+        Downtime obtained = api.createDowntime().downtime(downtime).execute();
         Long downtimeId = obtained.getId();
         deleteDowntimes.add(downtimeId);
 
@@ -102,7 +102,7 @@ public class DowntimesApiTest extends V1ApiTest {
 
         // test updating downtime
         downtime.setMessage("New message");
-        obtained = api.updateDowntime(downtimeId, downtime).execute();
+        obtained = api.updateDowntime(downtimeId).downtime(downtime).execute();
 
         assertEquals(testingDowntimeScope, obtained.getScope());
         assertEquals("New message", obtained.getMessage());
@@ -129,7 +129,7 @@ public class DowntimesApiTest extends V1ApiTest {
             Downtime downtime = new Downtime()
                 .scope(testingDowntimeScope)
                 .message(prefix + testingDowntimeMessage);
-            Downtime created = api.createDowntime(downtime).execute();
+            Downtime created = api.createDowntime().downtime(downtime).execute();
             deleteDowntimes.add(created.getId());
         }
         List<Downtime> allDowntimes = api.getAllDowntimes().currentOnly(false).execute();
@@ -156,12 +156,12 @@ public class DowntimesApiTest extends V1ApiTest {
             Downtime downtime = new Downtime()
                 .scope(prefix == "3" ? differentScope : testingDowntimeScope)
                 .message(prefix + testingDowntimeMessage);
-            Downtime created = api.createDowntime(downtime).execute();
+            Downtime created = api.createDowntime().downtime(downtime).execute();
             deleteDowntimes.add(created.getId());
         }
 
         // cancel downtimes 1 and 2
-        api.cancelDowntimesByScope(new CancelDowntimesByScopeRequest().scope(testingDowntimeScope.get(0))).execute();
+        api.cancelDowntimesByScope().cancelDowntimesByScopeRequest(new CancelDowntimesByScopeRequest().scope(testingDowntimeScope.get(0))).execute();
 
         // verify that downtimes 1 and 2 are canceled
         List<Downtime> allDowntimes = api.getAllDowntimes().currentOnly(false).execute();
