@@ -70,7 +70,7 @@ public class OrgsApiTest extends V1ApiTest{
         .name("My Org")
         .billing(new OrgBilling().type("parent_billing"))
         .subscription(new OrgSubscription().type("pro"));
-        OrgCreateResponse response = api.createChildOrg().orgCreateBody(orgCreateBody).execute();
+        OrgCreateResponse response = api.createChildOrg().body(orgCreateBody).execute();
 
         // Assert values match whats in create_child_org.json
         assertEquals(response.getOrg().getName(), "My Org");
@@ -144,7 +144,7 @@ public class OrgsApiTest extends V1ApiTest{
                 new OrgSettingsSamlAutocreateUsersDomains().enabled(true).addDomainsItem("my-org.com").addDomainsItem("example.com")
             )
         );
-        OrgResponse response = api.updateOrg(publicId).org(org).execute();
+        OrgResponse response = api.updateOrg(publicId).body(org).execute();
 
         // Assert values match whats in update_orgs.json fixture
         assertEquals(response.getOrg().getPublicId(), "axd2s");
