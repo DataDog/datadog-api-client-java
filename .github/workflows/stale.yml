@@ -28,11 +28,12 @@ jobs:
 
             1. Comment that the issue is still reproducible and include updated details requested in the issue template.
         days-before-stale: 30
+        days-before-close: 99999
         stale-issue-label: 'stale'
         exempt-issue-label: 'stale/exempt'
         stale-pr-message: >-
           This issue has been automatically marked as stale because it has not had activity in the last 30 days.
 
-          Note that the issue will not be automatically closed, but this notification will remind us to investigate why there'sbeen inactivity.
+          Note that the issue will not be automatically closed, but this notification will remind us to investigate why there's been inactivity.
         stale-pr-label: 'stale'
         exempt-pr-label: 'stale/exempt'
