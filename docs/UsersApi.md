@@ -15,7 +15,7 @@ Method | HTTP request | Description
 ## createUser
 
 
-> UserResponse createUser(user).execute();
+> UserResponse createUser().user(user).execute();
 
 Create user
 
@@ -66,7 +66,8 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         User user = new User(); // User | User object that needs to be created
         try { 
-            UserResponse result = api.createUser(user)
+            UserResponse result = api.createUser()
+                .user(user)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -364,7 +365,7 @@ Name | Type | Description  | Notes
 ## updateUser
 
 
-> UserResponse updateUser(userHandle, user).execute();
+> UserResponse updateUser(userHandle).user(user).execute();
 
 Update user
 
@@ -417,7 +418,8 @@ public class Example {
         String userHandle = test@datadoghq.com; // String | The id of the user
         User user = new User(); // User | Description of the update
         try { 
-            UserResponse result = api.updateUser(userHandle, user)
+            UserResponse result = api.updateUser(userHandle)
+                .user(user)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {

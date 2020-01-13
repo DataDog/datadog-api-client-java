@@ -83,7 +83,7 @@ public class MonitorsApiTest extends V1ApiTest {
             .options(options);
 
         // test creating monitor
-        Monitor obtained = api.createMonitor(monitor).execute();
+        Monitor obtained = api.createMonitor().monitor(monitor).execute();
         Long monitorId = obtained.getId();
         deleteMonitors.add(monitorId);
 
@@ -99,7 +99,7 @@ public class MonitorsApiTest extends V1ApiTest {
 
         // test updating monitor
         obtained.setName("New name");
-        obtained = api.editMonitor(monitorId, obtained).execute();
+        obtained = api.editMonitor(monitorId).monitor(obtained).execute();
 
         assertEquals("New name", obtained.getName());
         assertEquals(testingMonitorType, obtained.getType());
@@ -131,7 +131,7 @@ public class MonitorsApiTest extends V1ApiTest {
                 .name(prefix + testingMonitorName)
                 .type(testingMonitorType)
                 .query(testingMonitorQuery);
-            Monitor created = api.createMonitor(monitor).execute();
+            Monitor created = api.createMonitor().monitor(monitor).execute();
             deleteMonitors.add(created.getId());
         }
         List<Monitor> allMonitors = api.getAllMonitors().execute();
@@ -165,11 +165,11 @@ public class MonitorsApiTest extends V1ApiTest {
             .options(options);
 
         // if this doesn't throw exception, everything is fine
-        api.validateMonitor(monitor).execute();
+        api.validateMonitor().monitor(monitor).execute();
 
         monitor.setQuery("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} ><><>< whaaaaaaa?");
         try {
-            api.validateMonitor(monitor).execute();
+            api.validateMonitor().monitor(monitor).execute();
             // junit 4 doesn't have better support for asserting that method threw an error
             assertTrue(false);
         } catch (ApiException e) {

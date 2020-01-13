@@ -79,8 +79,18 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey apiKey) thro
   public class APIcreateAPIKeyRequest {
     private ApiKey apiKey;
 
-    private APIcreateAPIKeyRequest(ApiKey apiKey) {
+    private APIcreateAPIKeyRequest() {
+    }
+    
+
+    /**
+     * Set apiKey
+     * @param apiKey  (optional)
+     * @return APIcreateAPIKeyRequest
+     */
+    public APIcreateAPIKeyRequest apiKey(ApiKey apiKey) {
       this.apiKey = apiKey;
+      return this;
     }
     
 
@@ -126,15 +136,14 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey apiKey) thro
   /**
    * Create an API key with a given name.
    * ## Overview Creates an API key ### ARGUMENTS * **&#x60;name&#x60;** [*required*]: Name of your API key.
-   * @param apiKey  (require)
    * @return createAPIKeyRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIcreateAPIKeyRequest createAPIKey(ApiKey apiKey) throws ApiException {
-    return new APIcreateAPIKeyRequest(apiKey);
+  public APIcreateAPIKeyRequest createAPIKey() throws ApiException {
+    return new APIcreateAPIKeyRequest();
   }
 
 private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(ApplicationKey applicationKey) throws ApiException {
@@ -172,8 +181,18 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
   public class APIcreateApplicationKeyRequest {
     private ApplicationKey applicationKey;
 
-    private APIcreateApplicationKeyRequest(ApplicationKey applicationKey) {
+    private APIcreateApplicationKeyRequest() {
+    }
+    
+
+    /**
+     * Set applicationKey
+     * @param applicationKey  (optional)
+     * @return APIcreateApplicationKeyRequest
+     */
+    public APIcreateApplicationKeyRequest applicationKey(ApplicationKey applicationKey) {
       this.applicationKey = applicationKey;
+      return this;
     }
     
 
@@ -219,15 +238,14 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
   /**
    * Create an application key with a given name.
    * ## Overview Create an application key with a given name. ### ARGUMENTS * **&#x60;name&#x60;** [*required*]: Name of your application key.
-   * @param applicationKey  (require)
    * @return createApplicationKeyRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIcreateApplicationKeyRequest createApplicationKey(ApplicationKey applicationKey) throws ApiException {
-    return new APIcreateApplicationKeyRequest(applicationKey);
+  public APIcreateApplicationKeyRequest createApplicationKey() throws ApiException {
+    return new APIcreateApplicationKeyRequest();
   }
 
 private ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws ApiException {
@@ -319,7 +337,6 @@ private ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws 
    * Delete a given API key.
    * ## Overview Delete a given API key. ### ARGUMENTS This endpoint takes no JSON arguments.
    * @param key The specific API key you are working with (required)
-   
    * @return deleteAPIKeyRequest
    * @throws ApiException if fails to make API call
    
@@ -419,7 +436,6 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
    * Delete a given application key.
    * ## Overview Delete a given application key. ### ARGUMENTS This endpoint takes no JSON arguments.
    * @param key The specific APP key you are working with (required)
-   
    * @return deleteApplicationKeyRequest
    * @throws ApiException if fails to make API call
    
@@ -472,9 +488,19 @@ private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey ap
     private String key;
     private ApiKey apiKey;
 
-    private APIeditAPIKeyRequest(String key, ApiKey apiKey) {
+    private APIeditAPIKeyRequest(String key) {
       this.key = key;
+    }
+    
+
+    /**
+     * Set apiKey
+     * @param apiKey  (optional)
+     * @return APIeditAPIKeyRequest
+     */
+    public APIeditAPIKeyRequest apiKey(ApiKey apiKey) {
       this.apiKey = apiKey;
+      return this;
     }
     
 
@@ -521,15 +547,14 @@ private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey ap
    * Edit an API key name.
    * ## Overview Edit an API key name. ### ARGUMENTS * **&#x60;name&#x60;** [*required*]: Name of your API key.
    * @param key The specific API key you are working with (required)
-   * @param apiKey  (require)
    * @return editAPIKeyRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIeditAPIKeyRequest editAPIKey(String key, ApiKey apiKey) throws ApiException {
-    return new APIeditAPIKeyRequest(key, apiKey);
+  public APIeditAPIKeyRequest editAPIKey(String key) throws ApiException {
+    return new APIeditAPIKeyRequest(key);
   }
 
 private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(String key, ApplicationKey applicationKey) throws ApiException {
@@ -574,9 +599,19 @@ private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(Strin
     private String key;
     private ApplicationKey applicationKey;
 
-    private APIeditApplicationKeyRequest(String key, ApplicationKey applicationKey) {
+    private APIeditApplicationKeyRequest(String key) {
       this.key = key;
+    }
+    
+
+    /**
+     * Set applicationKey
+     * @param applicationKey  (optional)
+     * @return APIeditApplicationKeyRequest
+     */
+    public APIeditApplicationKeyRequest applicationKey(ApplicationKey applicationKey) {
       this.applicationKey = applicationKey;
+      return this;
     }
     
 
@@ -623,15 +658,14 @@ private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(Strin
    * Edit an application key name.
    * ## Overview Edit an application key name. ### ARGUMENTS * **&#x60;name&#x60;** [*required*]: Name of your application key.
    * @param key The specific APP key you are working with (required)
-   * @param applicationKey  (require)
    * @return editApplicationKeyRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIeditApplicationKeyRequest editApplicationKey(String key, ApplicationKey applicationKey) throws ApiException {
-    return new APIeditApplicationKeyRequest(key, applicationKey);
+  public APIeditApplicationKeyRequest editApplicationKey(String key) throws ApiException {
+    return new APIeditApplicationKeyRequest(key);
   }
 
 private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws ApiException {
@@ -723,7 +757,6 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
    * Get a given API key.
    * ## Overview Get a given API key. ### ARGUMENTS This endpoint takes no JSON arguments.
    * @param key The specific API key you are working with (required)
-   
    * @return getAPIKeyRequest
    * @throws ApiException if fails to make API call
    
@@ -812,7 +845,6 @@ private ApiResponse<ApiKeyListResponse> getAllAPIKeysWithHttpInfo() throws ApiEx
   /**
    * Get all API keys available for your account.
    * ## Overview Get all API keys available for your account. ### ARGUMENTS This endpoint takes no JSON arguments.
-   
    * @return getAllAPIKeysRequest
    * @throws ApiException if fails to make API call
    
@@ -901,7 +933,6 @@ private ApiResponse<ApplicationKeyListResponse> getAllApplicationKeysWithHttpInf
   /**
    * Get all application keys available for your account.
    * ## Overview Get all application keys available for your account. ### ARGUMENTS This endpoint takes no JSON arguments.
-   
    * @return getAllApplicationKeysRequest
    * @throws ApiException if fails to make API call
    
@@ -1001,7 +1032,6 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
    * Get a given application key.
    * ## Overview Get a given application key. ### ARGUMENTS This endpoint takes no JSON arguments.
    * @param key The specific APP key you are working with (required)
-   
    * @return getApplicationKeyRequest
    * @throws ApiException if fails to make API call
    

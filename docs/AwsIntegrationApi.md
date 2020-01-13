@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## createAWSAccount
 
 
-> AWSAccountCreateResponse createAWSAccount(awSAccount).execute();
+> AWSAccountCreateResponse createAWSAccount().awSAccount(awSAccount).execute();
 
 Create an AWS Account
 
@@ -79,7 +79,8 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
         try { 
-            AWSAccountCreateResponse result = api.createAWSAccount(awSAccount)
+            AWSAccountCreateResponse result = api.createAWSAccount()
+                .awSAccount(awSAccount)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -124,7 +125,7 @@ Name | Type | Description  | Notes
 ## deleteAWSAccount
 
 
-> Object deleteAWSAccount(awSAccount).execute();
+> Object deleteAWSAccount().awSAccount(awSAccount).execute();
 
 Delete an AWS Account
 
@@ -168,7 +169,8 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
         try { 
-            Object result = api.deleteAWSAccount(awSAccount)
+            Object result = api.deleteAWSAccount()
+                .awSAccount(awSAccount)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -213,7 +215,7 @@ Name | Type | Description  | Notes
 ## generateNewAWSExternalID
 
 
-> AWSAccountCreateResponse generateNewAWSExternalID(awSAccount).execute();
+> AWSAccountCreateResponse generateNewAWSExternalID().awSAccount(awSAccount).execute();
 
 Generate New External ID
 
@@ -257,7 +259,8 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount awSAccount = new AWSAccount(); // AWSAccount | Generate New AWS External ID request object
         try { 
-            AWSAccountCreateResponse result = api.generateNewAWSExternalID(awSAccount)
+            AWSAccountCreateResponse result = api.generateNewAWSExternalID()
+                .awSAccount(awSAccount)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -481,7 +484,7 @@ This endpoint does not need any parameter.
 ## updateAWSAccount
 
 
-> Object updateAWSAccount(awSAccount).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
+> Object updateAWSAccount().awSAccount(awSAccount).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
 Update an AWS Account
 
@@ -557,7 +560,8 @@ public class Example {
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name. *It is required if account_id is specified.*
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.*
         try { 
-            Object result = api.updateAWSAccount(awSAccount)
+            Object result = api.updateAWSAccount()
+                .awSAccount(awSAccount)
                 .accountId(accountId)
                 .roleName(roleName)
                 .accessKeyId(accessKeyId)

@@ -97,7 +97,7 @@ null (empty response body)
 ## cancelDowntimesByScope
 
 
-> CanceledDowntimesIds cancelDowntimesByScope(cancelDowntimesByScopeRequest).execute();
+> CanceledDowntimesIds cancelDowntimesByScope().cancelDowntimesByScopeRequest(cancelDowntimesByScopeRequest).execute();
 
 Cancel downtimes by scope
 
@@ -138,7 +138,8 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         CancelDowntimesByScopeRequest cancelDowntimesByScopeRequest = new CancelDowntimesByScopeRequest(); // CancelDowntimesByScopeRequest | Scope to cancel downtimes for
         try { 
-            CanceledDowntimesIds result = api.cancelDowntimesByScope(cancelDowntimesByScopeRequest)
+            CanceledDowntimesIds result = api.cancelDowntimesByScope()
+                .cancelDowntimesByScopeRequest(cancelDowntimesByScopeRequest)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -183,7 +184,7 @@ Name | Type | Description  | Notes
 ## createDowntime
 
 
-> Downtime createDowntime(downtime).execute();
+> Downtime createDowntime().downtime(downtime).execute();
 
 Schedule a downtime
 
@@ -260,7 +261,8 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Downtime downtime = new Downtime(); // Downtime | Downtime request object
         try { 
-            Downtime result = api.createDowntime(downtime)
+            Downtime result = api.createDowntime()
+                .downtime(downtime)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -473,7 +475,7 @@ Name | Type | Description  | Notes
 ## updateDowntime
 
 
-> Downtime updateDowntime(downtimeId, downtime).execute();
+> Downtime updateDowntime(downtimeId).downtime(downtime).execute();
 
 Update a downtime
 
@@ -556,7 +558,8 @@ public class Example {
         Long downtimeId = 123456; // Long | ID of the downtime to update
         Downtime downtime = new Downtime(); // Downtime | Downtime request object
         try { 
-            Downtime result = api.updateDowntime(downtimeId, downtime)
+            Downtime result = api.updateDowntime(downtimeId)
+                .downtime(downtime)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {

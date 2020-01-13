@@ -62,7 +62,7 @@ public class KeysApiTest extends V1ApiTest{
         stubFor(stub);
 
         ApiKey apiKey = new ApiKey().name(apiKeyName);
-        ApiKeyResponse response = api.createAPIKey(apiKey).execute();
+        ApiKeyResponse response = api.createAPIKey().apiKey(apiKey).execute();
 
         // Assert values match whats in create_api_key.json
         assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -88,7 +88,7 @@ public class KeysApiTest extends V1ApiTest{
         stubFor(stub);
 
         ApplicationKey applicationKey = new ApplicationKey().name(appKeyName);
-        ApplicationKeyResponse response = api.createApplicationKey(applicationKey).execute();
+        ApplicationKeyResponse response = api.createApplicationKey().applicationKey(applicationKey).execute();
 
         // Assert values match whats in create_app_key.json
         assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -163,7 +163,7 @@ public class KeysApiTest extends V1ApiTest{
 
         // We're mocking the response so the query param we select can be anything
         ApiKey apiKey = new ApiKey().name("TestName");
-        ApiKeyResponse response = api.editAPIKey(apiKeyName, apiKey).execute();
+        ApiKeyResponse response = api.editAPIKey(apiKeyName).apiKey(apiKey).execute();
 
         // Assert values match whats in edit_api_key.json
         assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -191,7 +191,7 @@ public class KeysApiTest extends V1ApiTest{
         stubFor(stub);
 
         ApplicationKey applicationKey = new ApplicationKey().name("<NEW_APP_KEY_NAME>");
-        ApplicationKeyResponse response = api.editApplicationKey(appKeyName, applicationKey).execute();
+        ApplicationKeyResponse response = api.editApplicationKey(appKeyName).applicationKey(applicationKey).execute();
 
         // Assert values match whats in edit_api_key.json
         assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
