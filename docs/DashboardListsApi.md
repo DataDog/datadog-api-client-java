@@ -15,7 +15,7 @@ Method | HTTP request | Description
 ## createDashboardList
 
 
-> DashboardList createDashboardList(dashboardList).execute();
+> DashboardList createDashboardList().dashboardList(dashboardList).execute();
 
 Create a dashboard list
 
@@ -55,7 +55,8 @@ public class Example {
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         DashboardList dashboardList = new DashboardList(); // DashboardList | DashboardList request object
         try { 
-            DashboardList result = api.createDashboardList(dashboardList)
+            DashboardList result = api.createDashboardList()
+                .dashboardList(dashboardList)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -351,7 +352,7 @@ Name | Type | Description  | Notes
 ## updateDashboardList
 
 
-> DashboardList updateDashboardList(listId, dashboardList).execute();
+> DashboardList updateDashboardList(listId).dashboardList(dashboardList).execute();
 
 Update a dashboard list
 
@@ -392,7 +393,8 @@ public class Example {
         Long listId = 56L; // Long | ID of the dashboard list to update
         DashboardList dashboardList = new DashboardList(); // DashboardList | DashboardList request object
         try { 
-            DashboardList result = api.updateDashboardList(listId, dashboardList)
+            DashboardList result = api.updateDashboardList(listId)
+                .dashboardList(dashboardList)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {

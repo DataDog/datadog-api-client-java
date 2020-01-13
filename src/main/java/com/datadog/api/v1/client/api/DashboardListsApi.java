@@ -80,8 +80,18 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
   public class APIcreateDashboardListRequest {
     private DashboardList dashboardList;
 
-    private APIcreateDashboardListRequest(DashboardList dashboardList) {
+    private APIcreateDashboardListRequest() {
+    }
+    
+
+    /**
+     * Set dashboardList
+     * @param dashboardList DashboardList request object (required)
+     * @return APIcreateDashboardListRequest
+     */
+    public APIcreateDashboardListRequest dashboardList(DashboardList dashboardList) {
       this.dashboardList = dashboardList;
+      return this;
     }
     
 
@@ -125,15 +135,14 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
   /**
    * Create a dashboard list
    * ### Overview Create an empty dashboard list. ### Arguments * **name** [*required*]: The name of the dashboard list.
-   * @param dashboardList DashboardList request object (require)
    * @return createDashboardListRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIcreateDashboardListRequest createDashboardList(DashboardList dashboardList) throws ApiException {
-    return new APIcreateDashboardListRequest(dashboardList);
+  public APIcreateDashboardListRequest createDashboardList() throws ApiException {
+    return new APIcreateDashboardListRequest();
   }
 
 private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo(Long listId) throws ApiException {
@@ -223,7 +232,6 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
    * Delete a dashboard list
    * ### Overview Delete a dashboard list. ### Arguments This endpoint takes no JSON arguments.
    * @param listId ID of the dashboard list to delete (required)
-   
    * @return deleteDashboardListRequest
    * @throws ApiException if fails to make API call
    
@@ -312,7 +320,6 @@ private ApiResponse<DashboardListListResponse> getAllDashboardListsWithHttpInfo(
   /**
    * Get all dashboard lists
    * ### Overview Fetch all of your existing dashboard list definitions. ### Arguments This endpoint takes no JSON arguments.
-   
    * @return getAllDashboardListsRequest
    * @throws ApiException if fails to make API call
    
@@ -410,7 +417,6 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
    * Get a dashboard list
    * ### Overview Fetch an existing dashboard list&#39;s definition. ### Arguments This endpoint takes no JSON arguments.
    * @param listId ID of the dashboard list to fetch (required)
-   
    * @return getDashboardListRequest
    * @throws ApiException if fails to make API call
    
@@ -468,9 +474,19 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
     private Long listId;
     private DashboardList dashboardList;
 
-    private APIupdateDashboardListRequest(Long listId, DashboardList dashboardList) {
+    private APIupdateDashboardListRequest(Long listId) {
       this.listId = listId;
+    }
+    
+
+    /**
+     * Set dashboardList
+     * @param dashboardList DashboardList request object (required)
+     * @return APIupdateDashboardListRequest
+     */
+    public APIupdateDashboardListRequest dashboardList(DashboardList dashboardList) {
       this.dashboardList = dashboardList;
+      return this;
     }
     
 
@@ -517,14 +533,13 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
    * Update a dashboard list
    * ### Overview Update the name of a dashboard list. ### Arguments * **name** [*required*]: The name of the dashboard list.
    * @param listId ID of the dashboard list to update (required)
-   * @param dashboardList DashboardList request object (require)
    * @return updateDashboardListRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIupdateDashboardListRequest updateDashboardList(Long listId, DashboardList dashboardList) throws ApiException {
-    return new APIupdateDashboardListRequest(listId, dashboardList);
+  public APIupdateDashboardListRequest updateDashboardList(Long listId) throws ApiException {
+    return new APIupdateDashboardListRequest(listId);
   }
 }

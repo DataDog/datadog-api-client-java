@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## createMonitor
 
 
-> Monitor createMonitor(monitor).execute();
+> Monitor createMonitor().monitor(monitor).execute();
 
 Create a new Monitor
 
@@ -56,7 +56,8 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Monitor monitor = new Monitor(); // Monitor | Monitor request object
         try { 
-            Monitor result = api.createMonitor(monitor)
+            Monitor result = api.createMonitor()
+                .monitor(monitor)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -186,7 +187,7 @@ Name | Type | Description  | Notes
 ## editMonitor
 
 
-> Monitor editMonitor(monitorId, monitor).execute();
+> Monitor editMonitor(monitorId).monitor(monitor).execute();
 
 Edit the specified monitor
 
@@ -227,7 +228,8 @@ public class Example {
         Long monitorId = 56L; // Long | The id of the monitor
         Monitor monitor = new Monitor(); // Monitor | Monitor request object
         try { 
-            Monitor result = api.editMonitor(monitorId, monitor)
+            Monitor result = api.editMonitor(monitorId)
+                .monitor(monitor)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -464,7 +466,7 @@ Name | Type | Description  | Notes
 ## validateMonitor
 
 
-> Monitor validateMonitor(monitor).execute();
+> Monitor validateMonitor().monitor(monitor).execute();
 
 
 
@@ -504,7 +506,8 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Monitor monitor = new Monitor(); // Monitor | Monitor request object
         try { 
-            Monitor result = api.validateMonitor(monitor)
+            Monitor result = api.validateMonitor()
+                .monitor(monitor)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {

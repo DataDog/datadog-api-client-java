@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## createChildOrg
 
 
-> OrgCreateResponse createChildOrg(orgCreateBody).execute();
+> OrgCreateResponse createChildOrg().orgCreateBody(orgCreateBody).execute();
 
 Create child-organization.
 
@@ -58,7 +58,8 @@ public class Example {
         OrgsApi apiInstance = new OrgsApi(defaultClient);
         OrgCreateBody orgCreateBody = new OrgCreateBody(); // OrgCreateBody | Org object that needs to be created
         try { 
-            OrgCreateResponse result = api.createChildOrg(orgCreateBody)
+            OrgCreateResponse result = api.createChildOrg()
+                .orgCreateBody(orgCreateBody)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -182,7 +183,7 @@ This endpoint does not need any parameter.
 ## updateOrg
 
 
-> OrgResponse updateOrg(publicId, org).execute();
+> OrgResponse updateOrg(publicId).org(org).execute();
 
 Update the organization
 
@@ -233,7 +234,8 @@ public class Example {
         String publicId = abc123; // String | The public_id of the org you are operating with
         Org org = new Org(); // Org | 
         try { 
-            OrgResponse result = api.updateOrg(publicId, org)
+            OrgResponse result = api.updateOrg(publicId)
+                .org(org)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
