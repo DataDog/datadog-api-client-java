@@ -13,7 +13,7 @@ Method | HTTP request | Description
 ## createEvent
 
 
-> EventResponse createEvent().event(event).execute();
+> EventResponse createEvent().body(body).execute();
 
 Post an event
 
@@ -88,10 +88,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         EventsApi apiInstance = new EventsApi(defaultClient);
-        Event event = new Event(); // Event | Event request object
+        Event body = new Event(); // Event | Event request object
         try { 
             EventResponse result = api.createEvent()
-                .event(event)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -110,7 +110,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event** | [**Event**](Event.md)| Event request object |
+ **body** | [**Event**](Event.md)| Event request object |
 
 ### Return type
 

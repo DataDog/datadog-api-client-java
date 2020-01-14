@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## createAWSAccount
 
 
-> AWSAccountCreateResponse createAWSAccount().awSAccount(awSAccount).execute();
+> AWSAccountCreateResponse createAWSAccount().body(body).execute();
 
 Create an AWS Account
 
@@ -77,10 +77,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
+        AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
         try { 
             AWSAccountCreateResponse result = api.createAWSAccount()
-                .awSAccount(awSAccount)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -99,7 +99,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **awSAccount** | [**AWSAccount**](AWSAccount.md)| AWS request object |
+ **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
 
 ### Return type
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 ## deleteAWSAccount
 
 
-> Object deleteAWSAccount().awSAccount(awSAccount).execute();
+> Object deleteAWSAccount().body(body).execute();
 
 Delete an AWS Account
 
@@ -167,10 +167,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
+        AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
         try { 
             Object result = api.deleteAWSAccount()
-                .awSAccount(awSAccount)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -189,7 +189,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **awSAccount** | [**AWSAccount**](AWSAccount.md)| AWS request object |
+ **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
 
 ### Return type
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 ## generateNewAWSExternalID
 
 
-> AWSAccountCreateResponse generateNewAWSExternalID().awSAccount(awSAccount).execute();
+> AWSAccountCreateResponse generateNewAWSExternalID().body(body).execute();
 
 Generate New External ID
 
@@ -257,10 +257,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount awSAccount = new AWSAccount(); // AWSAccount | Generate New AWS External ID request object
+        AWSAccount body = new AWSAccount(); // AWSAccount | Generate New AWS External ID request object
         try { 
             AWSAccountCreateResponse result = api.generateNewAWSExternalID()
-                .awSAccount(awSAccount)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -279,7 +279,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **awSAccount** | [**AWSAccount**](AWSAccount.md)| Generate New AWS External ID request object |
+ **body** | [**AWSAccount**](AWSAccount.md)| Generate New AWS External ID request object |
 
 ### Return type
 
@@ -484,7 +484,7 @@ This endpoint does not need any parameter.
 ## updateAWSAccount
 
 
-> Object updateAWSAccount().awSAccount(awSAccount).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
+> Object updateAWSAccount().body(body).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
 Update an AWS Account
 
@@ -555,13 +555,13 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
+        AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
         String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name. *It is required if account_id is specified.*
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.*
         try { 
             Object result = api.updateAWSAccount()
-                .awSAccount(awSAccount)
+                .body(body)
                 .accountId(accountId)
                 .roleName(roleName)
                 .accessKeyId(accessKeyId)
@@ -583,7 +583,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **awSAccount** | [**AWSAccount**](AWSAccount.md)| AWS request object |
+ **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
  **accountId** | **String**| Only return AWS accounts that matches this account_id. | [optional]
  **roleName** | **String**| Only return AWS accounts that matches this role_name. *It is required if account_id is specified.* | [optional]
  **accessKeyId** | **String**| Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.* | [optional]

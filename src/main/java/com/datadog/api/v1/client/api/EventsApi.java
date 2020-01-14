@@ -40,12 +40,12 @@ public class EventsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<EventResponse> createEventWithHttpInfo(Event event) throws ApiException {
-    Object localVarPostBody = event;
+private ApiResponse<EventResponse> createEventWithHttpInfo(Event body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'event' is set
-    if (event == null) {
-      throw new ApiException(400, "Missing the required parameter 'event' when calling createEvent");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createEvent");
     }
     
     // create path and map variables
@@ -78,19 +78,19 @@ private ApiResponse<EventResponse> createEventWithHttpInfo(Event event) throws A
   }
 
   public class APIcreateEventRequest {
-    private Event event;
+    private Event body;
 
     private APIcreateEventRequest() {
     }
     
 
     /**
-     * Set event
-     * @param event Event request object (required)
+     * Set body
+     * @param body Event request object (required)
      * @return APIcreateEventRequest
      */
-    public APIcreateEventRequest event(Event event) {
-      this.event = event;
+    public APIcreateEventRequest body(Event body) {
+      this.body = body;
       return this;
     }
     
@@ -126,7 +126,7 @@ private ApiResponse<EventResponse> createEventWithHttpInfo(Event event) throws A
      */
     
     public ApiResponse<EventResponse> executeWithHttpInfo() throws ApiException {
-      return createEventWithHttpInfo(event);
+      return createEventWithHttpInfo(body);
     }
   }
 

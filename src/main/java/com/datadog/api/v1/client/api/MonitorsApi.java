@@ -39,12 +39,12 @@ public class MonitorsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor monitor) throws ApiException {
-    Object localVarPostBody = monitor;
+private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'monitor' is set
-    if (monitor == null) {
-      throw new ApiException(400, "Missing the required parameter 'monitor' when calling createMonitor");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createMonitor");
     }
     
     // create path and map variables
@@ -77,19 +77,19 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor monitor) throws A
   }
 
   public class APIcreateMonitorRequest {
-    private Monitor monitor;
+    private Monitor body;
 
     private APIcreateMonitorRequest() {
     }
     
 
     /**
-     * Set monitor
-     * @param monitor Monitor request object (required)
+     * Set body
+     * @param body Monitor request object (required)
      * @return APIcreateMonitorRequest
      */
-    public APIcreateMonitorRequest monitor(Monitor monitor) {
-      this.monitor = monitor;
+    public APIcreateMonitorRequest body(Monitor body) {
+      this.body = body;
       return this;
     }
     
@@ -125,7 +125,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor monitor) throws A
      */
     
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
-      return createMonitorWithHttpInfo(monitor);
+      return createMonitorWithHttpInfo(body);
     }
   }
 
@@ -241,17 +241,17 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
     return new APIdeleteMonitorRequest(monitorId);
   }
 
-private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor monitor) throws ApiException {
-    Object localVarPostBody = monitor;
+private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'monitorId' is set
     if (monitorId == null) {
       throw new ApiException(400, "Missing the required parameter 'monitorId' when calling editMonitor");
     }
     
-    // verify the required parameter 'monitor' is set
-    if (monitor == null) {
-      throw new ApiException(400, "Missing the required parameter 'monitor' when calling editMonitor");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling editMonitor");
     }
     
     // create path and map variables
@@ -286,7 +286,7 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor mon
 
   public class APIeditMonitorRequest {
     private Long monitorId;
-    private Monitor monitor;
+    private Monitor body;
 
     private APIeditMonitorRequest(Long monitorId) {
       this.monitorId = monitorId;
@@ -294,12 +294,12 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor mon
     
 
     /**
-     * Set monitor
-     * @param monitor Monitor request object (required)
+     * Set body
+     * @param body Monitor request object (required)
      * @return APIeditMonitorRequest
      */
-    public APIeditMonitorRequest monitor(Monitor monitor) {
-      this.monitor = monitor;
+    public APIeditMonitorRequest body(Monitor body) {
+      this.body = body;
       return this;
     }
     
@@ -339,7 +339,7 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor mon
      */
     
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
-      return editMonitorWithHttpInfo(monitorId, monitor);
+      return editMonitorWithHttpInfo(monitorId, body);
     }
   }
 
@@ -618,12 +618,12 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     return new APIgetMonitorRequest(monitorId);
   }
 
-private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor monitor) throws ApiException {
-    Object localVarPostBody = monitor;
+private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'monitor' is set
-    if (monitor == null) {
-      throw new ApiException(400, "Missing the required parameter 'monitor' when calling validateMonitor");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling validateMonitor");
     }
     
     // create path and map variables
@@ -656,19 +656,19 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor monitor) throws
   }
 
   public class APIvalidateMonitorRequest {
-    private Monitor monitor;
+    private Monitor body;
 
     private APIvalidateMonitorRequest() {
     }
     
 
     /**
-     * Set monitor
-     * @param monitor Monitor request object (required)
+     * Set body
+     * @param body Monitor request object (required)
      * @return APIvalidateMonitorRequest
      */
-    public APIvalidateMonitorRequest monitor(Monitor monitor) {
-      this.monitor = monitor;
+    public APIvalidateMonitorRequest body(Monitor body) {
+      this.body = body;
       return this;
     }
     
@@ -704,7 +704,7 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor monitor) throws
      */
     
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
-      return validateMonitorWithHttpInfo(monitor);
+      return validateMonitorWithHttpInfo(body);
     }
   }
 

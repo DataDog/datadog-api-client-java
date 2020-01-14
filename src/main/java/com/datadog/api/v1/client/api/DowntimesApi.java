@@ -134,12 +134,12 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
     return new APIcancelDowntimeRequest(downtimeId);
   }
 
-private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(CancelDowntimesByScopeRequest cancelDowntimesByScopeRequest) throws ApiException {
-    Object localVarPostBody = cancelDowntimesByScopeRequest;
+private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(CancelDowntimesByScopeRequest body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'cancelDowntimesByScopeRequest' is set
-    if (cancelDowntimesByScopeRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'cancelDowntimesByScopeRequest' when calling cancelDowntimesByScope");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling cancelDowntimesByScope");
     }
     
     // create path and map variables
@@ -172,19 +172,19 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
   }
 
   public class APIcancelDowntimesByScopeRequest {
-    private CancelDowntimesByScopeRequest cancelDowntimesByScopeRequest;
+    private CancelDowntimesByScopeRequest body;
 
     private APIcancelDowntimesByScopeRequest() {
     }
     
 
     /**
-     * Set cancelDowntimesByScopeRequest
-     * @param cancelDowntimesByScopeRequest Scope to cancel downtimes for (required)
+     * Set body
+     * @param body Scope to cancel downtimes for (required)
      * @return APIcancelDowntimesByScopeRequest
      */
-    public APIcancelDowntimesByScopeRequest cancelDowntimesByScopeRequest(CancelDowntimesByScopeRequest cancelDowntimesByScopeRequest) {
-      this.cancelDowntimesByScopeRequest = cancelDowntimesByScopeRequest;
+    public APIcancelDowntimesByScopeRequest body(CancelDowntimesByScopeRequest body) {
+      this.body = body;
       return this;
     }
     
@@ -222,7 +222,7 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
      */
     
     public ApiResponse<CanceledDowntimesIds> executeWithHttpInfo() throws ApiException {
-      return cancelDowntimesByScopeWithHttpInfo(cancelDowntimesByScopeRequest);
+      return cancelDowntimesByScopeWithHttpInfo(body);
     }
   }
 
@@ -239,12 +239,12 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
     return new APIcancelDowntimesByScopeRequest();
   }
 
-private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime downtime) throws ApiException {
-    Object localVarPostBody = downtime;
+private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'downtime' is set
-    if (downtime == null) {
-      throw new ApiException(400, "Missing the required parameter 'downtime' when calling createDowntime");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createDowntime");
     }
     
     // create path and map variables
@@ -277,19 +277,19 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime downtime) thro
   }
 
   public class APIcreateDowntimeRequest {
-    private Downtime downtime;
+    private Downtime body;
 
     private APIcreateDowntimeRequest() {
     }
     
 
     /**
-     * Set downtime
-     * @param downtime Downtime request object (required)
+     * Set body
+     * @param body Downtime request object (required)
      * @return APIcreateDowntimeRequest
      */
-    public APIcreateDowntimeRequest downtime(Downtime downtime) {
-      this.downtime = downtime;
+    public APIcreateDowntimeRequest body(Downtime body) {
+      this.body = body;
       return this;
     }
     
@@ -325,7 +325,7 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime downtime) thro
      */
     
     public ApiResponse<Downtime> executeWithHttpInfo() throws ApiException {
-      return createDowntimeWithHttpInfo(downtime);
+      return createDowntimeWithHttpInfo(body);
     }
   }
 
@@ -536,17 +536,17 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
     return new APIgetDowntimeRequest(downtimeId);
   }
 
-private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downtime downtime) throws ApiException {
-    Object localVarPostBody = downtime;
+private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downtime body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'downtimeId' is set
     if (downtimeId == null) {
       throw new ApiException(400, "Missing the required parameter 'downtimeId' when calling updateDowntime");
     }
     
-    // verify the required parameter 'downtime' is set
-    if (downtime == null) {
-      throw new ApiException(400, "Missing the required parameter 'downtime' when calling updateDowntime");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateDowntime");
     }
     
     // create path and map variables
@@ -581,7 +581,7 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
 
   public class APIupdateDowntimeRequest {
     private Long downtimeId;
-    private Downtime downtime;
+    private Downtime body;
 
     private APIupdateDowntimeRequest(Long downtimeId) {
       this.downtimeId = downtimeId;
@@ -589,12 +589,12 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
     
 
     /**
-     * Set downtime
-     * @param downtime Downtime request object (required)
+     * Set body
+     * @param body Downtime request object (required)
      * @return APIupdateDowntimeRequest
      */
-    public APIupdateDowntimeRequest downtime(Downtime downtime) {
-      this.downtime = downtime;
+    public APIupdateDowntimeRequest body(Downtime body) {
+      this.body = body;
       return this;
     }
     
@@ -632,7 +632,7 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
      */
     
     public ApiResponse<Downtime> executeWithHttpInfo() throws ApiException {
-      return updateDowntimeWithHttpInfo(downtimeId, downtime);
+      return updateDowntimeWithHttpInfo(downtimeId, body);
     }
   }
 
