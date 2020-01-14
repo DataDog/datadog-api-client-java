@@ -40,12 +40,12 @@ public class UsersApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<UserResponse> createUserWithHttpInfo(User user) throws ApiException {
-    Object localVarPostBody = user;
+private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'user' is set
-    if (user == null) {
-      throw new ApiException(400, "Missing the required parameter 'user' when calling createUser");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createUser");
     }
     
     // create path and map variables
@@ -78,19 +78,19 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User user) throws ApiEx
   }
 
   public class APIcreateUserRequest {
-    private User user;
+    private User body;
 
     private APIcreateUserRequest() {
     }
     
 
     /**
-     * Set user
-     * @param user User object that needs to be created (required)
+     * Set body
+     * @param body User object that needs to be created (required)
      * @return APIcreateUserRequest
      */
-    public APIcreateUserRequest user(User user) {
-      this.user = user;
+    public APIcreateUserRequest body(User body) {
+      this.body = body;
       return this;
     }
     
@@ -128,7 +128,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User user) throws ApiEx
      */
     
     public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
-      return createUserWithHttpInfo(user);
+      return createUserWithHttpInfo(body);
     }
   }
 
@@ -427,17 +427,17 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
     return new APIgetUserRequest(userHandle);
   }
 
-private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User user) throws ApiException {
-    Object localVarPostBody = user;
+private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'userHandle' is set
     if (userHandle == null) {
       throw new ApiException(400, "Missing the required parameter 'userHandle' when calling updateUser");
     }
     
-    // verify the required parameter 'user' is set
-    if (user == null) {
-      throw new ApiException(400, "Missing the required parameter 'user' when calling updateUser");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateUser");
     }
     
     // create path and map variables
@@ -472,7 +472,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
 
   public class APIupdateUserRequest {
     private String userHandle;
-    private User user;
+    private User body;
 
     private APIupdateUserRequest(String userHandle) {
       this.userHandle = userHandle;
@@ -480,12 +480,12 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
     
 
     /**
-     * Set user
-     * @param user Description of the update (required)
+     * Set body
+     * @param body Description of the update (required)
      * @return APIupdateUserRequest
      */
-    public APIupdateUserRequest user(User user) {
-      this.user = user;
+    public APIupdateUserRequest body(User body) {
+      this.body = body;
       return this;
     }
     
@@ -523,7 +523,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
      */
     
     public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
-      return updateUserWithHttpInfo(userHandle, user);
+      return updateUserWithHttpInfo(userHandle, body);
     }
   }
 

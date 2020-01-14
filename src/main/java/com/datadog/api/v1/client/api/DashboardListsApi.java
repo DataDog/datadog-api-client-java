@@ -40,12 +40,12 @@ public class DashboardListsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList dashboardList) throws ApiException {
-    Object localVarPostBody = dashboardList;
+private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'dashboardList' is set
-    if (dashboardList == null) {
-      throw new ApiException(400, "Missing the required parameter 'dashboardList' when calling createDashboardList");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createDashboardList");
     }
     
     // create path and map variables
@@ -78,19 +78,19 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
   }
 
   public class APIcreateDashboardListRequest {
-    private DashboardList dashboardList;
+    private DashboardList body;
 
     private APIcreateDashboardListRequest() {
     }
     
 
     /**
-     * Set dashboardList
-     * @param dashboardList DashboardList request object (required)
+     * Set body
+     * @param body DashboardList request object (required)
      * @return APIcreateDashboardListRequest
      */
-    public APIcreateDashboardListRequest dashboardList(DashboardList dashboardList) {
-      this.dashboardList = dashboardList;
+    public APIcreateDashboardListRequest body(DashboardList body) {
+      this.body = body;
       return this;
     }
     
@@ -128,7 +128,7 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
      */
     
     public ApiResponse<DashboardList> executeWithHttpInfo() throws ApiException {
-      return createDashboardListWithHttpInfo(dashboardList);
+      return createDashboardListWithHttpInfo(body);
     }
   }
 
@@ -427,17 +427,17 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
     return new APIgetDashboardListRequest(listId);
   }
 
-private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, DashboardList dashboardList) throws ApiException {
-    Object localVarPostBody = dashboardList;
+private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, DashboardList body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'listId' is set
     if (listId == null) {
       throw new ApiException(400, "Missing the required parameter 'listId' when calling updateDashboardList");
     }
     
-    // verify the required parameter 'dashboardList' is set
-    if (dashboardList == null) {
-      throw new ApiException(400, "Missing the required parameter 'dashboardList' when calling updateDashboardList");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateDashboardList");
     }
     
     // create path and map variables
@@ -472,7 +472,7 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
 
   public class APIupdateDashboardListRequest {
     private Long listId;
-    private DashboardList dashboardList;
+    private DashboardList body;
 
     private APIupdateDashboardListRequest(Long listId) {
       this.listId = listId;
@@ -480,12 +480,12 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
     
 
     /**
-     * Set dashboardList
-     * @param dashboardList DashboardList request object (required)
+     * Set body
+     * @param body DashboardList request object (required)
      * @return APIupdateDashboardListRequest
      */
-    public APIupdateDashboardListRequest dashboardList(DashboardList dashboardList) {
-      this.dashboardList = dashboardList;
+    public APIupdateDashboardListRequest body(DashboardList body) {
+      this.body = body;
       return this;
     }
     
@@ -525,7 +525,7 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
      */
     
     public ApiResponse<DashboardList> executeWithHttpInfo() throws ApiException {
-      return updateDashboardListWithHttpInfo(listId, dashboardList);
+      return updateDashboardListWithHttpInfo(listId, body);
     }
   }
 

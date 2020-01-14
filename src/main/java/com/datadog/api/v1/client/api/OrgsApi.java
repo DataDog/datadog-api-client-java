@@ -44,12 +44,12 @@ public class OrgsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<OrgCreateResponse> createChildOrgWithHttpInfo(OrgCreateBody orgCreateBody) throws ApiException {
-    Object localVarPostBody = orgCreateBody;
+private ApiResponse<OrgCreateResponse> createChildOrgWithHttpInfo(OrgCreateBody body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'orgCreateBody' is set
-    if (orgCreateBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'orgCreateBody' when calling createChildOrg");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createChildOrg");
     }
     
     // create path and map variables
@@ -82,19 +82,19 @@ private ApiResponse<OrgCreateResponse> createChildOrgWithHttpInfo(OrgCreateBody 
   }
 
   public class APIcreateChildOrgRequest {
-    private OrgCreateBody orgCreateBody;
+    private OrgCreateBody body;
 
     private APIcreateChildOrgRequest() {
     }
     
 
     /**
-     * Set orgCreateBody
-     * @param orgCreateBody Org object that needs to be created (required)
+     * Set body
+     * @param body Org object that needs to be created (required)
      * @return APIcreateChildOrgRequest
      */
-    public APIcreateChildOrgRequest orgCreateBody(OrgCreateBody orgCreateBody) {
-      this.orgCreateBody = orgCreateBody;
+    public APIcreateChildOrgRequest body(OrgCreateBody body) {
+      this.body = body;
       return this;
     }
     
@@ -132,7 +132,7 @@ private ApiResponse<OrgCreateResponse> createChildOrgWithHttpInfo(OrgCreateBody 
      */
     
     public ApiResponse<OrgCreateResponse> executeWithHttpInfo() throws ApiException {
-      return createChildOrgWithHttpInfo(orgCreateBody);
+      return createChildOrgWithHttpInfo(body);
     }
   }
 
@@ -237,8 +237,8 @@ private ApiResponse<OrgListResponse> getOrgWithHttpInfo() throws ApiException {
     return new APIgetOrgRequest();
   }
 
-private ApiResponse<OrgResponse> updateOrgWithHttpInfo(String publicId, Org org) throws ApiException {
-    Object localVarPostBody = org;
+private ApiResponse<OrgResponse> updateOrgWithHttpInfo(String publicId, Org body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'publicId' is set
     if (publicId == null) {
@@ -277,7 +277,7 @@ private ApiResponse<OrgResponse> updateOrgWithHttpInfo(String publicId, Org org)
 
   public class APIupdateOrgRequest {
     private String publicId;
-    private Org org;
+    private Org body;
 
     private APIupdateOrgRequest(String publicId) {
       this.publicId = publicId;
@@ -285,12 +285,12 @@ private ApiResponse<OrgResponse> updateOrgWithHttpInfo(String publicId, Org org)
     
 
     /**
-     * Set org
-     * @param org  (optional)
+     * Set body
+     * @param body  (optional)
      * @return APIupdateOrgRequest
      */
-    public APIupdateOrgRequest org(Org org) {
-      this.org = org;
+    public APIupdateOrgRequest body(Org body) {
+      this.body = body;
       return this;
     }
     
@@ -328,7 +328,7 @@ private ApiResponse<OrgResponse> updateOrgWithHttpInfo(String publicId, Org org)
      */
     
     public ApiResponse<OrgResponse> executeWithHttpInfo() throws ApiException {
-      return updateOrgWithHttpInfo(publicId, org);
+      return updateOrgWithHttpInfo(publicId, body);
     }
   }
 

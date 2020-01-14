@@ -44,8 +44,8 @@ public class KeysApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey apiKey) throws ApiException {
-    Object localVarPostBody = apiKey;
+private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws ApiException {
+    Object localVarPostBody = body;
     
     // create path and map variables
     String localVarPath = "/api/v1/api_key";
@@ -77,19 +77,19 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey apiKey) thro
   }
 
   public class APIcreateAPIKeyRequest {
-    private ApiKey apiKey;
+    private ApiKey body;
 
     private APIcreateAPIKeyRequest() {
     }
     
 
     /**
-     * Set apiKey
-     * @param apiKey  (optional)
+     * Set body
+     * @param body  (optional)
      * @return APIcreateAPIKeyRequest
      */
-    public APIcreateAPIKeyRequest apiKey(ApiKey apiKey) {
-      this.apiKey = apiKey;
+    public APIcreateAPIKeyRequest body(ApiKey body) {
+      this.body = body;
       return this;
     }
     
@@ -129,7 +129,7 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey apiKey) thro
      */
     
     public ApiResponse<ApiKeyResponse> executeWithHttpInfo() throws ApiException {
-      return createAPIKeyWithHttpInfo(apiKey);
+      return createAPIKeyWithHttpInfo(body);
     }
   }
 
@@ -146,8 +146,8 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey apiKey) thro
     return new APIcreateAPIKeyRequest();
   }
 
-private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(ApplicationKey applicationKey) throws ApiException {
-    Object localVarPostBody = applicationKey;
+private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(ApplicationKey body) throws ApiException {
+    Object localVarPostBody = body;
     
     // create path and map variables
     String localVarPath = "/api/v1/application_key";
@@ -179,19 +179,19 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
   }
 
   public class APIcreateApplicationKeyRequest {
-    private ApplicationKey applicationKey;
+    private ApplicationKey body;
 
     private APIcreateApplicationKeyRequest() {
     }
     
 
     /**
-     * Set applicationKey
-     * @param applicationKey  (optional)
+     * Set body
+     * @param body  (optional)
      * @return APIcreateApplicationKeyRequest
      */
-    public APIcreateApplicationKeyRequest applicationKey(ApplicationKey applicationKey) {
-      this.applicationKey = applicationKey;
+    public APIcreateApplicationKeyRequest body(ApplicationKey body) {
+      this.body = body;
       return this;
     }
     
@@ -231,7 +231,7 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
      */
     
     public ApiResponse<ApplicationKeyResponse> executeWithHttpInfo() throws ApiException {
-      return createApplicationKeyWithHttpInfo(applicationKey);
+      return createApplicationKeyWithHttpInfo(body);
     }
   }
 
@@ -446,8 +446,8 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
     return new APIdeleteApplicationKeyRequest(key);
   }
 
-private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey apiKey) throws ApiException {
-    Object localVarPostBody = apiKey;
+private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'key' is set
     if (key == null) {
@@ -486,7 +486,7 @@ private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey ap
 
   public class APIeditAPIKeyRequest {
     private String key;
-    private ApiKey apiKey;
+    private ApiKey body;
 
     private APIeditAPIKeyRequest(String key) {
       this.key = key;
@@ -494,12 +494,12 @@ private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey ap
     
 
     /**
-     * Set apiKey
-     * @param apiKey  (optional)
+     * Set body
+     * @param body  (optional)
      * @return APIeditAPIKeyRequest
      */
-    public APIeditAPIKeyRequest apiKey(ApiKey apiKey) {
-      this.apiKey = apiKey;
+    public APIeditAPIKeyRequest body(ApiKey body) {
+      this.body = body;
       return this;
     }
     
@@ -539,7 +539,7 @@ private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey ap
      */
     
     public ApiResponse<ApiKeyResponse> executeWithHttpInfo() throws ApiException {
-      return editAPIKeyWithHttpInfo(key, apiKey);
+      return editAPIKeyWithHttpInfo(key, body);
     }
   }
 
@@ -557,8 +557,8 @@ private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey ap
     return new APIeditAPIKeyRequest(key);
   }
 
-private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(String key, ApplicationKey applicationKey) throws ApiException {
-    Object localVarPostBody = applicationKey;
+private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(String key, ApplicationKey body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'key' is set
     if (key == null) {
@@ -597,7 +597,7 @@ private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(Strin
 
   public class APIeditApplicationKeyRequest {
     private String key;
-    private ApplicationKey applicationKey;
+    private ApplicationKey body;
 
     private APIeditApplicationKeyRequest(String key) {
       this.key = key;
@@ -605,12 +605,12 @@ private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(Strin
     
 
     /**
-     * Set applicationKey
-     * @param applicationKey  (optional)
+     * Set body
+     * @param body  (optional)
      * @return APIeditApplicationKeyRequest
      */
-    public APIeditApplicationKeyRequest applicationKey(ApplicationKey applicationKey) {
-      this.applicationKey = applicationKey;
+    public APIeditApplicationKeyRequest body(ApplicationKey body) {
+      this.body = body;
       return this;
     }
     
@@ -650,7 +650,7 @@ private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(Strin
      */
     
     public ApiResponse<ApplicationKeyResponse> executeWithHttpInfo() throws ApiException {
-      return editApplicationKeyWithHttpInfo(key, applicationKey);
+      return editApplicationKeyWithHttpInfo(key, body);
     }
   }
 

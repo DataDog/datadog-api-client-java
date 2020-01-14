@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## createChildOrg
 
 
-> OrgCreateResponse createChildOrg().orgCreateBody(orgCreateBody).execute();
+> OrgCreateResponse createChildOrg().body(body).execute();
 
 Create child-organization.
 
@@ -56,10 +56,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         OrgsApi apiInstance = new OrgsApi(defaultClient);
-        OrgCreateBody orgCreateBody = new OrgCreateBody(); // OrgCreateBody | Org object that needs to be created
+        OrgCreateBody body = new OrgCreateBody(); // OrgCreateBody | Org object that needs to be created
         try { 
             OrgCreateResponse result = api.createChildOrg()
-                .orgCreateBody(orgCreateBody)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -78,7 +78,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orgCreateBody** | [**OrgCreateBody**](OrgCreateBody.md)| Org object that needs to be created |
+ **body** | [**OrgCreateBody**](OrgCreateBody.md)| Org object that needs to be created |
 
 ### Return type
 
@@ -183,7 +183,7 @@ This endpoint does not need any parameter.
 ## updateOrg
 
 
-> OrgResponse updateOrg(publicId).org(org).execute();
+> OrgResponse updateOrg(publicId).body(body).execute();
 
 Update the organization
 
@@ -232,10 +232,10 @@ public class Example {
 
         OrgsApi apiInstance = new OrgsApi(defaultClient);
         String publicId = abc123; // String | The public_id of the org you are operating with
-        Org org = new Org(); // Org | 
+        Org body = new Org(); // Org | 
         try { 
             OrgResponse result = api.updateOrg(publicId)
-                .org(org)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -255,7 +255,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **publicId** | **String**| The public_id of the org you are operating with |
- **org** | [**Org**](Org.md)|  | [optional]
+ **body** | [**Org**](Org.md)|  | [optional]
 
 ### Return type
 

@@ -40,12 +40,12 @@ public class AwsIntegrationApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAccount awSAccount) throws ApiException {
-    Object localVarPostBody = awSAccount;
+private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'awSAccount' is set
-    if (awSAccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'awSAccount' when calling createAWSAccount");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createAWSAccount");
     }
     
     // create path and map variables
@@ -78,19 +78,19 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
   }
 
   public class APIcreateAWSAccountRequest {
-    private AWSAccount awSAccount;
+    private AWSAccount body;
 
     private APIcreateAWSAccountRequest() {
     }
     
 
     /**
-     * Set awSAccount
-     * @param awSAccount AWS request object (required)
+     * Set body
+     * @param body AWS request object (required)
      * @return APIcreateAWSAccountRequest
      */
-    public APIcreateAWSAccountRequest awSAccount(AWSAccount awSAccount) {
-      this.awSAccount = awSAccount;
+    public APIcreateAWSAccountRequest body(AWSAccount body) {
+      this.body = body;
       return this;
     }
     
@@ -128,7 +128,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
      */
     
     public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
-      return createAWSAccountWithHttpInfo(awSAccount);
+      return createAWSAccountWithHttpInfo(body);
     }
   }
 
@@ -145,12 +145,12 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
     return new APIcreateAWSAccountRequest();
   }
 
-private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount awSAccount) throws ApiException {
-    Object localVarPostBody = awSAccount;
+private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'awSAccount' is set
-    if (awSAccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'awSAccount' when calling deleteAWSAccount");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling deleteAWSAccount");
     }
     
     // create path and map variables
@@ -183,19 +183,19 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount awSAccount) 
   }
 
   public class APIdeleteAWSAccountRequest {
-    private AWSAccount awSAccount;
+    private AWSAccount body;
 
     private APIdeleteAWSAccountRequest() {
     }
     
 
     /**
-     * Set awSAccount
-     * @param awSAccount AWS request object (required)
+     * Set body
+     * @param body AWS request object (required)
      * @return APIdeleteAWSAccountRequest
      */
-    public APIdeleteAWSAccountRequest awSAccount(AWSAccount awSAccount) {
-      this.awSAccount = awSAccount;
+    public APIdeleteAWSAccountRequest body(AWSAccount body) {
+      this.body = body;
       return this;
     }
     
@@ -233,7 +233,7 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount awSAccount) 
      */
     
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-      return deleteAWSAccountWithHttpInfo(awSAccount);
+      return deleteAWSAccountWithHttpInfo(body);
     }
   }
 
@@ -250,12 +250,12 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount awSAccount) 
     return new APIdeleteAWSAccountRequest();
   }
 
-private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpInfo(AWSAccount awSAccount) throws ApiException {
-    Object localVarPostBody = awSAccount;
+private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpInfo(AWSAccount body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'awSAccount' is set
-    if (awSAccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'awSAccount' when calling generateNewAWSExternalID");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling generateNewAWSExternalID");
     }
     
     // create path and map variables
@@ -288,19 +288,19 @@ private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpIn
   }
 
   public class APIgenerateNewAWSExternalIDRequest {
-    private AWSAccount awSAccount;
+    private AWSAccount body;
 
     private APIgenerateNewAWSExternalIDRequest() {
     }
     
 
     /**
-     * Set awSAccount
-     * @param awSAccount Generate New AWS External ID request object (required)
+     * Set body
+     * @param body Generate New AWS External ID request object (required)
      * @return APIgenerateNewAWSExternalIDRequest
      */
-    public APIgenerateNewAWSExternalIDRequest awSAccount(AWSAccount awSAccount) {
-      this.awSAccount = awSAccount;
+    public APIgenerateNewAWSExternalIDRequest body(AWSAccount body) {
+      this.body = body;
       return this;
     }
     
@@ -338,7 +338,7 @@ private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpIn
      */
     
     public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
-      return generateNewAWSExternalIDWithHttpInfo(awSAccount);
+      return generateNewAWSExternalIDWithHttpInfo(body);
     }
   }
 
@@ -572,12 +572,12 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
     return new APIlistAvailableAWSNamespacesRequest();
   }
 
-private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount awSAccount, String accountId, String roleName, String accessKeyId) throws ApiException {
-    Object localVarPostBody = awSAccount;
+private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String accountId, String roleName, String accessKeyId) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'awSAccount' is set
-    if (awSAccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'awSAccount' when calling updateAWSAccount");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateAWSAccount");
     }
     
     // create path and map variables
@@ -613,7 +613,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount awSAccount, 
   }
 
   public class APIupdateAWSAccountRequest {
-    private AWSAccount awSAccount;
+    private AWSAccount body;
     private String accountId;
     private String roleName;
     private String accessKeyId;
@@ -623,12 +623,12 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount awSAccount, 
     
 
     /**
-     * Set awSAccount
-     * @param awSAccount AWS request object (required)
+     * Set body
+     * @param body AWS request object (required)
      * @return APIupdateAWSAccountRequest
      */
-    public APIupdateAWSAccountRequest awSAccount(AWSAccount awSAccount) {
-      this.awSAccount = awSAccount;
+    public APIupdateAWSAccountRequest body(AWSAccount body) {
+      this.body = body;
       return this;
     }
     
@@ -699,7 +699,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount awSAccount, 
      */
     
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-      return updateAWSAccountWithHttpInfo(awSAccount, accountId, roleName, accessKeyId);
+      return updateAWSAccountWithHttpInfo(body, accountId, roleName, accessKeyId);
     }
   }
 
