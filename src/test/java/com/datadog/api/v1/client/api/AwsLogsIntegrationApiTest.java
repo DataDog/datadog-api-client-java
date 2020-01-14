@@ -66,7 +66,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     @After
     public void cleanupAWSAccount() {
         try {
-            AWSApi.deleteAWSAccount(uniqueAWSAccount).execute();
+            AWSApi.deleteAWSAccount().body(uniqueAWSAccount).execute();
         } catch (ApiException e) {
             System.out.printf("Error deleting %s during test cleanup. This Account may have already been deleted ", uniqueAWSAccount);
             e.printStackTrace();
@@ -83,9 +83,9 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
      */
     @Test
     public void aWSLogsCheckLambdaAsyncTest() throws ApiException {
-        AWSApi.createAWSAccount(uniqueAWSAccount).execute();
+        AWSApi.createAWSAccount().body(uniqueAWSAccount).execute();
 
-        AWSLogsAsyncResponse response = api.aWSLogsCheckLambdaAsync(uniqueAWSAccountLambdaRequest).execute();
+        AWSLogsAsyncResponse response = api.aWSLogsCheckLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
         assertNull(response.getErrors());
         assertEquals(response.getStatus(), "created");
 
@@ -96,7 +96,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             e.printStackTrace();
         }
 
-        response = api.aWSLogsCheckLambdaAsync(uniqueAWSAccountLambdaRequest).execute();
+        response = api.aWSLogsCheckLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
         assertNotEquals(response.getErrors().get(0).getCode(), "");
         assertNotEquals(response.getErrors().get(0).getMessage(), "");
         assertEquals(response.getStatus(), "error");
@@ -112,8 +112,8 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
      */
     @Test
     public void aWSLogsCheckServicesAsyncTest() throws ApiException {
-        AWSApi.createAWSAccount(uniqueAWSAccount).execute();
-        AWSLogsAsyncResponse response = api.aWSLogsCheckServicesAsync(uniqueAWSLogsServicesRequest).execute();
+        AWSApi.createAWSAccount().body(uniqueAWSAccount).execute();
+        AWSLogsAsyncResponse response = api.aWSLogsCheckServicesAsync().body(uniqueAWSLogsServicesRequest).execute();
         assertNotEquals(response.getErrors().get(0).getCode(), "");
         assertNotEquals(response.getErrors().get(0).getMessage(), "");
     }
@@ -128,11 +128,11 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
      */
     @Test
     public void aWSLogsAddListEnableAndDeleteTest() throws ApiException {
-        AWSApi.createAWSAccount(uniqueAWSAccount).execute();
+        AWSApi.createAWSAccount().body(uniqueAWSAccount).execute();
         // Add Lambda to Account
-        api.addAWSLambdaARN(uniqueAWSAccountLambdaRequest).execute();
+        api.addAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
         // Enable services for Lambda
-        api.enableAWSLogServices(uniqueAWSLogsServicesRequest).execute();
+        api.enableAWSLogServices().body(uniqueAWSLogsServicesRequest).execute();
 
         // List AWS Logs integrations before deleting
         List<AWSLogsListResponse> listOutput1 = api.aWSLogsList().execute();
@@ -148,7 +148,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
         assertEquals(true, accountExists);
 
         // Delete newly added Lambda
-        api.deleteAWSLambdaARN(uniqueAWSAccountLambdaRequest).execute();
+        api.deleteAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
         List<AWSLogsListResponse> listOutput2 = api.aWSLogsList().execute();
         Boolean accountExistsAfterDelete = false;
         List<AWSLogsListResponseLambdas> listOfARNs2 = new ArrayList<>();
