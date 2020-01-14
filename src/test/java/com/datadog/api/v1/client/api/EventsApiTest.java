@@ -50,7 +50,7 @@ public class EventsApiTest extends V1ApiTest {
                 .tags(new ArrayList<String>(Arrays.asList("test", "client:java"))).priority(PriorityEnum.NORMAL)
                 .sourceTypeName("datadog-api-client-java");
 
-        EventResponse response = api.createEvent().event(event).execute();
+        EventResponse response = api.createEvent().body(event).execute();
 
         final Event createdEvent = response.getEvent();
         final String status = response.getStatus();
