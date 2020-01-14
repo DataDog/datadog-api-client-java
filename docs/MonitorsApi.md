@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## createMonitor
 
 
-> Monitor createMonitor(monitor).execute();
+> Monitor createMonitor().body(body).execute();
 
 Create a new Monitor
 
@@ -54,9 +54,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Monitor monitor = new Monitor(); // Monitor | Monitor request object
+        Monitor body = new Monitor(); // Monitor | Monitor request object
         try { 
-            Monitor result = api.createMonitor(monitor)
+            Monitor result = api.createMonitor()
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -75,7 +76,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitor** | [**Monitor**](Monitor.md)| Monitor request object |
+ **body** | [**Monitor**](Monitor.md)| Monitor request object |
 
 ### Return type
 
@@ -186,7 +187,7 @@ Name | Type | Description  | Notes
 ## editMonitor
 
 
-> Monitor editMonitor(monitorId, monitor).execute();
+> Monitor editMonitor(monitorId).body(body).execute();
 
 Edit the specified monitor
 
@@ -225,9 +226,10 @@ public class Example {
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Long monitorId = 56L; // Long | The id of the monitor
-        Monitor monitor = new Monitor(); // Monitor | Monitor request object
+        Monitor body = new Monitor(); // Monitor | Monitor request object
         try { 
-            Monitor result = api.editMonitor(monitorId, monitor)
+            Monitor result = api.editMonitor(monitorId)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -247,7 +249,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **monitorId** | **Long**| The id of the monitor |
- **monitor** | [**Monitor**](Monitor.md)| Monitor request object |
+ **body** | [**Monitor**](Monitor.md)| Monitor request object |
 
 ### Return type
 
@@ -464,7 +466,7 @@ Name | Type | Description  | Notes
 ## validateMonitor
 
 
-> Monitor validateMonitor(monitor).execute();
+> Monitor validateMonitor().body(body).execute();
 
 
 
@@ -502,9 +504,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Monitor monitor = new Monitor(); // Monitor | Monitor request object
+        Monitor body = new Monitor(); // Monitor | Monitor request object
         try { 
-            Monitor result = api.validateMonitor(monitor)
+            Monitor result = api.validateMonitor()
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -523,7 +526,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitor** | [**Monitor**](Monitor.md)| Monitor request object |
+ **body** | [**Monitor**](Monitor.md)| Monitor request object |
 
 ### Return type
 

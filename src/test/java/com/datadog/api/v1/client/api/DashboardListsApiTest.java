@@ -47,7 +47,7 @@ public class DashboardListsApiTest extends V1ApiTest {
         DashboardList testDashboardList = new DashboardList().name(String.format("java dashboard list %d", start));
 
         // Create dashboard list
-        DashboardList dashboardList = api.createDashboardList(testDashboardList).execute();
+        DashboardList dashboardList = api.createDashboardList().body(testDashboardList).execute();
         dashboardListsToDelete.add(dashboardList.getId());
         assertEquals(testDashboardList.getName(), dashboardList.getName());
         assertNotNull(dashboardList.getAuthor());
@@ -63,7 +63,7 @@ public class DashboardListsApiTest extends V1ApiTest {
 
         // Edit the dashboard list
         DashboardList editedDashboardList = new DashboardList().name(String.format("java updated dashboard list %d", start));
-        dashboardList = api.updateDashboardList(dashboardList.getId(), editedDashboardList).execute();
+        dashboardList = api.updateDashboardList(dashboardList.getId()).body(editedDashboardList).execute();
         assertEquals(dashboardList.getName(), editedDashboardList.getName());
 
         // Delete the dashboard list

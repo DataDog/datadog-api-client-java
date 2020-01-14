@@ -15,7 +15,7 @@ Method | HTTP request | Description
 ## createUser
 
 
-> UserResponse createUser(user).execute();
+> UserResponse createUser().body(body).execute();
 
 Create user
 
@@ -64,9 +64,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        User user = new User(); // User | User object that needs to be created
+        User body = new User(); // User | User object that needs to be created
         try { 
-            UserResponse result = api.createUser(user)
+            UserResponse result = api.createUser()
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -85,7 +86,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)| User object that needs to be created |
+ **body** | [**User**](User.md)| User object that needs to be created |
 
 ### Return type
 
@@ -364,7 +365,7 @@ Name | Type | Description  | Notes
 ## updateUser
 
 
-> UserResponse updateUser(userHandle, user).execute();
+> UserResponse updateUser(userHandle).body(body).execute();
 
 Update user
 
@@ -415,9 +416,10 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The id of the user
-        User user = new User(); // User | Description of the update
+        User body = new User(); // User | Description of the update
         try { 
-            UserResponse result = api.updateUser(userHandle, user)
+            UserResponse result = api.updateUser(userHandle)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -437,7 +439,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userHandle** | [**String**](.md)| The id of the user |
- **user** | [**User**](User.md)| Description of the update |
+ **body** | [**User**](User.md)| Description of the update |
 
 ### Return type
 

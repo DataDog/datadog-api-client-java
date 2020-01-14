@@ -87,9 +87,7 @@ public class ApiClient {
 
     // Setup authentication lookup (key: authentication alias, value: authentication name)
     authenticationLookup = new HashMap<String, String>();
-    authenticationLookup.put("apiKeyAuth", "apiKeyAuth");
     authenticationLookup.put("apiKeyAuthHeader", "apiKeyAuth");
-    authenticationLookup.put("appKeyAuth", "appKeyAuth");
   }
 
   /**

@@ -40,7 +40,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
     @After
     public void removeAccounts() throws ApiException {
         for (AWSAccount account: accountsToDelete) {
-            api.deleteAWSAccount(account).execute();
+            api.deleteAWSAccount().body(account).execute();
         }
     }
 
@@ -72,7 +72,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
         awsAccount.setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
         awsAccount.setRoleName("java_testRoleName");
 
-        AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccount).execute();
+        AWSAccountCreateResponse createResponse = api.createAWSAccount().body(awsAccount).execute();
         accountsToDelete.add(awsAccount);
         assertNotNull(createResponse.getExternalId());
 
@@ -88,7 +88,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
         awsAccountFull.setHostTags(hostTags);
         awsAccountFull.addFilterTagsItem("dontCollect:java");
         awsAccountFull.setAccountSpecificNamespaceRules(accountSpecificNamespaceRules);
-        AWSAccountCreateResponse createResponse2 = api.createAWSAccount(awsAccountFull).execute();
+        AWSAccountCreateResponse createResponse2 = api.createAWSAccount().body(awsAccountFull).execute();
         accountsToDelete.add(awsAccountFull);
         assertNotNull(createResponse2.getExternalId());
     }
@@ -107,7 +107,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
         //Test an exception is thrown if you're missing the account_id field
         AWSAccount awsAccount = new AWSAccount();
         awsAccount.setRoleName("java_testRoleName");
-        api.createAWSAccount(awsAccount).execute();
+        api.createAWSAccount().body(awsAccount).execute();
     }
 
     /**
@@ -124,7 +124,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
         //Test an exception is thrown if you're missing the role_name field
         AWSAccount awsAccount = new AWSAccount();
         awsAccount.setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
-        api.createAWSAccount(awsAccount).execute();
+        api.createAWSAccount().body(awsAccount).execute();
     }
 
     /**
@@ -151,7 +151,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
             awsAccounts.get(i).addFilterTagsItem("dontCollect:java");
             awsAccounts.get(i).setHostTags(hostTags);
             awsAccounts.get(i).setAccountSpecificNamespaceRules(accountSpecificNamespaceRules);
-            api.createAWSAccount(awsAccounts.get(i)).execute();
+            api.createAWSAccount().body(awsAccounts.get(i)).execute();
             accountsToDelete.add(awsAccounts.get(i));
         }
 
@@ -177,7 +177,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
         awsAccount.setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
         awsAccount.setRoleName("java_testRoleName");
 
-        api.createAWSAccount(awsAccount).execute();
+        api.createAWSAccount().body(awsAccount).execute();
         accountsToDelete.add(awsAccount);
 
         List<String> hostTags = new ArrayList<String>();
@@ -185,7 +185,7 @@ public class AwsIntegrationApiTest extends V1ApiTest  {
         hostTags.add("java:success");
         awsAccount.setHostTags(hostTags);
 
-        api.updateAWSAccount(awsAccount).accountId(awsAccount.getAccountId()).roleName(awsAccount.getRoleName()).execute();
+        api.updateAWSAccount().body(awsAccount).accountId(awsAccount.getAccountId()).roleName(awsAccount.getRoleName()).execute();
 
         AWSAccount newAccount = api.getAllAWSAccounts().accountId(awsAccount.getAccountId()).roleName(awsAccount.getRoleName()).execute().getAccounts().get(0);
         // collection fields are intialized to null on the objects, but returned as empty list/map by API

@@ -40,12 +40,12 @@ public class DashboardListsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList dashboardList) throws ApiException {
-    Object localVarPostBody = dashboardList;
+private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'dashboardList' is set
-    if (dashboardList == null) {
-      throw new ApiException(400, "Missing the required parameter 'dashboardList' when calling createDashboardList");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createDashboardList");
     }
     
     // create path and map variables
@@ -78,10 +78,20 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
   }
 
   public class APIcreateDashboardListRequest {
-    private DashboardList dashboardList;
+    private DashboardList body;
 
-    private APIcreateDashboardListRequest(DashboardList dashboardList) {
-      this.dashboardList = dashboardList;
+    private APIcreateDashboardListRequest() {
+    }
+    
+
+    /**
+     * Set body
+     * @param body DashboardList request object (required)
+     * @return APIcreateDashboardListRequest
+     */
+    public APIcreateDashboardListRequest body(DashboardList body) {
+      this.body = body;
+      return this;
     }
     
 
@@ -118,22 +128,21 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
      */
     
     public ApiResponse<DashboardList> executeWithHttpInfo() throws ApiException {
-      return createDashboardListWithHttpInfo(dashboardList);
+      return createDashboardListWithHttpInfo(body);
     }
   }
 
   /**
    * Create a dashboard list
    * ### Overview Create an empty dashboard list. ### Arguments * **name** [*required*]: The name of the dashboard list.
-   * @param dashboardList DashboardList request object (require)
    * @return createDashboardListRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIcreateDashboardListRequest createDashboardList(DashboardList dashboardList) throws ApiException {
-    return new APIcreateDashboardListRequest(dashboardList);
+  public APIcreateDashboardListRequest createDashboardList() throws ApiException {
+    return new APIcreateDashboardListRequest();
   }
 
 private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo(Long listId) throws ApiException {
@@ -223,7 +232,6 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
    * Delete a dashboard list
    * ### Overview Delete a dashboard list. ### Arguments This endpoint takes no JSON arguments.
    * @param listId ID of the dashboard list to delete (required)
-   
    * @return deleteDashboardListRequest
    * @throws ApiException if fails to make API call
    
@@ -312,7 +320,6 @@ private ApiResponse<DashboardListListResponse> getAllDashboardListsWithHttpInfo(
   /**
    * Get all dashboard lists
    * ### Overview Fetch all of your existing dashboard list definitions. ### Arguments This endpoint takes no JSON arguments.
-   
    * @return getAllDashboardListsRequest
    * @throws ApiException if fails to make API call
    
@@ -410,7 +417,6 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
    * Get a dashboard list
    * ### Overview Fetch an existing dashboard list&#39;s definition. ### Arguments This endpoint takes no JSON arguments.
    * @param listId ID of the dashboard list to fetch (required)
-   
    * @return getDashboardListRequest
    * @throws ApiException if fails to make API call
    
@@ -421,17 +427,17 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
     return new APIgetDashboardListRequest(listId);
   }
 
-private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, DashboardList dashboardList) throws ApiException {
-    Object localVarPostBody = dashboardList;
+private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, DashboardList body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'listId' is set
     if (listId == null) {
       throw new ApiException(400, "Missing the required parameter 'listId' when calling updateDashboardList");
     }
     
-    // verify the required parameter 'dashboardList' is set
-    if (dashboardList == null) {
-      throw new ApiException(400, "Missing the required parameter 'dashboardList' when calling updateDashboardList");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateDashboardList");
     }
     
     // create path and map variables
@@ -466,11 +472,21 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
 
   public class APIupdateDashboardListRequest {
     private Long listId;
-    private DashboardList dashboardList;
+    private DashboardList body;
 
-    private APIupdateDashboardListRequest(Long listId, DashboardList dashboardList) {
+    private APIupdateDashboardListRequest(Long listId) {
       this.listId = listId;
-      this.dashboardList = dashboardList;
+    }
+    
+
+    /**
+     * Set body
+     * @param body DashboardList request object (required)
+     * @return APIupdateDashboardListRequest
+     */
+    public APIupdateDashboardListRequest body(DashboardList body) {
+      this.body = body;
+      return this;
     }
     
 
@@ -509,7 +525,7 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
      */
     
     public ApiResponse<DashboardList> executeWithHttpInfo() throws ApiException {
-      return updateDashboardListWithHttpInfo(listId, dashboardList);
+      return updateDashboardListWithHttpInfo(listId, body);
     }
   }
 
@@ -517,14 +533,13 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
    * Update a dashboard list
    * ### Overview Update the name of a dashboard list. ### Arguments * **name** [*required*]: The name of the dashboard list.
    * @param listId ID of the dashboard list to update (required)
-   * @param dashboardList DashboardList request object (require)
    * @return updateDashboardListRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIupdateDashboardListRequest updateDashboardList(Long listId, DashboardList dashboardList) throws ApiException {
-    return new APIupdateDashboardListRequest(listId, dashboardList);
+  public APIupdateDashboardListRequest updateDashboardList(Long listId) throws ApiException {
+    return new APIupdateDashboardListRequest(listId);
   }
 }

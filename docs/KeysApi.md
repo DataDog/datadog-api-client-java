@@ -20,7 +20,7 @@ Method | HTTP request | Description
 ## createAPIKey
 
 
-> ApiKeyResponse createAPIKey(apiKey).execute();
+> ApiKeyResponse createAPIKey().body(body).execute();
 
 Create an API key with a given name.
 
@@ -58,9 +58,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        ApiKey apiKey = new ApiKey(); // ApiKey | 
+        ApiKey body = new ApiKey(); // ApiKey | 
         try { 
-            ApiKeyResponse result = api.createAPIKey(apiKey)
+            ApiKeyResponse result = api.createAPIKey()
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -79,7 +80,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | [**ApiKey**](ApiKey.md)|  | [optional]
+ **body** | [**ApiKey**](ApiKey.md)|  | [optional]
 
 ### Return type
 
@@ -106,7 +107,7 @@ Name | Type | Description  | Notes
 ## createApplicationKey
 
 
-> ApplicationKeyResponse createApplicationKey(applicationKey).execute();
+> ApplicationKeyResponse createApplicationKey().body(body).execute();
 
 Create an application key with a given name.
 
@@ -144,9 +145,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        ApplicationKey applicationKey = new ApplicationKey(); // ApplicationKey | 
+        ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
         try { 
-            ApplicationKeyResponse result = api.createApplicationKey(applicationKey)
+            ApplicationKeyResponse result = api.createApplicationKey()
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -165,7 +167,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicationKey** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
+ **body** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
 
 ### Return type
 
@@ -364,7 +366,7 @@ Name | Type | Description  | Notes
 ## editAPIKey
 
 
-> ApiKeyResponse editAPIKey(key, apiKey).execute();
+> ApiKeyResponse editAPIKey(key).body(body).execute();
 
 Edit an API key name.
 
@@ -403,9 +405,10 @@ public class Example {
 
         KeysApi apiInstance = new KeysApi(defaultClient);
         String key = "key_example"; // String | The specific API key you are working with
-        ApiKey apiKey = new ApiKey(); // ApiKey | 
+        ApiKey body = new ApiKey(); // ApiKey | 
         try { 
-            ApiKeyResponse result = api.editAPIKey(key, apiKey)
+            ApiKeyResponse result = api.editAPIKey(key)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -425,7 +428,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **String**| The specific API key you are working with |
- **apiKey** | [**ApiKey**](ApiKey.md)|  | [optional]
+ **body** | [**ApiKey**](ApiKey.md)|  | [optional]
 
 ### Return type
 
@@ -452,7 +455,7 @@ Name | Type | Description  | Notes
 ## editApplicationKey
 
 
-> ApplicationKeyResponse editApplicationKey(key, applicationKey).execute();
+> ApplicationKeyResponse editApplicationKey(key).body(body).execute();
 
 Edit an application key name.
 
@@ -491,9 +494,10 @@ public class Example {
 
         KeysApi apiInstance = new KeysApi(defaultClient);
         String key = "key_example"; // String | The specific APP key you are working with
-        ApplicationKey applicationKey = new ApplicationKey(); // ApplicationKey | 
+        ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
         try { 
-            ApplicationKeyResponse result = api.editApplicationKey(key, applicationKey)
+            ApplicationKeyResponse result = api.editApplicationKey(key)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -513,7 +517,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **String**| The specific APP key you are working with |
- **applicationKey** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
+ **body** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
 
 ### Return type
 

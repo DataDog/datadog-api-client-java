@@ -15,7 +15,7 @@ Method | HTTP request | Description
 ## createDashboardList
 
 
-> DashboardList createDashboardList(dashboardList).execute();
+> DashboardList createDashboardList().body(body).execute();
 
 Create a dashboard list
 
@@ -53,9 +53,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        DashboardList dashboardList = new DashboardList(); // DashboardList | DashboardList request object
+        DashboardList body = new DashboardList(); // DashboardList | DashboardList request object
         try { 
-            DashboardList result = api.createDashboardList(dashboardList)
+            DashboardList result = api.createDashboardList()
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -74,7 +75,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardList** | [**DashboardList**](DashboardList.md)| DashboardList request object |
+ **body** | [**DashboardList**](DashboardList.md)| DashboardList request object |
 
 ### Return type
 
@@ -351,7 +352,7 @@ Name | Type | Description  | Notes
 ## updateDashboardList
 
 
-> DashboardList updateDashboardList(listId, dashboardList).execute();
+> DashboardList updateDashboardList(listId).body(body).execute();
 
 Update a dashboard list
 
@@ -390,9 +391,10 @@ public class Example {
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long listId = 56L; // Long | ID of the dashboard list to update
-        DashboardList dashboardList = new DashboardList(); // DashboardList | DashboardList request object
+        DashboardList body = new DashboardList(); // DashboardList | DashboardList request object
         try { 
-            DashboardList result = api.updateDashboardList(listId, dashboardList)
+            DashboardList result = api.updateDashboardList(listId)
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -412,7 +414,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **Long**| ID of the dashboard list to update |
- **dashboardList** | [**DashboardList**](DashboardList.md)| DashboardList request object |
+ **body** | [**DashboardList**](DashboardList.md)| DashboardList request object |
 
 ### Return type
 
