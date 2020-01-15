@@ -53,10 +53,11 @@ public class AzureIntegrationApiTest extends V1ApiTest {
         uniqueUpdatedHostFilters.setHostFilters("filter:updated,test:updated");
     }
 
-    @AfterClass
-    public static void cleanup() {
+    @After
+    public void cleanup() {
         try {
             api.deleteAzureIntegration().body(uniqueAzureAccount).execute();
+            System.out.printf("Successfully deleted: %s", uniqueAzureAccount);
         } catch (ApiException e) {
             System.out.printf("Couldn't uninstall Azure account %s, may have been removed as part of another test", uniqueAzureAccount);
             e.printStackTrace();
@@ -67,6 +68,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
         updatedAccount.setTenantName(uniqueUpdatedAzureAccount.getNewTenantName());
         try {
             api.deleteAzureIntegration().body(updatedAccount).execute();
+            System.out.printf("Successfully deleted: %s", updatedAccount);
         } catch (ApiException e) {
             System.out.printf("Couldn't uninstall Azure account %s, may have been removed as part of another test", updatedAccount);
             e.printStackTrace();
