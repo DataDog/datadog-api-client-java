@@ -134,7 +134,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
         assertEquals(retrievedAccount.getHostFilters(), uniqueUpdateGCPAccount.getHostFilters());
     }
 
-    public GCPAccount retrieveAccountInList(List<GCPAccount> listAccounts, String projectID) {
+    private GCPAccount retrieveAccountInList(List<GCPAccount> listAccounts, String projectID) {
         GCPAccount retrievedAccount = new GCPAccount();
         for (GCPAccount iterAccount: listAccounts) {
             if (iterAccount.getProjectId().equals(projectID)) {
