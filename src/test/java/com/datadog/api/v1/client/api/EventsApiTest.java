@@ -61,7 +61,7 @@ public class EventsApiTest extends V1ApiTest {
 
         final Long eventId = createdEvent.getId();
 
-        int count = 5;
+        int count = 20;
         final int interval = 5;  // seconds
         for (int i = 0; i < count; i++) {
             try {
