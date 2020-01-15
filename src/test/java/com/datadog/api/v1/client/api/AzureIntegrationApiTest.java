@@ -57,7 +57,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     public void cleanup() {
         try {
             api.deleteAzureIntegration().body(uniqueAzureAccount).execute();
-            System.out.printf("Successfully deleted: %s", uniqueAzureAccount);
         } catch (ApiException e) {
             System.out.printf("Couldn't uninstall Azure account %s, may have been removed as part of another test", uniqueAzureAccount);
             e.printStackTrace();
@@ -68,7 +67,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
         updatedAccount.setTenantName(uniqueUpdatedAzureAccount.getNewTenantName());
         try {
             api.deleteAzureIntegration().body(updatedAccount).execute();
-            System.out.printf("Successfully deleted: %s", updatedAccount);
         } catch (ApiException e) {
             System.out.printf("Couldn't uninstall Azure account %s, may have been removed as part of another test", updatedAccount);
             e.printStackTrace();
@@ -145,7 +143,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
         assertEquals(uniqueUpdatedHostFilters.getHostFilters(), retrievedAccount.getHostFilters());
     }
 
-    public AzureAccount retrieveAccountInList(List<AzureAccount> listAccounts, String tenantName) {
+    private AzureAccount retrieveAccountInList(List<AzureAccount> listAccounts, String tenantName) {
         AzureAccount retrievedAccount = new AzureAccount();
         for (AzureAccount iterAccount: listAccounts) {
             if (iterAccount.getTenantName().equals(tenantName)) {
