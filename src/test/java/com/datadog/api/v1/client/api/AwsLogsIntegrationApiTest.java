@@ -8,34 +8,71 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.AWSAccountAndLambdaRequest;
-import com.datadog.api.v1.client.model.AWSLogsAsyncResponse;
-import com.datadog.api.v1.client.model.AWSLogsListResponse;
-import com.datadog.api.v1.client.model.AWSLogsListServicesResponse;
-import com.datadog.api.v1.client.model.AWSLogsServicesRequest;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
-import org.junit.Test;
-import org.junit.Ignore;
+import com.datadog.api.v1.client.model.*;
+import org.junit.*;
+import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 /**
  * API tests for AwsLogsIntegrationApi
  */
-@Ignore
-public class AwsLogsIntegrationApiTest {
+public class AwsLogsIntegrationApiTest extends V1ApiTest {
 
-    private final AwsLogsIntegrationApi api = new AwsLogsIntegrationApi();
+    private static AwsLogsIntegrationApi api;
+    private static AwsIntegrationApi AWSApi;
+    private static AWSAccount uniqueAWSAccount = new AWSAccount();
+    private static AWSAccountAndLambdaRequest uniqueAWSAccountLambdaRequest = new AWSAccountAndLambdaRequest();
+    private static AWSLogsServicesRequest uniqueAWSLogsServicesRequest = new AWSLogsServicesRequest();
 
-    
+    @BeforeClass
+    public static void initApi() {
+        api = new AwsLogsIntegrationApi(generalApiClient);
+        AWSApi = new AwsIntegrationApi(generalApiClient);
+    }
+
+    @Before
+    public void setupAwsLogsAccounts() {
+        String accountId = String.format("java_%07d", System.currentTimeMillis() % 10000000);
+
+        // Setup a unique AWS account to use to something unique
+        uniqueAWSAccount.setAccountId(accountId);
+        uniqueAWSAccount.setRoleName("DatadogAWSIntegrationRole");
+        Map<String, Boolean> accountSpecificNamespaceRules = new HashMap<String, Boolean>();
+        accountSpecificNamespaceRules.put("api_gateway", true);
+        uniqueAWSAccount.accountSpecificNamespaceRules(accountSpecificNamespaceRules);
+        uniqueAWSAccount.addHostTagsItem("javaTag:one");
+        uniqueAWSAccount.addHostTagsItem("java:success");
+        uniqueAWSAccount.addFilterTagsItem("dontCollect:java");
+
+        // Setup unique AWSAccountAndLambdaRequest to use
+        uniqueAWSAccountLambdaRequest.setAccountId(accountId);
+        uniqueAWSAccountLambdaRequest.setLambdaArn("arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest");
+
+        // Setup unique AWSLogsServicesRequest to use
+        uniqueAWSLogsServicesRequest.setAccountId(accountId);
+        uniqueAWSLogsServicesRequest.addServicesItem("s3");
+        uniqueAWSLogsServicesRequest.addServicesItem("elb");
+        uniqueAWSLogsServicesRequest.addServicesItem("elbv2");
+        uniqueAWSLogsServicesRequest.addServicesItem("cloudfront");
+        uniqueAWSLogsServicesRequest.addServicesItem("redshift");
+        uniqueAWSLogsServicesRequest.addServicesItem("lambda");
+    }
+
+    @After
+    public void cleanupAWSAccount() {
+        try {
+            AWSApi.deleteAWSAccount().body(uniqueAWSAccount).execute();
+        } catch (ApiException e) {
+            System.out.printf("Error deleting %s during test cleanup. This Account may have already been deleted ", uniqueAWSAccount);
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Check function to see if a lambda_arn exists within an account.
      *
@@ -46,11 +83,23 @@ public class AwsLogsIntegrationApiTest {
      */
     @Test
     public void aWSLogsCheckLambdaAsyncTest() throws ApiException {
-        AWSAccountAndLambdaRequest body = null;
-        AWSLogsAsyncResponse response = api.aWSLogsCheckLambdaAsync()
-                .body(body)
-                .execute();
-        // TODO: test validations
+        AWSApi.createAWSAccount().body(uniqueAWSAccount).execute();
+
+        AWSLogsAsyncResponse response = api.aWSLogsCheckLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
+        assertNull(response.getErrors());
+        assertEquals(response.getStatus(), "created");
+
+        // Give the async call time to finish
+        try {
+            Thread.sleep(10 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        response = api.aWSLogsCheckLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
+        assertNotEquals(response.getErrors().get(0).getCode(), "");
+        assertNotEquals(response.getErrors().get(0).getMessage(), "");
+        assertEquals(response.getStatus(), "error");
     }
     
     /**
@@ -63,15 +112,14 @@ public class AwsLogsIntegrationApiTest {
      */
     @Test
     public void aWSLogsCheckServicesAsyncTest() throws ApiException {
-        AWSLogsServicesRequest body = null;
-        AWSLogsAsyncResponse response = api.aWSLogsCheckServicesAsync()
-                .body(body)
-                .execute();
-        // TODO: test validations
+        AWSApi.createAWSAccount().body(uniqueAWSAccount).execute();
+        AWSLogsAsyncResponse response = api.aWSLogsCheckServicesAsync().body(uniqueAWSLogsServicesRequest).execute();
+        assertNotEquals(response.getErrors().get(0).getCode(), "");
+        assertNotEquals(response.getErrors().get(0).getMessage(), "");
     }
     
     /**
-     * List configured AWS log integrations.
+     * List and Delete configured AWS log integrations.
      *
      * ### Overview List all Datadog-AWS Logs integrations configured in your Datadog account.
      *
@@ -79,10 +127,44 @@ public class AwsLogsIntegrationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void aWSLogsListTest() throws ApiException {
-        List<AWSLogsListResponse> response = api.aWSLogsList()
-                .execute();
-        // TODO: test validations
+    public void aWSLogsAddListEnableAndDeleteTest() throws ApiException {
+        AWSApi.createAWSAccount().body(uniqueAWSAccount).execute();
+        // Add Lambda to Account
+        api.addAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
+        // Enable services for Lambda
+        api.enableAWSLogServices().body(uniqueAWSLogsServicesRequest).execute();
+
+        // List AWS Logs integrations before deleting
+        List<AWSLogsListResponse> listOutput1 = api.aWSLogsList().execute();
+        Boolean accountExists = false;
+        // Iterate over output and list Lambdas
+        for (AWSLogsListResponse account: listOutput1) {
+            if (account.getAccountId().equals(uniqueAWSAccount.getAccountId()) && account.getLambdas().get(0).getArn().equals(uniqueAWSAccountLambdaRequest.getLambdaArn())) {
+                    accountExists = true;
+            }
+        }
+
+        // Test that variable is true as expected
+        assertEquals(true, accountExists);
+
+        // Delete newly added Lambda
+        api.deleteAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
+        List<AWSLogsListResponse> listOutput2 = api.aWSLogsList().execute();
+        Boolean accountExistsAfterDelete = false;
+        List<AWSLogsListResponseLambdas> listOfARNs2 = new ArrayList<>();
+
+        for(AWSLogsListResponse account: listOutput2) {
+            if (account.getAccountId().equals(uniqueAWSAccount.getAccountId())) {
+                listOfARNs2 = account.getLambdas();
+            }
+        }
+        for(AWSLogsListResponseLambdas lambda: listOfARNs2) {
+            if (lambda.getArn().equals(uniqueAWSAccountLambdaRequest.getLambdaArn())) {
+                accountExistsAfterDelete = true;
+            }
+        }
+        // Check that ARN no longer exists after delete
+        assertFalse(accountExistsAfterDelete);
     }
     
     /**
@@ -95,60 +177,10 @@ public class AwsLogsIntegrationApiTest {
      */
     @Test
     public void aWSLogsServicesListTest() throws ApiException {
-        List<AWSLogsListServicesResponse> response = api.aWSLogsServicesList()
-                .execute();
-        // TODO: test validations
-    }
-    
-    /**
-     * Add a AWS Lambda ARN to your Datadog account.
-     *
-     * ### Overview Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection. ### Arguments * **&#x60;account_id&#x60;** [*required*, *default* &#x3D; **None**]: Your AWS Account ID without dashes. * **&#x60;lambda_arn&#x60;** [*required*, *default* &#x3D; **None**]: ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void addAWSLambdaARNTest() throws ApiException {
-        AWSAccountAndLambdaRequest body = null;
-        Object response = api.addAWSLambdaARN()
-                .body(body)
-                .execute();
-        // TODO: test validations
-    }
-    
-    /**
-     * Delete a AWS Lambda ARN from your Datadog account.
-     *
-     * ### Overview Delete a Lambda ARN of a Lambda created for the Datadog-AWS log collection in your Datadog account. ### Arguments * **&#x60;account_id&#x60;** [*required*, *default* &#x3D; **None**]: Your AWS Account ID without dashes. * **&#x60;lambda_arn&#x60;** [*required*, *default* &#x3D; **None**]: ARN of the Lambda to be deleted.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteAWSLambdaARNTest() throws ApiException {
-        AWSAccountAndLambdaRequest body = null;
-        Object response = api.deleteAWSLambdaARN()
-                .body(body)
-                .execute();
-        // TODO: test validations
-    }
-    
-    /**
-     * Enable Automatic Log collection for your AWS services.
-     *
-     * ### Overview Enable automatic log collection for a list of services. This should be run after running &#39;AddAWSLambdaARN&#39; to save the config. ### Arguments * **&#x60;account_id&#x60;** [*required*, *default* &#x3D; **None**]: Your AWS Account ID without dashes. * **&#x60;services&#x60;** [*required*, *default* &#x3D; **None**]: Array of services IDs set to enable automatic log collection. Discover the list of available services with the Get list of AWS log ready services API endpoint
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void enableAWSLogServicesTest() throws ApiException {
-        AWSLogsServicesRequest body = null;
-        Object response = api.enableAWSLogServices()
-                .body(body)
-                .execute();
-        // TODO: test validations
+        List<AWSLogsListServicesResponse> response = api.aWSLogsServicesList().execute();
+        // There are currently 6 supported AWS Logs services as noted in the docs
+        // https://docs.datadoghq.com/api/?lang=bash#get-list-of-aws-log-ready-services
+        assertTrue(response.size() >= 6);
     }
     
 }
