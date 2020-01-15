@@ -96,6 +96,7 @@ public class EventsApiTest extends V1ApiTest {
                 else
                     break;
         }
+        System.out.printf("Events: %s\n\nFetchedEvent: %s", events, fetchedEvent);
         assertThat(events, hasItems(fetchedEvent));
     }
 }
