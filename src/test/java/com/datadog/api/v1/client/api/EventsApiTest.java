@@ -61,8 +61,8 @@ public class EventsApiTest extends V1ApiTest {
 
         final Long eventId = createdEvent.getId();
 
-        int count = 5;
-        final int interval = 5;  // seconds
+        int count = 20;
+        int interval = 5;  // seconds
         for (int i = 0; i < count; i++) {
             try {
                 response = api.getEvent(eventId).execute();
@@ -86,8 +86,17 @@ public class EventsApiTest extends V1ApiTest {
         final EventListResponse eventListResponse = api.listEvents().start(start).end(end).priority(priority)
                 .sources(sources).tags(tags).unaggregated(unaggregated).execute();
 
-        final List<Event> events = eventListResponse.getEvents();
-
+        List<Event> events = new ArrayList<Event>();
+        count = 10;
+        interval = 5;  // seconds
+        for (int i = 0; i < count; i++) {
+                events = eventListResponse.getEvents();
+                if (events.isEmpty())
+                    try { Thread.sleep(interval * 1000); } catch (InterruptedException e1) {}
+                else
+                    break;
+        }
+        System.out.printf("Events: %s\n\nFetchedEvent: %s", events, fetchedEvent);
         assertThat(events, hasItems(fetchedEvent));
     }
 }
