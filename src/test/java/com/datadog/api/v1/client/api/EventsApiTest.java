@@ -87,7 +87,7 @@ public class EventsApiTest extends V1ApiTest {
                 .sources(sources).tags(tags).unaggregated(unaggregated).execute();
 
         List<Event> events = new ArrayList<Event>();
-        count = 10;
+        count = 20;
         interval = 5;  // seconds
         for (int i = 0; i < count; i++) {
                 events = eventListResponse.getEvents();
