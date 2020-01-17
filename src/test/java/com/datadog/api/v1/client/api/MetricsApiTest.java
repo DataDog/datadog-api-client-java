@@ -41,10 +41,10 @@ public class MetricsApiTest extends V1ApiTest {
 
         String testMetric = String.format("go.client.test.%d", now);
         List<Double> p1 = new ArrayList<>();
-        p1.add(new Double(now-60));
+        p1.add((double) (now - 60));
         p1.add(10.5);
         List<Double> p2 = new ArrayList<>();
-        p2.add(new Double(now));
+        p2.add((double) now);
         p2.add(11.);
 
         List<List<Double>> testPoints = new ArrayList<>();
@@ -101,8 +101,8 @@ public class MetricsApiTest extends V1ApiTest {
        	assertEquals("avg", series.getAggr());
        	assertEquals(testMetric, series.getDisplayName());
        	assertEquals(testMetric, series.getMetric());
-       	assertEquals(series.getPointlist().get(0).get(0), series.getStart());
-       	assertEquals(series.getPointlist().get(1).get(0), series.getEnd());
+       	assertEquals(series.getPointlist().get(0).get(0), Double.valueOf(series.getStart()));
+       	assertEquals(series.getPointlist().get(1).get(0), Double.valueOf(series.getEnd()));
        	assertEquals(new Double(10.5), series.getPointlist().get(0).get(1));
        	assertEquals(new Double(11.), series.getPointlist().get(1).get(1));
 
