@@ -11,15 +11,15 @@ public class TestUtils {
 
     public static void retry(int interval, int count, BooleanSupplier call) throws RetryException {
         for(int i = 0; i < count; i++) {
-       		if(call.getAsBoolean()) {
-       			return;
-       		}
-       		try {
+            if(call.getAsBoolean()) {
+                return;
+            }
+            try {
                 Thread.sleep(interval * 1000);
             } catch(InterruptedException e) {
                 return;
             }
-       	}
-       	throw new RetryException(String.format("Retry error: failed to satisfy the condition after %d times", count));
+        }
+        throw new RetryException(String.format("Retry error: failed to satisfy the condition after %d times", count));
     }
 }

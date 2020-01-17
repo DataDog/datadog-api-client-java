@@ -57,7 +57,7 @@ public class MetricsApiTest extends V1ApiTest {
         testTags.add("bar:baz");
 
         String testHost = "go-client-test-host";
-        String testQuery = "avg:"+testMetric+"{bar:baz}by{host}";
+        String testQuery = String.format("avg:%s{bar:baz}by{host}", testMetric);
 
         List<Series> testSeries = new ArrayList<>();
         testSeries.add(new Series().host(testHost).metric(testMetric).points(testPoints).tags(testTags));
@@ -87,10 +87,9 @@ public class MetricsApiTest extends V1ApiTest {
         });
 
         // Test query
-        try {
-            MetricsQueryResponse queryResult = api.queryMetrics().from(now - 100).to(now + 100).query(testQuery).execute();
+        MetricsQueryResponse queryResult = api.queryMetrics().from(now - 100).to(now + 100).query(testQuery).execute();
        	assertEquals(1, queryResult.getGroupBy().size());
-       	assertEquals("host", queryResult.getGroupBy());
+       	assertEquals("host", queryResult.getGroupBy().get(0));
        	assertEquals(testQuery, queryResult.getQuery());
        	assertEquals(new Long((now-100)*1000), queryResult.getFromDate());
        	assertEquals(new Long((now+100)*1000), queryResult.getToDate());
@@ -106,9 +105,6 @@ public class MetricsApiTest extends V1ApiTest {
        	assertEquals(series.getPointlist().get(1).get(0), series.getEnd());
        	assertEquals(new Double(10.5), series.getPointlist().get(0).get(1));
        	assertEquals(new Double(11.), series.getPointlist().get(1).get(1));
-        }catch(Exception e){
-            e.printStackTrace();
-        }
 
         // Test search
        	String searchQuery = String.format("metrics:%s", testMetric);
