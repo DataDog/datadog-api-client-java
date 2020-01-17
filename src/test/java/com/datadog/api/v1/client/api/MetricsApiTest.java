@@ -121,7 +121,7 @@ public class MetricsApiTest extends V1ApiTest {
        	assertNull(metadata.getUnit());
        	assertNull(metadata.getShortName());
        	assertNull(metadata.getStatsdInterval());
-       	assertEquals("", metadata.getType());
+       	assertEquals("gauge", metadata.getType());
 
 
         MetricMetadata newMetadata = new MetricMetadata().description("description").perUnit("second").unit("byte").shortName("short_name").statsdInterval(20L).type("count");
