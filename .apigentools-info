@@ -4,5 +4,5 @@
     "codegen_version": "4.2.3-SNAPSHOT",
     "info_version": "1",
     "image": "apigentools/apigentools:git-200b0cd",
-    "spec_repo_commit": "1ac8e85"
+    "spec_repo_commit": "703f35b"
 }

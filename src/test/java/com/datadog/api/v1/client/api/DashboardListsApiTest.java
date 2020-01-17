@@ -24,7 +24,6 @@ import java.util.ArrayList;
 /**
  * API tests for DashboardListsApi
  */
-@Ignore
 public class DashboardListsApiTest extends V1ApiTest {
 
     private static DashboardListsApi api;
