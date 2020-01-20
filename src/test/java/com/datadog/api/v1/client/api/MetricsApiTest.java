@@ -85,52 +85,52 @@ public class MetricsApiTest extends V1ApiTest {
 
         // Test query
         MetricsQueryResponse queryResult = api.queryMetrics().from(now - 100).to(now + 100).query(testQuery).execute();
-       	assertEquals(1, queryResult.getGroupBy().size());
-       	assertEquals("host", queryResult.getGroupBy().get(0));
-       	assertEquals(testQuery, queryResult.getQuery());
-       	assertEquals(new Long((now-100)*1000), queryResult.getFromDate());
-       	assertEquals(new Long((now+100)*1000), queryResult.getToDate());
-       	assertEquals("ok", queryResult.getStatus());
-       	assertEquals("time_series", queryResult.getResType());
-       	assertEquals(1, queryResult.getSeries().size());
-       	MetricsQueryResponseSeries series = queryResult.getSeries().get(0);
-       	assertEquals(new Long(2), series.getLength());
-       	assertEquals("avg", series.getAggr());
-       	assertEquals(testMetric, series.getDisplayName());
-       	assertEquals(testMetric, series.getMetric());
-       	assertEquals(series.getPointlist().get(0).get(0), Double.valueOf(series.getStart()));
-       	assertEquals(series.getPointlist().get(1).get(0), Double.valueOf(series.getEnd()));
-       	assertEquals(new Double(10.5), series.getPointlist().get(0).get(1));
-       	assertEquals(new Double(11.), series.getPointlist().get(1).get(1));
+        assertEquals(1, queryResult.getGroupBy().size());
+        assertEquals("host", queryResult.getGroupBy().get(0));
+        assertEquals(testQuery, queryResult.getQuery());
+        assertEquals(new Long((now-100)*1000), queryResult.getFromDate());
+        assertEquals(new Long((now+100)*1000), queryResult.getToDate());
+        assertEquals("ok", queryResult.getStatus());
+        assertEquals("time_series", queryResult.getResType());
+        assertEquals(1, queryResult.getSeries().size());
+        MetricsQueryResponseSeries series = queryResult.getSeries().get(0);
+        assertEquals(new Long(2), series.getLength());
+        assertEquals("avg", series.getAggr());
+        assertEquals(testMetric, series.getDisplayName());
+        assertEquals(testMetric, series.getMetric());
+        assertEquals(series.getPointlist().get(0).get(0), Double.valueOf(series.getStart()));
+        assertEquals(series.getPointlist().get(1).get(0), Double.valueOf(series.getEnd()));
+        assertEquals(new Double(10.5), series.getPointlist().get(0).get(1));
+        assertEquals(new Double(11.), series.getPointlist().get(1).get(1));
 
         // Test search
-       	String searchQuery = String.format("metrics:%s", testMetric);
-       	MetricSearchResponse searchResult = api.searchMetrics().q(searchQuery).execute();
-       	List<String> metrics = searchResult.getResults().getMetrics();
-       	assertEquals(1, metrics.size());
-       	assertEquals(testMetric, metrics.get(0));
+        String searchQuery = String.format("metrics:%s", testMetric);
+        MetricSearchResponse searchResult = api.searchMetrics().q(searchQuery).execute();
+        List<String> metrics = searchResult.getResults().getMetrics();
+        assertEquals(1, metrics.size());
+        assertEquals(testMetric, metrics.get(0));
 
         // Test metric metadata
-       	MetricMetadata metadata = api.getMetricMetadata(testMetric).execute();
-       	assertNull(metadata.getDescription());
-       	assertNull(metadata.getIntegration());
-       	assertNull(metadata.getPerUnit());
-       	assertNull(metadata.getUnit());
-       	assertNull(metadata.getShortName());
-       	assertNull(metadata.getStatsdInterval());
-       	assertEquals("rate", metadata.getType());
+        MetricMetadata metadata = api.getMetricMetadata(testMetric).execute();
+        assertNull(metadata.getDescription());
+        assertNull(metadata.getIntegration());
+        assertNull(metadata.getPerUnit());
+        assertNull(metadata.getUnit());
+        assertNull(metadata.getShortName());
+        assertNull(metadata.getStatsdInterval());
+        assertEquals("rate", metadata.getType());
 
 
         MetricMetadata newMetadata = new MetricMetadata().description("description").perUnit("second").unit("byte").shortName("short_name").statsdInterval(20L).type("count");
 
-       	metadata = api.editMetricMetadata(testMetric).body(newMetadata).execute();
-       	assertEquals("description", metadata.getDescription());
-       	assertNull(metadata.getIntegration());
-       	assertEquals("second", metadata.getPerUnit());
-       	assertEquals("byte", metadata.getUnit());
-       	assertEquals("short_name", metadata.getShortName());
-       	assertEquals(new Long(20), metadata.getStatsdInterval());
-       	assertEquals("count", metadata.getType());
+        metadata = api.editMetricMetadata(testMetric).body(newMetadata).execute();
+        assertEquals("description", metadata.getDescription());
+        assertNull(metadata.getIntegration());
+        assertEquals("second", metadata.getPerUnit());
+        assertEquals("byte", metadata.getUnit());
+        assertEquals("short_name", metadata.getShortName());
+        assertEquals(new Long(20), metadata.getStatsdInterval());
+        assertEquals("count", metadata.getType());
     }
 
     @Test
