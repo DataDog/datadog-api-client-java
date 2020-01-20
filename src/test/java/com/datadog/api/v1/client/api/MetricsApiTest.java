@@ -39,7 +39,7 @@ public class MetricsApiTest extends V1ApiTest {
     public void metricsTests() throws ApiException, TestUtils.RetryException {
         long now = System.currentTimeMillis()/1000;
 
-        String testMetric = String.format("go.client.test.%d", now);
+        String testMetric = String.format("java.client.test.%d", now);
         List<Double> p1 = new ArrayList<>();
         p1.add((double) (now - 60));
         p1.add(10.5);
@@ -51,16 +51,15 @@ public class MetricsApiTest extends V1ApiTest {
         testPoints.add(p1);
         testPoints.add(p2);
 
-
         List<String> testTags = new ArrayList<>();
         testTags.add("tag:foo");
         testTags.add("bar:baz");
 
-        String testHost = "go-client-test-host";
+        String testHost = "java-client-test-host";
         String testQuery = String.format("avg:%s{bar:baz}by{host}", testMetric);
 
         List<Series> testSeries = new ArrayList<>();
-        testSeries.add(new Series().host(testHost).metric(testMetric).points(testPoints).tags(testTags));
+        testSeries.add(new Series().host(testHost).metric(testMetric).points(testPoints).tags(testTags).type("rate"));
 
         MetricsPayload metricsPayload = new MetricsPayload().series(testSeries);
 
@@ -121,7 +120,7 @@ public class MetricsApiTest extends V1ApiTest {
        	assertNull(metadata.getUnit());
        	assertNull(metadata.getShortName());
        	assertNull(metadata.getStatsdInterval());
-       	assertEquals("gauge", metadata.getType());
+       	assertEquals("rate", metadata.getType());
 
 
         MetricMetadata newMetadata = new MetricMetadata().description("description").perUnit("second").unit("byte").shortName("short_name").statsdInterval(20L).type("count");
