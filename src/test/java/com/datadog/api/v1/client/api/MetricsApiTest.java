@@ -154,7 +154,7 @@ public class MetricsApiTest extends V1ApiTest {
         testTags.add("bar:baz");
 
         String testHost = "java-client-test-host";
-        int testInterval = 20;
+        long testInterval = 20L;
         String testType = "count";
 
         List<Series> testSeries = new ArrayList<>();
