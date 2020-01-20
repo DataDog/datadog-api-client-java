@@ -126,7 +126,7 @@ public class AWSAccount {
    * @return accountSpecificNamespaceRules
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"auto_scaling\":false}", value = "")
+  @ApiModelProperty(example = "false", value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

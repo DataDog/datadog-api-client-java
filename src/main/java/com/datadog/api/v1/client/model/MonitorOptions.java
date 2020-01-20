@@ -150,7 +150,7 @@ public class MonitorOptions {
   private MonitorThresholds thresholds;
 
   public static final String JSON_PROPERTY_TIMEOUT_H = "timeout_h";
-  private Integer timeoutH;
+  private Long timeoutH;
 
 
   public MonitorOptions aggregation(MonitorOptionsAggregation aggregation) {
@@ -646,7 +646,7 @@ public class MonitorOptions {
   }
 
 
-  public MonitorOptions timeoutH(Integer timeoutH) {
+  public MonitorOptions timeoutH(Long timeoutH) {
     
     this.timeoutH = timeoutH;
     return this;
@@ -661,12 +661,12 @@ public class MonitorOptions {
   @JsonProperty(JSON_PROPERTY_TIMEOUT_H)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getTimeoutH() {
+  public Long getTimeoutH() {
     return timeoutH;
   }
 
 
-  public void setTimeoutH(Integer timeoutH) {
+  public void setTimeoutH(Long timeoutH) {
     this.timeoutH = timeoutH;
   }
 
