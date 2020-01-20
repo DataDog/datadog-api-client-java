@@ -120,9 +120,7 @@ public class MetricsApiTest extends V1ApiTest {
         assertNull(metadata.getStatsdInterval());
         assertEquals("rate", metadata.getType());
 
-
         MetricMetadata newMetadata = new MetricMetadata().description("description").perUnit("second").unit("byte").shortName("short_name").statsdInterval(20L).type("count");
-
         metadata = api.editMetricMetadata(testMetric).body(newMetadata).execute();
         assertEquals("description", metadata.getDescription());
         assertNull(metadata.getIntegration());
