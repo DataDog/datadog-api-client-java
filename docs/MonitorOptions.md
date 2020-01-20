@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **syntheticsCheckId** | **Long** |  |  [optional]
 **thresholdWindows** | [**MonitorThresholdWindowOptions**](MonitorThresholdWindowOptions.md) |  |  [optional]
 **thresholds** | [**MonitorThresholds**](MonitorThresholds.md) |  |  [optional]
-**timeoutH** | **Integer** |  |  [optional]
+**timeoutH** | **Long** |  |  [optional]
 
 
 

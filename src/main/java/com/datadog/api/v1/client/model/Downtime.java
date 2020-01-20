@@ -147,6 +147,7 @@ public class Downtime {
 
    /**
    * Get creatorId
+   * maximum: 2147483647
    * @return creatorId
   **/
   @javax.annotation.Nullable
@@ -188,6 +189,7 @@ public class Downtime {
 
    /**
    * Get downtimeType
+   * maximum: 2147483647
    * @return downtimeType
   **/
   @javax.annotation.Nullable
@@ -501,6 +503,7 @@ public class Downtime {
 
    /**
    * Get updaterId
+   * maximum: 2147483647
    * @return updaterId
   **/
   @javax.annotation.Nullable

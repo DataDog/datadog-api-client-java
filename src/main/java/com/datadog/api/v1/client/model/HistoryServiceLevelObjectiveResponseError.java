@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HistoryServiceLevelObjectiveResponseError
+ * A service level objective response containing the requested history.
  */
+@ApiModel(description = "A service level objective response containing the requested history.")
 @JsonPropertyOrder({
   HistoryServiceLevelObjectiveResponseError.JSON_PROPERTY_ERROR
 })
