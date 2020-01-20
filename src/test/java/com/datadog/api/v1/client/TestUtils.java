@@ -10,6 +10,9 @@
 
 package com.datadog.api.v1.client;
 
+import org.apache.commons.io.IOUtils;
+
+import java.io.IOException;
 import java.util.function.BooleanSupplier;
 
 public class TestUtils {
@@ -31,5 +34,9 @@ public class TestUtils {
             }
         }
         throw new RetryException(String.format("Retry error: failed to satisfy the condition after %d times", count));
+    }
+
+    public static String getFixture(String path) throws IOException {
+        return IOUtils.toString(TestUtils.class.getResourceAsStream(path), "UTF-8");
     }
 }

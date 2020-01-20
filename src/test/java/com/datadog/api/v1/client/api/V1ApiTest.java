@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.TestUtils;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -65,10 +66,6 @@ public abstract class V1ApiTest {
         appKeyAuth.setApiKey(TEST_APP_KEY_NAME);
     }
 
-    public String getFixture(String path) throws IOException {
-        return IOUtils.toString(this.getClass().getResourceAsStream(path), "UTF-8");
-    }
-
     public MappingBuilder setupStub(String Urlpath, String fixturePath, String httpMethod) throws IOException {
         MappingBuilder stub = null;
 
@@ -91,7 +88,7 @@ public abstract class V1ApiTest {
         .willReturn(aResponse()
             .withStatus(200)
             .withHeader("Content-Type", "application/json")
-            .withBody(this.getFixture(fixturePath)));
+            .withBody(TestUtils.getFixture(fixturePath)));
         return stub;
     }
 

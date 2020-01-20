@@ -15,11 +15,13 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.TestUtils;
 import com.datadog.api.v1.client.model.*;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,13 +32,9 @@ public class MetricsApiTest extends V1ApiTest {
 
     private static MetricsApi api;
 
-    @BeforeClass
-    public static void initApi() {
-        api = new MetricsApi(generalApiClient);
-    }
-
     @Test
     public void metricsTests() throws ApiException, TestUtils.RetryException {
+        api = new MetricsApi(generalApiClient);
         long now = System.currentTimeMillis()/1000;
 
         String testMetric = String.format("java.client.test.%d", now);
@@ -133,5 +131,43 @@ public class MetricsApiTest extends V1ApiTest {
        	assertEquals("short_name", metadata.getShortName());
        	assertEquals(new Long(20), metadata.getStatsdInterval());
        	assertEquals("count", metadata.getType());
+    }
+
+    @Test
+    public void metricSubmissionMockTest() throws ApiException, IOException {
+        api = new MetricsApi(generalApiUnitTestClient);
+        reset();
+
+        // Test that a normal submission works
+        String testMetric = "java.client.test";
+        List<Double> p1 = new ArrayList<>();
+        p1.add(1.);
+        p1.add(10.5);
+        List<Double> p2 = new ArrayList<>();
+        p2.add(2.);
+        p2.add(11.);
+
+        List<List<Double>> testPoints = new ArrayList<>();
+        testPoints.add(p1);
+        testPoints.add(p2);
+
+        List<String> testTags = new ArrayList<>();
+        testTags.add("tag:foo");
+        testTags.add("bar:baz");
+
+        String testHost = "java-client-test-host";
+        int testInterval = 20;
+        String testType = "count";
+
+        List<Series> testSeries = new ArrayList<>();
+        testSeries.add(new Series().host(testHost).metric(testMetric).points(testPoints).tags(testTags).type(testType).interval(testInterval));
+        MetricsPayload testPayload = new MetricsPayload().series(testSeries);
+        stubFor(post(urlPathEqualTo("/api/v1/series"))
+            .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
+            .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
+            .withRequestBody(equalToJson(TestUtils.getFixture("metrics_fixtures/normal_submission.json"), true, false))
+            .willReturn(okJson("{\"status\": \"ok\"}")));
+        IntakePayloadAccepted r = api.submitMetrics().body(testPayload).execute();
+        assertEquals("ok", r.getStatus());
     }
 }
