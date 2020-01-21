@@ -47,7 +47,7 @@ public abstract class V1ApiTest {
         }
         secrets.put("appKeyAuth", appKey);
         generalApiClient.configureApiKeys(secrets);
-        generalApiClient.setDebugging("true".equals(System.getenv("DEBUG").equals("true")));
+        generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
     }
 
     @BeforeClass
