@@ -48,7 +48,7 @@ public class EventListResponse {
 
   public EventListResponse addEventsItem(Event eventsItem) {
     if (this.events == null) {
-      this.events = new ArrayList<Event>();
+      this.events = new ArrayList<>();
     }
     this.events.add(eventsItem);
     return this;

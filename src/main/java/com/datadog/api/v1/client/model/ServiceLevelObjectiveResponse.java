@@ -72,7 +72,7 @@ public class ServiceLevelObjectiveResponse {
 
   public ServiceLevelObjectiveResponse addErrorsItem(String errorsItem) {
     if (this.errors == null) {
-      this.errors = new ArrayList<String>();
+      this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
     return this;

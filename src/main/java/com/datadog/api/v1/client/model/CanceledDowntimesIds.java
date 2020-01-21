@@ -43,7 +43,7 @@ public class CanceledDowntimesIds {
 
   public CanceledDowntimesIds addCancelledIdsItem(Long cancelledIdsItem) {
     if (this.cancelledIds == null) {
-      this.cancelledIds = new ArrayList<Long>();
+      this.cancelledIds = new ArrayList<>();
     }
     this.cancelledIds.add(cancelledIdsItem);
     return this;

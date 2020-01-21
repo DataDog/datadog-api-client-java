@@ -44,7 +44,7 @@ public class ApplicationKeyListResponse {
 
   public ApplicationKeyListResponse addApplicationKeysItem(ApplicationKey applicationKeysItem) {
     if (this.applicationKeys == null) {
-      this.applicationKeys = new ArrayList<ApplicationKey>();
+      this.applicationKeys = new ArrayList<>();
     }
     this.applicationKeys.add(applicationKeysItem);
     return this;

@@ -48,7 +48,7 @@ public class AWSLogsAsyncResponse {
 
   public AWSLogsAsyncResponse addErrorsItem(AWSLogsAsyncResponseErrors errorsItem) {
     if (this.errors == null) {
-      this.errors = new ArrayList<AWSLogsAsyncResponseErrors>();
+      this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
     return this;

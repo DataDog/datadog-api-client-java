@@ -77,7 +77,7 @@ public class AWSLogsListResponse {
 
   public AWSLogsListResponse addLambdasItem(AWSLogsListResponseLambdas lambdasItem) {
     if (this.lambdas == null) {
-      this.lambdas = new ArrayList<AWSLogsListResponseLambdas>();
+      this.lambdas = new ArrayList<>();
     }
     this.lambdas.add(lambdasItem);
     return this;
@@ -110,7 +110,7 @@ public class AWSLogsListResponse {
 
   public AWSLogsListResponse addServicesItem(String servicesItem) {
     if (this.services == null) {
-      this.services = new ArrayList<String>();
+      this.services = new ArrayList<>();
     }
     this.services.add(servicesItem);
     return this;

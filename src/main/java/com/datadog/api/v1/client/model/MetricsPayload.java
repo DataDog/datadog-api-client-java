@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.Series;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,43 +25,47 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Error405
+ * MetricsPayload
  */
 @JsonPropertyOrder({
-  Error405.JSON_PROPERTY_ERRORS
+  MetricsPayload.JSON_PROPERTY_SERIES
 })
 
-public class Error405 {
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<String> errors = new ArrayList<String>();
+public class MetricsPayload {
+  public static final String JSON_PROPERTY_SERIES = "series";
+  private List<Series> series = null;
 
 
-  public Error405 errors(List<String> errors) {
+  public MetricsPayload series(List<Series> series) {
     
-    this.errors = errors;
+    this.series = series;
     return this;
   }
 
-  public Error405 addErrorsItem(String errorsItem) {
-    this.errors.add(errorsItem);
+  public MetricsPayload addSeriesItem(Series seriesItem) {
+    if (this.series == null) {
+      this.series = new ArrayList<>();
+    }
+    this.series.add(seriesItem);
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * A list of time series to submit to Datadog
+   * @return series
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of time series to submit to Datadog")
+  @JsonProperty(JSON_PROPERTY_SERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getErrors() {
-    return errors;
+  public List<Series> getSeries() {
+    return series;
   }
 
 
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
+  public void setSeries(List<Series> series) {
+    this.series = series;
   }
 
 
@@ -72,21 +77,21 @@ public class Error405 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error405 error405 = (Error405) o;
-    return Objects.equals(this.errors, error405.errors);
+    MetricsPayload metricsPayload = (MetricsPayload) o;
+    return Objects.equals(this.series, metricsPayload.series);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(series);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error405 {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class MetricsPayload {\n");
+    sb.append("    series: ").append(toIndentedString(series)).append("\n");
     sb.append("}");
     return sb.toString();
   }

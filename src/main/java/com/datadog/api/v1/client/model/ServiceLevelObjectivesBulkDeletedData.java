@@ -47,7 +47,7 @@ public class ServiceLevelObjectivesBulkDeletedData {
 
   public ServiceLevelObjectivesBulkDeletedData addDeletedItem(String deletedItem) {
     if (this.deleted == null) {
-      this.deleted = new ArrayList<String>();
+      this.deleted = new ArrayList<>();
     }
     this.deleted.add(deletedItem);
     return this;
@@ -80,7 +80,7 @@ public class ServiceLevelObjectivesBulkDeletedData {
 
   public ServiceLevelObjectivesBulkDeletedData addUpdatedItem(String updatedItem) {
     if (this.updated == null) {
-      this.updated = new ArrayList<String>();
+      this.updated = new ArrayList<>();
     }
     this.updated.add(updatedItem);
     return this;

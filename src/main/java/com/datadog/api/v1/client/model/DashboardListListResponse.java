@@ -44,7 +44,7 @@ public class DashboardListListResponse {
 
   public DashboardListListResponse addDashboardListsItem(DashboardList dashboardListsItem) {
     if (this.dashboardLists == null) {
-      this.dashboardLists = new ArrayList<DashboardList>();
+      this.dashboardLists = new ArrayList<>();
     }
     this.dashboardLists.add(dashboardListsItem);
     return this;

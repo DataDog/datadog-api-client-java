@@ -115,7 +115,7 @@ public class AWSAccount {
 
   public AWSAccount putAccountSpecificNamespaceRulesItem(String key, Boolean accountSpecificNamespaceRulesItem) {
     if (this.accountSpecificNamespaceRules == null) {
-      this.accountSpecificNamespaceRules = new HashMap<String, Boolean>();
+      this.accountSpecificNamespaceRules = new HashMap<>();
     }
     this.accountSpecificNamespaceRules.put(key, accountSpecificNamespaceRulesItem);
     return this;
@@ -148,7 +148,7 @@ public class AWSAccount {
 
   public AWSAccount addFilterTagsItem(String filterTagsItem) {
     if (this.filterTags == null) {
-      this.filterTags = new ArrayList<String>();
+      this.filterTags = new ArrayList<>();
     }
     this.filterTags.add(filterTagsItem);
     return this;
@@ -181,7 +181,7 @@ public class AWSAccount {
 
   public AWSAccount addHostTagsItem(String hostTagsItem) {
     if (this.hostTags == null) {
-      this.hostTags = new ArrayList<String>();
+      this.hostTags = new ArrayList<>();
     }
     this.hostTags.add(hostTagsItem);
     return this;

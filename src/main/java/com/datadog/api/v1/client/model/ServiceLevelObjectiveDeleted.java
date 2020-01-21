@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class ServiceLevelObjectiveDeleted {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<String> data = new ArrayList<String>();
+  private List<String> data = new ArrayList<>();
 
 
   public ServiceLevelObjectiveDeleted data(List<String> data) {

@@ -44,7 +44,7 @@ public class UsageSyntheticsResponse {
 
   public UsageSyntheticsResponse addUsageItem(UsageSyntheticsHour usageItem) {
     if (this.usage == null) {
-      this.usage = new ArrayList<UsageSyntheticsHour>();
+      this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
     return this;

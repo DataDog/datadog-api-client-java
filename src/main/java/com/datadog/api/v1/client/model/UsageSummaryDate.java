@@ -20,9 +20,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.LocalDate;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -579,7 +579,7 @@ public class UsageSummaryDate {
 
   public UsageSummaryDate addOrgsItem(UsageSummaryDateOrg orgsItem) {
     if (this.orgs == null) {
-      this.orgs = new ArrayList<UsageSummaryDateOrg>();
+      this.orgs = new ArrayList<>();
     }
     this.orgs.add(orgsItem);
     return this;

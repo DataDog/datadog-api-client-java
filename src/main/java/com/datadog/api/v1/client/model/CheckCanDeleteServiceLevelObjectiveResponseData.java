@@ -44,7 +44,7 @@ public class CheckCanDeleteServiceLevelObjectiveResponseData {
 
   public CheckCanDeleteServiceLevelObjectiveResponseData addOkItem(String okItem) {
     if (this.ok == null) {
-      this.ok = new ArrayList<String>();
+      this.ok = new ArrayList<>();
     }
     this.ok.add(okItem);
     return this;

@@ -168,7 +168,7 @@ public class HistoryServiceLevelObjectiveResponseData {
 
   public HistoryServiceLevelObjectiveResponseData putThresholdsItem(String key, SLOThreshold thresholdsItem) {
     if (this.thresholds == null) {
-      this.thresholds = new HashMap<String, SLOThreshold>();
+      this.thresholds = new HashMap<>();
     }
     this.thresholds.put(key, thresholdsItem);
     return this;
