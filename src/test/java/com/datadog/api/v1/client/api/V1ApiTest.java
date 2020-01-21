@@ -12,6 +12,7 @@ import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
 import org.apache.commons.io.IOUtils;
+import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 
@@ -64,6 +65,11 @@ public abstract class V1ApiTest {
         // Configure API key authorization with fake key
         ApiKeyAuth appKeyAuth = (ApiKeyAuth) generalApiUnitTestClient.getAuthentication("appKeyAuth");
         appKeyAuth.setApiKey(TEST_APP_KEY_NAME);
+    }
+
+    @After
+    public void resetWiremock() {
+        reset();
     }
 
     public MappingBuilder setupStub(String Urlpath, String fixturePath, String httpMethod) throws IOException {

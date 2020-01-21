@@ -165,7 +165,7 @@ public class MetricsApiTest extends V1ApiTest {
         stubFor(post(urlPathEqualTo("/api/v1/series"))
             .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
             .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
-            .withRequestBody(equalToJson(TestUtils.getFixture("metrics_fixtures/normal_submission.json"), true, false))
+            .withRequestBody(equalToJson(TestUtils.getFixture("api/metrics_fixtures/normal_submission.json"), true, false))
             .willReturn(okJson("{\"status\": \"ok\"}"))
         );
         IntakePayloadAccepted r = api.submitMetrics().body(testPayload).execute();
@@ -179,7 +179,7 @@ public class MetricsApiTest extends V1ApiTest {
         stubFor(post(urlPathEqualTo("/api/v1/series"))
             .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
             .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
-            .withRequestBody(equalToJson(TestUtils.getFixture("metrics_fixtures/default_submission.json"), true, false))
+            .withRequestBody(equalToJson(TestUtils.getFixture("api/metrics_fixtures/default_submission.json"), true, false))
             .willReturn(okJson("{\"status\": \"ok\"}"))
         );
         r = api.submitMetrics().body(testPayload).execute();
@@ -189,9 +189,8 @@ public class MetricsApiTest extends V1ApiTest {
     @Test
     public void metricListActiveTestMock() throws ApiException, IOException {
         api = new MetricsApi(generalApiUnitTestClient);
-        reset();
 
-        String expectedJSON = TestUtils.getFixture("metrics_fixtures/active_metrics.json");
+        String expectedJSON = TestUtils.getFixture("api/metrics_fixtures/active_metrics.json");
         ObjectMapper objectMapper = new ObjectMapper();
         MetricsListResponse expected = objectMapper.readValue(expectedJSON, MetricsListResponse.class);
 
