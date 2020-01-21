@@ -85,7 +85,7 @@ public class ServiceLevelObjective {
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_THRESHOLDS = "thresholds";
-  private List<SLOThreshold> thresholds = new ArrayList<SLOThreshold>();
+  private List<SLOThreshold> thresholds = new ArrayList<>();
 
   /**
    * The type of the service level objective.
@@ -257,7 +257,7 @@ public class ServiceLevelObjective {
 
   public ServiceLevelObjective addGroupsItem(String groupsItem) {
     if (this.groups == null) {
-      this.groups = new ArrayList<String>();
+      this.groups = new ArrayList<>();
     }
     this.groups.add(groupsItem);
     return this;
@@ -340,7 +340,7 @@ public class ServiceLevelObjective {
 
   public ServiceLevelObjective addMonitorIdsItem(Long monitorIdsItem) {
     if (this.monitorIds == null) {
-      this.monitorIds = new ArrayList<Long>();
+      this.monitorIds = new ArrayList<>();
     }
     this.monitorIds.add(monitorIdsItem);
     return this;
@@ -373,7 +373,7 @@ public class ServiceLevelObjective {
 
   public ServiceLevelObjective addMonitorTagsItem(String monitorTagsItem) {
     if (this.monitorTags == null) {
-      this.monitorTags = new ArrayList<String>();
+      this.monitorTags = new ArrayList<>();
     }
     this.monitorTags.add(monitorTagsItem);
     return this;
@@ -455,7 +455,7 @@ public class ServiceLevelObjective {
 
   public ServiceLevelObjective addTagsItem(String tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;

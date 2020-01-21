@@ -13,54 +13,49 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.MetricSearchResponseResults;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Error402
+ * MetricSearchResponse
  */
 @JsonPropertyOrder({
-  Error402.JSON_PROPERTY_ERRORS
+  MetricSearchResponse.JSON_PROPERTY_RESULTS
 })
 
-public class Error402 {
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<String> errors = new ArrayList<String>();
+public class MetricSearchResponse {
+  public static final String JSON_PROPERTY_RESULTS = "results";
+  private MetricSearchResponseResults results;
 
 
-  public Error402 errors(List<String> errors) {
+  public MetricSearchResponse results(MetricSearchResponseResults results) {
     
-    this.errors = errors;
-    return this;
-  }
-
-  public Error402 addErrorsItem(String errorsItem) {
-    this.errors.add(errorsItem);
+    this.results = results;
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * Get results
+   * @return results
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getErrors() {
-    return errors;
+  public MetricSearchResponseResults getResults() {
+    return results;
   }
 
 
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
+  public void setResults(MetricSearchResponseResults results) {
+    this.results = results;
   }
 
 
@@ -72,21 +67,21 @@ public class Error402 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error402 error402 = (Error402) o;
-    return Objects.equals(this.errors, error402.errors);
+    MetricSearchResponse metricSearchResponse = (MetricSearchResponse) o;
+    return Objects.equals(this.results, metricSearchResponse.results);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(results);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error402 {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class MetricSearchResponse {\n");
+    sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();
   }

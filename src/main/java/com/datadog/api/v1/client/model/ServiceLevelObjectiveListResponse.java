@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class ServiceLevelObjectiveListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<ServiceLevelObjective> data = new ArrayList<ServiceLevelObjective>();
+  private List<ServiceLevelObjective> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = null;
@@ -77,7 +77,7 @@ public class ServiceLevelObjectiveListResponse {
 
   public ServiceLevelObjectiveListResponse addErrorsItem(String errorsItem) {
     if (this.errors == null) {
-      this.errors = new ArrayList<String>();
+      this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
     return this;

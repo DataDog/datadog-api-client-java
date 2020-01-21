@@ -44,7 +44,7 @@ public class OrgListResponse {
 
   public OrgListResponse addOrgsItem(Org orgsItem) {
     if (this.orgs == null) {
-      this.orgs = new ArrayList<Org>();
+      this.orgs = new ArrayList<>();
     }
     this.orgs.add(orgsItem);
     return this;

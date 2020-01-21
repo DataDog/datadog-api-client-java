@@ -20,10 +20,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -742,7 +742,7 @@ public class UsageSummaryResponse {
 
   public UsageSummaryResponse addUsageItem(UsageSummaryDate usageItem) {
     if (this.usage == null) {
-      this.usage = new ArrayList<UsageSummaryDate>();
+      this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
     return this;

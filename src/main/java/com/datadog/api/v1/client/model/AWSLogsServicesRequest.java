@@ -36,7 +36,7 @@ public class AWSLogsServicesRequest {
   private String accountId;
 
   public static final String JSON_PROPERTY_SERVICES = "services";
-  private List<String> services = new ArrayList<String>();
+  private List<String> services = new ArrayList<>();
 
 
   public AWSLogsServicesRequest accountId(String accountId) {

@@ -54,7 +54,7 @@ public class MonitorState {
 
   public MonitorState putGroupsItem(String key, MonitorStateGroup groupsItem) {
     if (this.groups == null) {
-      this.groups = new HashMap<String, MonitorStateGroup>();
+      this.groups = new HashMap<>();
     }
     this.groups.put(key, groupsItem);
     return this;

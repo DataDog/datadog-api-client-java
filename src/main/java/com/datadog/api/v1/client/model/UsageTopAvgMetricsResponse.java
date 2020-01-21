@@ -44,7 +44,7 @@ public class UsageTopAvgMetricsResponse {
 
   public UsageTopAvgMetricsResponse addUsageItem(UsageTopAvgMetricsHour usageItem) {
     if (this.usage == null) {
-      this.usage = new ArrayList<UsageTopAvgMetricsHour>();
+      this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
     return this;

@@ -11,8 +11,8 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneOffset;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import com.datadog.api.v1.client.model.UsageFargateResponse;
 import com.datadog.api.v1.client.model.UsageHostsResponse;
 import com.datadog.api.v1.client.model.UsageLogsResponse;

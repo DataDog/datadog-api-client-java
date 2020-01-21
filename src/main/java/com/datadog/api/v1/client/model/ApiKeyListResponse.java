@@ -44,7 +44,7 @@ public class ApiKeyListResponse {
 
   public ApiKeyListResponse addApiKeysItem(ApiKey apiKeysItem) {
     if (this.apiKeys == null) {
-      this.apiKeys = new ArrayList<ApiKey>();
+      this.apiKeys = new ArrayList<>();
     }
     this.apiKeys.add(apiKeysItem);
     return this;

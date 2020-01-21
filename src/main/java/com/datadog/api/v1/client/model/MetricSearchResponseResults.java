@@ -24,43 +24,48 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Error429
+ * Search result
  */
+@ApiModel(description = "Search result")
 @JsonPropertyOrder({
-  Error429.JSON_PROPERTY_ERRORS
+  MetricSearchResponseResults.JSON_PROPERTY_METRICS
 })
 
-public class Error429 {
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<String> errors = new ArrayList<String>();
+public class MetricSearchResponseResults {
+  public static final String JSON_PROPERTY_METRICS = "metrics";
+  private List<String> metrics = null;
 
 
-  public Error429 errors(List<String> errors) {
+  public MetricSearchResponseResults metrics(List<String> metrics) {
     
-    this.errors = errors;
+    this.metrics = metrics;
     return this;
   }
 
-  public Error429 addErrorsItem(String errorsItem) {
-    this.errors.add(errorsItem);
+  public MetricSearchResponseResults addMetricsItem(String metricsItem) {
+    if (this.metrics == null) {
+      this.metrics = new ArrayList<>();
+    }
+    this.metrics.add(metricsItem);
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * List of metrics that match the search query
+   * @return metrics
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of metrics that match the search query")
+  @JsonProperty(JSON_PROPERTY_METRICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getErrors() {
-    return errors;
+  public List<String> getMetrics() {
+    return metrics;
   }
 
 
-  public void setErrors(List<String> errors) {
-    this.errors = errors;
+  public void setMetrics(List<String> metrics) {
+    this.metrics = metrics;
   }
 
 
@@ -72,21 +77,21 @@ public class Error429 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error429 error429 = (Error429) o;
-    return Objects.equals(this.errors, error429.errors);
+    MetricSearchResponseResults metricSearchResponseResults = (MetricSearchResponseResults) o;
+    return Objects.equals(this.metrics, metricSearchResponseResults.metrics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(metrics);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error429 {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class MetricSearchResponseResults {\n");
+    sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

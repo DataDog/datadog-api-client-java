@@ -66,7 +66,7 @@ public class HistoryServiceLevelObjectiveGroups {
 
   public HistoryServiceLevelObjectiveGroups addHistoryItem(List<Double> historyItem) {
     if (this.history == null) {
-      this.history = new ArrayList<List<Double>>();
+      this.history = new ArrayList<>();
     }
     this.history.add(historyItem);
     return this;
@@ -124,7 +124,7 @@ public class HistoryServiceLevelObjectiveGroups {
 
   public HistoryServiceLevelObjectiveGroups putPrecisionItem(String key, Double precisionItem) {
     if (this.precision == null) {
-      this.precision = new HashMap<String, Double>();
+      this.precision = new HashMap<>();
     }
     this.precision.put(key, precisionItem);
     return this;

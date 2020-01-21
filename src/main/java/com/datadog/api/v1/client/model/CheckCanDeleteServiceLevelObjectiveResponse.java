@@ -74,7 +74,7 @@ public class CheckCanDeleteServiceLevelObjectiveResponse {
 
   public CheckCanDeleteServiceLevelObjectiveResponse putErrorsItem(String key, String errorsItem) {
     if (this.errors == null) {
-      this.errors = new HashMap<String, String>();
+      this.errors = new HashMap<>();
     }
     this.errors.put(key, errorsItem);
     return this;

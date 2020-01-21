@@ -44,7 +44,7 @@ public class UsageTimeseriesResponse {
 
   public UsageTimeseriesResponse addUsageItem(UsageTimeseriesHour usageItem) {
     if (this.usage == null) {
-      this.usage = new ArrayList<UsageTimeseriesHour>();
+      this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
     return this;

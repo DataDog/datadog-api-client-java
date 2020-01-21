@@ -11,7 +11,7 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v1.client.model.Error400;
 import com.datadog.api.v1.client.model.Error401;
 import com.datadog.api.v1.client.model.Error403;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 import com.datadog.api.v1.client.model.UsageFargateResponse;
 import com.datadog.api.v1.client.model.UsageHostsResponse;
 import com.datadog.api.v1.client.model.UsageLogsResponse;

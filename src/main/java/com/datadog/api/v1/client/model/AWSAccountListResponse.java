@@ -44,7 +44,7 @@ public class AWSAccountListResponse {
 
   public AWSAccountListResponse addAccountsItem(AWSAccount accountsItem) {
     if (this.accounts == null) {
-      this.accounts = new ArrayList<AWSAccount>();
+      this.accounts = new ArrayList<>();
     }
     this.accounts.add(accountsItem);
     return this;

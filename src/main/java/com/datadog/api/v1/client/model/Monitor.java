@@ -23,9 +23,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -449,7 +449,7 @@ public class Monitor {
 
   public Monitor addTagsItem(String tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;
