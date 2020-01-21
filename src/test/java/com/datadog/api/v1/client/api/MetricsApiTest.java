@@ -135,7 +135,6 @@ public class MetricsApiTest extends V1ApiTest {
     @Test
     public void metricSubmissionMockTest() throws ApiException, IOException {
         api = new MetricsApi(generalApiUnitTestClient);
-        reset();
 
         String testMetric = "java.client.test";
         List<Double> p1 = new ArrayList<>();
