@@ -15,6 +15,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.TestUtils;
 import com.datadog.api.v1.client.model.*;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -136,7 +137,6 @@ public class MetricsApiTest extends V1ApiTest {
         api = new MetricsApi(generalApiUnitTestClient);
         reset();
 
-        // Test that a normal submission works
         String testMetric = "java.client.test";
         List<Double> p1 = new ArrayList<>();
         p1.add(1.);
@@ -160,12 +160,48 @@ public class MetricsApiTest extends V1ApiTest {
         List<Series> testSeries = new ArrayList<>();
         testSeries.add(new Series().host(testHost).metric(testMetric).points(testPoints).tags(testTags).type(testType).interval(testInterval));
         MetricsPayload testPayload = new MetricsPayload().series(testSeries);
+
+        // Test that a normal submission works
         stubFor(post(urlPathEqualTo("/api/v1/series"))
             .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
             .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
             .withRequestBody(equalToJson(TestUtils.getFixture("metrics_fixtures/normal_submission.json"), true, false))
-            .willReturn(okJson("{\"status\": \"ok\"}")));
+            .willReturn(okJson("{\"status\": \"ok\"}"))
+        );
         IntakePayloadAccepted r = api.submitMetrics().body(testPayload).execute();
         assertEquals("ok", r.getStatus());
+
+        // Test default values
+        testSeries = new ArrayList<>();
+        testSeries.add(new Series().metric(testMetric).points(testPoints));
+        testPayload = new MetricsPayload().series(testSeries);
+
+        stubFor(post(urlPathEqualTo("/api/v1/series"))
+            .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
+            .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
+            .withRequestBody(equalToJson(TestUtils.getFixture("metrics_fixtures/default_submission.json"), true, false))
+            .willReturn(okJson("{\"status\": \"ok\"}"))
+        );
+        r = api.submitMetrics().body(testPayload).execute();
+        assertEquals("ok", r.getStatus());
+    }
+
+    @Test
+    public void metricListActiveTestMock() throws ApiException, IOException {
+        api = new MetricsApi(generalApiUnitTestClient);
+        reset();
+
+        String expectedJSON = TestUtils.getFixture("metrics_fixtures/active_metrics.json");
+        ObjectMapper objectMapper = new ObjectMapper();
+        MetricsListResponse expected = objectMapper.readValue(expectedJSON, MetricsListResponse.class);
+
+        stubFor(get(urlPathEqualTo("/api/v1/metrics"))
+            .withQueryParam("from", equalTo("1"))
+            .withQueryParam("host", equalTo("host"))
+            .willReturn(okJson(expectedJSON))
+        );
+        MetricsListResponse r = api.getAllActiveMetrics().from(1L).host("host").execute();
+
+        assertEquals(expected, r);
     }
 }
