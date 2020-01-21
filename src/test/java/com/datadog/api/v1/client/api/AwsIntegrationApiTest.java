@@ -26,7 +26,7 @@ import java.util.Map;
 /**
  * API tests for AwsIntegrationApi
  */
-public class AwsIntegrationApiTest extends V1ApiTest  {
+public class AwsIntegrationApiTest extends V1ApiTest {
 
     private static AwsIntegrationApi api;
     private static LinkedHashSet<AWSAccount> accountsToDelete;

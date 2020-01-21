@@ -2,6 +2,7 @@
 
 # CheckCanDeleteServiceLevelObjectiveResponse
 
+A service level objective response containing the requested object.
 ## Properties
 
 Name | Type | Description | Notes

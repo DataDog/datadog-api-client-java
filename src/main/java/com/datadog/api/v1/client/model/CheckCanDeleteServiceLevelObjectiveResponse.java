@@ -26,8 +26,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * CheckCanDeleteServiceLevelObjectiveResponse
+ * A service level objective response containing the requested object.
  */
+@ApiModel(description = "A service level objective response containing the requested object.")
 @JsonPropertyOrder({
   CheckCanDeleteServiceLevelObjectiveResponse.JSON_PROPERTY_DATA,
   CheckCanDeleteServiceLevelObjectiveResponse.JSON_PROPERTY_ERRORS

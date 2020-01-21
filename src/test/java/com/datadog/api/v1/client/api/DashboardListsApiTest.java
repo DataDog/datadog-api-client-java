@@ -51,7 +51,7 @@ public class DashboardListsApiTest extends V1ApiTest {
         assertEquals(testDashboardList.getName(), dashboardList.getName());
         assertNotNull(dashboardList.getAuthor());
         assertNotNull(dashboardList.getCreated());
-        assertEquals(new Integer(0), dashboardList.getDashboardCount());
+        assertEquals(new Long(0), dashboardList.getDashboardCount());
         assertNotNull(dashboardList.getModified());
         assertFalse(dashboardList.getIsFavorite());
         assertEquals("manual_dashboard_list", dashboardList.getType());

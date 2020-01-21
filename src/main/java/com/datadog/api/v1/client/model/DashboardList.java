@@ -45,7 +45,7 @@ public class DashboardList {
   private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_DASHBOARD_COUNT = "dashboard_count";
-  private Integer dashboardCount;
+  private Long dashboardCount;
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -113,7 +113,7 @@ public class DashboardList {
   @JsonProperty(JSON_PROPERTY_DASHBOARD_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getDashboardCount() {
+  public Long getDashboardCount() {
     return dashboardCount;
   }
 

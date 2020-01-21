@@ -62,6 +62,7 @@ public class DowntimeRecurrence {
 
    /**
    * Get period
+   * maximum: 2147483647
    * @return period
   **/
   @javax.annotation.Nullable
@@ -147,6 +148,7 @@ public class DowntimeRecurrence {
 
    /**
    * Get untilOccurrences
+   * maximum: 2147483647
    * @return untilOccurrences
   **/
   @javax.annotation.Nullable

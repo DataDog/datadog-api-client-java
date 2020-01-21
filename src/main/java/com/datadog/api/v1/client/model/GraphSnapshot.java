@@ -22,98 +22,97 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Creator of the object
+ * GraphSnapshot
  */
-@ApiModel(description = "Creator of the object")
 @JsonPropertyOrder({
-  Creator.JSON_PROPERTY_EMAIL,
-  Creator.JSON_PROPERTY_HANDLE,
-  Creator.JSON_PROPERTY_NAME
+  GraphSnapshot.JSON_PROPERTY_GRAPH_DEF,
+  GraphSnapshot.JSON_PROPERTY_METRIC_QUERY,
+  GraphSnapshot.JSON_PROPERTY_SNAPSHOT_URL
 })
 
-public class Creator {
-  public static final String JSON_PROPERTY_EMAIL = "email";
-  private String email;
+public class GraphSnapshot {
+  public static final String JSON_PROPERTY_GRAPH_DEF = "graph_def";
+  private String graphDef;
 
-  public static final String JSON_PROPERTY_HANDLE = "handle";
-  private String handle;
+  public static final String JSON_PROPERTY_METRIC_QUERY = "metric_query";
+  private String metricQuery;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_SNAPSHOT_URL = "snapshot_url";
+  private String snapshotUrl;
 
 
-  public Creator email(String email) {
+  public GraphSnapshot graphDef(String graphDef) {
     
-    this.email = email;
+    this.graphDef = graphDef;
     return this;
   }
 
    /**
-   * Get email
-   * @return email
+   * Get graphDef
+   * @return graphDef
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(JSON_PROPERTY_GRAPH_DEF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getEmail() {
-    return email;
+  public String getGraphDef() {
+    return graphDef;
   }
 
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setGraphDef(String graphDef) {
+    this.graphDef = graphDef;
   }
 
 
-  public Creator handle(String handle) {
+  public GraphSnapshot metricQuery(String metricQuery) {
     
-    this.handle = handle;
+    this.metricQuery = metricQuery;
     return this;
   }
 
    /**
-   * Get handle
-   * @return handle
+   * Get metricQuery
+   * @return metricQuery
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonProperty(JSON_PROPERTY_METRIC_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getHandle() {
-    return handle;
+  public String getMetricQuery() {
+    return metricQuery;
   }
 
 
-  public void setHandle(String handle) {
-    this.handle = handle;
+  public void setMetricQuery(String metricQuery) {
+    this.metricQuery = metricQuery;
   }
 
 
-  public Creator name(String name) {
+  public GraphSnapshot snapshotUrl(String snapshotUrl) {
     
-    this.name = name;
+    this.snapshotUrl = snapshotUrl;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get snapshotUrl
+   * @return snapshotUrl
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_SNAPSHOT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public String getSnapshotUrl() {
+    return snapshotUrl;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setSnapshotUrl(String snapshotUrl) {
+    this.snapshotUrl = snapshotUrl;
   }
 
 
@@ -125,25 +124,25 @@ public class Creator {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Creator creator = (Creator) o;
-    return Objects.equals(this.email, creator.email) &&
-        Objects.equals(this.handle, creator.handle) &&
-        Objects.equals(this.name, creator.name);
+    GraphSnapshot graphSnapshot = (GraphSnapshot) o;
+    return Objects.equals(this.graphDef, graphSnapshot.graphDef) &&
+        Objects.equals(this.metricQuery, graphSnapshot.metricQuery) &&
+        Objects.equals(this.snapshotUrl, graphSnapshot.snapshotUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, handle, name);
+    return Objects.hash(graphDef, metricQuery, snapshotUrl);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Creator {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("class GraphSnapshot {\n");
+    sb.append("    graphDef: ").append(toIndentedString(graphDef)).append("\n");
+    sb.append("    metricQuery: ").append(toIndentedString(metricQuery)).append("\n");
+    sb.append("    snapshotUrl: ").append(toIndentedString(snapshotUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
