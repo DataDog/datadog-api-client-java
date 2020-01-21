@@ -136,7 +136,7 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
 
   public HistoryServiceLevelObjectiveMetricsSeries addTimesItem(Long timesItem) {
     if (this.times == null) {
-      this.times = new ArrayList<Long>();
+      this.times = new ArrayList<>();
     }
     this.times.add(timesItem);
     return this;
@@ -169,7 +169,7 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
 
   public HistoryServiceLevelObjectiveMetricsSeries addValuesItem(Double valuesItem) {
     if (this.values == null) {
-      this.values = new ArrayList<Double>();
+      this.values = new ArrayList<>();
     }
     this.values.add(valuesItem);
     return this;

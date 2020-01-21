@@ -44,7 +44,7 @@ public class UsageLogsResponse {
 
   public UsageLogsResponse addUsageItem(UsageLogsHour usageItem) {
     if (this.usage == null) {
-      this.usage = new ArrayList<UsageLogsHour>();
+      this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
     return this;

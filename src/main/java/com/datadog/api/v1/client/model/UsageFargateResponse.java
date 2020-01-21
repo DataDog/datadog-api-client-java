@@ -44,7 +44,7 @@ public class UsageFargateResponse {
 
   public UsageFargateResponse addUsageItem(UsageFargateHour usageItem) {
     if (this.usage == null) {
-      this.usage = new ArrayList<UsageFargateHour>();
+      this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
     return this;

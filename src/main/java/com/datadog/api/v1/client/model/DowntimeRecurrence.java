@@ -184,7 +184,7 @@ public class DowntimeRecurrence {
 
   public DowntimeRecurrence addWeekDaysItem(String weekDaysItem) {
     if (this.weekDays == null) {
-      this.weekDays = new ArrayList<String>();
+      this.weekDays = new ArrayList<>();
     }
     this.weekDays.add(weekDaysItem);
     return this;

@@ -39,7 +39,7 @@ public class ServiceLevelObjectivesBulkDeleted {
   private ServiceLevelObjectivesBulkDeletedData data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<ServiceLevelObjectivesBulkDeletedErrors> errors = new ArrayList<ServiceLevelObjectivesBulkDeletedErrors>();
+  private List<ServiceLevelObjectivesBulkDeletedErrors> errors = new ArrayList<>();
 
 
   public ServiceLevelObjectivesBulkDeleted data(ServiceLevelObjectivesBulkDeletedData data) {

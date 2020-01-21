@@ -44,7 +44,7 @@ public class UsageHostsResponse {
 
   public UsageHostsResponse addUsageItem(UsageHostHour usageItem) {
     if (this.usage == null) {
-      this.usage = new ArrayList<UsageHostHour>();
+      this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
     return this;

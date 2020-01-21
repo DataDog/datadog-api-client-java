@@ -73,7 +73,7 @@ public class HistoryServiceLevelObjectiveResponse {
 
   public HistoryServiceLevelObjectiveResponse addErrorsItem(HistoryServiceLevelObjectiveResponseError errorsItem) {
     if (this.errors == null) {
-      this.errors = new ArrayList<HistoryServiceLevelObjectiveResponseError>();
+      this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
     return this;

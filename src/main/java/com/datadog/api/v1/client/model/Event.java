@@ -244,7 +244,7 @@ public class Event {
 
   public Event addDeviceNameItem(String deviceNameItem) {
     if (this.deviceName == null) {
-      this.deviceName = new ArrayList<String>();
+      this.deviceName = new ArrayList<>();
     }
     this.deviceName.add(deviceNameItem);
     return this;
@@ -409,7 +409,7 @@ public class Event {
 
   public Event addTagsItem(String tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;

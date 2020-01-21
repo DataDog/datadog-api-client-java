@@ -44,7 +44,7 @@ public class UserListResponse {
 
   public UserListResponse addUsersItem(User usersItem) {
     if (this.users == null) {
-      this.users = new ArrayList<User>();
+      this.users = new ArrayList<>();
     }
     this.users.add(usersItem);
     return this;

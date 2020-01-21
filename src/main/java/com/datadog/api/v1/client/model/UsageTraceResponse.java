@@ -44,7 +44,7 @@ public class UsageTraceResponse {
 
   public UsageTraceResponse addUsageItem(UsageTraceHour usageItem) {
     if (this.usage == null) {
-      this.usage = new ArrayList<UsageTraceHour>();
+      this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
     return this;

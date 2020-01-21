@@ -186,7 +186,7 @@ public class MonitorOptions {
 
   public MonitorOptions addDeviceIdsItem(DeviceIdsEnum deviceIdsItem) {
     if (this.deviceIds == null) {
-      this.deviceIds = new ArrayList<DeviceIdsEnum>();
+      this.deviceIds = new ArrayList<>();
     }
     this.deviceIds.add(deviceIdsItem);
     return this;
@@ -546,7 +546,7 @@ public class MonitorOptions {
 
   public MonitorOptions putSilencedItem(String key, Long silencedItem) {
     if (this.silenced == null) {
-      this.silenced = new HashMap<String, Long>();
+      this.silenced = new HashMap<>();
     }
     this.silenced.put(key, silencedItem);
     return this;

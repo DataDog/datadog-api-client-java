@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class Error404 {
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<String> errors = new ArrayList<String>();
+  private List<String> errors = new ArrayList<>();
 
 
   public Error404 errors(List<String> errors) {

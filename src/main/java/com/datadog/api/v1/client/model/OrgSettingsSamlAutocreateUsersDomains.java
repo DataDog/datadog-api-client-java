@@ -47,7 +47,7 @@ public class OrgSettingsSamlAutocreateUsersDomains {
 
   public OrgSettingsSamlAutocreateUsersDomains addDomainsItem(String domainsItem) {
     if (this.domains == null) {
-      this.domains = new ArrayList<String>();
+      this.domains = new ArrayList<>();
     }
     this.domains.add(domainsItem);
     return this;

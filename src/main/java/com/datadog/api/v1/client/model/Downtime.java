@@ -323,7 +323,7 @@ public class Downtime {
 
   public Downtime addMonitorTagsItem(String monitorTagsItem) {
     if (this.monitorTags == null) {
-      this.monitorTags = new ArrayList<String>();
+      this.monitorTags = new ArrayList<>();
     }
     this.monitorTags.add(monitorTagsItem);
     return this;
@@ -426,7 +426,7 @@ public class Downtime {
 
   public Downtime addScopeItem(String scopeItem) {
     if (this.scope == null) {
-      this.scope = new ArrayList<String>();
+      this.scope = new ArrayList<>();
     }
     this.scope.add(scopeItem);
     return this;
