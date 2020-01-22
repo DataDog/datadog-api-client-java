@@ -17,7 +17,6 @@ Method | HTTP request | Description
 
 ## bulkPartialDeleteSLO
 
-
 > ServiceLevelObjectivesBulkDeleted bulkPartialDeleteSLO().body(body).execute();
 
 Delete (or partially delete) multiple service level objective objects.
@@ -56,7 +55,7 @@ public class Example {
 
         SloApi apiInstance = new SloApi(defaultClient);
         Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Thresholds by service level objective object ID
-        try { 
+        try {
             ServiceLevelObjectivesBulkDeleted result = api.bulkPartialDeleteSLO()
                 .body(body)
                 .execute();
@@ -103,7 +102,6 @@ Name | Type | Description  | Notes
 
 ## checkCanDeleteSLO
 
-
 > CheckCanDeleteServiceLevelObjectiveResponse checkCanDeleteSLO().ids(ids).execute();
 
 Check if SLOs can be safely deleted.
@@ -143,7 +141,7 @@ public class Example {
 
         SloApi apiInstance = new SloApi(defaultClient);
         String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects (e.g. \"id1,id2,id3\").
-        try { 
+        try {
             CheckCanDeleteServiceLevelObjectiveResponse result = api.checkCanDeleteSLO()
                 .ids(ids)
                 .execute();
@@ -190,7 +188,6 @@ Name | Type | Description  | Notes
 
 ## createSLO
 
-
 > ServiceLevelObjectiveListResponse createSLO().body(body).execute();
 
 Create a service level objective object.
@@ -228,7 +225,7 @@ public class Example {
 
         SloApi apiInstance = new SloApi(defaultClient);
         ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | Service level objective request object
-        try { 
+        try {
             ServiceLevelObjectiveListResponse result = api.createSLO()
                 .body(body)
                 .execute();
@@ -275,7 +272,6 @@ Name | Type | Description  | Notes
 
 ## deleteSLO
 
-
 > ServiceLevelObjectiveDeleted deleteSLO(sloId).execute();
 
 Delete the specified service level objective object.
@@ -315,7 +311,7 @@ public class Example {
 
         SloApi apiInstance = new SloApi(defaultClient);
         String sloId = "sloId_example"; // String | The id of the service level objective
-        try { 
+        try {
             ServiceLevelObjectiveDeleted result = api.deleteSLO(sloId)
                 .execute();
             System.out.println(result);
@@ -362,7 +358,6 @@ Name | Type | Description  | Notes
 
 ## editSLO
 
-
 > ServiceLevelObjectiveListResponse editSLO(sloId).body(body).execute();
 
 Edit the specified service level objective
@@ -403,7 +398,7 @@ public class Example {
         SloApi apiInstance = new SloApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object
         ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | The edited service level objective request object.
-        try { 
+        try {
             ServiceLevelObjectiveListResponse result = api.editSLO(sloId)
                 .body(body)
                 .execute();
@@ -452,7 +447,6 @@ Name | Type | Description  | Notes
 
 ## getSLO
 
-
 > ServiceLevelObjectiveResponse getSLO(sloId).execute();
 
 Get a service level objective object
@@ -492,7 +486,7 @@ public class Example {
 
         SloApi apiInstance = new SloApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object
-        try { 
+        try {
             ServiceLevelObjectiveResponse result = api.getSLO(sloId)
                 .execute();
             System.out.println(result);
@@ -539,7 +533,6 @@ Name | Type | Description  | Notes
 
 ## getSLOs
 
-
 > ServiceLevelObjectiveListResponse getSLOs().ids(ids).execute();
 
 Get multiple service level objective objects by their IDs.
@@ -580,7 +573,7 @@ public class Example {
 
         SloApi apiInstance = new SloApi(defaultClient);
         String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects (e.g. \"id1,id2,id3\").
-        try { 
+        try {
             ServiceLevelObjectiveListResponse result = api.getSLOs()
                 .ids(ids)
                 .execute();
@@ -627,7 +620,6 @@ Name | Type | Description  | Notes
 
 ## historyForSLO
 
-
 > HistoryServiceLevelObjectiveResponse historyForSLO(sloId).fromTs(fromTs).toTs(toTs).execute();
 
 Get the history of the service level objective.
@@ -671,7 +663,7 @@ public class Example {
         String sloId = "sloId_example"; // String | The ID of the service level objective object
         String fromTs = "fromTs_example"; // String | The `from` timestamp for the query window in epoch seconds
         String toTs = "toTs_example"; // String | The `to` timestamp for the query window in epoch seconds
-        try { 
+        try {
             HistoryServiceLevelObjectiveResponse result = api.historyForSLO(sloId)
                 .fromTs(fromTs)
                 .toTs(toTs)

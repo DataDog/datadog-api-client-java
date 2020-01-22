@@ -12,7 +12,6 @@ Method | HTTP request | Description
 
 ## createEvent
 
-
 > EventResponse createEvent().body(body).execute();
 
 Post an event
@@ -89,7 +88,7 @@ public class Example {
 
         EventsApi apiInstance = new EventsApi(defaultClient);
         Event body = new Event(); // Event | Event request object
-        try { 
+        try {
             EventResponse result = api.createEvent()
                 .body(body)
                 .execute();
@@ -134,7 +133,6 @@ Name | Type | Description  | Notes
 
 ## getEvent
 
-
 > EventResponse getEvent(eventId).execute();
 
 Get an event
@@ -173,7 +171,7 @@ public class Example {
 
         EventsApi apiInstance = new EventsApi(defaultClient);
         Long eventId = 56L; // Long | The id of the event
-        try { 
+        try {
             EventResponse result = api.getEvent(eventId)
                 .execute();
             System.out.println(result);
@@ -217,7 +215,6 @@ Name | Type | Description  | Notes
 
 
 ## listEvents
-
 
 > EventListResponse listEvents().start(start).end(end).priority(priority).sources(sources).tags(tags).unaggregated(unaggregated).execute();
 
@@ -281,7 +278,7 @@ public class Example {
         String sources = "sources_example"; // String | A comma separated string of sources.
         String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0.
         Boolean unaggregated = true; // Boolean | Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won't be available in the output.
-        try { 
+        try {
             EventListResponse result = api.listEvents()
                 .start(start)
                 .end(end)

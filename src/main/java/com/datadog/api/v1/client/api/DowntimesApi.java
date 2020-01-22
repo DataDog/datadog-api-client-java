@@ -74,7 +74,7 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI("DowntimesApi.cancelDowntime", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
 
   public class APIcancelDowntimeRequest {
@@ -168,7 +168,7 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<CanceledDowntimesIds> localVarReturnType = new GenericType<CanceledDowntimesIds>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("DowntimesApi.cancelDowntimesByScope", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcancelDowntimesByScopeRequest {
@@ -273,7 +273,7 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Downtime> localVarReturnType = new GenericType<Downtime>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("DowntimesApi.createDowntime", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateDowntimeRequest {
@@ -372,7 +372,7 @@ private ApiResponse<List<Downtime>> getAllDowntimesWithHttpInfo(Boolean currentO
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<Downtime>> localVarReturnType = new GenericType<List<Downtime>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("DowntimesApi.getAllDowntimes", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetAllDowntimesRequest {
@@ -476,7 +476,7 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Downtime> localVarReturnType = new GenericType<Downtime>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("DowntimesApi.getDowntime", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetDowntimeRequest {
@@ -576,7 +576,7 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Downtime> localVarReturnType = new GenericType<Downtime>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("DowntimesApi.updateDowntime", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateDowntimeRequest {

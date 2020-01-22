@@ -10,7 +10,6 @@ Method | HTTP request | Description
 
 ## submitServiceCheck
 
-
 > IntakePayloadAccepted submitServiceCheck().body(body).execute();
 
 Submit a Service Check
@@ -49,7 +48,7 @@ public class Example {
 
         ServiceChecksApi apiInstance = new ServiceChecksApi(defaultClient);
         List<ServiceCheck> body = Arrays.asList(); // List<ServiceCheck> | Service Check body
-        try { 
+        try {
             IntakePayloadAccepted result = api.submitServiceCheck()
                 .body(body)
                 .execute();
