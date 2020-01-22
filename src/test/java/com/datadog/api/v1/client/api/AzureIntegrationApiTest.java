@@ -22,6 +22,7 @@ import java.util.List;
 /**
  * API tests for AzureIntegrationApi
  */
+@Ignore
 public class AzureIntegrationApiTest extends V1ApiTest {
 
     private static AzureIntegrationApi api;
