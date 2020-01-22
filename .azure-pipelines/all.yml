@@ -25,7 +25,7 @@ jobs:
         DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
     - script: |
-        ls -la /home/vsts/work/1/s; bash <(curl -s https://codecov.io/bash) -s /home/vsts/work/1/s
+        bash <(curl -s https://codecov.io/bash)
       displayName: Upload to codecov.io
       env:
         CODECOV_TOKEN: $(codecovToken)
