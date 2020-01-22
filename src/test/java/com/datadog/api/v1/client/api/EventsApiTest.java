@@ -16,7 +16,6 @@ import com.datadog.api.v1.client.model.Event.PriorityEnum;
 import com.datadog.api.v1.client.model.EventListResponse;
 import com.datadog.api.v1.client.model.EventResponse;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -31,7 +30,6 @@ import java.util.List;
 /**
  * API tests for EventsApi
  */
-@Ignore
 public class EventsApiTest extends V1ApiTest {
 
     private static EventsApi api;

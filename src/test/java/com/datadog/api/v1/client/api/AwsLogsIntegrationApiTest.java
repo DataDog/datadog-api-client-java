@@ -21,7 +21,6 @@ import java.util.*;
 /**
  * API tests for AwsLogsIntegrationApi
  */
-@Ignore
 public class AwsLogsIntegrationApiTest extends V1ApiTest {
 
     private static AwsLogsIntegrationApi api;
