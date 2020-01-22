@@ -57,6 +57,8 @@ public abstract class V1ApiTest {
         // WireMock defaults to listening on localhost port 8080
         // http://wiremock.org/docs/configuration/
         generalApiUnitTestClient.setBasePath("http://localhost:8080");
+        // Disable templated servers
+        generalApiUnitTestClient.setServerIndex(null);
 
         // Configure API key authorization with fake key
         ApiKeyAuth apiKeyAuth = (ApiKeyAuth) generalApiUnitTestClient.getAuthentication("apiKeyAuth");
