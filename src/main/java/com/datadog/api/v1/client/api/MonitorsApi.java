@@ -8,6 +8,7 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.datadog.api.v1.client.model.DeletedMonitor;
 import com.datadog.api.v1.client.model.Error400;
 import com.datadog.api.v1.client.model.Error401;
 import com.datadog.api.v1.client.model.Error403;
@@ -142,7 +143,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
     return new APIcreateMonitorRequest();
   }
 
-private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId) throws ApiException {
+private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'monitorId' is set
@@ -176,7 +177,7 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<Map<String, Long>> localVarReturnType = new GenericType<Map<String, Long>>() {};
+    GenericType<DeletedMonitor> localVarReturnType = new GenericType<DeletedMonitor>() {};
     return apiClient.invokeAPI("MonitorsApi.deleteMonitor", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
@@ -190,7 +191,7 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
 
     /**
      * Execute deleteMonitor request
-     * @return Map&lt;String, Long&gt;
+     * @return DeletedMonitor
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -203,13 +204,13 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
      
      */
     
-    public Map<String, Long> execute() throws ApiException {
+    public DeletedMonitor execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute deleteMonitor request with HTTP info returned
-     * @return ApiResponse&lt;Map&lt;String, Long&gt;&gt;
+     * @return ApiResponse&lt;DeletedMonitor&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -222,7 +223,7 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
      
      */
     
-    public ApiResponse<Map<String, Long>> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<DeletedMonitor> executeWithHttpInfo() throws ApiException {
       return deleteMonitorWithHttpInfo(monitorId);
     }
   }

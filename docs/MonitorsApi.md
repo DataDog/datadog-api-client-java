@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ## deleteMonitor
 
-> Map&lt;String, Long&gt; deleteMonitor(monitorId).execute();
+> DeletedMonitor deleteMonitor(monitorId).execute();
 
 Delete the specified monitor.
 
@@ -139,7 +139,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Long monitorId = 56L; // Long | The id of the monitor
         try {
-            Map<String, Long> result = api.deleteMonitor(monitorId)
+            DeletedMonitor result = api.deleteMonitor(monitorId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Map&lt;String, Long&gt;**
+[**DeletedMonitor**](DeletedMonitor.md)
 
 ### Authorization
 
