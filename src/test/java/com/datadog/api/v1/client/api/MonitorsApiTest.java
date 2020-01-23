@@ -14,6 +14,7 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.Monitor;
 import com.datadog.api.v1.client.model.MonitorOptions;
+import com.datadog.api.v1.client.model.DeletedMonitor;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
