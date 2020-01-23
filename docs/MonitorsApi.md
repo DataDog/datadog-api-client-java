@@ -15,7 +15,6 @@ Method | HTTP request | Description
 
 ## createMonitor
 
-
 > Monitor createMonitor().body(body).execute();
 
 Create a new Monitor
@@ -55,7 +54,7 @@ public class Example {
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Monitor body = new Monitor(); // Monitor | Monitor request object
-        try { 
+        try {
             Monitor result = api.createMonitor()
                 .body(body)
                 .execute();
@@ -100,7 +99,6 @@ Name | Type | Description  | Notes
 
 ## deleteMonitor
 
-
 > Map&lt;String, Long&gt; deleteMonitor(monitorId).execute();
 
 Delete the specified monitor.
@@ -140,7 +138,7 @@ public class Example {
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Long monitorId = 56L; // Long | The id of the monitor
-        try { 
+        try {
             Map<String, Long> result = api.deleteMonitor(monitorId)
                 .execute();
             System.out.println(result);
@@ -186,7 +184,6 @@ Name | Type | Description  | Notes
 
 ## editMonitor
 
-
 > Monitor editMonitor(monitorId).body(body).execute();
 
 Edit the specified monitor
@@ -227,7 +224,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Long monitorId = 56L; // Long | The id of the monitor
         Monitor body = new Monitor(); // Monitor | Monitor request object
-        try { 
+        try {
             Monitor result = api.editMonitor(monitorId)
                 .body(body)
                 .execute();
@@ -274,7 +271,6 @@ Name | Type | Description  | Notes
 
 
 ## getAllMonitors
-
 
 > List&lt;Monitor&gt; getAllMonitors().groupStates(groupStates).name(name).tags(tags).monitorTags(monitorTags).withDowntimes(withDowntimes).execute();
 
@@ -323,7 +319,7 @@ public class Example {
         String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0.
         String monitorTags = "monitorTags_example"; // String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app).
         Boolean withDowntimes = true; // Boolean | If this argument is set to true, then the returned data includes all current downtimes for each monitor.
-        try { 
+        try {
             List<Monitor> result = api.getAllMonitors()
                 .groupStates(groupStates)
                 .name(name)
@@ -376,7 +372,6 @@ Name | Type | Description  | Notes
 
 ## getMonitor
 
-
 > Monitor getMonitor(monitorId).groupStates(groupStates).execute();
 
 Get details about the specified monitor.
@@ -418,7 +413,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Long monitorId = 56L; // Long | The id of the monitor
         String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
-        try { 
+        try {
             Monitor result = api.getMonitor(monitorId)
                 .groupStates(groupStates)
                 .execute();
@@ -465,7 +460,6 @@ Name | Type | Description  | Notes
 
 ## validateMonitor
 
-
 > Monitor validateMonitor().body(body).execute();
 
 
@@ -505,7 +499,7 @@ public class Example {
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Monitor body = new Monitor(); // Monitor | Monitor request object
-        try { 
+        try {
             Monitor result = api.validateMonitor()
                 .body(body)
                 .execute();

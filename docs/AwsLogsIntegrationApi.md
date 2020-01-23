@@ -16,7 +16,6 @@ Method | HTTP request | Description
 
 ## aWSLogsCheckLambdaAsync
 
-
 > AWSLogsAsyncResponse aWSLogsCheckLambdaAsync().body(body).execute();
 
 Check function to see if a lambda_arn exists within an account.
@@ -61,7 +60,7 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
-        try { 
+        try {
             AWSLogsAsyncResponse result = api.aWSLogsCheckLambdaAsync()
                 .body(body)
                 .execute();
@@ -107,7 +106,6 @@ Name | Type | Description  | Notes
 
 ## aWSLogsCheckServicesAsync
 
-
 > AWSLogsAsyncResponse aWSLogsCheckServicesAsync().body(body).execute();
 
 Asynchronous check for permissions for AWS log lambda config.
@@ -152,7 +150,7 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | AWS Logs Async Services check request body
-        try { 
+        try {
             AWSLogsAsyncResponse result = api.aWSLogsCheckServicesAsync()
                 .body(body)
                 .execute();
@@ -198,7 +196,6 @@ Name | Type | Description  | Notes
 
 ## aWSLogsList
 
-
 > List&lt;AWSLogsListResponse&gt; aWSLogsList().execute();
 
 List configured AWS log integrations.
@@ -235,7 +232,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        try { 
+        try {
             List<AWSLogsListResponse> result = api.aWSLogsList()
                 .execute();
             System.out.println(result);
@@ -277,7 +274,6 @@ This endpoint does not need any parameter.
 
 ## aWSLogsServicesList
 
-
 > List&lt;AWSLogsListServicesResponse&gt; aWSLogsServicesList().execute();
 
 Get list of AWS log ready services.
@@ -314,7 +310,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        try { 
+        try {
             List<AWSLogsListServicesResponse> result = api.aWSLogsServicesList()
                 .execute();
             System.out.println(result);
@@ -356,7 +352,6 @@ This endpoint does not need any parameter.
 
 ## addAWSLambdaARN
 
-
 > Object addAWSLambdaARN().body(body).execute();
 
 Add a AWS Lambda ARN to your Datadog account.
@@ -397,7 +392,7 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
-        try { 
+        try {
             Object result = api.addAWSLambdaARN()
                 .body(body)
                 .execute();
@@ -443,7 +438,6 @@ Name | Type | Description  | Notes
 
 ## deleteAWSLambdaARN
 
-
 > Object deleteAWSLambdaARN().body(body).execute();
 
 Delete a AWS Lambda ARN from your Datadog account.
@@ -484,7 +478,7 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
-        try { 
+        try {
             Object result = api.deleteAWSLambdaARN()
                 .body(body)
                 .execute();
@@ -530,7 +524,6 @@ Name | Type | Description  | Notes
 
 ## enableAWSLogServices
 
-
 > Object enableAWSLogServices().body(body).execute();
 
 Enable Automatic Log collection for your AWS services.
@@ -571,7 +564,7 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Enable AWS Log Services request object
-        try { 
+        try {
             Object result = api.enableAWSLogServices()
                 .body(body)
                 .execute();
