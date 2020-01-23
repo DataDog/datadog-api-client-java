@@ -110,14 +110,8 @@ public class MonitorsApiTest extends V1ApiTest {
         assertEquals(testingMonitorOptionsNoDataTimeframe, obtained.getOptions().getNoDataTimeframe());
 
         // test deleting monitor
-        api.deleteMonitor(monitorId).execute();
-        try {
-            api.getMonitor(monitorId).groupStates("all").execute();
-            // junit 4 doesn't have better support for asserting that method threw an error
-            assertTrue(false);
-        } catch (ApiException e) {
-            // noop
-        }
+        DeletedMonitor deletedMonitor = api.deleteMonitor(monitorId).execute();
+        assertEquals(monitorId, deletedMonitor.getDeletedMonitorId());
     }
 
    /**
