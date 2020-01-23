@@ -19,7 +19,6 @@ Method | HTTP request | Description
 
 ## createAPIKey
 
-
 > ApiKeyResponse createAPIKey().body(body).execute();
 
 Create an API key with a given name.
@@ -59,7 +58,7 @@ public class Example {
 
         KeysApi apiInstance = new KeysApi(defaultClient);
         ApiKey body = new ApiKey(); // ApiKey | 
-        try { 
+        try {
             ApiKeyResponse result = api.createAPIKey()
                 .body(body)
                 .execute();
@@ -106,7 +105,6 @@ Name | Type | Description  | Notes
 
 ## createApplicationKey
 
-
 > ApplicationKeyResponse createApplicationKey().body(body).execute();
 
 Create an application key with a given name.
@@ -146,7 +144,7 @@ public class Example {
 
         KeysApi apiInstance = new KeysApi(defaultClient);
         ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
-        try { 
+        try {
             ApplicationKeyResponse result = api.createApplicationKey()
                 .body(body)
                 .execute();
@@ -193,7 +191,6 @@ Name | Type | Description  | Notes
 
 ## deleteAPIKey
 
-
 > ApiKeyResponse deleteAPIKey(key).execute();
 
 Delete a given API key.
@@ -233,7 +230,7 @@ public class Example {
 
         KeysApi apiInstance = new KeysApi(defaultClient);
         String key = "key_example"; // String | The specific API key you are working with
-        try { 
+        try {
             ApiKeyResponse result = api.deleteAPIKey(key)
                 .execute();
             System.out.println(result);
@@ -279,7 +276,6 @@ Name | Type | Description  | Notes
 
 ## deleteApplicationKey
 
-
 > ApplicationKeyResponse deleteApplicationKey(key).execute();
 
 Delete a given application key.
@@ -319,7 +315,7 @@ public class Example {
 
         KeysApi apiInstance = new KeysApi(defaultClient);
         String key = "key_example"; // String | The specific APP key you are working with
-        try { 
+        try {
             ApplicationKeyResponse result = api.deleteApplicationKey(key)
                 .execute();
             System.out.println(result);
@@ -365,7 +361,6 @@ Name | Type | Description  | Notes
 
 ## editAPIKey
 
-
 > ApiKeyResponse editAPIKey(key).body(body).execute();
 
 Edit an API key name.
@@ -406,7 +401,7 @@ public class Example {
         KeysApi apiInstance = new KeysApi(defaultClient);
         String key = "key_example"; // String | The specific API key you are working with
         ApiKey body = new ApiKey(); // ApiKey | 
-        try { 
+        try {
             ApiKeyResponse result = api.editAPIKey(key)
                 .body(body)
                 .execute();
@@ -454,7 +449,6 @@ Name | Type | Description  | Notes
 
 ## editApplicationKey
 
-
 > ApplicationKeyResponse editApplicationKey(key).body(body).execute();
 
 Edit an application key name.
@@ -495,7 +489,7 @@ public class Example {
         KeysApi apiInstance = new KeysApi(defaultClient);
         String key = "key_example"; // String | The specific APP key you are working with
         ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
-        try { 
+        try {
             ApplicationKeyResponse result = api.editApplicationKey(key)
                 .body(body)
                 .execute();
@@ -543,7 +537,6 @@ Name | Type | Description  | Notes
 
 ## getAPIKey
 
-
 > ApiKeyResponse getAPIKey(key).execute();
 
 Get a given API key.
@@ -583,7 +576,7 @@ public class Example {
 
         KeysApi apiInstance = new KeysApi(defaultClient);
         String key = "key_example"; // String | The specific API key you are working with
-        try { 
+        try {
             ApiKeyResponse result = api.getAPIKey(key)
                 .execute();
             System.out.println(result);
@@ -629,7 +622,6 @@ Name | Type | Description  | Notes
 
 ## getAllAPIKeys
 
-
 > ApiKeyListResponse getAllAPIKeys().execute();
 
 Get all API keys available for your account.
@@ -668,7 +660,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        try { 
+        try {
             ApiKeyListResponse result = api.getAllAPIKeys()
                 .execute();
             System.out.println(result);
@@ -710,7 +702,6 @@ This endpoint does not need any parameter.
 
 ## getAllApplicationKeys
 
-
 > ApplicationKeyListResponse getAllApplicationKeys().execute();
 
 Get all application keys available for your account.
@@ -749,7 +740,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        try { 
+        try {
             ApplicationKeyListResponse result = api.getAllApplicationKeys()
                 .execute();
             System.out.println(result);
@@ -791,7 +782,6 @@ This endpoint does not need any parameter.
 
 ## getApplicationKey
 
-
 > ApplicationKeyResponse getApplicationKey(key).execute();
 
 Get a given application key.
@@ -831,7 +821,7 @@ public class Example {
 
         KeysApi apiInstance = new KeysApi(defaultClient);
         String key = "key_example"; // String | The specific APP key you are working with
-        try { 
+        try {
             ApplicationKeyResponse result = api.getApplicationKey(key)
                 .execute();
             System.out.println(result);

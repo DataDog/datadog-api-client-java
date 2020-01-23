@@ -15,7 +15,6 @@ Method | HTTP request | Description
 
 ## createAWSAccount
 
-
 > AWSAccountCreateResponse createAWSAccount().body(body).execute();
 
 Create an AWS Account
@@ -78,7 +77,7 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
-        try { 
+        try {
             AWSAccountCreateResponse result = api.createAWSAccount()
                 .body(body)
                 .execute();
@@ -124,7 +123,6 @@ Name | Type | Description  | Notes
 
 ## deleteAWSAccount
 
-
 > Object deleteAWSAccount().body(body).execute();
 
 Delete an AWS Account
@@ -168,7 +166,7 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
-        try { 
+        try {
             Object result = api.deleteAWSAccount()
                 .body(body)
                 .execute();
@@ -214,7 +212,6 @@ Name | Type | Description  | Notes
 
 ## generateNewAWSExternalID
 
-
 > AWSAccountCreateResponse generateNewAWSExternalID().body(body).execute();
 
 Generate New External ID
@@ -258,7 +255,7 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount body = new AWSAccount(); // AWSAccount | Generate New AWS External ID request object
-        try { 
+        try {
             AWSAccountCreateResponse result = api.generateNewAWSExternalID()
                 .body(body)
                 .execute();
@@ -303,7 +300,6 @@ Name | Type | Description  | Notes
 
 
 ## getAllAWSAccounts
-
 
 > AWSAccountListResponse getAllAWSAccounts().accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
@@ -353,7 +349,7 @@ public class Example {
         String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id.
-        try { 
+        try {
             AWSAccountListResponse result = api.getAllAWSAccounts()
                 .accountId(accountId)
                 .roleName(roleName)
@@ -404,7 +400,6 @@ Name | Type | Description  | Notes
 
 ## listAvailableAWSNamespaces
 
-
 > List&lt;String&gt; listAvailableAWSNamespaces().execute();
 
 List available namespaces.
@@ -441,7 +436,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        try { 
+        try {
             List<String> result = api.listAvailableAWSNamespaces()
                 .execute();
             System.out.println(result);
@@ -482,7 +477,6 @@ This endpoint does not need any parameter.
 
 
 ## updateAWSAccount
-
 
 > Object updateAWSAccount().body(body).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
@@ -559,7 +553,7 @@ public class Example {
         String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name. *It is required if account_id is specified.*
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.*
-        try { 
+        try {
             Object result = api.updateAWSAccount()
                 .body(body)
                 .accountId(accountId)

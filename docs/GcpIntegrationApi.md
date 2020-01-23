@@ -13,7 +13,6 @@ Method | HTTP request | Description
 
 ## createGCPIntegration
 
-
 > Object createGCPIntegration().body(body).execute();
 
 Add a GCP integration to your Datadog account.
@@ -64,7 +63,7 @@ public class Example {
 
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         GCPAccount body = new GCPAccount(); // GCPAccount | Create a Datadog-Azure integration.
-        try { 
+        try {
             Object result = api.createGCPIntegration()
                 .body(body)
                 .execute();
@@ -110,7 +109,6 @@ Name | Type | Description  | Notes
 
 ## deleteGCPIntegration
 
-
 > Object deleteGCPIntegration().body(body).execute();
 
 Delete a GCP Integration from your Datadog account.
@@ -151,7 +149,7 @@ public class Example {
 
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         GCPAccount body = new GCPAccount(); // GCPAccount | Delete a given Datadog-GCP integration.
-        try { 
+        try {
             Object result = api.deleteGCPIntegration()
                 .body(body)
                 .execute();
@@ -197,7 +195,6 @@ Name | Type | Description  | Notes
 
 ## listGCPIntegration
 
-
 > List&lt;GCPAccount&gt; listGCPIntegration().execute();
 
 List configured GCP integrations.
@@ -234,7 +231,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
-        try { 
+        try {
             List<GCPAccount> result = api.listGCPIntegration()
                 .execute();
             System.out.println(result);
@@ -275,7 +272,6 @@ This endpoint does not need any parameter.
 
 
 ## updateGCPIntegration
-
 
 > Object updateGCPIntegration().body(body).execute();
 
@@ -319,7 +315,7 @@ public class Example {
 
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         GCPAccount body = new GCPAccount(); // GCPAccount | Update a Datadog-GCP integration.
-        try { 
+        try {
             Object result = api.updateGCPIntegration()
                 .body(body)
                 .execute();
