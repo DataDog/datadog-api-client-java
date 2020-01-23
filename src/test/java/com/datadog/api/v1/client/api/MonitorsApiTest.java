@@ -14,6 +14,7 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.Monitor;
 import com.datadog.api.v1.client.model.MonitorOptions;
+import com.datadog.api.v1.client.model.DeletedMonitor;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -110,14 +111,8 @@ public class MonitorsApiTest extends V1ApiTest {
         assertEquals(testingMonitorOptionsNoDataTimeframe, obtained.getOptions().getNoDataTimeframe());
 
         // test deleting monitor
-        api.deleteMonitor(monitorId).execute();
-        try {
-            api.getMonitor(monitorId).groupStates("all").execute();
-            // junit 4 doesn't have better support for asserting that method threw an error
-            assertTrue(false);
-        } catch (ApiException e) {
-            // noop
-        }
+        DeletedMonitor deletedMonitor = api.deleteMonitor(monitorId).execute();
+        assertEquals(monitorId, deletedMonitor.getDeletedMonitorId());
     }
 
    /**
