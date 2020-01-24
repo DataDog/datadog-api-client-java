@@ -14,7 +14,6 @@ Method | HTTP request | Description
 
 ## createUser
 
-
 > UserResponse createUser().body(body).execute();
 
 Create user
@@ -65,7 +64,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         User body = new User(); // User | User object that needs to be created
-        try { 
+        try {
             UserResponse result = api.createUser()
                 .body(body)
                 .execute();
@@ -111,7 +110,6 @@ Name | Type | Description  | Notes
 
 ## disableUser
 
-
 > UserDisableResponse disableUser(userHandle).execute();
 
 Disable user
@@ -153,7 +151,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The handle of the user
-        try { 
+        try {
             UserDisableResponse result = api.disableUser(userHandle)
                 .execute();
             System.out.println(result);
@@ -198,7 +196,6 @@ Name | Type | Description  | Notes
 
 ## getAllUsers
 
-
 > UserListResponse getAllUsers().execute();
 
 Get all users
@@ -237,7 +234,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        try { 
+        try {
             UserListResponse result = api.getAllUsers()
                 .execute();
             System.out.println(result);
@@ -279,7 +276,6 @@ This endpoint does not need any parameter.
 
 ## getUser
 
-
 > UserResponse getUser(userHandle).execute();
 
 Get user
@@ -319,7 +315,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The id of the user
-        try { 
+        try {
             UserResponse result = api.getUser(userHandle)
                 .execute();
             System.out.println(result);
@@ -363,7 +359,6 @@ Name | Type | Description  | Notes
 
 
 ## updateUser
-
 
 > UserResponse updateUser(userHandle).body(body).execute();
 
@@ -417,7 +412,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The id of the user
         User body = new User(); // User | Description of the update
-        try { 
+        try {
             UserResponse result = api.updateUser(userHandle)
                 .body(body)
                 .execute();

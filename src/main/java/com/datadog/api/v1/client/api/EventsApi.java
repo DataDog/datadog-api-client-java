@@ -74,7 +74,7 @@ private ApiResponse<EventResponse> createEventWithHttpInfo(Event body) throws Ap
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<EventResponse> localVarReturnType = new GenericType<EventResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("EventsApi.createEvent", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateEventRequest {
@@ -178,7 +178,7 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<EventResponse> localVarReturnType = new GenericType<EventResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("EventsApi.getEvent", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetEventRequest {
@@ -285,7 +285,7 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<EventListResponse> localVarReturnType = new GenericType<EventListResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("EventsApi.listEvents", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistEventsRequest {

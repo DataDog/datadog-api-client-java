@@ -74,7 +74,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.createUser", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateUserRequest {
@@ -180,7 +180,7 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserDisableResponse> localVarReturnType = new GenericType<UserDisableResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.disableUser", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIdisableUserRequest {
@@ -271,7 +271,7 @@ private ApiResponse<UserListResponse> getAllUsersWithHttpInfo() throws ApiExcept
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserListResponse> localVarReturnType = new GenericType<UserListResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.getAllUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetAllUsersRequest {
@@ -365,7 +365,7 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.getUser", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUserRequest {
@@ -467,7 +467,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.updateUser", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateUserRequest {

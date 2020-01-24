@@ -8,6 +8,7 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.datadog.api.v1.client.model.DeletedMonitor;
 import com.datadog.api.v1.client.model.Error400;
 import com.datadog.api.v1.client.model.Error401;
 import com.datadog.api.v1.client.model.Error403;
@@ -73,7 +74,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.createMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateMonitorRequest {
@@ -142,7 +143,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
     return new APIcreateMonitorRequest();
   }
 
-private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId) throws ApiException {
+private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'monitorId' is set
@@ -176,8 +177,8 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<Map<String, Long>> localVarReturnType = new GenericType<Map<String, Long>>() {};
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    GenericType<DeletedMonitor> localVarReturnType = new GenericType<DeletedMonitor>() {};
+    return apiClient.invokeAPI("MonitorsApi.deleteMonitor", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIdeleteMonitorRequest {
@@ -190,7 +191,7 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
 
     /**
      * Execute deleteMonitor request
-     * @return Map&lt;String, Long&gt;
+     * @return DeletedMonitor
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -203,13 +204,13 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
      
      */
     
-    public Map<String, Long> execute() throws ApiException {
+    public DeletedMonitor execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute deleteMonitor request with HTTP info returned
-     * @return ApiResponse&lt;Map&lt;String, Long&gt;&gt;
+     * @return ApiResponse&lt;DeletedMonitor&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -222,7 +223,7 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
      
      */
     
-    public ApiResponse<Map<String, Long>> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<DeletedMonitor> executeWithHttpInfo() throws ApiException {
       return deleteMonitorWithHttpInfo(monitorId);
     }
   }
@@ -281,7 +282,7 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor bod
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.editMonitor", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIeditMonitorRequest {
@@ -391,7 +392,7 @@ private ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<Monitor>> localVarReturnType = new GenericType<List<Monitor>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.getAllMonitors", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetAllMonitorsRequest {
@@ -544,7 +545,7 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.getMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetMonitorRequest {
@@ -652,7 +653,7 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.validateMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIvalidateMonitorRequest {

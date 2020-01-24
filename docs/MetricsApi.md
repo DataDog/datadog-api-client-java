@@ -15,7 +15,6 @@ Method | HTTP request | Description
 
 ## editMetricMetadata
 
-
 > MetricMetadata editMetricMetadata(metricName).body(body).execute();
 
 Edit metric metadata
@@ -53,7 +52,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "metricName_example"; // String | Name of the metric for which to edit metadata
         MetricMetadata body = new MetricMetadata(); // MetricMetadata | New metadata
-        try { 
+        try {
             MetricMetadata result = api.editMetricMetadata(metricName)
                 .body(body)
                 .execute();
@@ -99,7 +98,6 @@ Name | Type | Description  | Notes
 
 ## getAllActiveMetrics
 
-
 > MetricsListResponse getAllActiveMetrics().from(from).host(host).execute();
 
 Get active metrics list
@@ -137,7 +135,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         Long from = 56L; // Long | Seconds since the Unix epoch
         String host = "host_example"; // String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
-        try { 
+        try {
             MetricsListResponse result = api.getAllActiveMetrics()
                 .from(from)
                 .host(host)
@@ -184,7 +182,6 @@ Name | Type | Description  | Notes
 
 ## getMetricMetadata
 
-
 > MetricMetadata getMetricMetadata(metricName).execute();
 
 Get metric metadata
@@ -221,7 +218,7 @@ public class Example {
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "metricName_example"; // String | Name of the metric for which to get metadata
-        try { 
+        try {
             MetricMetadata result = api.getMetricMetadata(metricName)
                 .execute();
             System.out.println(result);
@@ -265,7 +262,6 @@ Name | Type | Description  | Notes
 
 ## queryMetrics
 
-
 > MetricsQueryResponse queryMetrics().from(from).to(to).query(query).execute();
 
 Query timeseries points
@@ -304,7 +300,7 @@ public class Example {
         Long from = 56L; // Long | Start of the queried time period, seconds since the Unix epoch
         Long to = 56L; // Long | End of the queried time period, seconds since the Unix epoch
         String query = "query_example"; // String | Query string
-        try { 
+        try {
             MetricsQueryResponse result = api.queryMetrics()
                 .from(from)
                 .to(to)
@@ -353,7 +349,6 @@ Name | Type | Description  | Notes
 
 ## searchMetrics
 
-
 > MetricSearchResponse searchMetrics().q(q).execute();
 
 Search metrics
@@ -390,7 +385,7 @@ public class Example {
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String q = "q_example"; // String | Query string to search metrics upon. Must be prefixed with `metrics:`
-        try { 
+        try {
             MetricSearchResponse result = api.searchMetrics()
                 .q(q)
                 .execute();
@@ -436,7 +431,6 @@ Name | Type | Description  | Notes
 
 ## submitMetrics
 
-
 > IntakePayloadAccepted submitMetrics().body(body).execute();
 
 Submit metrics
@@ -476,7 +470,7 @@ public class Example {
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         MetricsPayload body = new MetricsPayload(); // MetricsPayload | 
-        try { 
+        try {
             IntakePayloadAccepted result = api.submitMetrics()
                 .body(body)
                 .execute();

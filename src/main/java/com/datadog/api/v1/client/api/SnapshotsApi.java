@@ -86,7 +86,7 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(String metricQue
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<GraphSnapshot> localVarReturnType = new GenericType<GraphSnapshot>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("SnapshotsApi.getGraphSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetGraphSnapshotRequest {

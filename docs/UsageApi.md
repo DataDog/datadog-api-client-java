@@ -17,7 +17,6 @@ Method | HTTP request | Description
 
 ## getUsageFargate
 
-
 > UsageFargateResponse getUsageFargate().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for fargate.
@@ -59,7 +58,7 @@ public class Example {
         UsageApi apiInstance = new UsageApi(defaultClient);
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
-        try { 
+        try {
             UsageFargateResponse result = api.getUsageFargate()
                 .startHr(startHr)
                 .endHr(endHr)
@@ -108,7 +107,6 @@ Name | Type | Description  | Notes
 
 ## getUsageHosts
 
-
 > UsageHostsResponse getUsageHosts().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for hosts and containers.
@@ -150,7 +148,7 @@ public class Example {
         UsageApi apiInstance = new UsageApi(defaultClient);
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
-        try { 
+        try {
             UsageHostsResponse result = api.getUsageHosts()
                 .startHr(startHr)
                 .endHr(endHr)
@@ -199,7 +197,6 @@ Name | Type | Description  | Notes
 
 ## getUsageLogs
 
-
 > UsageLogsResponse getUsageLogs().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for logs.
@@ -241,7 +238,7 @@ public class Example {
         UsageApi apiInstance = new UsageApi(defaultClient);
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
-        try { 
+        try {
             UsageLogsResponse result = api.getUsageLogs()
                 .startHr(startHr)
                 .endHr(endHr)
@@ -290,7 +287,6 @@ Name | Type | Description  | Notes
 
 ## getUsageSummary
 
-
 > UsageSummaryResponse getUsageSummary().startMonth(startMonth).endMonth(endMonth).includeOrgDetails(includeOrgDetails).execute();
 
 Get usage across your multi-org account.
@@ -334,7 +330,7 @@ public class Example {
         OffsetDateTime startMonth = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning in this month. Maximum of 15 months ago.
         OffsetDateTime endMonth = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage ending this month.
         Boolean includeOrgDetails = true; // Boolean | Include usage summaries for each sub-org.
-        try { 
+        try {
             UsageSummaryResponse result = api.getUsageSummary()
                 .startMonth(startMonth)
                 .endMonth(endMonth)
@@ -385,7 +381,6 @@ Name | Type | Description  | Notes
 
 ## getUsageSynthetics
 
-
 > UsageSyntheticsResponse getUsageSynthetics().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for synthetics.
@@ -427,7 +422,7 @@ public class Example {
         UsageApi apiInstance = new UsageApi(defaultClient);
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
-        try { 
+        try {
             UsageSyntheticsResponse result = api.getUsageSynthetics()
                 .startHr(startHr)
                 .endHr(endHr)
@@ -476,7 +471,6 @@ Name | Type | Description  | Notes
 
 ## getUsageTimeseries
 
-
 > UsageTimeseriesResponse getUsageTimeseries().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for custom metrics.
@@ -518,7 +512,7 @@ public class Example {
         UsageApi apiInstance = new UsageApi(defaultClient);
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
-        try { 
+        try {
             UsageTimeseriesResponse result = api.getUsageTimeseries()
                 .startHr(startHr)
                 .endHr(endHr)
@@ -567,7 +561,6 @@ Name | Type | Description  | Notes
 
 ## getUsageTopAvgMetrics
 
-
 > UsageTopAvgMetricsResponse getUsageTopAvgMetrics().month(month).names(names).execute();
 
 Get top custom metrics by hourly average.
@@ -609,7 +602,7 @@ public class Example {
         UsageApi apiInstance = new UsageApi(defaultClient);
         OffsetDateTime month = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
         List<String> names = Arrays.asList(); // List<String> | Comma-separated list of metric names.
-        try { 
+        try {
             UsageTopAvgMetricsResponse result = api.getUsageTopAvgMetrics()
                 .month(month)
                 .names(names)
@@ -658,7 +651,6 @@ Name | Type | Description  | Notes
 
 ## getUsageTrace
 
-
 > UsageTraceResponse getUsageTrace().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for trace search.
@@ -700,7 +692,7 @@ public class Example {
         UsageApi apiInstance = new UsageApi(defaultClient);
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
-        try { 
+        try {
             UsageTraceResponse result = api.getUsageTrace()
                 .startHr(startHr)
                 .endHr(endHr)

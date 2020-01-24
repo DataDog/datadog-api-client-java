@@ -74,7 +74,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<AWSAccountCreateResponse> localVarReturnType = new GenericType<AWSAccountCreateResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("AwsIntegrationApi.createAWSAccount", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateAWSAccountRequest {
@@ -179,7 +179,7 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("AwsIntegrationApi.deleteAWSAccount", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIdeleteAWSAccountRequest {
@@ -284,7 +284,7 @@ private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpIn
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<AWSAccountCreateResponse> localVarReturnType = new GenericType<AWSAccountCreateResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("AwsIntegrationApi.generateNewAWSExternalID", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgenerateNewAWSExternalIDRequest {
@@ -387,7 +387,7 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<AWSAccountListResponse> localVarReturnType = new GenericType<AWSAccountListResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("AwsIntegrationApi.getAllAWSAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetAllAWSAccountsRequest {
@@ -513,7 +513,7 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("AwsIntegrationApi.listAvailableAWSNamespaces", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistAvailableAWSNamespacesRequest {
@@ -609,7 +609,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("AwsIntegrationApi.updateAWSAccount", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateAWSAccountRequest {
