@@ -11,21 +11,18 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.Event;
+import com.datadog.api.v1.client.TestUtils;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.model.Event.PriorityEnum;
-import com.datadog.api.v1.client.model.EventListResponse;
-import com.datadog.api.v1.client.model.EventResponse;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * API tests for EventsApi
@@ -45,7 +42,7 @@ public class EventsApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void eventLifecycleTest() throws ApiException {
+    public void eventLifecycleTest() throws ApiException, TestUtils.RetryException {
         final Event event = new Event().title("test event from java client").text("example text")
                 .tags(new ArrayList<String>(Arrays.asList("test", "client:java"))).priority(PriorityEnum.NORMAL)
                 .sourceTypeName("datadog-api-client-java");
@@ -61,18 +58,20 @@ public class EventsApiTest extends V1ApiTest {
 
         final Long eventId = createdEvent.getId();
 
-        int count = 20;
-        int interval = 5;  // seconds
-        for (int i = 0; i < count; i++) {
+        AtomicReference<EventResponse> eventGetResponse = new AtomicReference<>();
+        // Confirm the event is retrievable from the API
+        // Will fail with a retryException if we can't get the event in this timeframe
+        TestUtils.retry(10, 20, () -> {
             try {
-                response = api.getEvent(eventId).execute();
-                break;
-            } catch (ApiException e) {
-                try { Thread.sleep(interval * 1000); } catch (InterruptedException e1) {}
+                eventGetResponse.set(api.getEvent(eventId).execute());
+            } catch(ApiException e) {
+                System.out.println(String.format("Error getting event: %s", e));
+                return false;
             }
-        }
+            return true;
+        });
 
-        final Event fetchedEvent = response.getEvent();
+        final Event fetchedEvent = eventGetResponse.get().getEvent();
         assertEquals(event.getTitle(), fetchedEvent.getTitle());
         assertEquals(event.getText(), fetchedEvent.getText());
         assertNotEquals("", fetchedEvent.getUrl());
@@ -83,20 +82,25 @@ public class EventsApiTest extends V1ApiTest {
         final String sources = fetchedEvent.getSourceTypeName();
         final String tags = String.join(",", fetchedEvent.getTags());
         final Boolean unaggregated = true;
-        final EventListResponse eventListResponse = api.listEvents().start(start).end(end).priority(priority)
-                .sources(sources).tags(tags).unaggregated(unaggregated).execute();
 
-        List<Event> events = new ArrayList<Event>();
-        count = 20;
-        interval = 5;  // seconds
-        for (int i = 0; i < count; i++) {
+        // Confirm the event is in the list of events returned from the API
+        // Will fail with a retryException if we can't get the event in this timeframe
+        TestUtils.retry(10, 20, () -> {
+            List<Event> events;
+            try {
+                EventListResponse eventListResponse = api.listEvents().start(start).end(end).priority(priority)
+                        .sources(sources).tags(tags).unaggregated(unaggregated).execute();
                 events = eventListResponse.getEvents();
-                if (events.isEmpty())
-                    try { Thread.sleep(interval * 1000); } catch (InterruptedException e1) {}
-                else
-                    break;
-        }
-        System.out.printf("Events: %s\n\nFetchedEvent: %s", events, fetchedEvent);
-        assertThat(events, hasItems(fetchedEvent));
+                if (!events.isEmpty() && events.contains(fetchedEvent)) {
+                    return true;
+                } else {
+                    System.out.printf("Error: Event %s not in event list: %s", fetchedEvent, eventListResponse);
+                    return false;
+                }
+            } catch(ApiException e) {
+                System.out.println(String.format("Error getting list of events: %s", e));
+                return false;
+            }
+        });
     }
 }
