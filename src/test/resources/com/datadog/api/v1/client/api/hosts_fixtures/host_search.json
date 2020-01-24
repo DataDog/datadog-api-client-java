@@ -3,11 +3,11 @@
   "host_list": [
     {
       "last_reported_time": 1579104639,
-      "name": "go-client-test-host-1579104626",
+      "name": "java-client-test-host-1579104626",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -18,19 +18,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579104626",
+      "host_name": "java-client-test-host-1579104626",
       "id": 1772099136,
       "aliases": [
-        "go-client-test-host-1579104626"
+        "java-client-test-host-1579104626"
       ]
     },
     {
       "last_reported_time": 1579108311,
-      "name": "go-client-test-host-1579108302",
+      "name": "java-client-test-host-1579108302",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": true,
@@ -41,19 +41,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579108302",
+      "host_name": "java-client-test-host-1579108302",
       "id": 1772283366,
       "aliases": [
-        "go-client-test-host-1579108302"
+        "java-client-test-host-1579108302"
       ]
     },
     {
       "last_reported_time": 1579103600,
-      "name": "go-client-test-host-1579103587",
+      "name": "java-client-test-host-1579103587",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -64,19 +64,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579103587",
+      "host_name": "java-client-test-host-1579103587",
       "id": 1772040171,
       "aliases": [
-        "go-client-test-host-1579103587"
+        "java-client-test-host-1579103587"
       ]
     },
     {
       "last_reported_time": 1579102688,
-      "name": "go-client-test-host-1579102674",
+      "name": "java-client-test-host-1579102674",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -87,19 +87,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579102674",
+      "host_name": "java-client-test-host-1579102674",
       "id": 1771998912,
       "aliases": [
-        "go-client-test-host-1579102674"
+        "java-client-test-host-1579102674"
       ]
     },
     {
       "last_reported_time": 1579103984,
-      "name": "go-client-test-host-1579103969",
+      "name": "java-client-test-host-1579103969",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -110,19 +110,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579103969",
+      "host_name": "java-client-test-host-1579103969",
       "id": 1772057191,
       "aliases": [
-        "go-client-test-host-1579103969"
+        "java-client-test-host-1579103969"
       ]
     },
     {
       "last_reported_time": 1579104514,
-      "name": "go-client-test-host-1579104494",
+      "name": "java-client-test-host-1579104494",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -133,19 +133,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579104494",
+      "host_name": "java-client-test-host-1579104494",
       "id": 1772093555,
       "aliases": [
-        "go-client-test-host-1579104494"
+        "java-client-test-host-1579104494"
       ]
     },
     {
       "last_reported_time": 1579104887,
-      "name": "go-client-test-host-1579104873",
+      "name": "java-client-test-host-1579104873",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -156,19 +156,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579104873",
+      "host_name": "java-client-test-host-1579104873",
       "id": 1772111001,
       "aliases": [
-        "go-client-test-host-1579104873"
+        "java-client-test-host-1579104873"
       ]
     },
     {
       "last_reported_time": 1579107963,
-      "name": "go-client-test-host-1579107949",
+      "name": "java-client-test-host-1579107949",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": true,
@@ -179,19 +179,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579107949",
+      "host_name": "java-client-test-host-1579107949",
       "id": 1772261667,
       "aliases": [
-        "go-client-test-host-1579107949"
+        "java-client-test-host-1579107949"
       ]
     },
     {
       "last_reported_time": 1579108928,
-      "name": "go-client-test-host-1579108916",
+      "name": "java-client-test-host-1579108916",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": true,
@@ -202,19 +202,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579108916",
+      "host_name": "java-client-test-host-1579108916",
       "id": 1772318284,
       "aliases": [
-        "go-client-test-host-1579108916"
+        "java-client-test-host-1579108916"
       ]
     },
     {
       "last_reported_time": 1579104016,
-      "name": "go-client-test-host-1579104007",
+      "name": "java-client-test-host-1579104007",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -225,19 +225,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579104007",
+      "host_name": "java-client-test-host-1579104007",
       "id": 1772058902,
       "aliases": [
-        "go-client-test-host-1579104007"
+        "java-client-test-host-1579104007"
       ]
     },
     {
       "last_reported_time": 1579104890,
-      "name": "go-client-test-host-1579104884",
+      "name": "java-client-test-host-1579104884",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -248,19 +248,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579104884",
+      "host_name": "java-client-test-host-1579104884",
       "id": 1772111047,
       "aliases": [
-        "go-client-test-host-1579104884"
+        "java-client-test-host-1579104884"
       ]
     },
     {
       "last_reported_time": 1579103874,
-      "name": "go-client-test-host-1579103865",
+      "name": "java-client-test-host-1579103865",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -271,19 +271,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579103865",
+      "host_name": "java-client-test-host-1579103865",
       "id": 1772053236,
       "aliases": [
-        "go-client-test-host-1579103865"
+        "java-client-test-host-1579103865"
       ]
     },
     {
       "last_reported_time": 1579107611,
-      "name": "go-client-test-host-1579107605",
+      "name": "java-client-test-host-1579107605",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": true,
@@ -294,19 +294,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579107605",
+      "host_name": "java-client-test-host-1579107605",
       "id": 1772237026,
       "aliases": [
-        "go-client-test-host-1579107605"
+        "java-client-test-host-1579107605"
       ]
     },
     {
       "last_reported_time": 1579107997,
-      "name": "go-client-test-host-1579107987",
+      "name": "java-client-test-host-1579107987",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": true,
@@ -317,19 +317,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579107987",
+      "host_name": "java-client-test-host-1579107987",
       "id": 1772264099,
       "aliases": [
-        "go-client-test-host-1579107987"
+        "java-client-test-host-1579107987"
       ]
     },
     {
       "last_reported_time": 1579102938,
-      "name": "go-client-test-host-1579102927",
+      "name": "java-client-test-host-1579102927",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -340,19 +340,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579102927",
+      "host_name": "java-client-test-host-1579102927",
       "id": 1772009766,
       "aliases": [
-        "go-client-test-host-1579102927"
+        "java-client-test-host-1579102927"
       ]
     },
     {
       "last_reported_time": 1579105300,
-      "name": "go-client-test-host-1579105289",
+      "name": "java-client-test-host-1579105289",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": false,
@@ -363,19 +363,19 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579105289",
+      "host_name": "java-client-test-host-1579105289",
       "id": 1772130291,
       "aliases": [
-        "go-client-test-host-1579105289"
+        "java-client-test-host-1579105289"
       ]
     },
     {
       "last_reported_time": 1579109483,
-      "name": "go-client-test-host-1579109466",
+      "name": "java-client-test-host-1579109466",
       "is_muted": false,
       "mute_timeout": null,
       "apps": [
-        "go"
+        "java"
       ],
       "tags_by_source": {},
       "up": true,
@@ -386,10 +386,10 @@
       },
       "sources": [],
       "meta": {},
-      "host_name": "go-client-test-host-1579109466",
+      "host_name": "java-client-test-host-1579109466",
       "id": 1772342861,
       "aliases": [
-        "go-client-test-host-1579109466"
+        "java-client-test-host-1579109466"
       ]
     }
   ],
