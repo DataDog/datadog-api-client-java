@@ -16,6 +16,7 @@ import com.datadog.api.v1.client.TestUtils;
 import com.datadog.api.v1.client.model.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -29,6 +30,7 @@ import java.util.List;
 /**
  * API tests for MetricsApi
  */
+@Ignore
 public class MetricsApiTest extends V1ApiTest {
 
     private static MetricsApi api;

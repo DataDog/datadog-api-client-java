@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.*;
@@ -24,6 +25,7 @@ import java.util.*;
 /**
  * API tests for AwsIntegrationApi
  */
+@Ignore
 public class AwsIntegrationApiTest extends V1ApiTest {
 
     private static AwsIntegrationApi api;

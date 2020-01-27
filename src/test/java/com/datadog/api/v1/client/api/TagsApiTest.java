@@ -25,13 +25,12 @@ import org.junit.Test;
 import org.junit.Ignore;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for TagsApi
  */
+@Ignore
 public class TagsApiTest extends V1ApiTest {
 
     private static TagsApi api;
