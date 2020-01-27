@@ -68,7 +68,7 @@ public class UsersApiTest extends V1ApiTest {
         user.setAccessRole(testingUserAR);
         user.setHandle(testingUserHandle);
         user.setName(testingUserName);
-        UserResponse response = api.createUser(user).execute();
+        UserResponse response = api.createUser().body(user).execute();
         // If something fails, make sure we disable the user
         disableUsers.add(testingUserHandle);
 
@@ -80,7 +80,7 @@ public class UsersApiTest extends V1ApiTest {
         // Now test updating user
         user.setName("Updated Name");
         user.setDisabled(false);
-        response = api.updateUser(user.getHandle(), user).execute();
+        response = api.updateUser(user.getHandle()).body(user).execute();
 
         assertEquals("Updated Name", response.getUser().getName());
 
@@ -108,7 +108,7 @@ public class UsersApiTest extends V1ApiTest {
             user.setAccessRole(testingUserAR);
             user.setHandle(prefix + testingUserHandle);
             user.setName(prefix + testingUserName);
-            UserResponse response = api.createUser(user).execute();
+            UserResponse response = api.createUser().body(user).execute();
             disableUsers.add(response.getUser().getHandle());
         }
         UserListResponse response = api.getAllUsers().execute();

@@ -31,7 +31,9 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
@@ -49,12 +51,106 @@ import com.datadog.api.v1.client.auth.Authentication;
 import com.datadog.api.v1.client.auth.HttpBasicAuth;
 import com.datadog.api.v1.client.auth.HttpBearerAuth;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
+import com.datadog.api.v1.client.ServerConfiguration;
+import com.datadog.api.v1.client.ServerVariable;
+
 
 
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
   protected String basePath = "https://api.datadoghq.com";
+  protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
+    new ServerConfiguration(
+      "https://{subdomain}.{site}",
+      "No description provided",
+      new HashMap<String, ServerVariable>() {{
+        put("site", new ServerVariable(
+          "The regional site for our customers.",
+          "datadoghq.com",
+          new HashSet<String>(
+            Arrays.asList(
+              "datadoghq.com",
+              "datadoghq.eu"
+            )
+          )
+        ));
+        put("subdomain", new ServerVariable(
+          "The subdomain where the API is deployed.",
+          "api",
+          new HashSet<String>(
+          )
+        ));
+      }}
+    ),
+    new ServerConfiguration(
+      "{protocol}://{name}",
+      "No description provided",
+      new HashMap<String, ServerVariable>() {{
+        put("name", new ServerVariable(
+          "Full site DNS name.",
+          "api.datadoghq.com",
+          new HashSet<String>(
+          )
+        ));
+        put("protocol", new ServerVariable(
+          "The protocol for accessing the API.",
+          "https",
+          new HashSet<String>(
+          )
+        ));
+      }}
+    )
+  ));
+  protected Integer serverIndex = 0;
+  protected Map<String, String> serverVariables = null;
+  protected Map<String, List<ServerConfiguration>> operationServers = new HashMap<String, List<ServerConfiguration>>() {{
+    put("IpRangesApi.getIPRanges", new ArrayList<ServerConfiguration>(Arrays.asList(
+      new ServerConfiguration(
+        "https://{subdomain}.{site}",
+        "No description provided",
+        new HashMap<String, ServerVariable>() {{
+          put("site", new ServerVariable(
+            "The regional site for our customers.",
+            "datadoghq.com",
+            new HashSet<String>(
+              Arrays.asList(
+                "datadoghq.com",
+                "datadoghq.eu"
+              )
+            )
+          ));
+          put("subdomain", new ServerVariable(
+            "The subdomain where the API is deployed.",
+            "ip-ranges",
+            new HashSet<String>(
+            )
+          ));
+        }}
+      ),
+
+      new ServerConfiguration(
+        "{protocol}://{name}",
+        "No description provided",
+        new HashMap<String, ServerVariable>() {{
+          put("name", new ServerVariable(
+            "Full site DNS name.",
+            "ip-ranges.datadoghq.com",
+            new HashSet<String>(
+            )
+          ));
+          put("protocol", new ServerVariable(
+            "The protocol for accessing the API.",
+            "https",
+            new HashSet<String>(
+            )
+          ));
+        }}
+      )
+    )));
+  }};
+  protected Map<String, Integer> operationServerIndex = new HashMap<String, Integer>();
+  protected Map<String, Map<String, String>> operationServerVariables = new HashMap<String, Map<String, String>>();
   protected boolean debugging = false;
   protected int connectionTimeout = 0;
   private int readTimeout = 0;
@@ -64,6 +160,7 @@ public class ApiClient {
   protected String tempFolderPath = null;
 
   protected Map<String, Authentication> authentications;
+  protected Map<String, String> authenticationLookup;
 
   protected DateFormat dateFormat;
 
@@ -79,9 +176,14 @@ public class ApiClient {
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
     authentications.put("apiKeyAuth", new ApiKeyAuth("query", "api_key"));
+    authentications.put("apiKeyAuthHeader", new ApiKeyAuth("header", "DD-API-KEY"));
     authentications.put("appKeyAuth", new ApiKeyAuth("query", "application_key"));
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
+
+    // Setup authentication lookup (key: authentication alias, value: authentication name)
+    authenticationLookup = new HashMap<String, String>();
+    authenticationLookup.put("apiKeyAuthHeader", "apiKeyAuth");
   }
 
   /**
@@ -107,6 +209,33 @@ public class ApiClient {
 
   public ApiClient setBasePath(String basePath) {
     this.basePath = basePath;
+    return this;
+  }
+
+  public List<ServerConfiguration> getServers() {
+    return servers;
+  }
+
+  public ApiClient setServers(List<ServerConfiguration> servers) {
+    this.servers = servers;
+    return this;
+  }
+
+  public Integer getServerIndex() {
+    return serverIndex;
+  }
+
+  public ApiClient setServerIndex(Integer serverIndex) {
+    this.serverIndex = serverIndex;
+    return this;
+  }
+
+  public Map<String, String> getServerVariables() {
+    return serverVariables;
+  }
+
+  public ApiClient setServerVariables(Map<String, String> serverVariables) {
+    this.serverVariables = serverVariables;
     return this;
   }
 
@@ -168,6 +297,28 @@ public class ApiClient {
       }
     }
     throw new RuntimeException("No API key authentication configured!");
+  }
+
+  /**
+   * Helper method to configure authentications.
+   *
+   * NOTE: This method respects API key aliases using "x-lookup" property
+   *       from OpenAPI specification.
+   *
+   * @param secrets Hash map from authentication name to its secret.
+   */
+  public void configureApiKeys(HashMap<String, String> secrets) {
+    for (Map.Entry<String, Authentication> authEntry : authentications.entrySet()) {
+      Authentication auth = authEntry.getValue();
+      if (auth instanceof ApiKeyAuth) {
+        String name = authEntry.getKey();
+        // respect x-lookup property
+        name = authenticationLookup.getOrDefault(name, name);
+        if (secrets.containsKey(name)) {
+          ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
+        }
+      }
+    }
   }
 
   /**
@@ -637,6 +788,7 @@ public class ApiClient {
    * Invoke API by sending HTTP request with the given options.
    *
    * @param <T> Type
+   * @param operation The qualified name of the operation
    * @param path The sub-path of the HTTP URL
    * @param method The request method, one of "GET", "POST", "PUT", "HEAD" and "DELETE"
    * @param queryParams The query parameters
@@ -651,17 +803,41 @@ public class ApiClient {
    * @return The response body in type of string
    * @throws ApiException API exception
    */
-  public <T> ApiResponse<T> invokeAPI(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType) throws ApiException {
+  public <T> ApiResponse<T> invokeAPI(String operation, String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType) throws ApiException {
     updateParamsForAuth(authNames, queryParams, headerParams, cookieParams);
 
-    // Not using `.target(this.basePath).path(path)` below,
+    // Not using `.target(targetURL).path(path)` below,
     // to support (constant) query string in `path`, e.g. "/posts?draft=1"
-    WebTarget target = httpClient.target(this.basePath + path);
+    String targetURL;
+    if (serverIndex != null) {
+      Integer index;
+      List<ServerConfiguration> serverConfigurations;
+      Map<String, String> variables;
+
+      if (operationServers.containsKey(operation)) {
+        index = operationServerIndex.getOrDefault(operation, serverIndex);
+        variables = operationServerVariables.getOrDefault(operation, serverVariables);
+        serverConfigurations = operationServers.get(operation);
+      } else {
+        index = serverIndex;
+        variables = serverVariables;
+        serverConfigurations = servers;
+      }
+      if (index < 0 || index >= serverConfigurations.size()) {
+        throw new ArrayIndexOutOfBoundsException(String.format(
+          "Invalid index %d when selecting the host settings. Must be less than %d", index, serverConfigurations.size()
+        ));
+      }
+      targetURL = serverConfigurations.get(index).URL(variables) + path;
+    } else {
+      targetURL = this.basePath + path;
+    }
+    WebTarget target = httpClient.target(targetURL);
 
     if (queryParams != null) {
       for (Pair queryParam : queryParams) {
         if (queryParam.getValue() != null) {
-          target = target.queryParam(queryParam.getName(), queryParam.getValue());
+          target = target.queryParam(queryParam.getName(), escapeString(queryParam.getValue()));
         }
       }
     }
@@ -676,6 +852,13 @@ public class ApiClient {
     }
 
     for (Entry<String, String> entry : cookieParams.entrySet()) {
+      String value = entry.getValue();
+      if (value != null) {
+        invocationBuilder = invocationBuilder.cookie(entry.getKey(), value);
+      }
+    }
+
+    for (Entry<String, String> entry : defaultCookieMap.entrySet()) {
       String value = entry.getValue();
       if (value != null) {
         invocationBuilder = invocationBuilder.cookie(entry.getKey(), value);
@@ -751,6 +934,14 @@ public class ApiClient {
         // it's not critical, since the response object is local in method invokeAPI; that's fine, just continue
       }
     }
+  }
+
+  /**
+   * @deprecated Add qualified name of the operation as a first parameter.
+   */
+  @Deprecated
+  public <T> ApiResponse<T> invokeAPI(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType) throws ApiException {
+    return invokeAPI(null, path, method, queryParams, body, headerParams, cookieParams, formParams, accept, contentType, authNames, returnType);
   }
 
   /**

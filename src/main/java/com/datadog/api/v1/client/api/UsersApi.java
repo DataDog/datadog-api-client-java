@@ -40,12 +40,12 @@ public class UsersApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<UserResponse> createUserWithHttpInfo(User user) throws ApiException {
-    Object localVarPostBody = user;
+private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'user' is set
-    if (user == null) {
-      throw new ApiException(400, "Missing the required parameter 'user' when calling createUser");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createUser");
     }
     
     // create path and map variables
@@ -74,14 +74,24 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User user) throws ApiEx
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.createUser", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateUserRequest {
-    private User user;
+    private User body;
 
-    private APIcreateUserRequest(User user) {
-      this.user = user;
+    private APIcreateUserRequest() {
+    }
+    
+
+    /**
+     * Set body
+     * @param body User object that needs to be created (required)
+     * @return APIcreateUserRequest
+     */
+    public APIcreateUserRequest body(User body) {
+      this.body = body;
+      return this;
     }
     
 
@@ -118,22 +128,21 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User user) throws ApiEx
      */
     
     public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
-      return createUserWithHttpInfo(user);
+      return createUserWithHttpInfo(body);
     }
   }
 
   /**
    * Create user
    * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user).    **Note**: users can be created with admin access role      only with application keys belonging to administrators.
-   * @param user User object that needs to be created (require)
    * @return createUserRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIcreateUserRequest createUser(User user) throws ApiException {
-    return new APIcreateUserRequest(user);
+  public APIcreateUserRequest createUser() throws ApiException {
+    return new APIcreateUserRequest();
   }
 
 private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHandle) throws ApiException {
@@ -171,7 +180,7 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserDisableResponse> localVarReturnType = new GenericType<UserDisableResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.disableUser", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIdisableUserRequest {
@@ -223,7 +232,6 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
    * Disable user
    * ### Overview Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user.
    * @param userHandle The handle of the user (required)
-   
    * @return disableUserRequest
    * @throws ApiException if fails to make API call
    
@@ -263,7 +271,7 @@ private ApiResponse<UserListResponse> getAllUsersWithHttpInfo() throws ApiExcept
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserListResponse> localVarReturnType = new GenericType<UserListResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.getAllUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetAllUsersRequest {
@@ -312,7 +320,6 @@ private ApiResponse<UserListResponse> getAllUsersWithHttpInfo() throws ApiExcept
   /**
    * Get all users
    * ### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
-   
    * @return getAllUsersRequest
    * @throws ApiException if fails to make API call
    
@@ -358,7 +365,7 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.getUser", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUserRequest {
@@ -410,7 +417,6 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
    * Get user
    * ### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
    * @param userHandle The id of the user (required)
-   
    * @return getUserRequest
    * @throws ApiException if fails to make API call
    
@@ -421,17 +427,17 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
     return new APIgetUserRequest(userHandle);
   }
 
-private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User user) throws ApiException {
-    Object localVarPostBody = user;
+private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'userHandle' is set
     if (userHandle == null) {
       throw new ApiException(400, "Missing the required parameter 'userHandle' when calling updateUser");
     }
     
-    // verify the required parameter 'user' is set
-    if (user == null) {
-      throw new ApiException(400, "Missing the required parameter 'user' when calling updateUser");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateUser");
     }
     
     // create path and map variables
@@ -461,16 +467,26 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("UsersApi.updateUser", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateUserRequest {
     private String userHandle;
-    private User user;
+    private User body;
 
-    private APIupdateUserRequest(String userHandle, User user) {
+    private APIupdateUserRequest(String userHandle) {
       this.userHandle = userHandle;
-      this.user = user;
+    }
+    
+
+    /**
+     * Set body
+     * @param body Description of the update (required)
+     * @return APIupdateUserRequest
+     */
+    public APIupdateUserRequest body(User body) {
+      this.body = body;
+      return this;
     }
     
 
@@ -507,7 +523,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
      */
     
     public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
-      return updateUserWithHttpInfo(userHandle, user);
+      return updateUserWithHttpInfo(userHandle, body);
     }
   }
 
@@ -515,14 +531,13 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
    * Update user
    * ### Overview Update a user informations.  **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user)    *  **adm** (admin user)    *  **ro** (read-only user)
    * @param userHandle The id of the user (required)
-   * @param user Description of the update (require)
    * @return updateUserRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIupdateUserRequest updateUser(String userHandle, User user) throws ApiException {
-    return new APIupdateUserRequest(userHandle, user);
+  public APIupdateUserRequest updateUser(String userHandle) throws ApiException {
+    return new APIupdateUserRequest(userHandle);
   }
 }

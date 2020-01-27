@@ -8,6 +8,7 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.datadog.api.v1.client.model.DeletedMonitor;
 import com.datadog.api.v1.client.model.Error400;
 import com.datadog.api.v1.client.model.Error401;
 import com.datadog.api.v1.client.model.Error403;
@@ -39,12 +40,12 @@ public class MonitorsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor monitor) throws ApiException {
-    Object localVarPostBody = monitor;
+private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'monitor' is set
-    if (monitor == null) {
-      throw new ApiException(400, "Missing the required parameter 'monitor' when calling createMonitor");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createMonitor");
     }
     
     // create path and map variables
@@ -73,14 +74,24 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor monitor) throws A
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.createMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateMonitorRequest {
-    private Monitor monitor;
+    private Monitor body;
 
-    private APIcreateMonitorRequest(Monitor monitor) {
-      this.monitor = monitor;
+    private APIcreateMonitorRequest() {
+    }
+    
+
+    /**
+     * Set body
+     * @param body Monitor request object (required)
+     * @return APIcreateMonitorRequest
+     */
+    public APIcreateMonitorRequest body(Monitor body) {
+      this.body = body;
+      return this;
     }
     
 
@@ -115,25 +126,24 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor monitor) throws A
      */
     
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
-      return createMonitorWithHttpInfo(monitor);
+      return createMonitorWithHttpInfo(body);
     }
   }
 
   /**
    * Create a new Monitor
    * ### Overview Create a monitor using the specified options ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to create
-   * @param monitor Monitor request object (require)
    * @return createMonitorRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIcreateMonitorRequest createMonitor(Monitor monitor) throws ApiException {
-    return new APIcreateMonitorRequest(monitor);
+  public APIcreateMonitorRequest createMonitor() throws ApiException {
+    return new APIcreateMonitorRequest();
   }
 
-private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId) throws ApiException {
+private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'monitorId' is set
@@ -167,8 +177,8 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<Map<String, Long>> localVarReturnType = new GenericType<Map<String, Long>>() {};
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    GenericType<DeletedMonitor> localVarReturnType = new GenericType<DeletedMonitor>() {};
+    return apiClient.invokeAPI("MonitorsApi.deleteMonitor", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIdeleteMonitorRequest {
@@ -181,7 +191,7 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
 
     /**
      * Execute deleteMonitor request
-     * @return Map&lt;String, Long&gt;
+     * @return DeletedMonitor
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -194,13 +204,13 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
      
      */
     
-    public Map<String, Long> execute() throws ApiException {
+    public DeletedMonitor execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute deleteMonitor request with HTTP info returned
-     * @return ApiResponse&lt;Map&lt;String, Long&gt;&gt;
+     * @return ApiResponse&lt;DeletedMonitor&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -213,7 +223,7 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
      
      */
     
-    public ApiResponse<Map<String, Long>> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<DeletedMonitor> executeWithHttpInfo() throws ApiException {
       return deleteMonitorWithHttpInfo(monitorId);
     }
   }
@@ -222,7 +232,6 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
    * Delete the specified monitor.
    * ### Overview Delete the specified monitor ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
    * @param monitorId The id of the monitor (required)
-   
    * @return deleteMonitorRequest
    * @throws ApiException if fails to make API call
    
@@ -233,17 +242,17 @@ private ApiResponse<Map<String, Long>> deleteMonitorWithHttpInfo(Long monitorId)
     return new APIdeleteMonitorRequest(monitorId);
   }
 
-private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor monitor) throws ApiException {
-    Object localVarPostBody = monitor;
+private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor body) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'monitorId' is set
     if (monitorId == null) {
       throw new ApiException(400, "Missing the required parameter 'monitorId' when calling editMonitor");
     }
     
-    // verify the required parameter 'monitor' is set
-    if (monitor == null) {
-      throw new ApiException(400, "Missing the required parameter 'monitor' when calling editMonitor");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling editMonitor");
     }
     
     // create path and map variables
@@ -273,16 +282,26 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor mon
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.editMonitor", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIeditMonitorRequest {
     private Long monitorId;
-    private Monitor monitor;
+    private Monitor body;
 
-    private APIeditMonitorRequest(Long monitorId, Monitor monitor) {
+    private APIeditMonitorRequest(Long monitorId) {
       this.monitorId = monitorId;
-      this.monitor = monitor;
+    }
+    
+
+    /**
+     * Set body
+     * @param body Monitor request object (required)
+     * @return APIeditMonitorRequest
+     */
+    public APIeditMonitorRequest body(Monitor body) {
+      this.body = body;
+      return this;
     }
     
 
@@ -321,7 +340,7 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor mon
      */
     
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
-      return editMonitorWithHttpInfo(monitorId, monitor);
+      return editMonitorWithHttpInfo(monitorId, body);
     }
   }
 
@@ -329,15 +348,14 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor mon
    * Edit the specified monitor
    * ### Overview Edit the specified monitor. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
    * @param monitorId The id of the monitor (required)
-   * @param monitor Monitor request object (require)
    * @return editMonitorRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIeditMonitorRequest editMonitor(Long monitorId, Monitor monitor) throws ApiException {
-    return new APIeditMonitorRequest(monitorId, monitor);
+  public APIeditMonitorRequest editMonitor(Long monitorId) throws ApiException {
+    return new APIeditMonitorRequest(monitorId);
   }
 
 private ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates, String name, String tags, String monitorTags, Boolean withDowntimes) throws ApiException {
@@ -374,7 +392,7 @@ private ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<Monitor>> localVarReturnType = new GenericType<List<Monitor>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.getAllMonitors", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetAllMonitorsRequest {
@@ -481,7 +499,6 @@ private ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates
   /**
    * Get details about the specified monitor.
    * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39; * **&#x60;name&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A string to filter monitors by name * **&#x60;tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0 * **&#x60;monitor_tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app) * **&#x60;with_downtimes&#x60;** [*optional* *default*&#x3D;&#x3D;**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
-   
    * @return getAllMonitorsRequest
    * @throws ApiException if fails to make API call
    
@@ -528,7 +545,7 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.getMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetMonitorRequest {
@@ -592,7 +609,6 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
    * Get details about the specified monitor.
    * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor. * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39;
    * @param monitorId The id of the monitor (required)
-   
    * @return getMonitorRequest
    * @throws ApiException if fails to make API call
    
@@ -603,12 +619,12 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     return new APIgetMonitorRequest(monitorId);
   }
 
-private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor monitor) throws ApiException {
-    Object localVarPostBody = monitor;
+private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'monitor' is set
-    if (monitor == null) {
-      throw new ApiException(400, "Missing the required parameter 'monitor' when calling validateMonitor");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling validateMonitor");
     }
     
     // create path and map variables
@@ -637,14 +653,24 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor monitor) throws
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("MonitorsApi.validateMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIvalidateMonitorRequest {
-    private Monitor monitor;
+    private Monitor body;
 
-    private APIvalidateMonitorRequest(Monitor monitor) {
-      this.monitor = monitor;
+    private APIvalidateMonitorRequest() {
+    }
+    
+
+    /**
+     * Set body
+     * @param body Monitor request object (required)
+     * @return APIvalidateMonitorRequest
+     */
+    public APIvalidateMonitorRequest body(Monitor body) {
+      this.body = body;
+      return this;
     }
     
 
@@ -679,21 +705,20 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor monitor) throws
      */
     
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
-      return validateMonitorWithHttpInfo(monitor);
+      return validateMonitorWithHttpInfo(body);
     }
   }
 
   /**
    * 
    * ### Overview Validate the monitor provided in the request ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to validate summary: Validate the provided monitor
-   * @param monitor Monitor request object (require)
    * @return validateMonitorRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIvalidateMonitorRequest validateMonitor(Monitor monitor) throws ApiException {
-    return new APIvalidateMonitorRequest(monitor);
+  public APIvalidateMonitorRequest validateMonitor() throws ApiException {
+    return new APIvalidateMonitorRequest();
   }
 }

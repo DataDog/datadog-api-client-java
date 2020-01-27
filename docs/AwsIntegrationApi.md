@@ -6,15 +6,16 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createAWSAccount**](AwsIntegrationApi.md#createAWSAccount) | **POST** /api/v1/integration/aws | Create an AWS Account
 [**deleteAWSAccount**](AwsIntegrationApi.md#deleteAWSAccount) | **DELETE** /api/v1/integration/aws | Delete an AWS Account
+[**generateNewAWSExternalID**](AwsIntegrationApi.md#generateNewAWSExternalID) | **PUT** /api/v1/integration/aws/generate_new_external_id | Generate New External ID
 [**getAllAWSAccounts**](AwsIntegrationApi.md#getAllAWSAccounts) | **GET** /api/v1/integration/aws | Get Installed AWS Accounts
+[**listAvailableAWSNamespaces**](AwsIntegrationApi.md#listAvailableAWSNamespaces) | **GET** /api/v1/integration/aws/available_namespace_rules | List available namespaces.
 [**updateAWSAccount**](AwsIntegrationApi.md#updateAWSAccount) | **PUT** /api/v1/integration/aws | Update an AWS Account
 
 
 
 ## createAWSAccount
 
-
-> AWSAccountCreateResponse createAWSAccount(awSAccount).execute();
+> AWSAccountCreateResponse createAWSAccount().body(body).execute();
 
 Create an AWS Account
 
@@ -75,9 +76,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
-        try { 
-            AWSAccountCreateResponse result = api.createAWSAccount(awSAccount)
+        AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
+        try {
+            AWSAccountCreateResponse result = api.createAWSAccount()
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -96,7 +98,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **awSAccount** | [**AWSAccount**](AWSAccount.md)| AWS request object |
+ **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
 
 ### Return type
 
@@ -116,12 +118,12 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
 
 ## deleteAWSAccount
 
-
-> Object deleteAWSAccount(awSAccount).execute();
+> Object deleteAWSAccount().body(body).execute();
 
 Delete an AWS Account
 
@@ -163,9 +165,10 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
-        try { 
-            Object result = api.deleteAWSAccount(awSAccount)
+        AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
+        try {
+            Object result = api.deleteAWSAccount()
+                .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -184,7 +187,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **awSAccount** | [**AWSAccount**](AWSAccount.md)| AWS request object |
+ **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
 
 ### Return type
 
@@ -203,11 +206,100 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | Authentication error |  -  |
 | **404** | Item Not Found |  -  |
 
 
-## getAllAWSAccounts
+## generateNewAWSExternalID
 
+> AWSAccountCreateResponse generateNewAWSExternalID().body(body).execute();
+
+Generate New External ID
+
+###Overview
+Generate new AWS external ID for a specific integrated account
+### Arguments
+* **`account_id`** [*required*]: Generate new external ID for the AWS account that
+  matches this account_id.
+
+* **`role_name`** [*required*]: Generate new external ID for the AWS account that
+  matches this role_name.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.AwsIntegrationApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
+        AWSAccount body = new AWSAccount(); // AWSAccount | Generate New AWS External ID request object
+        try {
+            AWSAccountCreateResponse result = api.generateNewAWSExternalID()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AwsIntegrationApi#generateNewAWSExternalID");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSAccount**](AWSAccount.md)| Generate New AWS External ID request object |
+
+### Return type
+
+[**AWSAccountCreateResponse**](AWSAccountCreateResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+
+
+## getAllAWSAccounts
 
 > AWSAccountListResponse getAllAWSAccounts().accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
@@ -257,7 +349,7 @@ public class Example {
         String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id.
-        try { 
+        try {
             AWSAccountListResponse result = api.getAllAWSAccounts()
                 .accountId(accountId)
                 .roleName(roleName)
@@ -302,13 +394,91 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 | **404** | Item Not Found |  -  |
+
+
+## listAvailableAWSNamespaces
+
+> List&lt;String&gt; listAvailableAWSNamespaces().execute();
+
+List available namespaces.
+
+### Overview
+List all namespace rules for a given Datadog-AWS integration.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.AwsIntegrationApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
+        try {
+            List<String> result = api.listAvailableAWSNamespaces()
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AwsIntegrationApi#listAvailableAWSNamespaces");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**List&lt;String&gt;**
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
 
 ## updateAWSAccount
 
-
-> Object updateAWSAccount(awSAccount).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
+> Object updateAWSAccount().body(body).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
 Update an AWS Account
 
@@ -379,12 +549,13 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount awSAccount = new AWSAccount(); // AWSAccount | AWS request object
+        AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
         String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name. *It is required if account_id is specified.*
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.*
-        try { 
-            Object result = api.updateAWSAccount(awSAccount)
+        try {
+            Object result = api.updateAWSAccount()
+                .body(body)
                 .accountId(accountId)
                 .roleName(roleName)
                 .accessKeyId(accessKeyId)
@@ -406,7 +577,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **awSAccount** | [**AWSAccount**](AWSAccount.md)| AWS request object |
+ **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
  **accountId** | **String**| Only return AWS accounts that matches this account_id. | [optional]
  **roleName** | **String**| Only return AWS accounts that matches this role_name. *It is required if account_id is specified.* | [optional]
  **accessKeyId** | **String**| Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.* | [optional]
@@ -429,4 +600,5 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 

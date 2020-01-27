@@ -14,6 +14,6 @@ RUN mvn --batch-mode -f /tmp/mock-pom-structure/pom.xml dependency:go-offline
 ENTRYPOINT ["mvn"]
 CMD ["--batch-mode", "test"]
 
-COPY . /tmp/datadog-api-client-java
+COPY . /datadog-api-client-java
 
-WORKDIR /tmp/datadog-api-client-java
+WORKDIR /datadog-api-client-java

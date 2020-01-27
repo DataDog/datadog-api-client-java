@@ -3,13 +3,16 @@ package com.datadog.api.v1.client.api;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.TestUtils;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
 import org.apache.commons.io.IOUtils;
+import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 
@@ -26,6 +29,7 @@ public abstract class V1ApiTest {
     @BeforeClass
     public static void initGeneralApiClient() {
         generalApiClient = new ApiClient();
+        HashMap<String, String> secrets = new HashMap<String, String>();
 
         // Configure API key authorization: apiKeyAuth
         String apiKey = System.getenv(TEST_API_KEY_NAME);
@@ -33,8 +37,7 @@ public abstract class V1ApiTest {
             System.err.printf("%s not set, exiting", TEST_API_KEY_NAME);
             System.exit(1);
         }
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) generalApiClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey(apiKey);
+        secrets.put("apiKeyAuth", apiKey);
 
         // Configure API key authorization: appKeyAuth
         String appKey = System.getenv(TEST_APP_KEY_NAME);
@@ -42,8 +45,9 @@ public abstract class V1ApiTest {
             System.err.printf("%s not set, exiting", TEST_APP_KEY_NAME);
             System.exit(1);
         }
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) generalApiClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey(appKey);
+        secrets.put("appKeyAuth", appKey);
+        generalApiClient.configureApiKeys(secrets);
+        generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
     }
 
     @BeforeClass
@@ -53,6 +57,8 @@ public abstract class V1ApiTest {
         // WireMock defaults to listening on localhost port 8080
         // http://wiremock.org/docs/configuration/
         generalApiUnitTestClient.setBasePath("http://localhost:8080");
+        // Disable templated servers
+        generalApiUnitTestClient.setServerIndex(null);
 
         // Configure API key authorization with fake key
         ApiKeyAuth apiKeyAuth = (ApiKeyAuth) generalApiUnitTestClient.getAuthentication("apiKeyAuth");
@@ -63,8 +69,9 @@ public abstract class V1ApiTest {
         appKeyAuth.setApiKey(TEST_APP_KEY_NAME);
     }
 
-    public String getFixture(String path) throws IOException {
-        return IOUtils.toString(this.getClass().getResourceAsStream(path), "UTF-8");
+    @After
+    public void resetWiremock() {
+        reset();
     }
 
     public MappingBuilder setupStub(String Urlpath, String fixturePath, String httpMethod) throws IOException {
@@ -89,7 +96,7 @@ public abstract class V1ApiTest {
         .willReturn(aResponse()
             .withStatus(200)
             .withHeader("Content-Type", "application/json")
-            .withBody(this.getFixture(fixturePath)));
+            .withBody(TestUtils.getFixture(fixturePath)));
         return stub;
     }
 

@@ -14,6 +14,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.CanDeleteMonitorResponse;
 import com.datadog.api.v1.client.model.Monitor;
 import com.datadog.api.v1.client.model.MonitorOptions;
+import com.datadog.api.v1.client.model.DeletedMonitor;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -83,7 +84,7 @@ public class MonitorsApiTest extends V1ApiTest {
             .options(options);
 
         // test creating monitor
-        Monitor obtained = api.createMonitor(monitor).execute();
+        Monitor obtained = api.createMonitor().body(monitor).execute();
         Long monitorId = obtained.getId();
         deleteMonitors.add(monitorId);
 
@@ -99,7 +100,7 @@ public class MonitorsApiTest extends V1ApiTest {
 
         // test updating monitor
         obtained.setName("New name");
-        obtained = api.editMonitor(monitorId, obtained).execute();
+        obtained = api.editMonitor(monitorId).body(obtained).execute();
 
         assertEquals("New name", obtained.getName());
         assertEquals(testingMonitorType, obtained.getType());
@@ -110,14 +111,8 @@ public class MonitorsApiTest extends V1ApiTest {
         assertEquals(testingMonitorOptionsNoDataTimeframe, obtained.getOptions().getNoDataTimeframe());
 
         // test deleting monitor
-        api.deleteMonitor(monitorId).execute();
-        try {
-            api.getMonitor(monitorId).groupStates("all").execute();
-            // junit 4 doesn't have better support for asserting that method threw an error
-            assertTrue(false);
-        } catch (ApiException e) {
-            // noop
-        }
+        DeletedMonitor deletedMonitor = api.deleteMonitor(monitorId).execute();
+        assertEquals(monitorId, deletedMonitor.getDeletedMonitorId());
     }
 
    /**
@@ -131,7 +126,7 @@ public class MonitorsApiTest extends V1ApiTest {
                 .name(prefix + testingMonitorName)
                 .type(testingMonitorType)
                 .query(testingMonitorQuery);
-            Monitor created = api.createMonitor(monitor).execute();
+            Monitor created = api.createMonitor().body(monitor).execute();
             deleteMonitors.add(created.getId());
         }
         List<Monitor> allMonitors = api.getAllMonitors().execute();
@@ -165,11 +160,11 @@ public class MonitorsApiTest extends V1ApiTest {
             .options(options);
 
         // if this doesn't throw exception, everything is fine
-        api.validateMonitor(monitor).execute();
+        api.validateMonitor().body(monitor).execute();
 
         monitor.setQuery("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} ><><>< whaaaaaaa?");
         try {
-            api.validateMonitor(monitor).execute();
+            api.validateMonitor().body(monitor).execute();
             // junit 4 doesn't have better support for asserting that method threw an error
             assertTrue(false);
         } catch (ApiException e) {
