@@ -1,15 +1,11 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.AWSAccount;
-import com.datadog.api.v1.client.model.LogsPipeline;
 import com.datadog.api.v1.client.model.LogsPipelinesOrder;
-import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +22,7 @@ public class LogsPipelinesOrderTest extends V1ApiTest {
     public void pipelineOrderTest() throws ApiException {
 
         // Get current pipelines order
-        LogsPipelinesOrder pipelinesOrder = api.getPipelineOrder().execute();
+        LogsPipelinesOrder pipelinesOrder = api.getLogsPipelineOrder().execute();
         List<String> pipelineIDs = pipelinesOrder.getPipelineIds();
 
         // Slightly change order
@@ -35,7 +31,7 @@ public class LogsPipelinesOrderTest extends V1ApiTest {
         newOrder.remove(0);
         pipelinesOrder.setPipelineIds(newOrder);
 
-        LogsPipelinesOrder updatedPipelinesOrder = api.updatePipelineOrder().body(pipelinesOrder).execute();
+        LogsPipelinesOrder updatedPipelinesOrder = api.updateLogsPipelineOrder().body(pipelinesOrder).execute();
         assertEquals(newOrder, updatedPipelinesOrder.getPipelineIds());
     }
 }
