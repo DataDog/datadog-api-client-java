@@ -29,3 +29,4 @@ jobs:
       displayName: Upload to codecov.io
       env:
         CODECOV_TOKEN: $(codecovToken)
+        VCS_BRANCH_NAME: nick/mas
