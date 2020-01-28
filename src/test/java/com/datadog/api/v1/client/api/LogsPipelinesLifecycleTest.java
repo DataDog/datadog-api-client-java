@@ -163,7 +163,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertTrue(asserted);
 
         // Get the freshly created pipeline
-        LogsPipeline pipe = api.getPipeline(createdPipeline.getId()).execute();
+        LogsPipeline pipe = api.getLogsPipeline(createdPipeline.getId()).execute();
         assertEquals(createdPipeline, pipe);
 
         // Update the pipeline
