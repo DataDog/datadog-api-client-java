@@ -63,9 +63,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Nick Test Dashboard");
 
         Dashboard response = api.createDashboard()
-                .dashboard(dashboard)
+                .body(dashboard)
                 .execute();
         cleanupDashIDs.add(response.getId());
+        api.getDashboard(response.getId()).execute();
         // TODO: test validations
     }
 
