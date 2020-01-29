@@ -48,24 +48,24 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         api = new LogsPipelinesApi(generalApiClient);
 
         // Create a pipeline
-        LogsProcessor grokParser = new GrokParser()
+        LogsProcessor grokParser = new LogsGrokParser()
                 .source("src")
                 .addSamplesItem("sample")
-                .grok(new GrokParserRules().matchRules("rule1 foo\nrule2 bar").supportRules("support baz"))
+                .grok(new LogsGrokParserRules().matchRules("rule1 foo\nrule2 bar").supportRules("support baz"))
                 .name("grok parser");
-        LogsProcessor logDateRemapper = new LogDateRemapper()
+        LogsProcessor logDateRemapper = new LogsDateRemapper()
                 .addSourcesItem("source")
                 .name("log date remapper");
-        LogsProcessor logStatusRemapper = new LogStatusRemapper()
+        LogsProcessor logStatusRemapper = new LogsStatusRemapper()
                 .addSourcesItem("source")
                 .name("log status remapper");
-        LogsProcessor serviceRemapper = new ServiceRemapper()
+        LogsProcessor serviceRemapper = new LogsServiceRemapper()
                 .addSourcesItem("source")
                 .name("service remapper");
-        LogsProcessor logMessageRemapper = new LogMessageRemapper()
+        LogsProcessor logMessageRemapper = new LogsMessageRemapper()
                 .addSourcesItem("source")
                 .name("log message remapper");
-        LogsProcessor remapper = new Remapper()
+        LogsProcessor remapper = new LogsRemapper()
                 .addSourcesItem("source")
                 .sourceType("tag")
                 .target("target")
@@ -73,44 +73,44 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .preserveSource(true)
                 .overrideOnConflict(true)
                 .name("log message remapper");
-        LogsProcessor urlParser = new URLParser()
+        LogsProcessor urlParser = new LogsURLParser()
                 .addSourcesItem("source")
                 .target("target")
                 .name("URL parser");
-        LogsProcessor userAgentParser = new UserAgentParser()
+        LogsProcessor userAgentParser = new LogsUserAgentParser()
                 .addSourcesItem("source")
                 .target("target")
                 .isEncoded(true)
                 .name("user agent parser");
-        LogsProcessor categoryProcessor = new CategoryProcessor()
+        LogsProcessor categoryProcessor = new LogsCategoryProcessor()
                 .addCategoriesItem(
-                        new CategoryProcessorCategories()
+                        new LogsCategoryProcessorCategories()
                             .name("category")
                             .filter(new LogsFilter().query("query"))
                 )
                 .target("target")
                 .name("category processor");
-        LogsProcessor arithmeticProcessor = new ArithmeticProcessor()
+        LogsProcessor arithmeticProcessor = new LogsArithmeticProcessor()
                 .expression("foo + bar")
                 .target("target")
                 .isReplaceMissing(true)
                 .name("arithmetic processor");
-        LogsProcessor stringBuilderProcessor = new StringBuilderProcessor()
+        LogsProcessor stringBuilderProcessor = new LogsStringBuilderProcessor()
                 .template("template")
                 .target("target")
                 .isReplaceMissing(true)
                 .name("string builder processor");
-        LogsProcessor geoIPParser = new GeoIPParser()
+        LogsProcessor geoIPParser = new LogsGeoIPParser()
                 .addSourcesItem("source")
                 .target("target")
                 .name("geo IP parser");
-        LogsProcessor lookupProcessor = new LookupProcessor()
+        LogsProcessor lookupProcessor = new LogsLookupProcessor()
                 .source("source")
                 .target("target")
                 .addLookupTableItem("key,value")
                 .defaultLookup("default_lookup")
                 .name("lookup processor");
-        LogsProcessor traceRemapper = new TraceRemapper()
+        LogsProcessor traceRemapper = new LogsTraceRemapper()
                 .addSourcesItem("source")
                 .name("trace remapper");
         LogsPipeline pipeline = new LogsPipeline()
