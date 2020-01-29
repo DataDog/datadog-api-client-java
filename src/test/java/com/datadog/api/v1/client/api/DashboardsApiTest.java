@@ -18,6 +18,8 @@ import org.junit.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.*;
+
 /**
  * API tests for DashboardsApi
  */
@@ -31,43 +33,98 @@ public class DashboardsApiTest extends V1ApiTest{
         api = new DashboardsApi(generalApiClient);
     }
 
-    @After
-    public void cleanupDashboards() throws ApiException {
-        for (String ID: cleanupDashIDs) {
-            api.deleteDashboard(ID).execute();
-        }
-    }
-
-    /**
-     * Create a new Dashboard
-     *
-     * ### Overview Create a dashboard using the specified options ### Arguments * **&#x60;Dashboard&#x60;** [*required*] The Dashboard Object to create
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
     @Test
-    public void createDashboardTest() throws ApiException {
+    public void dashboardLifecycleTest() throws ApiException {
+        // Create a Dashboard with each available Widget type
+        // Note Widget
         NoteWidgetDefinition noteDefinition = new NoteWidgetDefinition()
-                .fontSize("13").content("Test Note Widget Example");
+                .fontSize("13").content("Test Note Widget Example")
+                .backgroundColor("blue").textAlign(NoteWidgetDefinition.TextAlignEnum.CENTER)
+                .showTick(true).tickPos("4").tickEdge(NoteWidgetDefinition.TickEdgeEnum.BOTTOM);
         Widget noteWidget = new Widget()
                 .definition(noteDefinition)
                 .layout(new WidgetLayout()
                         .width(10L)
                         .height(10L)
-                        .y(10L)
-                        .x(10L));
+                        .y(0L)
+                        .x(0L));
+
+        // Template Variables
+        DashboardTemplateVariables templateVariable = new DashboardTemplateVariables()
+                .name("test template var").prefix("test-java")._default("*");
+        List<DashboardTemplateVariables> templateVariables = new ArrayList<>();
+        templateVariables.add(templateVariable);
+
+        // Template Variable Presets
+        DashboardTemplateVariablePresetsTemplateVariables templateVarPreset = new DashboardTemplateVariablePresetsTemplateVariables()
+                .name("test preset").value("*");
+        DashboardTemplateVariablePresets templateVariablePresets = new DashboardTemplateVariablePresets()
+                .name("Test Preset").addTemplateVariablesItem(templateVarPreset);
+
         Dashboard dashboard = new Dashboard()
                 .layoutType(Dashboard.LayoutTypeEnum.FREE)
                 .addWidgetsItem(noteWidget)
-                .title("Nick Test Dashboard");
+                .title("Java Client Test Dashboard")
+                .description("Test dashboard for Java client")
+                .isReadOnly(false)
+                .templateVariables(templateVariables);
 
+        // Create dashboard with all expected fields
         Dashboard response = api.createDashboard()
                 .body(dashboard)
                 .execute();
         cleanupDashIDs.add(response.getId());
-        api.getDashboard(response.getId()).execute();
-        // TODO: test validations
+
+        // Assert the get response for this dashboard matches the create response
+        Dashboard getResponse = api.getDashboard(response.getId()).execute();
+        assertEquals(getResponse, response);
+
+        // Assert root dashboard items on the create response
+        assertEquals(dashboard.getTitle(), response.getTitle());
+        assertEquals(dashboard.getDescription(), response.getDescription());
+        assertEquals(dashboard.getIsReadOnly(), response.getIsReadOnly());
+        // The end of the url is a normalized version fo the title, so lets just check the beginning of the URL
+        assertTrue(response.getUrl().contains(String.format("/dashboard/%s", response.getId())));
+        assertNotNull(response.getCreatedAt());
+        assertNotNull(response.getModifiedAt());
+        assertNotNull(response.getAuthorHandle());
+        assertEquals(dashboard.getLayoutType(), response.getLayoutType());
+        assertEquals(dashboard.getNotifyList(), response.getNotifyList());
+        // Template Variables
+        assertEquals(templateVariables, response.getTemplateVariables());
+        // Template Variable Presets aren't available in the get/create response payload right now
+        // assertEquals(templateVariablePresets, response.getTemplateVariablePresets());
+        // Assert each individual widget
+        assertNotNull(response.getWidgets().get(0).getId());
+        assertEquals(noteWidget, response.getWidgets().get(0).id(null));
+
+        // Update the description and single widget definition
+        Dashboard updateDashboardPayload = new Dashboard()
+                .description("Updated dashboard description")
+                .title("Test Dashboard")
+                .layoutType(Dashboard.LayoutTypeEnum.FREE)
+                .addWidgetsItem(noteWidget.definition(noteDefinition
+                        .content("Updated content").fontSize("30")
+                ));
+        Dashboard updateResponse = api.updateDashboard(response.getId()).body(updateDashboardPayload).execute();
+        assertEquals(updateDashboardPayload.getDescription(), updateResponse.getDescription());
+        assertEquals(updateDashboardPayload.getWidgets().get(0), updateResponse.getWidgets().get(0).id(null));
+
+        // Get all dashboards and confirm the first returned entry has all expected fields set to not null
+        DashboardSummary getAllResponse = api.getAllDashboards().execute();
+        assertNotNull(getAllResponse.getDashboards().get(0).getAuthorHandle());
+        assertNotNull(getAllResponse.getDashboards().get(0).getCreatedAt());
+        assertNotNull(getAllResponse.getDashboards().get(0).getModifiedAt());
+        assertNotNull(getAllResponse.getDashboards().get(0).getDescription());
+        assertNotNull(getAllResponse.getDashboards().get(0).getId());
+        assertNotNull(getAllResponse.getDashboards().get(0).getIsReadOnly());
+        assertNotNull(getAllResponse.getDashboards().get(0).getLayoutType());
+        assertNotNull(getAllResponse.getDashboards().get(0).getTitle());
+        assertNotNull(getAllResponse.getDashboards().get(0).getUrl());
+
+        // Delete the dashboard and assert response
+        DashboardDeleteResponse deleteResponse = api.deleteDashboard(response.getId()).execute();
+        assertEquals(deleteResponse.getDeletedDashboardId(), response.getId());
     }
 
 }
