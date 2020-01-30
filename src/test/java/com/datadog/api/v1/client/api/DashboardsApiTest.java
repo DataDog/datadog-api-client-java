@@ -13,11 +13,8 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
-import org.eclipse.jetty.util.HostMap;
 import org.junit.*;
 
-import java.awt.*;
-import java.rmi.server.LogStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -231,6 +228,14 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addRequestsItem(
                         new QueryValueWidgetDefinitionRequests().q("avg:system.load.1{*}")
                         .aggregator(QueryValueWidgetDefinitionRequests.AggregatorEnum.AVG)
+                        .conditionalFormats(new WidgetConditionalFormat()
+                                .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
+                                .value(7.)
+                                .palette(WidgetConditionalFormat.PaletteEnum.RED_ON_WHITE)
+                                .customBgColor("blue")
+                                .customFgColor("black")
+                                .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
+                        )
                 ).autoscale(true)
                 .customUnit("ns")
                 .precision(2L)
@@ -239,7 +244,7 @@ public class DashboardsApiTest extends V1ApiTest{
         Widget queryValueWidget = new Widget().definition(queryValueWidgetDefinition);
         orderedWidgetList.add(queryValueWidget);
 
-        // TODO Scatter Plot Widget
+        // Scatter Plot Widget
         ScatterPlotWidgetDefinition scatterPlotWidgetDefinition = new ScatterPlotWidgetDefinition()
                 .requests(new ScatterPlotWidgetDefinitionRequests()
                         .x(new ScatterPlotRequest()
@@ -257,13 +262,58 @@ public class DashboardsApiTest extends V1ApiTest{
         Widget scatterPlotWidget = new Widget().definition(scatterPlotWidgetDefinition);
         orderedWidgetList.add(scatterPlotWidget);
 
-        // TODO SLO Widget
+        // SLO Widget
+        SLOWidgetDefinition sloWidgetDefinition = new SLOWidgetDefinition()
+                .viewType("detail").title("Test SLO Widget").titleSize("16")
+                .titleAlign(SLOWidgetDefinition.TitleAlignEnum.CENTER)
+                .sloId("1234L")
+                .showErrorBudget(true)
+                .viewMode(SLOWidgetDefinition.ViewModeEnum.BOTH)
+                .addTimeWindowsItem(SLOWidgetDefinition.TimeWindowsEnum._7D);
+        Widget sloWidget = new Widget().definition(sloWidgetDefinition);
+        orderedWidgetList.add(sloWidget);
 
-        // TODO Service Map Widget
+        // Service Map Widget
+        ServiceMapWidgetDefinition serviceMapWidgetDefinition = new ServiceMapWidgetDefinition()
+                .addFiltersItem("*")
+                .service("1234")
+                .title("Test Service Map Widget");
+        Widget serviceMapWidget = new Widget().definition(serviceMapWidgetDefinition);
+        orderedWidgetList.add(serviceMapWidget);
 
-        // TODO Service Summary Widget
+        // Service Summary Widget
+        ServiceSummaryWidgetDefinition serviceSummaryWidgetDefinition = new ServiceSummaryWidgetDefinition()
+                .env("prod")
+                .service("web")
+                .spanName("endpoint")
+                .showHits(true).showErrors(true).showLatency(true).showBreakdown(true)
+                .showDistribution(true).showResourceList(true)
+                .sizeFormat(ServiceSummaryWidgetDefinition.SizeFormatEnum.LARGE)
+                .displayFormat(ServiceSummaryWidgetDefinition.DisplayFormatEnum.TWO_COLUMN)
+                .title("Test Service Summary Widget")
+                .titleSize("16")
+                .titleAlign(ServiceSummaryWidgetDefinition.TitleAlignEnum.CENTER)
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum._1H));
+        Widget serviceSummaryWidget = new Widget().definition(serviceMapWidgetDefinition);
+        orderedWidgetList.add(serviceSummaryWidget);
 
         // TODO Table Widget
+        TableWidgetDefinition tableWidgetDefinition = new TableWidgetDefinition()
+            .addRequestsItem(new TableWidgetDefinitionRequests()
+                    .q("avg:system.load.1{*}")
+                    .alias("System Load")
+                    .aggregator(TableWidgetDefinitionRequests.AggregatorEnum.AVG)
+                    .limit(50L)
+                    .order(TableWidgetDefinitionRequests.OrderEnum.ASC)
+                    .conditionalFormats(new WidgetConditionalFormat()
+                            .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
+                            .value(7.)
+                            .palette(WidgetConditionalFormat.PaletteEnum.RED_ON_WHITE)
+                            .customBgColor("blue")
+                            .customFgColor("black")
+                            .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
+                    )
+            );
 
         // TODO Timeseries Widget
 
@@ -295,6 +345,9 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(hostMapWidget)
                 .addWidgetsItem(queryValueWidget)
                 .addWidgetsItem(scatterPlotWidget)
+                .addWidgetsItem(sloWidget)
+                .addWidgetsItem(serviceMapWidget)
+                .addWidgetsItem(serviceSummaryWidget)
                 .title("Java Client Test ORDERED Dashboard")
                 .description("Test dashboard for Java client")
                 .isReadOnly(false)
@@ -415,6 +468,5 @@ public class DashboardsApiTest extends V1ApiTest{
         assertNotNull(getAllResponse.getDashboards().get(0).getLayoutType());
         assertNotNull(getAllResponse.getDashboards().get(0).getTitle());
         assertNotNull(getAllResponse.getDashboards().get(0).getUrl());
-
     }
 }
