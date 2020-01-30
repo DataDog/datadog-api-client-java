@@ -13,7 +13,11 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import org.eclipse.jetty.util.HostMap;
 import org.junit.*;
+
+import java.awt.*;
+import java.rmi.server.LogStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -45,19 +49,26 @@ public class DashboardsApiTest extends V1ApiTest{
         }
     }
 
+    /**
+     * Tests the lifecycle of a dashbaord
+     * Includes creating an example of each widget and creating an example of a FREE and ORDERED dashboard
+     *
+     * @throws ApiException
+     */
     @Test
     public void dashboardLifecycleTest() throws ApiException {
         // Create a Dashboard with each available Widget type
 
         // Add widgets to this list and the created dashboard to have them dynamically tested against the "get" call
-        Set<Widget> widgetList = new HashSet();
+        Set<Widget> orderedWidgetList = new HashSet();
+        Set<Widget> freeWidgetList = new HashSet();
 
         // Alert Graph Widget
         AlertGraphWidgetDefinition alertGraphDefinition = new AlertGraphWidgetDefinition()
                 .alertId("1234").vizType(AlertGraphWidgetDefinition.VizTypeEnum.TIMESERIES)
                 .title("Test Alert Graph Widget");
         Widget alertGraphWidget = new Widget().definition(alertGraphDefinition);
-        widgetList.add(alertGraphWidget);
+        orderedWidgetList.add(alertGraphWidget);
 
         // Alert Value Widget
         AlertValueWidgetDefinition alertValueDefinition = new AlertValueWidgetDefinition()
@@ -65,7 +76,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .textAlign(AlertValueWidgetDefinition.TextAlignEnum.CENTER)
                 .title("Test Alert Value Widget");
         Widget alertValueWidget = new Widget().definition(alertValueDefinition);
-        widgetList.add(alertValueWidget);
+        orderedWidgetList.add(alertValueWidget);
 
         // Change Widget
         ChangeWidgetDefinition changeWidgetDefinition = new ChangeWidgetDefinition()
@@ -78,44 +89,134 @@ public class DashboardsApiTest extends V1ApiTest{
                         .showPresent(true)
                 );
         Widget changeWidget = new Widget().definition(changeWidgetDefinition);
-        widgetList.add(changeWidget);
+        orderedWidgetList.add(changeWidget);
 
         // Check Status Widget
         CheckStatusWidgetDefinition checkStatusWidgetDefinition = new CheckStatusWidgetDefinition()
                 .check("service_check.up").grouping(CheckStatusWidgetDefinition.GroupingEnum.CHECK)
                 .group("*").addTagsItem("foo:bar").addGroupByItem("bar").title("Test Check Status Widget");
         Widget checkStatusWidget = new Widget().definition(checkStatusWidgetDefinition);
-        widgetList.add(checkStatusWidget);
+        orderedWidgetList.add(checkStatusWidget);
 
         // Distribution Widget
         DistributionWidgetDefinition distributionWidgetDefinition = new DistributionWidgetDefinition()
                 .addRequestsItem(
-                        new DistributionWidgetDefinitionRequests()
+                        new DefinitionRequestsWithStyle()
                                 .q("avg:system.load.1{*}")
-                                .style(new DistributionWidgetDefinitionStyle().palette("dog_classic"))
+                                .style(new DefinitionRequestsWithStyleStyle().palette("dog_classic"))
                 ).showLegend(true).title("Test Distribution Widget");
         Widget distributionWidget = new Widget().definition(distributionWidgetDefinition);
-        widgetList.add(distributionWidget);
+        orderedWidgetList.add(distributionWidget);
 
-        // TODO Event Stream Widget
+        // Event Stream Widget ONLY AVAILABLE ON FREE LAYOUTS
+        EventStreamWidgetDefinition eventStreamWidgetDefinition = new EventStreamWidgetDefinition()
+                .query("Build successful").eventSize(EventStreamWidgetDefinition.EventSizeEnum.L)
+                .title("Test Event Stream Widget").titleSize("16")
+                .titleAlign(EventStreamWidgetDefinition.TitleAlignEnum.CENTER)
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum._1D));
+        Widget eventStreamWidget = new Widget().definition(eventStreamWidgetDefinition)
+                .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
+        freeWidgetList.add(eventStreamWidget);
 
-        // TODO Event Timeline Widget
+        // Event Timeline Widget ONLY AVAILABLE ON FREE LAYOUTS
+        EventTimelineWidgetDefinition eventTimelineWidgetDefinition = new EventTimelineWidgetDefinition()
+                .query("Build Failed").title("Test Event Timeline Widget").titleSize("16")
+                .titleAlign(EventTimelineWidgetDefinition.TitleAlignEnum.CENTER)
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum._1MO));
+        Widget eventTimelineWidget = new Widget().definition(eventTimelineWidgetDefinition)
+                        .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
+        freeWidgetList.add(eventTimelineWidget);
 
-        // TODO Free Text Widget
+        // Free Text Widget ONLY AVAILABLE ON FREE LAYOUTS
+        FreeTextWidgetDefinition freeTextWidgetDefinition = new FreeTextWidgetDefinition()
+                .text("Test me text").color("blue").fontSize("16")
+                .textAlign(FreeTextWidgetDefinition.TextAlignEnum.CENTER);
+        Widget freeTextWidget = new Widget().definition(freeTextWidgetDefinition)
+                .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
+        freeWidgetList.add(freeTextWidget);
 
-        // TODO Group Widget
+        // Group Widget
+        NoteWidgetDefinition groupNoteWidgetDefinition = new NoteWidgetDefinition()
+                .content("Test Note Inside Group");
+        Widget groupNoteWidget = new Widget().definition(groupNoteWidgetDefinition);
+        GroupWidgetDefinition groupWidgetDefinition = new GroupWidgetDefinition()
+                .layoutType(GroupWidgetDefinition.LayoutTypeEnum.ORDERED)
+                .title("Test Group Widget")
+                .addWidgetsItem(groupNoteWidget);
+        Widget groupWidget = new Widget().definition(groupWidgetDefinition);
+        orderedWidgetList.add(groupWidget);
 
-        // TODO HeatMap Widget
+        // HeatMap Widget
+        HeatMapWidgetDefinition heatMapWidgetDefinition = new HeatMapWidgetDefinition()
+                .addRequestsItem(new DefinitionRequestsWithStyle()
+                        .style(new DefinitionRequestsWithStyleStyle().palette("dog_classic"))
+                        .q("avg:system.load.1{*}")
+                ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .addEventsItem(new WidgetEvent().q("Build succeeded"))
+                .title("Test Headmap Widget").showLegend(true);
+        Widget heatMapWidget = new Widget().definition(heatMapWidgetDefinition);
+        orderedWidgetList.add(heatMapWidget);
 
-        // TODO HostMap Widget
+        // HostMap Widget
+        HostMapWidgetDefinition hostMapWidgetDefinition = new HostMapWidgetDefinition()
+                .nodeType(HostMapWidgetDefinition.NodeTypeEnum.CONTAINER)
+                .requests(new HostMapWidgetDefinitionRequests()
+                        .fill(new HostMapRequest().q("avg:system.load.1{*}"))
+                        .size(new HostMapRequest().q("avg:system.load.1{*}"))
+                )
+                .noMetricHosts(true)
+                .noGroupHosts(true)
+                .addGroupItem("env:prod")
+                .addScopeItem("foo")
+                .style(new HostMapWidgetDefinitionStyle()
+                    .palette("dog_classic").paletteFlip(true).fillMin("0").fillMax("100"))
+                .title("Test HostMap Widget");
+        Widget hostMapWidget = new Widget().definition(hostMapWidgetDefinition);
+        orderedWidgetList.add(hostMapWidget);
 
-        // TODO Iframe Widget
+        // Iframe Widget ONLY AVAILABLE ON FREE LAYOUTS
+        IFrameWidgetDefinition iFrameWidgetDefinition = new IFrameWidgetDefinition()
+                .url("https://datadoghq.com");
+        Widget iFrameWidget = new Widget().definition(iFrameWidgetDefinition)
+                .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
+        freeWidgetList.add(iFrameWidget);
 
-        // TODO Image Widget
+        // Image Widget ONLY AVAILABLE ON FREE LAYOUTS
+        ImageWidgetDefinition imageWidgetDefinition = new ImageWidgetDefinition()
+                .url("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
+                .sizing(ImageWidgetDefinition.SizingEnum.CENTER)
+                .margin(ImageWidgetDefinition.MarginEnum.LARGE);
+        Widget imageWidget = new Widget().definition(imageWidgetDefinition)
+                .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
+        freeWidgetList.add(imageWidget);
 
-        // TODO LogStream
+        // LogStream ONLY AVAILABLE ON FREE LAYOUTS
+        LogStreamWidgetDefinition logStreamWidgetDefinition = new LogStreamWidgetDefinition()
+                .addIndexesItem("main")
+                .query("Route XYZ failed")
+                .addColumnsItem("Route")
+                .title("Test Logstream Widget")
+                .titleSize("16")
+                .titleAlign(LogStreamWidgetDefinition.TitleAlignEnum.CENTER)
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum._2D));
+        Widget logStreamWidget = new Widget().definition(logStreamWidgetDefinition)
+                .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
+        freeWidgetList.add(logStreamWidget);
 
-        // TODO Monitor Summary
+        // Monitor Summary ONLY AVAILABLE ON FREE LAYOUTS
+        MonitorSummaryWidgetDefinition monitorSummaryWidgetDefinition = new MonitorSummaryWidgetDefinition()
+                .query("Errors are increasing")
+                .summaryType(MonitorSummaryWidgetDefinition.SummaryTypeEnum.COMBINED)
+                .displayFormat(MonitorSummaryWidgetDefinition.DisplayFormatEnum.COUNTS)
+                .colorPreference(MonitorSummaryWidgetDefinition.ColorPreferenceEnum.BACKGROUND)
+                .hideZeroCounts(false)
+                .showLastTriggered(true)
+                .title("Test Monitor Summary Widget")
+                .titleSize("16")
+                .titleAlign(MonitorSummaryWidgetDefinition.TitleAlignEnum.CENTER);
+        Widget monitorSummaryWidget = new Widget().definition(monitorSummaryWidgetDefinition)
+                        .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
+        freeWidgetList.add(monitorSummaryWidget);
 
         // Note Widget
         NoteWidgetDefinition noteDefinition = new NoteWidgetDefinition()
@@ -123,11 +224,38 @@ public class DashboardsApiTest extends V1ApiTest{
                 .backgroundColor("blue").textAlign(NoteWidgetDefinition.TextAlignEnum.CENTER)
                 .showTick(true).tickPos("4").tickEdge(NoteWidgetDefinition.TickEdgeEnum.BOTTOM);
         Widget noteWidget = new Widget().definition(noteDefinition);
-        widgetList.add(noteWidget);
+        orderedWidgetList.add(noteWidget);
 
-        // TODO Query Value Widget
+        // Query Value Widget
+        QueryValueWidgetDefinition queryValueWidgetDefinition = new QueryValueWidgetDefinition()
+                .addRequestsItem(
+                        new QueryValueWidgetDefinitionRequests().q("avg:system.load.1{*}")
+                        .aggregator(QueryValueWidgetDefinitionRequests.AggregatorEnum.AVG)
+                ).autoscale(true)
+                .customUnit("ns")
+                .precision(2L)
+                .textAlign(QueryValueWidgetDefinition.TextAlignEnum.CENTER)
+                .title("Test Query Value Widget");
+        Widget queryValueWidget = new Widget().definition(queryValueWidgetDefinition);
+        orderedWidgetList.add(queryValueWidget);
 
         // TODO Scatter Plot Widget
+        ScatterPlotWidgetDefinition scatterPlotWidgetDefinition = new ScatterPlotWidgetDefinition()
+                .requests(new ScatterPlotWidgetDefinitionRequests()
+                        .x(new ScatterPlotRequest()
+                                .q("avg:system.load.1{*}")
+                                .aggregator(ScatterPlotRequest.AggregatorEnum.AVG)
+                        )
+                        .y(new ScatterPlotRequest()
+                                .q("avg:system.load.1{*}")
+                                .aggregator(ScatterPlotRequest.AggregatorEnum.AVG)
+                        )
+                ).xaxis(new WidgetAxis().scale("linear").min("0").max("100").includeZero(true))
+                .yaxis(new WidgetAxis().scale("linear").min("0").max("100").includeZero(true))
+                .addColorByGroupsItem("env")
+                .title("Test ScatterPlot Widget");
+        Widget scatterPlotWidget = new Widget().definition(scatterPlotWidgetDefinition);
+        orderedWidgetList.add(scatterPlotWidget);
 
         // TODO SLO Widget
 
@@ -162,12 +290,17 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(changeWidget)
                 .addWidgetsItem(checkStatusWidget)
                 .addWidgetsItem(distributionWidget)
-                .title("Java Client Test Dashboard")
+                .addWidgetsItem(groupWidget)
+                .addWidgetsItem(heatMapWidget)
+                .addWidgetsItem(hostMapWidget)
+                .addWidgetsItem(queryValueWidget)
+                .addWidgetsItem(scatterPlotWidget)
+                .title("Java Client Test ORDERED Dashboard")
                 .description("Test dashboard for Java client")
                 .isReadOnly(false)
                 .templateVariables(templateVariables);
 
-        // Create dashboard with all expected fields
+        // Create ordered dashboard with all expected fields
         Dashboard response = api.createDashboard()
                 .body(dashboard)
                 .execute();
@@ -176,6 +309,25 @@ public class DashboardsApiTest extends V1ApiTest{
         // Assert the get response for this dashboard matches the create response
         Dashboard getResponse = api.getDashboard(response.getId()).execute();
         assertEquals(getResponse, response);
+
+        // Assert the same for the free widgets
+        Dashboard freeDashboard = new Dashboard()
+                .layoutType(Dashboard.LayoutTypeEnum.FREE)
+                .addWidgetsItem(eventStreamWidget)
+                .addWidgetsItem(eventTimelineWidget)
+                .addWidgetsItem(freeTextWidget)
+                .addWidgetsItem(iFrameWidget)
+                .addWidgetsItem(imageWidget)
+                .addWidgetsItem(logStreamWidget)
+                .addWidgetsItem(monitorSummaryWidget)
+                .title("Java Client Test Free Dashboard")
+                .description("Test Free layout dashboard for Java client")
+                .isReadOnly(false)
+                .templateVariables(templateVariables);
+        Dashboard createFreeResponse = api.createDashboard().body(freeDashboard).execute();
+        cleanupDashIDs.add(createFreeResponse.getId());
+        Dashboard getFreeResponse = api.getDashboard(createFreeResponse.getId()).execute();
+        assertEquals(createFreeResponse, getFreeResponse);
 
         // Assert root dashboard items on the create response
         assertEquals(dashboard.getTitle(), response.getTitle());
@@ -188,26 +340,35 @@ public class DashboardsApiTest extends V1ApiTest{
         assertNotNull(response.getAuthorHandle());
         assertEquals(dashboard.getLayoutType(), response.getLayoutType());
         assertEquals(dashboard.getNotifyList(), response.getNotifyList());
+
         // Template Variables
         assertEquals(templateVariables, response.getTemplateVariables());
+
         // Template Variable Presets aren't available in the get/create response payload right now
         // assertEquals(templateVariablePresets, response.getTemplateVariablePresets());
+
         // Assert each individual widget but first remove the readOnly field `id`
         for(Widget checkWidget: response.getWidgets()) {
             assertNotNull(checkWidget.getId());
+            checkWidget.setId(null);
+            // Unset the `id` from the sub widgets definitions of the group widget
+            if (checkWidget.getDefinition().getType().equals("group")) {
+                for(Widget subWidget:  ((GroupWidgetDefinition) checkWidget.getDefinition()).getWidgets()) {
+                    subWidget.id(null);
+                }
+            }
+        }
+        assertEquals(new HashSet<>(response.getWidgets()), orderedWidgetList);
+
+        // Assert the same for the free dashboard widgets
+        for(Widget checkWidget: getFreeResponse.getWidgets()) {
+            assertNotNull(checkWidget.getId());
             checkWidget.id(null);
         }
-        assertEquals(new HashSet<>(response.getWidgets()), widgetList);
+        assertEquals(new HashSet<>(getFreeResponse.getWidgets()), freeWidgetList);
 
-        // Update the description and single widget definition
-//        Dashboard updateDashboardPayload = new Dashboard()
-//                .description("Updated dashboard description")
-//                .title("Test Dashboard")
-//                .layoutType(Dashboard.LayoutTypeEnum.ORDERED)
-//                .addWidgetsItem(noteWidget.definition(noteDefinition
-//                        .content("Updated content").fontSize("30")
-//                ));
 
+        // Update the dashboard
         dashboard.description("Updated dashboard description")
                 .addWidgetsItem(noteWidget
                         .definition(noteDefinition
@@ -231,6 +392,18 @@ public class DashboardsApiTest extends V1ApiTest{
         assertTrue(foundWidget);
         assertTrue(updateResponse.getWidgets().size() > 1);
 
+        // Delete the dashboard and assert response
+        DashboardDeleteResponse deleteResponse = api.deleteDashboard(response.getId()).execute();
+        assertEquals(deleteResponse.getDeletedDashboardId(), response.getId());
+    }
+
+    /**
+     * Tests the get all dashboards endpoint to confirm we get an expected set of data back
+     *
+     * @throws ApiException
+     */
+    @Test
+    public void getAllDashboardTest() throws ApiException {
         // Get all dashboards and confirm the first returned entry has all expected fields set to not null
         DashboardSummary getAllResponse = api.getAllDashboards().execute();
         assertNotNull(getAllResponse.getDashboards().get(0).getAuthorHandle());
@@ -243,9 +416,5 @@ public class DashboardsApiTest extends V1ApiTest{
         assertNotNull(getAllResponse.getDashboards().get(0).getTitle());
         assertNotNull(getAllResponse.getDashboards().get(0).getUrl());
 
-        // Delete the dashboard and assert response
-        DashboardDeleteResponse deleteResponse = api.deleteDashboard(response.getId()).execute();
-        assertEquals(deleteResponse.getDeletedDashboardId(), response.getId());
     }
-
 }
