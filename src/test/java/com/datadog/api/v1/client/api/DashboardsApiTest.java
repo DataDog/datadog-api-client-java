@@ -54,14 +54,14 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Alert Graph Widget
         AlertGraphWidgetDefinition alertGraphDefinition = new AlertGraphWidgetDefinition()
-                .type("alert_graph").alertId("1234").vizType(AlertGraphWidgetDefinition.VizTypeEnum.TIMESERIES)
+                .alertId("1234").vizType(AlertGraphWidgetDefinition.VizTypeEnum.TIMESERIES)
                 .title("Test Alert Graph Widget");
         Widget alertGraphWidget = new Widget().definition(alertGraphDefinition);
         widgetList.add(alertGraphWidget);
 
         // Alert Value Widget
         AlertValueWidgetDefinition alertValueDefinition = new AlertValueWidgetDefinition()
-                .type("alert_value").alertId("1234").precision(2L).unit("ms").titleSize("12")
+                .alertId("1234").precision(2L).unit("ms").titleSize("12")
                 .textAlign(AlertValueWidgetDefinition.TextAlignEnum.CENTER)
                 .title("Test Alert Value Widget");
         Widget alertValueWidget = new Widget().definition(alertValueDefinition);
@@ -69,7 +69,7 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Change Widget
         ChangeWidgetDefinition changeWidgetDefinition = new ChangeWidgetDefinition()
-                .type("change").title("Test Change Widget")
+                .title("Test Change Widget")
                 .addRequestsItem(new ChangeWidgetDefinitionRequests()
                         .q("avg:system.load.1{*}").changeType(ChangeWidgetDefinitionRequests.ChangeTypeEnum.ABSOLUTE)
                         .compareTo(ChangeWidgetDefinitionRequests.CompareToEnum.HOUR_BEFORE)
@@ -82,14 +82,14 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Check Status Widget
         CheckStatusWidgetDefinition checkStatusWidgetDefinition = new CheckStatusWidgetDefinition()
-                .type("check_status").check("service_check.up").grouping(CheckStatusWidgetDefinition.GroupingEnum.CHECK)
+                .check("service_check.up").grouping(CheckStatusWidgetDefinition.GroupingEnum.CHECK)
                 .group("*").addTagsItem("foo:bar").addGroupByItem("bar").title("Test Check Status Widget");
         Widget checkStatusWidget = new Widget().definition(checkStatusWidgetDefinition);
         widgetList.add(checkStatusWidget);
 
         // Distribution Widget
         DistributionWidgetDefinition distributionWidgetDefinition = new DistributionWidgetDefinition()
-                .type("distribution").addRequestsItem(
+                .addRequestsItem(
                         new DistributionWidgetDefinitionRequests()
                                 .q("avg:system.load.1{*}")
                                 .style(new DistributionWidgetDefinitionStyle().palette("dog_classic"))
@@ -140,6 +140,7 @@ public class DashboardsApiTest extends V1ApiTest{
         // TODO Timeseries Widget
 
         // TODO Toplist Widget
+
 
         // Template Variables
         DashboardTemplateVariables templateVariable = new DashboardTemplateVariables()
@@ -199,16 +200,36 @@ public class DashboardsApiTest extends V1ApiTest{
         assertEquals(new HashSet<>(response.getWidgets()), widgetList);
 
         // Update the description and single widget definition
-        Dashboard updateDashboardPayload = new Dashboard()
-                .description("Updated dashboard description")
-                .title("Test Dashboard")
-                .layoutType(Dashboard.LayoutTypeEnum.ORDERED)
-                .addWidgetsItem(noteWidget.definition(noteDefinition
-                        .content("Updated content").fontSize("30")
-                ));
-        Dashboard updateResponse = api.updateDashboard(response.getId()).body(updateDashboardPayload).execute();
-        assertEquals(updateDashboardPayload.getDescription(), updateResponse.getDescription());
-        assertEquals(updateDashboardPayload.getWidgets().get(0), updateResponse.getWidgets().get(0).id(null));
+//        Dashboard updateDashboardPayload = new Dashboard()
+//                .description("Updated dashboard description")
+//                .title("Test Dashboard")
+//                .layoutType(Dashboard.LayoutTypeEnum.ORDERED)
+//                .addWidgetsItem(noteWidget.definition(noteDefinition
+//                        .content("Updated content").fontSize("30")
+//                ));
+
+        dashboard.description("Updated dashboard description")
+                .addWidgetsItem(noteWidget
+                        .definition(noteDefinition
+                                .content("Updated content").fontSize("30")
+                        )
+                );
+        Dashboard updateResponse = api.updateDashboard(response.getId()).body(dashboard).execute();
+        assertEquals(dashboard.getDescription(), updateResponse.getDescription());
+        assertEquals(dashboard.getTitle(), updateResponse.getTitle());
+        assertEquals(dashboard.getWidgets().get(0), updateResponse.getWidgets().get(0).id(null));
+        Boolean foundWidget = false;
+        for (Widget noteWidgetResponse: updateResponse.getWidgets()) {
+            if (noteWidgetResponse.getDefinition().getType().equals("note")) {
+                NoteWidgetDefinition def = (NoteWidgetDefinition) noteWidgetResponse.getDefinition();
+                foundWidget = true;
+                assertEquals("Updated content", def.getContent());
+                assertEquals("30", def.getFontSize());
+                break;
+            }
+        }
+        assertTrue(foundWidget);
+        assertTrue(updateResponse.getWidgets().size() > 1);
 
         // Get all dashboards and confirm the first returned entry has all expected fields set to not null
         DashboardSummary getAllResponse = api.getAllDashboards().execute();
