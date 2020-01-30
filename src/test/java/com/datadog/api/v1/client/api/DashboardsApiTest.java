@@ -14,9 +14,10 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import org.junit.*;
-
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -33,21 +34,112 @@ public class DashboardsApiTest extends V1ApiTest{
         api = new DashboardsApi(generalApiClient);
     }
 
+    @After
+    public void cleanupDash() {
+        try {
+            for(String id: cleanupDashIDs) {
+                api.deleteDashboard(id).execute();
+            }
+        } catch (ApiException e) {
+            System.out.printf("Error deleting dashboard, it may have already been deleted by a test: %s", e.getMessage());
+        }
+    }
+
     @Test
     public void dashboardLifecycleTest() throws ApiException {
         // Create a Dashboard with each available Widget type
+
+        // Add widgets to this list and the created dashboard to have them dynamically tested against the "get" call
+        Set<Widget> widgetList = new HashSet();
+
+        // Alert Graph Widget
+        AlertGraphWidgetDefinition alertGraphDefinition = new AlertGraphWidgetDefinition()
+                .type("alert_graph").alertId("1234").vizType(AlertGraphWidgetDefinition.VizTypeEnum.TIMESERIES)
+                .title("Test Alert Graph Widget");
+        Widget alertGraphWidget = new Widget().definition(alertGraphDefinition);
+        widgetList.add(alertGraphWidget);
+
+        // Alert Value Widget
+        AlertValueWidgetDefinition alertValueDefinition = new AlertValueWidgetDefinition()
+                .type("alert_value").alertId("1234").precision(2L).unit("ms").titleSize("12")
+                .textAlign(AlertValueWidgetDefinition.TextAlignEnum.CENTER)
+                .title("Test Alert Value Widget");
+        Widget alertValueWidget = new Widget().definition(alertValueDefinition);
+        widgetList.add(alertValueWidget);
+
+        // Change Widget
+        ChangeWidgetDefinition changeWidgetDefinition = new ChangeWidgetDefinition()
+                .type("change").title("Test Change Widget")
+                .addRequestsItem(new ChangeWidgetDefinitionRequests()
+                        .q("avg:system.load.1{*}").changeType(ChangeWidgetDefinitionRequests.ChangeTypeEnum.ABSOLUTE)
+                        .compareTo(ChangeWidgetDefinitionRequests.CompareToEnum.HOUR_BEFORE)
+                        .increaseGood(true).orderBy(ChangeWidgetDefinitionRequests.OrderByEnum.CHANGE)
+                        .orderDir(ChangeWidgetDefinitionRequests.OrderDirEnum.ASC)
+                        .showPresent(true)
+                );
+        Widget changeWidget = new Widget().definition(changeWidgetDefinition);
+        widgetList.add(changeWidget);
+
+        // Check Status Widget
+        CheckStatusWidgetDefinition checkStatusWidgetDefinition = new CheckStatusWidgetDefinition()
+                .type("check_status").check("service_check.up").grouping(CheckStatusWidgetDefinition.GroupingEnum.CHECK)
+                .group("*").addTagsItem("foo:bar").addGroupByItem("bar").title("Test Check Status Widget");
+        Widget checkStatusWidget = new Widget().definition(checkStatusWidgetDefinition);
+        widgetList.add(checkStatusWidget);
+
+        // Distribution Widget
+        DistributionWidgetDefinition distributionWidgetDefinition = new DistributionWidgetDefinition()
+                .type("distribution").addRequestsItem(
+                        new DistributionWidgetDefinitionRequests()
+                                .q("avg:system.load.1{*}")
+                                .style(new DistributionWidgetDefinitionStyle().palette("dog_classic"))
+                ).showLegend(true).title("Test Distribution Widget");
+        Widget distributionWidget = new Widget().definition(distributionWidgetDefinition);
+        widgetList.add(distributionWidget);
+
+        // TODO Event Stream Widget
+
+        // TODO Event Timeline Widget
+
+        // TODO Free Text Widget
+
+        // TODO Group Widget
+
+        // TODO HeatMap Widget
+
+        // TODO HostMap Widget
+
+        // TODO Iframe Widget
+
+        // TODO Image Widget
+
+        // TODO LogStream
+
+        // TODO Monitor Summary
+
         // Note Widget
         NoteWidgetDefinition noteDefinition = new NoteWidgetDefinition()
                 .fontSize("13").content("Test Note Widget Example")
                 .backgroundColor("blue").textAlign(NoteWidgetDefinition.TextAlignEnum.CENTER)
                 .showTick(true).tickPos("4").tickEdge(NoteWidgetDefinition.TickEdgeEnum.BOTTOM);
-        Widget noteWidget = new Widget()
-                .definition(noteDefinition)
-                .layout(new WidgetLayout()
-                        .width(10L)
-                        .height(10L)
-                        .y(0L)
-                        .x(0L));
+        Widget noteWidget = new Widget().definition(noteDefinition);
+        widgetList.add(noteWidget);
+
+        // TODO Query Value Widget
+
+        // TODO Scatter Plot Widget
+
+        // TODO SLO Widget
+
+        // TODO Service Map Widget
+
+        // TODO Service Summary Widget
+
+        // TODO Table Widget
+
+        // TODO Timeseries Widget
+
+        // TODO Toplist Widget
 
         // Template Variables
         DashboardTemplateVariables templateVariable = new DashboardTemplateVariables()
@@ -62,8 +154,13 @@ public class DashboardsApiTest extends V1ApiTest{
                 .name("Test Preset").addTemplateVariablesItem(templateVarPreset);
 
         Dashboard dashboard = new Dashboard()
-                .layoutType(Dashboard.LayoutTypeEnum.FREE)
+                .layoutType(Dashboard.LayoutTypeEnum.ORDERED)
                 .addWidgetsItem(noteWidget)
+                .addWidgetsItem(alertGraphWidget)
+                .addWidgetsItem(alertValueWidget)
+                .addWidgetsItem(changeWidget)
+                .addWidgetsItem(checkStatusWidget)
+                .addWidgetsItem(distributionWidget)
                 .title("Java Client Test Dashboard")
                 .description("Test dashboard for Java client")
                 .isReadOnly(false)
@@ -94,15 +191,18 @@ public class DashboardsApiTest extends V1ApiTest{
         assertEquals(templateVariables, response.getTemplateVariables());
         // Template Variable Presets aren't available in the get/create response payload right now
         // assertEquals(templateVariablePresets, response.getTemplateVariablePresets());
-        // Assert each individual widget
-        assertNotNull(response.getWidgets().get(0).getId());
-        assertEquals(noteWidget, response.getWidgets().get(0).id(null));
+        // Assert each individual widget but first remove the readOnly field `id`
+        for(Widget checkWidget: response.getWidgets()) {
+            assertNotNull(checkWidget.getId());
+            checkWidget.id(null);
+        }
+        assertEquals(new HashSet<>(response.getWidgets()), widgetList);
 
         // Update the description and single widget definition
         Dashboard updateDashboardPayload = new Dashboard()
                 .description("Updated dashboard description")
                 .title("Test Dashboard")
-                .layoutType(Dashboard.LayoutTypeEnum.FREE)
+                .layoutType(Dashboard.LayoutTypeEnum.ORDERED)
                 .addWidgetsItem(noteWidget.definition(noteDefinition
                         .content("Updated content").fontSize("30")
                 ));
