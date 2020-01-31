@@ -70,7 +70,7 @@ public class DashboardsApiTest extends V1ApiTest{
         // Alert Value Widget
         AlertValueWidgetDefinition alertValueDefinition = new AlertValueWidgetDefinition()
                 .alertId("1234").precision(2L).unit("ms").titleSize("12")
-                .textAlign(AlertValueWidgetDefinition.TextAlignEnum.CENTER)
+                .textAlign(WidgetTextAlign.CENTER)
                 .title("Test Alert Value Widget");
         Widget alertValueWidget = new Widget().definition(alertValueDefinition);
         orderedWidgetList.add(alertValueWidget);
@@ -127,7 +127,7 @@ public class DashboardsApiTest extends V1ApiTest{
         // Free Text Widget ONLY AVAILABLE ON FREE LAYOUTS
         FreeTextWidgetDefinition freeTextWidgetDefinition = new FreeTextWidgetDefinition()
                 .text("Test me text").color("blue").fontSize("16")
-                .textAlign(FreeTextWidgetDefinition.TextAlignEnum.CENTER);
+                .textAlign(WidgetTextAlign.CENTER);
         Widget freeTextWidget = new Widget().definition(freeTextWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(freeTextWidget);
@@ -218,7 +218,7 @@ public class DashboardsApiTest extends V1ApiTest{
         // Note Widget
         NoteWidgetDefinition noteDefinition = new NoteWidgetDefinition()
                 .fontSize("13").content("Test Note Widget Example")
-                .backgroundColor("blue").textAlign(NoteWidgetDefinition.TextAlignEnum.CENTER)
+                .backgroundColor("blue").textAlign(WidgetTextAlign.CENTER)
                 .showTick(true).tickPos("4").tickEdge(NoteWidgetDefinition.TickEdgeEnum.BOTTOM);
         Widget noteWidget = new Widget().definition(noteDefinition);
         orderedWidgetList.add(noteWidget);
@@ -228,7 +228,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addRequestsItem(
                         new QueryValueWidgetDefinitionRequests().q("avg:system.load.1{*}")
                         .aggregator(QueryValueWidgetDefinitionRequests.AggregatorEnum.AVG)
-                        .conditionalFormats(new WidgetConditionalFormat()
+                        .addConditionalFormatsItem(new WidgetConditionalFormat()
                                 .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
                                 .value(7.)
                                 .palette(WidgetConditionalFormat.PaletteEnum.RED_ON_WHITE)
@@ -239,7 +239,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 ).autoscale(true)
                 .customUnit("ns")
                 .precision(2L)
-                .textAlign(QueryValueWidgetDefinition.TextAlignEnum.CENTER)
+                .textAlign(WidgetTextAlign.CENTER)
                 .title("Test Query Value Widget");
         Widget queryValueWidget = new Widget().definition(queryValueWidgetDefinition);
         orderedWidgetList.add(queryValueWidget);
@@ -297,7 +297,7 @@ public class DashboardsApiTest extends V1ApiTest{
         Widget serviceSummaryWidget = new Widget().definition(serviceMapWidgetDefinition);
         orderedWidgetList.add(serviceSummaryWidget);
 
-        // TODO Table Widget
+        // Table Widget
         TableWidgetDefinition tableWidgetDefinition = new TableWidgetDefinition()
             .addRequestsItem(new TableWidgetDefinitionRequests()
                     .q("avg:system.load.1{*}")
@@ -305,7 +305,7 @@ public class DashboardsApiTest extends V1ApiTest{
                     .aggregator(TableWidgetDefinitionRequests.AggregatorEnum.AVG)
                     .limit(50L)
                     .order(TableWidgetDefinitionRequests.OrderEnum.ASC)
-                    .conditionalFormats(new WidgetConditionalFormat()
+                    .addConditionalFormatsItem(new WidgetConditionalFormat()
                             .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
                             .value(7.)
                             .palette(WidgetConditionalFormat.PaletteEnum.RED_ON_WHITE)
@@ -313,12 +313,44 @@ public class DashboardsApiTest extends V1ApiTest{
                             .customFgColor("black")
                             .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
                     )
-            );
+            ).title("Test Table Widget");
+            Widget tableWidget = new Widget().definition(tableWidgetDefinition);
+            orderedWidgetList.add(tableWidget);
 
-        // TODO Timeseries Widget
+        // Timeseries Widget
+        TimeseriesWidgetDefinition timeseriesWidgetDefinition = new TimeseriesWidgetDefinition()
+                .addRequestsItem(new TimeseriesWidgetDefinitionRequests()
+                                .q("avg:system.load.1{*}")
+                                .style(new TimeseriesWidgetDefinitionStyle()
+                                        .palette("dog_classic")
+                                        .lineType(TimeseriesWidgetDefinitionStyle.LineTypeEnum.DASHED)
+                                        .lineWidth(TimeseriesWidgetDefinitionStyle.LineWidthEnum.THICK)
+                                ).addMetadataItem(new TimeseriesWidgetDefinitionMetadata()
+                                        .expression("avg:system.load.1{*}").aliasName("Aliased metric")
+                                ).displayType(TimeseriesWidgetDefinitionRequests.DisplayTypeEnum.LINE)
+                ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .addEventsItem(new WidgetEvent().q("Build succeeded"))
+                .addMarkersItem(new WidgetMarkers()
+                    .value("y=15").displayType("error dashed").label("error threshold"))
+                .title("Test Timeseries Widget").showLegend(true);
+        Widget timeseriesWidget = new Widget().definition(timeseriesWidgetDefinition);
+        orderedWidgetList.add(timeseriesWidget);
 
-        // TODO Toplist Widget
-
+        // Toplist Widget
+        ToplistWidgetDefinition toplistWidgetDefinition = new ToplistWidgetDefinition()
+                .addRequestsItem(new ToplistWidgetDefinitionRequests()
+                        .q("avg:system.load.1{*}")
+                        .addConditionalFormatsItem(new WidgetConditionalFormat()
+                                .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
+                                .value(7.)
+                                .palette(WidgetConditionalFormat.PaletteEnum.RED_ON_WHITE)
+                                .customBgColor("blue")
+                                .customFgColor("black")
+                                .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
+                        )
+                ).title("Test Toplist Widget");
+        Widget toplistWidget = new Widget().definition(toplistWidgetDefinition);
+        orderedWidgetList.add(toplistWidget);
 
         // Template Variables
         DashboardTemplateVariables templateVariable = new DashboardTemplateVariables()
@@ -348,6 +380,9 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(sloWidget)
                 .addWidgetsItem(serviceMapWidget)
                 .addWidgetsItem(serviceSummaryWidget)
+                .addWidgetsItem(tableWidget)
+                .addWidgetsItem(timeseriesWidget)
+                .addWidgetsItem(toplistWidget)
                 .title("Java Client Test ORDERED Dashboard")
                 .description("Test dashboard for Java client")
                 .isReadOnly(false)
@@ -462,7 +497,8 @@ public class DashboardsApiTest extends V1ApiTest{
         assertNotNull(getAllResponse.getDashboards().get(0).getAuthorHandle());
         assertNotNull(getAllResponse.getDashboards().get(0).getCreatedAt());
         assertNotNull(getAllResponse.getDashboards().get(0).getModifiedAt());
-        assertNotNull(getAllResponse.getDashboards().get(0).getDescription());
+        // Its possible the description isn't set by the user
+//        assertNotNull(getAllResponse.getDashboards().get(0).getDescription());
         assertNotNull(getAllResponse.getDashboards().get(0).getId());
         assertNotNull(getAllResponse.getDashboards().get(0).getIsReadOnly());
         assertNotNull(getAllResponse.getDashboards().get(0).getLayoutType());
