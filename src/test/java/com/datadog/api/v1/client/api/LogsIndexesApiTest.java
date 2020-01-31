@@ -11,25 +11,21 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.api.V1ApiTest;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.HostMuteResponse;
+import com.datadog.api.v1.client.TestUtils;
 import com.datadog.api.v1.client.model.LogsExclusion;
 import com.datadog.api.v1.client.model.LogsExclusionFilter;
 import com.datadog.api.v1.client.model.LogsIndex;
-import com.datadog.api.v1.client.model.LogsIndexFilter;
 import com.datadog.api.v1.client.model.LogsIndexesOrder;
 import com.datadog.api.v1.client.model.LogsIndexesResponse;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for LogsIndexesApi
@@ -37,10 +33,12 @@ import java.util.Map;
 public class LogsIndexesApiTest extends V1ApiTest {
 
     private static LogsIndexesApi api;
+    private static LogsIndexesApi unitApi;
 
     @BeforeClass
     public static void initApi() {
         api = new LogsIndexesApi(generalApiClient);
+        unitApi = new LogsIndexesApi(generalApiUnitTestClient);
     }
 
     /**
@@ -81,18 +79,23 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     /**
+     * Unit Test
      * This endpoint updates an Index identified by its name.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void updateLogsIndexTest() throws ApiException {
+    public void updateLogsIndexTest() throws ApiException, IOException {
         String name = "main";
-        LogsIndex orig = api.getLogsIndex(name).execute();
+        stubFor(get(urlPathEqualTo(String.format("/api/v1/logs/config/indexes/%s", name)))
+                .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/get_index.json")))
+        );
+        LogsIndex orig = unitApi.getLogsIndex(name).execute();
+        resetWiremock();
 
         List<LogsExclusion> exclusionFilters = new ArrayList<LogsExclusion>();
         LogsExclusion exclusion = new LogsExclusion()
-            .name(String.format("datadog-api-client-java::%d", System.currentTimeMillis()))
+            .name(String.format("datadog-api-client-java"))
             .isEnabled(false)
             .filter(new LogsExclusionFilter().query("*").sampleRate(1.0));
         exclusionFilters.add(exclusion);
@@ -101,19 +104,29 @@ public class LogsIndexesApiTest extends V1ApiTest {
             .filter(orig.getFilter())
             .exclusionFilters(exclusionFilters);
 
-        LogsIndex response = api.updateLogsIndex(name).body(body).execute();
+        stubFor(put(urlPathEqualTo(String.format("/api/v1/logs/config/indexes/%s", name)))
+                .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/update_index.json")))
+        );
+        LogsIndex response = unitApi.updateLogsIndex(name).body(body).execute();
+        resetWiremock();
         assertEquals(body.getExclusionFilters(), response.getExclusionFilters());
     }
 
     /**
+     * Unit Test
      * Update the order of your log indexes.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void updateLogsIndexOrderTest() throws ApiException {
+    public void updateLogsIndexOrderTest() throws ApiException, IOException {
         // Get current index order
-        LogsIndexesOrder body = api.getLogsIndexOrder().execute();
+        stubFor(get(urlPathEqualTo("/api/v1/logs/config/index-order"))
+                .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/get_index_order.json")))
+        );
+
+        LogsIndexesOrder body = unitApi.getLogsIndexOrder().execute();
+        resetWiremock();
         List<String> names = body.getIndexNames();
 
         // Slightly change order
@@ -121,8 +134,12 @@ public class LogsIndexesApiTest extends V1ApiTest {
         newOrder.add(newOrder.get(0));
         newOrder.remove(0);
         body.setIndexNames(newOrder);
-
-        LogsIndexesOrder response = api.updateLogsIndexOrder().body(body).execute();
+        System.out.printf("Index order: %s\n", body);
+        stubFor(put(urlPathEqualTo("/api/v1/logs/config/index-order"))
+                .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/updated_index_order.json")))
+        );
+        LogsIndexesOrder response = unitApi.updateLogsIndexOrder().body(body).execute();
+        resetWiremock();
         assertEquals(body.getIndexNames(), response.getIndexNames());
     }
 
