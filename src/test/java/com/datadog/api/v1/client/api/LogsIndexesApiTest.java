@@ -34,6 +34,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
 
     private static LogsIndexesApi api;
     private static LogsIndexesApi unitApi;
+    private final String INDEXNAME = "main";
 
     @BeforeClass
     public static void initApi() {
@@ -59,11 +60,13 @@ public class LogsIndexesApiTest extends V1ApiTest {
      */
     @Test
     public void getLogsIndexTest() throws ApiException {
-        String name = "main";
-        LogsIndex response = api.getLogsIndex(name).execute();
-        assertEquals(name, response.getName());
+        LogsIndex response = api.getLogsIndex(INDEXNAME).execute();
+        assertEquals(INDEXNAME, response.getName());
         assertEquals("", response.getFilter().getQuery());
         assertEquals(0, response.getExclusionFilters().size());
+        assertNotNull(response.getDailyLimit());
+        assertNotNull(response.getIsRateLimited());
+        assertNotNull(response.getNumRetentionDays());
     }
 
     /**
@@ -75,7 +78,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public void getLogsIndexOrderTest() throws ApiException {
         LogsIndexesOrder response = api.getLogsIndexOrder().execute();
         assertTrue(0 < response.getIndexNames().size());
-        assertTrue(response.getIndexNames().contains("main"));
+        assertTrue(response.getIndexNames().contains(INDEXNAME));
     }
 
     /**
@@ -86,11 +89,10 @@ public class LogsIndexesApiTest extends V1ApiTest {
      */
     @Test
     public void updateLogsIndexTest() throws ApiException, IOException {
-        String name = "main";
-        stubFor(get(urlPathEqualTo(String.format("/api/v1/logs/config/indexes/%s", name)))
+        stubFor(get(urlPathEqualTo(String.format("/api/v1/logs/config/indexes/%s", INDEXNAME)))
                 .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/get_index.json")))
         );
-        LogsIndex orig = unitApi.getLogsIndex(name).execute();
+        LogsIndex orig = unitApi.getLogsIndex(INDEXNAME).execute();
         resetWiremock();
 
         List<LogsExclusion> exclusionFilters = new ArrayList<LogsExclusion>();
@@ -104,10 +106,10 @@ public class LogsIndexesApiTest extends V1ApiTest {
             .filter(orig.getFilter())
             .exclusionFilters(exclusionFilters);
 
-        stubFor(put(urlPathEqualTo(String.format("/api/v1/logs/config/indexes/%s", name)))
+        stubFor(put(urlPathEqualTo(String.format("/api/v1/logs/config/indexes/%s", INDEXNAME)))
                 .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/update_index.json")))
         );
-        LogsIndex response = unitApi.updateLogsIndex(name).body(body).execute();
+        LogsIndex response = unitApi.updateLogsIndex(INDEXNAME).body(body).execute();
         resetWiremock();
         assertEquals(body.getExclusionFilters(), response.getExclusionFilters());
     }
@@ -134,7 +136,6 @@ public class LogsIndexesApiTest extends V1ApiTest {
         newOrder.add(newOrder.get(0));
         newOrder.remove(0);
         body.setIndexNames(newOrder);
-        System.out.printf("Index order: %s\n", body);
         stubFor(put(urlPathEqualTo("/api/v1/logs/config/index-order"))
                 .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/updated_index_order.json")))
         );
