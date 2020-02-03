@@ -455,7 +455,6 @@ public class DashboardsApiTest extends V1ApiTest{
         }
         assertEquals(new HashSet<>(getFreeResponse.getWidgets()), freeWidgetList);
 
-
         // Update the dashboard
         dashboard.description("Updated dashboard description")
                 .addWidgetsItem(noteWidget
