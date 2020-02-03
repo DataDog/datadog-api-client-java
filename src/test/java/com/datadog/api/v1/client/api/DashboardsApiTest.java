@@ -78,11 +78,11 @@ public class DashboardsApiTest extends V1ApiTest{
         // Change Widget
         ChangeWidgetDefinition changeWidgetDefinition = new ChangeWidgetDefinition()
                 .title("Test Change Widget")
-                .addRequestsItem(new ChangeWidgetDefinitionRequests()
-                        .q("avg:system.load.1{*}").changeType(ChangeWidgetDefinitionRequests.ChangeTypeEnum.ABSOLUTE)
-                        .compareTo(ChangeWidgetDefinitionRequests.CompareToEnum.HOUR_BEFORE)
-                        .increaseGood(true).orderBy(ChangeWidgetDefinitionRequests.OrderByEnum.CHANGE)
-                        .orderDir(ChangeWidgetDefinitionRequests.OrderDirEnum.ASCENDING)
+                .addRequestsItem(new ChangeWidgetRequest()
+                        .q("avg:system.load.1{*}").changeType(ChangeWidgetRequest.ChangeTypeEnum.ABSOLUTE)
+                        .compareTo(ChangeWidgetRequest.CompareToEnum.HOUR_BEFORE)
+                        .increaseGood(true).orderBy(ChangeWidgetRequest.OrderByEnum.CHANGE)
+                        .orderDir(ChangeWidgetRequest.OrderDirEnum.ASCENDING)
                         .showPresent(true)
                 );
 
@@ -99,9 +99,9 @@ public class DashboardsApiTest extends V1ApiTest{
         // Distribution Widget
         DistributionWidgetDefinition distributionWidgetDefinition = new DistributionWidgetDefinition()
                 .addRequestsItem(
-                        new DefinitionRequestsWithStyle()
+                        new DistributionWidgetRequest()
                                 .q("avg:system.load.1{*}")
-                                .style(new DefinitionRequestsWithStyleStyle().palette("dog_classic"))
+                                .style(new DistributionWidgetRequestStyle().palette("dog_classic"))
                 ).showLegend(true).title("Test Distribution Widget");
         Widget distributionWidget = new Widget().definition(distributionWidgetDefinition);
         orderedWidgetList.add(distributionWidget);
@@ -111,7 +111,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .query("Build successful").eventSize(EventStreamWidgetDefinition.EventSizeEnum.LARGE)
                 .title("Test Event Stream Widget").titleSize("16")
                 .titleAlign(EventStreamWidgetDefinition.TitleAlignEnum.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.ONE_DAY));
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_ONE_DAY));
         Widget eventStreamWidget = new Widget().definition(eventStreamWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(eventStreamWidget);
@@ -120,7 +120,7 @@ public class DashboardsApiTest extends V1ApiTest{
         EventTimelineWidgetDefinition eventTimelineWidgetDefinition = new EventTimelineWidgetDefinition()
                 .query("Build Failed").title("Test Event Timeline Widget").titleSize("16")
                 .titleAlign(EventTimelineWidgetDefinition.TitleAlignEnum.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.ONE_MONTH));
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_ONE_MONTH));
         Widget eventTimelineWidget = new Widget().definition(eventTimelineWidgetDefinition)
                         .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(eventTimelineWidget);
@@ -146,8 +146,8 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // HeatMap Widget
         HeatMapWidgetDefinition heatMapWidgetDefinition = new HeatMapWidgetDefinition()
-                .addRequestsItem(new DefinitionRequestsWithStyle()
-                        .style(new DefinitionRequestsWithStyleStyle().palette("dog_classic"))
+                .addRequestsItem(new HeatMapWidgetRequest()
+                        .style(new HeatMapWidgetRequestStyle().palette("dog_classic"))
                         .q("avg:system.load.1{*}")
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
@@ -196,7 +196,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Logstream Widget")
                 .titleSize("16")
                 .titleAlign(LogStreamWidgetDefinition.TitleAlignEnum.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.TWO_DAYS));
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_TWO_DAYS));
         Widget logStreamWidget = new Widget().definition(logStreamWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(logStreamWidget);
@@ -227,8 +227,8 @@ public class DashboardsApiTest extends V1ApiTest{
         // Query Value Widget
         QueryValueWidgetDefinition queryValueWidgetDefinition = new QueryValueWidgetDefinition()
                 .addRequestsItem(
-                        new QueryValueWidgetDefinitionRequests().q("avg:system.load.1{*}")
-                        .aggregator(QueryValueWidgetDefinitionRequests.AggregatorEnum.AVERAGE)
+                        new QueryValueWidgetRequest().q("avg:system.load.1{*}")
+                        .aggregator(QueryValueWidgetRequest.AggregatorEnum.AVERAGE)
                         .addConditionalFormatsItem(new WidgetConditionalFormat()
                                 .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
                                 .value(7.)
@@ -294,18 +294,18 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Service Summary Widget")
                 .titleSize("16")
                 .titleAlign(ServiceSummaryWidgetDefinition.TitleAlignEnum.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.ONE_HOUR));
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_ONE_HOUR));
         Widget serviceSummaryWidget = new Widget().definition(serviceMapWidgetDefinition);
         orderedWidgetList.add(serviceSummaryWidget);
 
         // Table Widget
         TableWidgetDefinition tableWidgetDefinition = new TableWidgetDefinition()
-            .addRequestsItem(new TableWidgetDefinitionRequests()
+            .addRequestsItem(new TableWidgetRequest()
                     .q("avg:system.load.1{*}")
                     .alias("System Load")
-                    .aggregator(TableWidgetDefinitionRequests.AggregatorEnum.AVERAGE)
+                    .aggregator(TableWidgetRequest.AggregatorEnum.AVERAGE)
                     .limit(50L)
-                    .order(TableWidgetDefinitionRequests.OrderEnum.ASCENDING)
+                    .order(TableWidgetRequest.OrderEnum.ASCENDING)
                     .addConditionalFormatsItem(new WidgetConditionalFormat()
                             .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
                             .value(7.)
@@ -320,15 +320,15 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Timeseries Widget
         TimeseriesWidgetDefinition timeseriesWidgetDefinition = new TimeseriesWidgetDefinition()
-                .addRequestsItem(new TimeseriesWidgetDefinitionRequests()
+                .addRequestsItem(new TimeseriesWidgetRequest()
                                 .q("avg:system.load.1{*}")
-                                .style(new TimeseriesWidgetDefinitionStyle()
+                                .style(new TimeseriesWidgetRequestStyle()
                                         .palette("dog_classic")
-                                        .lineType(TimeseriesWidgetDefinitionStyle.LineTypeEnum.DASHED)
-                                        .lineWidth(TimeseriesWidgetDefinitionStyle.LineWidthEnum.THICK)
-                                ).addMetadataItem(new TimeseriesWidgetDefinitionMetadata()
+                                        .lineType(TimeseriesWidgetRequestStyle.LineTypeEnum.DASHED)
+                                        .lineWidth(TimeseriesWidgetRequestStyle.LineWidthEnum.THICK)
+                                ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                         .expression("avg:system.load.1{*}").aliasName("Aliased metric")
-                                ).displayType(TimeseriesWidgetDefinitionRequests.DisplayTypeEnum.LINE)
+                                ).displayType(TimeseriesWidgetRequest.DisplayTypeEnum.LINE)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarkers()
@@ -339,7 +339,7 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Toplist Widget
         ToplistWidgetDefinition toplistWidgetDefinition = new ToplistWidgetDefinition()
-                .addRequestsItem(new ToplistWidgetDefinitionRequests()
+                .addRequestsItem(new ToplistWidgetRequest()
                         .q("avg:system.load.1{*}")
                         .addConditionalFormatsItem(new WidgetConditionalFormat()
                                 .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
