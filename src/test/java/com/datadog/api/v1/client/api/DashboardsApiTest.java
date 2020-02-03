@@ -82,9 +82,10 @@ public class DashboardsApiTest extends V1ApiTest{
                         .q("avg:system.load.1{*}").changeType(ChangeWidgetDefinitionRequests.ChangeTypeEnum.ABSOLUTE)
                         .compareTo(ChangeWidgetDefinitionRequests.CompareToEnum.HOUR_BEFORE)
                         .increaseGood(true).orderBy(ChangeWidgetDefinitionRequests.OrderByEnum.CHANGE)
-                        .orderDir(ChangeWidgetDefinitionRequests.OrderDirEnum.ASC)
+                        .orderDir(ChangeWidgetDefinitionRequests.OrderDirEnum.ASCENDING)
                         .showPresent(true)
                 );
+
         Widget changeWidget = new Widget().definition(changeWidgetDefinition);
         orderedWidgetList.add(changeWidget);
 
@@ -107,10 +108,10 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Event Stream Widget ONLY AVAILABLE ON FREE LAYOUTS
         EventStreamWidgetDefinition eventStreamWidgetDefinition = new EventStreamWidgetDefinition()
-                .query("Build successful").eventSize(EventStreamWidgetDefinition.EventSizeEnum.L)
+                .query("Build successful").eventSize(EventStreamWidgetDefinition.EventSizeEnum.LARGE)
                 .title("Test Event Stream Widget").titleSize("16")
                 .titleAlign(EventStreamWidgetDefinition.TitleAlignEnum.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum._1D));
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.ONE_DAY));
         Widget eventStreamWidget = new Widget().definition(eventStreamWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(eventStreamWidget);
@@ -119,7 +120,7 @@ public class DashboardsApiTest extends V1ApiTest{
         EventTimelineWidgetDefinition eventTimelineWidgetDefinition = new EventTimelineWidgetDefinition()
                 .query("Build Failed").title("Test Event Timeline Widget").titleSize("16")
                 .titleAlign(EventTimelineWidgetDefinition.TitleAlignEnum.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum._1MO));
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.ONE_MONTH));
         Widget eventTimelineWidget = new Widget().definition(eventTimelineWidgetDefinition)
                         .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(eventTimelineWidget);
@@ -195,7 +196,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Logstream Widget")
                 .titleSize("16")
                 .titleAlign(LogStreamWidgetDefinition.TitleAlignEnum.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum._2D));
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.TWO_DAYS));
         Widget logStreamWidget = new Widget().definition(logStreamWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(logStreamWidget);
@@ -227,7 +228,7 @@ public class DashboardsApiTest extends V1ApiTest{
         QueryValueWidgetDefinition queryValueWidgetDefinition = new QueryValueWidgetDefinition()
                 .addRequestsItem(
                         new QueryValueWidgetDefinitionRequests().q("avg:system.load.1{*}")
-                        .aggregator(QueryValueWidgetDefinitionRequests.AggregatorEnum.AVG)
+                        .aggregator(QueryValueWidgetDefinitionRequests.AggregatorEnum.AVERAGE)
                         .addConditionalFormatsItem(new WidgetConditionalFormat()
                                 .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
                                 .value(7.)
@@ -249,11 +250,11 @@ public class DashboardsApiTest extends V1ApiTest{
                 .requests(new ScatterPlotWidgetDefinitionRequests()
                         .x(new ScatterPlotRequest()
                                 .q("avg:system.load.1{*}")
-                                .aggregator(ScatterPlotRequest.AggregatorEnum.AVG)
+                                .aggregator(ScatterPlotRequest.AggregatorEnum.AVERAGE)
                         )
                         .y(new ScatterPlotRequest()
                                 .q("avg:system.load.1{*}")
-                                .aggregator(ScatterPlotRequest.AggregatorEnum.AVG)
+                                .aggregator(ScatterPlotRequest.AggregatorEnum.AVERAGE)
                         )
                 ).xaxis(new WidgetAxis().scale("linear").min("0").max("100").includeZero(true))
                 .yaxis(new WidgetAxis().scale("linear").min("0").max("100").includeZero(true))
@@ -269,7 +270,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .sloId("1234L")
                 .showErrorBudget(true)
                 .viewMode(SLOWidgetDefinition.ViewModeEnum.BOTH)
-                .addTimeWindowsItem(SLOWidgetDefinition.TimeWindowsEnum._7D);
+                .addTimeWindowsItem(SLOWidgetDefinition.TimeWindowsEnum.SEVEN_DAYS);
         Widget sloWidget = new Widget().definition(sloWidgetDefinition);
         orderedWidgetList.add(sloWidget);
 
@@ -293,7 +294,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Service Summary Widget")
                 .titleSize("16")
                 .titleAlign(ServiceSummaryWidgetDefinition.TitleAlignEnum.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum._1H));
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.ONE_HOUR));
         Widget serviceSummaryWidget = new Widget().definition(serviceMapWidgetDefinition);
         orderedWidgetList.add(serviceSummaryWidget);
 
@@ -302,9 +303,9 @@ public class DashboardsApiTest extends V1ApiTest{
             .addRequestsItem(new TableWidgetDefinitionRequests()
                     .q("avg:system.load.1{*}")
                     .alias("System Load")
-                    .aggregator(TableWidgetDefinitionRequests.AggregatorEnum.AVG)
+                    .aggregator(TableWidgetDefinitionRequests.AggregatorEnum.AVERAGE)
                     .limit(50L)
-                    .order(TableWidgetDefinitionRequests.OrderEnum.ASC)
+                    .order(TableWidgetDefinitionRequests.OrderEnum.ASCENDING)
                     .addConditionalFormatsItem(new WidgetConditionalFormat()
                             .comparator(WidgetConditionalFormat.ComparatorEnum.GREATER_THAN)
                             .value(7.)
