@@ -158,7 +158,8 @@ public class DashboardsApiTest extends V1ApiTest{
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded").tagsExecution("tags"))
                 .title("Test Headmap Widget").showLegend(true)
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_FIFTEEN_MINUTES));
+                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_FIFTEEN_MINUTES))
+                .showLegend(true).legendSize(WidgetLegendSize.FOUR);
         Widget heatMapWidget = new Widget().definition(heatMapWidgetDefinition);
         orderedWidgetList.add(heatMapWidget);
 
@@ -347,9 +348,95 @@ public class DashboardsApiTest extends V1ApiTest{
                     .time(WidgetTime.LiveSpanEnum.PAST_FOUR_HOURS.toString()))
                 .title("Test Timeseries Widget").showLegend(true)
                 .titleAlign(WidgetTitleAlign.CENTER).titleSize("16")
-                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_FIFTEEN_MINUTES));
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_FIFTEEN_MINUTES))
+                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
         Widget timeseriesWidget = new Widget().definition(timeseriesWidgetDefinition);
         orderedWidgetList.add(timeseriesWidget);
+
+        // Timeseries Widget with Process query
+        TimeseriesWidgetDefinition timeseriesWidgetDefinitionProcessQuery = new TimeseriesWidgetDefinition()
+                .addRequestsItem(new TimeseriesWidgetRequest()
+                        .processQuery(
+                                new ProcessQueryDefinition()
+                                        .metric("process.stat.cpu.total_pct")
+                                        .addFilterByItem("account:test")
+                                        .limit(10L)
+                                        .searchBy("editor")
+                        )
+                        .style(new TimeseriesWidgetRequestStyle()
+                                .palette("dog_classic")
+                                .lineType(TimeseriesWidgetRequestStyle.LineTypeEnum.DASHED)
+                                .lineWidth(TimeseriesWidgetRequestStyle.LineWidthEnum.THICK)
+                        ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
+                                .expression("avg:system.load.1{*}").aliasName("Aliased metric")
+                        ).displayType(TimeseriesWidgetRequest.DisplayTypeEnum.LINE)
+                ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .addEventsItem(new WidgetEvent().q("Build succeeded"))
+                .addMarkersItem(new WidgetMarkers()
+                        .value("y=15").displayType("error dashed").label("error threshold")
+                        .time(WidgetTime.LiveSpanEnum.PAST_FOUR_HOURS.toString()))
+                .title("Test Timeseries Widget with Process Query").showLegend(true)
+                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16")
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_FIFTEEN_MINUTES))
+                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+        Widget timeseriesWidgetProcessQuery = new Widget().definition(timeseriesWidgetDefinitionProcessQuery);
+        orderedWidgetList.add(timeseriesWidgetProcessQuery);
+
+        // Timeseries Widget with Log query (APM/Log/Network/Rum share schemas, so only test one)
+        TimeseriesWidgetDefinition timeseriesWidgetDefinitionLogQuery = new TimeseriesWidgetDefinition()
+                .addRequestsItem(new TimeseriesWidgetRequest()
+                        .logQuery(
+                                new LogQueryDefinition()
+                                        .index("main")
+                                        .compute(new LogsQueryCompute().aggregation("count").facet("host").interval(10L))
+                                .search(new LogQueryDefinitionSearch().query("Error parsing"))
+                                .addGroupByItem(new LogQueryDefinitionGroupBy().facet("host").limit(5L).sort(
+                                        new LogQueryDefinitionSort().aggregation("count").order(LogQueryDefinitionSort.OrderEnum.ASCENDING)
+                                ))
+                        )
+                        .style(new TimeseriesWidgetRequestStyle()
+                                .palette("dog_classic")
+                                .lineType(TimeseriesWidgetRequestStyle.LineTypeEnum.DASHED)
+                                .lineWidth(TimeseriesWidgetRequestStyle.LineWidthEnum.THICK)
+                        ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
+                                .expression("avg:system.load.1{*}").aliasName("Aliased metric")
+                        ).displayType(TimeseriesWidgetRequest.DisplayTypeEnum.LINE)
+                ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .addEventsItem(new WidgetEvent().q("Build succeeded"))
+                .addMarkersItem(new WidgetMarkers()
+                        .value("y=15").displayType("error dashed").label("error threshold")
+                        .time(WidgetTime.LiveSpanEnum.PAST_FOUR_HOURS.toString()))
+                .title("Test Timeseries Widget with Log Query").showLegend(true)
+                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16")
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_FIFTEEN_MINUTES))
+                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+        Widget timeseriesWidgetLogQuery = new Widget().definition(timeseriesWidgetDefinitionLogQuery);
+        orderedWidgetList.add(timeseriesWidgetLogQuery);
+
+        // Timeseries Widget with Event query
+        TimeseriesWidgetDefinition timeseriesWidgetDefinitionEventQuery = new TimeseriesWidgetDefinition()
+                .addRequestsItem(new TimeseriesWidgetRequest()
+                        .eventQuery(new EventQueryDefinition()
+                                .search("Build failure").tagsExecution("build")
+                        )
+                        .style(new TimeseriesWidgetRequestStyle()
+                                .palette("dog_classic")
+                                .lineType(TimeseriesWidgetRequestStyle.LineTypeEnum.DASHED)
+                                .lineWidth(TimeseriesWidgetRequestStyle.LineWidthEnum.THICK)
+                        ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
+                                .expression("avg:system.load.1{*}").aliasName("Aliased metric")
+                        ).displayType(TimeseriesWidgetRequest.DisplayTypeEnum.LINE)
+                ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .addEventsItem(new WidgetEvent().q("Build succeeded"))
+                .addMarkersItem(new WidgetMarkers()
+                        .value("y=15").displayType("error dashed").label("error threshold")
+                        .time(WidgetTime.LiveSpanEnum.PAST_FOUR_HOURS.toString()))
+                .title("Test Timeseries Widget with Event Query").showLegend(true)
+                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16")
+                .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_FIFTEEN_MINUTES))
+                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+        Widget timeseriesWidgetEventQuery = new Widget().definition(timeseriesWidgetDefinitionEventQuery);
+        orderedWidgetList.add(timeseriesWidgetEventQuery);
 
         // Toplist Widget
         ToplistWidgetDefinition toplistWidgetDefinition = new ToplistWidgetDefinition()
@@ -399,6 +486,9 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(serviceSummaryWidget)
                 .addWidgetsItem(tableWidget)
                 .addWidgetsItem(timeseriesWidget)
+                .addWidgetsItem(timeseriesWidgetProcessQuery)
+                .addWidgetsItem(timeseriesWidgetLogQuery)
+                .addWidgetsItem(timeseriesWidgetEventQuery)
                 .addWidgetsItem(toplistWidget)
                 .title("Java Client Test ORDERED Dashboard")
                 .description("Test dashboard for Java client")
