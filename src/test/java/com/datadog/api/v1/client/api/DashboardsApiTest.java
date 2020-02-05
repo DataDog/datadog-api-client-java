@@ -342,7 +342,7 @@ public class DashboardsApiTest extends V1ApiTest{
                                 ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                         .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                                 ).displayType(TimeseriesWidgetRequest.DisplayTypeEnum.LINE)
-                ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear").label("Widget Scale"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarkers()
                     .value("y=15").displayType("error dashed").label("error threshold")
