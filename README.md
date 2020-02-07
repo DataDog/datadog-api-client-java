@@ -1,4 +1,8 @@
-# datadog-api-client
+# datadog-api-client-java
+
+This repository contains a Java API client for the [Datadog API](https://docs.datadoghq.com/api/).
+The code is generated using [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+and [apigentools](https://github.com/DataDog/apigentools).
 
 Datadog API Collection
 
