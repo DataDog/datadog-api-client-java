@@ -87,7 +87,7 @@ public class AwsIntegrationApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
-        
+
         // Configure API key authorization: apiKeyAuth
         ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
         apiKeyAuth.setApiKey("YOUR API KEY");
