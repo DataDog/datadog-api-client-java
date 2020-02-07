@@ -15,6 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -178,12 +179,12 @@ public class OrgsApiTest extends V1ApiTest{
      *          if the test fixture can't be accessed
      */
     @Test
-    public void uploadIdPForOrgTest() throws ApiException, IOException {
+    public void uploadIdPForOrgTest() throws ApiException, IOException, URISyntaxException {
         MappingBuilder stub = setupStub(apiUri+"/123456/idp_metadata", fixturePrefix+"/update_idp_meta.json", "post");
         beginStub(stub);
 
         String publicId = "123456";
-        File idpFile = new File("meta_file");
+        File idpFile = new File(OrgsApiTest.class.getResource("org_fixtures/update_idp_meta.json").toURI());
         IdpResponse response = api.uploadIdPForOrg(publicId).idpFile(idpFile).execute(); //.uploadIdPForOrg(publicId);
 
         assertEquals(response.getMessage(), "IdP metadata successfully uploaded for org Datadog HQ");
