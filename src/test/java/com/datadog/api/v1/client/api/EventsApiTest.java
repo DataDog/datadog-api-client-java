@@ -13,7 +13,7 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.TestUtils;
 import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.model.Event.PriorityEnum;
+import com.datadog.api.v1.client.model.EventPriority;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -44,7 +44,7 @@ public class EventsApiTest extends V1ApiTest {
     @Test
     public void eventLifecycleTest() throws ApiException, TestUtils.RetryException {
         final Event event = new Event().title("test event from java client").text("example text")
-                .tags(new ArrayList<String>(Arrays.asList("test", "client:java"))).priority(PriorityEnum.NORMAL)
+                .tags(new ArrayList<String>(Arrays.asList("test", "client:java"))).priority(EventPriority.NORMAL)
                 .sourceTypeName("datadog-api-client-java");
 
         EventResponse response = api.createEvent().body(event).execute();
@@ -78,7 +78,7 @@ public class EventsApiTest extends V1ApiTest {
 
         final Long start = fetchedEvent.getDateHappened() - 10;
         final Long end = start + 20;
-        final String priority = fetchedEvent.getPriority().getValue();
+        final EventPriority priority = fetchedEvent.getPriority();
         final String sources = fetchedEvent.getSourceTypeName();
         final String tags = String.join(",", fetchedEvent.getTags());
         final Boolean unaggregated = true;

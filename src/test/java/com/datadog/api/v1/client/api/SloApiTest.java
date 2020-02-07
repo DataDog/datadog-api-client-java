@@ -28,7 +28,7 @@ public class SloApiTest extends V1ApiTest {
     private ArrayList<String> deleteSLOs = null;
     private ArrayList<Long> deleteMonitors = null;
     private final ServiceLevelObjective monitorSLO = new ServiceLevelObjective()
-            .type(ServiceLevelObjective.TypeEnum.MONITOR)
+            .type(ServiceLevelObjectiveType.MONITOR)
             .name("Critical Foo Host Uptime")
             .description("Track the uptime of host foo which is critical to us.")
             .tags(Arrays.asList("app:core", "kpi"))
@@ -38,7 +38,7 @@ public class SloApiTest extends V1ApiTest {
                 .warning(98.0)
             ));
     private final ServiceLevelObjective eventSLO = new ServiceLevelObjective()
-            .type(ServiceLevelObjective.TypeEnum.METRIC)
+            .type(ServiceLevelObjectiveType.METRIC)
             .name("HTTP Return Codes")
             .description("Make sure we don't have too many failed HTTP responses")
             .tags(Arrays.asList("app:httpd"))
@@ -99,7 +99,7 @@ public class SloApiTest extends V1ApiTest {
         // Create a monitor for testing the monitor SLO
         Monitor m = new Monitor()
                 .name("For testing monitor SLO")
-                .type(Monitor.TypeEnum.METRIC_ALERT)
+                .type(MonitorType.METRIC_ALERT)
                 .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
         m = mApi.createMonitor().body(m).execute();
         deleteMonitors.add(m.getId());
@@ -175,7 +175,7 @@ public class SloApiTest extends V1ApiTest {
         // Create a monitor for testing the monitor SLO
         Monitor m = new Monitor()
                 .name("For testing monitor SLO")
-                .type(Monitor.TypeEnum.METRIC_ALERT)
+                .type(MonitorType.METRIC_ALERT)
                 .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
         m = mApi.createMonitor().body(m).execute();
         deleteMonitors.add(m.getId());
