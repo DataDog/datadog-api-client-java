@@ -184,6 +184,7 @@ public class OrgsApiTest extends V1ApiTest{
         beginStub(stub);
 
         String publicId = "123456";
+        // Open a file to test the request. Any file can do, content does not matter since the endpoint is mocked.
         File idpFile = new File(OrgsApiTest.class.getResource("org_fixtures/update_idp_meta.json").toURI());
         IdpResponse response = api.uploadIdPForOrg(publicId).idpFile(idpFile).execute(); //.uploadIdPForOrg(publicId);
 
