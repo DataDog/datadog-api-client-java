@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## getAllLogIndexes
 
-> LogsIndexesResponse getAllLogIndexes().execute();
+> LogsIndexListResponse getAllLogIndexes().execute();
 
 This endpoint returns an array of the LogIndex objects of your organization.
 
@@ -53,7 +53,7 @@ public class Example {
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         try {
-            LogsIndexesResponse result = api.getAllLogIndexes()
+            LogsIndexListResponse result = api.getAllLogIndexes()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -73,7 +73,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**LogsIndexesResponse**](LogsIndexesResponse.md)
+[**LogsIndexListResponse**](LogsIndexListResponse.md)
 
 ### Authorization
 

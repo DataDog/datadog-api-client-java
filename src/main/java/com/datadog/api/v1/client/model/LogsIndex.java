@@ -14,7 +14,7 @@ package com.datadog.api.v1.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.LogsExclusion;
-import com.datadog.api.v1.client.model.LogsIndexFilter;
+import com.datadog.api.v1.client.model.LogsFilter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -45,7 +45,7 @@ public class LogsIndex {
   private List<LogsExclusion> exclusionFilters = null;
 
   public static final String JSON_PROPERTY_FILTER = "filter";
-  private LogsIndexFilter filter;
+  private LogsFilter filter;
 
   public static final String JSON_PROPERTY_IS_RATE_LIMITED = "is_rate_limited";
   private Boolean isRateLimited;
@@ -106,7 +106,7 @@ public class LogsIndex {
   }
 
 
-  public LogsIndex filter(LogsIndexFilter filter) {
+  public LogsIndex filter(LogsFilter filter) {
     
     this.filter = filter;
     return this;
@@ -120,12 +120,12 @@ public class LogsIndex {
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public LogsIndexFilter getFilter() {
+  public LogsFilter getFilter() {
     return filter;
   }
 
 
-  public void setFilter(LogsIndexFilter filter) {
+  public void setFilter(LogsFilter filter) {
     this.filter = filter;
   }
 

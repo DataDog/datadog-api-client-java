@@ -26,17 +26,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for LogsIndexesResponse
+ * Model tests for LogsIndexListResponse
  */
-public class LogsIndexesResponseTest {
-    private final LogsIndexesResponse model = new LogsIndexesResponse();
+public class LogsIndexListResponseTest {
+    private final LogsIndexListResponse model = new LogsIndexListResponse();
 
     /**
-     * Model tests for LogsIndexesResponse
+     * Model tests for LogsIndexListResponse
      */
     @Test
-    public void testLogsIndexesResponse() {
-        // TODO: test LogsIndexesResponse
+    public void testLogsIndexListResponse() {
+        // TODO: test LogsIndexListResponse
     }
 
     /**

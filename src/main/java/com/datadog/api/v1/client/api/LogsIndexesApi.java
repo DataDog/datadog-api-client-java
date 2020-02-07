@@ -11,8 +11,8 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v1.client.model.Error400;
 import com.datadog.api.v1.client.model.Error403;
 import com.datadog.api.v1.client.model.LogsIndex;
+import com.datadog.api.v1.client.model.LogsIndexListResponse;
 import com.datadog.api.v1.client.model.LogsIndexesOrder;
-import com.datadog.api.v1.client.model.LogsIndexesResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +39,7 @@ public class LogsIndexesApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<LogsIndexesResponse> getAllLogIndexesWithHttpInfo() throws ApiException {
+private ApiResponse<LogsIndexListResponse> getAllLogIndexesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -67,7 +67,7 @@ private ApiResponse<LogsIndexesResponse> getAllLogIndexesWithHttpInfo() throws A
 
     String[] localVarAuthNames = new String[] { "apiKeyAuthHeader", "appKeyAuthHeader" };
 
-    GenericType<LogsIndexesResponse> localVarReturnType = new GenericType<LogsIndexesResponse>() {};
+    GenericType<LogsIndexListResponse> localVarReturnType = new GenericType<LogsIndexListResponse>() {};
     return apiClient.invokeAPI("LogsIndexesApi.getAllLogIndexes", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
@@ -79,7 +79,7 @@ private ApiResponse<LogsIndexesResponse> getAllLogIndexesWithHttpInfo() throws A
 
     /**
      * Execute getAllLogIndexes request
-     * @return LogsIndexesResponse
+     * @return LogsIndexListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -90,13 +90,13 @@ private ApiResponse<LogsIndexesResponse> getAllLogIndexesWithHttpInfo() throws A
      
      */
     
-    public LogsIndexesResponse execute() throws ApiException {
+    public LogsIndexListResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute getAllLogIndexes request with HTTP info returned
-     * @return ApiResponse&lt;LogsIndexesResponse&gt;
+     * @return ApiResponse&lt;LogsIndexListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -107,7 +107,7 @@ private ApiResponse<LogsIndexesResponse> getAllLogIndexesWithHttpInfo() throws A
      
      */
     
-    public ApiResponse<LogsIndexesResponse> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<LogsIndexListResponse> executeWithHttpInfo() throws ApiException {
       return getAllLogIndexesWithHttpInfo();
     }
   }

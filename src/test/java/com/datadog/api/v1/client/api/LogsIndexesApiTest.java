@@ -12,11 +12,7 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.TestUtils;
-import com.datadog.api.v1.client.model.LogsExclusion;
-import com.datadog.api.v1.client.model.LogsExclusionFilter;
-import com.datadog.api.v1.client.model.LogsIndex;
-import com.datadog.api.v1.client.model.LogsIndexesOrder;
-import com.datadog.api.v1.client.model.LogsIndexesResponse;
+import com.datadog.api.v1.client.model.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
@@ -49,7 +45,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
      */
     @Test
     public void getAllLogIndexesTest() throws ApiException {
-        LogsIndexesResponse response = api.getAllLogIndexes().execute();
+        LogsIndexListResponse response = api.getAllLogIndexes().execute();
         assertTrue(0 < response.getIndexes().size());
     }
 

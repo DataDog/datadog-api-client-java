@@ -25,24 +25,24 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * LogsIndexesResponse
+ * LogsIndexListResponse
  */
 @JsonPropertyOrder({
-  LogsIndexesResponse.JSON_PROPERTY_INDEXES
+  LogsIndexListResponse.JSON_PROPERTY_INDEXES
 })
 
-public class LogsIndexesResponse {
+public class LogsIndexListResponse {
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<LogsIndex> indexes = null;
 
 
-  public LogsIndexesResponse indexes(List<LogsIndex> indexes) {
+  public LogsIndexListResponse indexes(List<LogsIndex> indexes) {
     
     this.indexes = indexes;
     return this;
   }
 
-  public LogsIndexesResponse addIndexesItem(LogsIndex indexesItem) {
+  public LogsIndexListResponse addIndexesItem(LogsIndex indexesItem) {
     if (this.indexes == null) {
       this.indexes = new ArrayList<>();
     }
@@ -77,8 +77,8 @@ public class LogsIndexesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsIndexesResponse logsIndexesResponse = (LogsIndexesResponse) o;
-    return Objects.equals(this.indexes, logsIndexesResponse.indexes);
+    LogsIndexListResponse logsIndexListResponse = (LogsIndexListResponse) o;
+    return Objects.equals(this.indexes, logsIndexListResponse.indexes);
   }
 
   @Override
@@ -90,7 +90,7 @@ public class LogsIndexesResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogsIndexesResponse {\n");
+    sb.append("class LogsIndexListResponse {\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("}");
     return sb.toString();
