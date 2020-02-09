@@ -62,7 +62,7 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Alert Graph Widget
         AlertGraphWidgetDefinition alertGraphDefinition = new AlertGraphWidgetDefinition()
-                .alertId("1234").vizType(AlertGraphWidgetDefinition.VizTypeEnum.TIMESERIES)
+                .alertId("1234").vizType(WidgetVizType.TIMESERIES)
                 .title("Test Alert Graph Widget")
                 .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_FIFTEEN_MINUTES)
                 );
@@ -95,7 +95,7 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Check Status Widget
         CheckStatusWidgetDefinition checkStatusWidgetDefinition = new CheckStatusWidgetDefinition()
-                .check("service_check.up").grouping(CheckStatusWidgetDefinition.GroupingEnum.CHECK)
+                .check("service_check.up").grouping(WidgetGrouping.CHECK)
                 .group("*").addTagsItem("foo:bar").addGroupByItem("bar").title("Test Check Status Widget")
                 .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_FIFTEEN_MINUTES));
         Widget checkStatusWidget = new Widget().definition(checkStatusWidgetDefinition);
@@ -114,7 +114,7 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Event Stream Widget ONLY AVAILABLE ON FREE LAYOUTS
         EventStreamWidgetDefinition eventStreamWidgetDefinition = new EventStreamWidgetDefinition()
-                .query("Build successful").eventSize(EventStreamWidgetDefinition.EventSizeEnum.LARGE)
+                .query("Build successful").eventSize(WidgetEventSize.LARGE)
                 .title("Test Event Stream Widget").titleSize("16")
                 .titleAlign(WidgetTitleAlign.CENTER)
                 .time(new WidgetTime().liveSpan(WidgetTime.LiveSpanEnum.PAST_ONE_DAY));
@@ -144,7 +144,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .content("Test Note Inside Group");
         Widget groupNoteWidget = new Widget().definition(groupNoteWidgetDefinition);
         GroupWidgetDefinition groupWidgetDefinition = new GroupWidgetDefinition()
-                .layoutType(GroupWidgetDefinition.LayoutTypeEnum.ORDERED)
+                .layoutType(WidgetLayoutType.ORDERED)
                 .title("Test Group Widget")
                 .addWidgetsItem(groupNoteWidget);
         Widget groupWidget = new Widget().definition(groupWidgetDefinition);
@@ -165,7 +165,7 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // HostMap Widget
         HostMapWidgetDefinition hostMapWidgetDefinition = new HostMapWidgetDefinition()
-                .nodeType(HostMapWidgetDefinition.NodeTypeEnum.CONTAINER)
+                .nodeType(WidgetNodeType.CONTAINER)
                 .requests(new HostMapWidgetDefinitionRequests()
                         .fill(new HostMapRequest().q("avg:system.load.1{*}"))
                         .size(new HostMapRequest().q("avg:system.load.1{*}"))
@@ -191,8 +191,8 @@ public class DashboardsApiTest extends V1ApiTest{
         // Image Widget ONLY AVAILABLE ON FREE LAYOUTS
         ImageWidgetDefinition imageWidgetDefinition = new ImageWidgetDefinition()
                 .url("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
-                .sizing(ImageWidgetDefinition.SizingEnum.CENTER)
-                .margin(ImageWidgetDefinition.MarginEnum.LARGE);
+                .sizing(WidgetImageSizing.CENTER)
+                .margin(WidgetMargin.LARGE);
         Widget imageWidget = new Widget().definition(imageWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(imageWidget);
@@ -213,10 +213,10 @@ public class DashboardsApiTest extends V1ApiTest{
         // Monitor Summary ONLY AVAILABLE ON FREE LAYOUTS
         MonitorSummaryWidgetDefinition monitorSummaryWidgetDefinition = new MonitorSummaryWidgetDefinition()
                 .query("Errors are increasing")
-                .summaryType(MonitorSummaryWidgetDefinition.SummaryTypeEnum.COMBINED)
-                .sort(MonitorSummaryWidgetDefinition.SortEnum.ASCENDING)
-                .displayFormat(MonitorSummaryWidgetDefinition.DisplayFormatEnum.COUNTS)
-                .colorPreference(MonitorSummaryWidgetDefinition.ColorPreferenceEnum.BACKGROUND)
+                .summaryType(WidgetSummaryType.COMBINED)
+                .sort(WidgetSort.ASCENDING)
+                .displayFormat(WidgetMonitorSummaryDisplayFormat.COUNTS)
+                .colorPreference(WidgetColorPreference.BACKGROUND)
                 .hideZeroCounts(false)
                 .showLastTriggered(true)
                 .title("Test Monitor Summary Widget")
@@ -230,7 +230,7 @@ public class DashboardsApiTest extends V1ApiTest{
         NoteWidgetDefinition noteDefinition = new NoteWidgetDefinition()
                 .fontSize("13").content("Test Note Widget Example")
                 .backgroundColor("blue").textAlign(WidgetTextAlign.CENTER)
-                .showTick(true).tickPos("4").tickEdge(NoteWidgetDefinition.TickEdgeEnum.BOTTOM);
+                .showTick(true).tickPos("4").tickEdge(WidgetTickEdge.BOTTOM);
         Widget noteWidget = new Widget().definition(noteDefinition);
         orderedWidgetList.add(noteWidget);
 
@@ -281,8 +281,8 @@ public class DashboardsApiTest extends V1ApiTest{
                 .titleAlign(WidgetTitleAlign.CENTER)
                 .sloId("1234L")
                 .showErrorBudget(true)
-                .viewMode(SLOWidgetDefinition.ViewModeEnum.BOTH)
-                .addTimeWindowsItem(SLOWidgetDefinition.TimeWindowsEnum.SEVEN_DAYS);
+                .viewMode(WidgetViewMode.BOTH)
+                .addTimeWindowsItem(WidgetTimeWindows.SEVEN_DAYS);
         Widget sloWidget = new Widget().definition(sloWidgetDefinition);
         orderedWidgetList.add(sloWidget);
 
@@ -302,8 +302,8 @@ public class DashboardsApiTest extends V1ApiTest{
                 .spanName("endpoint")
                 .showHits(true).showErrors(true).showLatency(true).showBreakdown(true)
                 .showDistribution(true).showResourceList(true)
-                .sizeFormat(ServiceSummaryWidgetDefinition.SizeFormatEnum.LARGE)
-                .displayFormat(ServiceSummaryWidgetDefinition.DisplayFormatEnum.TWO_COLUMN)
+                .sizeFormat(WidgetSizeFormat.LARGE)
+                .displayFormat(WidgetServiceSummaryDisplayFormat.TWO_COLUMN)
                 .title("Test Service Summary Widget")
                 .titleSize("16")
                 .titleAlign(WidgetTitleAlign.CENTER)
@@ -470,7 +470,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 );
 
         Dashboard dashboard = new Dashboard()
-                .layoutType(Dashboard.LayoutTypeEnum.ORDERED)
+                .layoutType(DashboardLayoutType.ORDERED)
                 .addWidgetsItem(noteWidget)
                 .addWidgetsItem(alertGraphWidget)
                 .addWidgetsItem(alertValueWidget)
@@ -509,7 +509,7 @@ public class DashboardsApiTest extends V1ApiTest{
 
         // Assert the same for the free widgets
         Dashboard freeDashboard = new Dashboard()
-                .layoutType(Dashboard.LayoutTypeEnum.FREE)
+                .layoutType(DashboardLayoutType.FREE)
                 .addWidgetsItem(eventStreamWidget)
                 .addWidgetsItem(eventTimelineWidget)
                 .addWidgetsItem(freeTextWidget)
