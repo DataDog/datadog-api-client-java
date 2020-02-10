@@ -8,8 +8,7 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error401;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.HostTags;
 import com.datadog.api.v1.client.model.TagToHosts;
 

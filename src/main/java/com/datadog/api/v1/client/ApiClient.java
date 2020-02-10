@@ -221,12 +221,14 @@ public class ApiClient {
     authentications.put("apiKeyAuth", new ApiKeyAuth("query", "api_key"));
     authentications.put("apiKeyAuthHeader", new ApiKeyAuth("header", "DD-API-KEY"));
     authentications.put("appKeyAuth", new ApiKeyAuth("query", "application_key"));
+    authentications.put("appKeyAuthHeader", new ApiKeyAuth("header", "DD-APPLICATION-KEY"));
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 
     // Setup authentication lookup (key: authentication alias, value: authentication name)
     authenticationLookup = new HashMap<String, String>();
     authenticationLookup.put("apiKeyAuthHeader", "apiKeyAuth");
+    authenticationLookup.put("appKeyAuthHeader", "appKeyAuth");
   }
 
   /**
@@ -740,7 +742,7 @@ public class ApiClient {
       entity = Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE);
     } else {
       // We let jersey handle the serialization
-      entity = Entity.entity(obj, contentType);
+      entity = Entity.entity(obj == null ? Entity.text("") : obj, contentType);
     }
     return entity;
   }
@@ -918,7 +920,7 @@ public class ApiClient {
       }
     }
 
-    Entity<?> entity = (body == null) ? Entity.json("") : serialize(body, formParams, contentType);
+    Entity<?> entity = serialize(body, formParams, contentType);
 
     Response response = null;
 

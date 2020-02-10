@@ -7,21 +7,21 @@
 
 * `CONTAINS` (value: `"contains"`)
 
-* `DOESNOTCONTAIN` (value: `"doesNotContain"`)
+* `DOES_NOT_CONTAIN` (value: `"doesNotContain"`)
 
 * `IS` (value: `"is"`)
 
-* `ISNOT` (value: `"isNot"`)
+* `IS_NOT` (value: `"isNot"`)
 
-* `LESSTHAN` (value: `"lessThan"`)
+* `LESS_THAN` (value: `"lessThan"`)
 
 * `MATCHES` (value: `"matches"`)
 
-* `DOESNOTMATCH` (value: `"doesNotMatch"`)
+* `DOES_NOT_MATCH` (value: `"doesNotMatch"`)
 
 * `VALIDATES` (value: `"validates"`)
 
-* `ISINMORETHAN` (value: `"isInMoreThan"`)
+* `IS_IN_MORE_DAYS_THAN` (value: `"isInMoreThan"`)
 
 
 

@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aggregation** | [**MonitorOptionsAggregation**](MonitorOptionsAggregation.md) |  |  [optional]
-**deviceIds** | [**List&lt;DeviceIdsEnum&gt;**](#List&lt;DeviceIdsEnum&gt;) |  |  [optional]
+**deviceIds** | [**List&lt;MonitorDeviceID&gt;**](MonitorDeviceID.md) |  |  [optional]
 **enableLogsSample** | **Boolean** |  |  [optional]
 **escalationMessage** | **String** |  |  [optional]
 **evaluationDelay** | **Long** |  |  [optional]
@@ -26,16 +26,6 @@ Name | Type | Description | Notes
 **thresholdWindows** | [**MonitorThresholdWindowOptions**](MonitorThresholdWindowOptions.md) |  |  [optional]
 **thresholds** | [**MonitorThresholds**](MonitorThresholds.md) |  |  [optional]
 **timeoutH** | **Long** |  |  [optional]
-
-
-
-## Enum: List&lt;DeviceIdsEnum&gt;
-
-Name | Value
----- | -----
-LAPTOP_LARGE | &quot;laptop_large&quot;
-TABLET | &quot;tablet&quot;
-MOBILE_SMALL | &quot;mobile_small&quot;
 
 
 

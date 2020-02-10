@@ -10,40 +10,24 @@
 
 package com.datadog.api.v1.client.api;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.assertEquals;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.model.*;
+import com.github.tomakehurst.wiremock.client.MappingBuilder;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
 
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.OrgBilling;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.Error415;
-import com.datadog.api.v1.client.model.IdpResponse;
-import com.datadog.api.v1.client.model.Org;
-import com.datadog.api.v1.client.model.OrgCreateBody;
-import com.datadog.api.v1.client.model.OrgCreateResponse;
-import com.datadog.api.v1.client.model.OrgListResponse;
-import com.datadog.api.v1.client.model.OrgResponse;
-import com.datadog.api.v1.client.model.OrgSettings;
-import com.datadog.api.v1.client.model.OrgSettingsSaml;
-import com.datadog.api.v1.client.model.OrgSettingsSamlAutocreateUsersDomains;
-import com.datadog.api.v1.client.model.OrgSubscription;
-import com.github.tomakehurst.wiremock.client.MappingBuilder;
-
-import org.junit.Test;
-import org.junit.Ignore;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static org.junit.Assert.assertEquals;
 
 /**
  * API tests for OrgsApi
  */
-public class OrgsApiTest extends V1ApiTest{
+public class OrgsApiTest extends V1ApiTest {
 
     private final OrgsApi api = new OrgsApi(generalApiUnitTestClient);
     private final String apiUri = "/api/v1/org";
@@ -61,15 +45,15 @@ public class OrgsApiTest extends V1ApiTest{
      */
     @Test
     public void createChildOrgTest() throws ApiException, IOException {
-        MappingBuilder stub = setupStub(apiUri, fixturePrefix+"/create_child_org.json", "post");
+        MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/create_child_org.json", "post");
         stubFor(stub);
 
         // CreateBody can contain anything since we're mocking the response
         // Just confirmation that the proper fields can be set
         OrgCreateBody orgCreateBody = new OrgCreateBody()
-        .name("My Org")
-        .billing(new OrgBilling().type("parent_billing"))
-        .subscription(new OrgSubscription().type("pro"));
+                .name("My Org")
+                .billing(new OrgBilling().type("parent_billing"))
+                .subscription(new OrgSubscription().type("pro"));
         OrgCreateResponse response = api.createChildOrg().body(orgCreateBody).execute();
 
         // Assert values match whats in create_child_org.json
@@ -85,7 +69,7 @@ public class OrgsApiTest extends V1ApiTest{
         assertEquals(response.getApplicationKey().getHash(), "88e5ae6a71f51d1d5a0071a24f");
     }
 
-  
+
     /**
      * Get the organization
      *
@@ -98,7 +82,7 @@ public class OrgsApiTest extends V1ApiTest{
      */
     @Test
     public void getOrgTest() throws ApiException, IOException {
-        MappingBuilder stub = setupStub(apiUri, fixturePrefix+"/get_orgs.json", "get");
+        MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_orgs.json", "get");
         stubFor(stub);
 
         OrgListResponse response = api.getOrg().execute();
@@ -125,24 +109,24 @@ public class OrgsApiTest extends V1ApiTest{
     @Test
     public void updateOrgTest() throws ApiException, IOException {
         String publicId = "12345";
-        MappingBuilder stub = setupStub(apiUri + "/" + publicId, fixturePrefix+"/update_org.json", "put");
+        MappingBuilder stub = setupStub(apiUri + "/" + publicId, fixturePrefix + "/update_org.json", "put");
         stubFor(stub);
 
         // Update Body can contain anything since we're mocking the response
         // Just confirmation that the proper fields can be set
         Org org = new Org().name("My Org").settings(
-            new OrgSettings().saml(
-                new OrgSettingsSaml().enabled(true)
-            )
-            .samlIdpInitiatedLogin(
-                new OrgSettingsSaml().enabled(true)
-            )
-            .samlStrictMode(
-                new OrgSettingsSaml().enabled(true)
-            )
-            .samlAutocreateUsersDomains(
-                new OrgSettingsSamlAutocreateUsersDomains().enabled(true).addDomainsItem("my-org.com").addDomainsItem("example.com")
-            )
+                new OrgSettings().saml(
+                        new OrgSettingsSaml().enabled(true)
+                )
+                        .samlIdpInitiatedLogin(
+                                new OrgSettingsSaml().enabled(true)
+                        )
+                        .samlStrictMode(
+                                new OrgSettingsSaml().enabled(true)
+                        )
+                        .samlAutocreateUsersDomains(
+                                new OrgSettingsSamlAutocreateUsersDomains().enabled(true).addDomainsItem("my-org.com").addDomainsItem("example.com")
+                        )
         );
         OrgResponse response = api.updateOrg(publicId).body(org).execute();
 
@@ -178,12 +162,13 @@ public class OrgsApiTest extends V1ApiTest{
      *          if the test fixture can't be accessed
      */
     @Test
-    public void uploadIdPForOrgTest() throws ApiException, IOException {
-        MappingBuilder stub = setupStub(apiUri+"/123456/idp_metadata", fixturePrefix+"/update_idp_meta.json", "post");
+    public void uploadIdPForOrgTest() throws ApiException, IOException, URISyntaxException {
+        MappingBuilder stub = setupStub(apiUri + "/123456/idp_metadata", fixturePrefix + "/update_idp_meta.json", "post");
         beginStub(stub);
 
         String publicId = "123456";
-        File idpFile = new File("meta_file");
+        // Open a file to test the request. Any file can do, content does not matter since the endpoint is mocked.
+        File idpFile = new File(OrgsApiTest.class.getResource("org_fixtures/update_idp_meta.json").toURI());
         IdpResponse response = api.uploadIdPForOrg(publicId).idpFile(idpFile).execute(); //.uploadIdPForOrg(publicId);
 
         assertEquals(response.getMessage(), "IdP metadata successfully uploaded for org Datadog HQ");

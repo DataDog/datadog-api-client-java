@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.SyntheticsResourceType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -54,53 +55,8 @@ public class SyntheticsResource {
   public static final String JSON_PROPERTY_TRACE_ID = "traceId";
   private String traceId;
 
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    DOCUMENT("document"),
-    
-    STYLESHEET("stylesheet"),
-    
-    FETCH("fetch"),
-    
-    IMAGE("image"),
-    
-    SCRIPT("script"),
-    
-    XHR("xhr"),
-    
-    OTHER("other");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private SyntheticsResourceType type;
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
@@ -256,7 +212,7 @@ public class SyntheticsResource {
   }
 
 
-  public SyntheticsResource type(TypeEnum type) {
+  public SyntheticsResource type(SyntheticsResourceType type) {
     
     this.type = type;
     return this;
@@ -271,12 +227,12 @@ public class SyntheticsResource {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TypeEnum getType() {
+  public SyntheticsResourceType getType() {
     return type;
   }
 
 
-  public void setType(TypeEnum type) {
+  public void setType(SyntheticsResourceType type) {
     this.type = type;
   }
 

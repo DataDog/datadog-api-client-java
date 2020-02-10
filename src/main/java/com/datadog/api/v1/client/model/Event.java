@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.EventAlertType;
+import com.datadog.api.v1.client.model.EventPriority;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -47,47 +49,8 @@ public class Event {
   public static final String JSON_PROPERTY_AGGREGATION_KEY = "aggregation_key";
   private String aggregationKey;
 
-  /**
-   * If it is an alert event, set its type between: error, warning, info, and success.
-   */
-  public enum AlertTypeEnum {
-    ERROR("error"),
-    
-    WARNING("warning"),
-    
-    INFO("info"),
-    
-    SUCCESS("success");
-
-    private String value;
-
-    AlertTypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static AlertTypeEnum fromValue(String value) {
-      for (AlertTypeEnum b : AlertTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_ALERT_TYPE = "alert_type";
-  private AlertTypeEnum alertType;
+  private EventAlertType alertType;
 
   public static final String JSON_PROPERTY_DATE_HAPPENED = "date_happened";
   private Long dateHappened;
@@ -104,43 +67,8 @@ public class Event {
   public static final String JSON_PROPERTY_PAYLOAD = "payload";
   private String payload;
 
-  /**
-   * The priority of the event: normal or low.
-   */
-  public enum PriorityEnum {
-    NORMAL("normal"),
-    
-    LOW("low");
-
-    private String value;
-
-    PriorityEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static PriorityEnum fromValue(String value) {
-      for (PriorityEnum b : PriorityEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_PRIORITY = "priority";
-  private PriorityEnum priority;
+  private EventPriority priority;
 
   public static final String JSON_PROPERTY_RELATED_EVENT_ID = "related_event_id";
   private Long relatedEventId;
@@ -186,27 +114,27 @@ public class Event {
   }
 
 
-  public Event alertType(AlertTypeEnum alertType) {
+  public Event alertType(EventAlertType alertType) {
     
     this.alertType = alertType;
     return this;
   }
 
    /**
-   * If it is an alert event, set its type between: error, warning, info, and success.
+   * Get alertType
    * @return alertType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "info", value = "If it is an alert event, set its type between: error, warning, info, and success.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALERT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AlertTypeEnum getAlertType() {
+  public EventAlertType getAlertType() {
     return alertType;
   }
 
 
-  public void setAlertType(AlertTypeEnum alertType) {
+  public void setAlertType(EventAlertType alertType) {
     this.alertType = alertType;
   }
 
@@ -326,27 +254,27 @@ public class Event {
 
 
 
-  public Event priority(PriorityEnum priority) {
+  public Event priority(EventPriority priority) {
     
     this.priority = priority;
     return this;
   }
 
    /**
-   * The priority of the event: normal or low.
+   * Get priority
    * @return priority
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "normal", value = "The priority of the event: normal or low.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PriorityEnum getPriority() {
+  public EventPriority getPriority() {
     return priority;
   }
 
 
-  public void setPriority(PriorityEnum priority) {
+  public void setPriority(EventPriority priority) {
     this.priority = priority;
   }
 

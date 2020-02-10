@@ -35,9 +35,9 @@ public class SyntheticsApiTest extends V1ApiTest {
                                     .target("text/html")
                                     .type(SyntheticsAssertionType.HEADER),
                             new SyntheticsAssertion()
-                                    .operator(SyntheticsAssertionOperator.LESSTHAN)
+                                    .operator(SyntheticsAssertionOperator.LESS_THAN)
                                     .target(2000)
-                                    .type(SyntheticsAssertionType.RESPONSETIME)
+                                    .type(SyntheticsAssertionType.RESPONSE_TIME)
                     ))
                     .request(new SyntheticsTestRequest()
                             .headers(new HashMap<String, String>() {{put("testingJavaClient", "true");}})
@@ -57,11 +57,11 @@ public class SyntheticsApiTest extends V1ApiTest {
                             .count(5L)
                             .interval(10.0)
                     )
-                    .tickEvery(SyntheticsTestOptions.TickEveryEnum.NUMBER_60)
+                    .tickEvery(SyntheticsTickInterval.MINUTE)
             )
-            .subtype(SyntheticsTestDetails.SubtypeEnum.HTTP)
+            .subtype(SyntheticsTestDetailsSubType.HTTP)
             .tags(Arrays.asList("testing:api"))
-            .type(SyntheticsTestDetails.TypeEnum.API);
+            .type(SyntheticsTestDetailsType.API);
     private SyntheticsTestDetails browserTestConfig = new SyntheticsTestDetails()
             .config(new SyntheticsTestConfig()
                     .assertions(Arrays.<SyntheticsAssertion>asList())
@@ -82,10 +82,10 @@ public class SyntheticsApiTest extends V1ApiTest {
                             .count(5L)
                             .interval(10.0)
                     )
-                    .tickEvery(SyntheticsTestOptions.TickEveryEnum.NUMBER_300)
+                    .tickEvery(SyntheticsTickInterval.FIVE_MINUTES)
             )
             .tags(Arrays.asList("testing:browser"))
-            .type(SyntheticsTestDetails.TypeEnum.BROWSER);
+            .type(SyntheticsTestDetailsType.BROWSER);
 
     @Before
     public void resetDeleteSyntheticsTests() {

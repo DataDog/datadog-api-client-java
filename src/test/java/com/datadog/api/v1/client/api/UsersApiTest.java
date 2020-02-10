@@ -12,6 +12,7 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.model.AccessRole;
 import com.datadog.api.v1.client.model.User;
 import com.datadog.api.v1.client.model.UserListResponse;
 import com.datadog.api.v1.client.model.UserResponse;
@@ -33,7 +34,7 @@ public class UsersApiTest extends V1ApiTest {
     private static UsersApi api;
     private final String testingUserHandle = "testinguser@datadoghq.com";
     private final String testingUserName = "Testing User";
-    private final User.AccessRoleEnum testingUserAR = User.AccessRoleEnum.ST;
+    private final AccessRole testingUserAR = AccessRole.STANDARD;
     private ArrayList<String> disableUsers = null;
 
     @Before

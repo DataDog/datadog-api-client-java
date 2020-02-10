@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.UsageMetricCategory;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,43 +39,8 @@ public class UsageTopAvgMetricsHour {
   public static final String JSON_PROPERTY_MAX_METRIC_HOUR = "max_metric_hour";
   private Long maxMetricHour;
 
-  /**
-   * Contains the metric category.
-   */
-  public enum MetricCategoryEnum {
-    STANDARD("standard"),
-    
-    CUSTOM("custom");
-
-    private String value;
-
-    MetricCategoryEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static MetricCategoryEnum fromValue(String value) {
-      for (MetricCategoryEnum b : MetricCategoryEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_METRIC_CATEGORY = "metric_category";
-  private MetricCategoryEnum metricCategory;
+  private UsageMetricCategory metricCategory;
 
   public static final String JSON_PROPERTY_METRIC_NAME = "metric_name";
   private String metricName;
@@ -130,27 +96,27 @@ public class UsageTopAvgMetricsHour {
   }
 
 
-  public UsageTopAvgMetricsHour metricCategory(MetricCategoryEnum metricCategory) {
+  public UsageTopAvgMetricsHour metricCategory(UsageMetricCategory metricCategory) {
     
     this.metricCategory = metricCategory;
     return this;
   }
 
    /**
-   * Contains the metric category.
+   * Get metricCategory
    * @return metricCategory
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the metric category.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METRIC_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public MetricCategoryEnum getMetricCategory() {
+  public UsageMetricCategory getMetricCategory() {
     return metricCategory;
   }
 
 
-  public void setMetricCategory(MetricCategoryEnum metricCategory) {
+  public void setMetricCategory(UsageMetricCategory metricCategory) {
     this.metricCategory = metricCategory;
   }
 

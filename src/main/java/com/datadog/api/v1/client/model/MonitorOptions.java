@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.MonitorDeviceID;
 import com.datadog.api.v1.client.model.MonitorOptionsAggregation;
 import com.datadog.api.v1.client.model.MonitorThresholdWindowOptions;
 import com.datadog.api.v1.client.model.MonitorThresholds;
@@ -58,45 +59,8 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private MonitorOptionsAggregation aggregation;
 
-  /**
-   * Gets or Sets deviceIds
-   */
-  public enum DeviceIdsEnum {
-    LAPTOP_LARGE("laptop_large"),
-    
-    TABLET("tablet"),
-    
-    MOBILE_SMALL("mobile_small");
-
-    private String value;
-
-    DeviceIdsEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static DeviceIdsEnum fromValue(String value) {
-      for (DeviceIdsEnum b : DeviceIdsEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
-  private List<DeviceIdsEnum> deviceIds = null;
+  private List<MonitorDeviceID> deviceIds = null;
 
   public static final String JSON_PROPERTY_ENABLE_LOGS_SAMPLE = "enable_logs_sample";
   private Boolean enableLogsSample;
@@ -178,13 +142,13 @@ public class MonitorOptions {
   }
 
 
-  public MonitorOptions deviceIds(List<DeviceIdsEnum> deviceIds) {
+  public MonitorOptions deviceIds(List<MonitorDeviceID> deviceIds) {
     
     this.deviceIds = deviceIds;
     return this;
   }
 
-  public MonitorOptions addDeviceIdsItem(DeviceIdsEnum deviceIdsItem) {
+  public MonitorOptions addDeviceIdsItem(MonitorDeviceID deviceIdsItem) {
     if (this.deviceIds == null) {
       this.deviceIds = new ArrayList<>();
     }
@@ -201,12 +165,12 @@ public class MonitorOptions {
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DeviceIdsEnum> getDeviceIds() {
+  public List<MonitorDeviceID> getDeviceIds() {
     return deviceIds;
   }
 
 
-  public void setDeviceIds(List<DeviceIdsEnum> deviceIds) {
+  public void setDeviceIds(List<MonitorDeviceID> deviceIds) {
     this.deviceIds = deviceIds;
   }
 

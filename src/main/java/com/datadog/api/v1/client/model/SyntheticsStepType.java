@@ -23,41 +23,41 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum SyntheticsStepType {
   
-  ASSERTCURRENTURL("assertCurrentUrl"),
+  ASSERT_CURRENT_URL("assertCurrentUrl"),
   
-  ASSERTELEMENTCONTENT("assertElementContent"),
+  ASSERT_ELEMENT_CONTENT("assertElementContent"),
   
-  ASSERTELEMENTPRESENT("assertElementPresent"),
+  ASSERT_ELEMENT_PRESENT("assertElementPresent"),
   
-  ASSERTEMAIL("assertEmail"),
+  ASSERT_EMAIL("assertEmail"),
   
-  ASSERTPAGECONTAINS("assertPageContains"),
+  ASSERT_PAGE_CONTAINS("assertPageContains"),
   
-  ASSERTPAGELACKS("assertPageLacks"),
+  ASSERT_PAGE_LACKS("assertPageLacks"),
   
   CLICK("click"),
   
-  EXTRACTVARIABLE("extractVariable"),
+  EXTRACT_VARIABLE("extractVariable"),
   
-  GOTOEMAILLINK("goToEmailLink"),
+  GO_TO_EMAIL_LINK("goToEmailLink"),
   
-  GOTOURL("goToUrl"),
+  GO_TO_URL("goToUrl"),
   
-  GOTOURLANDMEASURETTI("goToUrlAndMeasureTti"),
+  GO_TO_URL_AND_MEASURE_TTI("goToUrlAndMeasureTti"),
   
   HOVER("hover"),
   
-  PLAYSUBTEST("playSubTest"),
+  PLAY_SUB_TEST("playSubTest"),
   
-  PRESSKEY("pressKey"),
+  PRESS_KEY("pressKey"),
   
   REFRESH("refresh"),
   
-  SELECTOPTION("selectOption"),
+  SELECT_OPTION("selectOption"),
   
-  TYPETEXT("typeText"),
+  TYPE_TEXT("typeText"),
   
-  UPLOADFILES("uploadFiles"),
+  UPLOAD_FILES("uploadFiles"),
   
   WAIT("wait");
 

@@ -12,18 +12,12 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.LogsAPIErrorResponse;
 import com.datadog.api.v1.client.model.LogsPipeline;
 import com.datadog.api.v1.client.model.LogsPipelinesOrder;
-import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for LogsPipelinesApi
@@ -33,7 +27,7 @@ public class LogsPipelinesApiTest {
 
     private final LogsPipelinesApi api = new LogsPipelinesApi();
 
-    
+
     /**
      * Create a pipeline in your organization.
      *
@@ -50,7 +44,7 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Delete a given pipeline from your organization.
      *
@@ -66,7 +60,7 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Get all pipelines from your organization.
      *
@@ -81,7 +75,7 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Get a specific pipeline from your organization.
      *
@@ -97,7 +91,7 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Get the current order of your pipelines.
      *
@@ -112,7 +106,7 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Update a pipeline in your organization.
      *
@@ -130,7 +124,7 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Update the order of your pipelines.
      *
@@ -147,5 +141,5 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
+
 }

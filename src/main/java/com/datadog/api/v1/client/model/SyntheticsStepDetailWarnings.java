@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.SyntheticsWarningType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,41 +34,8 @@ public class SyntheticsStepDetailWarnings {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    USER_LOCATOR("user_locator");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private SyntheticsWarningType type;
 
 
   public SyntheticsStepDetailWarnings message(String message) {
@@ -94,7 +62,7 @@ public class SyntheticsStepDetailWarnings {
   }
 
 
-  public SyntheticsStepDetailWarnings type(TypeEnum type) {
+  public SyntheticsStepDetailWarnings type(SyntheticsWarningType type) {
     
     this.type = type;
     return this;
@@ -108,12 +76,12 @@ public class SyntheticsStepDetailWarnings {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TypeEnum getType() {
+  public SyntheticsWarningType getType() {
     return type;
   }
 
 
-  public void setType(TypeEnum type) {
+  public void setType(SyntheticsWarningType type) {
     this.type = type;
   }
 

@@ -25,21 +25,21 @@ public enum SyntheticsAssertionOperator {
   
   CONTAINS("contains"),
   
-  DOESNOTCONTAIN("doesNotContain"),
+  DOES_NOT_CONTAIN("doesNotContain"),
   
   IS("is"),
   
-  ISNOT("isNot"),
+  IS_NOT("isNot"),
   
-  LESSTHAN("lessThan"),
+  LESS_THAN("lessThan"),
   
   MATCHES("matches"),
   
-  DOESNOTMATCH("doesNotMatch"),
+  DOES_NOT_MATCH("doesNotMatch"),
   
   VALIDATES("validates"),
   
-  ISINMORETHAN("isInMoreThan");
+  IS_IN_MORE_DAYS_THAN("isInMoreThan");
 
   private String value;
 
