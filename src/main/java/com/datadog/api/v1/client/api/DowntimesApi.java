@@ -8,11 +8,10 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.CancelDowntimesByScopeRequest;
 import com.datadog.api.v1.client.model.CanceledDowntimesIds;
 import com.datadog.api.v1.client.model.Downtime;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error404;
 
 import java.util.ArrayList;
 import java.util.HashMap;

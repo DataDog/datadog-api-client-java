@@ -8,9 +8,7 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error402;
-import com.datadog.api.v1.client.model.Error404;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.SyntheticsAPITestResultFull;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultFull;
 import com.datadog.api.v1.client.model.SyntheticsDeleteTestsPayload;

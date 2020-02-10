@@ -8,8 +8,7 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error404;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.HostListResponse;
 import com.datadog.api.v1.client.model.HostMuteResponse;
 import com.datadog.api.v1.client.model.HostMuteSettings;
