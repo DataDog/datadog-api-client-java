@@ -30,10 +30,11 @@ public class LogsPipelinesApiTest {
 
     /**
      * Create a pipeline in your organization.
-     * <p>
+     *
      * ## Overview Create a Pipeline in your organization. ## Arguments - **&#x60;name&#x60;** [*required*]: Your pipeline name. - **&#x60;is_enabled&#x60;** [*optional*, default&#x3D;&#x60;False&#x60;]: Boolean value to enable your pipeline. - **&#x60;filter.query&#x60;** [*optional*]: Defines your pipeline filter. Only logs that match the filter criteria are processed by this pipeline. - **&#x60;processors&#x60;** [*optional*]: Ordered array of processors or nested pipelines.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void createLogsPipelineTest() throws ApiException {
@@ -46,10 +47,11 @@ public class LogsPipelinesApiTest {
 
     /**
      * Delete a given pipeline from your organization.
-     * <p>
+     *
      * ## Overview Delete a given pipeline from your organization. ## Arguments This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void deleteLogsPipelineTest() throws ApiException {
@@ -61,10 +63,11 @@ public class LogsPipelinesApiTest {
 
     /**
      * Get all pipelines from your organization.
-     * <p>
+     *
      * ## Overview Get all pipelines from your organization. ## Arguments This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getAllLogsPipelinesTest() throws ApiException {
@@ -75,10 +78,11 @@ public class LogsPipelinesApiTest {
 
     /**
      * Get a specific pipeline from your organization.
-     * <p>
+     *
      * ## Overview Get a specific pipeline from your organization. ## Arguments This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getLogsPipelineTest() throws ApiException {
@@ -90,10 +94,11 @@ public class LogsPipelinesApiTest {
 
     /**
      * Get the current order of your pipelines.
-     * <p>
+     *
      * ## Overview Get the current order of your pipelines. ## Arguments This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getLogsPipelineOrderTest() throws ApiException {
@@ -104,10 +109,11 @@ public class LogsPipelinesApiTest {
 
     /**
      * Update a pipeline in your organization.
-     * <p>
+     *
      * ## Overview Update a given pipeline configuration to change it’s processors or their order. ## Arguments **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization. - **&#x60;name&#x60;** [*required*]: Your pipeline name. - **&#x60;is_enabled&#x60;** [*optional*, default&#x3D;&#x60;False&#x60;]: Boolean value to enable your pipeline. - **&#x60;filter.query&#x60;** [*optional*]: Defines your pipeline filter. Only logs that match the filter criteria are processed by this pipeline. - **&#x60;processors&#x60;** [*optional*]: Ordered array of processors or nested pipelines.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void updateLogsPipelineTest() throws ApiException {
@@ -121,10 +127,11 @@ public class LogsPipelinesApiTest {
 
     /**
      * Update the order of your pipelines.
-     * <p>
+     *
      * ## Overview Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors. **Note**: Using the PUT method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization. ## Arguments - **&#x60;pipeline_ids&#x60;** [*required*]: Ordered Array of &lt;PIPELINE_ID&gt; strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void updateLogsPipelineOrderTest() throws ApiException {

@@ -32,11 +32,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Create an API key with a given name.
-     * <p>
+     *
      * ## Overview Creates an API key ### ARGUMENTS * **&#x60;name&#x60;** [*required*]: Name of your API key.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void createAPIKeyTest() throws ApiException, IOException {
@@ -56,11 +58,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Create an application key with a given name.
-     * <p>
+     *
      * ## Overview Create an application key with a given name. ### ARGUMENTS * **&#x60;name&#x60;** [*required*]: Name of your application key.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void createApplicationKeyTest() throws ApiException, IOException {
@@ -79,11 +83,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Delete a given API key.
-     * <p>
+     *
      * ## Overview Delete a given API key. ### ARGUMENTS This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void deleteAPIKeyTest() throws ApiException, IOException {
@@ -102,11 +108,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Delete a given application key.
-     * <p>
+     *
      * ## Overview Delete a given application key. ### ARGUMENTS This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void deleteApplicationKeyTest() throws ApiException, IOException {
@@ -124,11 +132,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Edit an API key name.
-     * <p>
+     *
      * ## Overview Edit an API key name. ### ARGUMENTS * **&#x60;name&#x60;** [*required*]: Name of your API key.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void editAPIKeyTest() throws ApiException, IOException {
@@ -150,11 +160,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Edit an application key name.
-     * <p>
+     *
      * ## Overview Edit an application key name. ### ARGUMENTS * **&#x60;name&#x60;** [*required*]: Name of your application key.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void editApplicationKeyTest() throws ApiException, IOException {
@@ -175,11 +187,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Get a given API key.
-     * <p>
+     *
      * ## Overview Get a given API key. ### ARGUMENTS This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void getAPIKeyTest() throws ApiException, IOException {
@@ -200,11 +214,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Get all API keys available for your account.
-     * <p>
+     *
      * ## Overview Get all API keys available for your account. ### ARGUMENTS This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void getAllAPIKeysTest() throws ApiException, IOException {
@@ -230,11 +246,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Get all application keys available for your account.
-     * <p>
+     *
      * ## Overview Get all application keys available for your account. ### ARGUMENTS This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void getAllApplicationKeysTest() throws ApiException, IOException {
@@ -258,11 +276,13 @@ public class KeysApiTest extends V1ApiTest {
 
     /**
      * Get a given application key.
-     * <p>
+     *
      * ## Overview Get a given application key. ### ARGUMENTS This endpoint takes no JSON arguments.
      *
-     * @throws ApiException if the Api call fails
-     * @throws IOException  if the fixture data cannot be loaded
+     * @throws ApiException
+     *          if the Api call fails
+     * @throws IOException
+     *          if the fixture data cannot be loaded
      */
     @Test
     public void getApplicationKeyTest() throws ApiException, IOException {
