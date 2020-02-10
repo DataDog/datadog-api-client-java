@@ -5,11 +5,11 @@
 ## Enum
 
 
-* `_7D` (value: `"7d"`)
+* `SEVEN_DAYS` (value: `"7d"`)
 
-* `_30D` (value: `"30d"`)
+* `THIRTY_DAYS` (value: `"30d"`)
 
-* `_90D` (value: `"90d"`)
+* `NINETY_DAYS` (value: `"90d"`)
 
 
 

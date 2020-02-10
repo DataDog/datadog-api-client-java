@@ -274,7 +274,7 @@ public class Example {
         EventsApi apiInstance = new EventsApi(defaultClient);
         Long start = 56L; // Long | POSIX timestamp.
         Long end = 56L; // Long | POSIX timestamp.
-        String priority = "priority_example"; // String | Priority of your events: **low** or **normal**.
+        EventPriority priority = new EventPriority(); // EventPriority | Priority of your events: **low** or **normal**.
         String sources = "sources_example"; // String | A comma separated string of sources.
         String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0.
         Boolean unaggregated = true; // Boolean | Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won't be available in the output.
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Long**| POSIX timestamp. |
  **end** | **Long**| POSIX timestamp. |
- **priority** | **String**| Priority of your events: **low** or **normal**. | [optional] [enum: low, normal]
+ **priority** | [**EventPriority**](.md)| Priority of your events: **low** or **normal**. | [optional] [enum: normal, low]
  **sources** | **String**| A comma separated string of sources. | [optional]
  **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0. | [optional]
  **unaggregated** | **Boolean**| Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. | [optional]

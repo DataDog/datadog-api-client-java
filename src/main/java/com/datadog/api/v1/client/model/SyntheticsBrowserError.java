@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.SyntheticsBrowserErrorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,43 +42,8 @@ public class SyntheticsBrowserError {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   private Long statusCode;
 
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    NETWORK("network"),
-    
-    JS("js");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private SyntheticsBrowserErrorType type;
 
 
   public SyntheticsBrowserError description(String description) {
@@ -153,7 +119,7 @@ public class SyntheticsBrowserError {
   }
 
 
-  public SyntheticsBrowserError type(TypeEnum type) {
+  public SyntheticsBrowserError type(SyntheticsBrowserErrorType type) {
     
     this.type = type;
     return this;
@@ -167,12 +133,12 @@ public class SyntheticsBrowserError {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TypeEnum getType() {
+  public SyntheticsBrowserErrorType getType() {
     return type;
   }
 
 
-  public void setType(TypeEnum type) {
+  public void setType(SyntheticsBrowserErrorType type) {
     this.type = type;
   }
 

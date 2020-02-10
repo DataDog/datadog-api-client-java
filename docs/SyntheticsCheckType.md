@@ -7,25 +7,25 @@
 
 * `EQUALS` (value: `"equals"`)
 
-* `NOTEQUALS` (value: `"notEquals"`)
+* `NOT_EQUALS` (value: `"notEquals"`)
 
 * `CONTAINS` (value: `"contains"`)
 
-* `NOTCONTAINS` (value: `"notContains"`)
+* `NOT_CONTAINS` (value: `"notContains"`)
 
-* `STARTSWITH` (value: `"startsWith"`)
+* `STARTS_WITH` (value: `"startsWith"`)
 
-* `NOTSTARTSWITH` (value: `"notStartsWith"`)
+* `NOT_STARTS_WITH` (value: `"notStartsWith"`)
 
 * `GREATER` (value: `"greater"`)
 
 * `LOWER` (value: `"lower"`)
 
-* `GREATEREQUALS` (value: `"greaterEquals"`)
+* `GREATER_EQUALS` (value: `"greaterEquals"`)
 
-* `LOWEREQUALS` (value: `"lowerEquals"`)
+* `LOWER_EQUALS` (value: `"lowerEquals"`)
 
-* `MATCHREGEX` (value: `"matchRegex"`)
+* `MATCH_REGEX` (value: `"matchRegex"`)
 
 
 

@@ -11,6 +11,7 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.Event;
 import com.datadog.api.v1.client.model.EventListResponse;
+import com.datadog.api.v1.client.model.EventPriority;
 import com.datadog.api.v1.client.model.EventResponse;
 
 import java.util.ArrayList;
@@ -238,7 +239,7 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
     return new APIgetEventRequest(eventId);
   }
 
-private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long end, String priority, String sources, String tags, Boolean unaggregated) throws ApiException {
+private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long end, EventPriority priority, String sources, String tags, Boolean unaggregated) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'start' is set
@@ -289,7 +290,7 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
   public class APIlistEventsRequest {
     private Long start;
     private Long end;
-    private String priority;
+    private EventPriority priority;
     private String sources;
     private String tags;
     private Boolean unaggregated;
@@ -325,7 +326,7 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
      * @param priority Priority of your events: **low** or **normal**. (optional)
      * @return APIlistEventsRequest
      */
-    public APIlistEventsRequest priority(String priority) {
+    public APIlistEventsRequest priority(EventPriority priority) {
       this.priority = priority;
       return this;
     }

@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.AccessRole;
 import com.datadog.api.v1.client.model.OrgSettingsSaml;
 import com.datadog.api.v1.client.model.OrgSettingsSamlAutocreateUsersDomains;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -46,45 +47,8 @@ public class OrgSettings {
   public static final String JSON_PROPERTY_SAML = "saml";
   private OrgSettingsSaml saml;
 
-  /**
-   * Gets or Sets samlAutocreateAccessRole
-   */
-  public enum SamlAutocreateAccessRoleEnum {
-    ST("st"),
-    
-    ADM("adm"),
-    
-    RO("ro");
-
-    private String value;
-
-    SamlAutocreateAccessRoleEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SamlAutocreateAccessRoleEnum fromValue(String value) {
-      for (SamlAutocreateAccessRoleEnum b : SamlAutocreateAccessRoleEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_SAML_AUTOCREATE_ACCESS_ROLE = "saml_autocreate_access_role";
-  private SamlAutocreateAccessRoleEnum samlAutocreateAccessRole;
+  private AccessRole samlAutocreateAccessRole;
 
   public static final String JSON_PROPERTY_SAML_AUTOCREATE_USERS_DOMAINS = "saml_autocreate_users_domains";
   private OrgSettingsSamlAutocreateUsersDomains samlAutocreateUsersDomains;
@@ -158,7 +122,7 @@ public class OrgSettings {
   }
 
 
-  public OrgSettings samlAutocreateAccessRole(SamlAutocreateAccessRoleEnum samlAutocreateAccessRole) {
+  public OrgSettings samlAutocreateAccessRole(AccessRole samlAutocreateAccessRole) {
     
     this.samlAutocreateAccessRole = samlAutocreateAccessRole;
     return this;
@@ -169,16 +133,16 @@ public class OrgSettings {
    * @return samlAutocreateAccessRole
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "st", value = "")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SAML_AUTOCREATE_ACCESS_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SamlAutocreateAccessRoleEnum getSamlAutocreateAccessRole() {
+  public AccessRole getSamlAutocreateAccessRole() {
     return samlAutocreateAccessRole;
   }
 
 
-  public void setSamlAutocreateAccessRole(SamlAutocreateAccessRoleEnum samlAutocreateAccessRole) {
+  public void setSamlAutocreateAccessRole(AccessRole samlAutocreateAccessRole) {
     this.samlAutocreateAccessRole = samlAutocreateAccessRole;
   }
 

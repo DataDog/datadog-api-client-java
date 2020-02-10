@@ -5,41 +5,41 @@
 ## Enum
 
 
-* `ASSERTCURRENTURL` (value: `"assertCurrentUrl"`)
+* `ASSERT_CURRENT_URL` (value: `"assertCurrentUrl"`)
 
-* `ASSERTELEMENTCONTENT` (value: `"assertElementContent"`)
+* `ASSERT_ELEMENT_CONTENT` (value: `"assertElementContent"`)
 
-* `ASSERTELEMENTPRESENT` (value: `"assertElementPresent"`)
+* `ASSERT_ELEMENT_PRESENT` (value: `"assertElementPresent"`)
 
-* `ASSERTEMAIL` (value: `"assertEmail"`)
+* `ASSERT_EMAIL` (value: `"assertEmail"`)
 
-* `ASSERTPAGECONTAINS` (value: `"assertPageContains"`)
+* `ASSERT_PAGE_CONTAINS` (value: `"assertPageContains"`)
 
-* `ASSERTPAGELACKS` (value: `"assertPageLacks"`)
+* `ASSERT_PAGE_LACKS` (value: `"assertPageLacks"`)
 
 * `CLICK` (value: `"click"`)
 
-* `EXTRACTVARIABLE` (value: `"extractVariable"`)
+* `EXTRACT_VARIABLE` (value: `"extractVariable"`)
 
-* `GOTOEMAILLINK` (value: `"goToEmailLink"`)
+* `GO_TO_EMAIL_LINK` (value: `"goToEmailLink"`)
 
-* `GOTOURL` (value: `"goToUrl"`)
+* `GO_TO_URL` (value: `"goToUrl"`)
 
-* `GOTOURLANDMEASURETTI` (value: `"goToUrlAndMeasureTti"`)
+* `GO_TO_URL_AND_MEASURE_TTI` (value: `"goToUrlAndMeasureTti"`)
 
 * `HOVER` (value: `"hover"`)
 
-* `PLAYSUBTEST` (value: `"playSubTest"`)
+* `PLAY_SUB_TEST` (value: `"playSubTest"`)
 
-* `PRESSKEY` (value: `"pressKey"`)
+* `PRESS_KEY` (value: `"pressKey"`)
 
 * `REFRESH` (value: `"refresh"`)
 
-* `SELECTOPTION` (value: `"selectOption"`)
+* `SELECT_OPTION` (value: `"selectOption"`)
 
-* `TYPETEXT` (value: `"typeText"`)
+* `TYPE_TEXT` (value: `"typeText"`)
 
-* `UPLOADFILES` (value: `"uploadFiles"`)
+* `UPLOAD_FILES` (value: `"uploadFiles"`)
 
 * `WAIT` (value: `"wait"`)
 

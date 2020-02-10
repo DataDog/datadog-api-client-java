@@ -19,23 +19,7 @@ Name | Type | Description | Notes
 **query** | **String** |  |  [optional]
 **state** | [**MonitorState**](MonitorState.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
-**type** | [**TypeEnum**](#TypeEnum) | The type of the monitor |  [optional]
-
-
-
-## Enum: TypeEnum
-
-Name | Value
----- | -----
-COMPOSITE | &quot;composite&quot;
-EVENT_ALERT | &quot;event alert&quot;
-LOG_ALERT | &quot;log alert&quot;
-METRIC_ALERT | &quot;metric alert&quot;
-PROCESS_ALERT | &quot;process alert&quot;
-QUERY_ALERT | &quot;query alert&quot;
-SERVICE_CHECK | &quot;service check&quot;
-SYNTHETICS_ALERT | &quot;synthetics alert&quot;
-TRACE_ANALYTICS_ALERT | &quot;trace-analytics alert&quot;
+**type** | [**MonitorType**](MonitorType.md) |  |  [optional]
 
 
 

@@ -15,6 +15,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.SyntheticsTestAuthor;
 import com.datadog.api.v1.client.model.SyntheticsTestConfig;
+import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
+import com.datadog.api.v1.client.model.SyntheticsTestDetailsType;
 import com.datadog.api.v1.client.model.SyntheticsTestMonitorStatus;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
@@ -90,84 +92,14 @@ public class SyntheticsTestDetails {
   public static final String JSON_PROPERTY_STEP_COUNT = "stepCount";
   private Long stepCount;
 
-  /**
-   * Gets or Sets subtype
-   */
-  public enum SubtypeEnum {
-    HTTP("http"),
-    
-    SSL("ssl");
-
-    private String value;
-
-    SubtypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SubtypeEnum fromValue(String value) {
-      for (SubtypeEnum b : SubtypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
-  private SubtypeEnum subtype;
+  private SyntheticsTestDetailsSubType subtype;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    API("api"),
-    
-    BROWSER("browser");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private SyntheticsTestDetailsType type;
 
 
   public SyntheticsTestDetails config(SyntheticsTestConfig config) {
@@ -503,7 +435,7 @@ public class SyntheticsTestDetails {
   }
 
 
-  public SyntheticsTestDetails subtype(SubtypeEnum subtype) {
+  public SyntheticsTestDetails subtype(SyntheticsTestDetailsSubType subtype) {
     
     this.subtype = subtype;
     return this;
@@ -518,12 +450,12 @@ public class SyntheticsTestDetails {
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SubtypeEnum getSubtype() {
+  public SyntheticsTestDetailsSubType getSubtype() {
     return subtype;
   }
 
 
-  public void setSubtype(SubtypeEnum subtype) {
+  public void setSubtype(SyntheticsTestDetailsSubType subtype) {
     this.subtype = subtype;
   }
 
@@ -561,7 +493,7 @@ public class SyntheticsTestDetails {
   }
 
 
-  public SyntheticsTestDetails type(TypeEnum type) {
+  public SyntheticsTestDetails type(SyntheticsTestDetailsType type) {
     
     this.type = type;
     return this;
@@ -576,12 +508,12 @@ public class SyntheticsTestDetails {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TypeEnum getType() {
+  public SyntheticsTestDetailsType getType() {
     return type;
   }
 
 
-  public void setType(TypeEnum type) {
+  public void setType(SyntheticsTestDetailsType type) {
     this.type = type;
   }
 

@@ -27,11 +27,11 @@ public enum SyntheticsAssertionType {
   
   HEADER("header"),
   
-  STATUSCODE("statusCode"),
+  STATUS_CODE("statusCode"),
   
   CERTIFICATE("certificate"),
   
-  RESPONSETIME("responseTime"),
+  RESPONSE_TIME("responseTime"),
   
   PROPERTY("property");
 

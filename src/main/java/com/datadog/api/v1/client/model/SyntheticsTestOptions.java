@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.SyntheticsDeviceID;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
+import com.datadog.api.v1.client.model.SyntheticsTickInterval;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -53,57 +54,8 @@ public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_RETRY = "retry";
   private SyntheticsTestOptionsRetry retry;
 
-  /**
-   * Gets or Sets tickEvery
-   */
-  public enum TickEveryEnum {
-    NUMBER_60(60l),
-    
-    NUMBER_300(300l),
-    
-    NUMBER_900(900l),
-    
-    NUMBER_1800(1800l),
-    
-    NUMBER_3600(3600l),
-    
-    NUMBER_21600(21600l),
-    
-    NUMBER_43200(43200l),
-    
-    NUMBER_86400(86400l),
-    
-    NUMBER_604800(604800l);
-
-    private Long value;
-
-    TickEveryEnum(Long value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public Long getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TickEveryEnum fromValue(Long value) {
-      for (TickEveryEnum b : TickEveryEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TICK_EVERY = "tick_every";
-  private TickEveryEnum tickEvery;
+  private SyntheticsTickInterval tickEvery;
 
 
   public SyntheticsTestOptions acceptSelfSigned(Boolean acceptSelfSigned) {
@@ -239,7 +191,7 @@ public class SyntheticsTestOptions {
   }
 
 
-  public SyntheticsTestOptions tickEvery(TickEveryEnum tickEvery) {
+  public SyntheticsTestOptions tickEvery(SyntheticsTickInterval tickEvery) {
     
     this.tickEvery = tickEvery;
     return this;
@@ -254,12 +206,12 @@ public class SyntheticsTestOptions {
   @JsonProperty(JSON_PROPERTY_TICK_EVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TickEveryEnum getTickEvery() {
+  public SyntheticsTickInterval getTickEvery() {
     return tickEvery;
   }
 
 
-  public void setTickEvery(TickEveryEnum tickEvery) {
+  public void setTickEvery(SyntheticsTickInterval tickEvery) {
     this.tickEvery = tickEvery;
   }
 

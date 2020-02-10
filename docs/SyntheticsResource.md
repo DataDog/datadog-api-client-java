@@ -12,22 +12,8 @@ Name | Type | Description | Notes
 **status** | **Long** |  |  [optional]
 **timestamp** | **Double** |  |  [optional]
 **traceId** | **String** |  |  [optional]
-**type** | [**TypeEnum**](#TypeEnum) |  |  [optional]
+**type** | [**SyntheticsResourceType**](SyntheticsResourceType.md) |  |  [optional]
 **url** | **String** |  |  [optional]
-
-
-
-## Enum: TypeEnum
-
-Name | Value
----- | -----
-DOCUMENT | &quot;document&quot;
-STYLESHEET | &quot;stylesheet&quot;
-FETCH | &quot;fetch&quot;
-IMAGE | &quot;image&quot;
-SCRIPT | &quot;script&quot;
-XHR | &quot;xhr&quot;
-OTHER | &quot;other&quot;
 
 
 

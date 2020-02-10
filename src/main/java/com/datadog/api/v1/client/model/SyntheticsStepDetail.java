@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.SyntheticsBrowserError;
 import com.datadog.api.v1.client.model.SyntheticsCheckType;
+import com.datadog.api.v1.client.model.SyntheticsPlayingTab;
 import com.datadog.api.v1.client.model.SyntheticsResource;
 import com.datadog.api.v1.client.model.SyntheticsStepDetailWarnings;
 import com.datadog.api.v1.client.model.SyntheticsStepType;
@@ -67,49 +68,8 @@ public class SyntheticsStepDetail {
   public static final String JSON_PROPERTY_ERROR = "error";
   private String error;
 
-  /**
-   * Gets or Sets playingTab
-   */
-  public enum PlayingTabEnum {
-    MAIN_TAB(-1l),
-    
-    NEW_TAB(0l),
-    
-    TAB_1(1l),
-    
-    TAB_2(2l),
-    
-    TAB_3(3l);
-
-    private Long value;
-
-    PlayingTabEnum(Long value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public Long getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static PlayingTabEnum fromValue(Long value) {
-      for (PlayingTabEnum b : PlayingTabEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_PLAYING_TAB = "playingTab";
-  private PlayingTabEnum playingTab;
+  private SyntheticsPlayingTab playingTab;
 
   public static final String JSON_PROPERTY_RESOURCES = "resources";
   private List<SyntheticsResource> resources = null;
@@ -278,7 +238,7 @@ public class SyntheticsStepDetail {
   }
 
 
-  public SyntheticsStepDetail playingTab(PlayingTabEnum playingTab) {
+  public SyntheticsStepDetail playingTab(SyntheticsPlayingTab playingTab) {
     
     this.playingTab = playingTab;
     return this;
@@ -293,12 +253,12 @@ public class SyntheticsStepDetail {
   @JsonProperty(JSON_PROPERTY_PLAYING_TAB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PlayingTabEnum getPlayingTab() {
+  public SyntheticsPlayingTab getPlayingTab() {
     return playingTab;
   }
 
 
-  public void setPlayingTab(PlayingTabEnum playingTab) {
+  public void setPlayingTab(SyntheticsPlayingTab playingTab) {
     this.playingTab = playingTab;
   }
 

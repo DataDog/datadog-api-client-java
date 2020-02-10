@@ -9,11 +9,11 @@
 
 * `HEADER` (value: `"header"`)
 
-* `STATUSCODE` (value: `"statusCode"`)
+* `STATUS_CODE` (value: `"statusCode"`)
 
 * `CERTIFICATE` (value: `"certificate"`)
 
-* `RESPONSETIME` (value: `"responseTime"`)
+* `RESPONSE_TIME` (value: `"responseTime"`)
 
 * `PROPERTY` (value: `"property"`)
 
