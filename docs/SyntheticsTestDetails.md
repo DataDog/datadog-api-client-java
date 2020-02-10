@@ -19,27 +19,9 @@ Name | Type | Description | Notes
 **publicId** | **String** |  |  [optional]
 **status** | [**SyntheticsTestPauseStatus**](SyntheticsTestPauseStatus.md) |  |  [optional]
 **stepCount** | **Long** |  |  [optional]
-**subtype** | [**SubtypeEnum**](#SubtypeEnum) |  |  [optional]
+**subtype** | [**SyntheticsTestDetailsSubType**](SyntheticsTestDetailsSubType.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
-**type** | [**TypeEnum**](#TypeEnum) |  |  [optional]
-
-
-
-## Enum: SubtypeEnum
-
-Name | Value
----- | -----
-HTTP | &quot;http&quot;
-SSL | &quot;ssl&quot;
-
-
-
-## Enum: TypeEnum
-
-Name | Value
----- | -----
-API | &quot;api&quot;
-BROWSER | &quot;browser&quot;
+**type** | [**SyntheticsTestDetailsType**](SyntheticsTestDetailsType.md) |  |  [optional]
 
 
 

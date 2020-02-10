@@ -25,25 +25,25 @@ public enum SyntheticsCheckType {
   
   EQUALS("equals"),
   
-  NOTEQUALS("notEquals"),
+  NOT_EQUALS("notEquals"),
   
   CONTAINS("contains"),
   
-  NOTCONTAINS("notContains"),
+  NOT_CONTAINS("notContains"),
   
-  STARTSWITH("startsWith"),
+  STARTS_WITH("startsWith"),
   
-  NOTSTARTSWITH("notStartsWith"),
+  NOT_STARTS_WITH("notStartsWith"),
   
   GREATER("greater"),
   
   LOWER("lower"),
   
-  GREATEREQUALS("greaterEquals"),
+  GREATER_EQUALS("greaterEquals"),
   
-  LOWEREQUALS("lowerEquals"),
+  LOWER_EQUALS("lowerEquals"),
   
-  MATCHREGEX("matchRegex");
+  MATCH_REGEX("matchRegex");
 
   private String value;
 

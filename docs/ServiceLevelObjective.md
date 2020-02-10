@@ -19,26 +19,8 @@ Name | Type | Description | Notes
 **query** | [**ServiceLevelObjectiveQuery**](ServiceLevelObjectiveQuery.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** | A list of tags (e.g. \&quot;env:prod\&quot;) associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests. |  [optional]
 **thresholds** | [**List&lt;SLOThreshold&gt;**](SLOThreshold.md) | The thresholds (timeframes and associated targets) for this service level objective object. | 
-**type** | [**TypeEnum**](#TypeEnum) | The type of the service level objective. | 
-**typeId** | [**TypeIdEnum**](#TypeIdEnum) | A numeric representation of the type of the service level objective (0 for monitor, 1 for metric). Always included in service level objective responses. Ignored in create/update requests. |  [optional]
-
-
-
-## Enum: TypeEnum
-
-Name | Value
----- | -----
-METRIC | &quot;metric&quot;
-MONITOR | &quot;monitor&quot;
-
-
-
-## Enum: TypeIdEnum
-
-Name | Value
----- | -----
-NUMBER_0 | 0
-NUMBER_1 | 1
+**type** | [**ServiceLevelObjectiveType**](ServiceLevelObjectiveType.md) |  | 
+**typeId** | [**ServiceLevelObjectiveTypeNumeric**](ServiceLevelObjectiveTypeNumeric.md) |  |  [optional]
 
 
 

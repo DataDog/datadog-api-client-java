@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.Monitor;
+import com.datadog.api.v1.client.model.MonitorType;
 import com.datadog.api.v1.client.model.MonitorOptions;
 import com.datadog.api.v1.client.model.DeletedMonitor;
 import static org.junit.Assert.*;
@@ -34,7 +35,7 @@ public class MonitorsApiTest extends V1ApiTest {
     private ArrayList<Long> deleteMonitors = null;
 
     private final String testingMonitorName = "Bytes received on host0";
-    private final Monitor.TypeEnum testingMonitorType = Monitor.TypeEnum.METRIC_ALERT;
+    private final MonitorType testingMonitorType = MonitorType.METRIC_ALERT;
     private final String testingMonitorQuery = "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100";
     private final String testingMonitorMessage = "We may need to add web hosts if this is consistently high.";
     private final List<String> testingMonitorTags = Arrays.asList("app:webserver", "frontend");
