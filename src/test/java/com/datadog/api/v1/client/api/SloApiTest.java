@@ -33,7 +33,7 @@ public class SloApiTest extends V1ApiTest {
             .description("Track the uptime of host foo which is critical to us.")
             .tags(Arrays.asList("app:core", "kpi"))
             .thresholds(Arrays.asList(new SLOThreshold()
-                .timeframe(SLOTimeframe._30D)
+                .timeframe(SLOTimeframe.THIRTY_DAYS)
                 .target(95.0)
                 .warning(98.0)
             ));
@@ -43,7 +43,7 @@ public class SloApiTest extends V1ApiTest {
             .description("Make sure we don't have too many failed HTTP responses")
             .tags(Arrays.asList("app:httpd"))
             .thresholds(Arrays.asList(new SLOThreshold()
-                    .timeframe(SLOTimeframe._7D)
+                    .timeframe(SLOTimeframe.SEVEN_DAYS)
                     .target(95.0)
                     .warning(98.0)
             ))
@@ -199,7 +199,7 @@ public class SloApiTest extends V1ApiTest {
 
         // Use bulk delete operation to delete the event SLO
         Map<String, List<SLOTimeframe>> toDelete = new HashMap<String, List<SLOTimeframe>>() {{
-            put(createdEventSLO.getId(), Arrays.asList(SLOTimeframe._7D));
+            put(createdEventSLO.getId(), Arrays.asList(SLOTimeframe.SEVEN_DAYS));
         }};
         ServiceLevelObjectivesBulkDeleted deletedResp = api.bulkPartialDeleteSLO().body(toDelete).execute();
         assertEquals(Arrays.asList(createdEventSLO.getId()), deletedResp.getData().getDeleted());

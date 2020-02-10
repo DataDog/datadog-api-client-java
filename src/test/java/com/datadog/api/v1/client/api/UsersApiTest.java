@@ -34,7 +34,7 @@ public class UsersApiTest extends V1ApiTest {
     private static UsersApi api;
     private final String testingUserHandle = "testinguser@datadoghq.com";
     private final String testingUserName = "Testing User";
-    private final AccessRole testingUserAR = AccessRole.ST;
+    private final AccessRole testingUserAR = AccessRole.STANDARD;
     private ArrayList<String> disableUsers = null;
 
     @Before
