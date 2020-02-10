@@ -172,6 +172,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
 
 ## getLogsIndexOrder
@@ -356,6 +357,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Invalid Parameter Error |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
 
 ## updateLogsIndexOrder

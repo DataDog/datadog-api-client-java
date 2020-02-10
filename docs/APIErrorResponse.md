@@ -1,6 +1,6 @@
 
 
-# Error403
+# APIErrorResponse
 
 ## Properties
 

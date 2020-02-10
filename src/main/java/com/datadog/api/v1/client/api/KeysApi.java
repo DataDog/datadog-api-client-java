@@ -8,16 +8,13 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.ApiKey;
 import com.datadog.api.v1.client.model.ApiKeyListResponse;
 import com.datadog.api.v1.client.model.ApiKeyResponse;
 import com.datadog.api.v1.client.model.ApplicationKey;
 import com.datadog.api.v1.client.model.ApplicationKeyListResponse;
 import com.datadog.api.v1.client.model.ApplicationKeyResponse;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.Error404;
-import com.datadog.api.v1.client.model.Error409;
 
 import java.util.ArrayList;
 import java.util.HashMap;

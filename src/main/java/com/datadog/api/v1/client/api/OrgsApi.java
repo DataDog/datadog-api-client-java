@@ -8,9 +8,7 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.Error415;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import java.io.File;
 import com.datadog.api.v1.client.model.IdpResponse;
 import com.datadog.api.v1.client.model.Org;

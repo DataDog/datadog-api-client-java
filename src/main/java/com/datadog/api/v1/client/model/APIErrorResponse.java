@@ -24,24 +24,24 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Error402
+ * APIErrorResponse
  */
 @JsonPropertyOrder({
-  Error402.JSON_PROPERTY_ERRORS
+  APIErrorResponse.JSON_PROPERTY_ERRORS
 })
 
-public class Error402 {
+public class APIErrorResponse {
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = new ArrayList<>();
 
 
-  public Error402 errors(List<String> errors) {
+  public APIErrorResponse errors(List<String> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public Error402 addErrorsItem(String errorsItem) {
+  public APIErrorResponse addErrorsItem(String errorsItem) {
     this.errors.add(errorsItem);
     return this;
   }
@@ -72,8 +72,8 @@ public class Error402 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error402 error402 = (Error402) o;
-    return Objects.equals(this.errors, error402.errors);
+    APIErrorResponse apIErrorResponse = (APIErrorResponse) o;
+    return Objects.equals(this.errors, apIErrorResponse.errors);
   }
 
   @Override
@@ -85,7 +85,7 @@ public class Error402 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error402 {\n");
+    sb.append("class APIErrorResponse {\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
