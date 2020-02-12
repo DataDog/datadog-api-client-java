@@ -28,7 +28,7 @@ public class KeysApiTest extends V1ApiTest {
     private final KeysApi api = new KeysApi(generalApiUnitTestClient);
     private final String apiUri = "/api/v1/api_key";
     private final String appUri = "/api/v1/application_key";
-    private final String fixturePrefix = "api/keys_fixtures";
+    private final String fixturePrefix = "v1/client/api/keys_fixtures";
 
     /**
      * Create an API key with a given name.
