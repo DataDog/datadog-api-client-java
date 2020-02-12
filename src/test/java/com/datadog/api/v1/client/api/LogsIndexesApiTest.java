@@ -11,7 +11,7 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.TestUtils;
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -86,7 +86,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     @Test
     public void updateLogsIndexTest() throws ApiException, IOException {
         stubFor(get(urlPathEqualTo(String.format("/api/v1/logs/config/indexes/%s", INDEXNAME)))
-                .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/get_index.json")))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/logs_indexes_fixtures/get_index.json")))
         );
         LogsIndex orig = unitApi.getLogsIndex(INDEXNAME).execute();
         resetWiremock();
@@ -103,7 +103,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
             .exclusionFilters(exclusionFilters);
 
         stubFor(put(urlPathEqualTo(String.format("/api/v1/logs/config/indexes/%s", INDEXNAME)))
-                .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/update_index.json")))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/logs_indexes_fixtures/update_index.json")))
         );
         LogsIndex response = unitApi.updateLogsIndex(INDEXNAME).body(body).execute();
         resetWiremock();
@@ -120,7 +120,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public void updateLogsIndexOrderTest() throws ApiException, IOException {
         // Get current index order
         stubFor(get(urlPathEqualTo("/api/v1/logs/config/index-order"))
-                .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/get_index_order.json")))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/logs_indexes_fixtures/get_index_order.json")))
         );
 
         LogsIndexesOrder body = unitApi.getLogsIndexOrder().execute();
@@ -133,7 +133,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
         newOrder.remove(0);
         body.setIndexNames(newOrder);
         stubFor(put(urlPathEqualTo("/api/v1/logs/config/index-order"))
-                .willReturn(okJson(TestUtils.getFixture("api/logs_indexes_fixtures/updated_index_order.json")))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/logs_indexes_fixtures/updated_index_order.json")))
         );
         LogsIndexesOrder response = unitApi.updateLogsIndexOrder().body(body).execute();
         resetWiremock();

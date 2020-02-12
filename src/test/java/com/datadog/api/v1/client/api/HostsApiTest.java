@@ -12,7 +12,7 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.TestUtils;
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -138,7 +138,7 @@ public class HostsApiTest extends V1ApiTest {
                 .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
                 .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
                 .withQueryParam("from", equalTo("123"))
-                .willReturn(okJson(TestUtils.getFixture("api/hosts_fixtures/host_totals.json")))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/hosts_fixtures/host_totals.json")))
         );
 
         HostTotals actual = unitAPI.getHostTotals().from(123L).execute();
@@ -155,7 +155,7 @@ public class HostsApiTest extends V1ApiTest {
      */
     @Test
     public void hostsSearchMockedTest() throws ApiException, IOException {
-        String fixtureData = TestUtils.getFixture("api/hosts_fixtures/host_search.json");
+        String fixtureData = TestUtils.getFixture("v1/client/api/hosts_fixtures/host_search.json");
         stubFor(get(urlPathEqualTo("/api/v1/hosts"))
                 .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
                 .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))

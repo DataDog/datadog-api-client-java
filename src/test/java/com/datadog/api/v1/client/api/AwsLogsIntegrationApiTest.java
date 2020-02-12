@@ -11,7 +11,7 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.TestUtils;
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.*;
 import org.junit.*;
 import static org.junit.Assert.*;

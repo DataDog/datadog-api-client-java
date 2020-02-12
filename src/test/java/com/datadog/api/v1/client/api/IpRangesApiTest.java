@@ -12,7 +12,7 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.TestUtils;
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.IPRanges;
 
 import org.junit.Test;
@@ -49,7 +49,7 @@ public class IpRangesApiTest extends V1ApiTest {
     public void getIPRangesTestMocked() throws ApiException, IOException {
         api = new IpRangesApi(generalApiUnitTestClient);
 
-        stubFor(get(urlPathEqualTo("/")).willReturn(okJson(TestUtils.getFixture("api/ip_ranges/ip_ranges.json"))));
+        stubFor(get(urlPathEqualTo("/")).willReturn(okJson(TestUtils.getFixture("v1/client/api/ip_ranges/ip_ranges.json"))));
 
         // Get IP ranges
         IPRanges ipRanges = api.getIPRanges().execute();
