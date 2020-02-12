@@ -64,7 +64,7 @@ public class DashboardsApiTest extends V1ApiTest{
         AlertGraphWidgetDefinition alertGraphDefinition = new AlertGraphWidgetDefinition()
                 .alertId("1234").vizType(WidgetVizType.TIMESERIES)
                 .title("Test Alert Graph Widget")
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)
                 );
         Widget alertGraphWidget = new Widget().definition(alertGraphDefinition);
         orderedWidgetList.add(alertGraphWidget);
@@ -74,14 +74,14 @@ public class DashboardsApiTest extends V1ApiTest{
                 .alertId("1234").precision(2L).unit("ms").titleSize("12")
                 .textAlign(WidgetTextAlign.CENTER)
                 .title("Test Alert Value Widget")
-                .titleAlign(WidgetTitleAlign.RIGHT);
+                .titleAlign(WidgetTextAlign.RIGHT);
         Widget alertValueWidget = new Widget().definition(alertValueDefinition);
         orderedWidgetList.add(alertValueWidget);
 
         // Change Widget
         ChangeWidgetDefinition changeWidgetDefinition = new ChangeWidgetDefinition()
                 .title("Test Change Widget")
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
                 .addRequestsItem(new ChangeWidgetRequest().q("avg:system.load.1{*}").changeType(
                         WidgetChangeType.ABSOLUTE)
                         .compareTo(WidgetCompareTo.HOUR_BEFORE)
@@ -97,7 +97,7 @@ public class DashboardsApiTest extends V1ApiTest{
         CheckStatusWidgetDefinition checkStatusWidgetDefinition = new CheckStatusWidgetDefinition()
                 .check("service_check.up").grouping(WidgetGrouping.CHECK)
                 .group("*").addTagsItem("foo:bar").addGroupByItem("bar").title("Test Check Status Widget")
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
         Widget checkStatusWidget = new Widget().definition(checkStatusWidgetDefinition);
         orderedWidgetList.add(checkStatusWidget);
 
@@ -108,7 +108,7 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .q("avg:system.load.1{*}")
                                 .style(new WidgetStyle().palette("dog_classic"))
                 ).showLegend(true).title("Test Distribution Widget")
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
         Widget distributionWidget = new Widget().definition(distributionWidgetDefinition);
         orderedWidgetList.add(distributionWidget);
 
@@ -116,7 +116,7 @@ public class DashboardsApiTest extends V1ApiTest{
         EventStreamWidgetDefinition eventStreamWidgetDefinition = new EventStreamWidgetDefinition()
                 .query("Build successful").eventSize(WidgetEventSize.LARGE)
                 .title("Test Event Stream Widget").titleSize("16")
-                .titleAlign(WidgetTitleAlign.CENTER)
+                .titleAlign(WidgetTextAlign.CENTER)
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_DAY));
         Widget eventStreamWidget = new Widget().definition(eventStreamWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
@@ -125,7 +125,7 @@ public class DashboardsApiTest extends V1ApiTest{
         // Event Timeline Widget ONLY AVAILABLE ON FREE LAYOUTS
         EventTimelineWidgetDefinition eventTimelineWidgetDefinition = new EventTimelineWidgetDefinition()
                 .query("Build Failed").title("Test Event Timeline Widget").titleSize("16")
-                .titleAlign(WidgetTitleAlign.LEFT)
+                .titleAlign(WidgetTextAlign.LEFT)
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_MONTH));
         Widget eventTimelineWidget = new Widget().definition(eventTimelineWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
@@ -158,7 +158,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded").tagsExecution("tags"))
                 .title("Test Headmap Widget").showLegend(true)
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
                 .showLegend(true).legendSize(WidgetLegendSize.FOUR);
         Widget heatMapWidget = new Widget().definition(heatMapWidgetDefinition);
         orderedWidgetList.add(heatMapWidget);
@@ -177,7 +177,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .style(new HostMapWidgetDefinitionStyle()
                         .palette("dog_classic").paletteFlip(true).fillMin("0").fillMax("100"))
                 .title("Test HostMap Widget")
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16");
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16");
         Widget hostMapWidget = new Widget().definition(hostMapWidgetDefinition);
         orderedWidgetList.add(hostMapWidget);
 
@@ -204,7 +204,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addColumnsItem("Route")
                 .title("Test Logstream Widget")
                 .titleSize("16")
-                .titleAlign(WidgetTitleAlign.RIGHT)
+                .titleAlign(WidgetTextAlign.RIGHT)
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_TWO_DAYS));
         Widget logStreamWidget = new Widget().definition(logStreamWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
@@ -221,7 +221,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .showLastTriggered(true)
                 .title("Test Monitor Summary Widget")
                 .titleSize("16")
-                .titleAlign(WidgetTitleAlign.CENTER);
+                .titleAlign(WidgetTextAlign.CENTER);
         Widget monitorSummaryWidget = new Widget().definition(monitorSummaryWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(monitorSummaryWidget);
@@ -252,7 +252,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .precision(2L)
                 .textAlign(WidgetTextAlign.CENTER)
                 .title("Test Query Value Widget")
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
         Widget queryValueWidget = new Widget().definition(queryValueWidgetDefinition);
         orderedWidgetList.add(queryValueWidget);
 
@@ -271,14 +271,14 @@ public class DashboardsApiTest extends V1ApiTest{
                 .yaxis(new WidgetAxis().scale("linear").min("0").max("100").includeZero(true))
                 .addColorByGroupsItem("env")
                 .title("Test ScatterPlot Widget")
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
         Widget scatterPlotWidget = new Widget().definition(scatterPlotWidgetDefinition);
         orderedWidgetList.add(scatterPlotWidget);
 
         // SLO Widget
         SLOWidgetDefinition sloWidgetDefinition = new SLOWidgetDefinition()
                 .viewType("detail").title("Test SLO Widget").titleSize("16")
-                .titleAlign(WidgetTitleAlign.CENTER)
+                .titleAlign(WidgetTextAlign.CENTER)
                 .sloId("1234L")
                 .showErrorBudget(true)
                 .viewMode(WidgetViewMode.BOTH)
@@ -291,7 +291,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addFiltersItem("*")
                 .service("1234")
                 .title("Test Service Map Widget")
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16");
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16");
         Widget serviceMapWidget = new Widget().definition(serviceMapWidgetDefinition);
         orderedWidgetList.add(serviceMapWidget);
 
@@ -306,7 +306,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .displayFormat(WidgetServiceSummaryDisplayFormat.TWO_COLUMN)
                 .title("Test Service Summary Widget")
                 .titleSize("16")
-                .titleAlign(WidgetTitleAlign.CENTER)
+                .titleAlign(WidgetTextAlign.CENTER)
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_HOUR));
         Widget serviceSummaryWidget = new Widget().definition(serviceMapWidgetDefinition);
         orderedWidgetList.add(serviceSummaryWidget);
@@ -327,7 +327,7 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .customFgColor("black")
                                 .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
                         )
-                ).title("Test Table Widget").titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                ).title("Test Table Widget").titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
         Widget tableWidget = new Widget().definition(tableWidgetDefinition);
         orderedWidgetList.add(tableWidget);
 
@@ -344,11 +344,11 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).displayType(WidgetDisplayType.LINE)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear").label("Widget Scale"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
-                .addMarkersItem(new WidgetMarkers()
+                .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
                         .time(WidgetLiveSpan.PAST_FOUR_HOURS.toString()))
                 .title("Test Timeseries Widget").showLegend(true)
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16")
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
                 .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
         Widget timeseriesWidget = new Widget().definition(timeseriesWidgetDefinition);
@@ -373,11 +373,11 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).displayType(WidgetDisplayType.LINE)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
-                .addMarkersItem(new WidgetMarkers()
+                .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
                         .time(WidgetLiveSpan.PAST_FOUR_HOURS.toString()))
                 .title("Test Timeseries Widget with Process Query").showLegend(true)
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16")
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
                 .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
         Widget timeseriesWidgetProcessQuery = new Widget().definition(timeseriesWidgetDefinitionProcessQuery);
@@ -404,11 +404,11 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).displayType(WidgetDisplayType.LINE)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
-                .addMarkersItem(new WidgetMarkers()
+                .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
                         .time(WidgetLiveSpan.PAST_FOUR_HOURS.toString()))
                 .title("Test Timeseries Widget with Log Query").showLegend(true)
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16")
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
                 .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
         Widget timeseriesWidgetLogQuery = new Widget().definition(timeseriesWidgetDefinitionLogQuery);
@@ -429,11 +429,11 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).displayType(WidgetDisplayType.LINE)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
-                .addMarkersItem(new WidgetMarkers()
+                .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
                         .time(WidgetLiveSpan.PAST_FOUR_HOURS.toString()))
                 .title("Test Timeseries Widget with Event Query").showLegend(true)
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16")
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
                 .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
         Widget timeseriesWidgetEventQuery = new Widget().definition(timeseriesWidgetDefinitionEventQuery);
@@ -452,7 +452,7 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
                         )
                 ).title("Test Toplist Widget")
-                .titleAlign(WidgetTitleAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
         Widget toplistWidget = new Widget().definition(toplistWidgetDefinition);
         orderedWidgetList.add(toplistWidget);
 
