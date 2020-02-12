@@ -83,7 +83,7 @@ public class DashboardListsApiTest extends V2APITest {
 
         DashboardListItems getResponse = api.getDashboardListItems(dashboardListID).execute();
         assertNotNull(getResponse.getTotal());
-        assertEquals(0, (int) getResponse.getTotal());
+        assertEquals(0, (long) getResponse.getTotal());
         assertEquals(0, getResponse.getDashboards().size());
 
         DashboardListItems updateResponse = api.updateDashboardListItems(dashboardListID).body(body).execute();
@@ -102,7 +102,7 @@ public class DashboardListsApiTest extends V2APITest {
         assertNotNull(getResponse.getDashboards());
         assertNotNull(getResponse.getTotal());
         assertEquals(1, getResponse.getDashboards().size());
-        assertEquals(1, (int) getResponse.getTotal());
+        assertEquals(1, (long) getResponse.getTotal());
         assertTrue(getResponse.getDashboards().get(0).getIsReadOnly());
         assertTrue(getResponse.getDashboards().get(0).getIsShared());
         assertEquals(CUSTOM_SCREENBOARD_ID, getResponse.getDashboards().get(0).getId());
