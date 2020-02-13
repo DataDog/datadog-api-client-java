@@ -308,8 +308,9 @@ public class DashboardsApiTest extends V1ApiTest{
                 .titleSize("16")
                 .titleAlign(WidgetTextAlign.CENTER)
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_HOUR));
-        Widget serviceSummaryWidget = new Widget().definition(serviceMapWidgetDefinition);
-        orderedWidgetList.add(serviceSummaryWidget);
+        Widget serviceSummaryWidget = new Widget().definition(serviceSummaryWidgetDefinition)
+                .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
+        freeWidgetList.add(serviceSummaryWidget);
 
         // Table Widget
         TableWidgetDefinition tableWidgetDefinition = new TableWidgetDefinition()
@@ -484,7 +485,6 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(scatterPlotWidget)
                 .addWidgetsItem(sloWidget)
                 .addWidgetsItem(serviceMapWidget)
-                .addWidgetsItem(serviceSummaryWidget)
                 .addWidgetsItem(tableWidget)
                 .addWidgetsItem(timeseriesWidget)
                 .addWidgetsItem(timeseriesWidgetProcessQuery)
@@ -496,7 +496,6 @@ public class DashboardsApiTest extends V1ApiTest{
                 .isReadOnly(false)
                 .templateVariables(templateVariables)
                 .addTemplateVariablePresetsItem(dashboardTemplateVariablePreset);
-
         // Create ordered dashboard with all expected fields
         Dashboard response = api.createDashboard()
                 .body(dashboard)
@@ -517,6 +516,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(imageWidget)
                 .addWidgetsItem(logStreamWidget)
                 .addWidgetsItem(monitorSummaryWidget)
+                .addWidgetsItem(serviceSummaryWidget)
                 .title("Java Client Test Free Dashboard")
                 .description("Test Free layout dashboard for Java client")
                 .isReadOnly(false)
