@@ -76,7 +76,7 @@ public class LogsApiTest  extends V1ApiTest {
     @Test
     public void sendLogTest() throws ApiException, TestUtils.RetryException {
         OffsetDateTime now = OffsetDateTime.now();
-        long nowNano = now.toEpochSecond();
+        long nowNano = now.toEpochSecond() * 1000000 + now.getNano();
         String source = String.format("go-client-test-%d", nowNano);
         String message = String.format("test-log-list-%d", nowNano);
         String hostname = String.format("datadog-api-client-java-test-%d", nowNano);
@@ -85,12 +85,12 @@ public class LogsApiTest  extends V1ApiTest {
             .ddsource(source)
             .ddtags("java,test,list")
             .hostname(hostname)
-            .message(message);
+            .message(String.format("{\"timestamp\": %d, \"message\": \"%s\"}", (now.toEpochSecond() - 1) * 1000, message));
 
         api.sendLog().body(httpLog).execute();
 
         String secondMessage = "second-" + message;
-        httpLog.setMessage(secondMessage);
+        httpLog.setMessage(String.format("{\"timestamp\": %d, \"message\": \"%s\"}", now.toEpochSecond() * 1000, secondMessage));
 
         api.sendLog().body(httpLog).execute();
 
