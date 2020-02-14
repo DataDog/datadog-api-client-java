@@ -51,8 +51,6 @@ import com.datadog.api.v1.client.auth.Authentication;
 import com.datadog.api.v1.client.auth.HttpBasicAuth;
 import com.datadog.api.v1.client.auth.HttpBearerAuth;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
-import com.datadog.api.v1.client.ServerConfiguration;
-import com.datadog.api.v1.client.ServerVariable;
 
 
 
@@ -148,7 +146,7 @@ public class ApiClient {
         }}
       )
     )));
-    put("LogsHttpIntakeApi.sendLog", new ArrayList<ServerConfiguration>(Arrays.asList(
+    put("LogsApi.sendLog", new ArrayList<ServerConfiguration>(Arrays.asList(
       new ServerConfiguration(
         "https://{subdomain}.{site}",
         "No description provided",
