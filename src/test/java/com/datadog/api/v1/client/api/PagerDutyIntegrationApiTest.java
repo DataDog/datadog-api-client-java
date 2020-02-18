@@ -12,8 +12,9 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.APIErrorResponse;
-import com.datadog.api.v1.client.model.PagerDuty;
+import com.datadog.api.v1.client.model.PagerDutyIntegration;
 import com.datadog.api.v1.client.model.PagerDutyService;
 import com.datadog.api.v1.client.model.PagerDutyServicesAndSchedules;
 
@@ -80,15 +81,16 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     public void lifecyclePagerDutyIntegrationTest() throws ApiException, TestUtils.RetryException {
         ensureNoPagerDuty();
 
-        PagerDuty body = new PagerDuty()
+        PagerDutyIntegration body = new PagerDutyIntegration()
             .subdomain("_deadbeef")
             .apiToken("y_NbAkKc66ryYTWUXYEu");
 
-        api.createPagerDutyIntegration()
+        ApiResponse<Void> response = api.createPagerDutyIntegration()
             .body(body)
-            .execute();
+            .executeWithHttpInfo();
+        assertEquals(204, response.getStatusCode());
 
-        PagerDuty pagerDuty = api.getPagerDutyIntegration().execute();
+        PagerDutyIntegration pagerDuty = api.getPagerDutyIntegration().execute();
         assertEquals(body.getSubdomain(), pagerDuty.getSubdomain());
 
         PagerDutyServicesAndSchedules servicesAndSchedules = new PagerDutyServicesAndSchedules()
@@ -103,7 +105,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
                 .body(servicesAndSchedules)
                 .execute();
 
-        PagerDuty updatedPagerDuty = api.getPagerDutyIntegration().execute();
+        PagerDutyIntegration updatedPagerDuty = api.getPagerDutyIntegration().execute();
 
         assertEquals(pagerDuty.getSubdomain(), updatedPagerDuty.getSubdomain());
         for (int index = 0; index < updatedPagerDuty.getServices().size(); index++) {
@@ -121,7 +123,8 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     public void deletePagerDutyIntegrationTest() throws ApiException, TestUtils.RetryException {
         ensureNoPagerDuty();
 
-        String response = api.deletePagerDutyIntegration().execute();
+        ApiResponse<Void> response = api.deletePagerDutyIntegration().executeWithHttpInfo();
+        assertEquals(204, response.getStatusCode());
     }
 
     /**
