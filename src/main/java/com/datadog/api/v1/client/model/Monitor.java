@@ -93,12 +93,6 @@ public class Monitor {
   private MonitorType type;
 
 
-  public Monitor created(OffsetDateTime created) {
-    
-    this.created = created;
-    return this;
-  }
-
    /**
    * Get created
    * @return created
@@ -113,9 +107,6 @@ public class Monitor {
   }
 
 
-  public void setCreated(OffsetDateTime created) {
-    this.created = created;
-  }
 
 
   public Monitor creator(Creator creator) {
@@ -143,12 +134,6 @@ public class Monitor {
   }
 
 
-  public Monitor deleted(OffsetDateTime deleted) {
-    
-    this.deleted = deleted;
-    return this;
-  }
-
    /**
    * Get deleted
    * @return deleted
@@ -163,16 +148,7 @@ public class Monitor {
   }
 
 
-  public void setDeleted(OffsetDateTime deleted) {
-    this.deleted = deleted;
-  }
 
-
-  public Monitor id(Long id) {
-    
-    this.id = id;
-    return this;
-  }
 
    /**
    * ID of this monitor
@@ -188,9 +164,6 @@ public class Monitor {
   }
 
 
-  public void setId(Long id) {
-    this.id = id;
-  }
 
 
   public Monitor message(String message) {
@@ -218,12 +191,6 @@ public class Monitor {
   }
 
 
-  public Monitor modified(OffsetDateTime modified) {
-    
-    this.modified = modified;
-    return this;
-  }
-
    /**
    * Get modified
    * @return modified
@@ -238,16 +205,7 @@ public class Monitor {
   }
 
 
-  public void setModified(OffsetDateTime modified) {
-    this.modified = modified;
-  }
 
-
-  public Monitor multi(Boolean multi) {
-    
-    this.multi = multi;
-    return this;
-  }
 
    /**
    * Get multi
@@ -263,9 +221,6 @@ public class Monitor {
   }
 
 
-  public void setMulti(Boolean multi) {
-    this.multi = multi;
-  }
 
 
   public Monitor name(String name) {

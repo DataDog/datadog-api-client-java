@@ -6,13 +6,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**created** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional] [readonly]
 **creator** | [**Creator**](Creator.md) |  |  [optional]
-**deleted** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**id** | **Long** | ID of this monitor |  [optional]
+**deleted** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional] [readonly]
+**id** | **Long** | ID of this monitor |  [optional] [readonly]
 **message** | **String** | A message to include with notifications for this monitor. |  [optional]
-**modified** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**multi** | **Boolean** |  |  [optional]
+**modified** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional] [readonly]
+**multi** | **Boolean** |  |  [optional] [readonly]
 **name** | **String** |  |  [optional]
 **options** | [**MonitorOptions**](MonitorOptions.md) |  |  [optional]
 **overallState** | [**MonitorOverallStates**](MonitorOverallStates.md) |  |  [optional]

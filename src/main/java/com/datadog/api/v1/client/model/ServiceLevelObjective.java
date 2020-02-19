@@ -96,12 +96,6 @@ public class ServiceLevelObjective {
   private ServiceLevelObjectiveTypeNumeric typeId;
 
 
-  public ServiceLevelObjective createdAt(Long createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
    /**
    * Creation timestamp (unix time in seconds) Always included in service level objective responses.
    * @return createdAt
@@ -116,9 +110,6 @@ public class ServiceLevelObjective {
   }
 
 
-  public void setCreatedAt(Long createdAt) {
-    this.createdAt = createdAt;
-  }
 
 
   public ServiceLevelObjective creator(Creator creator) {
@@ -239,12 +230,6 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective modifiedAt(Long modifiedAt) {
-    
-    this.modifiedAt = modifiedAt;
-    return this;
-  }
-
    /**
    * Modification timestamp (unix time in seconds) Always included in service level objective responses.
    * @return modifiedAt
@@ -259,9 +244,6 @@ public class ServiceLevelObjective {
   }
 
 
-  public void setModifiedAt(Long modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
 
 
   public ServiceLevelObjective monitorIds(List<Long> monitorIds) {
