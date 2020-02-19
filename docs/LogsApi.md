@@ -80,17 +80,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
         
-        // Configure API key authorization: apiKeyAuthHeader
-        ApiKeyAuth apiKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuthHeader");
-        apiKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuthHeader.setApiKeyPrefix("Token");
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-        // Configure API key authorization: appKeyAuthHeader
-        ApiKeyAuth appKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuthHeader");
-        appKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuthHeader.setApiKeyPrefix("Token");
+        //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsApi apiInstance = new LogsApi(defaultClient);
         LogsListRequest body = new LogsListRequest(); // LogsListRequest | Logs filter
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [appKeyAuthHeader](../README.md#appKeyAuthHeader)
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -162,11 +162,11 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
         
-        // Configure API key authorization: apiKeyAuthHeader
-        ApiKeyAuth apiKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuthHeader");
-        apiKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuthHeader.setApiKeyPrefix("Token");
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
         LogsApi apiInstance = new LogsApi(defaultClient);
         HTTPLog body = new HTTPLog(); // HTTPLog | Log to send (JSON format)
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuthHeader](../README.md#apiKeyAuthHeader)
+[apiKeyAuth](../README.md#apiKeyAuth)
 
 ### HTTP request headers
 

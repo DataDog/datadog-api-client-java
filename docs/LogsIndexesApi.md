@@ -39,17 +39,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
         
-        // Configure API key authorization: apiKeyAuthHeader
-        ApiKeyAuth apiKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuthHeader");
-        apiKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuthHeader.setApiKeyPrefix("Token");
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-        // Configure API key authorization: appKeyAuthHeader
-        ApiKeyAuth appKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuthHeader");
-        appKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuthHeader.setApiKeyPrefix("Token");
+        //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         try {
@@ -77,7 +77,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [appKeyAuthHeader](../README.md#appKeyAuthHeader)
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -118,17 +118,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
         
-        // Configure API key authorization: apiKeyAuthHeader
-        ApiKeyAuth apiKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuthHeader");
-        apiKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuthHeader.setApiKeyPrefix("Token");
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-        // Configure API key authorization: appKeyAuthHeader
-        ApiKeyAuth appKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuthHeader");
-        appKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuthHeader.setApiKeyPrefix("Token");
+        //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         String name = "name_example"; // String | Name of the log index
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [appKeyAuthHeader](../README.md#appKeyAuthHeader)
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -202,17 +202,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
         
-        // Configure API key authorization: apiKeyAuthHeader
-        ApiKeyAuth apiKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuthHeader");
-        apiKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuthHeader.setApiKeyPrefix("Token");
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-        // Configure API key authorization: appKeyAuthHeader
-        ApiKeyAuth appKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuthHeader");
-        appKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuthHeader.setApiKeyPrefix("Token");
+        //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         try {
@@ -240,7 +240,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [appKeyAuthHeader](../README.md#appKeyAuthHeader)
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -300,17 +300,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
         
-        // Configure API key authorization: apiKeyAuthHeader
-        ApiKeyAuth apiKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuthHeader");
-        apiKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuthHeader.setApiKeyPrefix("Token");
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-        // Configure API key authorization: appKeyAuthHeader
-        ApiKeyAuth appKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuthHeader");
-        appKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuthHeader.setApiKeyPrefix("Token");
+        //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         String name = "name_example"; // String | Name of the log index
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [appKeyAuthHeader](../README.md#appKeyAuthHeader)
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
 
 ### HTTP request headers
 
@@ -388,17 +388,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
         
-        // Configure API key authorization: apiKeyAuthHeader
-        ApiKeyAuth apiKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuthHeader");
-        apiKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuthHeader.setApiKeyPrefix("Token");
+        //apiKeyAuth.setApiKeyPrefix("Token");
 
-        // Configure API key authorization: appKeyAuthHeader
-        ApiKeyAuth appKeyAuthHeader = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuthHeader");
-        appKeyAuthHeader.setApiKey("YOUR API KEY");
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuthHeader.setApiKeyPrefix("Token");
+        //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         LogsIndexesOrder body = new LogsIndexesOrder(); // LogsIndexesOrder | Object containing the new ordered list of index names
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [appKeyAuthHeader](../README.md#appKeyAuthHeader)
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
 
 ### HTTP request headers
 

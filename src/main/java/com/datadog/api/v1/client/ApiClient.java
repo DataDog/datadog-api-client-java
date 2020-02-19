@@ -216,17 +216,17 @@ public class ApiClient {
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
-    authentications.put("apiKeyAuth", new ApiKeyAuth("query", "api_key"));
-    authentications.put("apiKeyAuthHeader", new ApiKeyAuth("header", "DD-API-KEY"));
-    authentications.put("appKeyAuth", new ApiKeyAuth("query", "application_key"));
-    authentications.put("appKeyAuthHeader", new ApiKeyAuth("header", "DD-APPLICATION-KEY"));
+    authentications.put("apiKeyAuth", new ApiKeyAuth("header", "DD-API-KEY"));
+    authentications.put("apiKeyAuthQuery", new ApiKeyAuth("query", "api_key"));
+    authentications.put("appKeyAuth", new ApiKeyAuth("header", "DD-APPLICATION-KEY"));
+    authentications.put("appKeyAuthQuery", new ApiKeyAuth("query", "application_key"));
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 
     // Setup authentication lookup (key: authentication alias, value: authentication name)
     authenticationLookup = new HashMap<String, String>();
-    authenticationLookup.put("apiKeyAuthHeader", "apiKeyAuth");
-    authenticationLookup.put("appKeyAuthHeader", "appKeyAuth");
+    authenticationLookup.put("apiKeyAuthQuery", "apiKeyAuth");
+    authenticationLookup.put("appKeyAuthQuery", "appKeyAuth");
   }
 
   /**

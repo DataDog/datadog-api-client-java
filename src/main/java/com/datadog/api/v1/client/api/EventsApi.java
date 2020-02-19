@@ -70,7 +70,7 @@ private ApiResponse<EventResponse> createEventWithHttpInfo(Event body) throws Ap
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] { "apiKeyAuthQuery" };
 
     GenericType<EventResponse> localVarReturnType = new GenericType<EventResponse>() {};
     return apiClient.invokeAPI("EventsApi.createEvent", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
