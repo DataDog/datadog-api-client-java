@@ -71,7 +71,7 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuthHeader", "appKeyAuthHeader" };
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsListResponse> localVarReturnType = new GenericType<LogsListResponse>() {};
     return apiClient.invokeAPI("LogsApi.listLogs", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
@@ -176,7 +176,7 @@ private ApiResponse<Object> sendLogWithHttpInfo(HTTPLog body) throws ApiExceptio
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuthHeader" };
+    String[] localVarAuthNames = new String[] { "apiKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
     return apiClient.invokeAPI("LogsApi.sendLog", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);

@@ -118,7 +118,7 @@ public class HostsApiTest extends V1ApiTest {
         assertEquals("Unmuted", hostMuteResp.getAction());
         assertEquals(hostname, hostMuteResp.getHostname());
     }
-    
+
     /**
      * Get total number of active hosts in your Datadog Account
      *
@@ -130,8 +130,6 @@ public class HostsApiTest extends V1ApiTest {
     @Test
     public void hostTotalsMockedTest() throws ApiException, IOException {
         stubFor(get(urlPathEqualTo("/api/v1/hosts/totals"))
-                .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
-                .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
                 .withQueryParam("from", equalTo("123"))
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/hosts_fixtures/host_totals.json")))
         );
@@ -152,8 +150,6 @@ public class HostsApiTest extends V1ApiTest {
     public void hostsSearchMockedTest() throws ApiException, IOException {
         String fixtureData = TestUtils.getFixture("v1/client/api/hosts_fixtures/host_search.json");
         stubFor(get(urlPathEqualTo("/api/v1/hosts"))
-                .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
-                .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
                 .withQueryParam("filter", equalTo("filter string"))
                 .withQueryParam("count", equalTo("4"))
                 .withQueryParam("from", equalTo("123"))
@@ -176,5 +172,5 @@ public class HostsApiTest extends V1ApiTest {
 
         assertEquals(expected, response);
     }
-    
+
 }

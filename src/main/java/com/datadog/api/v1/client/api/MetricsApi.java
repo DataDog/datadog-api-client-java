@@ -642,7 +642,7 @@ private ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(MetricsPayl
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] { "apiKeyAuthQuery" };
 
     GenericType<IntakePayloadAccepted> localVarReturnType = new GenericType<IntakePayloadAccepted>() {};
     return apiClient.invokeAPI("MetricsApi.submitMetrics", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);

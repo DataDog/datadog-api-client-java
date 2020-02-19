@@ -56,24 +56,22 @@ public abstract class V1ApiTest extends TestUtils.APITest {
 
         switch (httpMethod) {
             case "get":
-                stub = get(urlMatching(Urlpath + "\\?.*"));
+                stub = get(urlMatching(Urlpath + "(\\?.*)?"));
                 break;
             case "post":
-                stub = post(urlMatching(Urlpath + "\\?.*"));
+                stub = post(urlMatching(Urlpath + "(\\?.*)?"));
                 break;
             case "put":
-                stub = put(urlMatching(Urlpath + "\\?.*"));
+                stub = put(urlMatching(Urlpath + "(\\?.*)?"));
                 break;
             case "delete":
-                stub = delete(urlMatching(Urlpath + "\\?.*"));
+                stub = delete(urlMatching(Urlpath + "(\\?.*)?"));
                 break;
         }
-        stub.withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
-                .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
-                .willReturn(aResponse()
-                        .withStatus(200)
-                        .withHeader("Content-Type", "application/json")
-                        .withBody(TestUtils.getFixture(fixturePath)));
+        stub.willReturn(aResponse()
+                .withStatus(200)
+                .withHeader("Content-Type", "application/json")
+                .withBody(TestUtils.getFixture(fixturePath)));
         return stub;
     }
 

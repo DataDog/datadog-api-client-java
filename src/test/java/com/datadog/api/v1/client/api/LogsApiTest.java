@@ -55,7 +55,7 @@ public class LogsApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void sendLogTest() throws ApiException, TestUtils.RetryException {
+    public void sendLogTest() throws ApiException, TestUtils.RetryException, InterruptedException {
         OffsetDateTime now = OffsetDateTime.now();
         long nowNano = now.toEpochSecond() * 1000000 + now.getNano();
         String source = String.format("go-client-test-%d", nowNano);
@@ -69,6 +69,8 @@ public class LogsApiTest extends V1ApiTest {
             .message(String.format("{\"timestamp\": %d, \"message\": \"%s\"}", (now.toEpochSecond() - 1) * 1000, message));
 
         api.sendLog().body(httpLog).execute();
+
+        Thread.sleep(500);
 
         String secondMessage = "second-" + message;
         httpLog.setMessage(String.format("{\"timestamp\": %d, \"message\": \"%s\"}", now.toEpochSecond() * 1000, secondMessage));

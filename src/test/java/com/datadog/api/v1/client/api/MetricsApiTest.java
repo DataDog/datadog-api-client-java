@@ -158,7 +158,6 @@ public class MetricsApiTest extends V1ApiTest {
         // Test that a normal submission works
         stubFor(post(urlPathEqualTo("/api/v1/series"))
             .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
-            .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
             .withRequestBody(equalToJson(TestUtils.getFixture("v1/client/api/metrics_fixtures/normal_submission.json"), true, false))
             .willReturn(okJson("{\"status\": \"ok\"}"))
         );
@@ -172,7 +171,6 @@ public class MetricsApiTest extends V1ApiTest {
 
         stubFor(post(urlPathEqualTo("/api/v1/series"))
             .withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
-            .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
             .withRequestBody(equalToJson(TestUtils.getFixture("v1/client/api/metrics_fixtures/default_submission.json"), true, false))
             .willReturn(okJson("{\"status\": \"ok\"}"))
         );
