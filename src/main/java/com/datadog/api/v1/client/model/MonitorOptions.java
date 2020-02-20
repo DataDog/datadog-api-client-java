@@ -27,6 +27,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -69,7 +72,7 @@ public class MonitorOptions {
   private String escalationMessage;
 
   public static final String JSON_PROPERTY_EVALUATION_DELAY = "evaluation_delay";
-  private Long evaluationDelay;
+  private JsonNullable<Long> evaluationDelay = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
   private Boolean includeTags;
@@ -78,16 +81,16 @@ public class MonitorOptions {
   private Boolean locked;
 
   public static final String JSON_PROPERTY_MIN_FAILURE_DURATION = "min_failure_duration";
-  private Long minFailureDuration;
+  private JsonNullable<Long> minFailureDuration = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_MIN_LOCATION_FAILED = "min_location_failed";
-  private Long minLocationFailed;
+  private JsonNullable<Long> minLocationFailed = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NEW_HOST_DELAY = "new_host_delay";
-  private Long newHostDelay;
+  private JsonNullable<Long> newHostDelay = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NO_DATA_TIMEFRAME = "no_data_timeframe";
-  private Long noDataTimeframe;
+  private JsonNullable<Long> noDataTimeframe = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NOTIFY_AUDIT = "notify_audit";
   private Boolean notifyAudit;
@@ -96,7 +99,7 @@ public class MonitorOptions {
   private Boolean notifyNoData;
 
   public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
-  private Long renotifyInterval;
+  private JsonNullable<Long> renotifyInterval = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
   private Boolean requireFullWindow;
@@ -105,7 +108,7 @@ public class MonitorOptions {
   private Map<String, Long> silenced = null;
 
   public static final String JSON_PROPERTY_SYNTHETICS_CHECK_ID = "synthetics_check_id";
-  private Long syntheticsCheckId;
+  private JsonNullable<Long> syntheticsCheckId = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_THRESHOLD_WINDOWS = "threshold_windows";
   private MonitorThresholdWindowOptions thresholdWindows;
@@ -114,7 +117,7 @@ public class MonitorOptions {
   private MonitorThresholds thresholds;
 
   public static final String JSON_PROPERTY_TIMEOUT_H = "timeout_h";
-  private Long timeoutH;
+  private JsonNullable<Long> timeoutH = JsonNullable.<Long>undefined();
 
 
   public MonitorOptions aggregation(MonitorOptionsAggregation aggregation) {
@@ -226,8 +229,8 @@ public class MonitorOptions {
 
 
   public MonitorOptions evaluationDelay(Long evaluationDelay) {
+    this.evaluationDelay = JsonNullable.<Long>of(evaluationDelay);
     
-    this.evaluationDelay = evaluationDelay;
     return this;
   }
 
@@ -237,16 +240,26 @@ public class MonitorOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Long getEvaluationDelay() {
+        return evaluationDelay.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_EVALUATION_DELAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getEvaluationDelay() {
+  public JsonNullable<Long> getEvaluationDelay_JsonNullable() {
     return evaluationDelay;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_EVALUATION_DELAY)
+  public void setEvaluationDelay_JsonNullable(JsonNullable<Long> evaluationDelay) {
+    this.evaluationDelay = evaluationDelay;
+  }
 
   public void setEvaluationDelay(Long evaluationDelay) {
-    this.evaluationDelay = evaluationDelay;
+    this.evaluationDelay = JsonNullable.<Long>of(evaluationDelay);
   }
 
 
@@ -301,8 +314,8 @@ public class MonitorOptions {
 
 
   public MonitorOptions minFailureDuration(Long minFailureDuration) {
+    this.minFailureDuration = JsonNullable.<Long>of(minFailureDuration);
     
-    this.minFailureDuration = minFailureDuration;
     return this;
   }
 
@@ -314,22 +327,32 @@ public class MonitorOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Long getMinFailureDuration() {
+        return minFailureDuration.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getMinFailureDuration() {
+  public JsonNullable<Long> getMinFailureDuration_JsonNullable() {
     return minFailureDuration;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
+  public void setMinFailureDuration_JsonNullable(JsonNullable<Long> minFailureDuration) {
+    this.minFailureDuration = minFailureDuration;
+  }
 
   public void setMinFailureDuration(Long minFailureDuration) {
-    this.minFailureDuration = minFailureDuration;
+    this.minFailureDuration = JsonNullable.<Long>of(minFailureDuration);
   }
 
 
   public MonitorOptions minLocationFailed(Long minLocationFailed) {
+    this.minLocationFailed = JsonNullable.<Long>of(minLocationFailed);
     
-    this.minLocationFailed = minLocationFailed;
     return this;
   }
 
@@ -339,22 +362,32 @@ public class MonitorOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Long getMinLocationFailed() {
+        return minLocationFailed.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getMinLocationFailed() {
+  public JsonNullable<Long> getMinLocationFailed_JsonNullable() {
     return minLocationFailed;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
+  public void setMinLocationFailed_JsonNullable(JsonNullable<Long> minLocationFailed) {
+    this.minLocationFailed = minLocationFailed;
+  }
 
   public void setMinLocationFailed(Long minLocationFailed) {
-    this.minLocationFailed = minLocationFailed;
+    this.minLocationFailed = JsonNullable.<Long>of(minLocationFailed);
   }
 
 
   public MonitorOptions newHostDelay(Long newHostDelay) {
+    this.newHostDelay = JsonNullable.<Long>of(newHostDelay);
     
-    this.newHostDelay = newHostDelay;
     return this;
   }
 
@@ -364,22 +397,32 @@ public class MonitorOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Long getNewHostDelay() {
+        return newHostDelay.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NEW_HOST_DELAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getNewHostDelay() {
+  public JsonNullable<Long> getNewHostDelay_JsonNullable() {
     return newHostDelay;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_NEW_HOST_DELAY)
+  public void setNewHostDelay_JsonNullable(JsonNullable<Long> newHostDelay) {
+    this.newHostDelay = newHostDelay;
+  }
 
   public void setNewHostDelay(Long newHostDelay) {
-    this.newHostDelay = newHostDelay;
+    this.newHostDelay = JsonNullable.<Long>of(newHostDelay);
   }
 
 
   public MonitorOptions noDataTimeframe(Long noDataTimeframe) {
+    this.noDataTimeframe = JsonNullable.<Long>of(noDataTimeframe);
     
-    this.noDataTimeframe = noDataTimeframe;
     return this;
   }
 
@@ -389,16 +432,26 @@ public class MonitorOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Long getNoDataTimeframe() {
+        return noDataTimeframe.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NO_DATA_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getNoDataTimeframe() {
+  public JsonNullable<Long> getNoDataTimeframe_JsonNullable() {
     return noDataTimeframe;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_NO_DATA_TIMEFRAME)
+  public void setNoDataTimeframe_JsonNullable(JsonNullable<Long> noDataTimeframe) {
+    this.noDataTimeframe = noDataTimeframe;
+  }
 
   public void setNoDataTimeframe(Long noDataTimeframe) {
-    this.noDataTimeframe = noDataTimeframe;
+    this.noDataTimeframe = JsonNullable.<Long>of(noDataTimeframe);
   }
 
 
@@ -453,8 +506,8 @@ public class MonitorOptions {
 
 
   public MonitorOptions renotifyInterval(Long renotifyInterval) {
+    this.renotifyInterval = JsonNullable.<Long>of(renotifyInterval);
     
-    this.renotifyInterval = renotifyInterval;
     return this;
   }
 
@@ -464,16 +517,26 @@ public class MonitorOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Long getRenotifyInterval() {
+        return renotifyInterval.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getRenotifyInterval() {
+  public JsonNullable<Long> getRenotifyInterval_JsonNullable() {
     return renotifyInterval;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
+  public void setRenotifyInterval_JsonNullable(JsonNullable<Long> renotifyInterval) {
+    this.renotifyInterval = renotifyInterval;
+  }
 
   public void setRenotifyInterval(Long renotifyInterval) {
-    this.renotifyInterval = renotifyInterval;
+    this.renotifyInterval = JsonNullable.<Long>of(renotifyInterval);
   }
 
 
@@ -536,8 +599,8 @@ public class MonitorOptions {
 
 
   public MonitorOptions syntheticsCheckId(Long syntheticsCheckId) {
+    this.syntheticsCheckId = JsonNullable.<Long>of(syntheticsCheckId);
     
-    this.syntheticsCheckId = syntheticsCheckId;
     return this;
   }
 
@@ -547,16 +610,26 @@ public class MonitorOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Long getSyntheticsCheckId() {
+        return syntheticsCheckId.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getSyntheticsCheckId() {
+  public JsonNullable<Long> getSyntheticsCheckId_JsonNullable() {
     return syntheticsCheckId;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
+  public void setSyntheticsCheckId_JsonNullable(JsonNullable<Long> syntheticsCheckId) {
+    this.syntheticsCheckId = syntheticsCheckId;
+  }
 
   public void setSyntheticsCheckId(Long syntheticsCheckId) {
-    this.syntheticsCheckId = syntheticsCheckId;
+    this.syntheticsCheckId = JsonNullable.<Long>of(syntheticsCheckId);
   }
 
 
@@ -611,8 +684,8 @@ public class MonitorOptions {
 
 
   public MonitorOptions timeoutH(Long timeoutH) {
+    this.timeoutH = JsonNullable.<Long>of(timeoutH);
     
-    this.timeoutH = timeoutH;
     return this;
   }
 
@@ -622,16 +695,26 @@ public class MonitorOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Long getTimeoutH() {
+        return timeoutH.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TIMEOUT_H)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getTimeoutH() {
+  public JsonNullable<Long> getTimeoutH_JsonNullable() {
     return timeoutH;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_TIMEOUT_H)
+  public void setTimeoutH_JsonNullable(JsonNullable<Long> timeoutH) {
+    this.timeoutH = timeoutH;
+  }
 
   public void setTimeoutH(Long timeoutH) {
-    this.timeoutH = timeoutH;
+    this.timeoutH = JsonNullable.<Long>of(timeoutH);
   }
 
 
