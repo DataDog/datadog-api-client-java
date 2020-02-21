@@ -253,10 +253,7 @@ public class ApiClient {
   }
 
   /**
-   * Helper method to configure authentications.
-   *
-   * NOTE: This method respects API key aliases using "x-lookup" property
-   *       from OpenAPI specification.
+   * Helper method to configure authentications which respects aliases of API keys.
    *
    * @param secrets Hash map from authentication name to its secret.
    */
@@ -265,7 +262,7 @@ public class ApiClient {
       Authentication auth = authEntry.getValue();
       if (auth instanceof ApiKeyAuth) {
         String name = authEntry.getKey();
-        // respect x-lookup property
+        // respect x-auth-id-alias property
         name = authenticationLookup.getOrDefault(name, name);
         if (secrets.containsKey(name)) {
           ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
