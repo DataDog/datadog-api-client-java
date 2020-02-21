@@ -495,7 +495,8 @@ public class DashboardsApiTest extends V1ApiTest{
                 .description("Test dashboard for Java client")
                 .isReadOnly(false)
                 .templateVariables(templateVariables)
-                .addTemplateVariablePresetsItem(dashboardTemplateVariablePreset);
+                .addTemplateVariablePresetsItem(dashboardTemplateVariablePreset)
+                .addNotifyListItem("test@example.com");
         // Create ordered dashboard with all expected fields
         Dashboard response = api.createDashboard()
                 .body(dashboard)
@@ -530,6 +531,7 @@ public class DashboardsApiTest extends V1ApiTest{
         assertEquals(dashboard.getTitle(), response.getTitle());
         assertEquals(dashboard.getDescription(), response.getDescription());
         assertEquals(dashboard.getIsReadOnly(), response.getIsReadOnly());
+        assertEquals(dashboard.getNotifyList(), response.getNotifyList());
         // The end of the url is a normalized version fo the title, so lets just check the beginning of the URL
         assertTrue(response.getUrl().contains(String.format("/dashboard/%s", response.getId())));
         assertNotNull(response.getCreatedAt());
@@ -564,15 +566,21 @@ public class DashboardsApiTest extends V1ApiTest{
         }
         assertEquals(new HashSet<>(getFreeResponse.getWidgets()), freeWidgetList);
 
-        // Update the dashboard
-        dashboard.description("Updated dashboard description")
+        // Update the dashboard and set all nullable fields to null
+        dashboard.description(null)
+                .templateVariables(null)
+                .templateVariablePresets(null)
+                .notifyList(null)
                 .addWidgetsItem(noteWidget
                         .definition(noteDefinition
                                 .content("Updated content").fontSize("30")
                         )
                 );
         Dashboard updateResponse = api.updateDashboard(response.getId()).body(dashboard).execute();
-        assertEquals(dashboard.getDescription(), updateResponse.getDescription());
+        assertNull(dashboard.getDescription());
+        assertNull(dashboard.getTemplateVariables());
+        assertNull(dashboard.getTemplateVariablePresets());
+        assertNull(dashboard.getNotifyList());
         assertEquals(dashboard.getTitle(), updateResponse.getTitle());
         assertEquals(dashboard.getWidgets().get(0), updateResponse.getWidgets().get(0).id(null));
         Boolean foundWidget = false;
