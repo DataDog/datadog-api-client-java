@@ -8,10 +8,7 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.Error408;
-import com.datadog.api.v1.client.model.Error413;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.IntakePayloadAccepted;
 import com.datadog.api.v1.client.model.ServiceCheck;
 
@@ -71,7 +68,7 @@ private ApiResponse<IntakePayloadAccepted> submitServiceCheckWithHttpInfo(List<S
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] { "apiKeyAuthQuery" };
 
     GenericType<IntakePayloadAccepted> localVarReturnType = new GenericType<IntakePayloadAccepted>() {};
     return apiClient.invokeAPI("ServiceChecksApi.submitServiceCheck", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);

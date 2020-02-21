@@ -8,13 +8,12 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.AWSAccountAndLambdaRequest;
 import com.datadog.api.v1.client.model.AWSLogsAsyncResponse;
 import com.datadog.api.v1.client.model.AWSLogsListResponse;
 import com.datadog.api.v1.client.model.AWSLogsListServicesResponse;
 import com.datadog.api.v1.client.model.AWSLogsServicesRequest;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error403;
 
 import java.util.ArrayList;
 import java.util.HashMap;

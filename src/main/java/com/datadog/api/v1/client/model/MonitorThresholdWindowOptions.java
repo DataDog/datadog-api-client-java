@@ -19,6 +19,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -31,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class MonitorThresholdWindowOptions {
   public static final String JSON_PROPERTY_RECOVERY_WINDOW = "recovery_window";
-  private String recoveryWindow;
+  private JsonNullable<String> recoveryWindow = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TRIGGER_WINDOW = "trigger_window";
-  private String triggerWindow;
+  private JsonNullable<String> triggerWindow = JsonNullable.<String>undefined();
 
 
   public MonitorThresholdWindowOptions recoveryWindow(String recoveryWindow) {
+    this.recoveryWindow = JsonNullable.<String>of(recoveryWindow);
     
-    this.recoveryWindow = recoveryWindow;
     return this;
   }
 
@@ -49,22 +52,32 @@ public class MonitorThresholdWindowOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getRecoveryWindow() {
+        return recoveryWindow.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_RECOVERY_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getRecoveryWindow() {
+  public JsonNullable<String> getRecoveryWindow_JsonNullable() {
     return recoveryWindow;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_RECOVERY_WINDOW)
+  public void setRecoveryWindow_JsonNullable(JsonNullable<String> recoveryWindow) {
+    this.recoveryWindow = recoveryWindow;
+  }
 
   public void setRecoveryWindow(String recoveryWindow) {
-    this.recoveryWindow = recoveryWindow;
+    this.recoveryWindow = JsonNullable.<String>of(recoveryWindow);
   }
 
 
   public MonitorThresholdWindowOptions triggerWindow(String triggerWindow) {
+    this.triggerWindow = JsonNullable.<String>of(triggerWindow);
     
-    this.triggerWindow = triggerWindow;
     return this;
   }
 
@@ -74,16 +87,26 @@ public class MonitorThresholdWindowOptions {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getTriggerWindow() {
+        return triggerWindow.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TRIGGER_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getTriggerWindow() {
+  public JsonNullable<String> getTriggerWindow_JsonNullable() {
     return triggerWindow;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_TRIGGER_WINDOW)
+  public void setTriggerWindow_JsonNullable(JsonNullable<String> triggerWindow) {
+    this.triggerWindow = triggerWindow;
+  }
 
   public void setTriggerWindow(String triggerWindow) {
-    this.triggerWindow = triggerWindow;
+    this.triggerWindow = JsonNullable.<String>of(triggerWindow);
   }
 
 

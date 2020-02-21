@@ -16,6 +16,8 @@ import java.util.Arrays;
 import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.SLOThreshold;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveQuery;
+import com.datadog.api.v1.client.model.ServiceLevelObjectiveType;
+import com.datadog.api.v1.client.model.ServiceLevelObjectiveTypeNumeric;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -87,88 +89,12 @@ public class ServiceLevelObjective {
   public static final String JSON_PROPERTY_THRESHOLDS = "thresholds";
   private List<SLOThreshold> thresholds = new ArrayList<>();
 
-  /**
-   * The type of the service level objective.
-   */
-  public enum TypeEnum {
-    METRIC("metric"),
-    
-    MONITOR("monitor");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
-
-  /**
-   * A numeric representation of the type of the service level objective (0 for monitor, 1 for metric). Always included in service level objective responses. Ignored in create/update requests.
-   */
-  public enum TypeIdEnum {
-    NUMBER_0(0),
-    
-    NUMBER_1(1);
-
-    private Integer value;
-
-    TypeIdEnum(Integer value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public Integer getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeIdEnum fromValue(Integer value) {
-      for (TypeIdEnum b : TypeIdEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private ServiceLevelObjectiveType type;
 
   public static final String JSON_PROPERTY_TYPE_ID = "type_id";
-  private TypeIdEnum typeId;
+  private ServiceLevelObjectiveTypeNumeric typeId;
 
-
-  public ServiceLevelObjective createdAt(Long createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
 
    /**
    * Creation timestamp (unix time in seconds) Always included in service level objective responses.
@@ -184,9 +110,6 @@ public class ServiceLevelObjective {
   }
 
 
-  public void setCreatedAt(Long createdAt) {
-    this.createdAt = createdAt;
-  }
 
 
   public ServiceLevelObjective creator(Creator creator) {
@@ -307,12 +230,6 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective modifiedAt(Long modifiedAt) {
-    
-    this.modifiedAt = modifiedAt;
-    return this;
-  }
-
    /**
    * Modification timestamp (unix time in seconds) Always included in service level objective responses.
    * @return modifiedAt
@@ -327,9 +244,6 @@ public class ServiceLevelObjective {
   }
 
 
-  public void setModifiedAt(Long modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
 
 
   public ServiceLevelObjective monitorIds(List<Long> monitorIds) {
@@ -509,51 +423,51 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective type(TypeEnum type) {
+  public ServiceLevelObjective type(ServiceLevelObjectiveType type) {
     
     this.type = type;
     return this;
   }
 
    /**
-   * The type of the service level objective.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "The type of the service level objective.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TypeEnum getType() {
+  public ServiceLevelObjectiveType getType() {
     return type;
   }
 
 
-  public void setType(TypeEnum type) {
+  public void setType(ServiceLevelObjectiveType type) {
     this.type = type;
   }
 
 
-  public ServiceLevelObjective typeId(TypeIdEnum typeId) {
+  public ServiceLevelObjective typeId(ServiceLevelObjectiveTypeNumeric typeId) {
     
     this.typeId = typeId;
     return this;
   }
 
    /**
-   * A numeric representation of the type of the service level objective (0 for monitor, 1 for metric). Always included in service level objective responses. Ignored in create/update requests.
+   * Get typeId
    * @return typeId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A numeric representation of the type of the service level objective (0 for monitor, 1 for metric). Always included in service level objective responses. Ignored in create/update requests.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TypeIdEnum getTypeId() {
+  public ServiceLevelObjectiveTypeNumeric getTypeId() {
     return typeId;
   }
 
 
-  public void setTypeId(TypeIdEnum typeId) {
+  public void setTypeId(ServiceLevelObjectiveTypeNumeric typeId) {
     this.typeId = typeId;
   }
 

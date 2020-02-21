@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.AccessRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,45 +36,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 
 public class User {
-  /**
-   * Gets or Sets accessRole
-   */
-  public enum AccessRoleEnum {
-    ST("st"),
-    
-    ADM("adm"),
-    
-    RO("ro");
-
-    private String value;
-
-    AccessRoleEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static AccessRoleEnum fromValue(String value) {
-      for (AccessRoleEnum b : AccessRoleEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";
-  private AccessRoleEnum accessRole;
+  private AccessRole accessRole;
 
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
@@ -94,7 +58,7 @@ public class User {
   private Boolean verified;
 
 
-  public User accessRole(AccessRoleEnum accessRole) {
+  public User accessRole(AccessRole accessRole) {
     
     this.accessRole = accessRole;
     return this;
@@ -109,12 +73,12 @@ public class User {
   @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AccessRoleEnum getAccessRole() {
+  public AccessRole getAccessRole() {
     return accessRole;
   }
 
 
-  public void setAccessRole(AccessRoleEnum accessRole) {
+  public void setAccessRole(AccessRole accessRole) {
     this.accessRole = accessRole;
   }
 

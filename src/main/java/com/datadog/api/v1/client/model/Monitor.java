@@ -17,6 +17,7 @@ import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.MonitorOptions;
 import com.datadog.api.v1.client.model.MonitorOverallStates;
 import com.datadog.api.v1.client.model.MonitorState;
+import com.datadog.api.v1.client.model.MonitorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -88,64 +89,9 @@ public class Monitor {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
-  /**
-   * The type of the monitor
-   */
-  public enum TypeEnum {
-    COMPOSITE("composite"),
-    
-    EVENT_ALERT("event alert"),
-    
-    LOG_ALERT("log alert"),
-    
-    METRIC_ALERT("metric alert"),
-    
-    PROCESS_ALERT("process alert"),
-    
-    QUERY_ALERT("query alert"),
-    
-    SERVICE_CHECK("service check"),
-    
-    SYNTHETICS_ALERT("synthetics alert"),
-    
-    TRACE_ANALYTICS_ALERT("trace-analytics alert");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private MonitorType type;
 
-
-  public Monitor created(OffsetDateTime created) {
-    
-    this.created = created;
-    return this;
-  }
 
    /**
    * Get created
@@ -161,9 +107,6 @@ public class Monitor {
   }
 
 
-  public void setCreated(OffsetDateTime created) {
-    this.created = created;
-  }
 
 
   public Monitor creator(Creator creator) {
@@ -191,12 +134,6 @@ public class Monitor {
   }
 
 
-  public Monitor deleted(OffsetDateTime deleted) {
-    
-    this.deleted = deleted;
-    return this;
-  }
-
    /**
    * Get deleted
    * @return deleted
@@ -211,16 +148,7 @@ public class Monitor {
   }
 
 
-  public void setDeleted(OffsetDateTime deleted) {
-    this.deleted = deleted;
-  }
 
-
-  public Monitor id(Long id) {
-    
-    this.id = id;
-    return this;
-  }
 
    /**
    * ID of this monitor
@@ -236,9 +164,6 @@ public class Monitor {
   }
 
 
-  public void setId(Long id) {
-    this.id = id;
-  }
 
 
   public Monitor message(String message) {
@@ -266,12 +191,6 @@ public class Monitor {
   }
 
 
-  public Monitor modified(OffsetDateTime modified) {
-    
-    this.modified = modified;
-    return this;
-  }
-
    /**
    * Get modified
    * @return modified
@@ -286,16 +205,7 @@ public class Monitor {
   }
 
 
-  public void setModified(OffsetDateTime modified) {
-    this.modified = modified;
-  }
 
-
-  public Monitor multi(Boolean multi) {
-    
-    this.multi = multi;
-    return this;
-  }
 
    /**
    * Get multi
@@ -311,9 +221,6 @@ public class Monitor {
   }
 
 
-  public void setMulti(Boolean multi) {
-    this.multi = multi;
-  }
 
 
   public Monitor name(String name) {
@@ -474,27 +381,27 @@ public class Monitor {
   }
 
 
-  public Monitor type(TypeEnum type) {
+  public Monitor type(MonitorType type) {
     
     this.type = type;
     return this;
   }
 
    /**
-   * The type of the monitor
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of the monitor")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TypeEnum getType() {
+  public MonitorType getType() {
     return type;
   }
 
 
-  public void setType(TypeEnum type) {
+  public void setType(MonitorType type) {
     this.type = type;
   }
 

@@ -74,17 +74,11 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.datadoghq.com");
         
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Configure API key authorization: apiKeyAuthQuery
+        ApiKeyAuth apiKeyAuthQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuthQuery");
+        apiKeyAuthQuery.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        //apiKeyAuthQuery.setApiKeyPrefix("Token");
 
         EventsApi apiInstance = new EventsApi(defaultClient);
         Event body = new Event(); // Event | Event request object
@@ -117,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+[apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
 
 ### HTTP request headers
 
@@ -274,7 +268,7 @@ public class Example {
         EventsApi apiInstance = new EventsApi(defaultClient);
         Long start = 56L; // Long | POSIX timestamp.
         Long end = 56L; // Long | POSIX timestamp.
-        String priority = "priority_example"; // String | Priority of your events: **low** or **normal**.
+        EventPriority priority = new EventPriority(); // EventPriority | Priority of your events: **low** or **normal**.
         String sources = "sources_example"; // String | A comma separated string of sources.
         String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0.
         Boolean unaggregated = true; // Boolean | Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won't be available in the output.
@@ -306,7 +300,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Long**| POSIX timestamp. |
  **end** | **Long**| POSIX timestamp. |
- **priority** | **String**| Priority of your events: **low** or **normal**. | [optional] [enum: low, normal]
+ **priority** | [**EventPriority**](.md)| Priority of your events: **low** or **normal**. | [optional] [enum: normal, low]
  **sources** | **String**| A comma separated string of sources. | [optional]
  **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0. | [optional]
  **unaggregated** | **Boolean**| Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. | [optional]

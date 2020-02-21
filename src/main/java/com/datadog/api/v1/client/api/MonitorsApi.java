@@ -8,11 +8,8 @@ import com.datadog.api.v1.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.DeletedMonitor;
-import com.datadog.api.v1.client.model.Error400;
-import com.datadog.api.v1.client.model.Error401;
-import com.datadog.api.v1.client.model.Error403;
-import com.datadog.api.v1.client.model.Error404;
 import com.datadog.api.v1.client.model.Monitor;
 
 import java.util.ArrayList;

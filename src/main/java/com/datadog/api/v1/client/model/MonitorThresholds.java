@@ -19,6 +19,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -38,19 +41,19 @@ public class MonitorThresholds {
   private Double critical;
 
   public static final String JSON_PROPERTY_CRITICAL_RECOVERY = "critical_recovery";
-  private Double criticalRecovery;
+  private JsonNullable<Double> criticalRecovery = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_OK = "ok";
-  private Double ok;
+  private JsonNullable<Double> ok = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_UNKNOWN = "unknown";
-  private Double unknown;
+  private JsonNullable<Double> unknown = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_WARNING = "warning";
-  private Double warning;
+  private JsonNullable<Double> warning = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_WARNING_RECOVERY = "warning_recovery";
-  private Double warningRecovery;
+  private JsonNullable<Double> warningRecovery = JsonNullable.<Double>undefined();
 
 
   public MonitorThresholds critical(Double critical) {
@@ -79,8 +82,8 @@ public class MonitorThresholds {
 
 
   public MonitorThresholds criticalRecovery(Double criticalRecovery) {
+    this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
     
-    this.criticalRecovery = criticalRecovery;
     return this;
   }
 
@@ -90,22 +93,32 @@ public class MonitorThresholds {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Double getCriticalRecovery() {
+        return criticalRecovery.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getCriticalRecovery() {
+  public JsonNullable<Double> getCriticalRecovery_JsonNullable() {
     return criticalRecovery;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY)
+  public void setCriticalRecovery_JsonNullable(JsonNullable<Double> criticalRecovery) {
+    this.criticalRecovery = criticalRecovery;
+  }
 
   public void setCriticalRecovery(Double criticalRecovery) {
-    this.criticalRecovery = criticalRecovery;
+    this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
   }
 
 
   public MonitorThresholds ok(Double ok) {
+    this.ok = JsonNullable.<Double>of(ok);
     
-    this.ok = ok;
     return this;
   }
 
@@ -115,22 +128,32 @@ public class MonitorThresholds {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Double getOk() {
+        return ok.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getOk() {
+  public JsonNullable<Double> getOk_JsonNullable() {
     return ok;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_OK)
+  public void setOk_JsonNullable(JsonNullable<Double> ok) {
+    this.ok = ok;
+  }
 
   public void setOk(Double ok) {
-    this.ok = ok;
+    this.ok = JsonNullable.<Double>of(ok);
   }
 
 
   public MonitorThresholds unknown(Double unknown) {
+    this.unknown = JsonNullable.<Double>of(unknown);
     
-    this.unknown = unknown;
     return this;
   }
 
@@ -140,22 +163,32 @@ public class MonitorThresholds {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Double getUnknown() {
+        return unknown.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_UNKNOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getUnknown() {
+  public JsonNullable<Double> getUnknown_JsonNullable() {
     return unknown;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_UNKNOWN)
+  public void setUnknown_JsonNullable(JsonNullable<Double> unknown) {
+    this.unknown = unknown;
+  }
 
   public void setUnknown(Double unknown) {
-    this.unknown = unknown;
+    this.unknown = JsonNullable.<Double>of(unknown);
   }
 
 
   public MonitorThresholds warning(Double warning) {
+    this.warning = JsonNullable.<Double>of(warning);
     
-    this.warning = warning;
     return this;
   }
 
@@ -165,22 +198,32 @@ public class MonitorThresholds {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Double getWarning() {
+        return warning.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getWarning() {
+  public JsonNullable<Double> getWarning_JsonNullable() {
     return warning;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  public void setWarning_JsonNullable(JsonNullable<Double> warning) {
+    this.warning = warning;
+  }
 
   public void setWarning(Double warning) {
-    this.warning = warning;
+    this.warning = JsonNullable.<Double>of(warning);
   }
 
 
   public MonitorThresholds warningRecovery(Double warningRecovery) {
+    this.warningRecovery = JsonNullable.<Double>of(warningRecovery);
     
-    this.warningRecovery = warningRecovery;
     return this;
   }
 
@@ -190,16 +233,26 @@ public class MonitorThresholds {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Double getWarningRecovery() {
+        return warningRecovery.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_WARNING_RECOVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getWarningRecovery() {
+  public JsonNullable<Double> getWarningRecovery_JsonNullable() {
     return warningRecovery;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_WARNING_RECOVERY)
+  public void setWarningRecovery_JsonNullable(JsonNullable<Double> warningRecovery) {
+    this.warningRecovery = warningRecovery;
+  }
 
   public void setWarningRecovery(Double warningRecovery) {
-    this.warningRecovery = warningRecovery;
+    this.warningRecovery = JsonNullable.<Double>of(warningRecovery);
   }
 
 

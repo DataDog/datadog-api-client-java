@@ -1,52 +1,36 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
 package com.datadog.api.v1.client.api;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import com.datadog.api.TestUtils;
+import com.datadog.api.v1.client.ApiClient;
+import com.github.tomakehurst.wiremock.client.MappingBuilder;
+import org.junit.BeforeClass;
 
 import java.io.IOException;
 import java.util.HashMap;
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.TestUtils;
-import com.datadog.api.v1.client.auth.ApiKeyAuth;
-import com.github.tomakehurst.wiremock.client.MappingBuilder;
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
-import org.apache.commons.io.IOUtils;
-import org.junit.After;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-
-public abstract class V1ApiTest {
-    protected static ApiClient generalApiClient = null;
-    protected static ApiClient generalApiUnitTestClient = null;
-
-    static String TEST_API_KEY_NAME="DD_TEST_CLIENT_API_KEY";
-    static String TEST_APP_KEY_NAME="DD_TEST_CLIENT_APP_KEY";
-
-    @Rule
-    public WireMockRule wireMockRule = new WireMockRule();
+public abstract class V1ApiTest extends TestUtils.APITest {
+    protected static ApiClient generalApiClient;
+    protected static ApiClient generalApiUnitTestClient;
 
     @BeforeClass
     public static void initGeneralApiClient() {
         generalApiClient = new ApiClient();
-        HashMap<String, String> secrets = new HashMap<String, String>();
 
-        // Configure API key authorization: apiKeyAuth
-        String apiKey = System.getenv(TEST_API_KEY_NAME);
-        if (apiKey == null) {
-            System.err.printf("%s not set, exiting", TEST_API_KEY_NAME);
-            System.exit(1);
-        }
-        secrets.put("apiKeyAuth", apiKey);
-
-        // Configure API key authorization: appKeyAuth
-        String appKey = System.getenv(TEST_APP_KEY_NAME);
-        if (appKey == null) {
-            System.err.printf("%s not set, exiting", TEST_APP_KEY_NAME);
-            System.exit(1);
-        }
-        secrets.put("appKeyAuth", appKey);
+        // Configure authorization
+        HashMap<String, String> secrets = new HashMap<>();
+        secrets.put("apiKeyAuth", TEST_API_KEY);
+        secrets.put("appKeyAuth", TEST_APP_KEY);
         generalApiClient.configureApiKeys(secrets);
+
+        // Set debbuging based on env
         generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
     }
 
@@ -60,43 +44,34 @@ public abstract class V1ApiTest {
         // Disable templated servers
         generalApiUnitTestClient.setServerIndex(null);
 
-        // Configure API key authorization with fake key
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) generalApiUnitTestClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey(TEST_API_KEY_NAME);
-
-        // Configure API key authorization with fake key
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) generalApiUnitTestClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey(TEST_APP_KEY_NAME);
-    }
-
-    @After
-    public void resetWiremock() {
-        reset();
+        // Configure authorization with fake keys
+        HashMap<String, String> secrets = new HashMap<>();
+        secrets.put("apiKeyAuth", TEST_API_KEY_NAME);
+        secrets.put("appKeyAuth", TEST_APP_KEY_NAME);
+        generalApiUnitTestClient.configureApiKeys(secrets);
     }
 
     public MappingBuilder setupStub(String Urlpath, String fixturePath, String httpMethod) throws IOException {
         MappingBuilder stub = null;
 
-        switch(httpMethod) {
-            case "get" :
-                stub = get(urlMatching(Urlpath + "\\?.*"));
+        switch (httpMethod) {
+            case "get":
+                stub = get(urlMatching(Urlpath + "(\\?.*)?"));
                 break;
-            case "post" :
-                stub = post(urlMatching(Urlpath + "\\?.*"));
+            case "post":
+                stub = post(urlMatching(Urlpath + "(\\?.*)?"));
                 break;
-            case "put" :
-                stub = put(urlMatching(Urlpath + "\\?.*"));
+            case "put":
+                stub = put(urlMatching(Urlpath + "(\\?.*)?"));
                 break;
-            case "delete" :
-                stub = delete(urlMatching(Urlpath + "\\?.*"));
+            case "delete":
+                stub = delete(urlMatching(Urlpath + "(\\?.*)?"));
                 break;
         }
-        stub.withQueryParam("api_key", equalTo(TEST_API_KEY_NAME))
-        .withQueryParam("application_key", equalTo(TEST_APP_KEY_NAME))
-        .willReturn(aResponse()
-            .withStatus(200)
-            .withHeader("Content-Type", "application/json")
-            .withBody(TestUtils.getFixture(fixturePath)));
+        stub.willReturn(aResponse()
+                .withStatus(200)
+                .withHeader("Content-Type", "application/json")
+                .withBody(TestUtils.getFixture(fixturePath)));
         return stub;
     }
 

@@ -23,11 +23,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum SLOTimeframe {
   
-  _7D("7d"),
+  SEVEN_DAYS("7d"),
   
-  _30D("30d"),
+  THIRTY_DAYS("30d"),
   
-  _90D("90d");
+  NINETY_DAYS("90d");
 
   private String value;
 

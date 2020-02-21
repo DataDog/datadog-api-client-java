@@ -51,8 +51,6 @@ import com.datadog.api.v1.client.auth.Authentication;
 import com.datadog.api.v1.client.auth.HttpBasicAuth;
 import com.datadog.api.v1.client.auth.HttpBearerAuth;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
-import com.datadog.api.v1.client.ServerConfiguration;
-import com.datadog.api.v1.client.ServerVariable;
 
 
 
@@ -148,6 +146,49 @@ public class ApiClient {
         }}
       )
     )));
+    put("LogsApi.sendLog", new ArrayList<ServerConfiguration>(Arrays.asList(
+      new ServerConfiguration(
+        "https://{subdomain}.{site}",
+        "No description provided",
+        new HashMap<String, ServerVariable>() {{
+          put("site", new ServerVariable(
+            "The regional site for our customers.",
+            "datadoghq.com",
+            new HashSet<String>(
+              Arrays.asList(
+                "datadoghq.com",
+                "datadoghq.eu"
+              )
+            )
+          ));
+          put("subdomain", new ServerVariable(
+            "The subdomain where the API is deployed.",
+            "http-intake.logs",
+            new HashSet<String>(
+            )
+          ));
+        }}
+      ),
+
+      new ServerConfiguration(
+        "{protocol}://{name}",
+        "No description provided",
+        new HashMap<String, ServerVariable>() {{
+          put("name", new ServerVariable(
+            "Full site DNS name.",
+            "http-intake.logs.datadoghq.com",
+            new HashSet<String>(
+            )
+          ));
+          put("protocol", new ServerVariable(
+            "The protocol for accessing the API.",
+            "https",
+            new HashSet<String>(
+            )
+          ));
+        }}
+      )
+    )));
   }};
   protected Map<String, Integer> operationServerIndex = new HashMap<String, Integer>();
   protected Map<String, Map<String, String>> operationServerVariables = new HashMap<String, Map<String, String>>();
@@ -175,15 +216,17 @@ public class ApiClient {
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
-    authentications.put("apiKeyAuth", new ApiKeyAuth("query", "api_key"));
-    authentications.put("apiKeyAuthHeader", new ApiKeyAuth("header", "DD-API-KEY"));
-    authentications.put("appKeyAuth", new ApiKeyAuth("query", "application_key"));
+    authentications.put("apiKeyAuth", new ApiKeyAuth("header", "DD-API-KEY"));
+    authentications.put("apiKeyAuthQuery", new ApiKeyAuth("query", "api_key"));
+    authentications.put("appKeyAuth", new ApiKeyAuth("header", "DD-APPLICATION-KEY"));
+    authentications.put("appKeyAuthQuery", new ApiKeyAuth("query", "application_key"));
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 
     // Setup authentication lookup (key: authentication alias, value: authentication name)
     authenticationLookup = new HashMap<String, String>();
-    authenticationLookup.put("apiKeyAuthHeader", "apiKeyAuth");
+    authenticationLookup.put("apiKeyAuthQuery", "apiKeyAuth");
+    authenticationLookup.put("appKeyAuthQuery", "appKeyAuth");
   }
 
   /**
@@ -697,7 +740,7 @@ public class ApiClient {
       entity = Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE);
     } else {
       // We let jersey handle the serialization
-      entity = Entity.entity(obj, contentType);
+      entity = Entity.entity(obj == null ? Entity.text("") : obj, contentType);
     }
     return entity;
   }
@@ -875,7 +918,7 @@ public class ApiClient {
       }
     }
 
-    Entity<?> entity = (body == null) ? Entity.json("") : serialize(body, formParams, contentType);
+    Entity<?> entity = serialize(body, formParams, contentType);
 
     Response response = null;
 

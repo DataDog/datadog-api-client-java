@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.SLOErrorTimeframe;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,47 +38,8 @@ public class ServiceLevelObjectivesBulkDeletedErrors {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  /**
-   * The timeframe of the threshold associated with this error or \&quot;all\&quot; if all thresholds are affected.
-   */
-  public enum TimeframeEnum {
-    _7D("7d"),
-    
-    _30D("30d"),
-    
-    _90D("90d"),
-    
-    ALL("all");
-
-    private String value;
-
-    TimeframeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TimeframeEnum fromValue(String value) {
-      for (TimeframeEnum b : TimeframeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TIMEFRAME = "timeframe";
-  private TimeframeEnum timeframe;
+  private SLOErrorTimeframe timeframe;
 
 
   public ServiceLevelObjectivesBulkDeletedErrors id(String id) {
@@ -128,26 +90,26 @@ public class ServiceLevelObjectivesBulkDeletedErrors {
   }
 
 
-  public ServiceLevelObjectivesBulkDeletedErrors timeframe(TimeframeEnum timeframe) {
+  public ServiceLevelObjectivesBulkDeletedErrors timeframe(SLOErrorTimeframe timeframe) {
     
     this.timeframe = timeframe;
     return this;
   }
 
    /**
-   * The timeframe of the threshold associated with this error or \&quot;all\&quot; if all thresholds are affected.
+   * Get timeframe
    * @return timeframe
   **/
-  @ApiModelProperty(required = true, value = "The timeframe of the threshold associated with this error or \"all\" if all thresholds are affected.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TimeframeEnum getTimeframe() {
+  public SLOErrorTimeframe getTimeframe() {
     return timeframe;
   }
 
 
-  public void setTimeframe(TimeframeEnum timeframe) {
+  public void setTimeframe(SLOErrorTimeframe timeframe) {
     this.timeframe = timeframe;
   }
 
