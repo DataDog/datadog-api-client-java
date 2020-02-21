@@ -210,7 +210,7 @@ public class MonitorsApiTest extends V1ApiTest {
         deleteMonitors.add(createdTwo.getId());
 
         Monitor compositeMonitor = new Monitor()
-            .name("Test Composite Monitor Test Nick")
+            .name("Test Composite Monitor")
             .type(Monitor.TypeEnum.COMPOSITE)
             .query(created.getId() + " && " + createdTwo.getId())
             .message(testingMonitorMessage)
