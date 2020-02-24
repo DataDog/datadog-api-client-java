@@ -156,6 +156,12 @@ public class SloApiTest extends V1ApiTest {
         Long time = new Date().getTime() / 1000;
         HistoryServiceLevelObjectiveResponse historyResp = api.historyForSLO(edited.getId())
                 .fromTs(Long.toString(time - 11)).toTs(Long.toString(time - 1)).execute();
+        HistoryServiceLevelObjectiveMetrics series = historyResp.getData().getSeries();
+        assertNotNull(series);
+        assertNotNull(series.getTimes());
+        HistoryServiceLevelObjectiveMetricsSeries numerator = series.getNumerator();
+        assertNotNull(numerator);
+        assertNotNull(numerator.getValues());
 
         // Delete SLO
         ServiceLevelObjectiveDeleted deletedResp = api.deleteSLO(edited.getId()).execute();

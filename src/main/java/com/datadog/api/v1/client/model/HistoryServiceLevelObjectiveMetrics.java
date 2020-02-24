@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -33,7 +35,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_NUMERATOR,
   HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_QUERY,
   HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_RES_TYPE,
-  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_RESP_VERSION
+  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_RESP_VERSION,
+  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_TIMES
 })
 
 public class HistoryServiceLevelObjectiveMetrics {
@@ -58,6 +61,9 @@ public class HistoryServiceLevelObjectiveMetrics {
   public static final String JSON_PROPERTY_RESP_VERSION = "resp_version";
   private Long respVersion;
 
+  public static final String JSON_PROPERTY_TIMES = "times";
+  private List<Double> times = new ArrayList<>();
+
 
   public HistoryServiceLevelObjectiveMetrics denominator(HistoryServiceLevelObjectiveMetricsSeries denominator) {
     
@@ -69,10 +75,9 @@ public class HistoryServiceLevelObjectiveMetrics {
    * Get denominator
    * @return denominator
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DENOMINATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public HistoryServiceLevelObjectiveMetricsSeries getDenominator() {
     return denominator;
@@ -94,10 +99,9 @@ public class HistoryServiceLevelObjectiveMetrics {
    * The aggregated query interval for the series data. It&#39;s implicit based on the query time window.
    * @return interval
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The aggregated query interval for the series data. It's implicit based on the query time window.")
+  @ApiModelProperty(required = true, value = "The aggregated query interval for the series data. It's implicit based on the query time window.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getInterval() {
     return interval;
@@ -144,10 +148,9 @@ public class HistoryServiceLevelObjectiveMetrics {
    * Get numerator
    * @return numerator
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NUMERATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public HistoryServiceLevelObjectiveMetricsSeries getNumerator() {
     return numerator;
@@ -169,10 +172,9 @@ public class HistoryServiceLevelObjectiveMetrics {
    * The combined numerator &amp;&amp; denominator query CSV.
    * @return query
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The combined numerator && denominator query CSV.")
+  @ApiModelProperty(required = true, value = "The combined numerator && denominator query CSV.")
   @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getQuery() {
     return query;
@@ -194,10 +196,9 @@ public class HistoryServiceLevelObjectiveMetrics {
    * The series result type. This mimics &#x60;batch_query&#x60; response type
    * @return resType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The series result type. This mimics `batch_query` response type")
+  @ApiModelProperty(required = true, value = "The series result type. This mimics `batch_query` response type")
   @JsonProperty(JSON_PROPERTY_RES_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getResType() {
     return resType;
@@ -219,10 +220,9 @@ public class HistoryServiceLevelObjectiveMetrics {
    * The series response version type. This mimics &#x60;batch_query&#x60; response type
    * @return respVersion
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The series response version type. This mimics `batch_query` response type")
+  @ApiModelProperty(required = true, value = "The series response version type. This mimics `batch_query` response type")
   @JsonProperty(JSON_PROPERTY_RESP_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getRespVersion() {
     return respVersion;
@@ -231,6 +231,35 @@ public class HistoryServiceLevelObjectiveMetrics {
 
   public void setRespVersion(Long respVersion) {
     this.respVersion = respVersion;
+  }
+
+
+  public HistoryServiceLevelObjectiveMetrics times(List<Double> times) {
+    
+    this.times = times;
+    return this;
+  }
+
+  public HistoryServiceLevelObjectiveMetrics addTimesItem(Double timesItem) {
+    this.times.add(timesItem);
+    return this;
+  }
+
+   /**
+   * The query timestamps in epoch milliseconds
+   * @return times
+  **/
+  @ApiModelProperty(required = true, value = "The query timestamps in epoch milliseconds")
+  @JsonProperty(JSON_PROPERTY_TIMES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<Double> getTimes() {
+    return times;
+  }
+
+
+  public void setTimes(List<Double> times) {
+    this.times = times;
   }
 
 
@@ -249,12 +278,13 @@ public class HistoryServiceLevelObjectiveMetrics {
         Objects.equals(this.numerator, historyServiceLevelObjectiveMetrics.numerator) &&
         Objects.equals(this.query, historyServiceLevelObjectiveMetrics.query) &&
         Objects.equals(this.resType, historyServiceLevelObjectiveMetrics.resType) &&
-        Objects.equals(this.respVersion, historyServiceLevelObjectiveMetrics.respVersion);
+        Objects.equals(this.respVersion, historyServiceLevelObjectiveMetrics.respVersion) &&
+        Objects.equals(this.times, historyServiceLevelObjectiveMetrics.times);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(denominator, interval, message, numerator, query, resType, respVersion);
+    return Objects.hash(denominator, interval, message, numerator, query, resType, respVersion, times);
   }
 
 
@@ -269,6 +299,7 @@ public class HistoryServiceLevelObjectiveMetrics {
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    resType: ").append(toIndentedString(resType)).append("\n");
     sb.append("    respVersion: ").append(toIndentedString(respVersion)).append("\n");
+    sb.append("    times: ").append(toIndentedString(times)).append("\n");
     sb.append("}");
     return sb.toString();
   }
