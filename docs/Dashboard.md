@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **isReadOnly** | **Boolean** | Whether this dashboard is read-only. If True, only the author and admins can make changes to it. |  [optional]
 **layoutType** | [**DashboardLayoutType**](DashboardLayoutType.md) |  | 
 **modifiedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional] [readonly]
-**notifyList** | **List&lt;String&gt;** | List of handles of users to notify when changes are made to this dashboard. |  [optional] [readonly]
+**notifyList** | **List&lt;String&gt;** | List of handles of users to notify when changes are made to this dashboard. |  [optional]
 **templateVariablePresets** | [**List&lt;DashboardTemplateVariablePreset&gt;**](DashboardTemplateVariablePreset.md) |  |  [optional]
 **templateVariables** | [**List&lt;DashboardTemplateVariables&gt;**](DashboardTemplateVariables.md) |  |  [optional]
 **title** | **String** | Title of the dashboard | 
