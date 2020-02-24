@@ -17,6 +17,8 @@ import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveGroups;
 import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveMetrics;
 import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveOverall;
 import com.datadog.api.v1.client.model.SLOThreshold;
+import com.datadog.api.v1.client.model.ServiceLevelObjectiveType;
+import com.datadog.api.v1.client.model.ServiceLevelObjectiveTypeNumeric;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,7 +39,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_OVERALL,
   HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_SERIES,
   HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_THRESHOLDS,
-  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_TO_TS
+  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_TO_TS,
+  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_TYPE,
+  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_TYPE_ID
 })
 
 public class HistoryServiceLevelObjectiveResponseData {
@@ -58,6 +62,12 @@ public class HistoryServiceLevelObjectiveResponseData {
 
   public static final String JSON_PROPERTY_TO_TS = "to_ts";
   private Long toTs;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private ServiceLevelObjectiveType type;
+
+  public static final String JSON_PROPERTY_TYPE_ID = "type_id";
+  private ServiceLevelObjectiveTypeNumeric typeId;
 
 
   public HistoryServiceLevelObjectiveResponseData fromTs(Long fromTs) {
@@ -218,6 +228,56 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
+  public HistoryServiceLevelObjectiveResponseData type(ServiceLevelObjectiveType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ServiceLevelObjectiveType getType() {
+    return type;
+  }
+
+
+  public void setType(ServiceLevelObjectiveType type) {
+    this.type = type;
+  }
+
+
+  public HistoryServiceLevelObjectiveResponseData typeId(ServiceLevelObjectiveTypeNumeric typeId) {
+    
+    this.typeId = typeId;
+    return this;
+  }
+
+   /**
+   * Get typeId
+   * @return typeId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ServiceLevelObjectiveTypeNumeric getTypeId() {
+    return typeId;
+  }
+
+
+  public void setTypeId(ServiceLevelObjectiveTypeNumeric typeId) {
+    this.typeId = typeId;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -232,12 +292,14 @@ public class HistoryServiceLevelObjectiveResponseData {
         Objects.equals(this.overall, historyServiceLevelObjectiveResponseData.overall) &&
         Objects.equals(this.series, historyServiceLevelObjectiveResponseData.series) &&
         Objects.equals(this.thresholds, historyServiceLevelObjectiveResponseData.thresholds) &&
-        Objects.equals(this.toTs, historyServiceLevelObjectiveResponseData.toTs);
+        Objects.equals(this.toTs, historyServiceLevelObjectiveResponseData.toTs) &&
+        Objects.equals(this.type, historyServiceLevelObjectiveResponseData.type) &&
+        Objects.equals(this.typeId, historyServiceLevelObjectiveResponseData.typeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fromTs, groups, overall, series, thresholds, toTs);
+    return Objects.hash(fromTs, groups, overall, series, thresholds, toTs, type, typeId);
   }
 
 
@@ -251,6 +313,8 @@ public class HistoryServiceLevelObjectiveResponseData {
     sb.append("    series: ").append(toIndentedString(series)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("    toTs: ").append(toIndentedString(toTs)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    typeId: ").append(toIndentedString(typeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

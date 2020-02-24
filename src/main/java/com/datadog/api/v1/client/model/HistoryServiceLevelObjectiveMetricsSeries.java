@@ -32,7 +32,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   HistoryServiceLevelObjectiveMetricsSeries.JSON_PROPERTY_COUNT,
   HistoryServiceLevelObjectiveMetricsSeries.JSON_PROPERTY_METADATA,
   HistoryServiceLevelObjectiveMetricsSeries.JSON_PROPERTY_SUM,
-  HistoryServiceLevelObjectiveMetricsSeries.JSON_PROPERTY_TIMES,
   HistoryServiceLevelObjectiveMetricsSeries.JSON_PROPERTY_VALUES
 })
 
@@ -46,11 +45,8 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
   public static final String JSON_PROPERTY_SUM = "sum";
   private Double sum;
 
-  public static final String JSON_PROPERTY_TIMES = "times";
-  private List<Long> times = null;
-
   public static final String JSON_PROPERTY_VALUES = "values";
-  private List<Double> values = null;
+  private List<Double> values = new ArrayList<>();
 
 
   public HistoryServiceLevelObjectiveMetricsSeries count(Long count) {
@@ -63,10 +59,9 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
    * Count of submitted metrics
    * @return count
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Count of submitted metrics")
+  @ApiModelProperty(required = true, value = "Count of submitted metrics")
   @JsonProperty(JSON_PROPERTY_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getCount() {
     return count;
@@ -88,10 +83,9 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
    * Get metadata
    * @return metadata
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public HistoryServiceLevelObjectiveMetricsSeriesMetadata getMetadata() {
     return metadata;
@@ -113,10 +107,9 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
    * Total Sum of the query
    * @return sum
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total Sum of the query")
+  @ApiModelProperty(required = true, value = "Total Sum of the query")
   @JsonProperty(JSON_PROPERTY_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Double getSum() {
     return sum;
@@ -128,39 +121,6 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
   }
 
 
-  public HistoryServiceLevelObjectiveMetricsSeries times(List<Long> times) {
-    
-    this.times = times;
-    return this;
-  }
-
-  public HistoryServiceLevelObjectiveMetricsSeries addTimesItem(Long timesItem) {
-    if (this.times == null) {
-      this.times = new ArrayList<>();
-    }
-    this.times.add(timesItem);
-    return this;
-  }
-
-   /**
-   * The query timestamps in epoch seconds
-   * @return times
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The query timestamps in epoch seconds")
-  @JsonProperty(JSON_PROPERTY_TIMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<Long> getTimes() {
-    return times;
-  }
-
-
-  public void setTimes(List<Long> times) {
-    this.times = times;
-  }
-
-
   public HistoryServiceLevelObjectiveMetricsSeries values(List<Double> values) {
     
     this.values = values;
@@ -168,9 +128,6 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
   }
 
   public HistoryServiceLevelObjectiveMetricsSeries addValuesItem(Double valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<>();
-    }
     this.values.add(valuesItem);
     return this;
   }
@@ -179,10 +136,9 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
    * The query values
    * @return values
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The query values")
+  @ApiModelProperty(required = true, value = "The query values")
   @JsonProperty(JSON_PROPERTY_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Double> getValues() {
     return values;
@@ -206,13 +162,12 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
     return Objects.equals(this.count, historyServiceLevelObjectiveMetricsSeries.count) &&
         Objects.equals(this.metadata, historyServiceLevelObjectiveMetricsSeries.metadata) &&
         Objects.equals(this.sum, historyServiceLevelObjectiveMetricsSeries.sum) &&
-        Objects.equals(this.times, historyServiceLevelObjectiveMetricsSeries.times) &&
         Objects.equals(this.values, historyServiceLevelObjectiveMetricsSeries.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, metadata, sum, times, values);
+    return Objects.hash(count, metadata, sum, values);
   }
 
 
@@ -223,7 +178,6 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    sum: ").append(toIndentedString(sum)).append("\n");
-    sb.append("    times: ").append(toIndentedString(times)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
