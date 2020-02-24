@@ -26,6 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -55,7 +58,7 @@ public class Dashboard {
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -70,13 +73,13 @@ public class Dashboard {
   private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_NOTIFY_LIST = "notify_list";
-  private List<String> notifyList = null;
+  private JsonNullable<List<String>> notifyList = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS = "template_variable_presets";
-  private List<DashboardTemplateVariablePreset> templateVariablePresets = null;
+  private JsonNullable<List<DashboardTemplateVariablePreset>> templateVariablePresets = JsonNullable.<List<DashboardTemplateVariablePreset>>undefined();
 
   public static final String JSON_PROPERTY_TEMPLATE_VARIABLES = "template_variables";
-  private List<DashboardTemplateVariables> templateVariables = null;
+  private JsonNullable<List<DashboardTemplateVariables>> templateVariables = JsonNullable.<List<DashboardTemplateVariables>>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -121,8 +124,8 @@ public class Dashboard {
 
 
   public Dashboard description(String description) {
+    this.description = JsonNullable.<String>of(description);
     
-    this.description = description;
     return this;
   }
 
@@ -132,16 +135,26 @@ public class Dashboard {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the dashboard")
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getDescription() {
+  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
 
   public void setDescription(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
   }
 
 
@@ -226,33 +239,68 @@ public class Dashboard {
 
 
 
+  public Dashboard notifyList(List<String> notifyList) {
+    this.notifyList = JsonNullable.<List<String>>of(notifyList);
+    
+    return this;
+  }
+
+  public Dashboard addNotifyListItem(String notifyListItem) {
+    if (this.notifyList == null || !this.notifyList.isPresent()) {
+      this.notifyList = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.notifyList.get().add(notifyListItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
    /**
    * List of handles of users to notify when changes are made to this dashboard.
    * @return notifyList
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of handles of users to notify when changes are made to this dashboard.")
+  @JsonIgnore
+
+  public List<String> getNotifyList() {
+        return notifyList.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NOTIFY_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getNotifyList() {
+  public JsonNullable<List<String>> getNotifyList_JsonNullable() {
     return notifyList;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NOTIFY_LIST)
+  public void setNotifyList_JsonNullable(JsonNullable<List<String>> notifyList) {
+    this.notifyList = notifyList;
+  }
+
+  public void setNotifyList(List<String> notifyList) {
+    this.notifyList = JsonNullable.<List<String>>of(notifyList);
   }
 
 
-
-
   public Dashboard templateVariablePresets(List<DashboardTemplateVariablePreset> templateVariablePresets) {
+    this.templateVariablePresets = JsonNullable.<List<DashboardTemplateVariablePreset>>of(templateVariablePresets);
     
-    this.templateVariablePresets = templateVariablePresets;
     return this;
   }
 
   public Dashboard addTemplateVariablePresetsItem(DashboardTemplateVariablePreset templateVariablePresetsItem) {
-    if (this.templateVariablePresets == null) {
-      this.templateVariablePresets = new ArrayList<>();
+    if (this.templateVariablePresets == null || !this.templateVariablePresets.isPresent()) {
+      this.templateVariablePresets = JsonNullable.<List<DashboardTemplateVariablePreset>>of(new ArrayList<>());
     }
-    this.templateVariablePresets.add(templateVariablePresetsItem);
+    try {
+      this.templateVariablePresets.get().add(templateVariablePresetsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -262,30 +310,44 @@ public class Dashboard {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public List<DashboardTemplateVariablePreset> getTemplateVariablePresets() {
+        return templateVariablePresets.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DashboardTemplateVariablePreset> getTemplateVariablePresets() {
+  public JsonNullable<List<DashboardTemplateVariablePreset>> getTemplateVariablePresets_JsonNullable() {
     return templateVariablePresets;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS)
+  public void setTemplateVariablePresets_JsonNullable(JsonNullable<List<DashboardTemplateVariablePreset>> templateVariablePresets) {
+    this.templateVariablePresets = templateVariablePresets;
+  }
 
   public void setTemplateVariablePresets(List<DashboardTemplateVariablePreset> templateVariablePresets) {
-    this.templateVariablePresets = templateVariablePresets;
+    this.templateVariablePresets = JsonNullable.<List<DashboardTemplateVariablePreset>>of(templateVariablePresets);
   }
 
 
   public Dashboard templateVariables(List<DashboardTemplateVariables> templateVariables) {
+    this.templateVariables = JsonNullable.<List<DashboardTemplateVariables>>of(templateVariables);
     
-    this.templateVariables = templateVariables;
     return this;
   }
 
   public Dashboard addTemplateVariablesItem(DashboardTemplateVariables templateVariablesItem) {
-    if (this.templateVariables == null) {
-      this.templateVariables = new ArrayList<>();
+    if (this.templateVariables == null || !this.templateVariables.isPresent()) {
+      this.templateVariables = JsonNullable.<List<DashboardTemplateVariables>>of(new ArrayList<>());
     }
-    this.templateVariables.add(templateVariablesItem);
+    try {
+      this.templateVariables.get().add(templateVariablesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -295,16 +357,26 @@ public class Dashboard {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public List<DashboardTemplateVariables> getTemplateVariables() {
+        return templateVariables.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DashboardTemplateVariables> getTemplateVariables() {
+  public JsonNullable<List<DashboardTemplateVariables>> getTemplateVariables_JsonNullable() {
     return templateVariables;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
+  public void setTemplateVariables_JsonNullable(JsonNullable<List<DashboardTemplateVariables>> templateVariables) {
+    this.templateVariables = templateVariables;
+  }
 
   public void setTemplateVariables(List<DashboardTemplateVariables> templateVariables) {
-    this.templateVariables = templateVariables;
+    this.templateVariables = JsonNullable.<List<DashboardTemplateVariables>>of(templateVariables);
   }
 
 
