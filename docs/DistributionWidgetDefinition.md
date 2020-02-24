@@ -7,6 +7,7 @@ The Distribution visualization is another way of showing metrics aggregated acro
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**legendSize** | [**WidgetLegendSize**](WidgetLegendSize.md) |  |  [optional]
 **requests** | [**List&lt;DistributionWidgetRequest&gt;**](DistributionWidgetRequest.md) |  | 
 **showLegend** | **Boolean** | Whether or not to display the legend on this widget |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]

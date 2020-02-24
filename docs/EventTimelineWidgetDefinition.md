@@ -8,6 +8,7 @@ The event timeline is a widget version of the timeline that appears at the top o
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **query** | **String** | Query to filter the event timeline with | 
+**tagsExecution** | **String** | The execution method for multi-value filters. Can be either and or or |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of the widget |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]

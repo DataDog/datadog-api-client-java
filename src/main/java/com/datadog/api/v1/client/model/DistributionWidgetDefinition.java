@@ -14,6 +14,7 @@ package com.datadog.api.v1.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.DistributionWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -34,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.")
 @JsonPropertyOrder({
+  DistributionWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   DistributionWidgetDefinition.JSON_PROPERTY_REQUESTS,
   DistributionWidgetDefinition.JSON_PROPERTY_SHOW_LEGEND,
   DistributionWidgetDefinition.JSON_PROPERTY_TIME,
@@ -44,6 +46,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 
 public class DistributionWidgetDefinition implements WidgetDefinition {
+  public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
+  private WidgetLegendSize legendSize;
+
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<DistributionWidgetRequest> requests = new ArrayList<>();
 
@@ -64,6 +69,31 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type = "distribution";
+
+
+  public DistributionWidgetDefinition legendSize(WidgetLegendSize legendSize) {
+    
+    this.legendSize = legendSize;
+    return this;
+  }
+
+   /**
+   * Get legendSize
+   * @return legendSize
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WidgetLegendSize getLegendSize() {
+    return legendSize;
+  }
+
+
+  public void setLegendSize(WidgetLegendSize legendSize) {
+    this.legendSize = legendSize;
+  }
 
 
   public DistributionWidgetDefinition requests(List<DistributionWidgetRequest> requests) {
@@ -244,7 +274,8 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
       return false;
     }
     DistributionWidgetDefinition distributionWidgetDefinition = (DistributionWidgetDefinition) o;
-    return Objects.equals(this.requests, distributionWidgetDefinition.requests) &&
+    return Objects.equals(this.legendSize, distributionWidgetDefinition.legendSize) &&
+        Objects.equals(this.requests, distributionWidgetDefinition.requests) &&
         Objects.equals(this.showLegend, distributionWidgetDefinition.showLegend) &&
         Objects.equals(this.time, distributionWidgetDefinition.time) &&
         Objects.equals(this.title, distributionWidgetDefinition.title) &&
@@ -255,7 +286,7 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests, showLegend, time, title, titleAlign, titleSize, type);
+    return Objects.hash(legendSize, requests, showLegend, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -263,6 +294,7 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DistributionWidgetDefinition {\n");
+    sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    showLegend: ").append(toIndentedString(showLegend)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
