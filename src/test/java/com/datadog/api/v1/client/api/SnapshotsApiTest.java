@@ -38,27 +38,22 @@ public class SnapshotsApiTest extends V1ApiTest {
     public void getGraphSnapshotTest() throws ApiException {
         String metricQuery = "system.load.1{*}";
         String graphDef = "{\"requests\": [{\"q\": \"system.load.1{*}\"}]}";
+        String title = "Example Snapshot";
+        String eventQuery = "successful builds";
 
         Long start = Instant.now().getEpochSecond();;
         Long end = start + (24*60*60);
 
-        GraphSnapshot response = api.getGraphSnapshot().metricQuery(metricQuery).start(start).end(end).execute();
-
+        // Try to create a snapshot with a metric_query (and an optional event_query)
+        GraphSnapshot response = api.getGraphSnapshot().metricQuery(metricQuery).start(start).end(end).title(title).eventQuery(eventQuery).execute();
         assertEquals(metricQuery, response.getMetricQuery());
         assertEquals(graphDef, response.getGraphDef());
         assertNotEquals("", response.getSnapshotUrl());
-    }
 
-    @Test
-    public void testGetGraphSnapshotMetricQueryRequiredParam() {
-        Long start = Long.valueOf(1);
-        Long end = Long.valueOf(2);
-
-        try {
-            GraphSnapshot response = api.getGraphSnapshot().start(start).end(end).execute();
-        } catch (ApiException e) {
-            assertTrue(e.getMessage().contains("Missing the required parameter 'metricQuery"));
-        }
+        // Try to create a snapshot with a graph_def
+        response = api.getGraphSnapshot().graphDef(graphDef).start(start).end(end).title(title).execute();
+        assertEquals(graphDef, response.getGraphDef());
+        assertNotEquals("", response.getSnapshotUrl());
     }
 
     @Test

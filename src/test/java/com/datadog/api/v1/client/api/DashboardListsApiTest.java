@@ -11,10 +11,13 @@ import com.datadog.api.v1.client.model.DashboardList;
 import com.datadog.api.v1.client.model.DashboardListDeleteResponse;
 
 import static org.junit.Assert.*;
+
+import com.datadog.api.v1.client.model.DashboardListListResponse;
 import org.junit.*;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * API tests for DashboardListsApi
@@ -59,6 +62,13 @@ public class DashboardListsApiTest extends V1ApiTest {
         DashboardList editedDashboardList = new DashboardList().name(String.format("java updated dashboard list %d", start));
         dashboardList = api.updateDashboardList(dashboardList.getId()).body(editedDashboardList).execute();
         assertEquals(dashboardList.getName(), editedDashboardList.getName());
+
+        // Get all dashboard lists
+        DashboardListListResponse allDashboardLists = api.getAllDashboardLists().execute();
+        assertTrue(allDashboardLists.getDashboardLists().size() > 0);
+        // The actual dashboardList model is asserted when we create and get, so just ensure the get all is
+        // returning the right object
+        assertTrue(allDashboardLists.getDashboardLists().get(0) instanceof DashboardList);
 
         // Delete the dashboard list
         DashboardListDeleteResponse res = api.deleteDashboardList(dashboardList.getId()).execute();
