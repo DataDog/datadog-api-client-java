@@ -204,7 +204,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
      */
     @Test
     public void updateAWSAccountTest() throws ApiException, TestUtils.RetryException {
-        // Object response = api.updateAWSAccount(awSAccount);
         AWSAccount awsAccount = new AWSAccount();
         awsAccount.setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
         awsAccount.setRoleName("java_testRoleName");
@@ -241,6 +240,40 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         awsAccount.setAccountSpecificNamespaceRules(new HashMap<String, Boolean>());
         awsAccount.setFilterTags(new ArrayList<String>());
         assertEquals(awsAccount, newAccount);
+    }
+
+    @Test
+    public void generateNewExternalIdTest() throws ApiException, TestUtils.RetryException {
+        AWSAccount awsAccount = new AWSAccount();
+        awsAccount.setAccountId(String.format("java_%07d", System.currentTimeMillis() % 10000000));
+        awsAccount.setRoleName("java_testRoleName");
+
+        TestUtils.retry(random.nextInt(10), 20, () -> {
+            try {
+                AWSAccountCreateResponse createResponse = api.createAWSAccount().body(awsAccount).execute();
+                accountsToDelete.add(awsAccount);
+                assertNotNull(createResponse.getExternalId());
+            } catch(ApiException e) {
+                System.out.println(String.format("Error updating AWS Account: %s", e));
+                return false;
+            }
+            return true;
+        });
+
+        AWSAccountCreateResponse generateNewID = api.generateNewAWSExternalID().body(awsAccount).execute();
+        assertNotEquals(generateNewID.getExternalId(), "");
+    }
+
+    @Test
+    public void listNamespacesTest() throws ApiException {
+        List<String> namespaces = api.listAvailableAWSNamespaces().execute();
+
+        // Check that a few examples are in the response
+        // Full list - https://docs.datadoghq.com/api/?lang=bash#list-namespace-rules
+        assertTrue(namespaces.contains("api_gateway"));
+        assertTrue(namespaces.contains("cloudsearch"));
+        assertTrue(namespaces.contains("directconnect"));
+        assertTrue(namespaces.contains("xray"));
     }
 
 }

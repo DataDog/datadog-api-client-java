@@ -36,13 +36,8 @@ public class SnapshotsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(String metricQuery, Long start, Long end, String eventQuery, String graphDef, String title) throws ApiException {
+private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long end, String metricQuery, String eventQuery, String graphDef, String title) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'metricQuery' is set
-    if (metricQuery == null) {
-      throw new ApiException(400, "Missing the required parameter 'metricQuery' when calling getGraphSnapshot");
-    }
     
     // verify the required parameter 'start' is set
     if (start == null) {
@@ -90,25 +85,14 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(String metricQue
   }
 
   public class APIgetGraphSnapshotRequest {
-    private String metricQuery;
     private Long start;
     private Long end;
+    private String metricQuery;
     private String eventQuery;
     private String graphDef;
     private String title;
 
     private APIgetGraphSnapshotRequest() {
-    }
-    
-
-    /**
-     * Set metricQuery
-     * @param metricQuery The metric query. (required)
-     * @return APIgetGraphSnapshotRequest
-     */
-    public APIgetGraphSnapshotRequest metricQuery(String metricQuery) {
-      this.metricQuery = metricQuery;
-      return this;
     }
     
 
@@ -130,6 +114,17 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(String metricQue
      */
     public APIgetGraphSnapshotRequest end(Long end) {
       this.end = end;
+      return this;
+    }
+    
+
+    /**
+     * Set metricQuery
+     * @param metricQuery The metric query. (optional)
+     * @return APIgetGraphSnapshotRequest
+     */
+    public APIgetGraphSnapshotRequest metricQuery(String metricQuery) {
+      this.metricQuery = metricQuery;
       return this;
     }
     
@@ -198,13 +193,13 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(String metricQue
      */
     
     public ApiResponse<GraphSnapshot> executeWithHttpInfo() throws ApiException {
-      return getGraphSnapshotWithHttpInfo(metricQuery, start, end, eventQuery, graphDef, title);
+      return getGraphSnapshotWithHttpInfo(start, end, metricQuery, eventQuery, graphDef, title);
     }
   }
 
   /**
    * Take graph snapshots
-   * ### Overview Take graph snapshots ### Arguments * **&#x60;metric_query&#x60;** [*required*]: The metric query. * **&#x60;start&#x60;** [*required*]: The POSIX timestamp of the start of the query. * **&#x60;end&#x60;** [*required*]: The POSIX timestamp of the end of the query. * **&#x60;event_query&#x60;** [*optional*, *default* &#x3D; **None**]: A query that adds event bands to the graph. * **&#x60;graph_def&#x60;** [*optional*, *default* &#x3D; **None**]: A JSON document defining the graph.   graph_def can be used instead of metric_query. The JSON document uses the   [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)   and should be formatted to a single line then URLEncoded.  * **&#x60;title&#x60;** [*optional*, *default* &#x3D; **None**]: A title for the graph.   If no title is specified, the graph doesn’t have a title.
+   * ### Overview Take graph snapshots ### Arguments * **&#x60;metric_query&#x60;** [*optional*]: The metric query. One of metric_query or graph_def is required * **&#x60;start&#x60;** [*required*]: The POSIX timestamp of the start of the query. * **&#x60;end&#x60;** [*required*]: The POSIX timestamp of the end of the query. * **&#x60;event_query&#x60;** [*optional*, *default* &#x3D; **None**]: A query that adds event bands to the graph. * **&#x60;graph_def&#x60;** [*optional*, *default* &#x3D; **None**]: A JSON document defining the graph.   graph_def can be used instead of metric_query. The JSON document uses the   [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)   and should be formatted to a single line then URLEncoded.  * **&#x60;title&#x60;** [*optional*, *default* &#x3D; **None**]: A title for the graph.   If no title is specified, the graph doesn’t have a title.
    * @return getGraphSnapshotRequest
    * @throws ApiException if fails to make API call
    
