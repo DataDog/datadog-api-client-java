@@ -201,7 +201,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         assertEquals(result.getCheckTime(), Double.valueOf("1580204310361"));
         assertEquals(result.getCheckVersion().intValue(), 2);
         assertEquals(result.getResultId(), "7761116396307201795");
-        assertEquals(result.getResult().getEventType(), "finished");
+        assertEquals(result.getResult().getEventType(), SyntheticsTestProcessStatus.FINISHED);
 
         // Delete API test
         api.deleteTests().body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId))).execute();
