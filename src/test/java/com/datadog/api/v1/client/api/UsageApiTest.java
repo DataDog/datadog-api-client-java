@@ -143,7 +143,7 @@ public class UsageApiTest extends V1ApiTest {
         assertEquals(usage.getContainerHwmSum().longValue(), 1L);
         assertEquals(usage.getCustomTsSum().longValue(), 4L);
 
-        // Note the nanoseocnd field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
+        // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
         OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 16, 34, 14, 14039000),
                 ZoneOffset.ofHoursMinutes(0, 0));
         UsageSummaryDate usageItem = usage.getUsage().get(0);
