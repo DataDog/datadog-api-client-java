@@ -6,21 +6,20 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
-import com.datadog.api.v1.client.model.UsageFargateResponse;
-import com.datadog.api.v1.client.model.UsageHostsResponse;
-import com.datadog.api.v1.client.model.UsageLogsResponse;
-import com.datadog.api.v1.client.model.UsageSummaryResponse;
-import com.datadog.api.v1.client.model.UsageSyntheticsResponse;
-import com.datadog.api.v1.client.model.UsageTimeseriesResponse;
-import com.datadog.api.v1.client.model.UsageTopAvgMetricsResponse;
-import com.datadog.api.v1.client.model.UsageTraceResponse;
+
+import com.datadog.api.v1.client.model.*;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
@@ -30,6 +29,7 @@ import static org.junit.Assert.assertNotNull;
 public class UsageApiTest extends V1ApiTest {
 
     private static UsageApi api;
+    private static UsageApi unitAPI;
 
     private static OffsetDateTime startHr;
     private static OffsetDateTime endHr;
@@ -39,6 +39,7 @@ public class UsageApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new UsageApi(generalApiClient);
+        unitAPI = new UsageApi(generalApiUnitTestClient);
     }
 
     @BeforeClass
@@ -112,15 +113,59 @@ public class UsageApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
-    @Ignore
-    public void getUsageSummaryTest() throws ApiException {
-        // Boolean includeOrgDetails = null;
-        UsageSummaryResponse response = api.getUsageSummary()
+    public void getUsageSummaryTest() throws ApiException, IOException {
+        Boolean includeOrgDetails = true;
+        OffsetDateTime startMonth = OffsetDateTime.now();
+        OffsetDateTime endMonth = OffsetDateTime.now();
+
+        stubFor(get(urlPathEqualTo("/api/v1/usage/summary"))
+                .withQueryParam("start_month", equalTo(startMonth.toString()))
+                .withQueryParam("end_month", equalTo(endMonth.toString()))
+                .withQueryParam("include_org_details", equalTo("true"))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/usage_fixtures/usage_summary.json")))
+        );
+
+        UsageSummaryResponse usage = unitAPI.getUsageSummary()
                 .startMonth(startMonth)
                 .endMonth(endMonth)
-                // .includeOrgDetails(includeOrgDetails)
+                .includeOrgDetails(includeOrgDetails)
                 .execute();
-        assertNotNull(response.getUsage());
+
+        assertNotNull(usage.getUsage());
+        OffsetDateTime startDateExpected = OffsetDateTime.of(LocalDateTime.of(2019, 02, 02, 23, 00),
+                ZoneOffset.ofHoursMinutes(0, 0));
+        OffsetDateTime endDateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
+                ZoneOffset.ofHoursMinutes(0, 0));
+        assertEquals(usage.getStartDate(), startDateExpected);
+        assertEquals(usage.getEndDate(), endDateExpected);
+        assertEquals(usage.getApmHostTop99pSum().longValue(), 1L);
+        assertEquals(usage.getInfraHostTop99pSum().longValue(), 2L);
+        assertEquals(usage.getContainerHwmSum().longValue(), 1L);
+        assertEquals(usage.getCustomTsSum().longValue(), 4L);
+
+        // Note the nanoseocnd field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
+        OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 16, 34, 14, 14039000),
+                ZoneOffset.ofHoursMinutes(0, 0));
+        UsageSummaryDate usageItem = usage.getUsage().get(0);
+        assertEquals(usageItem.getDate(),  dateExpected);
+        assertEquals(usageItem.getAgentHostTop99p().longValue(), 1L);
+        assertEquals(usageItem.getApmHostTop99p().longValue(), 2L);
+        assertEquals(usageItem.getAwsHostTop99p().longValue(), 3L);
+        assertEquals(usageItem.getContainerHwm().longValue(), 5L);
+        assertEquals(usageItem.getCustomTsAvg().longValue(), 6L);
+        assertEquals(usageItem.getGcpHostTop99p().longValue(), 7L);
+        assertEquals(usageItem.getInfraHostTop99p().longValue(), 8L);
+
+        UsageSummaryDateOrg usageOrgItem = usageItem.getOrgs().get(0);
+        assertEquals(usageOrgItem.getId(), "1b");
+        assertEquals(usageOrgItem.getName(), "datadog");
+        assertEquals(usageOrgItem.getAgentHostTop99p().longValue(), 1L);
+        assertEquals(usageOrgItem.getApmHostTop99p().longValue(), 2L);
+        assertEquals(usageOrgItem.getAwsHostTop99p().longValue(), 3L);
+        assertEquals(usageOrgItem.getContainerHwm().longValue(), 5L);
+        assertEquals(usageOrgItem.getCustomTsAvg().longValue(), 6L);
+        assertEquals(usageOrgItem.getGcpHostTop99p().longValue(), 7L);
+        assertEquals(usageOrgItem.getInfraHostTop99p().longValue(), 8L);
     }
 
     /**
