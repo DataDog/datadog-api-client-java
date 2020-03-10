@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +88,7 @@ public class UsageSummaryResponse {
   private Long customTsSum;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
-  private LocalDate endDate;
+  private OffsetDateTime endDate;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM = "fargate_tasks_count_avg_sum";
   private Long fargateTasksCountAvgSum;
@@ -119,7 +118,7 @@ public class UsageSummaryResponse {
   private Long npmHostTop99pSum;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
-  private LocalDate startDate;
+  private OffsetDateTime startDate;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM = "synthetics_browser_check_calls_count_agg_sum";
   private Long syntheticsBrowserCheckCallsCountAggSum;
@@ -384,7 +383,7 @@ public class UsageSummaryResponse {
   }
 
 
-  public UsageSummaryResponse endDate(LocalDate endDate) {
+  public UsageSummaryResponse endDate(OffsetDateTime endDate) {
     
     this.endDate = endDate;
     return this;
@@ -399,12 +398,12 @@ public class UsageSummaryResponse {
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LocalDate getEndDate() {
+  public OffsetDateTime getEndDate() {
     return endDate;
   }
 
 
-  public void setEndDate(LocalDate endDate) {
+  public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
@@ -634,7 +633,7 @@ public class UsageSummaryResponse {
   }
 
 
-  public UsageSummaryResponse startDate(LocalDate startDate) {
+  public UsageSummaryResponse startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
     return this;
@@ -649,12 +648,12 @@ public class UsageSummaryResponse {
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LocalDate getStartDate() {
+  public OffsetDateTime getStartDate() {
     return startDate;
   }
 
 
-  public void setStartDate(LocalDate startDate) {
+  public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
