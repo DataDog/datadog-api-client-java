@@ -4,48 +4,35 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addDashboardListItems**](DashboardListsApi.md#addDashboardListItems) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add dashboards to an existing dashboard list.
-[**deleteDashboardListItems**](DashboardListsApi.md#deleteDashboardListItems) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete dashboards from an existing dashboard list.
-[**getDashboardListItems**](DashboardListsApi.md#getDashboardListItems) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Fetch the dashboard list&#39;s dashboard definitions.
-[**updateDashboardListItems**](DashboardListsApi.md#updateDashboardListItems) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update dashboards of an existing dashboard list.
+[**createDashboardList**](DashboardListsApi.md#createDashboardList) | **POST** /api/v1/dashboard/lists/manual | Create a dashboard list
+[**deleteDashboardList**](DashboardListsApi.md#deleteDashboardList) | **DELETE** /api/v1/dashboard/lists/manual/{list_id} | Delete a dashboard list
+[**getAllDashboardLists**](DashboardListsApi.md#getAllDashboardLists) | **GET** /api/v1/dashboard/lists/manual | Get all dashboard lists
+[**getDashboardList**](DashboardListsApi.md#getDashboardList) | **GET** /api/v1/dashboard/lists/manual/{list_id} | Get a dashboard list
+[**updateDashboardList**](DashboardListsApi.md#updateDashboardList) | **PUT** /api/v1/dashboard/lists/manual/{list_id} | Update a dashboard list
 
 
 
-## addDashboardListItems
+## createDashboardList
 
-> DashboardListAddItemsResponse addDashboardListItems(dashboardListId).body(body).execute();
+> DashboardList createDashboardList().body(body).execute();
 
-Add dashboards to an existing dashboard list.
+Create a dashboard list
 
 ### Overview
-Add dashboards to an existing dashboard list.
+Create an empty dashboard list.
 ### Arguments
-- **`dashboards`** [*required*]: A list of dashboards to add to the list. Dashboard definitions follow this form:
-
-  - **`type`** [*required*]: The type of the dashboard. The type must be one of:
-
-    - `"custom_timeboard"`
-
-    - `"custom_screenboard"`
-
-    - `"integration_screenboard"`
-
-    - `"integration_timeboard"`
-
-    - `"host_timeboard"`
-
-  - **`id`** [*required*]: The id of the dashboard.
+* **name** [*required*]: The name of the dashboard list.
 
 ### Example
 
 ```java
 // Import classes:
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
-import com.datadog.api.v2.client.api.DashboardListsApi;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.DashboardListsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -65,15 +52,14 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        Long dashboardListId = 56L; // Long | ID of the dashboard list to add items to
-        DashboardListItems body = new DashboardListItems(); // DashboardListItems | Dashboards to add to the dashboard list
+        DashboardList body = new DashboardList(); // DashboardList | DashboardList request object
         try {
-            DashboardListAddItemsResponse result = api.addDashboardListItems(dashboardListId)
+            DashboardList result = api.createDashboardList()
                 .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardListsApi#addDashboardListItems");
+            System.err.println("Exception when calling DashboardListsApi#createDashboardList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -88,12 +74,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardListId** | **Long**| ID of the dashboard list to add items to |
- **body** | [**DashboardListItems**](DashboardListItems.md)| Dashboards to add to the dashboard list |
+ **body** | [**DashboardList**](DashboardList.md)| DashboardList request object |
 
 ### Return type
 
-[**DashboardListAddItemsResponse**](DashboardListAddItemsResponse.md)
+[**DashboardList**](DashboardList.md)
 
 ### Authorization
 
@@ -110,119 +95,16 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
 
-## deleteDashboardListItems
+## deleteDashboardList
 
-> DashboardListDeleteItemsResponse deleteDashboardListItems(dashboardListId).body(body).execute();
+> DashboardListDeleteResponse deleteDashboardList(listId).execute();
 
-Delete dashboards from an existing dashboard list.
-
-### Overview
-Delete dashboards from an existing dashboard list.
-### Arguments
-- **`dashboards`** [*required*]: A list of dashboards to add to the list. Dashboard definitions follow this form:
-
-  - **`type`** [*required*]: The type of the dashboard. The type must be one of:
-
-    - `"custom_timeboard"`
-
-    - `"custom_screenboard"`
-
-    - `"integration_screenboard"`
-
-    - `"integration_timeboard"`
-
-    - `"host_timeboard"`
-
-  - **`id`** [*required*]: The id of the dashboard.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
-import com.datadog.api.v2.client.api.DashboardListsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        Long dashboardListId = 56L; // Long | ID of the dashboard list to delete items from
-        DashboardListItems body = new DashboardListItems(); // DashboardListItems | Dashboards to delete from the dashboard list
-        try {
-            DashboardListDeleteItemsResponse result = api.deleteDashboardListItems(dashboardListId)
-                .body(body)
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardListsApi#deleteDashboardListItems");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboardListId** | **Long**| ID of the dashboard list to delete items from |
- **body** | [**DashboardListItems**](DashboardListItems.md)| Dashboards to delete from the dashboard list |
-
-### Return type
-
-[**DashboardListDeleteItemsResponse**](DashboardListDeleteItemsResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-
-
-## getDashboardListItems
-
-> DashboardListItems getDashboardListItems(dashboardListId).execute();
-
-Fetch the dashboard list&#39;s dashboard definitions.
+Delete a dashboard list
 
 ### Overview
-Fetch the dashboard list’s dashboard definitions.
+Delete a dashboard list.
 ### Arguments
 This endpoint takes no JSON arguments.
 
@@ -230,12 +112,12 @@ This endpoint takes no JSON arguments.
 
 ```java
 // Import classes:
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
-import com.datadog.api.v2.client.api.DashboardListsApi;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.DashboardListsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -255,13 +137,13 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        Long dashboardListId = 56L; // Long | ID of the dashboard list to get items from
+        Long listId = 56L; // Long | ID of the dashboard list to delete
         try {
-            DashboardListItems result = api.getDashboardListItems(dashboardListId)
+            DashboardListDeleteResponse result = api.deleteDashboardList(listId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardListsApi#getDashboardListItems");
+            System.err.println("Exception when calling DashboardListsApi#deleteDashboardList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -276,11 +158,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardListId** | **Long**| ID of the dashboard list to get items from |
+ **listId** | **Long**| ID of the dashboard list to delete |
 
 ### Return type
 
-[**DashboardListItems**](DashboardListItems.md)
+[**DashboardListDeleteResponse**](DashboardListDeleteResponse.md)
 
 ### Authorization
 
@@ -299,41 +181,27 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 
-## updateDashboardListItems
+## getAllDashboardLists
 
-> DashboardListItems updateDashboardListItems(dashboardListId).body(body).execute();
+> DashboardListListResponse getAllDashboardLists().execute();
 
-Update dashboards of an existing dashboard list.
+Get all dashboard lists
 
 ### Overview
-Update dashboards of an existing dashboard list.
+Fetch all of your existing dashboard list definitions.
 ### Arguments
-- **`dashboards`** [*required*]: A list of dashboards to add to the list. Dashboard definitions follow this form:
-
-  - **`type`** [*required*]: The type of the dashboard. The type must be one of:
-
-    - `"custom_timeboard"`
-
-    - `"custom_screenboard"`
-
-    - `"integration_screenboard"`
-
-    - `"integration_timeboard"`
-
-    - `"host_timeboard"`
-
-  - **`id`** [*required*]: The id of the dashboard.
+This endpoint takes no JSON arguments.
 
 ### Example
 
 ```java
 // Import classes:
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
-import com.datadog.api.v2.client.api.DashboardListsApi;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.DashboardListsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -353,15 +221,93 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        Long dashboardListId = 56L; // Long | ID of the dashboard list to update items from
-        DashboardListItems body = new DashboardListItems(); // DashboardListItems | New dashboards of the dashboard list
         try {
-            DashboardListItems result = api.updateDashboardListItems(dashboardListId)
-                .body(body)
+            DashboardListListResponse result = api.getAllDashboardLists()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardListsApi#updateDashboardListItems");
+            System.err.println("Exception when calling DashboardListsApi#getAllDashboardLists");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DashboardListListResponse**](DashboardListListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## getDashboardList
+
+> DashboardList getDashboardList(listId).execute();
+
+Get a dashboard list
+
+### Overview
+Fetch an existing dashboard list's definition.
+### Arguments
+This endpoint takes no JSON arguments.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.DashboardListsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
+        Long listId = 56L; // Long | ID of the dashboard list to fetch
+        try {
+            DashboardList result = api.getDashboardList(listId)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DashboardListsApi#getDashboardList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -376,12 +322,98 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardListId** | **Long**| ID of the dashboard list to update items from |
- **body** | [**DashboardListItems**](DashboardListItems.md)| New dashboards of the dashboard list |
+ **listId** | **Long**| ID of the dashboard list to fetch |
 
 ### Return type
 
-[**DashboardListItems**](DashboardListItems.md)
+[**DashboardList**](DashboardList.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## updateDashboardList
+
+> DashboardList updateDashboardList(listId).body(body).execute();
+
+Update a dashboard list
+
+### Overview
+Update the name of a dashboard list.
+### Arguments
+* **name** [*required*]: The name of the dashboard list.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.DashboardListsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
+        Long listId = 56L; // Long | ID of the dashboard list to update
+        DashboardList body = new DashboardList(); // DashboardList | DashboardList request object
+        try {
+            DashboardList result = api.updateDashboardList(listId)
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DashboardListsApi#updateDashboardList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **Long**| ID of the dashboard list to update |
+ **body** | [**DashboardList**](DashboardList.md)| DashboardList request object |
+
+### Return type
+
+[**DashboardList**](DashboardList.md)
 
 ### Authorization
 

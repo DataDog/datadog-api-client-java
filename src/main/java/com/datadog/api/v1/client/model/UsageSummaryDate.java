@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -82,7 +82,7 @@ public class UsageSummaryDate {
   private Long customTsAvg;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG = "fargate_tasks_count_avg";
   private Long fargateTasksCountAvg;
@@ -346,7 +346,7 @@ public class UsageSummaryDate {
   }
 
 
-  public UsageSummaryDate date(LocalDate date) {
+  public UsageSummaryDate date(OffsetDateTime date) {
     
     this.date = date;
     return this;
@@ -361,12 +361,12 @@ public class UsageSummaryDate {
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LocalDate getDate() {
+  public OffsetDateTime getDate() {
     return date;
   }
 
 
-  public void setDate(LocalDate date) {
+  public void setDate(OffsetDateTime date) {
     this.date = date;
   }
 
