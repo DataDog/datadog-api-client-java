@@ -6,13 +6,16 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import org.junit.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
 /**
@@ -20,6 +23,7 @@ import static org.junit.Assert.*;
  */
 public class SyntheticsApiTest extends V1ApiTest {
     private static SyntheticsApi api;
+    private static SyntheticsApi unitAPI;
     private ArrayList<String> deleteSyntheticsTests = null;
     private SyntheticsTestDetails apiTestConfig = new SyntheticsTestDetails()
             .config(new SyntheticsTestConfig()
@@ -90,6 +94,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new SyntheticsApi(generalApiClient);
+        unitAPI = new SyntheticsApi(generalApiUnitTestClient);
     }
 
     @After
@@ -111,7 +116,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
-    public void testSyntheticsAPILifecycle() throws ApiException {
+    public void testSyntheticsAPILifecycle() throws ApiException, IOException {
         SyntheticsTestDetails synt;
         String publicId;
         Boolean pauseStatus;
@@ -185,12 +190,25 @@ public class SyntheticsApiTest extends V1ApiTest {
             assertNull(e);
         }
 
+        // Retrieve a single result. Use a mock as it takes time for a result to be available
+        stubFor(get(urlPathEqualTo("/api/v1/synthetics/tests/test-synthetics-id/results/test-result-id"))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/synthetics_fixtures/api_test_single_result.json")))
+        );
+        SyntheticsAPITestResultFull result = unitAPI.getAPITestResult("test-synthetics-id", "test-result-id").execute();
+
+        // Assert a few of the returned attributes unmarshall properly
+        assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.TRIGGERED);
+        assertEquals(result.getCheckTime(), Double.valueOf("1580204310361"));
+        assertEquals(result.getCheckVersion().intValue(), 2);
+        assertEquals(result.getResultId(), "7761116396307201795");
+        assertEquals(result.getResult().getEventType(), "finished");
+
         // Delete API test
         api.deleteTests().body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId))).execute();
     }
 
     @Test
-    public void testSyntheticsBrowserLifecycle() throws ApiException {
+    public void testSyntheticsBrowserLifecycle() throws ApiException, IOException {
         SyntheticsTestDetails synt;
         String publicId;
         Boolean pauseStatus;
@@ -255,14 +273,15 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         // Get a specific Browser test result
         // Again, using a mock response to just test deserialization
-        try {
-            generalApiClient
-                    .getJSON()
-                    .getContext(null)
-                    .readValue(singleResultFixture, SyntheticsBrowserTestResultFull.class);
-        } catch (Exception e) {
-            assertNull(e);
-        }
+        stubFor(get(urlPathEqualTo("/api/v1/synthetics/tests/browser/test-synthetics-id/results/test-result-id"))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/synthetics_fixtures/browser_test_single_result.json")))
+        );
+        SyntheticsBrowserTestResultFull result = unitAPI.getBrowserTestResult("test-synthetics-id", "test-result-id").execute();
+        // Assert based on the data from the fixture file, test a few fields
+        assertEquals(result.getResultId(), "5140738909114888212");
+        assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.UNTRIGGERED);
+        assertEquals(result.getCheckTime(),  Double.valueOf("1579711893111"));
+        assertEquals(result.getCheckVersion().intValue(), 5);
 
         // Delete Browser test
         api.deleteTests().body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId))).execute();
