@@ -33,6 +33,8 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Clock;
 import java.time.Instant;
@@ -161,10 +163,14 @@ public class TestUtils {
                         now.toString().getBytes()
                 );
             } else {
-                String time = Files.readAllLines(
-                        Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".freeze")
-                ).get(0);
-                clock = Clock.fixed(Instant.parse(time), ZoneOffset.UTC);
+                Path freezeFile = Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".freeze");
+                try {
+                    List<String> lines = Files.readAllLines(freezeFile);
+                    clock = Clock.fixed(Instant.parse(lines.get(0)), ZoneOffset.UTC);
+                } catch (NoSuchFileException e) {
+                    System.out.println("Could not find file " + freezeFile + ", initializing clock using current time");
+                    clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
+                }
                 now = OffsetDateTime.ofInstant(Instant.now(clock), ZoneOffset.UTC);
             }
         }
