@@ -1,5 +1,5 @@
 [ {
-  "id" : "52dcc7e5-f151-4e9c-a229-6d3ce3d93ffd",
+  "id" : "e9e35472-ebcd-4ebd-aa7a-5bf19891543a",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
@@ -14,7 +14,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_9258058\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"DatadogAWSIntegrationRole\"}"
+      "json" : "{\"account_id\":\"java_5297309\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"DatadogAWSIntegrationRole\"}"
     }
   },
   "times" : {
@@ -27,15 +27,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 14:21:01 GMT" ],
+      "Date" : [ "Fri, 13 Mar 2020 18:48:21 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 14:21:01 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2275058" ],
-      "X-DD-Debug" : [ "og1WGdy+2nV+rkkclmd3Cf2I26XhV3/6yjBeQCP8aHbH2k2cKwC+X9WmhIghcJ94" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:20 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2276156" ],
+      "X-DD-Debug" : [ "yEcEaKqmSUfeSlQ/kN/c5E6EpIXbM1JPI9KV27pdsvBWWv3FI4tsqqRarYTS+fS+" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -46,10 +46,10 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"external_id\":\"5dba8decab914dc3b5551a09a0865147\"}"
+    "body" : "{\"external_id\":\"abbaf3ab0e2b49c6a05154a417880483\"}"
   }
 }, {
-  "id" : "89525577-7dfe-410b-9813-a85d03d0d0c0",
+  "id" : "11d7162c-1211-47d1-befc-006d08a44de5",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs/services_async",
@@ -64,7 +64,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_9258058\",\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]}"
+      "json" : "{\"account_id\":\"java_5297309\",\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]}"
     }
   },
   "times" : {
@@ -77,15 +77,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 14:21:02 GMT" ],
+      "Date" : [ "Fri, 13 Mar 2020 18:48:21 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 14:21:01 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2275058" ],
-      "X-DD-Debug" : [ "NueLa2zkdBcl9S7BHrRuWyjAeR9iWgPFe330KTY6Cp0/yUhjUktbxu5rG2fG6gBk" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:21 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2276156" ],
+      "X-DD-Debug" : [ "LOVPYRkvxiVgJlSU7tTR5QW5I3IByFfoP5oRWZk6jukYFQiYGeCZXWoo6PiPBzrK" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -96,10 +96,10 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"status\":\"error\",\"errors\":[{\"message\":\"AWS account java_9258058 has no lambda config to update\",\"code\":\"no_such_config\"}]}"
+    "body" : "{\"status\":\"error\",\"errors\":[{\"message\":\"AWS account java_5297309 has no lambda config to update\",\"code\":\"no_such_config\"}]}"
   }
 }, {
-  "id" : "a7d59e52-f552-4e95-90b4-36ad0957c3d0",
+  "id" : "e3933a18-1a96-4156-9ea0-7fb6e540d5ae",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
@@ -114,7 +114,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_9258058\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"DatadogAWSIntegrationRole\"}"
+      "json" : "{\"account_id\":\"java_5297309\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"DatadogAWSIntegrationRole\"}"
     }
   },
   "times" : {
@@ -127,15 +127,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 14:21:03 GMT" ],
+      "Date" : [ "Fri, 13 Mar 2020 18:48:22 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 14:21:02 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2275058" ],
-      "X-DD-Debug" : [ "FB5oGxuL9E/cplxahdQnU5Nw5E7KX0Smq18it9qYKIt8BXsSloE0IpDRA39tfQwn" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:22 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2276156" ],
+      "X-DD-Debug" : [ "btzHvL7Rg/f/n1wMP2CFVXsuErrwOO9p2hvsBofLQbxzRkmZbfvXcB18pURNtIOI" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
