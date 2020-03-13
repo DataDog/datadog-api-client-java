@@ -117,20 +117,22 @@ public class TestUtils {
 
         @BeforeClass
         public static void getSecretsFromEnv() {
-            HashMap<String, String> secrets = new HashMap<String, String>();
+            if (isRecording()) {
+                HashMap<String, String> secrets = new HashMap<String, String>();
 
-            // Get API key
-            TEST_API_KEY = System.getenv(TEST_API_KEY_NAME);
-            if (TEST_API_KEY == null) {
-                System.err.printf("%s not set, exiting", TEST_API_KEY_NAME);
-                System.exit(1);
-            }
+                // Get API key
+                TEST_API_KEY = System.getenv(TEST_API_KEY_NAME);
+                if (TEST_API_KEY == null) {
+                    System.err.printf("%s not set, exiting", TEST_API_KEY_NAME);
+                    System.exit(1);
+                }
 
-            // Get application key
-            TEST_APP_KEY = System.getenv(TEST_APP_KEY_NAME);
-            if (TEST_APP_KEY == null) {
-                System.err.printf("%s not set, exiting", TEST_APP_KEY_NAME);
-                System.exit(1);
+                // Get application key
+                TEST_APP_KEY = System.getenv(TEST_APP_KEY_NAME);
+                if (TEST_APP_KEY == null) {
+                    System.err.printf("%s not set, exiting", TEST_APP_KEY_NAME);
+                    System.exit(1);
+                }
             }
         }
 
@@ -155,7 +157,7 @@ public class TestUtils {
                 clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
                 now = OffsetDateTime.ofInstant(Instant.now(clock), ZoneOffset.UTC);
                 Files.write(
-                        Paths.get("src/test/resources/cassettes",version, name.getMethodName() + ".freeze"),
+                        Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".freeze"),
                         now.toString().getBytes()
                 );
             } else {
