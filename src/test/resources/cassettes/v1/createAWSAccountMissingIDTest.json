@@ -1,5 +1,5 @@
 [ {
-  "id" : "724025d8-8f78-4f45-a2a7-7ffe2555aa76",
+  "id" : "432a3a0e-7254-4ac0-be61-29d66df82e32",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
@@ -27,13 +27,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 14:15:02 GMT" ],
+      "Date" : [ "Fri, 13 Mar 2020 19:01:54 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "58" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2275050" ],
+      "X-DD-VERSION" : [ "35.2276483" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

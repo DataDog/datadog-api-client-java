@@ -11,6 +11,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.AWSAccount;
 import com.datadog.api.v1.client.model.AWSAccountCreateResponse;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -31,6 +32,10 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new AwsIntegrationApi(generalApiClient);
+    }
+
+    @Before
+    public void resetAccountsToDelete() {
         accountsToDelete = new LinkedHashSet<>();
     }
 
