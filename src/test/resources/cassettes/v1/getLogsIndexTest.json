@@ -1,0 +1,51 @@
+[ {
+  "id" : "d1445b73-86b3-4c22-91e8-8d59cee003e1",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/logs/config/indexes/main",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Connection" : [ "keep-alive" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : true,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 13 Mar 2020 16:15:57 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 16:15:57 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2275708" ],
+      "X-RateLimit-Limit" : [ "5000" ],
+      "X-RateLimit-Period" : [ "3600" ],
+      "X-RateLimit-Reset" : [ "2643" ],
+      "X-RateLimit-Remaining" : [ "4999" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "1bzfAqb/6TIngEeU7r7YcGGp2+NaI+ne9J3bzgQrdB0qTrgVrMtd4iKXr1zCNOHr" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "132" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"name\":\"main\",\"filter\":{\"query\":\"\"},\"num_retention_days\":15,\"daily_limit\":200000000,\"is_rate_limited\":false,\"exclusion_filters\":[]}"
+  }
+} ]

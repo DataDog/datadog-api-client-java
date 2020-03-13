@@ -6,16 +6,15 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.AccessRole;
 import com.datadog.api.v1.client.model.User;
 import com.datadog.api.v1.client.model.UserListResponse;
 import com.datadog.api.v1.client.model.UserResponse;
-import org.junit.After;
+import org.junit.*;
+
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -98,6 +97,7 @@ public class UsersApiTest extends V1ApiTest {
      */
     @Test
     public void getAllUsersTest() throws ApiException {
+        Assume.assumeTrue("This test does not support replay from recording", TestUtils.isRecording());
         ArrayList<String> prefixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
         for (String prefix: prefixes) {
             User user = new User();

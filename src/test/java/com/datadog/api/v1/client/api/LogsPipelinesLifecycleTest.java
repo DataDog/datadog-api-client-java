@@ -40,7 +40,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
 
     @Test
     public void pipelineLifecycleTest() throws ApiException {
-        long now = System.currentTimeMillis();
+        long nowMillis = now.toInstant().toEpochMilli();
         api = new LogsPipelinesApi(generalApiClient);
 
         // Create a pipeline
@@ -126,10 +126,10 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .addProcessorsItem(geoIPParser)
                 .addProcessorsItem(lookupProcessor)
                 .addProcessorsItem(traceRemapper)
-                .name("java-client-test-pipeline-" + now);
+                .name("java-client-test-pipeline-" + nowMillis);
         LogsPipeline createdPipeline = api.createLogsPipeline().body(pipeline).execute();
         pipelinesToDelete.add(createdPipeline.getId());
-        assertEquals("java-client-test-pipeline-" + now, createdPipeline.getName());
+        assertEquals("java-client-test-pipeline-" + nowMillis, createdPipeline.getName());
         assertTrue(createdPipeline.getIsEnabled());
         assertEquals("query", createdPipeline.getFilter().getQuery());
         assertEquals(grokParser, createdPipeline.getProcessors().get(0));
@@ -169,7 +169,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         pipeline.setFilter(new LogsFilter().query("updated query"));
         pipeline.setName(pipeline.getName() + "-updated");
         LogsPipeline updatedPipeline = api.updateLogsPipeline(createdPipeline.getId()).body(pipeline).execute();
-        assertEquals("java-client-test-pipeline-" + now + "-updated", updatedPipeline.getName());
+        assertEquals("java-client-test-pipeline-" + nowMillis + "-updated", updatedPipeline.getName());
         assertFalse(updatedPipeline.getIsEnabled());
         assertEquals("updated query", updatedPipeline.getFilter().getQuery());
         assertEquals(grokParser, updatedPipeline.getProcessors().get(13));

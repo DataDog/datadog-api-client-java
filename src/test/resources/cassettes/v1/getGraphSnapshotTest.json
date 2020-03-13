@@ -1,0 +1,55 @@
+[ {
+  "id" : "698bf93b-ecf9-489e-8ea0-4449cecc1be2",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/graph/snapshot",
+    "queryStringParameters" : {
+      "metric_query" : [ "system.load.1{*}" ],
+      "start" : [ "1584117885" ],
+      "end" : [ "1584204285" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Connection" : [ "keep-alive" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : true,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 13 Mar 2020 16:44:49 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 16:44:49 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2275816" ],
+      "X-RateLimit-Limit" : [ "60" ],
+      "X-RateLimit-Period" : [ "3600" ],
+      "X-RateLimit-Reset" : [ "911" ],
+      "X-RateLimit-Remaining" : [ "55" ],
+      "X-DD-Debug" : [ "KKQq2SiaDLpychKSp47ffvU6SRxUV+VzBWr187ESkULBuGOI+kREfb/2NCy8DAWC" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "237" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"graph_def\":\"{\\\"requests\\\": [{\\\"q\\\": \\\"system.load.1{*}\\\"}]}\",\"snapshot_url\":\"https://p.datadoghq.com/snapshot/view/dd-snapshots-prod/org_321813/2020-03-13/ea013871111d00bad3231e82552fec3c0d805ecf.png\",\"metric_query\":\"system.load.1{*}\"}"
+  }
+} ]

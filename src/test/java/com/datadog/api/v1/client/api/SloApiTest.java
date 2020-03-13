@@ -153,7 +153,7 @@ public class SloApiTest extends V1ApiTest {
         // Get SLO history
         // the contents of history really depend on the org that this test is running in, so we just ensure
         // that the structure deserialized properly and no exception was thrown
-        Long time = new Date().getTime() / 1000;
+        Long time = now.toEpochSecond();
         HistoryServiceLevelObjectiveResponse historyResp = api.historyForSLO(edited.getId())
                 .fromTs(Long.toString(time - 11)).toTs(Long.toString(time - 1)).execute();
         HistoryServiceLevelObjectiveMetrics series = historyResp.getData().getSeries();

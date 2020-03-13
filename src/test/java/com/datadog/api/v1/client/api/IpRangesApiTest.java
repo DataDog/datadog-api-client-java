@@ -10,6 +10,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.IPRanges;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;

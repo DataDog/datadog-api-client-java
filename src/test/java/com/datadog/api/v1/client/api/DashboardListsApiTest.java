@@ -38,7 +38,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     @Test
     public void dashboardListCreateModifyDeleteTest() throws ApiException {
 
-        long start = System.currentTimeMillis();
+        long start = now.toInstant().toEpochMilli();
         DashboardList testDashboardList = new DashboardList().name(String.format("java dashboard list %d", start));
 
         // Create dashboard list

@@ -32,7 +32,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
 
     @Before
     public void setupAzureAccounts() {
-        String uniqueTenantName = String.format("java_test-%07d", System.currentTimeMillis() % 10000000);
+        String uniqueTenantName = String.format("java_test-%07d", (now.toInstant().toEpochMilli()) % 10000000);
 
         uniqueAzureAccount.setClientId("javatest-1234-5678-9101-3fcbf464test");
         uniqueAzureAccount.setClientSecret("testingx./Sw*g/Y33t..R1cH+hScMDt");

@@ -30,33 +30,18 @@ public class LogsApiTest extends V1ApiTest {
         api = new LogsApi(generalApiClient);
     }
 
-    /**
-     * Get a list of logs
-     *
-     * ## Overview List endpoint returns logs that match a log search query. [Results are paginated][1]. **If you are thinking about archiving logs for your organization, consider using Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** **ARGUMENTS**: * **&#x60;query&#x60;** [*required*]:     The search query - following the [Log search syntax][3] .  * **&#x60;time.from&#x60;** [*required*]:     Minimum timestamp for requested logs. Format can be either      - an ISO-8601 string      - a unix timestamp (number representing the elapsed millisec since epoch)      - a relative time (&#x60;now -10m&#x60;, &#x60;now - 1h&#x60;, &#x60;now - 1d&#x60;)  * **&#x60;time.to&#x60;** [*required*]:     Maximum timestamp for requested logs. Format can be either      - an ISO-8601 string with minute, second or millisecond precision      - a unix timestamp (number representing the elapsed millisec since epoch)      - a relative time (&#x60;now&#x60;, &#x60;now -10m&#x60;, &#x60;now - 1h&#x60;, &#x60;now - 1d&#x60;)  * **&#x60;time.timezone&#x60;** [*optional*, *default*&#x3D;**None**]:   Can be specified both as an offset (e.g. \&quot;UTC+03:00\&quot;) or a regional zone (e.g. \&quot;Europe/Paris\&quot;)  * **&#x60;time.offset&#x60;** [*optional*, *default*&#x3D;**None**]:   Equivalent to &#x60;time.timezone&#x60;. But value in seconds.   If both timezone and offset are specified, timezone is ignored.  * **&#x60;startAt&#x60;** [*optional*, *default*&#x3D;**None**]:   Hash identifier of the first log to return in the list, available in a log &#x60;id&#x60; attribute. This parameter is used for the [pagination feature][1].   **Note**: this parameter is ignored if the corresponding log is out of the scope of the specified time window.  * **&#x60;sort&#x60;** [*optional*, *default*&#x3D;**desc**]:     Time-ascending &#x60;asc&#x60; or time-descending &#x60;desc&#x60;results.  * **&#x60;limit&#x60;** [*optional*, *default*&#x3D;**10**]:     Number of logs return in the response (maximum is 1000)  * **&#x60;index&#x60;** [*optional*, *default*&#x3D;**main**]:     For multi-index organizations, the log index in which the request is performed.  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives [3]: https://docs.datadoghq.com/logs/explorer/search/#search-syntax
-     *
-     * @throws ApiException if the Api call fails
-     */
     @Test
-    public void listLogsTest() throws ApiException {
+    public void sendLogsTest() throws ApiException {
         HTTPLog body = new HTTPLog()
                 .ddsource("source")
                 .ddtags("tags")
                 .hostname("datadog-api-client-java-test")
                 .message("testing message");
-        Object response = api.sendLog()
-                .body(body)
-                .execute();
+        api.sendLog().body(body).execute();
     }
 
-    /**
-     * Send logs
-     *
-     * @throws ApiException if the Api call fails
-     */
     @Test
-    public void sendLogTest() throws ApiException, TestUtils.RetryException, InterruptedException {
-        OffsetDateTime now = OffsetDateTime.now();
+    public void listLogTest() throws ApiException, TestUtils.RetryException, InterruptedException {
         long nowNano = now.toEpochSecond() * 1000000 + now.getNano();
         String source = String.format("go-client-test-%d", nowNano);
         String message = String.format("test-log-list-%d", nowNano);

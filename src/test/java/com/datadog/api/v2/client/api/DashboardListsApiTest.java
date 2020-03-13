@@ -6,13 +6,17 @@
 
 package com.datadog.api.v2.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.DashboardList;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.model.*;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -30,25 +34,27 @@ public class DashboardListsApiTest extends V2APITest {
     private static long dashboardListID;
     private final DashboardListsApi api = new DashboardListsApi(generalApiClient);
 
-    @BeforeClass
-    public static void createDashboardList() throws com.datadog.api.v1.client.ApiException {
+    @After
+    public void deleteDashboardList() throws com.datadog.api.v1.client.ApiException {
+        dashboardListsApiV1.deleteDashboardList(dashboardListID).execute();
+    }
+
+    @Before
+    public void createDashboardList() throws com.datadog.api.v1.client.ApiException, NoSuchAlgorithmException {
         com.datadog.api.v1.client.ApiClient v1Client = new com.datadog.api.v1.client.ApiClient();
         HashMap<String, String> secrets = new HashMap<>();
         secrets.put("apiKeyAuth", TEST_API_KEY);
         secrets.put("appKeyAuth", TEST_APP_KEY);
         v1Client.configureApiKeys(secrets);
         v1Client.setDebugging("true".equals(System.getenv("DEBUG")));
+        ClientConfig config = (ClientConfig) v1Client.getHttpClient().getConfiguration();
+        config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
 
         dashboardListsApiV1 = new com.datadog.api.v1.client.api.DashboardListsApi(v1Client);
         DashboardList res = dashboardListsApiV1.createDashboardList().body(
-                new DashboardList().name("java-test-client-v2-" + System.currentTimeMillis())
+                new DashboardList().name("java-test-client-v2-" + now.toInstant().toEpochMilli())
         ).execute();
         dashboardListID = res.getId();
-    }
-
-    @AfterClass
-    public static void deleteDashboardList() throws com.datadog.api.v1.client.ApiException {
-        dashboardListsApiV1.deleteDashboardList(dashboardListID).execute();
     }
 
     @Test

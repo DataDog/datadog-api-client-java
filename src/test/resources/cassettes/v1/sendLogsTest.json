@@ -1,0 +1,37 @@
+[ {
+  "id" : "d615d212-f8d0-4ee2-b5d7-fc9fe6aaf34e",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/v1/input",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "107" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"ddsource\":\"source\",\"ddtags\":\"tags\",\"hostname\":\"datadog-api-client-java-test\",\"message\":\"testing message\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 13 Mar 2020 16:12:48 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ]
+    },
+    "body" : "{}"
+  }
+} ]

@@ -28,18 +28,19 @@ public class DowntimesApiTest extends V1ApiTest {
 
     private static DowntimesApi api;
     private ArrayList<Long> deleteDowntimes = null;
+    private Long testingDowntimeStart;
 
     private final List<String> testingDowntimeScope = Arrays.asList("env:prod");
     private final String testingDowntimeMessage = "Prod downtime";
-    private final Long testingDowntimeStart = System.currentTimeMillis() / 1000L + 200000;
     private final String testingDowntimeRecurrenceType = "weeks";
     private final Integer testingDowntimeRecurrencePeriod = 1;
     private final List<String> testingDowntimeRecurrenceWeekDays = Arrays.asList("Mon", "Tue");
     private final Integer testingUntilDowntimeRecurrenceOccurrences = 10;
 
     @Before
-    public void resetDeleteDowntimes() {
-        deleteDowntimes = new ArrayList<Long>();
+    public void resetTest() {
+        deleteDowntimes = new ArrayList<>();
+        testingDowntimeStart = now.toInstant().toEpochMilli() / 1000L + 200000;
     }
 
     @BeforeClass
