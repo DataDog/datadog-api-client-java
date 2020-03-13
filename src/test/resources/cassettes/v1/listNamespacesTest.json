@@ -1,0 +1,46 @@
+[ {
+  "id" : "4f5c5962-7a7f-4e21-b03b-c591e3f87548",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/integration/aws/available_namespace_rules",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Connection" : [ "keep-alive" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : true,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 13 Mar 2020 18:26:49 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:26:49 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2276156" ],
+      "X-DD-Debug" : [ "pT9LlAdgAzlrCUxMXQkBRs/Qti76jKIHng1uB0/SctAaYjB4WqOgOZYpCbOMQKll" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "888" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "[\"api_gateway\",\"application_elb\",\"appstream\",\"appsync\",\"athena\",\"auto_scaling\",\"billing\",\"budgeting\",\"cloudfront\",\"cloudhsm\",\"cloudsearch\",\"cloudwatch_events\",\"cloudwatch_logs\",\"codebuild\",\"cognito\",\"collect_custom_metrics\",\"connect\",\"crawl_alarms\",\"directconnect\",\"dms\",\"documentdb\",\"dynamodb\",\"ebs\",\"ec2\",\"ec2api\",\"ec2spot\",\"ecs\",\"efs\",\"elasticache\",\"elasticbeanstalk\",\"elasticinference\",\"elastictranscoder\",\"elb\",\"emr\",\"es\",\"firehose\",\"gamelift\",\"glue\",\"inspector\",\"iot\",\"kinesis\",\"kinesis_analytics\",\"kms\",\"lambda\",\"lex\",\"mediaconnect\",\"mediaconvert\",\"mediapackage\",\"mediatailor\",\"ml\",\"mq\",\"msk\",\"nat_gateway\",\"neptune\",\"network_elb\",\"opsworks\",\"polly\",\"rds\",\"redshift\",\"rekognition\",\"route53\",\"route53resolver\",\"s3\",\"sagemaker\",\"ses\",\"shield\",\"sns\",\"sqs\",\"step_functions\",\"storage_gateway\",\"swf\",\"transitgateway\",\"translate\",\"trusted_advisor\",\"usage\",\"vpn\",\"waf\",\"workspaces\",\"xray\"]"
+  }
+} ]
