@@ -43,8 +43,11 @@ public class SloApiTest extends V1ApiTest {
                     .warning(98.0)
             ))
             .query(new ServiceLevelObjectiveQuery()
-                .numerator("sum:httpservice.hits{code:2xx}.as_count()")
-                .denominator("sum:httpservice.hits{!code:3xx}.as_count()")
+                // Using the default function with non-existant metrics ensures that this
+                // test will behave the same in all environments. The default function
+                // should never be used for real SLO queries.
+                 .numerator("default(sum:non_existant_metric{*}.as_count(), 1)")
+                 .denominator("default(sum:non_existant_metric{*}.as_count(), 2)")
             );
 
     @Before
@@ -156,6 +159,12 @@ public class SloApiTest extends V1ApiTest {
         Long time = now.toEpochSecond();
         HistoryServiceLevelObjectiveResponse historyResp = api.historyForSLO(edited.getId())
                 .fromTs(Long.toString(time - 11)).toTs(Long.toString(time - 1)).execute();
+
+        HistoryServiceLevelObjectiveOverall overall = historyResp.getData().getOverall();
+        Double sliValue = overall.getSliValue();
+        assertNotNull(sliValue);
+        assertEquals(50, Math.round(sliValue));
+
         HistoryServiceLevelObjectiveMetrics series = historyResp.getData().getSeries();
         assertNotNull(series);
         assertNotNull(series.getTimes());
