@@ -98,12 +98,23 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
         assertNull(response.getErrors());
         assertEquals(response.getStatus(), "created");
 
-        // Give the async call time to finish
-        try {
-            Thread.sleep(10 * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // Give the async call time to finish, only run assertions once we know we have an error state
+        // This should only require a small amount of time to be complete
+        TestUtils.retry(5, 20, () -> {
+            AWSLogsAsyncResponse retryResponse;
+            try {
+                retryResponse = api.aWSLogsCheckLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
+            } catch(ApiException e) {
+                System.out.println(String.format("Error checking the lambda status: %s", e));
+                return false;
+            }
+            if (!retryResponse.getStatus().equals("error")) {
+                System.out.println(String.format("Log lambda check is not done, currently in state: %s", retryResponse.getStatus()));
+                return false;
+            } else {
+                return true;
+            }
+        });
 
         response = api.aWSLogsCheckLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
         assertNotEquals(response.getErrors().get(0).getCode(), "");
