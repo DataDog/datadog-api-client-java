@@ -75,7 +75,7 @@ public class TestUtils {
     }
 
     public static boolean isRecording() {
-        return "true".equals(System.getenv("RECORD"));
+        return Boolean.parseBoolean(System.getenv("RECORD"));
     }
 
     public static class RetryException extends Exception {
@@ -112,8 +112,10 @@ public class TestUtils {
 
         @BeforeClass
         public static void trustProxyCerts() {
-            // Trust MockServers proxy certificates
+            // Needed otherwise the Trust store does not have the correct type for java > 8.
+            // See https://github.com/mock-server/mockserver/issues/744
             Security.setProperty("keystore.type", "jks");
+            // Trust MockServers proxy certificates
             HttpsURLConnection.setDefaultSSLSocketFactory(
                     new KeyStoreFactory(new MockServerLogger()).sslContext().getSocketFactory()
             );
@@ -121,22 +123,22 @@ public class TestUtils {
 
         @BeforeClass
         public static void getSecretsFromEnv() {
-            if (isRecording()) {
-                HashMap<String, String> secrets = new HashMap<String, String>();
+            if (!isRecording()) return;
 
-                // Get API key
-                TEST_API_KEY = System.getenv(TEST_API_KEY_NAME);
-                if (TEST_API_KEY == null) {
-                    System.err.printf("%s not set, exiting", TEST_API_KEY_NAME);
-                    System.exit(1);
-                }
+            HashMap<String, String> secrets = new HashMap<String, String>();
 
-                // Get application key
-                TEST_APP_KEY = System.getenv(TEST_APP_KEY_NAME);
-                if (TEST_APP_KEY == null) {
-                    System.err.printf("%s not set, exiting", TEST_APP_KEY_NAME);
-                    System.exit(1);
-                }
+            // Get API key
+            TEST_API_KEY = System.getenv(TEST_API_KEY_NAME);
+            if (TEST_API_KEY == null) {
+                System.err.printf("%s not set, exiting", TEST_API_KEY_NAME);
+                System.exit(1);
+            }
+
+            // Get application key
+            TEST_APP_KEY = System.getenv(TEST_APP_KEY_NAME);
+            if (TEST_APP_KEY == null) {
+                System.err.printf("%s not set, exiting", TEST_APP_KEY_NAME);
+                System.exit(1);
             }
         }
 
@@ -157,7 +159,9 @@ public class TestUtils {
 
         @Before
         public void setupClock() throws IOException {
+            // Use a fixed time in tests to allow replaying from cassettes
             if (TestUtils.isRecording()) {
+                // When recording, set the clock to the current time and save it to a `freeze` file for replaying
                 clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
                 now = OffsetDateTime.ofInstant(Instant.now(clock), ZoneOffset.UTC);
                 Files.write(
@@ -165,6 +169,7 @@ public class TestUtils {
                         now.toString().getBytes()
                 );
             } else {
+                // When replaying, read the time in the `freeze` file, and set the clock to that time, or current time if file not found
                 Path freezeFile = Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".freeze");
                 try {
                     List<String> lines = Files.readAllLines(freezeFile);
@@ -179,6 +184,8 @@ public class TestUtils {
 
         @After
         public void cleanAndSendExpectations() {
+            // Cleanup the recorded requests from sensitive information (API keys in headers and query params),
+            // create the associated expectations and send them to mockserver to save them on disk in the `cassettes/**/*.json` files
             List<Expectation> expectations = new ArrayList<>();
             LogEventRequestAndResponse[] requestsAndResponses = mockServer.retrieveRecordedRequestsAndResponses(null);
             for (LogEventRequestAndResponse requestAndResponse : requestsAndResponses) {

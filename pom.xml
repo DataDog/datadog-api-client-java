@@ -300,17 +300,11 @@
             <version>2.25.1</version>
             <scope>test</scope>
             <exclusions>
-                <exclusion> <!-- will map to any underlying logging framework -->
+                <!-- mock-server also has this dependency, but requires a higher minor version than specified
+                in wiremock, so exclude it here otherwise it breaks mock-server -->
+                <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-api</artifactId>
-                </exclusion>
-                <exclusion> <!-- will map to any underlying logging framework -->
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-ext</artifactId>
-                </exclusion>
-                <exclusion> <!-- will map to any underlying logging framework -->
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-simple</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
