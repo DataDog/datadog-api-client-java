@@ -36,6 +36,7 @@ import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.Security;
 import java.time.Clock;
 import java.time.Instant;
 import java.time.OffsetDateTime;
@@ -112,6 +113,7 @@ public class TestUtils {
         @BeforeClass
         public static void trustProxyCerts() {
             // Trust MockServers proxy certificates
+            Security.setProperty("keystore.type", "jks");
             HttpsURLConnection.setDefaultSSLSocketFactory(
                     new KeyStoreFactory(new MockServerLogger()).sslContext().getSocketFactory()
             );
