@@ -13,24 +13,14 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
-import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.PagerDutyIntegration;
 import com.datadog.api.v1.client.model.PagerDutyService;
 import com.datadog.api.v1.client.model.PagerDutyServicesAndSchedules;
-
-import org.junit.AfterClass;
+import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import java.time.OffsetDateTime;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
  * API tests for PagerDutyIntegrationApi
@@ -44,11 +34,11 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
         api = new PagerDutyIntegrationApi(generalApiClient);
     }
 
-    @AfterClass
-    public static void removeIntegration() {
+    @After
+    public void removeIntegration() {
         try {
             api.deletePagerDutyIntegration().execute();
-        } catch(ApiException e) {
+        } catch (ApiException e) {
             System.out.println(String.format("Problem with removing PagerDuty integration: %s", e));
         }
     }
@@ -74,32 +64,31 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     /**
      * Test a PagerDuty integration lifecycle
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void lifecyclePagerDutyIntegrationTest() throws ApiException, TestUtils.RetryException {
         ensureNoPagerDuty();
 
         PagerDutyIntegration body = new PagerDutyIntegration()
-            .subdomain("_deadbeef")
-            .apiToken("y_NbAkKc66ryYTWUXYEu");
+                .subdomain("_deadbeef")
+                .apiToken("y_NbAkKc66ryYTWUXYEu");
 
         ApiResponse<Void> response = api.createPagerDutyIntegration()
-            .body(body)
-            .executeWithHttpInfo();
+                .body(body)
+                .executeWithHttpInfo();
         assertEquals(204, response.getStatusCode());
 
         PagerDutyIntegration pagerDuty = api.getPagerDutyIntegration().execute();
         assertEquals(body.getSubdomain(), pagerDuty.getSubdomain());
 
         PagerDutyServicesAndSchedules servicesAndSchedules = new PagerDutyServicesAndSchedules()
-            .addServicesItem(new PagerDutyService()
-                .serviceName("test_java")
-                .serviceKey("deadbeef"))
-            .addSchedulesItem(
-                "https://_deadbeef.pagerduty.com/schedules#DEAD3F"
-            );
+                .addServicesItem(new PagerDutyService()
+                        .serviceName("test_java")
+                        .serviceKey("deadbeef"))
+                .addSchedulesItem(
+                        "https://_deadbeef.pagerduty.com/schedules#DEAD3F"
+                );
 
         api.updatePagerDutyIntegration()
                 .body(servicesAndSchedules)
@@ -112,19 +101,9 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
             PagerDutyService service = updatedPagerDuty.getServices().get(index);
             assertEquals(service.getServiceName(), servicesAndSchedules.getServices().get(index).getServiceName());
         }
-    }
 
-    /**
-     * Delete a PagerDuty integration
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deletePagerDutyIntegrationTest() throws ApiException, TestUtils.RetryException {
-        ensureNoPagerDuty();
-
-        ApiResponse<Void> response = api.deletePagerDutyIntegration().executeWithHttpInfo();
-        assertEquals(204, response.getStatusCode());
+        ApiResponse<Void> deleteResponse = api.deletePagerDutyIntegration().executeWithHttpInfo();
+        assertEquals(204, deleteResponse.getStatusCode());
     }
 
     /**
@@ -133,7 +112,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void getPagerDutyIntegrationTest() throws ApiException, TestUtils.RetryException {
+    public void getPagerDutyIntegrationTest() throws TestUtils.RetryException {
         ensureNoPagerDuty();
 
         try {

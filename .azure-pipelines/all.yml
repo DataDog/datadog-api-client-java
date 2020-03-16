@@ -23,11 +23,12 @@ jobs:
     - task: Docker@2
       inputs:
         command: run
-        arguments: --volume /home/vsts/work/1/s:/datadog-api-client-java --env DD_TEST_CLIENT_API_KEY --env DD_TEST_CLIENT_APP_KEY datadog-java-integration-test
+        arguments: --volume /home/vsts/work/1/s:/datadog-api-client-java --env RECORD --env DD_TEST_CLIENT_API_KEY --env DD_TEST_CLIENT_APP_KEY datadog-java-integration-test
       displayName: Run integration tests
       env:
         DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
+        RECORD: "true"
     - script: |
         bash <(curl -s https://codecov.io/bash)
       displayName: Upload to codecov.io

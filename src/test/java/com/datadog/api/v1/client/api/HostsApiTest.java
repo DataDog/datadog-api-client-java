@@ -53,10 +53,10 @@ public class HostsApiTest extends V1ApiTest {
      */
     @Test
     public void hostsTest() throws ApiException, TestUtils.RetryException {
-        long now = System.currentTimeMillis()/1000;
-        String hostname = String.format("java-client-test-host-%d", now);
+        long nowMillis = now.toInstant().toEpochMilli()/1000;
+        String hostname = String.format("java-client-test-host-%d", nowMillis);
         List<Double> p1 = new ArrayList<>();
-        p1.add((double) now);
+        p1.add((double) nowMillis);
         p1.add(0.);
 
         // create host by sending a metric
@@ -83,17 +83,17 @@ public class HostsApiTest extends V1ApiTest {
         // test methods
         HostMuteSettings muteSettings = new HostMuteSettings()
                 .message("muting for java tests")
-                .end(now + 60);
+                .end(nowMillis + 60);
         HostMuteResponse hostMuteResp = api.muteHost(hostname).body(muteSettings).execute();
         assertEquals("muting for java tests", hostMuteResp.getMessage());
         assertEquals(hostname, hostMuteResp.getHostname());
-        assertEquals(now+60, hostMuteResp.getEnd().longValue());
+        assertEquals(nowMillis+60, hostMuteResp.getEnd().longValue());
         assertEquals("Muted", hostMuteResp.getAction());
 
         // Update the mute settings for this host
         muteSettings = new HostMuteSettings()
                 .message("muting for test - updating")
-                .end(now + 120);
+                .end(nowMillis + 120);
 
         // This should fail since the override flag isn't set to true
         boolean failedAsExpected = false;
@@ -110,7 +110,7 @@ public class HostsApiTest extends V1ApiTest {
         hostMuteResp = api.muteHost(hostname).body(muteSettings).execute();
         assertEquals("muting for test - updating", hostMuteResp.getMessage());
         assertEquals(hostname, hostMuteResp.getHostname());
-        assertEquals( now + 120, hostMuteResp.getEnd().longValue());
+        assertEquals( nowMillis + 120, hostMuteResp.getEnd().longValue());
         assertEquals("Muted", hostMuteResp.getAction());
 
         // Unmute the host

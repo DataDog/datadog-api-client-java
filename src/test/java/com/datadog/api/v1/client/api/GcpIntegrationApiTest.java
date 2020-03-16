@@ -30,7 +30,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
 
     @Before
     public void setupGCPAccounts() {
-        String uniqueProjectID = String.format("go_test-%07d", System.currentTimeMillis() % 10000000);
+        String uniqueProjectID = String.format("go_test-%07d", (now.toInstant().toEpochMilli()) % 10000000);
 
         uniqueGCPAccount.setProjectId(uniqueProjectID);
         uniqueGCPAccount.setType("service_account");

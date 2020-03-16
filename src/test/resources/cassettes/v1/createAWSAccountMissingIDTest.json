@@ -1,0 +1,45 @@
+[ {
+  "id" : "432a3a0e-7254-4ac0-be61-29d66df82e32",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/integration/aws",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "33" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"role_name\":\"java_testRoleName\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Fri, 13 Mar 2020 19:01:54 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "58" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2276483" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "body" : "{\"errors\": [\"Required parameter 'account_id' is missing\"]}"
+  }
+} ]

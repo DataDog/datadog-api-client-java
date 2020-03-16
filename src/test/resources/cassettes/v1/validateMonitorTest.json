@@ -1,0 +1,94 @@
+[ {
+  "id" : "6e7e40bd-acec-45f6-86fd-46888a12a20b",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/monitor/validate",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "287" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"Bytes received on host0\",\"options\":{\"no_data_timeframe\":20,\"notify_no_data\":true},\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 13 Mar 2020 16:24:57 GMT" ],
+      "Content-Type" : [ "application/json; charset=utf-8" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 16:24:57 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2275708" ],
+      "X-DD-Debug" : [ "UH1aMdrlnlnaxy/K+HUi5QUN2T0FBtGPSUC8sLrviqCK1XXfgHsSO5DneAd5J+6F" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{}"
+  }
+}, {
+  "id" : "c0b93116-54ee-4e73-829b-ef80bdb5328e",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/monitor/validate",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "299" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"Bytes received on host0\",\"options\":{\"no_data_timeframe\":20,\"notify_no_data\":true},\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} ><><>< whaaaaaaa?\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Fri, 13 Mar 2020 16:24:57 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "66" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2275708" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "body" : "{\"errors\":[\"The value provided for parameter 'query' is invalid\"]}"
+  }
+} ]

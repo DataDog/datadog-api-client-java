@@ -1,0 +1,42 @@
+[ {
+  "id" : "17ec37a4-c695-4499-b35a-16db8f2eda55",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/check_run",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "224" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "[{\"check\":\"submitServiceCheckTest\",\"host_name\":\"java-client-test-host-1584121430\",\"message\":\"Java client integration test is running\",\"status\":0,\"tags\":[\"test\",\"client:java\",\"submitServiceCheckTest\"],\"timestamp\":1584121430}]"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 202,
+    "reasonPhrase" : "Accepted",
+    "headers" : {
+      "Date" : [ "Fri, 13 Mar 2020 17:43:53 GMT" ],
+      "Content-Type" : [ "text/json" ],
+      "Content-Length" : [ "16" ],
+      "Connection" : [ "keep-alive" ],
+      "DD-POOL" : [ "propjoe" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "body" : "{\"status\": \"ok\"}"
+  }
+} ]

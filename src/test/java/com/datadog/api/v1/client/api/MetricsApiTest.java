@@ -31,14 +31,14 @@ public class MetricsApiTest extends V1ApiTest {
     @Test
     public void metricsTests() throws ApiException, TestUtils.RetryException {
         api = new MetricsApi(generalApiClient);
-        long now = System.currentTimeMillis()/1000;
+        long nowSeconds = now.toEpochSecond();
 
-        String testMetric = String.format("java.client.test.%d", now);
+        String testMetric = String.format("java.client.test.%d", nowSeconds);
         List<Double> p1 = new ArrayList<>();
-        p1.add((double) (now - 60));
+        p1.add((double) (nowSeconds - 60));
         p1.add(10.5);
         List<Double> p2 = new ArrayList<>();
-        p2.add((double) now);
+        p2.add((double) nowSeconds);
         p2.add(11.);
 
         List<List<Double>> testPoints = new ArrayList<>();
@@ -64,7 +64,7 @@ public class MetricsApiTest extends V1ApiTest {
         TestUtils.retry(10, 10, () -> {
             MetricsListResponse metrics;
             try {
-                metrics = api.getAllActiveMetrics().from(now).execute();
+                metrics = api.getAllActiveMetrics().from(nowSeconds).execute();
             } catch(ApiException e) {
                 System.out.println(String.format("Error getting list of active metrics: %s", e));
                 return false;
@@ -80,12 +80,12 @@ public class MetricsApiTest extends V1ApiTest {
         });
 
         // Test query
-        MetricsQueryResponse queryResult = api.queryMetrics().from(now - 100).to(now + 100).query(testQuery).execute();
+        MetricsQueryResponse queryResult = api.queryMetrics().from(nowSeconds - 100).to(nowSeconds + 100).query(testQuery).execute();
         assertEquals(1, queryResult.getGroupBy().size());
         assertEquals("host", queryResult.getGroupBy().get(0));
         assertEquals(testQuery, queryResult.getQuery());
-        assertEquals(new Long((now-100)*1000), queryResult.getFromDate());
-        assertEquals(new Long((now+100)*1000), queryResult.getToDate());
+        assertEquals(new Long((nowSeconds-100)*1000), queryResult.getFromDate());
+        assertEquals(new Long((nowSeconds+100)*1000), queryResult.getToDate());
         assertEquals("ok", queryResult.getStatus());
         assertEquals("time_series", queryResult.getResType());
         assertEquals(1, queryResult.getSeries().size());

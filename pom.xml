@@ -154,8 +154,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
-                        <source>8</source>
-                        <target>8</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -241,6 +241,11 @@
             <version>${jersey-version}</version>
         </dependency>
         <dependency>
+            <groupId>org.glassfish.jersey.connectors</groupId>
+            <artifactId>jersey-apache-connector</artifactId>
+            <version>${jersey-version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
             <version>${jersey-version}</version>
@@ -294,6 +299,19 @@
             <artifactId>wiremock-jre8</artifactId>
             <version>2.25.1</version>
             <scope>test</scope>
+            <exclusions>
+                <!-- mock-server also has this dependency, but requires a higher minor version than specified
+                in wiremock, so exclude it here otherwise it breaks mock-server -->
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+             <groupId>org.mock-server</groupId>
+             <artifactId>mockserver-netty</artifactId>
+             <version>5.9.0</version>
         </dependency>
     </dependencies>
     <properties>

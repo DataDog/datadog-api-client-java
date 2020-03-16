@@ -10,9 +10,8 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.GraphSnapshot;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-import java.time.Instant;
+import static org.junit.Assert.*;
 
 /**
  * API tests for SnapshotsApi
@@ -25,15 +24,7 @@ public class SnapshotsApiTest extends V1ApiTest {
     public static void initAPI() {
         api = new SnapshotsApi(generalApiClient);
     }
-    
-    /**
-     * Take graph snapshots
-     *
-     * ### Overview Take graph snapshots ### Arguments * **&#x60;metric_query&#x60;** [*required*]: The metric query. * **&#x60;start&#x60;** [*required*]: The POSIX timestamp of the start of the query. * **&#x60;end&#x60;** [*required*]: The POSIX timestamp of the end of the query. * **&#x60;event_query&#x60;** [*optional*, *default* &#x3D; **None**]: A query that adds event bands to the graph. * **&#x60;graph_def&#x60;** [*optional*, *default* &#x3D; **None**]: A JSON document defining the graph.   graph_def can be used instead of metric_query. The JSON document uses the   [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)   and should be formatted to a single line then URLEncoded.  * **&#x60;title&#x60;** [*optional*, *default* &#x3D; **None**]: A title for the graph.   If no title is specified, the graph doesn’t have a title.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
+
     @Test
     public void getGraphSnapshotTest() throws ApiException {
         String metricQuery = "system.load.1{*}";
@@ -41,8 +32,8 @@ public class SnapshotsApiTest extends V1ApiTest {
         String title = "Example Snapshot";
         String eventQuery = "successful builds";
 
-        Long start = Instant.now().getEpochSecond();;
-        Long end = start + (24*60*60);
+        long start = now.toEpochSecond();
+        long end = start + (24 * 60 * 60);
 
         // Try to create a snapshot with a metric_query (and an optional event_query)
         GraphSnapshot response = api.getGraphSnapshot().metricQuery(metricQuery).start(start).end(end).title(title).eventQuery(eventQuery).execute();
@@ -58,12 +49,11 @@ public class SnapshotsApiTest extends V1ApiTest {
 
     @Test
     public void testGetGraphSnapshotStartRequiredParam() {
-        Long start = Long.valueOf(1);
-        Long end = Long.valueOf(2);
+        long end = 2L;
         String metricQuery = "query";
 
         try {
-            GraphSnapshot response = api.getGraphSnapshot().end(end).metricQuery(metricQuery).execute();
+            api.getGraphSnapshot().end(end).metricQuery(metricQuery).execute();
         } catch (ApiException e) {
             assertTrue(e.getMessage().contains("Missing the required parameter 'start"));
         }
@@ -71,11 +61,11 @@ public class SnapshotsApiTest extends V1ApiTest {
 
     @Test
     public void testGetGraphSnapshotEndRequiredParam() {
-        Long start = Long.valueOf(1);
+        long start = 1L;
         String metricQuery = "query";
 
         try {
-            GraphSnapshot response = api.getGraphSnapshot().start(start).metricQuery(metricQuery).execute();
+            api.getGraphSnapshot().start(start).metricQuery(metricQuery).execute();
         } catch (ApiException e) {
             assertTrue(e.getMessage().contains("Missing the required parameter 'end"));
         }

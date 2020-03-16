@@ -1,0 +1,50 @@
+[ {
+  "id" : "4c31561f-b287-4691-9cdf-b9eacc9f7799",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/synthetics/locations",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Connection" : [ "keep-alive" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : true,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 13 Mar 2020 16:52:19 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 16:52:19 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2275816" ],
+      "X-RateLimit-Limit" : [ "120" ],
+      "X-RateLimit-Period" : [ "60" ],
+      "X-RateLimit-Reset" : [ "41" ],
+      "X-RateLimit-Remaining" : [ "119" ],
+      "X-DD-Debug" : [ "cYNsy3QDuOaYo2clO/PharSNtCykS9KtUfiNevH3xDbHJlRyddWkNpuDhMgHWZ43" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "1405" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"locations\":[{\"is_active\":true,\"region\":\"Asia Pacific\",\"display_name\":\"Tokyo (AWS)\",\"id\":4,\"name\":\"aws:ap-northeast-1\"},{\"is_active\":true,\"region\":\"Asia Pacific\",\"display_name\":\"Seoul (AWS)\",\"id\":30016,\"name\":\"aws:ap-northeast-2\"},{\"is_active\":true,\"region\":\"Asia Pacific\",\"display_name\":\"Mumbai (AWS)\",\"id\":30014,\"name\":\"aws:ap-south-1\"},{\"is_active\":true,\"region\":\"Asia Pacific\",\"display_name\":\"Singapore (AWS)\",\"id\":30015,\"name\":\"aws:ap-southeast-1\"},{\"is_active\":true,\"region\":\"Asia Pacific\",\"display_name\":\"Sydney (AWS)\",\"id\":30004,\"name\":\"aws:ap-southeast-2\"},{\"is_active\":true,\"region\":\"Americas\",\"display_name\":\"Canada Central (AWS)\",\"id\":30003,\"name\":\"aws:ca-central-1\"},{\"is_active\":true,\"region\":\"Europe\",\"display_name\":\"Frankfurt (AWS)\",\"id\":3,\"name\":\"aws:eu-central-1\"},{\"is_active\":true,\"region\":\"Europe\",\"display_name\":\"Ireland (AWS)\",\"id\":30017,\"name\":\"aws:eu-west-1\"},{\"is_active\":true,\"region\":\"Europe\",\"display_name\":\"London (AWS)\",\"id\":2,\"name\":\"aws:eu-west-2\"},{\"is_active\":true,\"region\":\"Americas\",\"display_name\":\"S\\u00e3o Paulo (AWS)\",\"id\":30018,\"name\":\"aws:sa-east-1\"},{\"is_active\":true,\"region\":\"Americas\",\"display_name\":\"Ohio (AWS)\",\"id\":30005,\"name\":\"aws:us-east-2\"},{\"is_active\":true,\"region\":\"Americas\",\"display_name\":\"N. California (AWS)\",\"id\":30019,\"name\":\"aws:us-west-1\"},{\"is_active\":true,\"region\":\"Americas\",\"display_name\":\"Oregon (AWS)\",\"id\":1,\"name\":\"aws:us-west-2\"}]}"
+  }
+} ]

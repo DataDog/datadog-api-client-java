@@ -34,7 +34,6 @@ public class ServiceChecksApiTest extends V1ApiTest {
 
     private ServiceCheck createServiceCheck() {
         String name = Thread.currentThread().getStackTrace()[2].getMethodName();
-        OffsetDateTime now = OffsetDateTime.now();
         return new ServiceCheck()
             .check(name)
             .hostName(String.format("java-client-test-host-%d", now.toEpochSecond()))

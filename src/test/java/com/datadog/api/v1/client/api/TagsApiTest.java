@@ -40,10 +40,10 @@ public class TagsApiTest extends V1ApiTest {
     @Test
     public void tagsTest() throws ApiException, TestUtils.RetryException {
         String commonHostTag = "test:client_java";
-        long now = System.currentTimeMillis()/1000;
-        String hostname = String.format("java-client-test-host-%d", now);
+        long nowSeconds = now.toEpochSecond();
+        String hostname = String.format("java-client-test-host-%d", nowSeconds);
         List<Double> p1 = new ArrayList<>();
-        p1.add((double) now);
+        p1.add((double) nowSeconds);
         p1.add(0.);
 
         // create host by sending a metric
