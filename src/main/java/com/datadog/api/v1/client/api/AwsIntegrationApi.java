@@ -84,7 +84,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
 
     /**
      * Set body
-     * @param body AWS request object (required)
+     * @param body AWS Request Object (required)
      * @return APIcreateAWSAccountRequest
      */
     public APIcreateAWSAccountRequest body(AWSAccount body) {
@@ -102,7 +102,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -120,7 +120,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -131,8 +131,8 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
   }
 
   /**
-   * Create an AWS Account
-   * ### Overview Create the AWS Account with the provided values ### Arguments * **&#x60;account_id&#x60;** [*required*]: Your AWS Account ID without dashes. Consult the Datadog AWS   integration to learn more about your AWS account ID.  * **&#x60;role_name&#x60;** [*required*]: Your Datadog role delegation name. For more information about you   AWS account Role name, see the Datadog AWS integration configuration info.  * **&#x60;access_key_id&#x60;** [*optional*, *default* &#x3D; **None**]: If your AWS account is a GovCloud or   China account, enter the corresponding Access Key ID.  * **&#x60;filter_tags&#x60;** [*optional*, *default* &#x3D; **None**]: The array of EC2 tags (in the form key:value)   defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ?   (for single characters) and * (for multiple characters) can also be used. Only hosts that match one   of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given   tag can also be excluded by adding ! before the tag.   e.x. env:production,instance-type:c1.*,!region:us-east-1 For more information on EC2 tagging,   see the AWS tagging documentation  * **&#x60;host_tags&#x60;** [*optional*, *default* &#x3D; **None**]: Array of tags (in the form key:value) to add   to all hosts and metrics reporting through this integration.  * **&#x60;account_specific_namespace_rules&#x60;** [*optional*, *default* &#x3D; **None**]: An object (in the form   {\&quot;namespace1\&quot;:true/false, \&quot;namespace2\&quot;:true/false}) that enables or disables metric collection for   specific AWS namespaces for this AWS account only. A list of namespaces can be found at the   /v1/integration/aws/available_namespace_rules endpoint.
+   * Create an AWS Integration
+   * Create a Datadog-Amazon Web Services integration. Using the &#x60;POST&#x60; method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.
    * @return createAWSAccountRequest
    * @throws ApiException if fails to make API call
    
@@ -206,7 +206,7 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -224,7 +224,7 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -236,8 +236,8 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
   }
 
   /**
-   * Delete an AWS Account
-   * ### Overview Delete the AWS Account matching the specified account_id and role_name parameters ### Arguments * **&#x60;account_id&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this account_id.  * **&#x60;role_name&#x60;** [*required*, *default* &#x3D; **None**]: Delete the AWS account that   matches this role_name.
+   * Delete an AWS Integration
+   * Delete a Datadog-AWS integration matching the specified account_id and role_name parameters.
    * @return deleteAWSAccountRequest
    * @throws ApiException if fails to make API call
    
@@ -294,7 +294,7 @@ private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpIn
 
     /**
      * Set body
-     * @param body Generate New AWS External ID request object (required)
+     * @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation). (required)
      * @return APIgenerateNewAWSExternalIDRequest
      */
     public APIgenerateNewAWSExternalIDRequest body(AWSAccount body) {
@@ -312,7 +312,7 @@ private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpIn
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -330,7 +330,7 @@ private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpIn
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -342,7 +342,7 @@ private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpIn
 
   /**
    * Generate New External ID
-   * ###Overview Generate new AWS external ID for a specific integrated account ### Arguments * **&#x60;account_id&#x60;** [*required*]: Generate new external ID for the AWS account that   matches this account_id.  * **&#x60;role_name&#x60;** [*required*]: Generate new external ID for the AWS account that   matches this role_name.
+   * Generate a new AWS external ID for a given AWS account ID and role name pair.
    * @return generateNewAWSExternalIDRequest
    * @throws ApiException if fails to make API call
    
@@ -439,7 +439,7 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -458,7 +458,7 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -471,7 +471,7 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
 
   /**
    * Get Installed AWS Accounts
-   * ### Overview Get All Installed AWS Accounts ### Arguments * **&#x60;account_id&#x60;** [*optional*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this account_id.  * **&#x60;role_name&#x60;** [*optional*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this role_name.  * **&#x60;access_key_id&#x60;** [*optional*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this access_key_id.
+   * List all Datadog-AWS integrations available in your Datadog organization.
    * @return getAllAWSAccountsRequest
    * @throws ApiException if fails to make API call
    
@@ -529,7 +529,7 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -547,7 +547,7 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -558,8 +558,8 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
   }
 
   /**
-   * List available namespaces.
-   * ### Overview List all namespace rules for a given Datadog-AWS integration.
+   * List Available Namespaces
+   * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
    * @return listAvailableAWSNamespacesRequest
    * @throws ApiException if fails to make API call
    
@@ -655,7 +655,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
     /**
      * Set accessKeyId
-     * @param accessKeyId Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.* (optional)
+     * @param accessKeyId Only return AWS accounts that matches this access_key_id. *It is required if none of the other two options are specified.* (optional)
      * @return APIupdateAWSAccountRequest
      */
     public APIupdateAWSAccountRequest accessKeyId(String accessKeyId) {
@@ -673,7 +673,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -691,7 +691,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -703,7 +703,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
   /**
    * Update an AWS Account
-   * ### Overview Update the AWS Account based on the provided values ### Arguments * **&#x60;account_id&#x60;** [*required if role_name is specified*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this account_id.  * **&#x60;role_name&#x60;** [*required if account_id is specified*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this role_name.  * **&#x60;access_key_id&#x60;** [*required if none of the other two options are specified*, *default* &#x3D; **None**]: Only return AWS accounts that   matches this access_key_id.  ### Payload * **&#x60;account_id&#x60;** [*required*]: Your AWS Account ID without dashes. Consult the Datadog AWS   integration to learn more about your AWS account ID.  * **&#x60;role_name&#x60;** [*required*]: Your Datadog role delegation name. For more information about you   AWS account Role name, see the Datadog AWS integration configuration info.  * **&#x60;access_key_id&#x60;** [*optional*, *default* &#x3D; **None**]: If your AWS account is a GovCloud or   China account, enter the corresponding Access Key ID.  * **&#x60;filter_tags&#x60;** [*optional*, *default* &#x3D; **None**]: The array of EC2 tags (in the form key:value)   defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ?   (for single characters) and * (for multiple characters) can also be used. Only hosts that match one   of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given   tag can also be excluded by adding ! before the tag.   e.g. env:production,instance-type:c1.*,!region:us-east-1 For more information on EC2 tagging,   see the AWS tagging documentation.  * **&#x60;host_tags&#x60;** [*optional*, *default* &#x3D; **None**]: Array of tags (in the form key:value) to add   to all hosts and metrics reporting through this integration.  * **&#x60;account_specific_namespace_rules&#x60;** [*optional*, *default* &#x3D; **None**]: An object (in the form   {\&quot;namespace1\&quot;:true/false, \&quot;namespace2\&quot;:true/false}) that enables or disables metric collection for   specific AWS namespaces for this AWS account only. A list of namespaces can be found at the   /v1/integration/aws/available_namespace_rules endpoint.
+   * Update a Datadog-Amazon Web Services integration.
    * @return updateAWSAccountRequest
    * @throws ApiException if fails to make API call
    
