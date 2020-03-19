@@ -113,8 +113,8 @@ private ApiResponse<LogsIndexListResponse> getAllLogIndexesWithHttpInfo() throws
   }
 
   /**
-   * This endpoint returns an array of the LogIndex objects of your organization.
-   * ## Overview Get all log indexes of your organization. ### Arguments This endpoint takes no JSON arguments.
+   * Get all Indexes
+   * This endpoint returns an array of the &#x60;LogIndex&#x60; objects of your organization.
    * @return getAllLogIndexesRequest
    * @throws ApiException if fails to make API call
    
@@ -209,7 +209,7 @@ private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiE
   }
 
   /**
-   * This endpoint returns an Index identified by its name.
+   * Get an index
    * ## Overview Get one log index from your organization. ### Arguments This endpoint takes no JSON arguments.
    * @param name Name of the log index (required)
    * @return getLogsIndexRequest
@@ -296,7 +296,7 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
   }
 
   /**
-   * Get the current order of your log indexes.
+   * Get Indexes Order
    * ## Overview Get the current order of your log indexes. ### Arguments This endpoint takes no JSON arguments.
    * @return getLogsIndexOrderRequest
    * @throws ApiException if fails to make API call
@@ -406,7 +406,7 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
   }
 
   /**
-   * This endpoint updates an Index identified by its name.
+   * Update an Index
    * ## Overview It returns the Index object passed in the request body when the request is successful. **Note:** Using the PUT method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization. ### Arguments * **&#x60;filter.query&#x60;**  [*required*]:     Only logs matching the filter criteria will be considered for this index. The search query follows the [Log search syntax][1]  * **&#x60;exclusion_filters&#x60;** An array of &#x60;ExclusionFilter&#x60; objects (see hereafter). The logs are tested against the query of each &#x60;ExclusionFilter&#x60;, following the order of the array. Only the first matching active &#x60;ExclusionFilter&#x60; matters, others (if any) are ignored. The &#x60;ExclusionFilter&#x60; object describes the configuration of an [exclusion filter][2]. It has the following attributes:    * **&#x60;name&#x60;** [*required*]:     The name of the exclusion filter    * **&#x60;is_enabled&#x60;**  [*optional*, *default*&#x3D;**False**]:     A boolean stating if the exclusion is active.    * **&#x60;filter.query&#x60;** [*optional*]:     Only logs matching the filter criteria AND the query of the parent index will be considered for this exclusion filter. The search query follows the [Log search syntax][1]    * **&#x60;filter.sample_rate&#x60;** [*required*]:     The fraction of logs excluded by the exclusion filter, when active. The sampling is uniform.  [1]: /logs/explorer/search [2]: /logs/indexes/#exclusion-filters
    * @param name Name of the log index (required)
    * @return updateLogsIndexRequest
@@ -507,7 +507,7 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
   }
 
   /**
-   * Update the order of your log indexes.
+   * Update Indexes Order
    * ## Overview This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful. ### Arguments - **&#x60;index_names&#x60;** [*required*]: Array of strings identifying by their name(s) the index(es) of your organisation. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
    * @return updateLogsIndexOrderRequest
    * @throws ApiException if fails to make API call

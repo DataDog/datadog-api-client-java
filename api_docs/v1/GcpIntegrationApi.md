@@ -4,10 +4,10 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createGCPIntegration**](GcpIntegrationApi.md#createGCPIntegration) | **POST** /api/v1/integration/gcp | Add a GCP integration to your Datadog account.
-[**deleteGCPIntegration**](GcpIntegrationApi.md#deleteGCPIntegration) | **DELETE** /api/v1/integration/gcp | Delete a GCP Integration from your Datadog account.
-[**listGCPIntegration**](GcpIntegrationApi.md#listGCPIntegration) | **GET** /api/v1/integration/gcp | List configured GCP integrations.
-[**updateGCPIntegration**](GcpIntegrationApi.md#updateGCPIntegration) | **PUT** /api/v1/integration/gcp | Update a GCP integration in your Datadog account.
+[**createGCPIntegration**](GcpIntegrationApi.md#createGCPIntegration) | **POST** /api/v1/integration/gcp | Create a GCP integration
+[**deleteGCPIntegration**](GcpIntegrationApi.md#deleteGCPIntegration) | **DELETE** /api/v1/integration/gcp | Delete a GCP integration
+[**listGCPIntegration**](GcpIntegrationApi.md#listGCPIntegration) | **GET** /api/v1/integration/gcp | List all GCP integrations
+[**updateGCPIntegration**](GcpIntegrationApi.md#updateGCPIntegration) | **PUT** /api/v1/integration/gcp | Update a GCP integration
 
 
 
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 
 > Object createGCPIntegration().body(body).execute();
 
-Add a GCP integration to your Datadog account.
+Create a GCP integration
 
-### Overview
+
 Create a Datadog-GCP integration.
 ### Arguments
 * **`type`** [*required*, *default* = **None**]: The value for service_account found in your JSON service account key.
@@ -111,9 +111,9 @@ Name | Type | Description  | Notes
 
 > Object deleteGCPIntegration().body(body).execute();
 
-Delete a GCP Integration from your Datadog account.
+Delete a GCP integration
 
-### Overview
+
 Delete a given Datadog-GCP integration.
 ### Arguments
 * **`project_id`** [*required*, *default* = **None**]: Your Google Cloud project ID to be deleted.
@@ -197,9 +197,9 @@ Name | Type | Description  | Notes
 
 > List&lt;GCPAccount&gt; listGCPIntegration().execute();
 
-List configured GCP integrations.
+List all GCP integrations
 
-### Overview
+
 List all Datadog-GCP integrations configured in your Datadog account.
 
 ### Example
@@ -275,9 +275,9 @@ This endpoint does not need any parameter.
 
 > Object updateGCPIntegration().body(body).execute();
 
-Update a GCP integration in your Datadog account.
+Update a GCP integration
 
-### Overview
+
 Update a Datadog-GCP integrations host_filters and/or automute. Requires a project_id and client_email, however these fields cannot be updated. If you need to update these fields please delete and use the create (POST) endpoint. The unspecified fields will keep their original values.
 ### Arguments
 * **`project_id`** [*required*, *default* = **None**]: Your Google Cloud project ID associated with the integration to be updated.

@@ -133,7 +133,7 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
   }
 
   /**
-   * Create a pipeline in your organization.
+   * Create a Pipeline
    * ## Overview Create a Pipeline in your organization. ## Arguments - **&#x60;name&#x60;** [*required*]: Your pipeline name. - **&#x60;is_enabled&#x60;** [*optional*, default&#x3D;&#x60;False&#x60;]: Boolean value to enable your pipeline. - **&#x60;filter.query&#x60;** [*optional*]: Defines your pipeline filter. Only logs that match the filter criteria are processed by this pipeline. - **&#x60;processors&#x60;** [*optional*]: Ordered array of processors or nested pipelines.
    * @return createLogsPipelineRequest
    * @throws ApiException if fails to make API call
@@ -229,7 +229,7 @@ private ApiResponse<Void> deleteLogsPipelineWithHttpInfo(String pipelineId) thro
   }
 
   /**
-   * Delete a given pipeline from your organization.
+   * Delete a Pipeline
    * ## Overview Delete a given pipeline from your organization. ## Arguments This endpoint takes no JSON arguments.
    * @param pipelineId ID of the pipeline to delete (required)
    * @return deleteLogsPipelineRequest
@@ -316,7 +316,7 @@ private ApiResponse<List<LogsPipeline>> getAllLogsPipelinesWithHttpInfo() throws
   }
 
   /**
-   * Get all pipelines from your organization.
+   * Get all Pipeline
    * ## Overview Get all pipelines from your organization. ## Arguments This endpoint takes no JSON arguments.
    * @return getAllLogsPipelinesRequest
    * @throws ApiException if fails to make API call
@@ -412,7 +412,7 @@ private ApiResponse<LogsPipeline> getLogsPipelineWithHttpInfo(String pipelineId)
   }
 
   /**
-   * Get a specific pipeline from your organization.
+   * Get a Pipeline
    * ## Overview Get a specific pipeline from your organization. ## Arguments This endpoint takes no JSON arguments.
    * @param pipelineId ID of the pipeline to get (required)
    * @return getLogsPipelineRequest
@@ -499,8 +499,8 @@ private ApiResponse<LogsPipelinesOrder> getLogsPipelineOrderWithHttpInfo() throw
   }
 
   /**
-   * Get the current order of your pipelines.
-   * ## Overview Get the current order of your pipelines. ## Arguments This endpoint takes no JSON arguments.
+   * Get Pipeline Order
+   *  Get the current order of your pipelines. ## Arguments This endpoint takes no JSON arguments.
    * @return getLogsPipelineOrderRequest
    * @throws ApiException if fails to make API call
    
@@ -614,7 +614,7 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
   }
 
   /**
-   * Update a pipeline in your organization.
+   * Update a Pipeline
    * ## Overview Update a given pipeline configuration to change it’s processors or their order. ## Arguments **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization. - **&#x60;name&#x60;** [*required*]: Your pipeline name. - **&#x60;is_enabled&#x60;** [*optional*, default&#x3D;&#x60;False&#x60;]: Boolean value to enable your pipeline. - **&#x60;filter.query&#x60;** [*optional*]: Defines your pipeline filter. Only logs that match the filter criteria are processed by this pipeline. - **&#x60;processors&#x60;** [*optional*]: Ordered array of processors or nested pipelines.
    * @param pipelineId ID of the pipeline to delete (required)
    * @return updateLogsPipelineRequest
@@ -717,7 +717,7 @@ private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(Logs
   }
 
   /**
-   * Update the order of your pipelines.
+   * Update Pipeline Order
    * ## Overview Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors. **Note**: Using the PUT method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization. ## Arguments - **&#x60;pipeline_ids&#x60;** [*required*]: Ordered Array of &lt;PIPELINE_ID&gt; strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.
    * @return updateLogsPipelineOrderRequest
    * @throws ApiException if fails to make API call

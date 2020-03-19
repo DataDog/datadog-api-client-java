@@ -236,7 +236,7 @@ private ApiResponse<Object> sendLogWithHttpInfo(HTTPLog body) throws ApiExceptio
   }
 
   /**
-   * 
+   * Send logs
    * Send logs
    * @return sendLogRequest
    * @throws ApiException if fails to make API call

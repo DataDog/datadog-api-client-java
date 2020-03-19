@@ -129,8 +129,8 @@ private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) th
   }
 
   /**
-   * Add a GCP integration to your Datadog account.
-   * ### Overview Create a Datadog-GCP integration. ### Arguments * **&#x60;type&#x60;** [*required*, *default* &#x3D; **None**]: The value for service_account found in your JSON service account key. * **&#x60;project_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Google Cloud project ID found in your JSON service account key. * **&#x60;private_key_id&#x60;** [*required*, *default* &#x3D; **None**]: Your private key ID found in your JSON service account key. * **&#x60;private_key&#x60;** [*required*, *default* &#x3D; **None**]: Your private key name found in your JSON service account key. * **&#x60;client_email&#x60;** [*required*, *default* &#x3D; **None**]: Your email found in your JSON service account key. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your ID found in your JSON service account key. * **&#x60;auth_uri&#x60;** [*required*, *default* &#x3D; **None**]: Should be https://accounts.google.com/o/oauth2/auth. * **&#x60;token_uri&#x60;** [*required*, *default* &#x3D; **None**]: Should be https://accounts.google.com/o/oauth2/token. * **&#x60;auth_provider_x509_cert_url&#x60;** [*required*, *default* &#x3D; **None**]: Should be https://www.googleapis.com/oauth2/v1/certs. * **&#x60;client_x509_cert_url&#x60;** [*required*, *default* &#x3D; **None**]: Should be https://www.googleapis.com/robot/v1/metadata/x509/&lt;CLIENT_EMAIL&gt; where &lt;CLIENT_EMAIL&gt; is the email found in your JSON service account key. * **&#x60;host_filters&#x60;** [*optional*, *default* &#x3D; **None**]: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. * **&#x60;automute&#x60;** [*optional*, *default* &#x3D; false]: Silence monitors for expected GCE instance shutdowns.
+   * Create a GCP integration
+   *  Create a Datadog-GCP integration. ### Arguments * **&#x60;type&#x60;** [*required*, *default* &#x3D; **None**]: The value for service_account found in your JSON service account key. * **&#x60;project_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Google Cloud project ID found in your JSON service account key. * **&#x60;private_key_id&#x60;** [*required*, *default* &#x3D; **None**]: Your private key ID found in your JSON service account key. * **&#x60;private_key&#x60;** [*required*, *default* &#x3D; **None**]: Your private key name found in your JSON service account key. * **&#x60;client_email&#x60;** [*required*, *default* &#x3D; **None**]: Your email found in your JSON service account key. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your ID found in your JSON service account key. * **&#x60;auth_uri&#x60;** [*required*, *default* &#x3D; **None**]: Should be https://accounts.google.com/o/oauth2/auth. * **&#x60;token_uri&#x60;** [*required*, *default* &#x3D; **None**]: Should be https://accounts.google.com/o/oauth2/token. * **&#x60;auth_provider_x509_cert_url&#x60;** [*required*, *default* &#x3D; **None**]: Should be https://www.googleapis.com/oauth2/v1/certs. * **&#x60;client_x509_cert_url&#x60;** [*required*, *default* &#x3D; **None**]: Should be https://www.googleapis.com/robot/v1/metadata/x509/&lt;CLIENT_EMAIL&gt; where &lt;CLIENT_EMAIL&gt; is the email found in your JSON service account key. * **&#x60;host_filters&#x60;** [*optional*, *default* &#x3D; **None**]: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. * **&#x60;automute&#x60;** [*optional*, *default* &#x3D; false]: Silence monitors for expected GCE instance shutdowns.
    * @return createGCPIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -234,8 +234,8 @@ private ApiResponse<Object> deleteGCPIntegrationWithHttpInfo(GCPAccount body) th
   }
 
   /**
-   * Delete a GCP Integration from your Datadog account.
-   * ### Overview Delete a given Datadog-GCP integration. ### Arguments * **&#x60;project_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Google Cloud project ID to be deleted. * **&#x60;client_email&#x60;** [*required*, *default* &#x3D; **None**]: Your client email associated with the integration to be deleted.
+   * Delete a GCP integration
+   *  Delete a given Datadog-GCP integration. ### Arguments * **&#x60;project_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Google Cloud project ID to be deleted. * **&#x60;client_email&#x60;** [*required*, *default* &#x3D; **None**]: Your client email associated with the integration to be deleted.
    * @return deleteGCPIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -322,8 +322,8 @@ private ApiResponse<List<GCPAccount>> listGCPIntegrationWithHttpInfo() throws Ap
   }
 
   /**
-   * List configured GCP integrations.
-   * ### Overview List all Datadog-GCP integrations configured in your Datadog account.
+   * List all GCP integrations
+   *  List all Datadog-GCP integrations configured in your Datadog account.
    * @return listGCPIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -427,8 +427,8 @@ private ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) th
   }
 
   /**
-   * Update a GCP integration in your Datadog account.
-   * ### Overview Update a Datadog-GCP integrations host_filters and/or automute. Requires a project_id and client_email, however these fields cannot be updated. If you need to update these fields please delete and use the create (POST) endpoint. The unspecified fields will keep their original values. ### Arguments * **&#x60;project_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Google Cloud project ID associated with the integration to be updated. * **&#x60;client_email&#x60;** [*required*, *default* &#x3D; **None**]: Your client email associated with the integration to be updated. * **&#x60;host_filters&#x60;** [*optional*, *default* &#x3D; **None**]: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. * **&#x60;automute&#x60;** [*optional*, *default* &#x3D; false]: Silence monitors for expected GCE instance shutdowns.
+   * Update a GCP integration
+   *  Update a Datadog-GCP integrations host_filters and/or automute. Requires a project_id and client_email, however these fields cannot be updated. If you need to update these fields please delete and use the create (POST) endpoint. The unspecified fields will keep their original values. ### Arguments * **&#x60;project_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Google Cloud project ID associated with the integration to be updated. * **&#x60;client_email&#x60;** [*required*, *default* &#x3D; **None**]: Your client email associated with the integration to be updated. * **&#x60;host_filters&#x60;** [*optional*, *default* &#x3D; **None**]: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. * **&#x60;automute&#x60;** [*optional*, *default* &#x3D; false]: Silence monitors for expected GCE instance shutdowns.
    * @return updateGCPIntegrationRequest
    * @throws ApiException if fails to make API call
    

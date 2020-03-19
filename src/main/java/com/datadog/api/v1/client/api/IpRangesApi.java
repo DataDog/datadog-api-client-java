@@ -107,7 +107,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
   }
 
   /**
-   * 
+   * List IP Ranges
    * Get information about Datadog IP ranges
    * @return getIPRangesRequest
    * @throws ApiException if fails to make API call

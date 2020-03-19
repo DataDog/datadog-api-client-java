@@ -153,8 +153,8 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
   }
 
   /**
-   * Get hourly usage for fargate.
-   * ### Overview Get hourly usage for [fargate](https://docs.datadoghq.com/integrations/ecs_fargate/). ### Arguments * **&#x60;start_hr&#x60;** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour * **&#x60;end_hr&#x60;** [*optional*, *default* &#x3D; **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
+   * Get hourly usage for Fargate
+   * Get hourly usage for [fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
    * @return getUsageFargateRequest
    * @throws ApiException if fails to make API call
    
@@ -274,8 +274,8 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
   }
 
   /**
+   * Get hourly usage for hosts and containers
    * Get hourly usage for hosts and containers.
-   * ### Overview Get hourly usage for hosts and containers. ### Arguments * **&#x60;start_hr&#x60;** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour * **&#x60;end_hr&#x60;** [*optional*, *default* &#x3D; **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
    * @return getUsageHostsRequest
    * @throws ApiException if fails to make API call
    
@@ -395,8 +395,8 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
   }
 
   /**
+   * Get hourly usage for Logs
    * Get hourly usage for logs.
-   * ### Overview Get hourly usage for logs. ### Arguments * **&#x60;start_hr&#x60;** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour * **&#x60;end_hr&#x60;** [*optional*, *default* &#x3D; **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
    * @return getUsageLogsRequest
    * @throws ApiException if fails to make API call
    
@@ -529,8 +529,8 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
   }
 
   /**
+   * Get usage across your multi-org account
    * Get usage across your multi-org account.
-   * ### Overview Get usage across your multi-org account. ### Arguments * **&#x60;start_month&#x60;** [*required*] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning in this month. Maximum of 15 months ago. * **&#x60;end_month&#x60;** [*optional*, *default* &#x3D; **current_month-3d**] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage ending this month. * **&#x60;include_org_details&#x60;** [*optional*, *default* &#x3D; **true**] Include usage summaries for each sub-org.
    * @return getUsageSummaryRequest
    * @throws ApiException if fails to make API call
    
@@ -650,8 +650,8 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
   }
 
   /**
-   * Get hourly usage for synthetics.
-   * ### Overview Get hourly usage for [synthetics](https://docs.datadoghq.com/synthetics/). ### Arguments * **&#x60;start_hr&#x60;** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour * **&#x60;end_hr&#x60;** [*optional*, *default* &#x3D; **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
+   * Get hourly usage for Synthetics
+   * Get hourly usage for [synthetics](https://docs.datadoghq.com/synthetics/).
    * @return getUsageSyntheticsRequest
    * @throws ApiException if fails to make API call
    
@@ -771,8 +771,8 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
   }
 
   /**
-   * Get hourly usage for custom metrics.
-   * ### Overview Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/). ### Arguments * **&#x60;start_hr&#x60;** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour * **&#x60;end_hr&#x60;** [*optional*, *default* &#x3D; **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
+   * Get hourly usage for custom metrics
+   * Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
    * @return getUsageTimeseriesRequest
    * @throws ApiException if fails to make API call
    
@@ -892,8 +892,8 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
   }
 
   /**
-   * Get top custom metrics by hourly average.
-   * ### Overview Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. ### Arguments * **&#x60;month&#x60;** [*required*] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. * **&#x60;names&#x60;** [*optional*, *default* &#x3D; **None**] Comma-separated list of metric names.
+   * Get top 500 custom metrics by hourly average
+   * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
    * @return getUsageTopAvgMetricsRequest
    * @throws ApiException if fails to make API call
    
@@ -1013,8 +1013,8 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
   }
 
   /**
+   * Get hourly usage for Trace Search
    * Get hourly usage for trace search.
-   * ### Overview Get hourly usage for trace search. ### Arguments * **&#x60;start_hr&#x60;** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour * **&#x60;end_hr&#x60;** [*optional*, *default* &#x3D; **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
    * @return getUsageTraceRequest
    * @throws ApiException if fails to make API call
    

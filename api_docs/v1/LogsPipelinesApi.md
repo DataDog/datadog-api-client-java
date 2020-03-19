@@ -4,13 +4,13 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline) | **POST** /api/v1/logs/config/pipelines | Create a pipeline in your organization.
-[**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a given pipeline from your organization.
-[**getAllLogsPipelines**](LogsPipelinesApi.md#getAllLogsPipelines) | **GET** /api/v1/logs/config/pipelines | Get all pipelines from your organization.
-[**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a specific pipeline from your organization.
-[**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder) | **GET** /api/v1/logs/config/pipeline-order | Get the current order of your pipelines.
-[**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline) | **PUT** /api/v1/logs/config/pipelines/{pipeline_id} | Update a pipeline in your organization.
-[**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order | Update the order of your pipelines.
+[**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline) | **POST** /api/v1/logs/config/pipelines | Create a Pipeline
+[**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a Pipeline
+[**getAllLogsPipelines**](LogsPipelinesApi.md#getAllLogsPipelines) | **GET** /api/v1/logs/config/pipelines | Get all Pipeline
+[**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a Pipeline
+[**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder) | **GET** /api/v1/logs/config/pipeline-order | Get Pipeline Order
+[**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline) | **PUT** /api/v1/logs/config/pipelines/{pipeline_id} | Update a Pipeline
+[**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order | Update Pipeline Order
 
 
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 > LogsPipeline createLogsPipeline().body(body).execute();
 
-Create a pipeline in your organization.
+Create a Pipeline
 
 ## Overview
 Create a Pipeline in your organization.
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 > deleteLogsPipeline(pipelineId).execute();
 
-Delete a given pipeline from your organization.
+Delete a Pipeline
 
 ## Overview
 Delete a given pipeline from your organization.
@@ -190,7 +190,7 @@ null (empty response body)
 
 > List&lt;LogsPipeline&gt; getAllLogsPipelines().execute();
 
-Get all pipelines from your organization.
+Get all Pipeline
 
 ## Overview
 Get all pipelines from your organization.
@@ -269,7 +269,7 @@ This endpoint does not need any parameter.
 
 > LogsPipeline getLogsPipeline(pipelineId).execute();
 
-Get a specific pipeline from your organization.
+Get a Pipeline
 
 ## Overview
 Get a specific pipeline from your organization.
@@ -353,9 +353,9 @@ Name | Type | Description  | Notes
 
 > LogsPipelinesOrder getLogsPipelineOrder().execute();
 
-Get the current order of your pipelines.
+Get Pipeline Order
 
-## Overview
+
 Get the current order of your pipelines.
 ## Arguments
 This endpoint takes no JSON arguments.
@@ -432,7 +432,7 @@ This endpoint does not need any parameter.
 
 > LogsPipeline updateLogsPipeline(pipelineId).body(body).execute();
 
-Update a pipeline in your organization.
+Update a Pipeline
 
 ## Overview
 Update a given pipeline configuration to change it’s processors or their order.
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 
 > LogsPipelinesOrder updateLogsPipelineOrder().body(body).execute();
 
-Update the order of your pipelines.
+Update Pipeline Order
 
 ## Overview
 Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.

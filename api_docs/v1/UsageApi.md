@@ -4,14 +4,14 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUsageFargate**](UsageApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for fargate.
-[**getUsageHosts**](UsageApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers.
-[**getUsageLogs**](UsageApi.md#getUsageLogs) | **GET** /api/v1/usage/logs | Get hourly usage for logs.
-[**getUsageSummary**](UsageApi.md#getUsageSummary) | **GET** /api/v1/usage/summary | Get usage across your multi-org account.
-[**getUsageSynthetics**](UsageApi.md#getUsageSynthetics) | **GET** /api/v1/usage/synthetics | Get hourly usage for synthetics.
-[**getUsageTimeseries**](UsageApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics.
-[**getUsageTopAvgMetrics**](UsageApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get top custom metrics by hourly average.
-[**getUsageTrace**](UsageApi.md#getUsageTrace) | **GET** /api/v1/usage/traces | Get hourly usage for trace search.
+[**getUsageFargate**](UsageApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
+[**getUsageHosts**](UsageApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
+[**getUsageLogs**](UsageApi.md#getUsageLogs) | **GET** /api/v1/usage/logs | Get hourly usage for Logs
+[**getUsageSummary**](UsageApi.md#getUsageSummary) | **GET** /api/v1/usage/summary | Get usage across your multi-org account
+[**getUsageSynthetics**](UsageApi.md#getUsageSynthetics) | **GET** /api/v1/usage/synthetics | Get hourly usage for Synthetics
+[**getUsageTimeseries**](UsageApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
+[**getUsageTopAvgMetrics**](UsageApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get top 500 custom metrics by hourly average
+[**getUsageTrace**](UsageApi.md#getUsageTrace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search
 
 
 
@@ -19,13 +19,9 @@ Method | HTTP request | Description
 
 > UsageFargateResponse getUsageFargate().startHr(startHr).endHr(endHr).execute();
 
-Get hourly usage for fargate.
+Get hourly usage for Fargate
 
-### Overview
 Get hourly usage for [fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
-### Arguments
-* **`start_hr`** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
-* **`end_hr`** [*optional*, *default* = **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
 
 ### Example
 
@@ -109,13 +105,9 @@ Name | Type | Description  | Notes
 
 > UsageHostsResponse getUsageHosts().startHr(startHr).endHr(endHr).execute();
 
-Get hourly usage for hosts and containers.
+Get hourly usage for hosts and containers
 
-### Overview
 Get hourly usage for hosts and containers.
-### Arguments
-* **`start_hr`** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
-* **`end_hr`** [*optional*, *default* = **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
 
 ### Example
 
@@ -199,13 +191,9 @@ Name | Type | Description  | Notes
 
 > UsageLogsResponse getUsageLogs().startHr(startHr).endHr(endHr).execute();
 
-Get hourly usage for logs.
+Get hourly usage for Logs
 
-### Overview
 Get hourly usage for logs.
-### Arguments
-* **`start_hr`** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
-* **`end_hr`** [*optional*, *default* = **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
 
 ### Example
 
@@ -289,14 +277,9 @@ Name | Type | Description  | Notes
 
 > UsageSummaryResponse getUsageSummary().startMonth(startMonth).endMonth(endMonth).includeOrgDetails(includeOrgDetails).execute();
 
-Get usage across your multi-org account.
+Get usage across your multi-org account
 
-### Overview
 Get usage across your multi-org account.
-### Arguments
-* **`start_month`** [*required*] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning in this month. Maximum of 15 months ago.
-* **`end_month`** [*optional*, *default* = **current_month-3d**] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage ending this month.
-* **`include_org_details`** [*optional*, *default* = **true**] Include usage summaries for each sub-org.
 
 ### Example
 
@@ -383,13 +366,9 @@ Name | Type | Description  | Notes
 
 > UsageSyntheticsResponse getUsageSynthetics().startHr(startHr).endHr(endHr).execute();
 
-Get hourly usage for synthetics.
+Get hourly usage for Synthetics
 
-### Overview
 Get hourly usage for [synthetics](https://docs.datadoghq.com/synthetics/).
-### Arguments
-* **`start_hr`** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
-* **`end_hr`** [*optional*, *default* = **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
 
 ### Example
 
@@ -473,13 +452,9 @@ Name | Type | Description  | Notes
 
 > UsageTimeseriesResponse getUsageTimeseries().startHr(startHr).endHr(endHr).execute();
 
-Get hourly usage for custom metrics.
+Get hourly usage for custom metrics
 
-### Overview
 Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
-### Arguments
-* **`start_hr`** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
-* **`end_hr`** [*optional*, *default* = **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
 
 ### Example
 
@@ -563,13 +538,9 @@ Name | Type | Description  | Notes
 
 > UsageTopAvgMetricsResponse getUsageTopAvgMetrics().month(month).names(names).execute();
 
-Get top custom metrics by hourly average.
+Get top 500 custom metrics by hourly average
 
-### Overview
 Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
-### Arguments
-* **`month`** [*required*] Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
-* **`names`** [*optional*, *default* = **None**] Comma-separated list of metric names.
 
 ### Example
 
@@ -653,13 +624,9 @@ Name | Type | Description  | Notes
 
 > UsageTraceResponse getUsageTrace().startHr(startHr).endHr(endHr).execute();
 
-Get hourly usage for trace search.
+Get hourly usage for Trace Search
 
-### Overview
 Get hourly usage for trace search.
-### Arguments
-* **`start_hr`** [*required*] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour
-* **`end_hr`** [*optional*, *default* = **1d+start_hr**] Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour
 
 ### Example
 

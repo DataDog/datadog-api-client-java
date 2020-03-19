@@ -52,10 +52,10 @@ public class DashboardListItems {
   }
 
    /**
-   * List of dashboards in the dashboard list
+   * List of dashboards in the dashboard list.
    * @return dashboards
   **/
-  @ApiModelProperty(required = true, value = "List of dashboards in the dashboard list")
+  @ApiModelProperty(required = true, value = "List of dashboards in the dashboard list.")
   @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -70,11 +70,11 @@ public class DashboardListItems {
 
 
    /**
-   * Number of dashboards in the dashboard list
+   * Number of dashboards in the dashboard list.
    * @return total
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of dashboards in the dashboard list")
+  @ApiModelProperty(value = "Number of dashboards in the dashboard list.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

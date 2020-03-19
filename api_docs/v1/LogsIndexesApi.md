@@ -4,11 +4,11 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllLogIndexes**](LogsIndexesApi.md#getAllLogIndexes) | **GET** /api/v1/logs/config/indexes | This endpoint returns an array of the LogIndex objects of your organization.
-[**getLogsIndex**](LogsIndexesApi.md#getLogsIndex) | **GET** /api/v1/logs/config/indexes/{name} | This endpoint returns an Index identified by its name.
-[**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get the current order of your log indexes.
-[**updateLogsIndex**](LogsIndexesApi.md#updateLogsIndex) | **PUT** /api/v1/logs/config/indexes/{name} | This endpoint updates an Index identified by its name.
-[**updateLogsIndexOrder**](LogsIndexesApi.md#updateLogsIndexOrder) | **PUT** /api/v1/logs/config/index-order | Update the order of your log indexes.
+[**getAllLogIndexes**](LogsIndexesApi.md#getAllLogIndexes) | **GET** /api/v1/logs/config/indexes | Get all Indexes
+[**getLogsIndex**](LogsIndexesApi.md#getLogsIndex) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
+[**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get Indexes Order
+[**updateLogsIndex**](LogsIndexesApi.md#updateLogsIndex) | **PUT** /api/v1/logs/config/indexes/{name} | Update an Index
+[**updateLogsIndexOrder**](LogsIndexesApi.md#updateLogsIndexOrder) | **PUT** /api/v1/logs/config/index-order | Update Indexes Order
 
 
 
@@ -16,12 +16,9 @@ Method | HTTP request | Description
 
 > LogsIndexListResponse getAllLogIndexes().execute();
 
-This endpoint returns an array of the LogIndex objects of your organization.
+Get all Indexes
 
-## Overview
-Get all log indexes of your organization.
-### Arguments
-This endpoint takes no JSON arguments.
+This endpoint returns an array of the `LogIndex` objects of your organization.
 
 ### Example
 
@@ -95,7 +92,7 @@ This endpoint does not need any parameter.
 
 > LogsIndex getLogsIndex(name).execute();
 
-This endpoint returns an Index identified by its name.
+Get an index
 
 ## Overview
 Get one log index from your organization.
@@ -179,7 +176,7 @@ Name | Type | Description  | Notes
 
 > LogsIndexesOrder getLogsIndexOrder().execute();
 
-Get the current order of your log indexes.
+Get Indexes Order
 
 ## Overview
 Get the current order of your log indexes.
@@ -258,7 +255,7 @@ This endpoint does not need any parameter.
 
 > LogsIndex updateLogsIndex(name).body(body).execute();
 
-This endpoint updates an Index identified by its name.
+Update an Index
 
 ## Overview
 It returns the Index object passed in the request body when the request is successful.
@@ -365,7 +362,7 @@ Name | Type | Description  | Notes
 
 > LogsIndexesOrder updateLogsIndexOrder().body(body).execute();
 
-Update the order of your log indexes.
+Update Indexes Order
 
 ## Overview
 This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
