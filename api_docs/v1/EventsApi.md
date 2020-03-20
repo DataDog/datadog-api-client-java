@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createEvent**](EventsApi.md#createEvent) | **POST** /api/v1/events | Post an event
 [**getEvent**](EventsApi.md#getEvent) | **GET** /api/v1/events/{event_id} | Get an event
-[**listEvents**](EventsApi.md#listEvents) | **GET** /api/v1/events | Query the event stream.
+[**listEvents**](EventsApi.md#listEvents) | **GET** /api/v1/events | Query the event stream
 
 
 
@@ -212,9 +212,9 @@ Name | Type | Description  | Notes
 
 > EventListResponse listEvents().start(start).end(end).priority(priority).sources(sources).tags(tags).unaggregated(unaggregated).execute();
 
-Query the event stream.
+Query the event stream
 
-### Overview
+
 The event stream can be queried and filtered by time, priority, sources and tags.
 Note: if the event you’re querying contains markdown formatting of any kind, you may see characters such as %,\,n in your output.
 ### Arguments

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Type of the dashboard
+ * The type of the dashboard.
  */
 public enum DashboardType {
   

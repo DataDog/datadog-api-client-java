@@ -4,13 +4,13 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**aWSLogsCheckLambdaAsync**](AwsLogsIntegrationApi.md#aWSLogsCheckLambdaAsync) | **POST** /api/v1/integration/aws/logs/check_async | Check function to see if a lambda_arn exists within an account.
-[**aWSLogsCheckServicesAsync**](AwsLogsIntegrationApi.md#aWSLogsCheckServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Asynchronous check for permissions for AWS log lambda config.
-[**aWSLogsList**](AwsLogsIntegrationApi.md#aWSLogsList) | **GET** /api/v1/integration/aws/logs | List configured AWS log integrations.
-[**aWSLogsServicesList**](AwsLogsIntegrationApi.md#aWSLogsServicesList) | **GET** /api/v1/integration/aws/logs/services | Get list of AWS log ready services.
-[**addAWSLambdaARN**](AwsLogsIntegrationApi.md#addAWSLambdaARN) | **POST** /api/v1/integration/aws/logs | Add a AWS Lambda ARN to your Datadog account.
-[**deleteAWSLambdaARN**](AwsLogsIntegrationApi.md#deleteAWSLambdaARN) | **DELETE** /api/v1/integration/aws/logs | Delete a AWS Lambda ARN from your Datadog account.
-[**enableAWSLogServices**](AwsLogsIntegrationApi.md#enableAWSLogServices) | **POST** /api/v1/integration/aws/logs/services | Enable Automatic Log collection for your AWS services.
+[**aWSLogsCheckLambdaAsync**](AwsLogsIntegrationApi.md#aWSLogsCheckLambdaAsync) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists
+[**aWSLogsCheckServicesAsync**](AwsLogsIntegrationApi.md#aWSLogsCheckServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for Log Services
+[**aWSLogsList**](AwsLogsIntegrationApi.md#aWSLogsList) | **GET** /api/v1/integration/aws/logs | List all AWS Logs Integrations
+[**aWSLogsServicesList**](AwsLogsIntegrationApi.md#aWSLogsServicesList) | **GET** /api/v1/integration/aws/logs/services | Get list of AWS log ready services
+[**addAWSLambdaARN**](AwsLogsIntegrationApi.md#addAWSLambdaARN) | **POST** /api/v1/integration/aws/logs | Add AWS Log Lambda ARN
+[**deleteAWSLambdaARN**](AwsLogsIntegrationApi.md#deleteAWSLambdaARN) | **DELETE** /api/v1/integration/aws/logs | Delete an AWS Logs integration
+[**enableAWSLogServices**](AwsLogsIntegrationApi.md#enableAWSLogServices) | **POST** /api/v1/integration/aws/logs/services | Enable an AWS Logs integration
 
 
 
@@ -18,17 +18,13 @@ Method | HTTP request | Description
 
 > AWSLogsAsyncResponse aWSLogsCheckLambdaAsync().body(body).execute();
 
-Check function to see if a lambda_arn exists within an account.
+Check that an AWS Lambda Function exists
 
-### Overview
-Check function to see if a lambda_arn exists within an account. This sends a job on our side if it does not exist, then immediately returns the status of that job. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.
+Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.
 - Returns a status of 'created' when it's checking if the Lambda exists in the account.
 - Returns a status of 'waiting' while checking.
 - Returns a status of 'checked and ok' if the Lambda exists.
 - Returns a status of 'error' if the Lambda does not exist.
-### Arguments
-* **`account_id`** [*required*, *default* = **None**]: Your AWS Account ID without dashes.
-* **`lambda_arn`** [*required*, *default* = **None**]: ARN of the Lambda to be checked.
 
 ### Example
 
@@ -108,17 +104,15 @@ Name | Type | Description  | Notes
 
 > AWSLogsAsyncResponse aWSLogsCheckServicesAsync().body(body).execute();
 
-Asynchronous check for permissions for AWS log lambda config.
+Check permissions for Log Services
 
-### Overview
-Test if permissions are present to add log-forwarding triggers for the given services + AWS account. Input is the same as for EnableAWSLogServices. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes
-- Returns a status of 'created' when it's checking if the permissions exists in the AWS account.
+Test if permissions are present to add log-forwarding triggers for the given services + AWS account. Input is the same as for EnableAWSLogServices. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.
+- Returns a status of 'created' when it's checking if the permissions exists
+  in the AWS account.
+
 - Returns a status of 'waiting' while checking.
 - Returns a status of 'checked and ok' if the Lambda exists.
 - Returns a status of 'error' if the Lambda does not exist.
-### Arguments
-* **`account_id`** [*required*, *default* = **None**]: Your AWS Account ID without dashes.
-* **`services`** [*required*, *default* = **None**]: Array of services IDs set to enable automatic log collection. Discover the list of available services with the Get list of AWS log ready services API endpoint
 
 ### Example
 
@@ -149,7 +143,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | AWS Logs Async Services check request body
+        AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | AWS Logs Async Services check request body.
         try {
             AWSLogsAsyncResponse result = api.aWSLogsCheckServicesAsync()
                 .body(body)
@@ -171,7 +165,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| AWS Logs Async Services check request body |
+ **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| AWS Logs Async Services check request body. |
 
 ### Return type
 
@@ -198,9 +192,8 @@ Name | Type | Description  | Notes
 
 > List&lt;AWSLogsListResponse&gt; aWSLogsList().execute();
 
-List configured AWS log integrations.
+List all AWS Logs Integrations
 
-### Overview
 List all Datadog-AWS Logs integrations configured in your Datadog account.
 
 ### Example
@@ -276,9 +269,8 @@ This endpoint does not need any parameter.
 
 > List&lt;AWSLogsListServicesResponse&gt; aWSLogsServicesList().execute();
 
-Get list of AWS log ready services.
+Get list of AWS log ready services
 
-### Overview
 Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
 
 ### Example
@@ -354,13 +346,9 @@ This endpoint does not need any parameter.
 
 > Object addAWSLambdaARN().body(body).execute();
 
-Add a AWS Lambda ARN to your Datadog account.
+Add AWS Log Lambda ARN
 
-### Overview
 Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
-### Arguments
-* **`account_id`** [*required*, *default* = **None**]: Your AWS Account ID without dashes.
-* **`lambda_arn`** [*required*, *default* = **None**]: ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
 
 ### Example
 
@@ -440,13 +428,9 @@ Name | Type | Description  | Notes
 
 > Object deleteAWSLambdaARN().body(body).execute();
 
-Delete a AWS Lambda ARN from your Datadog account.
+Delete an AWS Logs integration
 
-### Overview
-Delete a Lambda ARN of a Lambda created for the Datadog-AWS log collection in your Datadog account.
-### Arguments
-* **`account_id`** [*required*, *default* = **None**]: Your AWS Account ID without dashes.
-* **`lambda_arn`** [*required*, *default* = **None**]: ARN of the Lambda to be deleted.
+Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
 
 ### Example
 
@@ -526,13 +510,9 @@ Name | Type | Description  | Notes
 
 > Object enableAWSLogServices().body(body).execute();
 
-Enable Automatic Log collection for your AWS services.
+Enable an AWS Logs integration
 
-### Overview
 Enable automatic log collection for a list of services. This should be run after running 'AddAWSLambdaARN' to save the config.
-### Arguments
-* **`account_id`** [*required*, *default* = **None**]: Your AWS Account ID without dashes.
-* **`services`** [*required*, *default* = **None**]: Array of services IDs set to enable automatic log collection. Discover the list of available services with the Get list of AWS log ready services API endpoint
 
 ### Example
 
