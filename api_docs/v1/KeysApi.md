@@ -4,16 +4,16 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAPIKey**](KeysApi.md#createAPIKey) | **POST** /api/v1/api_key | Create an API key with a given name.
-[**createApplicationKey**](KeysApi.md#createApplicationKey) | **POST** /api/v1/application_key | Create an application key with a given name.
-[**deleteAPIKey**](KeysApi.md#deleteAPIKey) | **DELETE** /api/v1/api_key/{key} | Delete a given API key.
-[**deleteApplicationKey**](KeysApi.md#deleteApplicationKey) | **DELETE** /api/v1/application_key/{key} | Delete a given application key.
-[**editAPIKey**](KeysApi.md#editAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key name.
-[**editApplicationKey**](KeysApi.md#editApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key name.
-[**getAPIKey**](KeysApi.md#getAPIKey) | **GET** /api/v1/api_key/{key} | Get a given API key.
-[**getAllAPIKeys**](KeysApi.md#getAllAPIKeys) | **GET** /api/v1/api_key | Get all API keys available for your account.
-[**getAllApplicationKeys**](KeysApi.md#getAllApplicationKeys) | **GET** /api/v1/application_key | Get all application keys available for your account.
-[**getApplicationKey**](KeysApi.md#getApplicationKey) | **GET** /api/v1/application_key/{key} | Get a given application key.
+[**createAPIKey**](KeysApi.md#createAPIKey) | **POST** /api/v1/api_key | Create an API key
+[**createApplicationKey**](KeysApi.md#createApplicationKey) | **POST** /api/v1/application_key | Create an application key
+[**deleteAPIKey**](KeysApi.md#deleteAPIKey) | **DELETE** /api/v1/api_key/{key} | Delete an API key
+[**deleteApplicationKey**](KeysApi.md#deleteApplicationKey) | **DELETE** /api/v1/application_key/{key} | Delete an application key
+[**editAPIKey**](KeysApi.md#editAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key
+[**editApplicationKey**](KeysApi.md#editApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key
+[**getAPIKey**](KeysApi.md#getAPIKey) | **GET** /api/v1/api_key/{key} | Get an API key
+[**getAllAPIKeys**](KeysApi.md#getAllAPIKeys) | **GET** /api/v1/api_key | Get all API keys
+[**getAllApplicationKeys**](KeysApi.md#getAllApplicationKeys) | **GET** /api/v1/application_key | Get all application keys
+[**getApplicationKey**](KeysApi.md#getApplicationKey) | **GET** /api/v1/application_key/{key} | Get an application key
 
 
 
@@ -21,12 +21,9 @@ Method | HTTP request | Description
 
 > ApiKeyResponse createAPIKey().body(body).execute();
 
-Create an API key with a given name.
+Create an API key
 
-## Overview
-Creates an API key
-### ARGUMENTS
-* **`name`** [*required*]: Name of your API key.
+Create an API key with a given name.
 
 ### Example
 
@@ -107,12 +104,9 @@ Name | Type | Description  | Notes
 
 > ApplicationKeyResponse createApplicationKey().body(body).execute();
 
-Create an application key with a given name.
+Create an application key
 
-## Overview
 Create an application key with a given name.
-### ARGUMENTS
-* **`name`** [*required*]: Name of your application key.
 
 ### Example
 
@@ -193,12 +187,9 @@ Name | Type | Description  | Notes
 
 > ApiKeyResponse deleteAPIKey(key).execute();
 
-Delete a given API key.
+Delete an API key
 
-## Overview
 Delete a given API key.
-### ARGUMENTS
-This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -278,12 +269,9 @@ Name | Type | Description  | Notes
 
 > ApplicationKeyResponse deleteApplicationKey(key).execute();
 
-Delete a given application key.
+Delete an application key
 
-## Overview
 Delete a given application key.
-### ARGUMENTS
-This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -363,12 +351,9 @@ Name | Type | Description  | Notes
 
 > ApiKeyResponse editAPIKey(key).body(body).execute();
 
-Edit an API key name.
+Edit an API key
 
-## Overview
 Edit an API key name.
-### ARGUMENTS
-* **`name`** [*required*]: Name of your API key.
 
 ### Example
 
@@ -451,12 +436,9 @@ Name | Type | Description  | Notes
 
 > ApplicationKeyResponse editApplicationKey(key).body(body).execute();
 
-Edit an application key name.
+Edit an application key
 
-## Overview
 Edit an application key name.
-### ARGUMENTS
-* **`name`** [*required*]: Name of your application key.
 
 ### Example
 
@@ -539,12 +521,9 @@ Name | Type | Description  | Notes
 
 > ApiKeyResponse getAPIKey(key).execute();
 
-Get a given API key.
+Get an API key
 
-## Overview
 Get a given API key.
-### ARGUMENTS
-This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -575,7 +554,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        String key = "key_example"; // String | The specific API key you are working with
+        String key = "key_example"; // String | The specific API key you are working with.
         try {
             ApiKeyResponse result = api.getAPIKey(key)
                 .execute();
@@ -596,7 +575,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific API key you are working with |
+ **key** | **String**| The specific API key you are working with. |
 
 ### Return type
 
@@ -624,12 +603,9 @@ Name | Type | Description  | Notes
 
 > ApiKeyListResponse getAllAPIKeys().execute();
 
-Get all API keys available for your account.
+Get all API keys
 
-## Overview
 Get all API keys available for your account.
-### ARGUMENTS
-This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -704,12 +680,9 @@ This endpoint does not need any parameter.
 
 > ApplicationKeyListResponse getAllApplicationKeys().execute();
 
-Get all application keys available for your account.
+Get all application keys
 
-## Overview
 Get all application keys available for your account.
-### ARGUMENTS
-This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -784,12 +757,9 @@ This endpoint does not need any parameter.
 
 > ApplicationKeyResponse getApplicationKey(key).execute();
 
-Get a given application key.
+Get an application key
 
-## Overview
 Get a given application key.
-### ARGUMENTS
-This endpoint takes no JSON arguments.
 
 ### Example
 

@@ -152,7 +152,7 @@ private ApiResponse<HostTags> addToHostTagsWithHttpInfo(String hostName, HostTag
 
   /**
    * Add tags to a host
-   * ### Add Tags to Host   * **&#x60;tags&#x60;** [*required*]: A list of tags to apply to the host.   * **&#x60;source&#x60;** [*optional*, *default*&#x3D; **users**]: The source of the tags (e.g. chef, puppet).
+   * This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
    * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where the tags came from. (required)
    * @return addToHostTagsRequest
    * @throws ApiException if fails to make API call
@@ -253,8 +253,8 @@ private ApiResponse<TagToHosts> getAllHostTagsWithHttpInfo(String source) throws
   }
 
   /**
-   * Get a mapping of tags to hosts for your whole infrastrucutre
-   * ### Get Tags * **&#x60;source&#x60;** [*optional*, *default*&#x3D; **users**]: The source of the tags (e.g. chef, puppet).
+   * Get Tags
+   * Return a mapping of tags to hosts for your whole infrastructure.
    * @return getAllHostTagsRequest
    * @throws ApiException if fails to make API call
    
@@ -362,8 +362,8 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
   }
 
   /**
-   * Get list of tags for a specific hosts
-   * ### Get Host Tags   * **&#x60;source&#x60;** [*optional*, *default*&#x3D; **users**]: The source of the tags (e.g. chef, puppet).
+   * Get host tags
+   * Return the list of tags that apply to a given host.
    * @param hostName When specified, filters list of tags to those tags with the specified source. (required)
    * @return getHostTagsRequest
    * @throws ApiException if fails to make API call
@@ -472,8 +472,8 @@ private ApiResponse<Void> removeHostTagsWithHttpInfo(String hostName, String sou
   }
 
   /**
-   * Remove Host Tags
-   * ### Remove Host Tags   * **&#x60;source&#x60;** [*optional*, *default*&#x3D; **users**]: The source of the tags (e.g. chef, puppet).
+   * Remove host tags
+   * This endpoint allows you to remove all user-assigned tags for a single host.
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host. (required)
    * @return removeHostTagsRequest
    * @throws ApiException if fails to make API call
@@ -599,8 +599,8 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
   }
 
   /**
-   * Update a tags on a host
-   * ### Update Host Tags   * **&#x60;tags&#x60;** [*required*]: A list of tags to apply to the host.   * **&#x60;source&#x60;** [*optional*, *default*&#x3D; **users**]: The source of the tags (e.g. chef, puppet).
+   * Update host tags
+   * This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
    * @param hostName This endpoint allows you to update/replace all in an integration source with those supplied in the request. (required)
    * @return updateHostTagsRequest
    * @throws ApiException if fails to make API call

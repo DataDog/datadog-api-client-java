@@ -4,12 +4,12 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAWSAccount**](AwsIntegrationApi.md#createAWSAccount) | **POST** /api/v1/integration/aws | Create an AWS Account
-[**deleteAWSAccount**](AwsIntegrationApi.md#deleteAWSAccount) | **DELETE** /api/v1/integration/aws | Delete an AWS Account
+[**createAWSAccount**](AwsIntegrationApi.md#createAWSAccount) | **POST** /api/v1/integration/aws | Create an AWS Integration
+[**deleteAWSAccount**](AwsIntegrationApi.md#deleteAWSAccount) | **DELETE** /api/v1/integration/aws | Delete an AWS Integration
 [**generateNewAWSExternalID**](AwsIntegrationApi.md#generateNewAWSExternalID) | **PUT** /api/v1/integration/aws/generate_new_external_id | Generate New External ID
-[**getAllAWSAccounts**](AwsIntegrationApi.md#getAllAWSAccounts) | **GET** /api/v1/integration/aws | Get Installed AWS Accounts
-[**listAvailableAWSNamespaces**](AwsIntegrationApi.md#listAvailableAWSNamespaces) | **GET** /api/v1/integration/aws/available_namespace_rules | List available namespaces.
-[**updateAWSAccount**](AwsIntegrationApi.md#updateAWSAccount) | **PUT** /api/v1/integration/aws | Update an AWS Account
+[**getAllAWSAccounts**](AwsIntegrationApi.md#getAllAWSAccounts) | **GET** /api/v1/integration/aws | List all AWS Integrations
+[**listAvailableAWSNamespaces**](AwsIntegrationApi.md#listAvailableAWSNamespaces) | **GET** /api/v1/integration/aws/available_namespace_rules | List namespace rules
+[**updateAWSAccount**](AwsIntegrationApi.md#updateAWSAccount) | **PUT** /api/v1/integration/aws | Update an AWS Integration
 
 
 
@@ -17,35 +17,11 @@ Method | HTTP request | Description
 
 > AWSAccountCreateResponse createAWSAccount().body(body).execute();
 
-Create an AWS Account
+Create an AWS Integration
 
-### Overview
-Create the AWS Account with the provided values
-### Arguments
-* **`account_id`** [*required*]: Your AWS Account ID without dashes. Consult the Datadog AWS
-  integration to learn more about your AWS account ID.
-
-* **`role_name`** [*required*]: Your Datadog role delegation name. For more information about you
-  AWS account Role name, see the Datadog AWS integration configuration info.
-
-* **`access_key_id`** [*optional*, *default* = **None**]: If your AWS account is a GovCloud or
-  China account, enter the corresponding Access Key ID.
-
-* **`filter_tags`** [*optional*, *default* = **None**]: The array of EC2 tags (in the form key:value)
-  defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ?
-  (for single characters) and * (for multiple characters) can also be used. Only hosts that match one
-  of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given
-  tag can also be excluded by adding ! before the tag.
-  e.x. env:production,instance-type:c1.*,!region:us-east-1 For more information on EC2 tagging,
-  see the AWS tagging documentation
-
-* **`host_tags`** [*optional*, *default* = **None**]: Array of tags (in the form key:value) to add
-  to all hosts and metrics reporting through this integration.
-
-* **`account_specific_namespace_rules`** [*optional*, *default* = **None**]: An object (in the form
-  {"namespace1":true/false, "namespace2":true/false}) that enables or disables metric collection for
-  specific AWS namespaces for this AWS account only. A list of namespaces can be found at the
-  /v1/integration/aws/available_namespace_rules endpoint.
+Create a Datadog-Amazon Web Services integration.
+Using the `POST` method updates your integration configuration
+by adding your new configuration to the existing one in your Datadog organization.
 
 ### Example
 
@@ -76,7 +52,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
+        AWSAccount body = new AWSAccount(); // AWSAccount | AWS Request Object
         try {
             AWSAccountCreateResponse result = api.createAWSAccount()
                 .body(body)
@@ -98,7 +74,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
+ **body** | [**AWSAccount**](AWSAccount.md)| AWS Request Object |
 
 ### Return type
 
@@ -118,23 +94,16 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## deleteAWSAccount
 
 > Object deleteAWSAccount().body(body).execute();
 
-Delete an AWS Account
+Delete an AWS Integration
 
-### Overview
-Delete the AWS Account matching the specified account_id and role_name parameters
-### Arguments
-* **`account_id`** [*required*, *default* = **None**]: Delete the AWS account that
-  matches this account_id.
-
-* **`role_name`** [*required*, *default* = **None**]: Delete the AWS account that
-  matches this role_name.
+Delete a Datadog-AWS integration matching the specified account_id and role_name parameters.
 
 ### Example
 
@@ -206,7 +175,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 | **404** | Item Not Found |  -  |
 
 
@@ -216,14 +185,7 @@ Name | Type | Description  | Notes
 
 Generate New External ID
 
-###Overview
-Generate new AWS external ID for a specific integrated account
-### Arguments
-* **`account_id`** [*required*]: Generate new external ID for the AWS account that
-  matches this account_id.
-
-* **`role_name`** [*required*]: Generate new external ID for the AWS account that
-  matches this role_name.
+Generate a new AWS external ID for a given AWS account ID and role name pair.
 
 ### Example
 
@@ -254,7 +216,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount body = new AWSAccount(); // AWSAccount | Generate New AWS External ID request object
+        AWSAccount body = new AWSAccount(); // AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
         try {
             AWSAccountCreateResponse result = api.generateNewAWSExternalID()
                 .body(body)
@@ -276,7 +238,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccount**](AWSAccount.md)| Generate New AWS External ID request object |
+ **body** | [**AWSAccount**](AWSAccount.md)| Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation). |
 
 ### Return type
 
@@ -296,26 +258,16 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## getAllAWSAccounts
 
 > AWSAccountListResponse getAllAWSAccounts().accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
-Get Installed AWS Accounts
+List all AWS Integrations
 
-### Overview
-Get All Installed AWS Accounts
-### Arguments
-* **`account_id`** [*optional*, *default* = **None**]: Only return AWS accounts that
-  matches this account_id.
-
-* **`role_name`** [*optional*, *default* = **None**]: Only return AWS accounts that
-  matches this role_name.
-
-* **`access_key_id`** [*optional*, *default* = **None**]: Only return AWS accounts that
-  matches this access_key_id.
+List all Datadog-AWS integrations available in your Datadog organization.
 
 ### Example
 
@@ -394,7 +346,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 | **404** | Item Not Found |  -  |
 
 
@@ -402,10 +354,9 @@ Name | Type | Description  | Notes
 
 > List&lt;String&gt; listAvailableAWSNamespaces().execute();
 
-List available namespaces.
+List namespace rules
 
-### Overview
-List all namespace rules for a given Datadog-AWS integration.
+List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
 
 ### Example
 
@@ -473,52 +424,16 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## updateAWSAccount
 
 > Object updateAWSAccount().body(body).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
-Update an AWS Account
+Update an AWS Integration
 
-### Overview
-Update the AWS Account based on the provided values
-### Arguments
-* **`account_id`** [*required if role_name is specified*, *default* = **None**]: Only return AWS accounts that
-  matches this account_id.
-
-* **`role_name`** [*required if account_id is specified*, *default* = **None**]: Only return AWS accounts that
-  matches this role_name.
-
-* **`access_key_id`** [*required if none of the other two options are specified*, *default* = **None**]: Only return AWS accounts that
-  matches this access_key_id.
-
-### Payload
-* **`account_id`** [*required*]: Your AWS Account ID without dashes. Consult the Datadog AWS
-  integration to learn more about your AWS account ID.
-
-* **`role_name`** [*required*]: Your Datadog role delegation name. For more information about you
-  AWS account Role name, see the Datadog AWS integration configuration info.
-
-* **`access_key_id`** [*optional*, *default* = **None**]: If your AWS account is a GovCloud or
-  China account, enter the corresponding Access Key ID.
-
-* **`filter_tags`** [*optional*, *default* = **None**]: The array of EC2 tags (in the form key:value)
-  defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ?
-  (for single characters) and * (for multiple characters) can also be used. Only hosts that match one
-  of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given
-  tag can also be excluded by adding ! before the tag.
-  e.g. env:production,instance-type:c1.*,!region:us-east-1 For more information on EC2 tagging,
-  see the AWS tagging documentation.
-
-* **`host_tags`** [*optional*, *default* = **None**]: Array of tags (in the form key:value) to add
-  to all hosts and metrics reporting through this integration.
-
-* **`account_specific_namespace_rules`** [*optional*, *default* = **None**]: An object (in the form
-  {"namespace1":true/false, "namespace2":true/false}) that enables or disables metric collection for
-  specific AWS namespaces for this AWS account only. A list of namespaces can be found at the
-  /v1/integration/aws/available_namespace_rules endpoint.
+Update a Datadog-Amazon Web Services integration.
 
 ### Example
 
@@ -552,7 +467,7 @@ public class Example {
         AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
         String accountId = "accountId_example"; // String | Only return AWS accounts that matches this account_id.
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name. *It is required if account_id is specified.*
-        String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.*
+        String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this access_key_id. *It is required if none of the other two options are specified.*
         try {
             Object result = api.updateAWSAccount()
                 .body(body)
@@ -580,7 +495,7 @@ Name | Type | Description  | Notes
  **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
  **accountId** | **String**| Only return AWS accounts that matches this account_id. | [optional]
  **roleName** | **String**| Only return AWS accounts that matches this role_name. *It is required if account_id is specified.* | [optional]
- **accessKeyId** | **String**| Only return AWS accounts that matches this access_key_id. *It required if none of the other two options are specified.* | [optional]
+ **accessKeyId** | **String**| Only return AWS accounts that matches this access_key_id. *It is required if none of the other two options are specified.* | [optional]
 
 ### Return type
 
@@ -600,5 +515,5 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 

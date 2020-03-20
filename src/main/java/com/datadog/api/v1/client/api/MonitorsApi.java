@@ -128,7 +128,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
   }
 
   /**
-   * Create a new Monitor
+   * Create a monitor
    * ### Overview Create a monitor using the specified options ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to create
    * @return createMonitorRequest
    * @throws ApiException if fails to make API call
@@ -226,7 +226,7 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
   }
 
   /**
-   * Delete the specified monitor.
+   * Delete a monitor
    * ### Overview Delete the specified monitor ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
    * @param monitorId The id of the monitor (required)
    * @return deleteMonitorRequest
@@ -342,7 +342,7 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor bod
   }
 
   /**
-   * Edit the specified monitor
+   * Edit a monitor
    * ### Overview Edit the specified monitor. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
    * @param monitorId The id of the monitor (required)
    * @return editMonitorRequest
@@ -494,7 +494,7 @@ private ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates
   }
 
   /**
-   * Get details about the specified monitor.
+   * Get all monitor details
    * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39; * **&#x60;name&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A string to filter monitors by name * **&#x60;tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0 * **&#x60;monitor_tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app) * **&#x60;with_downtimes&#x60;** [*optional* *default*&#x3D;&#x3D;**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
    * @return getAllMonitorsRequest
    * @throws ApiException if fails to make API call
@@ -603,7 +603,7 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
   }
 
   /**
-   * Get details about the specified monitor.
+   * Get a monitor&#39;s details
    * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor. * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39;
    * @param monitorId The id of the monitor (required)
    * @return getMonitorRequest
@@ -707,8 +707,8 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
   }
 
   /**
-   * 
-   * ### Overview Validate the monitor provided in the request ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to validate summary: Validate the provided monitor
+   * Validate a monitor
+   * ### Overview Validate the monitor provided in the request ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to validate
    * @return validateMonitorRequest
    * @throws ApiException if fails to make API call
    

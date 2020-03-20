@@ -141,8 +141,8 @@ private ApiResponse<DashboardListAddItemsResponse> addDashboardListItemsWithHttp
   }
 
   /**
+   * Add Items to a Dashboard List
    * Add dashboards to an existing dashboard list.
-   * ### Overview Add dashboards to an existing dashboard list. ### Arguments - **&#x60;dashboards&#x60;** [*required*]: A list of dashboards to add to the list. Dashboard definitions follow this form:    - **&#x60;type&#x60;** [*required*]: The type of the dashboard. The type must be one of:      - &#x60;\&quot;custom_timeboard\&quot;&#x60;      - &#x60;\&quot;custom_screenboard\&quot;&#x60;      - &#x60;\&quot;integration_screenboard\&quot;&#x60;      - &#x60;\&quot;integration_timeboard\&quot;&#x60;      - &#x60;\&quot;host_timeboard\&quot;&#x60;    - **&#x60;id&#x60;** [*required*]: The id of the dashboard.
    * @param dashboardListId ID of the dashboard list to add items to (required)
    * @return addDashboardListItemsRequest
    * @throws ApiException if fails to make API call
@@ -257,8 +257,8 @@ private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWi
   }
 
   /**
+   * Delete Items from a Dashboard List
    * Delete dashboards from an existing dashboard list.
-   * ### Overview Delete dashboards from an existing dashboard list. ### Arguments - **&#x60;dashboards&#x60;** [*required*]: A list of dashboards to add to the list. Dashboard definitions follow this form:    - **&#x60;type&#x60;** [*required*]: The type of the dashboard. The type must be one of:      - &#x60;\&quot;custom_timeboard\&quot;&#x60;      - &#x60;\&quot;custom_screenboard\&quot;&#x60;      - &#x60;\&quot;integration_screenboard\&quot;&#x60;      - &#x60;\&quot;integration_timeboard\&quot;&#x60;      - &#x60;\&quot;host_timeboard\&quot;&#x60;    - **&#x60;id&#x60;** [*required*]: The id of the dashboard.
    * @param dashboardListId ID of the dashboard list to delete items from (required)
    * @return deleteDashboardListItemsRequest
    * @throws ApiException if fails to make API call
@@ -354,8 +354,8 @@ private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long d
   }
 
   /**
-   * Fetch the dashboard list&#39;s dashboard definitions.
-   * ### Overview Fetch the dashboard list’s dashboard definitions. ### Arguments This endpoint takes no JSON arguments.
+   * Get a Dashboard List
+   * Fetch the dashboard list’s dashboard definitions.
    * @param dashboardListId ID of the dashboard list to get items from (required)
    * @return getDashboardListItemsRequest
    * @throws ApiException if fails to make API call
@@ -421,7 +421,7 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
 
     /**
      * Set body
-     * @param body New dashboards of the dashboard list (required)
+     * @param body New dashboards of the dashboard list. (required)
      * @return APIupdateDashboardListItemsRequest
      */
     public APIupdateDashboardListItemsRequest body(DashboardListItems body) {
@@ -470,9 +470,9 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
   }
 
   /**
+   * Update Items of a Dashboard List
    * Update dashboards of an existing dashboard list.
-   * ### Overview Update dashboards of an existing dashboard list. ### Arguments - **&#x60;dashboards&#x60;** [*required*]: A list of dashboards to add to the list. Dashboard definitions follow this form:    - **&#x60;type&#x60;** [*required*]: The type of the dashboard. The type must be one of:      - &#x60;\&quot;custom_timeboard\&quot;&#x60;      - &#x60;\&quot;custom_screenboard\&quot;&#x60;      - &#x60;\&quot;integration_screenboard\&quot;&#x60;      - &#x60;\&quot;integration_timeboard\&quot;&#x60;      - &#x60;\&quot;host_timeboard\&quot;&#x60;    - **&#x60;id&#x60;** [*required*]: The id of the dashboard.
-   * @param dashboardListId ID of the dashboard list to update items from (required)
+   * @param dashboardListId ID of the dashboard list to update items from. (required)
    * @return updateDashboardListItemsRequest
    * @throws ApiException if fails to make API call
    

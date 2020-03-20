@@ -4,7 +4,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getIPRanges**](IpRangesApi.md#getIPRanges) | **GET** / | 
+[**getIPRanges**](IpRangesApi.md#getIPRanges) | **GET** / | List IP Ranges
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > IPRanges getIPRanges().execute();
 
-
+List IP Ranges
 
 Get information about Datadog IP ranges
 

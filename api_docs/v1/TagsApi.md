@@ -5,10 +5,10 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addToHostTags**](TagsApi.md#addToHostTags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host
-[**getAllHostTags**](TagsApi.md#getAllHostTags) | **GET** /api/v1/tags/hosts | Get a mapping of tags to hosts for your whole infrastrucutre
-[**getHostTags**](TagsApi.md#getHostTags) | **GET** /api/v1/tags/hosts/{host_name} | Get list of tags for a specific hosts
-[**removeHostTags**](TagsApi.md#removeHostTags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove Host Tags
-[**updateHostTags**](TagsApi.md#updateHostTags) | **PUT** /api/v1/tags/hosts/{host_name} | Update a tags on a host
+[**getAllHostTags**](TagsApi.md#getAllHostTags) | **GET** /api/v1/tags/hosts | Get Tags
+[**getHostTags**](TagsApi.md#getHostTags) | **GET** /api/v1/tags/hosts/{host_name} | Get host tags
+[**removeHostTags**](TagsApi.md#removeHostTags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags
+[**updateHostTags**](TagsApi.md#updateHostTags) | **PUT** /api/v1/tags/hosts/{host_name} | Update host tags
 
 
 
@@ -18,11 +18,7 @@ Method | HTTP request | Description
 
 Add tags to a host
 
-### Add Tags to Host
-
- * **`tags`** [*required*]: A list of tags to apply to the host.
-
- * **`source`** [*optional*, *default*= **users**]: The source of the tags (e.g. chef, puppet).
+This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
 
 ### Example
 
@@ -107,10 +103,9 @@ Name | Type | Description  | Notes
 
 > TagToHosts getAllHostTags().source(source).execute();
 
-Get a mapping of tags to hosts for your whole infrastrucutre
+Get Tags
 
-### Get Tags
-* **`source`** [*optional*, *default*= **users**]: The source of the tags (e.g. chef, puppet).
+Return a mapping of tags to hosts for your whole infrastructure.
 
 ### Example
 
@@ -190,11 +185,9 @@ Name | Type | Description  | Notes
 
 > HostTags getHostTags(hostName).source(source).execute();
 
-Get list of tags for a specific hosts
+Get host tags
 
-### Get Host Tags
-
- * **`source`** [*optional*, *default*= **users**]: The source of the tags (e.g. chef, puppet).
+Return the list of tags that apply to a given host.
 
 ### Example
 
@@ -276,11 +269,9 @@ Name | Type | Description  | Notes
 
 > removeHostTags(hostName).source(source).execute();
 
-Remove Host Tags
+Remove host tags
 
-### Remove Host Tags
-
- * **`source`** [*optional*, *default*= **users**]: The source of the tags (e.g. chef, puppet).
+This endpoint allows you to remove all user-assigned tags for a single host.
 
 ### Example
 
@@ -361,13 +352,9 @@ null (empty response body)
 
 > HostTags updateHostTags(hostName).body(body).source(source).execute();
 
-Update a tags on a host
+Update host tags
 
-### Update Host Tags
-
- * **`tags`** [*required*]: A list of tags to apply to the host.
-
- * **`source`** [*optional*, *default*= **users**]: The source of the tags (e.g. chef, puppet).
+This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
 
 ### Example
 

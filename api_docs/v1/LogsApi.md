@@ -5,7 +5,7 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Get a list of logs
-[**sendLog**](LogsApi.md#sendLog) | **POST** /v1/input | 
+[**sendLog**](LogsApi.md#sendLog) | **POST** /v1/input | Send logs
 
 
 
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 > Object sendLog().body(body).execute();
 
-
+Send logs
 
 Send logs
 

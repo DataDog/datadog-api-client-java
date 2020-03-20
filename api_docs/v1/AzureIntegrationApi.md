@@ -4,11 +4,11 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**azureUpdateHostFilters**](AzureIntegrationApi.md#azureUpdateHostFilters) | **POST** /api/v1/integration/azure/host_filters | Update the defined list of host filters for a given Datadog-Azure integration.
-[**createAzureIntegration**](AzureIntegrationApi.md#createAzureIntegration) | **POST** /api/v1/integration/azure | Add a Azure integration to your Datadog account.
-[**deleteAzureIntegration**](AzureIntegrationApi.md#deleteAzureIntegration) | **DELETE** /api/v1/integration/azure | Delete an Azure Integration from your Datadog account.
-[**listAzureIntegration**](AzureIntegrationApi.md#listAzureIntegration) | **GET** /api/v1/integration/azure | List configured Azure integrations.
-[**updateAzureIntegration**](AzureIntegrationApi.md#updateAzureIntegration) | **PUT** /api/v1/integration/azure | Update an Azure integration to your Datadog account.
+[**azureUpdateHostFilters**](AzureIntegrationApi.md#azureUpdateHostFilters) | **POST** /api/v1/integration/azure/host_filters | Update Azure integration host filters
+[**createAzureIntegration**](AzureIntegrationApi.md#createAzureIntegration) | **POST** /api/v1/integration/azure | Create an Azure integration
+[**deleteAzureIntegration**](AzureIntegrationApi.md#deleteAzureIntegration) | **DELETE** /api/v1/integration/azure | Delete an Azure integration
+[**listAzureIntegration**](AzureIntegrationApi.md#listAzureIntegration) | **GET** /api/v1/integration/azure | List all Azure integrations
+[**updateAzureIntegration**](AzureIntegrationApi.md#updateAzureIntegration) | **PUT** /api/v1/integration/azure | Update an Azure integration
 
 
 
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 
 > Object azureUpdateHostFilters().body(body).execute();
 
-Update the defined list of host filters for a given Datadog-Azure integration.
+Update Azure integration host filters
 
-### Overview
+
 Update the defined list of host filters for a given Datadog-Azure integration.
 ### Arguments
 * **`tenant_name`** [*required*, *default* = **None**]: Your Azure Active Directory ID.
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 > Object createAzureIntegration().body(body).execute();
 
-Add a Azure integration to your Datadog account.
+Create an Azure integration
 
 ### Overview
 Create a Datadog-Azure integration.
@@ -191,9 +191,9 @@ Name | Type | Description  | Notes
 
 > Object deleteAzureIntegration().body(body).execute();
 
-Delete an Azure Integration from your Datadog account.
+Delete an Azure integration
 
-### Overview
+
 Delete a given Datadog-Azure integration.
 ### Arguments
 * **`tenant_name`** [*required*, *default* = **None**]: Your Azure Active Directory ID.
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 > List&lt;AzureAccount&gt; listAzureIntegration().execute();
 
-List configured Azure integrations.
+List all Azure integrations
 
 ### Overview
 List all Datadog-Azure integrations configured in your Datadog account.
@@ -355,7 +355,7 @@ This endpoint does not need any parameter.
 
 > Object updateAzureIntegration().body(body).execute();
 
-Update an Azure integration to your Datadog account.
+Update an Azure integration
 
 ### Overview
 Update an Datadog-Azure integration. Requires an existing tenant_name and client_id. Any other fields supplied will overwrite existing values. To overwrite tenant_name or client_id, use new_tenant_name and new_client_id. To leave a field unchanged, do not supply that field in the payload.

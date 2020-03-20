@@ -4,14 +4,14 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bulkPartialDeleteSLO**](SloApi.md#bulkPartialDeleteSLO) | **POST** /api/v1/slo/bulk_delete | Delete (or partially delete) multiple service level objective objects.
-[**checkCanDeleteSLO**](SloApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted.
-[**createSLO**](SloApi.md#createSLO) | **POST** /api/v1/slo | Create a service level objective object.
-[**deleteSLO**](SloApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete the specified service level objective object.
-[**editSLO**](SloApi.md#editSLO) | **PUT** /api/v1/slo/{slo_id} | Edit the specified service level objective
-[**getSLO**](SloApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get a service level objective object
-[**getSLOs**](SloApi.md#getSLOs) | **GET** /api/v1/slo | Get multiple service level objective objects by their IDs.
-[**historyForSLO**](SloApi.md#historyForSLO) | **GET** /api/v1/slo/{slo_id}/history | Get the history of the service level objective.
+[**bulkPartialDeleteSLO**](SloApi.md#bulkPartialDeleteSLO) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
+[**checkCanDeleteSLO**](SloApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
+[**createSLO**](SloApi.md#createSLO) | **POST** /api/v1/slo | Create a SLO object
+[**deleteSLO**](SloApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO
+[**editSLO**](SloApi.md#editSLO) | **PUT** /api/v1/slo/{slo_id} | Edit a SLO
+[**getSLO**](SloApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details
+[**getSLOs**](SloApi.md#getSLOs) | **GET** /api/v1/slo | Search SLOs
+[**historyForSLO**](SloApi.md#historyForSLO) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
 
 
 
@@ -19,9 +19,8 @@ Method | HTTP request | Description
 
 > ServiceLevelObjectivesBulkDeleted bulkPartialDeleteSLO().body(body).execute();
 
-Delete (or partially delete) multiple service level objective objects.
+Bulk Delete SLO Timeframes
 
-### Overview
 Delete (or partially delete) multiple service level objective objects.
 This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
 
@@ -104,12 +103,9 @@ Name | Type | Description  | Notes
 
 > CheckCanDeleteServiceLevelObjectiveResponse checkCanDeleteSLO().ids(ids).execute();
 
-Check if SLOs can be safely deleted.
+Check if SLOs can be safely deleted
 
-### Overview
-Check if an SLO can be safely deleted without disrupting dashboards for example.
-### Arguments
-* **`ids`** [*required*]: The ID (csv) of the service level objective objects to check.
+Check if an SLO can be safely deleted without disrupting dashboardsfor example.
 
 ### Example
 
@@ -190,9 +186,8 @@ Name | Type | Description  | Notes
 
 > ServiceLevelObjectiveListResponse createSLO().body(body).execute();
 
-Create a service level objective object.
+Create a SLO object
 
-### Overview
 Create a service level objective object.
 
 ### Example
@@ -274,12 +269,10 @@ Name | Type | Description  | Notes
 
 > ServiceLevelObjectiveDeleted deleteSLO(sloId).execute();
 
-Delete the specified service level objective object.
+Delete a SLO
 
-### Overview
-Delete the specified service level objective object.
-### Arguments
-* **`slo_id`** [*required*]: The ID of the service level objective object
+Permanently delete the specified service level objective object.
+If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
 
 ### Example
 
@@ -360,7 +353,7 @@ Name | Type | Description  | Notes
 
 > ServiceLevelObjectiveListResponse editSLO(sloId).body(body).execute();
 
-Edit the specified service level objective
+Edit a SLO
 
 ### Overview
 Edit the specified service level objective object.
@@ -449,7 +442,7 @@ Name | Type | Description  | Notes
 
 > ServiceLevelObjectiveResponse getSLO(sloId).execute();
 
-Get a service level objective object
+Get a SLO&#39;s details
 
 ### Overview
 Get a service level objective object.
@@ -535,7 +528,7 @@ Name | Type | Description  | Notes
 
 > ServiceLevelObjectiveListResponse getSLOs().ids(ids).execute();
 
-Get multiple service level objective objects by their IDs.
+Search SLOs
 
 ### Overview
 Get multiple service level objective objects by their IDs.
@@ -622,14 +615,11 @@ Name | Type | Description  | Notes
 
 > HistoryServiceLevelObjectiveResponse historyForSLO(sloId).fromTs(fromTs).toTs(toTs).execute();
 
-Get the history of the service level objective.
+Get an SLO&#39;s history
 
-### Overview
-Get the SLO history data
-### Arguments
-* **`slo_id`** [*required*]: The ID of the service level objective object
-* **`from_ts`** [*required*]: The `from` timestamp in epoch seconds for the query timeframe
-* **`to_ts`** [*required*]: The `to` timestamp in epoch seconds for the query timeframe
+Get a specific SLO’s history, regardless of its SLO type.
+The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.
+**Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
 
 ### Example
 
