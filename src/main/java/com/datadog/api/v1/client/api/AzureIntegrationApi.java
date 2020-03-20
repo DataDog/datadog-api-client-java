@@ -129,8 +129,8 @@ private ApiResponse<Object> azureUpdateHostFiltersWithHttpInfo(AzureAccount body
   }
 
   /**
-   * Update the defined list of host filters for a given Datadog-Azure integration.
-   * ### Overview Update the defined list of host filters for a given Datadog-Azure integration. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application ID. * **&#x60;host_filters&#x60;** [*required*, *default* &#x3D; **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+   * Update Azure integration host filters
+   *  Update the defined list of host filters for a given Datadog-Azure integration. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application ID. * **&#x60;host_filters&#x60;** [*required*, *default* &#x3D; **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
    * @return azureUpdateHostFiltersRequest
    * @throws ApiException if fails to make API call
    
@@ -234,7 +234,7 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
   }
 
   /**
-   * Add a Azure integration to your Datadog account.
+   * Create an Azure integration
    * ### Overview Create a Datadog-Azure integration. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application ID. * **&#x60;client_secret&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application secret key. * **&#x60;host_filters&#x60;** [*optional*, *default* &#x3D; **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
    * @return createAzureIntegrationRequest
    * @throws ApiException if fails to make API call
@@ -339,8 +339,8 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
   }
 
   /**
-   * Delete an Azure Integration from your Datadog account.
-   * ### Overview Delete a given Datadog-Azure integration. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application ID.
+   * Delete an Azure integration
+   *  Delete a given Datadog-Azure integration. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application ID.
    * @return deleteAzureIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -427,7 +427,7 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
   }
 
   /**
-   * List configured Azure integrations.
+   * List all Azure integrations
    * ### Overview List all Datadog-Azure integrations configured in your Datadog account.
    * @return listAzureIntegrationRequest
    * @throws ApiException if fails to make API call
@@ -532,7 +532,7 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
   }
 
   /**
-   * Update an Azure integration to your Datadog account.
+   * Update an Azure integration
    * ### Overview Update an Datadog-Azure integration. Requires an existing tenant_name and client_id. Any other fields supplied will overwrite existing values. To overwrite tenant_name or client_id, use new_tenant_name and new_client_id. To leave a field unchanged, do not supply that field in the payload. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your existing Azure Active Directory ID. * **&#x60;new_tenant_name&#x60;** [*optional*, *default* &#x3D; **None**]: Your new Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your existing Azure web application ID. * **&#x60;new_client_id&#x60;** [*optional*, *default* &#x3D; **None**]: Your new Azure web application ID. * **&#x60;client_secret&#x60;** [*optional*, *default* &#x3D; **None**]: Your Azure web application secret key. * **&#x60;host_filters&#x60;** [*optional*, *default* &#x3D; **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
    * @return updateAzureIntegrationRequest
    * @throws ApiException if fails to make API call

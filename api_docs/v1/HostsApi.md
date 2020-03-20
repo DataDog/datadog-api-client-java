@@ -4,10 +4,10 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllHosts**](HostsApi.md#getAllHosts) | **GET** /api/v1/hosts | Get all hosts for your organization
-[**getHostTotals**](HostsApi.md#getHostTotals) | **GET** /api/v1/hosts/totals | Get total number of active hosts in your Datadog Account
-[**muteHost**](HostsApi.md#muteHost) | **POST** /api/v1/host/{host_name}/mute | Mute a Host
-[**unmuteHost**](HostsApi.md#unmuteHost) | **POST** /api/v1/host/{host_name}/unmute | Unmute a Host
+[**getAllHosts**](HostsApi.md#getAllHosts) | **GET** /api/v1/hosts | Search for hosts
+[**getHostTotals**](HostsApi.md#getHostTotals) | **GET** /api/v1/hosts/totals | Host totals
+[**muteHost**](HostsApi.md#muteHost) | **POST** /api/v1/host/{host_name}/mute | Mute a host
+[**unmuteHost**](HostsApi.md#unmuteHost) | **POST** /api/v1/host/{host_name}/unmute | Unmute a host
 
 
 
@@ -15,17 +15,9 @@ Method | HTTP request | Description
 
 > HostListResponse getAllHosts().filter(filter).sortField(sortField).sortDir(sortDir).start(start).count(count).from(from).execute();
 
-Get all hosts for your organization
+Search for hosts
 
-## Search Hosts
 This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included. Results are paginated with a max of 1000 results at a time.
-### Arguments:
-* **`filter`** [*optional*, *default* = **None**]: Query string to filter search results.
-* **`sort_field`** [*optional*, *default* = **cpu**]: Sort hosts by the given field. Options: **status, apps, cpu, iowait, load**
-* **`sort_dir`** [*optional*, *default* = **desc**]: Direction of sort. Options: **asc, desc**
-* **`start`** [*optional*, *default* = **0**]: Host result to start search from.
-* **`count`** [*optional*, *default* = **100**]: Number of host results to return. Max 1000.
-* **`from`** [*optional*, *default* = **now - 2 hours**]: Number of seconds since UNIX epoch from which you want to search your hosts.
 
 ### Example
 
@@ -120,12 +112,9 @@ Name | Type | Description  | Notes
 
 > HostTotals getHostTotals().from(from).execute();
 
-Get total number of active hosts in your Datadog Account
+Host totals
 
-## Get Host totals
 This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
-### Arguments:
-* **`from`** [*optional*, *default*= **now - 2 hours**]:  Number of seconds since UNIX epoch from which you want to get the total number of active and up hosts.
 
 ### Example
 
@@ -204,13 +193,9 @@ Name | Type | Description  | Notes
 
 > HostMuteResponse muteHost(hostName).body(body).execute();
 
-Mute a Host
+Mute a host
 
-## Mute a Host
-### Arguments:
-* **`end`** [*optional*, *default*= *None*]: POSIX timestamp when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
-* **`message`** [*optional*, *default*= *None*]: Message to associate with the muting of this host.
-* **`override`** [*optional*, *default*= *False*]: If true and the host is already muted, replaces existing host mute settings.
+Mute a host.
 
 ### Example
 
@@ -291,10 +276,9 @@ Name | Type | Description  | Notes
 
 > HostMuteResponse unmuteHost(hostName).execute();
 
-Unmute a Host
+Unmute a host
 
-### Unmute a Host
-This endpoint takes no JSON arguments.
+Unmute a Host.
 
 ### Example
 
@@ -325,7 +309,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         HostsApi apiInstance = new HostsApi(defaultClient);
-        String hostName = "hostName_example"; // String | Name of the host to unmute
+        String hostName = "hostName_example"; // String | Name of the host to unmute.
         try {
             HostMuteResponse result = api.unmuteHost(hostName)
                 .execute();
@@ -346,7 +330,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hostName** | **String**| Name of the host to unmute |
+ **hostName** | **String**| Name of the host to unmute. |
 
 ### Return type
 

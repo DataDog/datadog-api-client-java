@@ -4,12 +4,12 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createMonitor**](MonitorsApi.md#createMonitor) | **POST** /api/v1/monitor | Create a new Monitor
-[**deleteMonitor**](MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete the specified monitor.
-[**editMonitor**](MonitorsApi.md#editMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit the specified monitor
-[**getAllMonitors**](MonitorsApi.md#getAllMonitors) | **GET** /api/v1/monitor | Get details about the specified monitor.
-[**getMonitor**](MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get details about the specified monitor.
-[**validateMonitor**](MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | 
+[**createMonitor**](MonitorsApi.md#createMonitor) | **POST** /api/v1/monitor | Create a monitor
+[**deleteMonitor**](MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor
+[**editMonitor**](MonitorsApi.md#editMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor
+[**getAllMonitors**](MonitorsApi.md#getAllMonitors) | **GET** /api/v1/monitor | Get all monitor details
+[**getMonitor**](MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get a monitor&#39;s details
+[**validateMonitor**](MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | Validate a monitor
 
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 > Monitor createMonitor().body(body).execute();
 
-Create a new Monitor
+Create a monitor
 
 ### Overview
 Create a monitor using the specified options
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 > DeletedMonitor deleteMonitor(monitorId).execute();
 
-Delete the specified monitor.
+Delete a monitor
 
 ### Overview
 Delete the specified monitor
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 > Monitor editMonitor(monitorId).body(body).execute();
 
-Edit the specified monitor
+Edit a monitor
 
 ### Overview
 Edit the specified monitor.
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 > List&lt;Monitor&gt; getAllMonitors().groupStates(groupStates).name(name).tags(tags).monitorTags(monitorTags).withDowntimes(withDowntimes).execute();
 
-Get details about the specified monitor.
+Get all monitor details
 
 ### Overview
 Get details about the specified monitor from your organization.
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 > Monitor getMonitor(monitorId).groupStates(groupStates).execute();
 
-Get details about the specified monitor.
+Get a monitor&#39;s details
 
 ### Overview
 Get details about the specified monitor from your organization.
@@ -462,12 +462,12 @@ Name | Type | Description  | Notes
 
 > Monitor validateMonitor().body(body).execute();
 
-
+Validate a monitor
 
 ### Overview
 Validate the monitor provided in the request
 ### Arguments
-* **`Monitor`** [*required*] The Monitor Object to validate summary: Validate the provided monitor
+* **`Monitor`** [*required*] The Monitor Object to validate
 
 ### Example
 

@@ -193,8 +193,8 @@ private ApiResponse<HostListResponse> getAllHostsWithHttpInfo(String filter, Str
   }
 
   /**
-   * Get all hosts for your organization
-   * ## Search Hosts This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included. Results are paginated with a max of 1000 results at a time. ### Arguments: * **&#x60;filter&#x60;** [*optional*, *default* &#x3D; **None**]: Query string to filter search results. * **&#x60;sort_field&#x60;** [*optional*, *default* &#x3D; **cpu**]: Sort hosts by the given field. Options: **status, apps, cpu, iowait, load** * **&#x60;sort_dir&#x60;** [*optional*, *default* &#x3D; **desc**]: Direction of sort. Options: **asc, desc** * **&#x60;start&#x60;** [*optional*, *default* &#x3D; **0**]: Host result to start search from. * **&#x60;count&#x60;** [*optional*, *default* &#x3D; **100**]: Number of host results to return. Max 1000. * **&#x60;from&#x60;** [*optional*, *default* &#x3D; **now - 2 hours**]: Number of seconds since UNIX epoch from which you want to search your hosts.
+   * Search for hosts
+   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included. Results are paginated with a max of 1000 results at a time.
    * @return getAllHostsRequest
    * @throws ApiException if fails to make API call
    
@@ -292,8 +292,8 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
   }
 
   /**
-   * Get total number of active hosts in your Datadog Account
-   * ## Get Host totals This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours. ### Arguments: * **&#x60;from&#x60;** [*optional*, *default*&#x3D; **now - 2 hours**]:  Number of seconds since UNIX epoch from which you want to get the total number of active and up hosts.
+   * Host totals
+   * This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
    * @return getHostTotalsRequest
    * @throws ApiException if fails to make API call
    
@@ -398,8 +398,8 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
   }
 
   /**
-   * Mute a Host
-   * ## Mute a Host ### Arguments: * **&#x60;end&#x60;** [*optional*, *default*&#x3D; *None*]: POSIX timestamp when the host is unmuted. If omitted, the host remains muted until explicitly unmuted. * **&#x60;message&#x60;** [*optional*, *default*&#x3D; *None*]: Message to associate with the muting of this host. * **&#x60;override&#x60;** [*optional*, *default*&#x3D; *False*]: If true and the host is already muted, replaces existing host mute settings.
+   * Mute a host
+   * Mute a host.
    * @param hostName Name of the host to mute (required)
    * @return muteHostRequest
    * @throws ApiException if fails to make API call
@@ -493,9 +493,9 @@ private ApiResponse<HostMuteResponse> unmuteHostWithHttpInfo(String hostName) th
   }
 
   /**
-   * Unmute a Host
-   * ### Unmute a Host This endpoint takes no JSON arguments.
-   * @param hostName Name of the host to unmute (required)
+   * Unmute a host
+   * Unmute a Host.
+   * @param hostName Name of the host to unmute. (required)
    * @return unmuteHostRequest
    * @throws ApiException if fails to make API call
    

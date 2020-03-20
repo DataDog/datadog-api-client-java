@@ -4,10 +4,10 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addDashboardListItems**](DashboardListsApi.md#addDashboardListItems) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add dashboards to an existing dashboard list.
-[**deleteDashboardListItems**](DashboardListsApi.md#deleteDashboardListItems) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete dashboards from an existing dashboard list.
-[**getDashboardListItems**](DashboardListsApi.md#getDashboardListItems) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Fetch the dashboard list&#39;s dashboard definitions.
-[**updateDashboardListItems**](DashboardListsApi.md#updateDashboardListItems) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update dashboards of an existing dashboard list.
+[**addDashboardListItems**](DashboardListsApi.md#addDashboardListItems) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List
+[**deleteDashboardListItems**](DashboardListsApi.md#deleteDashboardListItems) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete Items from a Dashboard List
+[**getDashboardListItems**](DashboardListsApi.md#getDashboardListItems) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get a Dashboard List
+[**updateDashboardListItems**](DashboardListsApi.md#updateDashboardListItems) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update Items of a Dashboard List
 
 
 
@@ -15,26 +15,9 @@ Method | HTTP request | Description
 
 > DashboardListAddItemsResponse addDashboardListItems(dashboardListId).body(body).execute();
 
+Add Items to a Dashboard List
+
 Add dashboards to an existing dashboard list.
-
-### Overview
-Add dashboards to an existing dashboard list.
-### Arguments
-- **`dashboards`** [*required*]: A list of dashboards to add to the list. Dashboard definitions follow this form:
-
-  - **`type`** [*required*]: The type of the dashboard. The type must be one of:
-
-    - `"custom_timeboard"`
-
-    - `"custom_screenboard"`
-
-    - `"integration_screenboard"`
-
-    - `"integration_timeboard"`
-
-    - `"host_timeboard"`
-
-  - **`id`** [*required*]: The id of the dashboard.
 
 ### Example
 
@@ -117,26 +100,9 @@ Name | Type | Description  | Notes
 
 > DashboardListDeleteItemsResponse deleteDashboardListItems(dashboardListId).body(body).execute();
 
+Delete Items from a Dashboard List
+
 Delete dashboards from an existing dashboard list.
-
-### Overview
-Delete dashboards from an existing dashboard list.
-### Arguments
-- **`dashboards`** [*required*]: A list of dashboards to add to the list. Dashboard definitions follow this form:
-
-  - **`type`** [*required*]: The type of the dashboard. The type must be one of:
-
-    - `"custom_timeboard"`
-
-    - `"custom_screenboard"`
-
-    - `"integration_screenboard"`
-
-    - `"integration_timeboard"`
-
-    - `"host_timeboard"`
-
-  - **`id`** [*required*]: The id of the dashboard.
 
 ### Example
 
@@ -219,12 +185,9 @@ Name | Type | Description  | Notes
 
 > DashboardListItems getDashboardListItems(dashboardListId).execute();
 
-Fetch the dashboard list&#39;s dashboard definitions.
+Get a Dashboard List
 
-### Overview
 Fetch the dashboard list’s dashboard definitions.
-### Arguments
-This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -303,26 +266,9 @@ Name | Type | Description  | Notes
 
 > DashboardListItems updateDashboardListItems(dashboardListId).body(body).execute();
 
+Update Items of a Dashboard List
+
 Update dashboards of an existing dashboard list.
-
-### Overview
-Update dashboards of an existing dashboard list.
-### Arguments
-- **`dashboards`** [*required*]: A list of dashboards to add to the list. Dashboard definitions follow this form:
-
-  - **`type`** [*required*]: The type of the dashboard. The type must be one of:
-
-    - `"custom_timeboard"`
-
-    - `"custom_screenboard"`
-
-    - `"integration_screenboard"`
-
-    - `"integration_timeboard"`
-
-    - `"host_timeboard"`
-
-  - **`id`** [*required*]: The id of the dashboard.
 
 ### Example
 
@@ -353,8 +299,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        Long dashboardListId = 56L; // Long | ID of the dashboard list to update items from
-        DashboardListItems body = new DashboardListItems(); // DashboardListItems | New dashboards of the dashboard list
+        Long dashboardListId = 56L; // Long | ID of the dashboard list to update items from.
+        DashboardListItems body = new DashboardListItems(); // DashboardListItems | New dashboards of the dashboard list.
         try {
             DashboardListItems result = api.updateDashboardListItems(dashboardListId)
                 .body(body)
@@ -376,8 +322,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardListId** | **Long**| ID of the dashboard list to update items from |
- **body** | [**DashboardListItems**](DashboardListItems.md)| New dashboards of the dashboard list |
+ **dashboardListId** | **Long**| ID of the dashboard list to update items from. |
+ **body** | [**DashboardListItems**](DashboardListItems.md)| New dashboards of the dashboard list. |
 
 ### Return type
 
