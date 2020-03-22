@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **perUnit** | **String** | Per unit of the metric such as &#x60;second&#x60; in &#x60;bytes per second&#x60; |  [optional]
 **shortName** | **String** | A more human-readable and abbreviated version of the metric name |  [optional]
 **statsdInterval** | **Long** | Statsd flush interval of the metric in seconds if applicable |  [optional]
-**type** | **String** | Metric type such as &#x60;gauge&#x60; or &#x60;rate&#x60; | 
+**type** | **String** | Metric type such as &#x60;gauge&#x60; or &#x60;rate&#x60; |  [optional]
 **unit** | **String** | Primary unit of the metric such as &#x60;byte&#x60; or &#x60;operation&#x60; |  [optional]
 
 

@@ -109,7 +109,7 @@ public class MetricMetadata {
    * @return perUnit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Per unit of the metric such as `second` in `bytes per second`")
+  @ApiModelProperty(example = "second", value = "Per unit of the metric such as `second` in `bytes per second`")
   @JsonProperty(JSON_PROPERTY_PER_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -183,9 +183,10 @@ public class MetricMetadata {
    * Metric type such as &#x60;gauge&#x60; or &#x60;rate&#x60;
    * @return type
   **/
-  @ApiModelProperty(example = "count", required = true, value = "Metric type such as `gauge` or `rate`")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "count", value = "Metric type such as `gauge` or `rate`")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getType() {
     return type;
@@ -208,7 +209,7 @@ public class MetricMetadata {
    * @return unit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Primary unit of the metric such as `byte` or `operation`")
+  @ApiModelProperty(example = "byte", value = "Primary unit of the metric such as `byte` or `operation`")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
