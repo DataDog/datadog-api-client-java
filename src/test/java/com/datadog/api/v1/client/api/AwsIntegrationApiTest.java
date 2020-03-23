@@ -188,6 +188,11 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         hostTags.add("java:success");
         awsAccount.setHostTags(hostTags);
 
+        List<String> excludedRegions = new ArrayList<String>();
+        excludedRegions.add("us-east-1");
+        excludedRegions.add("us-west-1");
+        awsAccount.setExcludedRegions(excludedRegions);
+
         TestUtils.retry(random.nextInt(10), 20, () -> {
             try {
                 api.updateAWSAccount().body(awsAccount).accountId(awsAccount.getAccountId()).roleName(awsAccount.getRoleName()).execute();
