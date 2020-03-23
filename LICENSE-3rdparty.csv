@@ -45,7 +45,7 @@ import,javax.activation:javax.activation-api,BSD-3-Clause,1997-2019 Oracle and/o
 import,javax.annotation:javax.annotation-api,EPL-2.0,2018 Oracle and/or its affiliates
 import,javax.inject:javax.inject,Apache-2.0,2009 The JSR-330 Expert Group
 import,javax.servlet:javax.servlet-api,EPL-2.0,1997-2020 Oracle and/or its affiliates and others;2004 The Apache Software Foundation
-import,javax.ws.rs:javax.ws.rs-api,GPL-2.0,2010-2017 Oracle and/or its affiliates
+import,javax.ws.rs:javax.ws.rs-api,CDDL,2010-2017 Oracle and/or its affiliates
 import,javax.xml.bind:jaxb-api,BSD-3-Clause,2004-2020 Oracle and/or its affiliates
 import,joda-time:joda-time,Apache-2.0,2001- Stephen Colebourne
 import,junit:junit,EPL-1.0,
