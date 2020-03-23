@@ -91,7 +91,7 @@ private ApiResponse<HostListResponse> getAllHostsWithHttpInfo(String filter, Str
 
     /**
      * Set filter
-     * @param filter String to filter search results (optional)
+     * @param filter String to filter search results. (optional)
      * @return APIgetAllHostsRequest
      */
     public APIgetAllHostsRequest filter(String filter) {
@@ -102,7 +102,7 @@ private ApiResponse<HostListResponse> getAllHostsWithHttpInfo(String filter, Str
 
     /**
      * Set sortField
-     * @param sortField Sort hosts by this field (optional)
+     * @param sortField Sort hosts by this field. (optional)
      * @return APIgetAllHostsRequest
      */
     public APIgetAllHostsRequest sortField(String sortField) {
@@ -113,7 +113,7 @@ private ApiResponse<HostListResponse> getAllHostsWithHttpInfo(String filter, Str
 
     /**
      * Set sortDir
-     * @param sortDir Direction of sort (optional)
+     * @param sortDir Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;. (optional)
      * @return APIgetAllHostsRequest
      */
     public APIgetAllHostsRequest sortDir(String sortDir) {
@@ -124,7 +124,7 @@ private ApiResponse<HostListResponse> getAllHostsWithHttpInfo(String filter, Str
 
     /**
      * Set start
-     * @param start Host result to start search from (optional)
+     * @param start Host result to start search from. (optional)
      * @return APIgetAllHostsRequest
      */
     public APIgetAllHostsRequest start(Long start) {
@@ -135,7 +135,7 @@ private ApiResponse<HostListResponse> getAllHostsWithHttpInfo(String filter, Str
 
     /**
      * Set count
-     * @param count Number of hosts to return (optional)
+     * @param count Number of hosts to return. Max 1000. (optional)
      * @return APIgetAllHostsRequest
      */
     public APIgetAllHostsRequest count(Long count) {
@@ -146,7 +146,7 @@ private ApiResponse<HostListResponse> getAllHostsWithHttpInfo(String filter, Str
 
     /**
      * Set from
-     * @param from Number of seconds from which you want to search your hosts (optional)
+     * @param from Number of seconds since UNIX epoch from which you want to search your hosts. (optional)
      * @return APIgetAllHostsRequest
      */
     public APIgetAllHostsRequest from(Long from) {
@@ -193,7 +193,7 @@ private ApiResponse<HostListResponse> getAllHostsWithHttpInfo(String filter, Str
   }
 
   /**
-   * Search for hosts
+   * Get all hosts for your organization
    * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included. Results are paginated with a max of 1000 results at a time.
    * @return getAllHostsRequest
    * @throws ApiException if fails to make API call
@@ -247,7 +247,7 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
 
     /**
      * Set from
-     * @param from Number of seconds from which you want to get total number of active hosts (optional)
+     * @param from Number of seconds from which you want to get total number of active hosts. (optional)
      * @return APIgetHostTotalsRequest
      */
     public APIgetHostTotalsRequest from(Long from) {
@@ -292,7 +292,7 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
   }
 
   /**
-   * Host totals
+   * Get the total number of active hosts
    * This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
    * @return getHostTotalsRequest
    * @throws ApiException if fails to make API call
@@ -353,7 +353,7 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
 
     /**
      * Set body
-     * @param body Mute a host (optional)
+     * @param body Mute a host. (optional)
      * @return APImuteHostRequest
      */
     public APImuteHostRequest body(HostMuteSettings body) {
@@ -400,7 +400,7 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
   /**
    * Mute a host
    * Mute a host.
-   * @param hostName Name of the host to mute (required)
+   * @param hostName Name of the host to mute. (required)
    * @return muteHostRequest
    * @throws ApiException if fails to make API call
    
@@ -494,7 +494,7 @@ private ApiResponse<HostMuteResponse> unmuteHostWithHttpInfo(String hostName) th
 
   /**
    * Unmute a host
-   * Unmute a Host.
+   * Unmutes a host. This endpoint takes no JSON arguments.
    * @param hostName Name of the host to unmute. (required)
    * @return unmuteHostRequest
    * @throws ApiException if fails to make API call

@@ -26,9 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The bulk partial delete service level objective object endpoint response. This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions succeeded and failed.
+ * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions succeeded and failed.
  */
-@ApiModel(description = "The bulk partial delete service level objective object endpoint response. This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed.")
+@ApiModel(description = "The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed.")
 @JsonPropertyOrder({
   ServiceLevelObjectivesBulkDeleted.JSON_PROPERTY_DATA,
   ServiceLevelObjectivesBulkDeleted.JSON_PROPERTY_ERRORS

@@ -41,11 +41,11 @@ public class LogsFilter {
   }
 
    /**
-   * The filter query
+   * The filter query.
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "source:python", value = "The filter query")
+  @ApiModelProperty(example = "source:python", value = "The filter query.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

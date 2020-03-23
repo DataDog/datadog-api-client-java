@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Org
+ * Create, edit, and manage organizations.
  */
+@ApiModel(description = "Create, edit, and manage organizations.")
 @JsonPropertyOrder({
   Org.JSON_PROPERTY_BILLING,
   Org.JSON_PROPERTY_CREATED,
@@ -86,11 +87,11 @@ public class Org {
 
 
    /**
-   * Get created
+   * TODO.
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-09-26 17:28:28", value = "")
+  @ApiModelProperty(example = "2019-09-26 17:28:28", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,11 +109,11 @@ public class Org {
   }
 
    /**
-   * Get description
+   * Description of the organization.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "some description", value = "")
+  @ApiModelProperty(example = "some description", value = "Description of the organization.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -133,11 +134,11 @@ public class Org {
   }
 
    /**
-   * Get name
+   * The name of the new child-organization, limited to 32 characters.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "New child org", value = "")
+  @ApiModelProperty(example = "New child org", value = "The name of the new child-organization, limited to 32 characters.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -158,11 +159,11 @@ public class Org {
   }
 
    /**
-   * Get publicId
+   * The public_id of the org you are operating within.
    * @return publicId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "abcdef12345", value = "")
+  @ApiModelProperty(example = "abcdef12345", value = "The public_id of the org you are operating within.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

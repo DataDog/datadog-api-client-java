@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## aWSLogsCheckServicesAsync
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## aWSLogsList
@@ -262,7 +262,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## aWSLogsServicesList
@@ -339,7 +339,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## addAWSLambdaARN
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## deleteAWSLambdaARN
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## enableAWSLogServices
@@ -585,5 +585,5 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 

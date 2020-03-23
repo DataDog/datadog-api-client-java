@@ -89,7 +89,7 @@ private ApiResponse<ServiceLevelObjectivesBulkDeleted> bulkPartialDeleteSLOWithH
 
     /**
      * Set body
-     * @param body Thresholds by service level objective object ID (required)
+     * @param body Thresholds by service level objective object ID. (required)
      * @return APIbulkPartialDeleteSLORequest
      */
     public APIbulkPartialDeleteSLORequest body(Map<String, List<SLOTimeframe>> body) {
@@ -139,7 +139,7 @@ private ApiResponse<ServiceLevelObjectivesBulkDeleted> bulkPartialDeleteSLOWithH
 
   /**
    * Bulk Delete SLO Timeframes
-   * Delete (or partially delete) multiple service level objective objects. This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
+   * Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
    * @return bulkPartialDeleteSLORequest
    * @throws ApiException if fails to make API call
    
@@ -304,7 +304,7 @@ private ApiResponse<ServiceLevelObjectiveListResponse> createSLOWithHttpInfo(Ser
 
     /**
      * Set body
-     * @param body Service level objective request object (required)
+     * @param body Service level objective request object. (required)
      * @return APIcreateSLORequest
      */
     public APIcreateSLORequest body(ServiceLevelObjective body) {
@@ -454,8 +454,8 @@ private ApiResponse<ServiceLevelObjectiveDeleted> deleteSLOWithHttpInfo(String s
 
   /**
    * Delete a SLO
-   * Permanently delete the specified service level objective object. If an SLO is used in a dashboard, the &#x60;DELETE /v1/slo/&#x60; endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
-   * @param sloId The id of the service level objective (required)
+   * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the &#x60;DELETE /v1/slo/&#x60; endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
+   * @param sloId The id of the service level objective. (required)
    * @return deleteSLORequest
    * @throws ApiException if fails to make API call
    
@@ -572,8 +572,8 @@ private ApiResponse<ServiceLevelObjectiveListResponse> editSLOWithHttpInfo(Strin
 
   /**
    * Edit a SLO
-   * ### Overview Edit the specified service level objective object. ### Arguments * **&#x60;slo_id&#x60;** [*required*]: The ID of the service level objective object
-   * @param sloId The ID of the service level objective object (required)
+   * Edit the specified service level objective object.
+   * @param sloId The ID of the service level objective object. (required)
    * @return editSLORequest
    * @throws ApiException if fails to make API call
    
@@ -673,8 +673,8 @@ private ApiResponse<ServiceLevelObjectiveResponse> getSLOWithHttpInfo(String slo
 
   /**
    * Get a SLO&#39;s details
-   * ### Overview Get a service level objective object. ### Arguments * **&#x60;slo_id&#x60;** [*required*]: The ID of the service level objective object
-   * @param sloId The ID of the service level objective object (required)
+   * Get a service level objective object.
+   * @param sloId The ID of the service level objective object. (required)
    * @return getSLORequest
    * @throws ApiException if fails to make API call
    
@@ -732,7 +732,7 @@ private ApiResponse<ServiceLevelObjectiveListResponse> getSLOsWithHttpInfo(Strin
 
     /**
      * Set ids
-     * @param ids A comma separated list of the IDs of the service level objectives objects (e.g. \&quot;id1,id2,id3\&quot;). (required)
+     * @param ids A comma separated list of the IDs of the service level objectives objects. For example, \&quot;id1,id2,id3\&quot;. (required)
      * @return APIgetSLOsRequest
      */
     public APIgetSLOsRequest ids(String ids) {
@@ -782,7 +782,7 @@ private ApiResponse<ServiceLevelObjectiveListResponse> getSLOsWithHttpInfo(Strin
 
   /**
    * Search SLOs
-   * ### Overview Get multiple service level objective objects by their IDs. ### Arguments * **&#x60;ids&#x60;** [*required*]: A comma separated list of the IDs of the service level   objectives objects (e.g. \&quot;id1,id2,id3\&quot;).
+   * Get multiple service level objective objects by their IDs.
    * @return getSLOsRequest
    * @throws ApiException if fails to make API call
    
@@ -855,7 +855,7 @@ private ApiResponse<HistoryServiceLevelObjectiveResponse> historyForSLOWithHttpI
 
     /**
      * Set fromTs
-     * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds (required)
+     * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
      * @return APIhistoryForSLORequest
      */
     public APIhistoryForSLORequest fromTs(String fromTs) {
@@ -866,7 +866,7 @@ private ApiResponse<HistoryServiceLevelObjectiveResponse> historyForSLOWithHttpI
 
     /**
      * Set toTs
-     * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds (required)
+     * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds. (required)
      * @return APIhistoryForSLORequest
      */
     public APIhistoryForSLORequest toTs(String toTs) {
@@ -916,8 +916,8 @@ private ApiResponse<HistoryServiceLevelObjectiveResponse> historyForSLOWithHttpI
 
   /**
    * Get an SLO&#39;s history
-   * Get a specific SLO’s history, regardless of its SLO type. The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history. **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
-   * @param sloId The ID of the service level objective object (required)
+   * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
+   * @param sloId The ID of the service level objective object. (required)
    * @return historyForSLORequest
    * @throws ApiException if fails to make API call
    

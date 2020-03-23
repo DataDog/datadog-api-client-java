@@ -2,7 +2,7 @@
 
 # Creator
 
-Creator of the object
+Creator of the object.
 ## Properties
 
 Name | Type | Description | Notes

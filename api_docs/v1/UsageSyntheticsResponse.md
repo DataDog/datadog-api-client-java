@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usage** | [**List&lt;UsageSyntheticsHour&gt;**](UsageSyntheticsHour.md) |  |  [optional]
+**usage** | [**List&lt;UsageSyntheticsHour&gt;**](UsageSyntheticsHour.md) | TODO. |  [optional]
 
 
 

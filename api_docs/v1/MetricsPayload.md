@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**series** | [**List&lt;Series&gt;**](Series.md) | A list of time series to submit to Datadog |  [optional]
+**series** | [**List&lt;Series&gt;**](Series.md) | A list of time series to submit to Datadog. |  [optional]
 
 
 

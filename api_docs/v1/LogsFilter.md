@@ -7,7 +7,7 @@ Filter for logs.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **String** | The filter query |  [optional]
+**query** | **String** | The filter query. |  [optional]
 
 
 

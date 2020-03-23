@@ -27,9 +27,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * There are two ways to improve correlation between application traces and logs:    1. Follow the documentation on [how to inject a trace ID in the application logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces) and by default log integrations take care of all the rest of the setup.    1. Use the Trace remapper processor to define a log attribute as its associated trace ID.
+ * There are two ways to improve correlation between application traces and logs.    1. Follow the documentation on [how to inject a trace ID in the application logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces)   and by default log integrations take care of all the rest of the setup.    2. Use the Trace remapper processor to define a log attribute as its associated trace ID.
  */
-@ApiModel(description = "There are two ways to improve correlation between application traces and logs:    1. Follow the documentation on [how to inject a trace ID in the application logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces) and by default log integrations take care of all the rest of the setup.    1. Use the Trace remapper processor to define a log attribute as its associated trace ID.")
+@ApiModel(description = "There are two ways to improve correlation between application traces and logs.    1. Follow the documentation on [how to inject a trace ID in the application logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces)   and by default log integrations take care of all the rest of the setup.    2. Use the Trace remapper processor to define a log attribute as its associated trace ID.")
 @JsonPropertyOrder({
   LogsTraceRemapper.JSON_PROPERTY_SOURCES,
   LogsTraceRemapper.JSON_PROPERTY_TYPE,
@@ -66,11 +66,11 @@ public class LogsTraceRemapper implements LogsProcessor {
   }
 
    /**
-   * Array of source attributes
+   * Array of source attributes.
    * @return sources
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of source attributes")
+  @ApiModelProperty(value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,11 +85,11 @@ public class LogsTraceRemapper implements LogsProcessor {
 
 
    /**
-   * Type of processor
+   * Type of processor.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor")
+  @ApiModelProperty(value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -107,11 +107,11 @@ public class LogsTraceRemapper implements LogsProcessor {
   }
 
    /**
-   * Whether or not the processor is enabled
+   * Whether or not the processor is enabled.
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled")
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -132,11 +132,11 @@ public class LogsTraceRemapper implements LogsProcessor {
   }
 
    /**
-   * Name of the processor
+   * Name of the processor.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor")
+  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -131,7 +131,7 @@ private ApiResponse<Void> createPagerDutyIntegrationWithHttpInfo(PagerDutyIntegr
 
   /**
    * Create a PagerDuty integration
-   * ### Overview Create a new Datadog-PagerDuty integration. **Note:** All arguments are required when creating (PUT) a new PagerDuty configuration.
+   * Create a new Datadog-PagerDuty integration.  **Note:** All arguments are required when creating (&#x60;PUT&#x60;) a new PagerDuty configuration.
    * @return createPagerDutyIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -219,7 +219,7 @@ private ApiResponse<Void> deletePagerDutyIntegrationWithHttpInfo() throws ApiExc
 
   /**
    * Delete a PagerDuty integration
-   * ### Overview Delete the Datadog-PagerDuty integration.
+   * Delete the Datadog-PagerDuty integration.
    * @return deletePagerDutyIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -309,7 +309,7 @@ private ApiResponse<PagerDutyIntegration> getPagerDutyIntegrationWithHttpInfo() 
 
   /**
    * Get a PagerDuty integration
-   * ### Overview Get all information about your Datadog-PagerDuty integration.
+   * Get all information about your Datadog-PagerDuty integration.
    * @return getPagerDutyIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -414,7 +414,7 @@ private ApiResponse<Void> updatePagerDutyIntegrationWithHttpInfo(PagerDutyServic
 
   /**
    * Add new services and schedules
-   * ### Overview Add new services and schedules to your Datadog-PagerDuty integration.
+   * Add new services and schedules to your Datadog-PagerDuty integration.
    * @return updatePagerDutyIntegrationRequest
    * @throws ApiException if fails to make API call
    

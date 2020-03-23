@@ -48,11 +48,11 @@ public class GraphSnapshot {
   }
 
    /**
-   * Get graphDef
+   * A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URLEncoded.
    * @return graphDef
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URLEncoded.")
   @JsonProperty(JSON_PROPERTY_GRAPH_DEF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -73,11 +73,11 @@ public class GraphSnapshot {
   }
 
    /**
-   * Get metricQuery
+   * The metric query. One of &#x60;metric_query&#x60; or &#x60;graph_def&#x60; is required.
    * @return metricQuery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The metric query. One of `metric_query` or `graph_def` is required.")
   @JsonProperty(JSON_PROPERTY_METRIC_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -98,11 +98,11 @@ public class GraphSnapshot {
   }
 
    /**
-   * Get snapshotUrl
+   * TODO.
    * @return snapshotUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

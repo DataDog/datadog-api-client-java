@@ -28,9 +28,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log matching a provided search query. Use categories to create groups for an analytical view (for example, URL groups, machine groups, environments, and response time buckets). **Note**: - The syntax of the query is the one of Logs Explorer search bar. The query can be done on any log attribute or tag, whether it is a facet or not. Wildcards can also be used inside your query. - Once the log has matched one of the Processor queries, it stops. Make sure they are properly ordered in case a log could match several queries. - The names of the categories must be unique. - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.
+ * Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log matching a provided search query. Use categories to create groups for an analytical view. For example, URL groups, machine groups, environments, and response time buckets.  **Notes**:  - The syntax of the query is the one of Logs Explorer search bar.   The query can be done on any log attribute or tag, whether it is a facet or not.   Wildcards can also be used inside your query. - Once the log has matched one of the Processor queries, it stops.   Make sure they are properly ordered in case a log could match several queries. - The names of the categories must be unique. - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.
  */
-@ApiModel(description = "Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log matching a provided search query. Use categories to create groups for an analytical view (for example, URL groups, machine groups, environments, and response time buckets). **Note**: - The syntax of the query is the one of Logs Explorer search bar. The query can be done on any log attribute or tag, whether it is a facet or not. Wildcards can also be used inside your query. - Once the log has matched one of the Processor queries, it stops. Make sure they are properly ordered in case a log could match several queries. - The names of the categories must be unique. - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.")
+@ApiModel(description = "Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log matching a provided search query. Use categories to create groups for an analytical view. For example, URL groups, machine groups, environments, and response time buckets.  **Notes**:  - The syntax of the query is the one of Logs Explorer search bar.   The query can be done on any log attribute or tag, whether it is a facet or not.   Wildcards can also be used inside your query. - Once the log has matched one of the Processor queries, it stops.   Make sure they are properly ordered in case a log could match several queries. - The names of the categories must be unique. - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.")
 @JsonPropertyOrder({
   LogsCategoryProcessor.JSON_PROPERTY_CATEGORIES,
   LogsCategoryProcessor.JSON_PROPERTY_TARGET,
@@ -68,10 +68,10 @@ public class LogsCategoryProcessor implements LogsProcessor {
   }
 
    /**
-   * Array of filters to match or not a log and their corresponding &#x60;name&#x60; to assign a custom value to the log.
+   * Array of filters to match or not a log and their corresponding &#x60;name&#x60;to assign a custom value to the log.
    * @return categories
   **/
-  @ApiModelProperty(required = true, value = "Array of filters to match or not a log and their corresponding `name` to assign a custom value to the log.")
+  @ApiModelProperty(required = true, value = "Array of filters to match or not a log and their corresponding `name`to assign a custom value to the log.")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -110,11 +110,11 @@ public class LogsCategoryProcessor implements LogsProcessor {
 
 
    /**
-   * Type of processor
+   * Type of processor.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor")
+  @ApiModelProperty(value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -132,11 +132,11 @@ public class LogsCategoryProcessor implements LogsProcessor {
   }
 
    /**
-   * Whether or not the processor is enabled
+   * Whether or not the processor is enabled.
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled")
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,11 +157,11 @@ public class LogsCategoryProcessor implements LogsProcessor {
   }
 
    /**
-   * Name of the processor
+   * Name of the processor.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor")
+  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -51,11 +51,11 @@ public class DashboardListDeleteItemsResponse {
   }
 
    /**
-   * List of dashboards deleted from the dashboard list
+   * List of dashboards deleted from the dashboard list.
    * @return deletedDashboardsFromList
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of dashboards deleted from the dashboard list")
+  @ApiModelProperty(value = "List of dashboards deleted from the dashboard list.")
   @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

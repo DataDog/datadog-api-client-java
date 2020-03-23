@@ -173,11 +173,11 @@ public class IPRanges {
   }
 
    /**
-   * Date when last updated, in the form &#x60;YYYY-MM-DD-hh-mm-ss&#x60;
+   * Date when last updated, in the form &#x60;YYYY-MM-DD-hh-mm-ss&#x60;.
    * @return modified
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-10-31-20-00-00", value = "Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`")
+  @ApiModelProperty(example = "2019-10-31-20-00-00", value = "Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -248,11 +248,11 @@ public class IPRanges {
   }
 
    /**
-   * Version of the IP list
+   * Version of the IP list.
    * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "11", value = "Version of the IP list")
+  @ApiModelProperty(example = "11", value = "Version of the IP list.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

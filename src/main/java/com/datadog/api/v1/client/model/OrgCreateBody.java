@@ -74,10 +74,10 @@ public class OrgCreateBody {
   }
 
    /**
-   * Get name
+   * The name of the new child-organization, limited to 32 characters.
    * @return name
   **/
-  @ApiModelProperty(example = "New child org", required = true, value = "")
+  @ApiModelProperty(example = "New child org", required = true, value = "The name of the new child-organization, limited to 32 characters.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
