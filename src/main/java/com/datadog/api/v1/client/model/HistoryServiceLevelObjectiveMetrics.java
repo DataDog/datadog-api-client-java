@@ -193,10 +193,10 @@ public class HistoryServiceLevelObjectiveMetrics {
   }
 
    /**
-   * The series result type. This mimics &#x60;batch_query&#x60; response type
+   * The series result type. This mimics &#x60;batch_query&#x60; response type.
    * @return resType
   **/
-  @ApiModelProperty(required = true, value = "The series result type. This mimics `batch_query` response type")
+  @ApiModelProperty(required = true, value = "The series result type. This mimics `batch_query` response type.")
   @JsonProperty(JSON_PROPERTY_RES_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -217,10 +217,10 @@ public class HistoryServiceLevelObjectiveMetrics {
   }
 
    /**
-   * The series response version type. This mimics &#x60;batch_query&#x60; response type
+   * The series response version type. This mimics &#x60;batch_query&#x60; response type.
    * @return respVersion
   **/
-  @ApiModelProperty(required = true, value = "The series response version type. This mimics `batch_query` response type")
+  @ApiModelProperty(required = true, value = "The series response version type. This mimics `batch_query` response type.")
   @JsonProperty(JSON_PROPERTY_RESP_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

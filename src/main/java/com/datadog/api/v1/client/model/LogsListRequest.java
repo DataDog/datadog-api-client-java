@@ -113,10 +113,10 @@ public class LogsListRequest {
   }
 
    /**
-   * The search query - following the Log search syntax.
+   * The search query - following the log search syntax.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "The search query - following the Log search syntax.")
+  @ApiModelProperty(required = true, value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -162,11 +162,11 @@ public class LogsListRequest {
   }
 
    /**
-   * Hash identifier of the first log to return in the list, available in a log &#x60;id&#x60; attribute. This parameter is used for the pagination feature. **Note**: this parameter is ignored if the corresponding log is out of the scope of the specified time window.
+   * Hash identifier of the first log to return in the list, available in a log &#x60;id&#x60; attribute. This parameter is used for the pagination feature.  **Note**: This parameter is ignored if the corresponding log is out of the scope of the specified time window.
    * @return startAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Hash identifier of the first log to return in the list, available in a log `id` attribute. This parameter is used for the pagination feature. **Note**: this parameter is ignored if the corresponding log is out of the scope of the specified time window.")
+  @ApiModelProperty(value = "Hash identifier of the first log to return in the list, available in a log `id` attribute. This parameter is used for the pagination feature.  **Note**: This parameter is ignored if the corresponding log is out of the scope of the specified time window.")
   @JsonProperty(JSON_PROPERTY_START_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

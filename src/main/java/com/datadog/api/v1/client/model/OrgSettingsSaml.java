@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * OrgSettingsSaml
+ * Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML documentation for more information about all SAML settings.
  */
+@ApiModel(description = "Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML documentation for more information about all SAML settings.")
 @JsonPropertyOrder({
   OrgSettingsSaml.JSON_PROPERTY_ENABLED
 })

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**deleteApplicationKey**](KeysApi.md#deleteApplicationKey) | **DELETE** /api/v1/application_key/{key} | Delete an application key
 [**editAPIKey**](KeysApi.md#editAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key
 [**editApplicationKey**](KeysApi.md#editApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key
-[**getAPIKey**](KeysApi.md#getAPIKey) | **GET** /api/v1/api_key/{key} | Get an API key
+[**getAPIKey**](KeysApi.md#getAPIKey) | **GET** /api/v1/api_key/{key} | Get API key
 [**getAllAPIKeys**](KeysApi.md#getAllAPIKeys) | **GET** /api/v1/api_key | Get all API keys
 [**getAllApplicationKeys**](KeysApi.md#getAllApplicationKeys) | **GET** /api/v1/application_key | Get all application keys
 [**getApplicationKey**](KeysApi.md#getApplicationKey) | **GET** /api/v1/application_key/{key} | Get an application key
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 Create an API key
 
-Create an API key with a given name.
+Creates an API key with a given name.
 
 ### Example
 
@@ -220,7 +220,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        String key = "key_example"; // String | The specific API key you are working with
+        String key = "key_example"; // String | The specific API key you are working with.
         try {
             ApiKeyResponse result = api.deleteAPIKey(key)
                 .execute();
@@ -241,7 +241,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific API key you are working with |
+ **key** | **String**| The specific API key you are working with. |
 
 ### Return type
 
@@ -302,7 +302,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        String key = "key_example"; // String | The specific APP key you are working with
+        String key = "key_example"; // String | The specific APP key you are working with.
         try {
             ApplicationKeyResponse result = api.deleteApplicationKey(key)
                 .execute();
@@ -323,7 +323,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific APP key you are working with |
+ **key** | **String**| The specific APP key you are working with. |
 
 ### Return type
 
@@ -384,7 +384,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        String key = "key_example"; // String | The specific API key you are working with
+        String key = "key_example"; // String | The specific API key you are working with.
         ApiKey body = new ApiKey(); // ApiKey | 
         try {
             ApiKeyResponse result = api.editAPIKey(key)
@@ -407,7 +407,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific API key you are working with |
+ **key** | **String**| The specific API key you are working with. |
  **body** | [**ApiKey**](ApiKey.md)|  | [optional]
 
 ### Return type
@@ -469,7 +469,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        String key = "key_example"; // String | The specific APP key you are working with
+        String key = "key_example"; // String | The specific APP key you are working with.
         ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
         try {
             ApplicationKeyResponse result = api.editApplicationKey(key)
@@ -492,7 +492,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific APP key you are working with |
+ **key** | **String**| The specific APP key you are working with. |
  **body** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
 
 ### Return type
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 
 > ApiKeyResponse getAPIKey(key).execute();
 
-Get an API key
+Get API key
 
 Get a given API key.
 
@@ -682,7 +682,7 @@ This endpoint does not need any parameter.
 
 Get all application keys
 
-Get all application keys available for your account.
+Get all application keys available for your Datadog account.
 
 ### Example
 
@@ -790,7 +790,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         KeysApi apiInstance = new KeysApi(defaultClient);
-        String key = "key_example"; // String | The specific APP key you are working with
+        String key = "key_example"; // String | The specific APP key you are working with.
         try {
             ApplicationKeyResponse result = api.getApplicationKey(key)
                 .execute();
@@ -811,7 +811,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific APP key you are working with |
+ **key** | **String**| The specific APP key you are working with. |
 
 ### Return type
 

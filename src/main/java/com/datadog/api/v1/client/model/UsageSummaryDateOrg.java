@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * UsageSummaryDateOrg
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_HOST_TOP99P,

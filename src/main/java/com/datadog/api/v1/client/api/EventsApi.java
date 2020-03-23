@@ -131,7 +131,7 @@ private ApiResponse<EventResponse> createEventWithHttpInfo(Event body) throws Ap
 
   /**
    * Post an event
-   * ### Overview This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events. ### Arguments * **&#x60;title&#x60;** [*required*]:     The event title. *Limited to 100 characters.*     Use &#x60;msg_title&#x60; with [the Datadog Ruby library][1].  * **&#x60;text&#x60;** [*required*]:     The body of the event. *Limited to 4000 characters.*     The text supports [markdown][2].     Use &#x60;msg_text&#x60; with [the Datadog Ruby library][1]  * **&#x60;date_happened&#x60;** [*optional*, *default* &#x3D; **now**]:     POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). *Limited to events no older than 1 year, 24 days (389 days)*  * **&#x60;priority&#x60;** [*optional*, *default* &#x3D; **normal**]:     The priority of the event: **normal** or **low**.  * **&#x60;host&#x60;** [*optional*, *default*&#x3D;**None**]:     Host name to associate with the event. Any tags associated with the host are also applied to this event.  * **&#x60;tags&#x60;** [*optional*, *default*&#x3D;**None**]:     A list of tags to apply to the event.  * **&#x60;alert_type&#x60;** [*optional*, *default* &#x3D; **info**]:     If it&#39;s an alert event, set its type between: **error**, **warning**, **info**, and **success**.  * **&#x60;aggregation_key&#x60;** [*optional*, *default*&#x3D;**None**]:     An arbitrary string to use for aggregation. *Limited to 100 characters.*     If you specify a key, all events using that key are grouped together in the Event Stream.  * **&#x60;source_type_name&#x60;** [*optional*, *default*&#x3D;**None**]:     The type of event being posted.     Options: **nagios**, **hudson**, **jenkins**, **my_apps**, **chef**, **puppet**, **git**, **bitbucket**...     [Complete list of source attribute values][3]  * **&#x60;related_event_id&#x60;** [*optional*, *default*&#x3D;**None**]:     ID of the parent event. Must be sent as an integer (i.e. no quotes).  * **&#x60;device_name&#x60;** [*optional*, *default*&#x3D;**None**]:     A list of device names to post the event with.
+   * This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
    * @return createEventRequest
    * @throws ApiException if fails to make API call
    
@@ -196,7 +196,7 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -214,7 +214,7 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -227,8 +227,8 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
 
   /**
    * Get an event
-   * ### Overview This endpoint allows you to query for event details. Note: if the event you’re querying contains markdown formatting of any kind, you may see characters such as %,\\,n in your output.
-   * @param eventId The id of the event (required)
+   * This endpoint allows you to query for event details.  Note: if the event you’re querying contains markdown formatting of any kind, you may see characters such as %,\\,n in your output.
+   * @param eventId The id of the event. (required)
    * @return getEventRequest
    * @throws ApiException if fails to make API call
    
@@ -323,7 +323,7 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
 
     /**
      * Set priority
-     * @param priority Priority of your events: **low** or **normal**. (optional)
+     * @param priority Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;. (optional)
      * @return APIlistEventsRequest
      */
     public APIlistEventsRequest priority(EventPriority priority) {
@@ -345,7 +345,7 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
 
     /**
      * Set tags
-     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0. (optional)
+     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. (optional)
      * @return APIlistEventsRequest
      */
     public APIlistEventsRequest tags(String tags) {
@@ -401,8 +401,8 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
   }
 
   /**
-   * Query the event stream
-   *  The event stream can be queried and filtered by time, priority, sources and tags. Note: if the event you’re querying contains markdown formatting of any kind, you may see characters such as %,\\,n in your output. ### Arguments * **&#x60;start&#x60;** [*required*]:     POSIX timestamp.  * **&#x60;end&#x60;** [*required*]:     POSIX timestamp.  * **&#x60;priority&#x60;** [*optional*, *default*&#x3D;**None**]:     Priority of your events: **low** or **normal**.  * **&#x60;sources&#x60;** [*optional*, *default*&#x3D;**None**]:     A comma separated string of sources.  * **&#x60;tags&#x60;** [*optional*, *default*&#x3D;**None**]:     A comma separated string of tags. To use a negative tag filter, prefix your tag with &#x60;-&#x60;.     See the Event Stream documentation to learn more.  * **&#x60;unaggregated&#x60;** [*optional*, *default*&#x3D;*false*]:     Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output.
+   * Query the event stream.
+   * The event stream can be queried and filtered by time, priority, sources and tags.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as %,\\,n in your output.
    * @return listEventsRequest
    * @throws ApiException if fails to make API call
    

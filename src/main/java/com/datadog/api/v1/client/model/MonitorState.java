@@ -27,8 +27,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MonitorState
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   MonitorState.JSON_PROPERTY_GROUPS,
   MonitorState.JSON_PROPERTY_MONITOR_ID,
@@ -61,11 +62,11 @@ public class MonitorState {
   }
 
    /**
-   * Get groups
+   * TODO.
    * @return groups
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class MonitorState {
   }
 
    /**
-   * Get monitorId
+   * A single monitor identification.
    * @return monitorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A single monitor identification.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

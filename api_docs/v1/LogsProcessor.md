@@ -2,7 +2,7 @@
 
 # Interface LogsProcessor
 
-Definition of a logs processor
+Definition of a logs processor.
 ## Implementing Classes
 
 * LogsArithmeticProcessor

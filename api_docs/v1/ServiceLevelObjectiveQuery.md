@@ -2,7 +2,7 @@
 
 # ServiceLevelObjectiveQuery
 
-A metric SLI query. Required if type is \"metric\".
+A metric SLI query.  Required if type is \"metric\".
 ## Properties
 
 Name | Type | Description | Notes

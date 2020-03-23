@@ -95,7 +95,7 @@ private ApiResponse<MetricMetadata> editMetricMetadataWithHttpInfo(String metric
 
     /**
      * Set body
-     * @param body New metadata (required)
+     * @param body New metadata. (required)
      * @return APIeditMetricMetadataRequest
      */
     public APIeditMetricMetadataRequest body(MetricMetadata body) {
@@ -142,7 +142,7 @@ private ApiResponse<MetricMetadata> editMetricMetadataWithHttpInfo(String metric
   /**
    * Edit metric metadata
    * Edit metadata of a specific metric.
-   * @param metricName Name of the metric for which to edit metadata (required)
+   * @param metricName Name of the metric for which to edit metadata. (required)
    * @return editMetricMetadataRequest
    * @throws ApiException if fails to make API call
    
@@ -354,7 +354,7 @@ private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricN
   /**
    * Get metric metadata
    * Get metadata about a specific metric.
-   * @param metricName Name of the metric for which to get metadata (required)
+   * @param metricName Name of the metric for which to get metadata. (required)
    * @return getMetricMetadataRequest
    * @throws ApiException if fails to make API call
    
@@ -426,7 +426,7 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
 
     /**
      * Set from
-     * @param from Start of the queried time period, seconds since the Unix epoch (required)
+     * @param from Start of the queried time period, seconds since the Unix epoch. (required)
      * @return APIqueryMetricsRequest
      */
     public APIqueryMetricsRequest from(Long from) {
@@ -437,7 +437,7 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
 
     /**
      * Set to
-     * @param to End of the queried time period, seconds since the Unix epoch (required)
+     * @param to End of the queried time period, seconds since the Unix epoch. (required)
      * @return APIqueryMetricsRequest
      */
     public APIqueryMetricsRequest to(Long to) {
@@ -552,7 +552,7 @@ private ApiResponse<MetricSearchResponse> searchMetricsWithHttpInfo(String q) th
 
     /**
      * Set q
-     * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60; (required)
+     * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. (required)
      * @return APIsearchMetricsRequest
      */
     public APIsearchMetricsRequest q(String q) {
@@ -709,7 +709,7 @@ private ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(MetricsPayl
 
   /**
    * Submit metrics
-   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The limit for compressed payloads is 3.2 megabytes (3200000), and 62 megabytes (62914560) for decompressed payloads. # Overhead: If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect: 64 bits for the timestamp 64 bits for the value 20 bytes for the metric names 50 bytes for the timeseries The full payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The limit for compressed payloads is 3.2 megabytes (3200000), and 62 megabytes (62914560) for decompressed payloads.  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect  - 64 bits for the timestamp - 64 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
    * @return submitMetricsRequest
    * @throws ApiException if fails to make API call
    

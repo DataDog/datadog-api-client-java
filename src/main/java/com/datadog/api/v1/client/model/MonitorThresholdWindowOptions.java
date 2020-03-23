@@ -25,8 +25,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MonitorThresholdWindowOptions
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   MonitorThresholdWindowOptions.JSON_PROPERTY_RECOVERY_WINDOW,
   MonitorThresholdWindowOptions.JSON_PROPERTY_TRIGGER_WINDOW
@@ -47,11 +48,11 @@ public class MonitorThresholdWindowOptions {
   }
 
    /**
-   * Get recoveryWindow
+   * Describes how long an anomalous metric must be normal before the alert recovers.
    * @return recoveryWindow
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Describes how long an anomalous metric must be normal before the alert recovers.")
   @JsonIgnore
 
   public String getRecoveryWindow() {
@@ -82,11 +83,11 @@ public class MonitorThresholdWindowOptions {
   }
 
    /**
-   * Get triggerWindow
+   * Describes how long a metric must be anomalous before an alert triggers.
    * @return triggerWindow
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Describes how long a metric must be anomalous before an alert triggers.")
   @JsonIgnore
 
   public String getTriggerWindow() {

@@ -51,11 +51,11 @@ public class MetricsPayload {
   }
 
    /**
-   * A list of time series to submit to Datadog
+   * A list of time series to submit to Datadog.
    * @return series
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of time series to submit to Datadog")
+  @ApiModelProperty(value = "A list of time series to submit to Datadog.")
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

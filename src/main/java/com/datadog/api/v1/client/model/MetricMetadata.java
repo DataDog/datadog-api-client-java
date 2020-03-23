@@ -64,11 +64,11 @@ public class MetricMetadata {
   }
 
    /**
-   * Metric description
+   * Metric description.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metric description")
+  @ApiModelProperty(value = "Metric description.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -83,11 +83,11 @@ public class MetricMetadata {
 
 
    /**
-   * Name of the integration that sent the metric if applicable
+   * Name of the integration that sent the metric if applicable.
    * @return integration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the integration that sent the metric if applicable")
+  @ApiModelProperty(value = "Name of the integration that sent the metric if applicable.")
   @JsonProperty(JSON_PROPERTY_INTEGRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -105,11 +105,11 @@ public class MetricMetadata {
   }
 
    /**
-   * Per unit of the metric such as &#x60;second&#x60; in &#x60;bytes per second&#x60;
+   * Per unit of the metric such as &#x60;second&#x60; in &#x60;bytes per second&#x60;.
    * @return perUnit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "second", value = "Per unit of the metric such as `second` in `bytes per second`")
+  @ApiModelProperty(example = "second", value = "Per unit of the metric such as `second` in `bytes per second`.")
   @JsonProperty(JSON_PROPERTY_PER_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -130,11 +130,11 @@ public class MetricMetadata {
   }
 
    /**
-   * A more human-readable and abbreviated version of the metric name
+   * A more human-readable and abbreviated version of the metric name.
    * @return shortName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A more human-readable and abbreviated version of the metric name")
+  @ApiModelProperty(value = "A more human-readable and abbreviated version of the metric name.")
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -155,11 +155,11 @@ public class MetricMetadata {
   }
 
    /**
-   * Statsd flush interval of the metric in seconds if applicable
+   * Statsd flush interval of the metric in seconds if applicable.
    * @return statsdInterval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Statsd flush interval of the metric in seconds if applicable")
+  @ApiModelProperty(value = "Statsd flush interval of the metric in seconds if applicable.")
   @JsonProperty(JSON_PROPERTY_STATSD_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -180,11 +180,11 @@ public class MetricMetadata {
   }
 
    /**
-   * Metric type such as &#x60;gauge&#x60; or &#x60;rate&#x60;
+   * Metric type such as &#x60;gauge&#x60; or &#x60;rate&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "count", value = "Metric type such as `gauge` or `rate`")
+  @ApiModelProperty(example = "count", value = "Metric type such as `gauge` or `rate`.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -205,11 +205,11 @@ public class MetricMetadata {
   }
 
    /**
-   * Primary unit of the metric such as &#x60;byte&#x60; or &#x60;operation&#x60;
+   * Primary unit of the metric such as &#x60;byte&#x60; or &#x60;operation&#x60;.
    * @return unit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "byte", value = "Primary unit of the metric such as `byte` or `operation`")
+  @ApiModelProperty(example = "byte", value = "Primary unit of the metric such as `byte` or `operation`.")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

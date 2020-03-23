@@ -102,7 +102,7 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -120,7 +120,7 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -198,7 +198,7 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> No dasbhoards found error </td><td>  -  </td></tr>
        </table>
      
@@ -217,7 +217,7 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> No dasbhoards found error </td><td>  -  </td></tr>
        </table>
      
@@ -289,7 +289,7 @@ private ApiResponse<DashboardSummary> getAllDashboardsWithHttpInfo() throws ApiE
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -308,7 +308,7 @@ private ApiResponse<DashboardSummary> getAllDashboardsWithHttpInfo() throws ApiE
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -386,7 +386,7 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -404,7 +404,7 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -500,7 +500,7 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
@@ -518,7 +518,7 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      

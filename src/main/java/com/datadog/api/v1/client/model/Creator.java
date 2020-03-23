@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Creator of the object
+ * Creator of the object.
  */
-@ApiModel(description = "Creator of the object")
+@ApiModel(description = "Creator of the object.")
 @JsonPropertyOrder({
   Creator.JSON_PROPERTY_EMAIL,
   Creator.JSON_PROPERTY_HANDLE,
