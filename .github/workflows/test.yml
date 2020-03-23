@@ -9,7 +9,7 @@ jobs:
  test:
    strategy:
      matrix:
-       java-version: ["8", "13"]
+       java-version: ["7", "13"]
        platform: [ubuntu-latest, macos-latest, windows-latest]
    runs-on: ${{ matrix.platform }}
    steps:
