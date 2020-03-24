@@ -15,6 +15,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.PagerDutyIntegration;
 import com.datadog.api.v1.client.model.PagerDutyService;
+import com.datadog.api.v1.client.model.PagerDutyServiceKey;
 import com.datadog.api.v1.client.model.PagerDutyServicesAndSchedules;
 import org.junit.After;
 import org.junit.BeforeClass;
@@ -74,14 +75,17 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
                 .subdomain("_deadbeef")
                 .apiToken("y_NbAkKc66ryYTWUXYEu");
 
+        // Create a new PagerDuty integration
         ApiResponse<Void> response = api.createPagerDutyIntegration()
                 .body(body)
                 .executeWithHttpInfo();
         assertEquals(204, response.getStatusCode());
 
+        // Get PagerDuty integration
         PagerDutyIntegration pagerDuty = api.getPagerDutyIntegration().execute();
         assertEquals(body.getSubdomain(), pagerDuty.getSubdomain());
 
+        // Add a Service and Schedules items by updating the PagerDuty Integration
         PagerDutyServicesAndSchedules servicesAndSchedules = new PagerDutyServicesAndSchedules()
                 .addServicesItem(new PagerDutyService()
                         .serviceName("test_java")
@@ -102,6 +106,38 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
             assertEquals(service.getServiceName(), servicesAndSchedules.getServices().get(index).getServiceName());
         }
 
+        // Add single service object to the PagerDuty Integration
+        PagerDutyService serviceBody = new PagerDutyService()
+                .serviceName("test_java_2")
+                .serviceKey("deadbeef");
+        response = api.createPagerDutyIntegrationService().body(serviceBody).executeWithHttpInfo();
+        assertEquals(201, response.getStatusCode());
+
+        // Get created Service object
+        PagerDutyService service = api.getPagerDutyIntegrationService("test_java_2").execute();
+        assertEquals(serviceBody.getServiceName(), service.getServiceName());
+        assertEquals(serviceBody.getServiceKey(), service.getServiceKey());
+
+        // Get previously added service item
+        service = api.getPagerDutyIntegrationService("test_java").execute();
+        assertEquals("test_java", service.getServiceName());
+        assertEquals("deadbeef", service.getServiceKey());
+
+        // Update service object
+        PagerDutyServiceKey serviceKey = new PagerDutyServiceKey();
+        serviceKey.setServiceKey("newkey");
+        api.updatePagerDutyIntegrationService("test_java_2").body(serviceKey).executeWithHttpInfo();
+
+        // Get created Service object
+        service = api.getPagerDutyIntegrationService("test_java_2").execute();
+        assertEquals(serviceBody.getServiceName(), service.getServiceName());
+        assertEquals(serviceKey.getServiceKey(), service.getServiceKey());
+
+        // Delete Service Object
+        ApiResponse<Void> serviceDeleteResponse = api.deletePagerDutyIntegrationService("test_java_2").executeWithHttpInfo();
+        assertEquals(200, serviceDeleteResponse.getStatusCode());
+
+        // Delete Pager Duty Integration
         ApiResponse<Void> deleteResponse = api.deletePagerDutyIntegration().executeWithHttpInfo();
         assertEquals(204, deleteResponse.getStatusCode());
     }
