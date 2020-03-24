@@ -1,5 +1,7 @@
 FROM fedora:30
 
+ENTRYPOINT ["/datadog-api-client-java/run-tests.sh"]
+
 RUN dnf install -y java-1.8.0-openjdk-headless maven && \
     dnf clean all
 
@@ -10,9 +12,6 @@ RUN dnf install -y java-1.8.0-openjdk-headless maven && \
 # dependencies, but at least this downloads most of them.
 COPY pom.xml /tmp/mock-pom-structure/
 RUN mvn --batch-mode -f /tmp/mock-pom-structure/pom.xml dependency:go-offline
-
-ENTRYPOINT ["mvn"]
-CMD ["--batch-mode", "test"]
 
 COPY . /datadog-api-client-java
 
