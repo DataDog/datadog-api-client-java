@@ -93,6 +93,8 @@ public class MonitorsApiTest extends V1ApiTest {
         assertEquals(testingMonitorTags, obtained.getTags());
         assertEquals(testingMonitorOptionsNotifyNoData, obtained.getOptions().getNotifyNoData());
         assertEquals(testingMonitorOptionsNoDataTimeframe, obtained.getOptions().getNoDataTimeframe());
+        assertNull(obtained.getDeleted());
+        assertTrue(obtained.getDeleted_JsonNullable().isPresent());
 
         // test updating monitor
         obtained.setName("New name");
