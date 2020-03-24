@@ -92,10 +92,14 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         List<String> hostTags = new ArrayList<String>();
         hostTags.add("javaTag:one");
         hostTags.add("java:success");
+        List<String> excludedRegions = new ArrayList<String>();
+        excludedRegions.add("us-east-1");
+        excludedRegions.add("us-west-1");
         accountSpecificNamespaceRules.put("api_gateway", true);
         awsAccountFull.setAccountId(String.format("java_%07d", (now.toInstant().toEpochMilli() + 1) % 10000000));
         awsAccountFull.setRoleName("java_testRoleName");
         awsAccountFull.setHostTags(hostTags);
+        awsAccountFull.setExcludedRegions(excludedRegions);
         awsAccountFull.addFilterTagsItem("dontCollect:java");
         awsAccountFull.setAccountSpecificNamespaceRules(accountSpecificNamespaceRules);
 
