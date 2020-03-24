@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class User {
   public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";
-  private AccessRole accessRole;
+  private AccessRole accessRole = AccessRole.STANDARD;
 
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;

@@ -97,7 +97,7 @@ public class Downtime {
   private String timezone;
 
   public static final String JSON_PROPERTY_UPDATER_ID = "updater_id";
-  private Integer updaterId;
+  private JsonNullable<Integer> updaterId = JsonNullable.<Integer>undefined();
 
 
    /**
@@ -509,13 +509,27 @@ public class Downtime {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "123456", value = "TODO.")
+  @JsonIgnore
+
+  public Integer getUpdaterId() {
+    
+    if (updaterId == null) {
+      updaterId = JsonNullable.<Integer>undefined();
+    }
+    return updaterId.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_UPDATER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getUpdaterId() {
+  public JsonNullable<Integer> getUpdaterId_JsonNullable() {
     return updaterId;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_UPDATER_ID)
+  private void setUpdaterId_JsonNullable(JsonNullable<Integer> updaterId) {
+    this.updaterId = updaterId;
+  }
 
 
 
