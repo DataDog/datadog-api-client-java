@@ -205,18 +205,12 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
    /**
-   * A unique identifier for the service level objective object.  Always included in service level objective responses. Required for update requests.
+   * A unique identifier for the service level objective object.  Always included in service level objective responses.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique identifier for the service level objective object.  Always included in service level objective responses. Required for update requests.")
+  @ApiModelProperty(value = "A unique identifier for the service level objective object.  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -225,9 +219,6 @@ public class ServiceLevelObjective {
   }
 
 
-  public void setId(String id) {
-    this.id = id;
-  }
 
 
    /**
