@@ -101,7 +101,7 @@ private ApiResponse<IntakePayloadAccepted> submitServiceCheckWithHttpInfo(List<S
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
          <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
        </table>
@@ -121,7 +121,7 @@ private ApiResponse<IntakePayloadAccepted> submitServiceCheckWithHttpInfo(List<S
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
          <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
        </table>
@@ -135,7 +135,7 @@ private ApiResponse<IntakePayloadAccepted> submitServiceCheckWithHttpInfo(List<S
 
   /**
    * Submit a Service Check
-   * ### Overview Submit a list of Service Checks. **Note**: valid API key is required.
+   * Submit a list of Service Checks.  **Note**: valid API key is required.
    * @return submitServiceCheckRequest
    * @throws ApiException if fails to make API call
    

@@ -19,10 +19,7 @@ Method | HTTP request | Description
 
 Create a monitor
 
-### Overview
-Create a monitor using the specified options
-### Arguments
-* **`Monitor`** [*required*] The Monitor Object to create
+Create a monitor using the specified options.
 
 ### Example
 
@@ -53,7 +50,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Monitor body = new Monitor(); // Monitor | Monitor request object
+        Monitor body = new Monitor(); // Monitor | Monitor request object.
         try {
             Monitor result = api.createMonitor()
                 .body(body)
@@ -75,7 +72,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Monitor**](Monitor.md)| Monitor request object |
+ **body** | [**Monitor**](Monitor.md)| Monitor request object. |
 
 ### Return type
 
@@ -103,10 +100,7 @@ Name | Type | Description  | Notes
 
 Delete a monitor
 
-### Overview
 Delete the specified monitor
-### Arguments
-* **`monitor_id`** [*required*]: The id of the monitor.
 
 ### Example
 
@@ -137,7 +131,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Long monitorId = 56L; // Long | The id of the monitor
+        Long monitorId = 56L; // Long | The ID of the monitor.
         try {
             DeletedMonitor result = api.deleteMonitor(monitorId)
                 .execute();
@@ -158,7 +152,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitorId** | **Long**| The id of the monitor |
+ **monitorId** | **Long**| The ID of the monitor. |
 
 ### Return type
 
@@ -188,10 +182,7 @@ Name | Type | Description  | Notes
 
 Edit a monitor
 
-### Overview
 Edit the specified monitor.
-### Arguments
-* **`monitor_id`** [*required*]: The id of the monitor.
 
 ### Example
 
@@ -222,8 +213,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Long monitorId = 56L; // Long | The id of the monitor
-        Monitor body = new Monitor(); // Monitor | Monitor request object
+        Long monitorId = 56L; // Long | The id of the monitor.
+        Monitor body = new Monitor(); // Monitor | Monitor request object.
         try {
             Monitor result = api.editMonitor(monitorId)
                 .body(body)
@@ -245,8 +236,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitorId** | **Long**| The id of the monitor |
- **body** | [**Monitor**](Monitor.md)| Monitor request object |
+ **monitorId** | **Long**| The id of the monitor. |
+ **body** | [**Monitor**](Monitor.md)| Monitor request object. |
 
 ### Return type
 
@@ -276,14 +267,7 @@ Name | Type | Description  | Notes
 
 Get all monitor details
 
-### Overview
 Get details about the specified monitor from your organization.
-### Arguments
-* **`group_states`** [*optional* *default*=**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example 'alert,warn'
-* **`name`** [*optional* *default*==**None**] A string to filter monitors by name
-* **`tags`** [*optional* *default*==**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0
-* **`monitor_tags`** [*optional* *default*==**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app)
-* **`with_downtimes`** [*optional* *default*==**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
 
 ### Example
 
@@ -316,8 +300,8 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
         String name = "name_example"; // String | A string to filter monitors by name.
-        String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0.
-        String monitorTags = "monitorTags_example"; // String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app).
+        String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, `host:host0`.
+        String monitorTags = "monitorTags_example"; // String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
         Boolean withDowntimes = true; // Boolean | If this argument is set to true, then the returned data includes all current downtimes for each monitor.
         try {
             List<Monitor> result = api.getAllMonitors()
@@ -346,8 +330,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupStates** | **String**| When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. | [optional]
  **name** | **String**| A string to filter monitors by name. | [optional]
- **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0. | [optional]
- **monitorTags** | **String**| A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app). | [optional]
+ **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, &#x60;host:host0&#x60;. | [optional]
+ **monitorTags** | **String**| A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. | [optional]
  **withDowntimes** | **Boolean**| If this argument is set to true, then the returned data includes all current downtimes for each monitor. | [optional]
 
 ### Return type
@@ -376,11 +360,7 @@ Name | Type | Description  | Notes
 
 Get a monitor&#39;s details
 
-### Overview
 Get details about the specified monitor from your organization.
-### Arguments
-* **`monitor_id`** [*required*]: The id of the monitor.
-* **`group_states`** [*optional* *default*=**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example 'alert,warn'
 
 ### Example
 
@@ -464,10 +444,7 @@ Name | Type | Description  | Notes
 
 Validate a monitor
 
-### Overview
-Validate the monitor provided in the request
-### Arguments
-* **`Monitor`** [*required*] The Monitor Object to validate
+Validate the monitor provided in the request.
 
 ### Example
 

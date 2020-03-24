@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Set of rules for the grok parser
+ * Set of rules for the grok parser.
  */
-@ApiModel(description = "Set of rules for the grok parser")
+@ApiModel(description = "Set of rules for the grok parser.")
 @JsonPropertyOrder({
   LogsGrokParserRules.JSON_PROPERTY_MATCH_RULES,
   LogsGrokParserRules.JSON_PROPERTY_SUPPORT_RULES
@@ -45,10 +45,10 @@ public class LogsGrokParserRules {
   }
 
    /**
-   * List of match rules for the grok parser, separated by a new line
+   * List of match rules for the grok parser, separated by a new line.
    * @return matchRules
   **/
-  @ApiModelProperty(example = "rule_name_1 foo rule_name_2 bar ", required = true, value = "List of match rules for the grok parser, separated by a new line")
+  @ApiModelProperty(example = "rule_name_1 foo rule_name_2 bar ", required = true, value = "List of match rules for the grok parser, separated by a new line.")
   @JsonProperty(JSON_PROPERTY_MATCH_RULES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -69,11 +69,11 @@ public class LogsGrokParserRules {
   }
 
    /**
-   * List of support rules for the grok parser, separated by a new line
+   * List of support rules for the grok parser, separated by a new line.
    * @return supportRules
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "rule_name_1 foo rule_name_2 bar ", value = "List of support rules for the grok parser, separated by a new line")
+  @ApiModelProperty(example = "rule_name_1 foo rule_name_2 bar ", value = "List of support rules for the grok parser, separated by a new line.")
   @JsonProperty(JSON_PROPERTY_SUPPORT_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -82,7 +82,7 @@ private ApiResponse<Object> azureUpdateHostFiltersWithHttpInfo(AzureAccount body
 
     /**
      * Set body
-     * @param body Update a Datadog-Azure integrations host filters. (required)
+     * @param body Update a Datadog-Azure integration&#39;s host filters. (required)
      * @return APIazureUpdateHostFiltersRequest
      */
     public APIazureUpdateHostFiltersRequest body(AzureAccount body) {
@@ -100,7 +100,7 @@ private ApiResponse<Object> azureUpdateHostFiltersWithHttpInfo(AzureAccount body
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -118,7 +118,7 @@ private ApiResponse<Object> azureUpdateHostFiltersWithHttpInfo(AzureAccount body
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -130,7 +130,7 @@ private ApiResponse<Object> azureUpdateHostFiltersWithHttpInfo(AzureAccount body
 
   /**
    * Update Azure integration host filters
-   *  Update the defined list of host filters for a given Datadog-Azure integration. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application ID. * **&#x60;host_filters&#x60;** [*required*, *default* &#x3D; **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+   * Update the defined list of host filters for a given Datadog-Azure integration.
    * @return azureUpdateHostFiltersRequest
    * @throws ApiException if fails to make API call
    
@@ -187,7 +187,7 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
 
     /**
      * Set body
-     * @param body Create a Datadog-Azure integration. (required)
+     * @param body Create a Datadog-Azure integration for your Datadog account. (required)
      * @return APIcreateAzureIntegrationRequest
      */
     public APIcreateAzureIntegrationRequest body(AzureAccount body) {
@@ -205,7 +205,7 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -223,7 +223,7 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -235,7 +235,7 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
 
   /**
    * Create an Azure integration
-   * ### Overview Create a Datadog-Azure integration. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application ID. * **&#x60;client_secret&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application secret key. * **&#x60;host_filters&#x60;** [*optional*, *default* &#x3D; **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+   * Create a Datadog-Azure integration.  Using the &#x60;POST&#x60; method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the &#x60;PUT&#x60; method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
    * @return createAzureIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -310,7 +310,7 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -328,7 +328,7 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -340,7 +340,7 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
 
   /**
    * Delete an Azure integration
-   *  Delete a given Datadog-Azure integration. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your Azure web application ID.
+   * Delete a given Datadog-Azure integration from your Datadog account.
    * @return deleteAzureIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -398,7 +398,7 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -416,7 +416,7 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -428,7 +428,7 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
 
   /**
    * List all Azure integrations
-   * ### Overview List all Datadog-Azure integrations configured in your Datadog account.
+   * List all Datadog-Azure integrations configured in your Datadog account.
    * @return listAzureIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -503,7 +503,7 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -521,7 +521,7 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -533,7 +533,7 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
 
   /**
    * Update an Azure integration
-   * ### Overview Update an Datadog-Azure integration. Requires an existing tenant_name and client_id. Any other fields supplied will overwrite existing values. To overwrite tenant_name or client_id, use new_tenant_name and new_client_id. To leave a field unchanged, do not supply that field in the payload. ### Arguments * **&#x60;tenant_name&#x60;** [*required*, *default* &#x3D; **None**]: Your existing Azure Active Directory ID. * **&#x60;new_tenant_name&#x60;** [*optional*, *default* &#x3D; **None**]: Your new Azure Active Directory ID. * **&#x60;client_id&#x60;** [*required*, *default* &#x3D; **None**]: Your existing Azure web application ID. * **&#x60;new_client_id&#x60;** [*optional*, *default* &#x3D; **None**]: Your new Azure web application ID. * **&#x60;client_secret&#x60;** [*optional*, *default* &#x3D; **None**]: Your Azure web application secret key. * **&#x60;host_filters&#x60;** [*optional*, *default* &#x3D; **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+   * Update a Datadog-Azure integration. Requires an existing &#x60;tenant_name&#x60; and &#x60;client_id&#x60;. Any other fields supplied will overwrite existing values. To overwrite &#x60;tenant_name&#x60; or &#x60;client_id&#x60;, use &#x60;new_tenant_name&#x60; and &#x60;new_client_id&#x60;. To leave a field unchanged, do not supply that field in the payload.
    * @return updateAzureIntegrationRequest
    * @throws ApiException if fails to make API call
    

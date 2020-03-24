@@ -73,11 +73,11 @@ public class LogContent {
   }
 
    /**
-   * Get attributes
+   * TODO.
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"customAttribute\":123,\"duration\":2345}", value = "")
+  @ApiModelProperty(example = "{\"customAttribute\":123,\"duration\":2345}", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -98,11 +98,11 @@ public class LogContent {
   }
 
    /**
-   * Get host
+   * Name of the machine from where the logs are being sent.
    * @return host
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "i-0123", value = "")
+  @ApiModelProperty(example = "i-0123", value = "Name of the machine from where the logs are being sent.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -123,11 +123,11 @@ public class LogContent {
   }
 
    /**
-   * Get message
+   * TODO.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host connected to remote", value = "")
+  @ApiModelProperty(example = "host connected to remote", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,11 +148,11 @@ public class LogContent {
   }
 
    /**
-   * Get service
+   * TODO.
    * @return service
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "agent", value = "")
+  @ApiModelProperty(example = "agent", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -181,11 +181,11 @@ public class LogContent {
   }
 
    /**
-   * Get tags
+   * TODO.
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"team:A\"]", value = "")
+  @ApiModelProperty(example = "[\"team:A\"]", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -206,11 +206,11 @@ public class LogContent {
   }
 
    /**
-   * Get timestamp
+   * TODO.
    * @return timestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "")
+  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

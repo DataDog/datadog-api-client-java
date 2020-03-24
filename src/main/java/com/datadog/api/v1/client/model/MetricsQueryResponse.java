@@ -69,11 +69,11 @@ public class MetricsQueryResponse {
 
 
    /**
-   * Message indicating the errors if status is not &#x60;ok&#x60;
+   * Message indicating the errors if status is not &#x60;ok&#x60;.
    * @return error
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message indicating the errors if status is not `ok`")
+  @ApiModelProperty(value = "Message indicating the errors if status is not `ok`.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,11 +85,11 @@ public class MetricsQueryResponse {
 
 
    /**
-   * Start of requested time window, milliseconds since Unix epoch
+   * Start of requested time window, milliseconds since Unix epoch.
    * @return fromDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Start of requested time window, milliseconds since Unix epoch")
+  @ApiModelProperty(value = "Start of requested time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_FROM_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -101,11 +101,11 @@ public class MetricsQueryResponse {
 
 
    /**
-   * List of tag keys on which to group
+   * List of tag keys on which to group.
    * @return groupBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tag keys on which to group")
+  @ApiModelProperty(value = "List of tag keys on which to group.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,11 +117,11 @@ public class MetricsQueryResponse {
 
 
    /**
-   * Message indicating &#x60;success&#x60; if status is &#x60;ok&#x60;
+   * Message indicating &#x60;success&#x60; if status is &#x60;ok&#x60;.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message indicating `success` if status is `ok`")
+  @ApiModelProperty(value = "Message indicating `success` if status is `ok`.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -149,11 +149,11 @@ public class MetricsQueryResponse {
 
 
    /**
-   * Type of response
+   * Type of response.
    * @return resType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "time_series", value = "Type of response")
+  @ApiModelProperty(example = "time_series", value = "Type of response.")
   @JsonProperty(JSON_PROPERTY_RES_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -165,11 +165,11 @@ public class MetricsQueryResponse {
 
 
    /**
-   * List of timeseries queried
+   * List of timeseries queried.
    * @return series
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of timeseries queried")
+  @ApiModelProperty(value = "List of timeseries queried.")
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -181,11 +181,11 @@ public class MetricsQueryResponse {
 
 
    /**
-   * Status of the query
+   * Status of the query.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ok", value = "Status of the query")
+  @ApiModelProperty(example = "ok", value = "Status of the query.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -197,11 +197,11 @@ public class MetricsQueryResponse {
 
 
    /**
-   * End of requested time window, milliseconds since Unix epoch
+   * End of requested time window, milliseconds since Unix epoch.
    * @return toDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "End of requested time window, milliseconds since Unix epoch")
+  @ApiModelProperty(value = "End of requested time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_TO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

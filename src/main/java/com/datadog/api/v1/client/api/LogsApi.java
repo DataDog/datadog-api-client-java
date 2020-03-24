@@ -134,7 +134,7 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
 
   /**
    * Get a list of logs
-   * ## Overview List endpoint returns logs that match a log search query. [Results are paginated][1]. **If you are thinking about archiving logs for your organization, consider using Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** **ARGUMENTS**: * **&#x60;query&#x60;** [*required*]:     The search query - following the [Log search syntax][3] .  * **&#x60;time.from&#x60;** [*required*]:     Minimum timestamp for requested logs. Format can be either      - an ISO-8601 string      - a unix timestamp (number representing the elapsed millisec since epoch)      - a relative time (&#x60;now -10m&#x60;, &#x60;now - 1h&#x60;, &#x60;now - 1d&#x60;)  * **&#x60;time.to&#x60;** [*required*]:     Maximum timestamp for requested logs. Format can be either      - an ISO-8601 string with minute, second or millisecond precision      - a unix timestamp (number representing the elapsed millisec since epoch)      - a relative time (&#x60;now&#x60;, &#x60;now -10m&#x60;, &#x60;now - 1h&#x60;, &#x60;now - 1d&#x60;)  * **&#x60;time.timezone&#x60;** [*optional*, *default*&#x3D;**None**]:   Can be specified both as an offset (e.g. \&quot;UTC+03:00\&quot;) or a regional zone (e.g. \&quot;Europe/Paris\&quot;)  * **&#x60;time.offset&#x60;** [*optional*, *default*&#x3D;**None**]:   Equivalent to &#x60;time.timezone&#x60;. But value in seconds.   If both timezone and offset are specified, timezone is ignored.  * **&#x60;startAt&#x60;** [*optional*, *default*&#x3D;**None**]:   Hash identifier of the first log to return in the list, available in a log &#x60;id&#x60; attribute. This parameter is used for the [pagination feature][1].   **Note**: this parameter is ignored if the corresponding log is out of the scope of the specified time window.  * **&#x60;sort&#x60;** [*optional*, *default*&#x3D;**desc**]:     Time-ascending &#x60;asc&#x60; or time-descending &#x60;desc&#x60;results.  * **&#x60;limit&#x60;** [*optional*, *default*&#x3D;**10**]:     Number of logs return in the response (maximum is 1000)  * **&#x60;index&#x60;** [*optional*, *default*&#x3D;**main**]:     For multi-index organizations, the log index in which the request is performed.  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives [3]: https://docs.datadoghq.com/logs/explorer/search/#search-syntax
+   * List endpoint returns logs that match a log search query. [Results are paginated][1].  **If you are thinking about archiving logs for your organization, consider using Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    * @return listLogsRequest
    * @throws ApiException if fails to make API call
    
@@ -191,7 +191,7 @@ private ApiResponse<Object> sendLogWithHttpInfo(HTTPLog body) throws ApiExceptio
 
     /**
      * Set body
-     * @param body Log to send (JSON format) (required)
+     * @param body Log to send (JSON format). (required)
      * @return APIsendLogRequest
      */
     public APIsendLogRequest body(HTTPLog body) {
@@ -207,7 +207,7 @@ private ApiResponse<Object> sendLogWithHttpInfo(HTTPLog body) throws ApiExceptio
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> response from server (always 200 empty JSON) </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
          <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
        </table>
      
@@ -224,7 +224,7 @@ private ApiResponse<Object> sendLogWithHttpInfo(HTTPLog body) throws ApiExceptio
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> response from server (always 200 empty JSON) </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
          <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
        </table>
      
@@ -237,7 +237,7 @@ private ApiResponse<Object> sendLogWithHttpInfo(HTTPLog body) throws ApiExceptio
 
   /**
    * Send logs
-   * Send logs
+   * Send your logs to your Datadog platform over HTTP. Limits per HTTP request are as follows. - Maximum content size per payload is 5MB. - Maximum size for a single log is 256kB. - Maximum array size if sending multiple logs in an array is 500 entries.  Any log exceeding 256KB is accepted and truncated by datadog - For a single log request, the API truncates the log at 256KB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 256KB, and returns a 2xx.  **Note**: If you are in the Datadog EU site (&#x60;app.datadoghq.eu&#x60;), the HTTP log endpoint is &#x60;http-intake.logs.datadoghq.eu&#x60;.
    * @return sendLogRequest
    * @throws ApiException if fails to make API call
    

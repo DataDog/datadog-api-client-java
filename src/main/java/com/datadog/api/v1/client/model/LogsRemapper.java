@@ -78,11 +78,11 @@ public class LogsRemapper implements LogsProcessor {
   }
 
    /**
-   * Override or not the target element if already set
+   * Override or not the target element if already set,
    * @return overrideOnConflict
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Override or not the target element if already set")
+  @ApiModelProperty(value = "Override or not the target element if already set,")
   @JsonProperty(JSON_PROPERTY_OVERRIDE_ON_CONFLICT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,11 +103,11 @@ public class LogsRemapper implements LogsProcessor {
   }
 
    /**
-   * Remove or preserve the remapped source element
+   * Remove or preserve the remapped source element.
    * @return preserveSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Remove or preserve the remapped source element")
+  @ApiModelProperty(value = "Remove or preserve the remapped source element.")
   @JsonProperty(JSON_PROPERTY_PRESERVE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -128,11 +128,11 @@ public class LogsRemapper implements LogsProcessor {
   }
 
    /**
-   * Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;
+   * Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;.
    * @return sourceType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Defines if the sources are from log `attribute` or `tag`")
+  @ApiModelProperty(value = "Defines if the sources are from log `attribute` or `tag`.")
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -206,11 +206,11 @@ public class LogsRemapper implements LogsProcessor {
   }
 
    /**
-   * Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;
+   * Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;.
    * @return targetType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Defines if the sources are from log `attribute` or `tag`")
+  @ApiModelProperty(value = "Defines if the sources are from log `attribute` or `tag`.")
   @JsonProperty(JSON_PROPERTY_TARGET_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -225,11 +225,11 @@ public class LogsRemapper implements LogsProcessor {
 
 
    /**
-   * Type of processor
+   * Type of processor.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor")
+  @ApiModelProperty(value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -247,11 +247,11 @@ public class LogsRemapper implements LogsProcessor {
   }
 
    /**
-   * Whether or not the processor is enabled
+   * Whether or not the processor is enabled.
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled")
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -272,11 +272,11 @@ public class LogsRemapper implements LogsProcessor {
   }
 
    /**
-   * Name of the processor
+   * Name of the processor.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor")
+  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

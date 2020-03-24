@@ -7,10 +7,10 @@ A representation of `metric` based SLO time series for the provided queries. Thi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** | Count of submitted metrics | 
+**count** | **Long** | Count of submitted metrics. | 
 **metadata** | [**HistoryServiceLevelObjectiveMetricsSeriesMetadata**](HistoryServiceLevelObjectiveMetricsSeriesMetadata.md) |  | 
-**sum** | **Double** | Total Sum of the query | 
-**values** | **List&lt;Double&gt;** | The query values | 
+**sum** | **Double** | Total Sum of the query. | 
+**values** | **List&lt;Double&gt;** | The query values. | 
 
 
 

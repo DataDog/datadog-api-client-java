@@ -132,7 +132,7 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
 
   /**
    * Create an API key
-   * Create an API key with a given name.
+   * Creates an API key with a given name.
    * @return createAPIKeyRequest
    * @throws ApiException if fails to make API call
    
@@ -333,7 +333,7 @@ private ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws 
   /**
    * Delete an API key
    * Delete a given API key.
-   * @param key The specific API key you are working with (required)
+   * @param key The specific API key you are working with. (required)
    * @return deleteAPIKeyRequest
    * @throws ApiException if fails to make API call
    
@@ -432,7 +432,7 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
   /**
    * Delete an application key
    * Delete a given application key.
-   * @param key The specific APP key you are working with (required)
+   * @param key The specific APP key you are working with. (required)
    * @return deleteApplicationKeyRequest
    * @throws ApiException if fails to make API call
    
@@ -543,7 +543,7 @@ private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey bo
   /**
    * Edit an API key
    * Edit an API key name.
-   * @param key The specific API key you are working with (required)
+   * @param key The specific API key you are working with. (required)
    * @return editAPIKeyRequest
    * @throws ApiException if fails to make API call
    
@@ -654,7 +654,7 @@ private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(Strin
   /**
    * Edit an application key
    * Edit an application key name.
-   * @param key The specific APP key you are working with (required)
+   * @param key The specific APP key you are working with. (required)
    * @return editApplicationKeyRequest
    * @throws ApiException if fails to make API call
    
@@ -751,7 +751,7 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
   }
 
   /**
-   * Get an API key
+   * Get API key
    * Get a given API key.
    * @param key The specific API key you are working with. (required)
    * @return getAPIKeyRequest
@@ -929,7 +929,7 @@ private ApiResponse<ApplicationKeyListResponse> getAllApplicationKeysWithHttpInf
 
   /**
    * Get all application keys
-   * Get all application keys available for your account.
+   * Get all application keys available for your Datadog account.
    * @return getAllApplicationKeysRequest
    * @throws ApiException if fails to make API call
    
@@ -1028,7 +1028,7 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
   /**
    * Get an application key
    * Get a given application key.
-   * @param key The specific APP key you are working with (required)
+   * @param key The specific APP key you are working with. (required)
    * @return getApplicationKeyRequest
    * @throws ApiException if fails to make API call
    

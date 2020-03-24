@@ -2,12 +2,13 @@
 
 # HTTPLogError
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** |  | 
-**message** | **String** |  | 
+**code** | **Integer** | TODO. | 
+**message** | **String** | TODO. | 
 
 
 

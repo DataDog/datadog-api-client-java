@@ -52,11 +52,11 @@ public class HTTPLog {
   }
 
    /**
-   * Get ddsource
+   * TODO.
    * @return ddsource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "python", value = "")
+  @ApiModelProperty(example = "python", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DDSOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -77,11 +77,11 @@ public class HTTPLog {
   }
 
    /**
-   * Get ddtags
+   * TODO.
    * @return ddtags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "env:staging,service:payment", value = "")
+  @ApiModelProperty(example = "env:staging,service:payment", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DDTAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -102,11 +102,11 @@ public class HTTPLog {
   }
 
    /**
-   * Get hostname
+   * TODO.
    * @return hostname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "i-012345678", value = "")
+  @ApiModelProperty(example = "i-012345678", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -127,11 +127,11 @@ public class HTTPLog {
   }
 
    /**
-   * Get message
+   * TODO.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World", value = "")
+  @ApiModelProperty(example = "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

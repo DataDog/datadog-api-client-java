@@ -2,13 +2,14 @@
 
 # HostMetrics
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cpu** | **Double** |  |  [optional]
-**iowait** | **Double** |  |  [optional]
-**load** | **Double** |  |  [optional]
+**cpu** | **Double** | TODO. |  [optional]
+**iowait** | **Double** | TODO. |  [optional]
+**load** | **Double** | TODO. |  [optional]
 
 
 

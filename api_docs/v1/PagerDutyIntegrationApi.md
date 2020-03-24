@@ -17,9 +17,9 @@ Method | HTTP request | Description
 
 Create a PagerDuty integration
 
-### Overview
 Create a new Datadog-PagerDuty integration.
-**Note:** All arguments are required when creating (PUT) a new PagerDuty configuration.
+
+**Note:** All arguments are required when creating (`PUT`) a new PagerDuty configuration.
 
 ### Example
 
@@ -100,7 +100,6 @@ null (empty response body)
 
 Delete a PagerDuty integration
 
-### Overview
 Delete the Datadog-PagerDuty integration.
 
 ### Example
@@ -177,7 +176,6 @@ null (empty response body)
 
 Get a PagerDuty integration
 
-### Overview
 Get all information about your Datadog-PagerDuty integration.
 
 ### Example
@@ -256,7 +254,6 @@ This endpoint does not need any parameter.
 
 Add new services and schedules
 
-### Overview
 Add new services and schedules to your Datadog-PagerDuty integration.
 
 ### Example

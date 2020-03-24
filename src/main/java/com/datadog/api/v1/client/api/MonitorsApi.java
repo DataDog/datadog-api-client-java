@@ -83,7 +83,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
 
     /**
      * Set body
-     * @param body Monitor request object (required)
+     * @param body Monitor request object. (required)
      * @return APIcreateMonitorRequest
      */
     public APIcreateMonitorRequest body(Monitor body) {
@@ -129,7 +129,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
 
   /**
    * Create a monitor
-   * ### Overview Create a monitor using the specified options ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to create
+   * Create a monitor using the specified options.
    * @return createMonitorRequest
    * @throws ApiException if fails to make API call
    
@@ -227,8 +227,8 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
 
   /**
    * Delete a monitor
-   * ### Overview Delete the specified monitor ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
-   * @param monitorId The id of the monitor (required)
+   * Delete the specified monitor
+   * @param monitorId The ID of the monitor. (required)
    * @return deleteMonitorRequest
    * @throws ApiException if fails to make API call
    
@@ -293,7 +293,7 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor bod
 
     /**
      * Set body
-     * @param body Monitor request object (required)
+     * @param body Monitor request object. (required)
      * @return APIeditMonitorRequest
      */
     public APIeditMonitorRequest body(Monitor body) {
@@ -343,8 +343,8 @@ private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor bod
 
   /**
    * Edit a monitor
-   * ### Overview Edit the specified monitor. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor.
-   * @param monitorId The id of the monitor (required)
+   * Edit the specified monitor.
+   * @param monitorId The id of the monitor. (required)
    * @return editMonitorRequest
    * @throws ApiException if fails to make API call
    
@@ -427,7 +427,7 @@ private ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates
 
     /**
      * Set tags
-     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0. (optional)
+     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, &#x60;host:host0&#x60;. (optional)
      * @return APIgetAllMonitorsRequest
      */
     public APIgetAllMonitorsRequest tags(String tags) {
@@ -438,7 +438,7 @@ private ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates
 
     /**
      * Set monitorTags
-     * @param monitorTags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app). (optional)
+     * @param monitorTags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. (optional)
      * @return APIgetAllMonitorsRequest
      */
     public APIgetAllMonitorsRequest monitorTags(String monitorTags) {
@@ -495,7 +495,7 @@ private ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates
 
   /**
    * Get all monitor details
-   * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39; * **&#x60;name&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A string to filter monitors by name * **&#x60;tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope, e.g. host:host0 * **&#x60;monitor_tags&#x60;** [*optional* *default*&#x3D;&#x3D;**None**] A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended (e.g. service:my-app) * **&#x60;with_downtimes&#x60;** [*optional* *default*&#x3D;&#x3D;**true**] If this argument is set to true, then the returned data includes all current downtimes for each monitor.
+   * Get details about the specified monitor from your organization.
    * @return getAllMonitorsRequest
    * @throws ApiException if fails to make API call
    
@@ -604,7 +604,7 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
 
   /**
    * Get a monitor&#39;s details
-   * ### Overview Get details about the specified monitor from your organization. ### Arguments * **&#x60;monitor_id&#x60;** [*required*]: The id of the monitor. * **&#x60;group_states&#x60;** [*optional* *default*&#x3D;**None**] If this argument is set, the returned data includes additional information (if available) regarding the specified group states, including the last notification timestamp, last resolution timestamp and details about the last time the monitor was triggered. The argument should include a string list indicating what, if any, group states to include. Choose one or more from all, alert, warn, or no data. Example &#39;alert,warn&#39;
+   * Get details about the specified monitor from your organization.
    * @param monitorId The id of the monitor (required)
    * @return getMonitorRequest
    * @throws ApiException if fails to make API call
@@ -708,7 +708,7 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
 
   /**
    * Validate a monitor
-   * ### Overview Validate the monitor provided in the request ### Arguments * **&#x60;Monitor&#x60;** [*required*] The Monitor Object to validate
+   * Validate the monitor provided in the request.
    * @return validateMonitorRequest
    * @throws ApiException if fails to make API call
    

@@ -31,8 +31,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HistoryServiceLevelObjectiveResponseData
+ * An array of service level objective objects.
  */
+@ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
   HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_FROM_TS,
   HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_GROUPS,
@@ -77,11 +78,11 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
    /**
-   * the &#x60;from&#x60; timestamp in epoch seconds
+   * The &#x60;from&#x60; timestamp in epoch seconds.
    * @return fromTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "the `from` timestamp in epoch seconds")
+  @ApiModelProperty(value = "The `from` timestamp in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_FROM_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -210,11 +211,11 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
    /**
-   * the &#x60;to&#x60; timestamp in epoch seconds
+   * The &#x60;to&#x60; timestamp in epoch seconds.
    * @return toTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "the `to` timestamp in epoch seconds")
+  @ApiModelProperty(value = "The `to` timestamp in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_TO_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

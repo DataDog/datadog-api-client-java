@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HostTotals
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   HostTotals.JSON_PROPERTY_TOTAL_ACTIVE,
   HostTotals.JSON_PROPERTY_TOTAL_UP

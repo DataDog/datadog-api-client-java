@@ -97,11 +97,11 @@ public class ServiceLevelObjective {
 
 
    /**
-   * Creation timestamp (unix time in seconds) Always included in service level objective responses.
+   * Creation timestamp (unix time in seconds)  Always included in service level objective responses.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation timestamp (unix time in seconds) Always included in service level objective responses.")
+  @ApiModelProperty(value = "Creation timestamp (unix time in seconds)  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -144,11 +144,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * A user-defined description of the service level objective. Always included in service level objective responses (but may be null). Optional in create/update requests.
+   * A user-defined description of the service level objective.  Always included in service level objective responses (but may be null). Optional in create/update requests.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A user-defined description of the service level objective. Always included in service level objective responses (but may be null). Optional in create/update requests.")
+  @ApiModelProperty(value = "A user-defined description of the service level objective.  Always included in service level objective responses (but may be null). Optional in create/update requests.")
   @JsonIgnore
 
   public String getDescription() {
@@ -187,11 +187,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * A list of (up to 20) monitor groups (e.g. [\&quot;env:prod,role:mysql\&quot;]) that narrows the scope of a monitor service level objective. Included in service level objective responses if it is nonempty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the \&quot;monitor_ids\&quot; field is one.
+   * A list of (up to 20) monitor groups (e.g. [\&quot;env:prod,role:mysql\&quot;]) that narrows the scope of a monitor service level objective.  Included in service level objective responses if it is nonempty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the \&quot;monitor_ids\&quot; field is one.
    * @return groups
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of (up to 20) monitor groups (e.g. [\"env:prod,role:mysql\"]) that narrows the scope of a monitor service level objective. Included in service level objective responses if it is nonempty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the \"monitor_ids\" field is one.")
+  @ApiModelProperty(value = "A list of (up to 20) monitor groups (e.g. [\"env:prod,role:mysql\"]) that narrows the scope of a monitor service level objective.  Included in service level objective responses if it is nonempty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the \"monitor_ids\" field is one.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -212,11 +212,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * A unique identifier for the service level objective object. Always included in service level objective responses. Required for update requests.
+   * A unique identifier for the service level objective object.  Always included in service level objective responses. Required for update requests.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique identifier for the service level objective object. Always included in service level objective responses. Required for update requests.")
+  @ApiModelProperty(value = "A unique identifier for the service level objective object.  Always included in service level objective responses. Required for update requests.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -231,11 +231,11 @@ public class ServiceLevelObjective {
 
 
    /**
-   * Modification timestamp (unix time in seconds) Always included in service level objective responses.
+   * Modification timestamp (unix time in seconds)  Always included in service level objective responses.
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Modification timestamp (unix time in seconds) Always included in service level objective responses.")
+  @ApiModelProperty(value = "Modification timestamp (unix time in seconds)  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -261,11 +261,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * A list of monitor ids that defines the scope of a monitor service level objective. Required if type is \&quot;monitor\&quot;.
+   * A list of monitor ids that defines the scope of a monitor service level objective.  Required if type is \&quot;monitor\&quot;.
    * @return monitorIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of monitor ids that defines the scope of a monitor service level objective. Required if type is \"monitor\".")
+  @ApiModelProperty(value = "A list of monitor ids that defines the scope of a monitor service level objective.  Required if type is \"monitor\".")
   @JsonProperty(JSON_PROPERTY_MONITOR_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -294,11 +294,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * The union of monitor tags for all monitors referenced by the \&quot;monitor_ids\&quot; field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the monitor_ids field).
+   * The union of monitor tags for all monitors referenced by the \&quot;monitor_ids\&quot; field.  Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the monitor_ids field).
    * @return monitorTags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The union of monitor tags for all monitors referenced by the \"monitor_ids\" field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the monitor_ids field).")
+  @ApiModelProperty(value = "The union of monitor tags for all monitors referenced by the \"monitor_ids\" field.  Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the monitor_ids field).")
   @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -376,11 +376,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * A list of tags (e.g. \&quot;env:prod\&quot;) associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.
+   * A list of tags (e.g. \&quot;env:prod\&quot;) associated with this service level objective.  Always included in service level objective responses (but may be empty). Optional in create/update requests.
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of tags (e.g. \"env:prod\") associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.")
+  @ApiModelProperty(value = "A list of tags (e.g. \"env:prod\") associated with this service level objective.  Always included in service level objective responses (but may be empty). Optional in create/update requests.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

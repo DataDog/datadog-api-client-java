@@ -18,12 +18,7 @@ Method | HTTP request | Description
 
 Update Azure integration host filters
 
-
 Update the defined list of host filters for a given Datadog-Azure integration.
-### Arguments
-* **`tenant_name`** [*required*, *default* = **None**]: Your Azure Active Directory ID.
-* **`client_id`** [*required*, *default* = **None**]: Your Azure web application ID.
-* **`host_filters`** [*required*, *default* = **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 
 ### Example
 
@@ -54,7 +49,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
-        AzureAccount body = new AzureAccount(); // AzureAccount | Update a Datadog-Azure integrations host filters.
+        AzureAccount body = new AzureAccount(); // AzureAccount | Update a Datadog-Azure integration's host filters.
         try {
             Object result = api.azureUpdateHostFilters()
                 .body(body)
@@ -76,7 +71,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AzureAccount**](AzureAccount.md)| Update a Datadog-Azure integrations host filters. |
+ **body** | [**AzureAccount**](AzureAccount.md)| Update a Datadog-Azure integration&#39;s host filters. |
 
 ### Return type
 
@@ -96,7 +91,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## createAzureIntegration
@@ -105,13 +100,13 @@ Name | Type | Description  | Notes
 
 Create an Azure integration
 
-### Overview
 Create a Datadog-Azure integration.
-### Arguments
-* **`tenant_name`** [*required*, *default* = **None**]: Your Azure Active Directory ID.
-* **`client_id`** [*required*, *default* = **None**]: Your Azure web application ID.
-* **`client_secret`** [*required*, *default* = **None**]: Your Azure web application secret key.
-* **`host_filters`** [*optional*, *default* = **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+
+Using the `POST` method updates your integration configuration by adding your new
+configuration to the existing one in your Datadog organization.
+
+Using the `PUT` method updates your integration configuration by replacing your
+current configuration with the new one sent to your Datadog organization.
 
 ### Example
 
@@ -142,7 +137,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
-        AzureAccount body = new AzureAccount(); // AzureAccount | Create a Datadog-Azure integration.
+        AzureAccount body = new AzureAccount(); // AzureAccount | Create a Datadog-Azure integration for your Datadog account.
         try {
             Object result = api.createAzureIntegration()
                 .body(body)
@@ -164,7 +159,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AzureAccount**](AzureAccount.md)| Create a Datadog-Azure integration. |
+ **body** | [**AzureAccount**](AzureAccount.md)| Create a Datadog-Azure integration for your Datadog account. |
 
 ### Return type
 
@@ -184,7 +179,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## deleteAzureIntegration
@@ -193,11 +188,7 @@ Name | Type | Description  | Notes
 
 Delete an Azure integration
 
-
-Delete a given Datadog-Azure integration.
-### Arguments
-* **`tenant_name`** [*required*, *default* = **None**]: Your Azure Active Directory ID.
-* **`client_id`** [*required*, *default* = **None**]: Your Azure web application ID.
+Delete a given Datadog-Azure integration from your Datadog account.
 
 ### Example
 
@@ -270,7 +261,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## listAzureIntegration
@@ -279,7 +270,6 @@ Name | Type | Description  | Notes
 
 List all Azure integrations
 
-### Overview
 List all Datadog-Azure integrations configured in your Datadog account.
 
 ### Example
@@ -348,7 +338,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## updateAzureIntegration
@@ -357,15 +347,9 @@ This endpoint does not need any parameter.
 
 Update an Azure integration
 
-### Overview
-Update an Datadog-Azure integration. Requires an existing tenant_name and client_id. Any other fields supplied will overwrite existing values. To overwrite tenant_name or client_id, use new_tenant_name and new_client_id. To leave a field unchanged, do not supply that field in the payload.
-### Arguments
-* **`tenant_name`** [*required*, *default* = **None**]: Your existing Azure Active Directory ID.
-* **`new_tenant_name`** [*optional*, *default* = **None**]: Your new Azure Active Directory ID.
-* **`client_id`** [*required*, *default* = **None**]: Your existing Azure web application ID.
-* **`new_client_id`** [*optional*, *default* = **None**]: Your new Azure web application ID.
-* **`client_secret`** [*optional*, *default* = **None**]: Your Azure web application secret key.
-* **`host_filters`** [*optional*, *default* = **None**]: Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
+Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
+use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
 
 ### Example
 
@@ -438,5 +422,5 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 

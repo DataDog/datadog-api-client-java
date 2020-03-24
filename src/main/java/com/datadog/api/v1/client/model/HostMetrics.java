@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HostMetrics
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   HostMetrics.JSON_PROPERTY_CPU,
   HostMetrics.JSON_PROPERTY_IOWAIT,
@@ -48,11 +49,11 @@ public class HostMetrics {
   }
 
    /**
-   * Get cpu
+   * TODO.
    * @return cpu
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "99.0", value = "")
+  @ApiModelProperty(example = "99.0", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CPU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -73,11 +74,11 @@ public class HostMetrics {
   }
 
    /**
-   * Get iowait
+   * TODO.
    * @return iowait
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.2", value = "")
+  @ApiModelProperty(example = "3.2", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_IOWAIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -98,11 +99,11 @@ public class HostMetrics {
   }
 
    /**
-   * Get load
+   * TODO.
    * @return load
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.5", value = "")
+  @ApiModelProperty(example = "0.5", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

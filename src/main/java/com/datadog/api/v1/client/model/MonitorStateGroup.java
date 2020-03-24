@@ -24,8 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MonitorStateGroup
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   MonitorStateGroup.JSON_PROPERTY_LAST_DATA_TS,
   MonitorStateGroup.JSON_PROPERTY_LAST_NODATA_TS,
@@ -74,11 +75,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Get lastDataTs
+   * TODO.
    * @return lastDataTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LAST_DATA_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,11 +100,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Get lastNodataTs
+   * TODO.
    * @return lastNodataTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -124,11 +125,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Get lastNotifiedTs
+   * TODO.
    * @return lastNotifiedTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LAST_NOTIFIED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -149,11 +150,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Get lastResolvedTs
+   * TODO.
    * @return lastResolvedTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LAST_RESOLVED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -174,11 +175,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Get lastTriggeredTs
+   * TODO.
    * @return lastTriggeredTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -199,11 +200,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Get message
+   * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same ‘@username’ notation as events.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same ‘@username’ notation as events.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -224,11 +225,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Get name
+   * The name of the monitor.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the monitor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
