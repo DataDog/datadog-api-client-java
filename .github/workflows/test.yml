@@ -9,12 +9,14 @@ jobs:
  test:
    strategy:
      matrix:
-       java-version: ["8", "13"]
+       java-version: ["1.8", "ibm@1.8", "openjdk@1.8", "1.13", "ibm@1.13", "openjdk@1.13"]
        platform: [ubuntu-latest, macos-latest, windows-latest]
    runs-on: ${{ matrix.platform }}
    steps:
    - name: Install Java
-     uses: actions/setup-java@v1
+     # NOTE: we use setup-scala, because unlike setup-java it allows setting up
+     # various JDK implementations from various vendors
+     uses: olafurpg/setup-scala@v5
      with:
        java-version: ${{ matrix.java-version }}
    - name: Checkout code
