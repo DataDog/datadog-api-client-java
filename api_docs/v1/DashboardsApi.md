@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 
 
 ## deleteDashboard
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 | **404** | No dasbhoards found error |  -  |
 
 
@@ -257,7 +257,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 | **404** | Item Not Found |  -  |
 
 
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 | **404** | Item Not Found |  -  |
 
 
@@ -428,6 +428,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 | **404** | Item Not Found |  -  |
 

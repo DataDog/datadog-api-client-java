@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 List IP Ranges
 
-Get information about Datadog IP ranges
+Get information about Datadog IP ranges.
 
 ### Example
 
@@ -67,5 +67,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of IP ranges |  -  |
+| **200** | List of IP ranges. |  -  |
 

@@ -25,9 +25,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * In this object, the key is the tag, the value is a list of host names that are reporting that tag
+ * In this object, the key is the tag, the value is a list of host names that are reporting that tag.
  */
-@ApiModel(description = "In this object, the key is the tag, the value is a list of host names that are reporting that tag")
+@ApiModel(description = "In this object, the key is the tag, the value is a list of host names that are reporting that tag.")
 @JsonPropertyOrder({
   TagToHosts.JSON_PROPERTY_TAGS
 })
@@ -52,11 +52,11 @@ public class TagToHosts {
   }
 
    /**
-   * Get tags
+   * A list of tags to apply to the host.
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of tags to apply to the host.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

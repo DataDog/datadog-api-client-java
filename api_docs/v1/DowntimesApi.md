@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Cancel a downtime
 
-Cancel a Downtime
+Cancel a downtime.
 
 ### Example
 
@@ -50,7 +50,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
-        Long downtimeId = 123456; // Long | ID of the downtime to cancel
+        Long downtimeId = 123456; // Long | ID of the downtime to cancel.
         try {
             api.cancelDowntime(downtimeId)
                 .execute();
@@ -70,7 +70,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **downtimeId** | **Long**| ID of the downtime to cancel |
+ **downtimeId** | **Long**| ID of the downtime to cancel. |
 
 ### Return type
 
@@ -89,7 +89,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | OK |  -  |
-| **404** | Downtime not found error |  -  |
+| **404** | Downtime not found |  -  |
 
 
 ## cancelDowntimesByScope
@@ -98,11 +98,7 @@ null (empty response body)
 
 Cancel downtimes by scope
 
-### Overview
-DELETE all Downtimes that match the scope of X
-### Arguments
-* **`scope`** [*required*]: Cancel all downtimes with the given scope(s),
-  e.g.: `env:prod`, `role:db,role:db-slave`
+Delete all downtimes that match the scope of `X`.
 
 ### Example
 
@@ -133,7 +129,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
-        CancelDowntimesByScopeRequest body = new CancelDowntimesByScopeRequest(); // CancelDowntimesByScopeRequest | Scope to cancel downtimes for
+        CancelDowntimesByScopeRequest body = new CancelDowntimesByScopeRequest(); // CancelDowntimesByScopeRequest | Scope to cancel downtimes for.
         try {
             CanceledDowntimesIds result = api.cancelDowntimesByScope()
                 .body(body)
@@ -155,7 +151,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CancelDowntimesByScopeRequest**](CancelDowntimesByScopeRequest.md)| Scope to cancel downtimes for |
+ **body** | [**CancelDowntimesByScopeRequest**](CancelDowntimesByScopeRequest.md)| Scope to cancel downtimes for. |
 
 ### Return type
 
@@ -175,7 +171,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **404** | No downtimes found error |  -  |
+| **404** | Downtimes not found |  -  |
 
 
 ## createDowntime
@@ -184,47 +180,7 @@ Name | Type | Description  | Notes
 
 Schedule a downtime
 
-* **`scope`** [*required*]: The scope(s) to which the downtime applies, e.g. `host:app2`.
-  Provide multiple scopes as a comma-separated list, e.g. `env:dev,env:prod`. The
-  resulting downtime applies to sources that matches ALL provided scopes (i.e.
-  `env:dev` **AND** `env:prod`), NOT any of them.
-
-* **`monitor_tags`** [*optional*, *default*=**no monitor tag filter**]: A comma-separated
-  list of monitor tags, i.e. tags that are applied directly to monitors, *not* tags
-  that are used in monitor queries (which are filtered by the `scope` parameter), to
-  which the downtime applies. The resulting downtime applies to monitors that match
-  ALL provided monitor tags (i.e. `service:postgres` **AND** `team:frontend`), NOT any of them.
-
-* **`monitor_id`** [*optional*, *default*=**None**]: A single monitor to which the downtime
-  applies. If not provided, the downtime applies to all monitors.
-
-* **`start`** [*optional*, *default*=**None**]: POSIX timestamp to start the downtime.
-  If not provided, the downtime starts the moment it is created.
-
-* **`end`** [*optional*, *default*=**None**]: POSIX timestamp to end the downtime.
-  If not provided, the downtime is in effect indefinitely (i.e. until you cancel it).
-
-* **`message`** [*optional*, *default*=**None**]: A message to include with notifications
-  for this downtime. Email notifications can be sent to specific users by using
-   the same '@username' notation as events
-
-* **`timezone`** [*optional*, *default* = **UTC**]: The timezone for the downtime.
-* **`recurrence`** [*optional*, *default*=**None**]: An object defining the recurrence of the
-  downtime with a variety of parameters:
-
-  * **`type`** the type of recurrence. Choose from: `days`, `weeks`, `months`, `years`.
-
-  * **`period`** how often to repeat as an integer. For example to repeat every 3 days,
-    select a type of `days` and a period of `3`.
-
-  * **`week_days`** (optional) a list of week days to repeat on. Choose from: `Mon`,
-    `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`.
-    **First letter must be capitalized.**
-  * **`until_occurrences`** (optional) how many times the downtime is rescheduled.
-    **`until_occurrences` and `until_date`** are mutually exclusive
-
-  * **`until_date`** (optional) the date at which the recurrence should end
-    as a POSIX timestmap. **`until_occurrences` and `until_date`** are mutually exclusive
+Schedule a downtime.
 
 ### Example
 
@@ -305,10 +261,7 @@ Name | Type | Description  | Notes
 
 Get all downtimes
 
-### Overview
-Get All Scheduled Downtimes
-### Arguments
-* **`current_only`** [*optional*, *default* = **False**]: Only return downtimes that are active when the request is made.
+Get all scheduled downtimes.
 
 ### Example
 
@@ -389,10 +342,7 @@ Name | Type | Description  | Notes
 
 Get a downtime
 
-### Overview
-Get Downtime Detail by downtime_id
-### Arguments
-This endpoint takes no JSON arguments."
+Get downtime detail by `downtime_id`.
 
 ### Example
 
@@ -423,7 +373,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
-        Long downtimeId = 123456; // Long | ID of the downtime to fetch
+        Long downtimeId = 123456; // Long | ID of the downtime to fetch.
         try {
             Downtime result = api.getDowntime(downtimeId)
                 .execute();
@@ -444,7 +394,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **downtimeId** | **Long**| ID of the downtime to fetch |
+ **downtimeId** | **Long**| ID of the downtime to fetch. |
 
 ### Return type
 
@@ -463,7 +413,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **404** | Downtime not found error |  -  |
+| **404** | Downtime not found |  -  |
 
 
 ## updateDowntime
@@ -472,52 +422,7 @@ Name | Type | Description  | Notes
 
 Update a downtime
 
-### Overview
-Update a single Downtime by downtime_id.
-### Arguments
-* **`id`** [*required*]: The integer id of the downtime to be updated
-* **`scope`** [*required*]: The scope to which the downtime applies, e.g. 'host:app2'.
-  Provide multiple scopes as a comma-separated list, e.g. 'env:dev,env:prod'.
-  The resulting downtime applies to sources that matches ALL provided scopes
-  (i.e. env:dev AND env:prod), NOT any of them.
-
-* **`monitor_tags`** [*optional*, *default*=**no monitor tag filter**]: A comma-separated
-  list of monitor tags, i.e. tags that are applied directly to monitors, *not* tags that
-  are used in monitor queries (which are filtered by the `scope` parameter), to which
-  the downtime applies. The resulting downtime applies to monitors that match ALL provided
-  monitor tags (i.e. `service:postgres` **AND** `team:frontend`), NOT any of them.
-
-* **`monitor_id`** [*optional*, *default*=**None**]: A single monitor to which the downtime
-  applies. If not provided, the downtime applies to all monitors.
-
-* **`start`** [*optional*, *default* = **original start**]: POSIX timestamp to start
-  the downtime.
-
-* **`end`** [*optional*, *default* = **original end**]: POSIX timestamp to end the downtime.
-  If not provided, the downtime is in effect indefinitely (i.e. until you cancel it).
-
-* **`message`** [*required*, *default* = **original message**]: A message to include with
-  notifications for this downtime. Email notifications can be sent to specific users by
-  using the same '@username' notation as events
-
-* **`timezone`** [*optional*, default = **original timezone** ]: The timezone for the downtime.
-* **`recurrence`** [*optional*, *default* = **original recurrence**]: An object defining the
-  recurrence of the downtime with a variety of parameters:
-
-    * **`type`** the type of recurrence. Choose from: `days`, `weeks`, `months`, `years`.
-
-    * **`period`** how often to repeat as an integer. For example to repeat every 3 days,
-      select a type of `days` and a period of `3`.
-
-    * **`week_days`** (optional) a list of week days to repeat on. Choose from: `Mon`, `Tue`,
-      `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`.
-      **First letter must be capitalized.**
-
-    * **`until_occurrences`** (optional) how many times the downtime is rescheduled.
-      **`until_occurrences` and `until_date`** are mutually exclusive
-
-    * **`until_date`** (optional) the date at which the recurrence should end as a POSIX
-      timestmap. **`until_occurrences` and `until_date`** are mutually exclusive
+Update a single downtime by `downtime_id`.
 
 ### Example
 
@@ -548,8 +453,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
-        Long downtimeId = 123456; // Long | ID of the downtime to update
-        Downtime body = new Downtime(); // Downtime | Downtime request object
+        Long downtimeId = 123456; // Long | ID of the downtime to update.
+        Downtime body = new Downtime(); // Downtime | Downtime request object.
         try {
             Downtime result = api.updateDowntime(downtimeId)
                 .body(body)
@@ -571,8 +476,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **downtimeId** | **Long**| ID of the downtime to update |
- **body** | [**Downtime**](Downtime.md)| Downtime request object |
+ **downtimeId** | **Long**| ID of the downtime to update. |
+ **body** | [**Downtime**](Downtime.md)| Downtime request object. |
 
 ### Return type
 
@@ -592,5 +497,5 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **404** | Downtime not found error |  -  |
+| **404** | Downtime not found |  -  |
 

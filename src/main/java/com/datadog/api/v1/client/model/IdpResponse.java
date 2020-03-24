@@ -40,10 +40,10 @@ public class IdpResponse {
   }
 
    /**
-   * Get message
+   * TODO.
    * @return message
   **/
-  @ApiModelProperty(example = "IdP metadata successfully uploaded for example org", required = true, value = "")
+  @ApiModelProperty(example = "IdP metadata successfully uploaded for example org", required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

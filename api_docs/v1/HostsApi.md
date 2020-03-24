@@ -4,8 +4,8 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllHosts**](HostsApi.md#getAllHosts) | **GET** /api/v1/hosts | Search for hosts
-[**getHostTotals**](HostsApi.md#getHostTotals) | **GET** /api/v1/hosts/totals | Host totals
+[**getAllHosts**](HostsApi.md#getAllHosts) | **GET** /api/v1/hosts | Get all hosts for your organization
+[**getHostTotals**](HostsApi.md#getHostTotals) | **GET** /api/v1/hosts/totals | Get the total number of active hosts
 [**muteHost**](HostsApi.md#muteHost) | **POST** /api/v1/host/{host_name}/mute | Mute a host
 [**unmuteHost**](HostsApi.md#unmuteHost) | **POST** /api/v1/host/{host_name}/unmute | Unmute a host
 
@@ -15,9 +15,11 @@ Method | HTTP request | Description
 
 > HostListResponse getAllHosts().filter(filter).sortField(sortField).sortDir(sortDir).start(start).count(count).from(from).execute();
 
-Search for hosts
+Get all hosts for your organization
 
-This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included. Results are paginated with a max of 1000 results at a time.
+This endpoint allows searching for hosts by name, alias, or tag.
+Hosts live within the past 3 hours are included.
+Results are paginated with a max of 1000 results at a time.
 
 ### Example
 
@@ -48,12 +50,12 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         HostsApi apiInstance = new HostsApi(defaultClient);
-        String filter = "filter_example"; // String | String to filter search results
-        String sortField = "sortField_example"; // String | Sort hosts by this field
-        String sortDir = "sortDir_example"; // String | Direction of sort
-        Long start = 56L; // Long | Host result to start search from
-        Long count = 56L; // Long | Number of hosts to return
-        Long from = 56L; // Long | Number of seconds from which you want to search your hosts
+        String filter = "filter_example"; // String | String to filter search results.
+        String sortField = "sortField_example"; // String | Sort hosts by this field.
+        String sortDir = "sortDir_example"; // String | Direction of sort. Options include `asc` and `desc`.
+        Long start = 56L; // Long | Host result to start search from.
+        Long count = 56L; // Long | Number of hosts to return. Max 1000.
+        Long from = 56L; // Long | Number of seconds since UNIX epoch from which you want to search your hosts.
         try {
             HostListResponse result = api.getAllHosts()
                 .filter(filter)
@@ -80,12 +82,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | **String**| String to filter search results | [optional]
- **sortField** | **String**| Sort hosts by this field | [optional]
- **sortDir** | **String**| Direction of sort | [optional]
- **start** | **Long**| Host result to start search from | [optional]
- **count** | **Long**| Number of hosts to return | [optional]
- **from** | **Long**| Number of seconds from which you want to search your hosts | [optional]
+ **filter** | **String**| String to filter search results. | [optional]
+ **sortField** | **String**| Sort hosts by this field. | [optional]
+ **sortDir** | **String**| Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;. | [optional]
+ **start** | **Long**| Host result to start search from. | [optional]
+ **count** | **Long**| Number of hosts to return. Max 1000. | [optional]
+ **from** | **Long**| Number of seconds since UNIX epoch from which you want to search your hosts. | [optional]
 
 ### Return type
 
@@ -112,9 +114,10 @@ Name | Type | Description  | Notes
 
 > HostTotals getHostTotals().from(from).execute();
 
-Host totals
+Get the total number of active hosts
 
-This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
+This endpoint returns the total number of active and up hosts in your Datadog account.
+Active means the host has reported in the past hour, and up means it has reported in the past two hours.
 
 ### Example
 
@@ -145,7 +148,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         HostsApi apiInstance = new HostsApi(defaultClient);
-        Long from = 56L; // Long | Number of seconds from which you want to get total number of active hosts
+        Long from = 56L; // Long | Number of seconds from which you want to get total number of active hosts.
         try {
             HostTotals result = api.getHostTotals()
                 .from(from)
@@ -167,7 +170,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **Long**| Number of seconds from which you want to get total number of active hosts | [optional]
+ **from** | **Long**| Number of seconds from which you want to get total number of active hosts. | [optional]
 
 ### Return type
 
@@ -226,8 +229,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         HostsApi apiInstance = new HostsApi(defaultClient);
-        String hostName = "hostName_example"; // String | Name of the host to mute
-        HostMuteSettings body = new HostMuteSettings(); // HostMuteSettings | Mute a host
+        String hostName = "hostName_example"; // String | Name of the host to mute.
+        HostMuteSettings body = new HostMuteSettings(); // HostMuteSettings | Mute a host.
         try {
             HostMuteResponse result = api.muteHost(hostName)
                 .body(body)
@@ -249,8 +252,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hostName** | **String**| Name of the host to mute |
- **body** | [**HostMuteSettings**](HostMuteSettings.md)| Mute a host | [optional]
+ **hostName** | **String**| Name of the host to mute. |
+ **body** | [**HostMuteSettings**](HostMuteSettings.md)| Mute a host. | [optional]
 
 ### Return type
 
@@ -278,7 +281,7 @@ Name | Type | Description  | Notes
 
 Unmute a host
 
-Unmute a Host.
+Unmutes a host. This endpoint takes no JSON arguments.
 
 ### Example
 

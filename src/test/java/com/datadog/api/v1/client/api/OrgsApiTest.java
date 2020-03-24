@@ -115,10 +115,10 @@ public class OrgsApiTest extends V1ApiTest {
                         new OrgSettingsSaml().enabled(true)
                 )
                         .samlIdpInitiatedLogin(
-                                new OrgSettingsSaml().enabled(true)
+                                new OrgSettingsSamlIdpInitiatedLogin().enabled(true)
                         )
                         .samlStrictMode(
-                                new OrgSettingsSaml().enabled(true)
+                                new OrgSettingsSamlIdpInitiatedLogin().enabled(true)
                         )
                         .samlAutocreateUsersDomains(
                                 new OrgSettingsSamlAutocreateUsersDomains().enabled(true).addDomainsItem("my-org.com").addDomainsItem("example.com")

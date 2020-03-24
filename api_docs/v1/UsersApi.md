@@ -18,21 +18,10 @@ Method | HTTP request | Description
 
 Create user
 
-### Overview
 Create a user for your organization.
-### Arguments
-* **`handle`** [*required*]: The user handle, must be a valid email.
-* **`name`** [*optional*, *default*=**None**]: The name of the user.
-* **`access_role`** [*optional*, *default*=**st**]: The access role of the user. Choose from:
 
-  *  **st** (standard user),
-
-  *  **adm** (admin user),
-
-  *  **ro** (read-only user).
-
-  **Note**: users can be created with admin access role
-     only with application keys belonging to administrators.
+**Note**: users can be created with admin access role
+only with application keys belonging to administrators.
 
 ### Example
 
@@ -114,12 +103,10 @@ Name | Type | Description  | Notes
 
 Disable user
 
-### Overview
 Delete a user from an organization.
 
-**Note**: This endpoint can only be used with application keys belonging to administrators.
-### Arguments
-* **`id`** [*required*]: The handle of the user.
+**Note**: This endpoint can only be used with application keys belonging to
+administrators.
 
 ### Example
 
@@ -200,10 +187,7 @@ Name | Type | Description  | Notes
 
 Get all users
 
-### Overview
 Get all users for your organization.
-### Arguments
-This endpoint takes no JSON argument.
 
 ### Example
 
@@ -280,10 +264,7 @@ This endpoint does not need any parameter.
 
 Get user
 
-### Overview
 Get a user details.
-### Arguments
-* **`user_handle`** [*required*]: The handle of the user.
 
 ### Example
 
@@ -314,7 +295,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userHandle = test@datadoghq.com; // String | The id of the user
+        String userHandle = test@datadoghq.com; // String | The ID of the user.
         try {
             UserResponse result = api.getUser(userHandle)
                 .execute();
@@ -335,7 +316,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userHandle** | [**String**](.md)| The id of the user |
+ **userHandle** | [**String**](.md)| The ID of the user. |
 
 ### Return type
 
@@ -364,22 +345,9 @@ Name | Type | Description  | Notes
 
 Update user
 
-### Overview
 Update a user informations.
 
 **Note**: It can only be used with application keys belonging to administrators.
-### Arguments
-* **`id`** [*required*]: The handle of the user.
-* **`name`** [*optional*, *default*=**None**]: The new name of the user.
-* **`email`** [*optional*, *default*=**None**]: The new email of the user.
-* **`disabled`** [*optional*, *default*=**None**]: The new disabled status of the user.
-* **`access_role`** [*optional*, *default*=**st**]: The access role of the user. Choose from:
-
-  *  **st** (standard user)
-
-  *  **adm** (admin user)
-
-  *  **ro** (read-only user)
 
 ### Example
 
@@ -410,8 +378,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userHandle = test@datadoghq.com; // String | The id of the user
-        User body = new User(); // User | Description of the update
+        String userHandle = test@datadoghq.com; // String | The ID of the user.
+        User body = new User(); // User | Description of the update.
         try {
             UserResponse result = api.updateUser(userHandle)
                 .body(body)
@@ -433,8 +401,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userHandle** | [**String**](.md)| The id of the user |
- **body** | [**User**](User.md)| Description of the update |
+ **userHandle** | [**String**](.md)| The ID of the user. |
+ **body** | [**User**](User.md)| Description of the update. |
 
 ### Return type
 

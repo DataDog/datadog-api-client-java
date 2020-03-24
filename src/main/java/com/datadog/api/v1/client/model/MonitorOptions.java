@@ -33,8 +33,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MonitorOptions
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   MonitorOptions.JSON_PROPERTY_AGGREGATION,
   MonitorOptions.JSON_PROPERTY_DEVICE_IDS,
@@ -69,40 +70,40 @@ public class MonitorOptions {
   private Boolean enableLogsSample;
 
   public static final String JSON_PROPERTY_ESCALATION_MESSAGE = "escalation_message";
-  private String escalationMessage;
+  private String escalationMessage = "none";
 
   public static final String JSON_PROPERTY_EVALUATION_DELAY = "evaluation_delay";
   private JsonNullable<Long> evaluationDelay = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
-  private Boolean includeTags;
+  private Boolean includeTags = true;
 
   public static final String JSON_PROPERTY_LOCKED = "locked";
   private Boolean locked;
 
   public static final String JSON_PROPERTY_MIN_FAILURE_DURATION = "min_failure_duration";
-  private JsonNullable<Long> minFailureDuration = JsonNullable.<Long>undefined();
+  private JsonNullable<Long> minFailureDuration = JsonNullable.<Long>of(0l);
 
   public static final String JSON_PROPERTY_MIN_LOCATION_FAILED = "min_location_failed";
-  private JsonNullable<Long> minLocationFailed = JsonNullable.<Long>undefined();
+  private JsonNullable<Long> minLocationFailed = JsonNullable.<Long>of(1l);
 
   public static final String JSON_PROPERTY_NEW_HOST_DELAY = "new_host_delay";
-  private JsonNullable<Long> newHostDelay = JsonNullable.<Long>undefined();
+  private JsonNullable<Long> newHostDelay = JsonNullable.<Long>of(300l);
 
   public static final String JSON_PROPERTY_NO_DATA_TIMEFRAME = "no_data_timeframe";
   private JsonNullable<Long> noDataTimeframe = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NOTIFY_AUDIT = "notify_audit";
-  private Boolean notifyAudit;
+  private Boolean notifyAudit = false;
 
   public static final String JSON_PROPERTY_NOTIFY_NO_DATA = "notify_no_data";
-  private Boolean notifyNoData;
+  private Boolean notifyNoData = false;
 
   public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
   private JsonNullable<Long> renotifyInterval = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
-  private Boolean requireFullWindow;
+  private Boolean requireFullWindow = true;
 
   public static final String JSON_PROPERTY_SILENCED = "silenced";
   private Map<String, Long> silenced = null;
@@ -160,11 +161,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get deviceIds
+   * TODO.
    * @return deviceIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,11 +186,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get enableLogsSample
+   * TODO.
    * @return enableLogsSample
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ENABLE_LOGS_SAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -210,11 +211,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get escalationMessage
+   * A message to include with a re-notification. Supports the ‘@username’ notification we allow elsewhere. Not applicable if &#x60;renotify_interval&#x60; is None.
    * @return escalationMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A message to include with a re-notification. Supports the ‘@username’ notification we allow elsewhere. Not applicable if `renotify_interval` is None.")
   @JsonProperty(JSON_PROPERTY_ESCALATION_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -235,11 +236,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get evaluationDelay
+   * Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
    * @return evaluationDelay
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.")
   @JsonIgnore
 
   public Long getEvaluationDelay() {
@@ -270,11 +271,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get includeTags
+   * A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.  **Examples** - If &#x60;True&#x60;, &#x60;[Triggered on {host:h1}] Monitor Title&#x60; - If &#x60;False&#x60;, &#x60;[Triggered] Monitor Title&#x60;
    * @return includeTags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.  **Examples** - If `True`, `[Triggered on {host:h1}] Monitor Title` - If `False`, `[Triggered] Monitor Title`")
   @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -320,13 +321,13 @@ public class MonitorOptions {
   }
 
    /**
-   * Get minFailureDuration
+   * How long the test should be in failure before alerting (integer, number of seconds, max 7200).
    * minimum: 0
    * maximum: 7200
    * @return minFailureDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "How long the test should be in failure before alerting (integer, number of seconds, max 7200).")
   @JsonIgnore
 
   public Long getMinFailureDuration() {
@@ -357,11 +358,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get minLocationFailed
+   * The minimum number of locations in failure at the same time during at least one moment in the &#x60;min_failure_duration&#x60; period (&#x60;min_location_failed&#x60; and &#x60;min_failure_duration&#x60; are part of the advanced alerting rules - integer, &gt;&#x3D; 1).
    * @return minLocationFailed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The minimum number of locations in failure at the same time during at least one moment in the `min_failure_duration` period (`min_location_failed` and `min_failure_duration` are part of the advanced alerting rules - integer, >= 1).")
   @JsonIgnore
 
   public Long getMinLocationFailed() {
@@ -392,11 +393,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get newHostDelay
+   * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer.
    * @return newHostDelay
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer.")
   @JsonIgnore
 
   public Long getNewHostDelay() {
@@ -427,11 +428,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get noDataTimeframe
+   * The number of minutes before a monitor notifies after data stops reporting. Datadog recommends at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. If omitted, 2x the evaluation timeframe is used for metric alerts, and 24 hours is used for service checks.
    * @return noDataTimeframe
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of minutes before a monitor notifies after data stops reporting. Datadog recommends at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. If omitted, 2x the evaluation timeframe is used for metric alerts, and 24 hours is used for service checks.")
   @JsonIgnore
 
   public Long getNoDataTimeframe() {
@@ -462,11 +463,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get notifyAudit
+   * A Boolean indicating whether tagged users is notified on changes to this monitor.
    * @return notifyAudit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A Boolean indicating whether tagged users is notified on changes to this monitor.")
   @JsonProperty(JSON_PROPERTY_NOTIFY_AUDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -487,11 +488,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get notifyNoData
+   * A Boolean indicating whether this monitor notifies when data stops reporting.
    * @return notifyNoData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A Boolean indicating whether this monitor notifies when data stops reporting.")
   @JsonProperty(JSON_PROPERTY_NOTIFY_NO_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -512,11 +513,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get renotifyInterval
+   * The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved.
    * @return renotifyInterval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved.")
   @JsonIgnore
 
   public Long getRenotifyInterval() {
@@ -547,11 +548,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get requireFullWindow
+   * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. &#x60;False&#x60; otherwise.
    * @return requireFullWindow
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. `False` otherwise.")
   @JsonProperty(JSON_PROPERTY_REQUIRE_FULL_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -580,11 +581,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get silenced
+   * TODO.
    * @return silenced
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SILENCED)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -605,11 +606,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get syntheticsCheckId
+   * TODO.
    * @return syntheticsCheckId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonIgnore
 
   public Long getSyntheticsCheckId() {
@@ -690,11 +691,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get timeoutH
+   * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
    * @return timeoutH
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of hours of the monitor not reporting data before it automatically resolves from a triggered state.")
   @JsonIgnore
 
   public Long getTimeoutH() {

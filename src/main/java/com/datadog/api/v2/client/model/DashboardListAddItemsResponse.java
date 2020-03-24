@@ -51,11 +51,11 @@ public class DashboardListAddItemsResponse {
   }
 
    /**
-   * List of dashboards added to the dashboard list
+   * List of dashboards added to the dashboard list.
    * @return addedDashboardsToList
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of dashboards added to the dashboard list")
+  @ApiModelProperty(value = "List of dashboards added to the dashboard list.")
   @JsonProperty(JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

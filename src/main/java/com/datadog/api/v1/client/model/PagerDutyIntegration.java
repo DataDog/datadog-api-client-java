@@ -56,11 +56,11 @@ public class PagerDutyIntegration {
   }
 
    /**
-   * Get apiToken
+   * Your PagerDuty API token.
    * @return apiToken
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "<PAGERDUTY_TOKEN>", value = "")
+  @ApiModelProperty(example = "<PAGERDUTY_TOKEN>", value = "Your PagerDuty API token.")
   @JsonProperty(JSON_PROPERTY_API_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -147,11 +147,11 @@ public class PagerDutyIntegration {
   }
 
    /**
-   * Get subdomain
+   * Your PagerDuty subdomain.
    * @return subdomain
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "<PAGERDUTY_SUB_DOMAIN>", value = "")
+  @ApiModelProperty(example = "<PAGERDUTY_SUB_DOMAIN>", value = "Your PagerDuty subdomain.")
   @JsonProperty(JSON_PROPERTY_SUBDOMAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
