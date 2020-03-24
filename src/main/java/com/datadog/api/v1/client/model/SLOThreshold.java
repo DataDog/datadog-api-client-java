@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SLOThreshold
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SLOThreshold.JSON_PROPERTY_TARGET,
   SLOThreshold.JSON_PROPERTY_TARGET_DISPLAY,
@@ -81,11 +82,11 @@ public class SLOThreshold {
   }
 
    /**
-   * A string representation of the target that indicates its precision (e.g. \&quot;99.9\&quot;). It uses trailing zeros to show significant decimal places (e.g. \&quot;98.00\&quot;). Always included in service level objective responses. Ignored in create/update requests.
+   * A string representation of the target that indicates its precision (e.g. \&quot;99.9\&quot;). It uses trailing zeros to show significant decimal places (e.g. \&quot;98.00\&quot;).  Always included in service level objective responses. Ignored in create/update requests.
    * @return targetDisplay
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A string representation of the target that indicates its precision (e.g. \"99.9\"). It uses trailing zeros to show significant decimal places (e.g. \"98.00\"). Always included in service level objective responses. Ignored in create/update requests.")
+  @ApiModelProperty(value = "A string representation of the target that indicates its precision (e.g. \"99.9\"). It uses trailing zeros to show significant decimal places (e.g. \"98.00\").  Always included in service level objective responses. Ignored in create/update requests.")
   @JsonProperty(JSON_PROPERTY_TARGET_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -155,11 +156,11 @@ public class SLOThreshold {
   }
 
    /**
-   * A string representation of the warning target (see the description of the \&quot;target_display\&quot; field for details). Included in service level objective responses if a warning target exists. Ignored in create/update requests.
+   * A string representation of the warning target (see the description of the \&quot;target_display\&quot; field for details).  Included in service level objective responses if a warning target exists. Ignored in create/update requests.
    * @return warningDisplay
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A string representation of the warning target (see the description of the \"target_display\" field for details). Included in service level objective responses if a warning target exists. Ignored in create/update requests.")
+  @ApiModelProperty(value = "A string representation of the warning target (see the description of the \"target_display\" field for details).  Included in service level objective responses if a warning target exists. Ignored in create/update requests.")
   @JsonProperty(JSON_PROPERTY_WARNING_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

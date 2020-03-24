@@ -13,59 +13,49 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.Series;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MetricsPayload
+ * Has one property enabled (boolean).
  */
+@ApiModel(description = "Has one property enabled (boolean).")
 @JsonPropertyOrder({
-  MetricsPayload.JSON_PROPERTY_SERIES
+  OrgSettingsSamlIdpInitiatedLogin.JSON_PROPERTY_ENABLED
 })
 
-public class MetricsPayload {
-  public static final String JSON_PROPERTY_SERIES = "series";
-  private List<Series> series = null;
+public class OrgSettingsSamlIdpInitiatedLogin {
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
 
 
-  public MetricsPayload series(List<Series> series) {
+  public OrgSettingsSamlIdpInitiatedLogin enabled(Boolean enabled) {
     
-    this.series = series;
-    return this;
-  }
-
-  public MetricsPayload addSeriesItem(Series seriesItem) {
-    if (this.series == null) {
-      this.series = new ArrayList<>();
-    }
-    this.series.add(seriesItem);
+    this.enabled = enabled;
     return this;
   }
 
    /**
-   * A list of time series to submit to Datadog.
-   * @return series
+   * Get enabled
+   * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of time series to submit to Datadog.")
-  @JsonProperty(JSON_PROPERTY_SERIES)
+  @ApiModelProperty(example = "false", value = "")
+  @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Series> getSeries() {
-    return series;
+  public Boolean getEnabled() {
+    return enabled;
   }
 
 
-  public void setSeries(List<Series> series) {
-    this.series = series;
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
 
@@ -77,21 +67,21 @@ public class MetricsPayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricsPayload metricsPayload = (MetricsPayload) o;
-    return Objects.equals(this.series, metricsPayload.series);
+    OrgSettingsSamlIdpInitiatedLogin orgSettingsSamlIdpInitiatedLogin = (OrgSettingsSamlIdpInitiatedLogin) o;
+    return Objects.equals(this.enabled, orgSettingsSamlIdpInitiatedLogin.enabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(series);
+    return Objects.hash(enabled);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MetricsPayload {\n");
-    sb.append("    series: ").append(toIndentedString(series)).append("\n");
+    sb.append("class OrgSettingsSamlIdpInitiatedLogin {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

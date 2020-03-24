@@ -46,11 +46,11 @@ public class MetricsListResponse {
   }
 
    /**
-   * Time when the metrics where active, seconds since the Unix epoch.
+   * Time when the metrics were active, seconds since the Unix epoch.
    * @return from
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time when the metrics where active, seconds since the Unix epoch.")
+  @ApiModelProperty(value = "Time when the metrics were active, seconds since the Unix epoch.")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -79,11 +79,11 @@ public class MetricsListResponse {
   }
 
    /**
-   * List of metric names
+   * List of metric names.
    * @return metrics
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of metric names")
+  @ApiModelProperty(value = "List of metric names.")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

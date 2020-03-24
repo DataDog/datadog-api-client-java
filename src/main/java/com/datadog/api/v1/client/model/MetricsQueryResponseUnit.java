@@ -82,11 +82,11 @@ public class MetricsQueryResponseUnit {
 
 
    /**
-   * Plural form of the unit name
+   * Plural form of the unit name.
    * @return plural
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "minutes", value = "Plural form of the unit name")
+  @ApiModelProperty(example = "minutes", value = "Plural form of the unit name.")
   @JsonProperty(JSON_PROPERTY_PLURAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -114,11 +114,11 @@ public class MetricsQueryResponseUnit {
 
 
    /**
-   * Abbreviation of the unit
+   * Abbreviation of the unit.
    * @return shortName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "min", value = "Abbreviation of the unit")
+  @ApiModelProperty(example = "min", value = "Abbreviation of the unit.")
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

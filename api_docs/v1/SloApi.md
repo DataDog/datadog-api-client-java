@@ -22,7 +22,10 @@ Method | HTTP request | Description
 Bulk Delete SLO Timeframes
 
 Delete (or partially delete) multiple service level objective objects.
-This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
+
+This endpoint facilitates deletion of one or more thresholds for one or more
+service level objective objects. If all thresholds are deleted, the service level
+objective object is deleted as well.
 
 ### Example
 
@@ -53,7 +56,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SloApi apiInstance = new SloApi(defaultClient);
-        Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Thresholds by service level objective object ID
+        Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Thresholds by service level objective object ID.
         try {
             ServiceLevelObjectivesBulkDeleted result = api.bulkPartialDeleteSLO()
                 .body(body)
@@ -75,7 +78,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Map&lt;String, List&lt;SLOTimeframe&gt;&gt;**](List.md)| Thresholds by service level objective object ID |
+ **body** | [**Map&lt;String, List&lt;SLOTimeframe&gt;&gt;**](List.md)| Thresholds by service level objective object ID. |
 
 ### Return type
 
@@ -105,7 +108,8 @@ Name | Type | Description  | Notes
 
 Check if SLOs can be safely deleted
 
-Check if an SLO can be safely deleted without disrupting dashboardsfor example.
+Check if an SLO can be safely deleted without disrupting
+dashboardsfor example.
 
 ### Example
 
@@ -219,7 +223,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SloApi apiInstance = new SloApi(defaultClient);
-        ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | Service level objective request object
+        ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | Service level objective request object.
         try {
             ServiceLevelObjectiveListResponse result = api.createSLO()
                 .body(body)
@@ -241,7 +245,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ServiceLevelObjective**](ServiceLevelObjective.md)| Service level objective request object |
+ **body** | [**ServiceLevelObjective**](ServiceLevelObjective.md)| Service level objective request object. |
 
 ### Return type
 
@@ -272,7 +276,9 @@ Name | Type | Description  | Notes
 Delete a SLO
 
 Permanently delete the specified service level objective object.
-If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
+
+If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns
+a 409 conflict error because the SLO is referenced in a dashboard.
 
 ### Example
 
@@ -303,7 +309,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SloApi apiInstance = new SloApi(defaultClient);
-        String sloId = "sloId_example"; // String | The id of the service level objective
+        String sloId = "sloId_example"; // String | The id of the service level objective.
         try {
             ServiceLevelObjectiveDeleted result = api.deleteSLO(sloId)
                 .execute();
@@ -324,7 +330,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The id of the service level objective |
+ **sloId** | **String**| The id of the service level objective. |
 
 ### Return type
 
@@ -355,10 +361,7 @@ Name | Type | Description  | Notes
 
 Edit a SLO
 
-### Overview
 Edit the specified service level objective object.
-### Arguments
-* **`slo_id`** [*required*]: The ID of the service level objective object
 
 ### Example
 
@@ -389,7 +392,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SloApi apiInstance = new SloApi(defaultClient);
-        String sloId = "sloId_example"; // String | The ID of the service level objective object
+        String sloId = "sloId_example"; // String | The ID of the service level objective object.
         ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | The edited service level objective request object.
         try {
             ServiceLevelObjectiveListResponse result = api.editSLO(sloId)
@@ -412,7 +415,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective object |
+ **sloId** | **String**| The ID of the service level objective object. |
  **body** | [**ServiceLevelObjective**](ServiceLevelObjective.md)| The edited service level objective request object. |
 
 ### Return type
@@ -444,10 +447,7 @@ Name | Type | Description  | Notes
 
 Get a SLO&#39;s details
 
-### Overview
 Get a service level objective object.
-### Arguments
-* **`slo_id`** [*required*]: The ID of the service level objective object
 
 ### Example
 
@@ -478,7 +478,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SloApi apiInstance = new SloApi(defaultClient);
-        String sloId = "sloId_example"; // String | The ID of the service level objective object
+        String sloId = "sloId_example"; // String | The ID of the service level objective object.
         try {
             ServiceLevelObjectiveResponse result = api.getSLO(sloId)
                 .execute();
@@ -499,7 +499,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective object |
+ **sloId** | **String**| The ID of the service level objective object. |
 
 ### Return type
 
@@ -530,11 +530,7 @@ Name | Type | Description  | Notes
 
 Search SLOs
 
-### Overview
 Get multiple service level objective objects by their IDs.
-### Arguments
-* **`ids`** [*required*]: A comma separated list of the IDs of the service level
-  objectives objects (e.g. "id1,id2,id3").
 
 ### Example
 
@@ -565,7 +561,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SloApi apiInstance = new SloApi(defaultClient);
-        String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects (e.g. \"id1,id2,id3\").
+        String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects. For example, \"id1,id2,id3\".
         try {
             ServiceLevelObjectiveListResponse result = api.getSLOs()
                 .ids(ids)
@@ -587,7 +583,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects (e.g. \&quot;id1,id2,id3\&quot;). |
+ **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. For example, \&quot;id1,id2,id3\&quot;. |
 
 ### Return type
 
@@ -618,8 +614,13 @@ Name | Type | Description  | Notes
 Get an SLO&#39;s history
 
 Get a specific SLO’s history, regardless of its SLO type.
-The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.
-**Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
+
+The detailed history data is structured according to the source data type.
+For example, metric data is included for event SLOs that use
+the metric source, and monitor SLO types include the monitor transition history.
+
+**Note:** There are different response formats for event based and time based SLOs.
+Examples of both are shown.
 
 ### Example
 
@@ -650,9 +651,9 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SloApi apiInstance = new SloApi(defaultClient);
-        String sloId = "sloId_example"; // String | The ID of the service level objective object
-        String fromTs = "fromTs_example"; // String | The `from` timestamp for the query window in epoch seconds
-        String toTs = "toTs_example"; // String | The `to` timestamp for the query window in epoch seconds
+        String sloId = "sloId_example"; // String | The ID of the service level objective object.
+        String fromTs = "fromTs_example"; // String | The `from` timestamp for the query window in epoch seconds.
+        String toTs = "toTs_example"; // String | The `to` timestamp for the query window in epoch seconds.
         try {
             HistoryServiceLevelObjectiveResponse result = api.historyForSLO(sloId)
                 .fromTs(fromTs)
@@ -675,9 +676,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective object |
- **fromTs** | **String**| The &#x60;from&#x60; timestamp for the query window in epoch seconds |
- **toTs** | **String**| The &#x60;to&#x60; timestamp for the query window in epoch seconds |
+ **sloId** | **String**| The ID of the service level objective object. |
+ **fromTs** | **String**| The &#x60;from&#x60; timestamp for the query window in epoch seconds. |
+ **toTs** | **String**| The &#x60;to&#x60; timestamp for the query window in epoch seconds. |
 
 ### Return type
 

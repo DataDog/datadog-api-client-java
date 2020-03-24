@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Response returned by the Logs API when errors occur
+ * Response returned by the Logs API when errors occur.
  */
-@ApiModel(description = "Response returned by the Logs API when errors occur")
+@ApiModel(description = "Response returned by the Logs API when errors occur.")
 @JsonPropertyOrder({
   LogsAPIErrorResponse.JSON_PROPERTY_ERROR
 })

@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **message** | **String** | Optional message if there are specific query issues/warnings. |  [optional]
 **numerator** | [**HistoryServiceLevelObjectiveMetricsSeries**](HistoryServiceLevelObjectiveMetricsSeries.md) |  | 
 **query** | **String** | The combined numerator &amp;&amp; denominator query CSV. | 
-**resType** | **String** | The series result type. This mimics &#x60;batch_query&#x60; response type | 
-**respVersion** | **Long** | The series response version type. This mimics &#x60;batch_query&#x60; response type | 
+**resType** | **String** | The series result type. This mimics &#x60;batch_query&#x60; response type. | 
+**respVersion** | **Long** | The series response version type. This mimics &#x60;batch_query&#x60; response type. | 
 **times** | **List&lt;Double&gt;** | The query timestamps in epoch milliseconds | 
 
 

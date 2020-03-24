@@ -50,8 +50,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
-        String metricName = "metricName_example"; // String | Name of the metric for which to edit metadata
-        MetricMetadata body = new MetricMetadata(); // MetricMetadata | New metadata
+        String metricName = "metricName_example"; // String | Name of the metric for which to edit metadata.
+        MetricMetadata body = new MetricMetadata(); // MetricMetadata | New metadata.
         try {
             MetricMetadata result = api.editMetricMetadata(metricName)
                 .body(body)
@@ -73,8 +73,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **metricName** | **String**| Name of the metric for which to edit metadata |
- **body** | [**MetricMetadata**](MetricMetadata.md)| New metadata |
+ **metricName** | **String**| Name of the metric for which to edit metadata. |
+ **body** | [**MetricMetadata**](MetricMetadata.md)| New metadata. |
 
 ### Return type
 
@@ -217,7 +217,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
-        String metricName = "metricName_example"; // String | Name of the metric for which to get metadata
+        String metricName = "metricName_example"; // String | Name of the metric for which to get metadata.
         try {
             MetricMetadata result = api.getMetricMetadata(metricName)
                 .execute();
@@ -238,7 +238,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **metricName** | **String**| Name of the metric for which to get metadata |
+ **metricName** | **String**| Name of the metric for which to get metadata. |
 
 ### Return type
 
@@ -297,8 +297,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
-        Long from = 56L; // Long | Start of the queried time period, seconds since the Unix epoch
-        Long to = 56L; // Long | End of the queried time period, seconds since the Unix epoch
+        Long from = 56L; // Long | Start of the queried time period, seconds since the Unix epoch.
+        Long to = 56L; // Long | End of the queried time period, seconds since the Unix epoch.
         String query = "query_example"; // String | Query string
         try {
             MetricsQueryResponse result = api.queryMetrics()
@@ -323,8 +323,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **Long**| Start of the queried time period, seconds since the Unix epoch |
- **to** | **Long**| End of the queried time period, seconds since the Unix epoch |
+ **from** | **Long**| Start of the queried time period, seconds since the Unix epoch. |
+ **to** | **Long**| End of the queried time period, seconds since the Unix epoch. |
  **query** | **String**| Query string |
 
 ### Return type
@@ -384,7 +384,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
-        String q = "q_example"; // String | Query string to search metrics upon. Must be prefixed with `metrics:`
+        String q = "q_example"; // String | Query string to search metrics upon. Must be prefixed with `metrics:`.
         try {
             MetricSearchResponse result = api.searchMetrics()
                 .q(q)
@@ -406,7 +406,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **String**| Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60; |
+ **q** | **String**| Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. |
 
 ### Return type
 
@@ -435,10 +435,17 @@ Name | Type | Description  | Notes
 
 Submit metrics
 
-The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The limit for compressed payloads is 3.2 megabytes (3200000), and 62 megabytes (62914560) for decompressed payloads.
-# Overhead:
-If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
-64 bits for the timestamp 64 bits for the value 20 bytes for the metric names 50 bytes for the timeseries The full payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
+The limit for compressed payloads is 3.2 megabytes (3200000), and 62 megabytes (62914560) for decompressed payloads.
+
+If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect
+
+- 64 bits for the timestamp
+- 64 bits for the value
+- 20 bytes for the metric names
+- 50 bytes for the timeseries
+- The full payload is approximately ~ 100 bytes. However, with the DogStatsD API,
+compression is applied, which reduces the payload size.
 
 ### Example
 

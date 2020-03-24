@@ -64,7 +64,7 @@ public class ApiClient {
       "No description provided",
       new HashMap<String, ServerVariable>() {{
         put("site", new ServerVariable(
-          "The regional site for our customers.",
+          "The regional site for a Datadog customer.",
           "datadoghq.com",
           new HashSet<String>(
             Arrays.asList(

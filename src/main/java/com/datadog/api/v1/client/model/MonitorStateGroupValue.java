@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MonitorStateGroupValue
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   MonitorStateGroupValue.JSON_PROPERTY_FROM_TS,
   MonitorStateGroupValue.JSON_PROPERTY_LEFT,
@@ -56,11 +57,11 @@ public class MonitorStateGroupValue {
   }
 
    /**
-   * Get fromTs
+   * TODO.
    * @return fromTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_FROM_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -81,11 +82,11 @@ public class MonitorStateGroupValue {
   }
 
    /**
-   * Get left
+   * TODO.
    * @return left
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -106,11 +107,11 @@ public class MonitorStateGroupValue {
   }
 
    /**
-   * Get right
+   * TODO.
    * @return right
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_RIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -131,11 +132,11 @@ public class MonitorStateGroupValue {
   }
 
    /**
-   * Get toTs
+   * TODO.
    * @return toTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TO_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -156,11 +157,11 @@ public class MonitorStateGroupValue {
   }
 
    /**
-   * Get value
+   * TODO.
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

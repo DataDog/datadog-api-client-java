@@ -92,7 +92,7 @@ private ApiResponse<DashboardListAddItemsResponse> addDashboardListItemsWithHttp
 
     /**
      * Set body
-     * @param body Dashboards to add to the dashboard list (required)
+     * @param body Dashboards to add to the dashboard list. (required)
      * @return APIaddDashboardListItemsRequest
      */
     public APIaddDashboardListItemsRequest body(DashboardListItems body) {
@@ -143,7 +143,7 @@ private ApiResponse<DashboardListAddItemsResponse> addDashboardListItemsWithHttp
   /**
    * Add Items to a Dashboard List
    * Add dashboards to an existing dashboard list.
-   * @param dashboardListId ID of the dashboard list to add items to (required)
+   * @param dashboardListId ID of the dashboard list to add items to. (required)
    * @return addDashboardListItemsRequest
    * @throws ApiException if fails to make API call
    
@@ -208,7 +208,7 @@ private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWi
 
     /**
      * Set body
-     * @param body Dashboards to delete from the dashboard list (required)
+     * @param body Dashboards to delete from the dashboard list. (required)
      * @return APIdeleteDashboardListItemsRequest
      */
     public APIdeleteDashboardListItemsRequest body(DashboardListItems body) {
@@ -257,9 +257,9 @@ private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWi
   }
 
   /**
-   * Delete Items from a Dashboard List
+   * Delete items from a dashboard list
    * Delete dashboards from an existing dashboard list.
-   * @param dashboardListId ID of the dashboard list to delete items from (required)
+   * @param dashboardListId ID of the dashboard list to delete items from. (required)
    * @return deleteDashboardListItemsRequest
    * @throws ApiException if fails to make API call
    
@@ -356,7 +356,7 @@ private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long d
   /**
    * Get a Dashboard List
    * Fetch the dashboard list’s dashboard definitions.
-   * @param dashboardListId ID of the dashboard list to get items from (required)
+   * @param dashboardListId ID of the dashboard list to get items from. (required)
    * @return getDashboardListItemsRequest
    * @throws ApiException if fails to make API call
    
@@ -470,7 +470,7 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
   }
 
   /**
-   * Update Items of a Dashboard List
+   * Update items of a dashboard list
    * Update dashboards of an existing dashboard list.
    * @param dashboardListId ID of the dashboard list to update items from. (required)
    * @return updateDashboardListItemsRequest

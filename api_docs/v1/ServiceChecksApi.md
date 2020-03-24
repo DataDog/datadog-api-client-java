@@ -14,8 +14,8 @@ Method | HTTP request | Description
 
 Submit a Service Check
 
-### Overview
 Submit a list of Service Checks.
+
 **Note**: valid API key is required.
 
 ### Example
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **202** | Payload accepted |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
+| **403** | Authentication Error |  -  |
 | **408** | Request timeout |  -  |
 | **413** | Payload too large |  -  |
 

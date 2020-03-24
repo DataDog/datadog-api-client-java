@@ -27,9 +27,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes:    - timestamp    - date    - _timestamp    - Timestamp    - eventTime    - published_date     If your logs put their dates in an attribute not in this list, use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are: ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:**      - If your logs don’t contain any of the default attributes and you haven’t defined your own date attribute, Datadog timestamps the logs with the date it received them.      - If multiple log date remapper processors can be applied to a given log, only the first one (according to the pipelines order) is taken into account.
+ * As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.    - &#x60;timestamp&#x60;   - &#x60;date&#x60;   - &#x60;_timestamp&#x60;   - &#x60;Timestamp&#x60;   - &#x60;eventTime&#x60;   - &#x60;published_date&#x60;    If your logs put their dates in an attribute not in this list,   use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your logs don’t contain any of the default attributes   and you haven’t defined your own date attribute, Datadog timestamps   the logs with the date it received them.    If multiple log date remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.
  */
-@ApiModel(description = "As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes:    - timestamp    - date    - _timestamp    - Timestamp    - eventTime    - published_date     If your logs put their dates in an attribute not in this list, use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are: ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:**      - If your logs don’t contain any of the default attributes and you haven’t defined your own date attribute, Datadog timestamps the logs with the date it received them.      - If multiple log date remapper processors can be applied to a given log, only the first one (according to the pipelines order) is taken into account.")
+@ApiModel(description = "As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.    - `timestamp`   - `date`   - `_timestamp`   - `Timestamp`   - `eventTime`   - `published_date`    If your logs put their dates in an attribute not in this list,   use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your logs don’t contain any of the default attributes   and you haven’t defined your own date attribute, Datadog timestamps   the logs with the date it received them.    If multiple log date remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.")
 @JsonPropertyOrder({
   LogsDateRemapper.JSON_PROPERTY_SOURCES,
   LogsDateRemapper.JSON_PROPERTY_TYPE,
@@ -81,11 +81,11 @@ public class LogsDateRemapper implements LogsProcessor {
 
 
    /**
-   * Type of processor
+   * Type of processor.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor")
+  @ApiModelProperty(value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,11 +103,11 @@ public class LogsDateRemapper implements LogsProcessor {
   }
 
    /**
-   * Whether or not the processor is enabled
+   * Whether or not the processor is enabled.
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled")
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -128,11 +128,11 @@ public class LogsDateRemapper implements LogsProcessor {
   }
 
    /**
-   * Name of the processor
+   * Name of the processor.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor")
+  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

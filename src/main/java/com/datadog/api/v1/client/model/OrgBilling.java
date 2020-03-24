@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * OrgBilling
+ * A JSON array of billing type. Note that only &#x60;parent_billing&#x60; is supported.
  */
+@ApiModel(description = "A JSON array of billing type. Note that only `parent_billing` is supported.")
 @JsonPropertyOrder({
   OrgBilling.JSON_PROPERTY_TYPE
 })

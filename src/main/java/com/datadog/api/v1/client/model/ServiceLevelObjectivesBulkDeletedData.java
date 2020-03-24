@@ -24,8 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * ServiceLevelObjectivesBulkDeletedData
+ * An array of service level objective objects.
  */
+@ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
   ServiceLevelObjectivesBulkDeletedData.JSON_PROPERTY_DELETED,
   ServiceLevelObjectivesBulkDeletedData.JSON_PROPERTY_UPDATED

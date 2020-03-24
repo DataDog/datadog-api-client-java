@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Search result
+ * Search result.
  */
-@ApiModel(description = "Search result")
+@ApiModel(description = "Search result.")
 @JsonPropertyOrder({
   MetricSearchResponseResults.JSON_PROPERTY_METRICS
 })
@@ -51,11 +51,11 @@ public class MetricSearchResponseResults {
   }
 
    /**
-   * List of metrics that match the search query
+   * List of metrics that match the search query.
    * @return metrics
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of metrics that match the search query")
+  @ApiModelProperty(value = "List of metrics that match the search query.")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

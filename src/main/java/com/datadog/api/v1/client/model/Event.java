@@ -146,11 +146,11 @@ public class Event {
   }
 
    /**
-   * POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 1 year, 24 days (389 days)
+   * POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 1 year, 24 days (389 days).
    * @return dateHappened
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 1 year, 24 days (389 days)")
+  @ApiModelProperty(value = "POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 1 year, 24 days (389 days).")
   @JsonProperty(JSON_PROPERTY_DATE_HAPPENED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -311,11 +311,11 @@ public class Event {
   }
 
    /**
-   * The type of event being posted. Options: nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, ... [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+   * The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
    * @return sourceTypeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of event being posted. Options: nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, ... [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)")
+  @ApiModelProperty(value = "The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).")
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -369,10 +369,10 @@ public class Event {
   }
 
    /**
-   * The body of the event. Limited to 4000 characters. The text supports markdown. Use msg_text with the Datadog Ruby library
+   * The body of the event. Limited to 4000 characters. The text supports markdown. Use &#x60;msg_text&#x60; with the Datadog Ruby library.
    * @return text
   **/
-  @ApiModelProperty(example = "Oh boy!", required = true, value = "The body of the event. Limited to 4000 characters. The text supports markdown. Use msg_text with the Datadog Ruby library")
+  @ApiModelProperty(example = "Oh boy!", required = true, value = "The body of the event. Limited to 4000 characters. The text supports markdown. Use `msg_text` with the Datadog Ruby library.")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -393,10 +393,10 @@ public class Event {
   }
 
    /**
-   * The event title. Limited to 100 characters. Use msg_title with the Datadog Ruby library.
+   * The event title. Limited to 100 characters. Use &#x60;msg_title&#x60; with the Datadog Ruby library.
    * @return title
   **/
-  @ApiModelProperty(example = "Did you hear the news today?", required = true, value = "The event title. Limited to 100 characters. Use msg_title with the Datadog Ruby library.")
+  @ApiModelProperty(example = "Did you hear the news today?", required = true, value = "The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby library.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

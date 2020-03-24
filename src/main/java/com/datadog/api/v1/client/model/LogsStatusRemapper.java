@@ -27,9 +27,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Use this Processor if you want to assign some attributes as the official status. Each incoming status value is mapped as follows:    - Integers from 0 to 7 map to the Syslog severity standards    - Strings beginning with emerg or f (case-insensitive) map to emerg (0)    - Strings beginning with a (case-insensitive) map to alert (1)    - Strings beginning with c (case-insensitive) map to critical (2)    - Strings beginning with err (case-insensitive) map to error (3)    - Strings beginning with w (case-insensitive) map to warning (4)    - Strings beginning with n (case-insensitive) map to notice (5)    - Strings beginning with i (case-insensitive) map to info (6)    - Strings beginning with d, trace or verbose (case-insensitive) map to debug (7)    - Strings beginning with o or matching OK or Success (case-insensitive) map to OK    - All others map to info (6)    **Note:** If multiple log status remapper processors can be applied to a given log, only the first one (according to the pipelines order) is taken into account.
+ * Use this Processor if you want to assign some attributes as the official status.  Each incoming status value is mapped as follows.    - Integers from 0 to 7 map to the Syslog severity standards   - Strings beginning with emerg or f (case-insensitive) map to emerg (0)   - Strings beginning with a (case-insensitive) map to alert (1)   - Strings beginning with c (case-insensitive) map to critical (2)   - Strings beginning with err (case-insensitive) map to error (3)   - Strings beginning with w (case-insensitive) map to warning (4)   - Strings beginning with n (case-insensitive) map to notice (5)   - Strings beginning with i (case-insensitive) map to info (6)   - Strings beginning with d, trace or verbose (case-insensitive) map to debug (7)   - Strings beginning with o or matching OK or Success (case-insensitive) map to OK   - All others map to info (6)    **Note:** If multiple log status remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.
  */
-@ApiModel(description = "Use this Processor if you want to assign some attributes as the official status. Each incoming status value is mapped as follows:    - Integers from 0 to 7 map to the Syslog severity standards    - Strings beginning with emerg or f (case-insensitive) map to emerg (0)    - Strings beginning with a (case-insensitive) map to alert (1)    - Strings beginning with c (case-insensitive) map to critical (2)    - Strings beginning with err (case-insensitive) map to error (3)    - Strings beginning with w (case-insensitive) map to warning (4)    - Strings beginning with n (case-insensitive) map to notice (5)    - Strings beginning with i (case-insensitive) map to info (6)    - Strings beginning with d, trace or verbose (case-insensitive) map to debug (7)    - Strings beginning with o or matching OK or Success (case-insensitive) map to OK    - All others map to info (6)    **Note:** If multiple log status remapper processors can be applied to a given log, only the first one (according to the pipelines order) is taken into account.")
+@ApiModel(description = "Use this Processor if you want to assign some attributes as the official status.  Each incoming status value is mapped as follows.    - Integers from 0 to 7 map to the Syslog severity standards   - Strings beginning with emerg or f (case-insensitive) map to emerg (0)   - Strings beginning with a (case-insensitive) map to alert (1)   - Strings beginning with c (case-insensitive) map to critical (2)   - Strings beginning with err (case-insensitive) map to error (3)   - Strings beginning with w (case-insensitive) map to warning (4)   - Strings beginning with n (case-insensitive) map to notice (5)   - Strings beginning with i (case-insensitive) map to info (6)   - Strings beginning with d, trace or verbose (case-insensitive) map to debug (7)   - Strings beginning with o or matching OK or Success (case-insensitive) map to OK   - All others map to info (6)    **Note:** If multiple log status remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.")
 @JsonPropertyOrder({
   LogsStatusRemapper.JSON_PROPERTY_SOURCES,
   LogsStatusRemapper.JSON_PROPERTY_TYPE,
@@ -81,11 +81,11 @@ public class LogsStatusRemapper implements LogsProcessor {
 
 
    /**
-   * Type of processor
+   * Type of processor.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor")
+  @ApiModelProperty(value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,11 +103,11 @@ public class LogsStatusRemapper implements LogsProcessor {
   }
 
    /**
-   * Whether or not the processor is enabled
+   * Whether or not the processor is enabled.
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled")
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -128,11 +128,11 @@ public class LogsStatusRemapper implements LogsProcessor {
   }
 
    /**
-   * Name of the processor
+   * Name of the processor.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor")
+  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

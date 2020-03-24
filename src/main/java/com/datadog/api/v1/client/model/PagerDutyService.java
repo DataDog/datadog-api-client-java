@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * PagerDuty service object.
+ * Configure your Datadog-PagerDuty integration directly through the Datadog API. For more informations, see the [PagerDuty integration page](https://docs.datadoghq.com/integrations/pagerduty/).
  */
-@ApiModel(description = "PagerDuty service object.")
+@ApiModel(description = "Configure your Datadog-PagerDuty integration directly through the Datadog API. For more informations, see the [PagerDuty integration page](https://docs.datadoghq.com/integrations/pagerduty/).")
 @JsonPropertyOrder({
   PagerDutyService.JSON_PROPERTY_SERVICE_KEY,
   PagerDutyService.JSON_PROPERTY_SERVICE_NAME

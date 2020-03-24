@@ -26,9 +26,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A &#x60;monitor&#x60; based SLO history for either &#x60;groups&#x60; or &#x60;monitors&#x60; depending on the type of &#x60;monitor&#x60; SLO. Ex. &#x60;single-monitor&#x60; these represent &#x60;groups&#x60;     vs &#x60;multi-monitor&#x60; which represents individual monitor&#39;s overall history
+ * A &#x60;monitor&#x60; based SLO history for either &#x60;groups&#x60; or &#x60;monitors&#x60; depending on the type of &#x60;monitor&#x60; SLO.  For example, &#x60;single-monitor&#x60; these represent &#x60;groups&#x60; vs &#x60;multi-monitor&#x60; which represents individual monitor&#39;s overall history.
  */
-@ApiModel(description = "A `monitor` based SLO history for either `groups` or `monitors` depending on the type of `monitor` SLO. Ex. `single-monitor` these represent `groups`     vs `multi-monitor` which represents individual monitor's overall history")
+@ApiModel(description = "A `monitor` based SLO history for either `groups` or `monitors` depending on the type of `monitor` SLO.  For example, `single-monitor` these represent `groups` vs `multi-monitor` which represents individual monitor's overall history.")
 @JsonPropertyOrder({
   HistoryServiceLevelObjectiveGroups.JSON_PROPERTY_HISTORY,
   HistoryServiceLevelObjectiveGroups.JSON_PROPERTY_NAME,
@@ -98,11 +98,11 @@ public class HistoryServiceLevelObjectiveGroups {
   }
 
    /**
-   * For single-monitor &#x60;monitor&#x60; based SLOs this is the &#x60;monitor group&#x60; name For multi-monitor &#x60;monitor&#x60; based SLOs this is the &#x60;monitor&#x60; name
+   * For single-monitor &#x60;monitor&#x60; based SLOs this is the &#x60;monitor group&#x60; name. For multi-monitor &#x60;monitor&#x60; based SLOs this is the &#x60;monitor&#x60; name.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For single-monitor `monitor` based SLOs this is the `monitor group` name For multi-monitor `monitor` based SLOs this is the `monitor` name")
+  @ApiModelProperty(value = "For single-monitor `monitor` based SLOs this is the `monitor group` name. For multi-monitor `monitor` based SLOs this is the `monitor` name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

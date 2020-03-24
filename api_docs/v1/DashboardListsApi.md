@@ -18,10 +18,7 @@ Method | HTTP request | Description
 
 Create a dashboard list
 
-### Overview
 Create an empty dashboard list.
-### Arguments
-* **name** [*required*]: The name of the dashboard list.
 
 ### Example
 
@@ -103,10 +100,7 @@ Name | Type | Description  | Notes
 
 Delete a dashboard list
 
-### Overview
 Delete a dashboard list.
-### Arguments
-This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -187,10 +181,7 @@ Name | Type | Description  | Notes
 
 Get all dashboard lists
 
-### Overview
 Fetch all of your existing dashboard list definitions.
-### Arguments
-This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -267,10 +258,7 @@ This endpoint does not need any parameter.
 
 Get a dashboard list
 
-### Overview
 Fetch an existing dashboard list's definition.
-### Arguments
-This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -351,10 +339,7 @@ Name | Type | Description  | Notes
 
 Update a dashboard list
 
-### Overview
 Update the name of a dashboard list.
-### Arguments
-* **name** [*required*]: The name of the dashboard list.
 
 ### Example
 

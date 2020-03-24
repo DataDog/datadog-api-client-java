@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MonitorOptionsAggregation
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   MonitorOptionsAggregation.JSON_PROPERTY_GROUP_BY,
   MonitorOptionsAggregation.JSON_PROPERTY_METRIC,
@@ -73,11 +74,11 @@ public class MonitorOptionsAggregation {
   }
 
    /**
-   * Get metric
+   * TODO.
    * @return metric
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "count", value = "")
+  @ApiModelProperty(example = "count", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
