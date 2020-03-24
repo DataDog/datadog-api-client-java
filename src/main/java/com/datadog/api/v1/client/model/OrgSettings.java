@@ -50,7 +50,7 @@ public class OrgSettings {
   private OrgSettingsSaml saml;
 
   public static final String JSON_PROPERTY_SAML_AUTOCREATE_ACCESS_ROLE = "saml_autocreate_access_role";
-  private AccessRole samlAutocreateAccessRole;
+  private AccessRole samlAutocreateAccessRole = AccessRole.STANDARD;
 
   public static final String JSON_PROPERTY_SAML_AUTOCREATE_USERS_DOMAINS = "saml_autocreate_users_domains";
   private OrgSettingsSamlAutocreateUsersDomains samlAutocreateUsersDomains;
