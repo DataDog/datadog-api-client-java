@@ -24,8 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * OrgSettingsSamlAutocreateUsersDomains
+ * Has two properties, &#x60;enabled&#x60; (boolean) and &#x60;domains&#x60;, which is a list of domains without the @ symbol.
  */
+@ApiModel(description = "Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.")
 @JsonPropertyOrder({
   OrgSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_DOMAINS,
   OrgSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_ENABLED
@@ -54,11 +55,11 @@ public class OrgSettingsSamlAutocreateUsersDomains {
   }
 
    /**
-   * Get domains
+   * TODO.
    * @return domains
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -79,11 +80,11 @@ public class OrgSettingsSamlAutocreateUsersDomains {
   }
 
    /**
-   * Get enabled
+   * TODO.
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
+  @ApiModelProperty(example = "false", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

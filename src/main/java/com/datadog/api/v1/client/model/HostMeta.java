@@ -24,8 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HostMeta
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   HostMeta.JSON_PROPERTY_NIX_V
 })

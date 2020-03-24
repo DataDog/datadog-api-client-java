@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usage** | [**List&lt;UsageTraceHour&gt;**](UsageTraceHour.md) |  |  [optional]
+**usage** | [**List&lt;UsageTraceHour&gt;**](UsageTraceHour.md) | TODO. |  [optional]
 
 
 

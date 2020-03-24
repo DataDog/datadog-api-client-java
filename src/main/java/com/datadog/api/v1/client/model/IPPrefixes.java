@@ -54,11 +54,11 @@ public class IPPrefixes {
   }
 
    /**
-   * List of IPv4 prefixes
+   * List of IPv4 prefixes.
    * @return prefixesIpv4
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of IPv4 prefixes")
+  @ApiModelProperty(value = "List of IPv4 prefixes.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -87,11 +87,11 @@ public class IPPrefixes {
   }
 
    /**
-   * List of IPv6 prefixes
+   * List of IPv6 prefixes.
    * @return prefixesIpv6
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of IPv6 prefixes")
+  @ApiModelProperty(value = "List of IPv6 prefixes.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

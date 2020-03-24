@@ -27,8 +27,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Series
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   Series.JSON_PROPERTY_HOST,
   Series.JSON_PROPERTY_INTERVAL,
@@ -125,10 +126,10 @@ public class Series {
   }
 
    /**
-   * The name of the timeseries
+   * The name of the timeseries.
    * @return metric
   **/
-  @ApiModelProperty(example = "system.load.1", required = true, value = "The name of the timeseries")
+  @ApiModelProperty(example = "system.load.1", required = true, value = "The name of the timeseries.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

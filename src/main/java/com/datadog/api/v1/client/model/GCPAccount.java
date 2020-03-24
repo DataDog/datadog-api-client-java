@@ -24,8 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * GCPAccount
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   GCPAccount.JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL,
   GCPAccount.JSON_PROPERTY_AUTH_URI,

@@ -1,5 +1,5 @@
 [ {
-  "id" : "6e7e40bd-acec-45f6-86fd-46888a12a20b",
+  "id" : "80239796-622e-424e-a0c3-4fe5ee87028b",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/monitor/validate",
@@ -8,13 +8,13 @@
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "287" ]
+      "Content-Length" : [ "453" ]
     },
     "keepAlive" : true,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"Bytes received on host0\",\"options\":{\"no_data_timeframe\":20,\"notify_no_data\":true},\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
+      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"Bytes received on host0\",\"options\":{\"escalation_message\":\"none\",\"include_tags\":true,\"min_failure_duration\":0,\"min_location_failed\":1,\"new_host_delay\":300,\"no_data_timeframe\":20,\"notify_audit\":false,\"notify_no_data\":true,\"require_full_window\":true},\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
     }
   },
   "times" : {
@@ -27,15 +27,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 16:24:57 GMT" ],
+      "Date" : [ "Tue, 24 Mar 2020 16:25:31 GMT" ],
       "Content-Type" : [ "application/json; charset=utf-8" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 16:24:57 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2275708" ],
-      "X-DD-Debug" : [ "UH1aMdrlnlnaxy/K+HUi5QUN2T0FBtGPSUC8sLrviqCK1XXfgHsSO5DneAd5J+6F" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 31-Mar-2020 16:25:31 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2313550" ],
+      "X-DD-Debug" : [ "og1WGdy+2nV+rkkclmd3Cf2I26XhV3/6yjBeQCP8aHbH2k2cKwC+X9WmhIghcJ94" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,7 +48,7 @@
     "body" : "{}"
   }
 }, {
-  "id" : "c0b93116-54ee-4e73-829b-ef80bdb5328e",
+  "id" : "61901489-060e-4d83-a9ee-36ffa7ae4305",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/monitor/validate",
@@ -57,13 +57,13 @@
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "299" ]
+      "Content-Length" : [ "465" ]
     },
     "keepAlive" : true,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"Bytes received on host0\",\"options\":{\"no_data_timeframe\":20,\"notify_no_data\":true},\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} ><><>< whaaaaaaa?\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
+      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"Bytes received on host0\",\"options\":{\"escalation_message\":\"none\",\"include_tags\":true,\"min_failure_duration\":0,\"min_location_failed\":1,\"new_host_delay\":300,\"no_data_timeframe\":20,\"notify_audit\":false,\"notify_no_data\":true,\"require_full_window\":true},\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} ><><>< whaaaaaaa?\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
     }
   },
   "times" : {
@@ -76,13 +76,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 16:24:57 GMT" ],
+      "Date" : [ "Tue, 24 Mar 2020 16:25:31 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "66" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2275708" ],
+      "X-DD-VERSION" : [ "35.2313550" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

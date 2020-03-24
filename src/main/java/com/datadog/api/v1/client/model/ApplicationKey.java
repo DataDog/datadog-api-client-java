@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * ApplicationKey
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   ApplicationKey.JSON_PROPERTY_HASH,
   ApplicationKey.JSON_PROPERTY_NAME,
@@ -64,11 +65,11 @@ public class ApplicationKey {
   }
 
    /**
-   * Get name
+   * Name of your application key.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example user", value = "")
+  @ApiModelProperty(example = "example user", value = "Name of your application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

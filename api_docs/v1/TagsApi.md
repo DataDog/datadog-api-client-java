@@ -18,7 +18,8 @@ Method | HTTP request | Description
 
 Add tags to a host
 
-This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
+This endpoint allows you to add new tags to a host,
+optionally specifying where these tags come from.
 
 ### Example
 
@@ -136,7 +137,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         TagsApi apiInstance = new TagsApi(defaultClient);
-        String source = "source_example"; // String | When specified, filters host list to those tags with the specified source
+        String source = "source_example"; // String | When specified, filters host list to those tags with the specified source.
         try {
             TagToHosts result = api.getAllHostTags()
                 .source(source)
@@ -158,7 +159,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source** | **String**| When specified, filters host list to those tags with the specified source | [optional]
+ **source** | **String**| When specified, filters host list to those tags with the specified source. | [optional]
 
 ### Return type
 
@@ -271,7 +272,8 @@ Name | Type | Description  | Notes
 
 Remove host tags
 
-This endpoint allows you to remove all user-assigned tags for a single host.
+This endpoint allows you to remove all user-assigned tags
+for a single host.
 
 ### Example
 
@@ -303,7 +305,7 @@ public class Example {
 
         TagsApi apiInstance = new TagsApi(defaultClient);
         String hostName = "hostName_example"; // String | This endpoint allows you to remove all user-assigned tags for a single host.
-        String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+        String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
         try {
             api.removeHostTags(hostName)
                 .source(source)
@@ -325,7 +327,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hostName** | **String**| This endpoint allows you to remove all user-assigned tags for a single host. |
- **source** | **String**| The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | [optional]
+ **source** | **String**| The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional]
 
 ### Return type
 
@@ -354,7 +356,8 @@ null (empty response body)
 
 Update host tags
 
-This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
+This endpoint allows you to update/replace all tags in
+an integration source with those supplied in the request.
 
 ### Example
 

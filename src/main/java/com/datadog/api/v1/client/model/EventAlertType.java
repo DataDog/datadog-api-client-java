@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * If it is an alert event, set its type between: error, warning, info, and success.
+ * If an alert event is enabled, set its type. For example, &#x60;error&#x60;, &#x60;warning&#x60;, &#x60;info&#x60;, and &#x60;success&#x60;.
  */
 public enum EventAlertType {
   

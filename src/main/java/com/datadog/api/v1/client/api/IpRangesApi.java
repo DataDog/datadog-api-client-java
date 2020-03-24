@@ -80,7 +80,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> List of IP ranges </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> List of IP ranges. </td><td>  -  </td></tr>
        </table>
      
      */
@@ -96,7 +96,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> List of IP ranges </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> List of IP ranges. </td><td>  -  </td></tr>
        </table>
      
      */
@@ -108,7 +108,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
 
   /**
    * List IP Ranges
-   * Get information about Datadog IP ranges
+   * Get information about Datadog IP ranges.
    * @return getIPRangesRequest
    * @throws ApiException if fails to make API call
    

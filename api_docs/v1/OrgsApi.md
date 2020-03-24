@@ -4,9 +4,9 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createChildOrg**](OrgsApi.md#createChildOrg) | **POST** /api/v1/org | Create child-organization
-[**getOrg**](OrgsApi.md#getOrg) | **GET** /api/v1/org | Get organization
-[**updateOrg**](OrgsApi.md#updateOrg) | **PUT** /api/v1/org/{public_id} | Update organization
+[**createChildOrg**](OrgsApi.md#createChildOrg) | **POST** /api/v1/org | Create a child organization
+[**getOrg**](OrgsApi.md#getOrg) | **GET** /api/v1/org | Get organization information
+[**updateOrg**](OrgsApi.md#updateOrg) | **PUT** /api/v1/org/{public_id} | Update your organization
 [**uploadIdPForOrg**](OrgsApi.md#uploadIdPForOrg) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata
 
 
@@ -15,11 +15,18 @@ Method | HTTP request | Description
 
 > OrgCreateResponse createChildOrg().body(body).execute();
 
-Create child-organization
+Create a child organization
 
 You can create, edit, and manage organizations.
-This endpoint requires the [multi-org account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).
-Once a new child-organization is created, you can interact with it by using the **org.public_id**, **api_key.key**, and **application_key.hash** provided in the response.
+
+This endpoint requires the
+[multi-org account](https://docs.datadoghq.com/account_management/multi_organization/)
+feature and must be enabled by
+[contacting support](https://docs.datadoghq.com/help/).
+
+Once a new child organization is created, you can interact with it
+by using the `org.public_id`, `pi_key.key`, and
+**application_key.hash** provided in the response.
 
 ### Example
 
@@ -99,7 +106,7 @@ Name | Type | Description  | Notes
 
 > OrgListResponse getOrg().execute();
 
-Get organization
+Get organization information
 
 Get information about your organization.
 
@@ -176,9 +183,9 @@ This endpoint does not need any parameter.
 
 > OrgResponse updateOrg(publicId).body(body).execute();
 
-Update organization
+Update your organization
 
-Updates the organization.
+Update your organization.
 
 ### Example
 
@@ -209,7 +216,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         OrgsApi apiInstance = new OrgsApi(defaultClient);
-        String publicId = abc123; // String | The public_id of the org you are operating with
+        String publicId = abc123; // String | The public_id of the org you are operating within.
         Org body = new Org(); // Org | 
         try {
             OrgResponse result = api.updateOrg(publicId)
@@ -232,7 +239,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public_id of the org you are operating with |
+ **publicId** | **String**| The public_id of the org you are operating within. |
  **body** | [**Org**](Org.md)|  | [optional]
 
 ### Return type
@@ -262,8 +269,11 @@ Name | Type | Description  | Notes
 
 Upload IdP metadata
 
-There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.
+There are a couple of options for updating the Identity Provider (IdP)
+metadata from your SAML IdP.
+
 * **Multipart Form-Data**: Post the IdP metadata file using a form post.
+
 * **XML Body:** Post the IdP metadata file as the body of the request.
 
 ### Example

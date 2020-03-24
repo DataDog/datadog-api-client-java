@@ -58,11 +58,11 @@ public class LogsIndex {
 
 
    /**
-   * The number of log-events you can send in this index per day before you are rate-limited.
+   * The number of log events you can send in this index per day before you are rate-limited.
    * @return dailyLimit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of log-events you can send in this index per day before you are rate-limited.")
+  @ApiModelProperty(value = "The number of log events you can send in this index per day before you are rate-limited.")
   @JsonProperty(JSON_PROPERTY_DAILY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -163,11 +163,11 @@ public class LogsIndex {
 
 
    /**
-   * The number of days before logs are deleted from this index
+   * The number of days before logs are deleted from this index.
    * @return numRetentionDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of days before logs are deleted from this index")
+  @ApiModelProperty(value = "The number of days before logs are deleted from this index.")
   @JsonProperty(JSON_PROPERTY_NUM_RETENTION_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

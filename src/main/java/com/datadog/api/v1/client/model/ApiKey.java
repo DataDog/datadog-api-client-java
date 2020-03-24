@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * ApiKey
+ * Manage your Datadog API and application keys.  You need an API and applications key with Admin rights to interact with this endpoint. The full list of keys can be seen on your [Datadog API page](https://app.datadoghq.com/account/login?next&#x3D;%2Faccount%2Fsettings#api).
  */
+@ApiModel(description = "Manage your Datadog API and application keys.  You need an API and applications key with Admin rights to interact with this endpoint. The full list of keys can be seen on your [Datadog API page](https://app.datadoghq.com/account/login?next=%2Faccount%2Fsettings#api).")
 @JsonPropertyOrder({
   ApiKey.JSON_PROPERTY_CREATED,
   ApiKey.JSON_PROPERTY_CREATED_BY,
@@ -46,11 +47,11 @@ public class ApiKey {
 
 
    /**
-   * Get created
+   * TODO.
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-08-02 15:31:07", value = "")
+  @ApiModelProperty(example = "2019-08-02 15:31:07", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -62,11 +63,11 @@ public class ApiKey {
 
 
    /**
-   * Get createdBy
+   * TODO.
    * @return createdBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example.com", value = "")
+  @ApiModelProperty(example = "example.com", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -78,11 +79,11 @@ public class ApiKey {
 
 
    /**
-   * Get key
+   * TODO.
    * @return key
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1234512345123456abcabc912349abcd", value = "")
+  @ApiModelProperty(example = "1234512345123456abcabc912349abcd", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,11 +101,11 @@ public class ApiKey {
   }
 
    /**
-   * Get name
+   * Name of your application key.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example user", value = "")
+  @ApiModelProperty(example = "example user", value = "Name of your application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

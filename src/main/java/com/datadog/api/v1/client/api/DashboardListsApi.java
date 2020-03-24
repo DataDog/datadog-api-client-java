@@ -132,7 +132,7 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
 
   /**
    * Create a dashboard list
-   * ### Overview Create an empty dashboard list. ### Arguments * **name** [*required*]: The name of the dashboard list.
+   * Create an empty dashboard list.
    * @return createDashboardListRequest
    * @throws ApiException if fails to make API call
    
@@ -228,7 +228,7 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
 
   /**
    * Delete a dashboard list
-   * ### Overview Delete a dashboard list. ### Arguments This endpoint takes no JSON arguments.
+   * Delete a dashboard list.
    * @param listId ID of the dashboard list to delete (required)
    * @return deleteDashboardListRequest
    * @throws ApiException if fails to make API call
@@ -317,7 +317,7 @@ private ApiResponse<DashboardListListResponse> getAllDashboardListsWithHttpInfo(
 
   /**
    * Get all dashboard lists
-   * ### Overview Fetch all of your existing dashboard list definitions. ### Arguments This endpoint takes no JSON arguments.
+   * Fetch all of your existing dashboard list definitions.
    * @return getAllDashboardListsRequest
    * @throws ApiException if fails to make API call
    
@@ -413,7 +413,7 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
 
   /**
    * Get a dashboard list
-   * ### Overview Fetch an existing dashboard list&#39;s definition. ### Arguments This endpoint takes no JSON arguments.
+   * Fetch an existing dashboard list&#39;s definition.
    * @param listId ID of the dashboard list to fetch (required)
    * @return getDashboardListRequest
    * @throws ApiException if fails to make API call
@@ -529,7 +529,7 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
 
   /**
    * Update a dashboard list
-   * ### Overview Update the name of a dashboard list. ### Arguments * **name** [*required*]: The name of the dashboard list.
+   * Update the name of a dashboard list.
    * @param listId ID of the dashboard list to update (required)
    * @return updateDashboardListRequest
    * @throws ApiException if fails to make API call

@@ -26,8 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HistoryServiceLevelObjectiveResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   HistoryServiceLevelObjectiveResponse.JSON_PROPERTY_DATA,
   HistoryServiceLevelObjectiveResponse.JSON_PROPERTY_ERRORS

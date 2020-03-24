@@ -4,12 +4,12 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline) | **POST** /api/v1/logs/config/pipelines | Create a Pipeline
-[**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a Pipeline
+[**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline) | **POST** /api/v1/logs/config/pipelines | Create a pipeline
+[**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline
 [**getAllLogsPipelines**](LogsPipelinesApi.md#getAllLogsPipelines) | **GET** /api/v1/logs/config/pipelines | Get all Pipeline
-[**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a Pipeline
+[**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a pipeline
 [**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder) | **GET** /api/v1/logs/config/pipeline-order | Get Pipeline Order
-[**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline) | **PUT** /api/v1/logs/config/pipelines/{pipeline_id} | Update a Pipeline
+[**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline) | **PUT** /api/v1/logs/config/pipelines/{pipeline_id} | Update a pipeline
 [**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order | Update Pipeline Order
 
 
@@ -18,15 +18,9 @@ Method | HTTP request | Description
 
 > LogsPipeline createLogsPipeline().body(body).execute();
 
-Create a Pipeline
+Create a pipeline
 
-## Overview
 Create a Pipeline in your organization.
-## Arguments
-- **`name`** [*required*]: Your pipeline name.
-- **`is_enabled`** [*optional*, default=`False`]: Boolean value to enable your pipeline.
-- **`filter.query`** [*optional*]: Defines your pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-- **`processors`** [*optional*]: Ordered array of processors or nested pipelines.
 
 ### Example
 
@@ -57,7 +51,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-        LogsPipeline body = new LogsPipeline(); // LogsPipeline | Definition of the new pipeline
+        LogsPipeline body = new LogsPipeline(); // LogsPipeline | Definition of the new pipeline.
         try {
             LogsPipeline result = api.createLogsPipeline()
                 .body(body)
@@ -79,7 +73,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LogsPipeline**](LogsPipeline.md)| Definition of the new pipeline |
+ **body** | [**LogsPipeline**](LogsPipeline.md)| Definition of the new pipeline. |
 
 ### Return type
 
@@ -107,11 +101,9 @@ Name | Type | Description  | Notes
 
 > deleteLogsPipeline(pipelineId).execute();
 
-Delete a Pipeline
+Delete a pipeline
 
-## Overview
 Delete a given pipeline from your organization.
-## Arguments
 This endpoint takes no JSON arguments.
 
 ### Example
@@ -143,7 +135,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-        String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete
+        String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
         try {
             api.deleteLogsPipeline(pipelineId)
                 .execute();
@@ -163,7 +155,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pipelineId** | **String**| ID of the pipeline to delete |
+ **pipelineId** | **String**| ID of the pipeline to delete. |
 
 ### Return type
 
@@ -192,9 +184,7 @@ null (empty response body)
 
 Get all Pipeline
 
-## Overview
 Get all pipelines from your organization.
-## Arguments
 This endpoint takes no JSON arguments.
 
 ### Example
@@ -269,11 +259,9 @@ This endpoint does not need any parameter.
 
 > LogsPipeline getLogsPipeline(pipelineId).execute();
 
-Get a Pipeline
+Get a pipeline
 
-## Overview
 Get a specific pipeline from your organization.
-## Arguments
 This endpoint takes no JSON arguments.
 
 ### Example
@@ -305,7 +293,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-        String pipelineId = "pipelineId_example"; // String | ID of the pipeline to get
+        String pipelineId = "pipelineId_example"; // String | ID of the pipeline to get.
         try {
             LogsPipeline result = api.getLogsPipeline(pipelineId)
                 .execute();
@@ -326,7 +314,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pipelineId** | **String**| ID of the pipeline to get |
+ **pipelineId** | **String**| ID of the pipeline to get. |
 
 ### Return type
 
@@ -355,9 +343,7 @@ Name | Type | Description  | Notes
 
 Get Pipeline Order
 
-
 Get the current order of your pipelines.
-## Arguments
 This endpoint takes no JSON arguments.
 
 ### Example
@@ -432,16 +418,12 @@ This endpoint does not need any parameter.
 
 > LogsPipeline updateLogsPipeline(pipelineId).body(body).execute();
 
-Update a Pipeline
+Update a pipeline
 
-## Overview
 Update a given pipeline configuration to change it’s processors or their order.
-## Arguments
-**Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
-- **`name`** [*required*]: Your pipeline name.
-- **`is_enabled`** [*optional*, default=`False`]: Boolean value to enable your pipeline.
-- **`filter.query`** [*optional*]: Defines your pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-- **`processors`** [*optional*]: Ordered array of processors or nested pipelines.
+
+**Note**: Using this method updates your pipeline configuration by **replacing**
+your current configuration with the new one sent to your Datadog organization.
 
 ### Example
 
@@ -472,8 +454,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-        String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete
-        LogsPipeline body = new LogsPipeline(); // LogsPipeline | New definition of the pipeline
+        String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
+        LogsPipeline body = new LogsPipeline(); // LogsPipeline | New definition of the pipeline.
         try {
             LogsPipeline result = api.updateLogsPipeline(pipelineId)
                 .body(body)
@@ -495,8 +477,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pipelineId** | **String**| ID of the pipeline to delete |
- **body** | [**LogsPipeline**](LogsPipeline.md)| New definition of the pipeline |
+ **pipelineId** | **String**| ID of the pipeline to delete. |
+ **body** | [**LogsPipeline**](LogsPipeline.md)| New definition of the pipeline. |
 
 ### Return type
 
@@ -526,11 +508,11 @@ Name | Type | Description  | Notes
 
 Update Pipeline Order
 
-## Overview
-Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.
-**Note**: Using the PUT method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
-## Arguments
-- **`pipeline_ids`** [*required*]: Ordered Array of <PIPELINE_ID> strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.
+Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
+the structure and content of the data processed by other pipelines and their processors.
+
+**Note**: Using the `PUT` method updates your pipeline order by replacing your current order
+with the new one sent to your Datadog organization.
 
 ### Example
 
@@ -561,7 +543,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-        LogsPipelinesOrder body = new LogsPipelinesOrder(); // LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs
+        LogsPipelinesOrder body = new LogsPipelinesOrder(); // LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs.
         try {
             LogsPipelinesOrder result = api.updateLogsPipelineOrder()
                 .body(body)
@@ -583,7 +565,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md)| Object containing the new ordered list of pipeline IDs | [optional]
+ **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md)| Object containing the new ordered list of pipeline IDs. | [optional]
 
 ### Return type
 

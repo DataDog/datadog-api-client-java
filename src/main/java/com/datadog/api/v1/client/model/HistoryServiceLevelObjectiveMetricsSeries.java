@@ -56,10 +56,10 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
   }
 
    /**
-   * Count of submitted metrics
+   * Count of submitted metrics.
    * @return count
   **/
-  @ApiModelProperty(required = true, value = "Count of submitted metrics")
+  @ApiModelProperty(required = true, value = "Count of submitted metrics.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -104,10 +104,10 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
   }
 
    /**
-   * Total Sum of the query
+   * Total Sum of the query.
    * @return sum
   **/
-  @ApiModelProperty(required = true, value = "Total Sum of the query")
+  @ApiModelProperty(required = true, value = "Total Sum of the query.")
   @JsonProperty(JSON_PROPERTY_SUM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -133,10 +133,10 @@ public class HistoryServiceLevelObjectiveMetricsSeries {
   }
 
    /**
-   * The query values
+   * The query values.
    * @return values
   **/
-  @ApiModelProperty(required = true, value = "The query values")
+  @ApiModelProperty(required = true, value = "The query values.")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

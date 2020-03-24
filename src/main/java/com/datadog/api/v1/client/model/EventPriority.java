@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The priority of the event: normal or low.
+ * The priority of the event. For example, &#x60;normal&#x60; or &#x60;low&#x60;.
  */
 public enum EventPriority {
   

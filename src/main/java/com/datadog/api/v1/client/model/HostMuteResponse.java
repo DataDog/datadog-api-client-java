@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HostMuteResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   HostMuteResponse.JSON_PROPERTY_ACTION,
   HostMuteResponse.JSON_PROPERTY_END,
@@ -52,11 +53,11 @@ public class HostMuteResponse {
   }
 
    /**
-   * Get action
+   * TODO.
    * @return action
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Muted", value = "")
+  @ApiModelProperty(example = "Muted", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -102,11 +103,11 @@ public class HostMuteResponse {
   }
 
    /**
-   * Get hostname
+   * The host name.
    * @return hostname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test.host", value = "")
+  @ApiModelProperty(example = "test.host", value = "The host name.")
   @JsonProperty(JSON_PROPERTY_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -127,11 +128,11 @@ public class HostMuteResponse {
   }
 
    /**
-   * Get message
+   * TODO.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Muting this host for a test!", value = "")
+  @ApiModelProperty(example = "Muting this host for a test!", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

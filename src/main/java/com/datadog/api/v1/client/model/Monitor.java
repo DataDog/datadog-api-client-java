@@ -94,11 +94,11 @@ public class Monitor {
 
 
    /**
-   * Get created
+   * TODO.
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -135,11 +135,11 @@ public class Monitor {
 
 
    /**
-   * Get deleted
+   * TODO.
    * @return deleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,11 +151,11 @@ public class Monitor {
 
 
    /**
-   * ID of this monitor
+   * ID of this monitor.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of this monitor")
+  @ApiModelProperty(value = "ID of this monitor.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,11 +192,11 @@ public class Monitor {
 
 
    /**
-   * Get modified
+   * TODO.
    * @return modified
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -208,11 +208,11 @@ public class Monitor {
 
 
    /**
-   * Get multi
+   * TODO.
    * @return multi
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MULTI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -230,11 +230,11 @@ public class Monitor {
   }
 
    /**
-   * Get name
+   * TODO.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -363,11 +363,11 @@ public class Monitor {
   }
 
    /**
-   * Get tags
+   * TODO.
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

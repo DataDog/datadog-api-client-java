@@ -133,7 +133,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
 
   /**
    * Create user
-   * ### Overview Create a user for your organization. ### Arguments * **&#x60;handle&#x60;** [*required*]: The user handle, must be a valid email. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The name of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user),    *  **adm** (admin user),    *  **ro** (read-only user).    **Note**: users can be created with admin access role      only with application keys belonging to administrators.
+   * Create a user for your organization.  **Note**: users can be created with admin access role only with application keys belonging to administrators.
    * @return createUserRequest
    * @throws ApiException if fails to make API call
    
@@ -229,7 +229,7 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
 
   /**
    * Disable user
-   * ### Overview Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user.
+   * Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
    * @param userHandle The handle of the user (required)
    * @return disableUserRequest
    * @throws ApiException if fails to make API call
@@ -318,7 +318,7 @@ private ApiResponse<UserListResponse> getAllUsersWithHttpInfo() throws ApiExcept
 
   /**
    * Get all users
-   * ### Overview Get all users for your organization. ### Arguments This endpoint takes no JSON argument.
+   * Get all users for your organization.
    * @return getAllUsersRequest
    * @throws ApiException if fails to make API call
    
@@ -414,8 +414,8 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
 
   /**
    * Get user
-   * ### Overview Get a user details. ### Arguments * **&#x60;user_handle&#x60;** [*required*]: The handle of the user.
-   * @param userHandle The id of the user (required)
+   * Get a user details.
+   * @param userHandle The ID of the user. (required)
    * @return getUserRequest
    * @throws ApiException if fails to make API call
    
@@ -480,7 +480,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
 
     /**
      * Set body
-     * @param body Description of the update (required)
+     * @param body Description of the update. (required)
      * @return APIupdateUserRequest
      */
     public APIupdateUserRequest body(User body) {
@@ -528,8 +528,8 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
 
   /**
    * Update user
-   * ### Overview Update a user informations.  **Note**: It can only be used with application keys belonging to administrators. ### Arguments * **&#x60;id&#x60;** [*required*]: The handle of the user. * **&#x60;name&#x60;** [*optional*, *default*&#x3D;**None**]: The new name of the user. * **&#x60;email&#x60;** [*optional*, *default*&#x3D;**None**]: The new email of the user. * **&#x60;disabled&#x60;** [*optional*, *default*&#x3D;**None**]: The new disabled status of the user. * **&#x60;access_role&#x60;** [*optional*, *default*&#x3D;**st**]: The access role of the user. Choose from:    *  **st** (standard user)    *  **adm** (admin user)    *  **ro** (read-only user)
-   * @param userHandle The id of the user (required)
+   * Update a user informations.  **Note**: It can only be used with application keys belonging to administrators.
+   * @param userHandle The ID of the user. (required)
    * @return updateUserRequest
    * @throws ApiException if fails to make API call
    

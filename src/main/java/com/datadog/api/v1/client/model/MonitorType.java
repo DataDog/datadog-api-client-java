@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The type of the monitor
+ * The type of the monitor.
  */
 public enum MonitorType {
   

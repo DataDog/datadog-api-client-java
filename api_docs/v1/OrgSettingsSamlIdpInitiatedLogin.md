@@ -1,13 +1,13 @@
 
 
-# UserDisableResponse
+# OrgSettingsSamlIdpInitiatedLogin
 
-TODO.
+Has one property enabled (boolean).
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  |  [optional]
+**enabled** | **Boolean** |  |  [optional]
 
 
 

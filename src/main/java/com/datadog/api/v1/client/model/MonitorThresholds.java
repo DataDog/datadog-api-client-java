@@ -25,8 +25,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MonitorThresholds
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   MonitorThresholds.JSON_PROPERTY_CRITICAL,
   MonitorThresholds.JSON_PROPERTY_CRITICAL_RECOVERY,
@@ -63,11 +64,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * Get critical
+   * TODO.
    * @return critical
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -88,11 +89,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * Get criticalRecovery
+   * TODO.
    * @return criticalRecovery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonIgnore
 
   public Double getCriticalRecovery() {
@@ -123,11 +124,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * Get ok
+   * TODO.
    * @return ok
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonIgnore
 
   public Double getOk() {
@@ -158,11 +159,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * Get unknown
+   * TODO.
    * @return unknown
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonIgnore
 
   public Double getUnknown() {
@@ -193,11 +194,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * Get warning
+   * TODO.
    * @return warning
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonIgnore
 
   public Double getWarning() {
@@ -228,11 +229,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * Get warningRecovery
+   * TODO.
    * @return warningRecovery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonIgnore
 
   public Double getWarningRecovery() {
