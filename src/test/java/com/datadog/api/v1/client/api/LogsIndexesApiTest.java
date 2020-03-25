@@ -12,6 +12,7 @@ import com.datadog.api.v1.client.model.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -32,6 +33,26 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public static void initApi() {
         api = new LogsIndexesApi(generalApiClient);
         unitApi = new LogsIndexesApi(generalApiUnitTestClient);
+    }
+
+    @BeforeClass
+    public static void enableUnstableOperations() {
+        generalApiClient.setUnstableOperationEnabled("getLogsIndex", true);
+        generalApiClient.setUnstableOperationEnabled("getAllLogIndexes", true);
+        generalApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
+        generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", true);
+        generalApiUnitTestClient.setUnstableOperationEnabled("getAllLogIndexes", true);
+        generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", true);
+    }
+
+    @AfterClass
+    public static void disableUnstableOperations() {
+        generalApiClient.setUnstableOperationEnabled("getLogsIndex", false);
+        generalApiClient.setUnstableOperationEnabled("getAllLogIndexes", false);
+        generalApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
+        generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", false);
+        generalApiUnitTestClient.setUnstableOperationEnabled("getAllLogIndexes", false);
+        generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", false);
     }
 
     /**
