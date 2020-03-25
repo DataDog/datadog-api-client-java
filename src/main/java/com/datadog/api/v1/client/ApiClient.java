@@ -35,6 +35,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -64,7 +65,7 @@ public class ApiClient {
       "No description provided",
       new HashMap<String, ServerVariable>() {{
         put("site", new ServerVariable(
-          "The regional site for our customers.",
+          "The regional site for a Datadog customer.",
           "datadoghq.com",
           new HashSet<String>(
             Arrays.asList(
@@ -204,6 +205,12 @@ public class ApiClient {
   protected Map<String, String> authenticationLookup;
 
   protected DateFormat dateFormat;
+  protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {{
+    put("getAllLogIndexes", false);
+    put("getLogsIndex", false);
+    put("updateLogsIndex", false);
+  }};
+  protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
   public ApiClient() {
     json = new JSON();
@@ -525,6 +532,60 @@ public class ApiClient {
     // also set the date format for model (de)serialization with Date properties
     this.json.setDateFormat((DateFormat) dateFormat.clone());
     return this;
+  }
+
+  /**
+   * Get list of all unstable operations
+   * @return set of all unstable operations Ids
+   */
+  public Set<String> getUnstableOperations() {
+    return unstableOperations.keySet();
+  }
+
+  /**
+   * Mark an unstable operation as enabled/disabled.
+   * @param operation operation Id - this is the name of the method on the API class, e.g. "createFoo"
+   * @param enabled whether to mark the operation as enabled (true) or disabled (false)
+   * @return true if the operation is marked as unstable and thus was enabled/disabled, false otherwise
+   */
+  public boolean setUnstableOperationEnabled(String operation, boolean enabled) {
+    if (unstableOperations.containsKey(operation)) {
+      unstableOperations.put(operation, enabled);
+      return true;
+    }
+    logger.warning(String.format("'%s' is not an unstable operation, can't enable/disable", operation));
+    return false;
+  }
+
+  /**
+   * Determine whether an operation is an unstable operation.
+   * @param operation operation Id - this is the name of the method on the API class, e.g. "createFoo"
+   * @return true if the operation is an unstable operation, false otherwise
+   */
+  public boolean isUnstableOperation(String operation) {
+    return unstableOperations.containsKey(operation);
+  }
+
+  /**
+   * Determine whether an unstable operation is enabled.
+   * @param operation operation Id - this is the name of the method on the API class, e.g. "createFoo"
+   * @return true if the operation is unstable and it is enabled, false otherwise
+   */
+  public boolean isUnstableOperationEnabled(String operation) {
+    if (unstableOperations.containsKey(operation)) {
+      return unstableOperations.get(operation);
+    } else {
+      logger.warning(String.format("'%s' is not an unstable operation, is always enabled", operation));
+      return true;
+    }
+  }
+
+  /**
+   * Get the ApiClient logger
+   * @return ApiClient logger
+   */
+  public java.util.logging.Logger getLogger() {
+    return logger;
   }
 
   /**

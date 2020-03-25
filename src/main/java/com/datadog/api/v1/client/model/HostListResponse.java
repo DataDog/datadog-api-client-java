@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HostListResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   HostListResponse.JSON_PROPERTY_HOST_LIST,
   HostListResponse.JSON_PROPERTY_TOTAL_MATCHING,
@@ -59,11 +60,11 @@ public class HostListResponse {
   }
 
    /**
-   * Get hostList
+   * TODO.
    * @return hostList
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_HOST_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -84,11 +85,11 @@ public class HostListResponse {
   }
 
    /**
-   * Get totalMatching
+   * TODO.
    * @return totalMatching
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "")
+  @ApiModelProperty(example = "1", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TOTAL_MATCHING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -109,11 +110,11 @@ public class HostListResponse {
   }
 
    /**
-   * Get totalReturned
+   * TODO.
    * @return totalReturned
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "")
+  @ApiModelProperty(example = "1", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TOTAL_RETURNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -27,6 +27,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -57,7 +60,7 @@ public class Monitor {
   private Creator creator;
 
   public static final String JSON_PROPERTY_DELETED = "deleted";
-  private OffsetDateTime deleted;
+  private JsonNullable<OffsetDateTime> deleted = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -94,11 +97,11 @@ public class Monitor {
 
 
    /**
-   * Get created
+   * TODO.
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -135,27 +138,41 @@ public class Monitor {
 
 
    /**
-   * Get deleted
+   * TODO.
    * @return deleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
+  @JsonIgnore
+
+  public OffsetDateTime getDeleted() {
+    
+    if (deleted == null) {
+      deleted = JsonNullable.<OffsetDateTime>undefined();
+    }
+    return deleted.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getDeleted() {
+  public JsonNullable<OffsetDateTime> getDeleted_JsonNullable() {
     return deleted;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DELETED)
+  private void setDeleted_JsonNullable(JsonNullable<OffsetDateTime> deleted) {
+    this.deleted = deleted;
   }
 
 
 
-
    /**
-   * ID of this monitor
+   * ID of this monitor.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of this monitor")
+  @ApiModelProperty(value = "ID of this monitor.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,11 +209,11 @@ public class Monitor {
 
 
    /**
-   * Get modified
+   * TODO.
    * @return modified
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -208,11 +225,11 @@ public class Monitor {
 
 
    /**
-   * Get multi
+   * TODO.
    * @return multi
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MULTI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -230,11 +247,11 @@ public class Monitor {
   }
 
    /**
-   * Get name
+   * TODO.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -363,11 +380,11 @@ public class Monitor {
   }
 
    /**
-   * Get tags
+   * TODO.
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

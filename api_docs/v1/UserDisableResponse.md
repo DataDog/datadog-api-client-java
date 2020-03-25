@@ -2,6 +2,7 @@
 
 # UserDisableResponse
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes

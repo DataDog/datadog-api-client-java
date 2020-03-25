@@ -27,8 +27,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * DowntimeRecurrence
+ * An object defining the recurrence of the downtime.
  */
+@ApiModel(description = "An object defining the recurrence of the downtime.")
 @JsonPropertyOrder({
   DowntimeRecurrence.JSON_PROPERTY_PERIOD,
   DowntimeRecurrence.JSON_PROPERTY_TYPE,
@@ -61,12 +62,12 @@ public class DowntimeRecurrence {
   }
 
    /**
-   * Get period
+   * How often to repeat as an integer. For example, to repeat every 3 days, select a type of &#x60;days&#x60; and a period of &#x60;3&#x60;.
    * maximum: 2147483647
    * @return period
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "")
+  @ApiModelProperty(example = "1", value = "How often to repeat as an integer. For example, to repeat every 3 days, select a type of `days` and a period of `3`.")
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -87,11 +88,11 @@ public class DowntimeRecurrence {
   }
 
    /**
-   * Get type
+   * The type of recurrence. Choose from &#x60;days&#x60;, &#x60;weeks&#x60;, &#x60;months&#x60;, &#x60;years&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "weeks", value = "")
+  @ApiModelProperty(example = "weeks", value = "The type of recurrence. Choose from `days`, `weeks`, `months`, `years`.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class DowntimeRecurrence {
   }
 
    /**
-   * Get untilDate
+   * The date at which the recurrence should end as a POSIX timestmap. &#x60;until_occurences&#x60; and &#x60;until_date&#x60; are mutually exclusive.
    * @return untilDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1447786293", value = "")
+  @ApiModelProperty(example = "1447786293", value = "The date at which the recurrence should end as a POSIX timestmap. `until_occurences` and `until_date` are mutually exclusive.")
   @JsonIgnore
 
   public Long getUntilDate() {
@@ -147,12 +148,12 @@ public class DowntimeRecurrence {
   }
 
    /**
-   * Get untilOccurrences
+   * How many times the downtime is rescheduled. &#x60;until_occurences&#x60; and &#x60;until_date&#x60; are mutually exclusive.
    * maximum: 2147483647
    * @return untilOccurrences
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2", value = "")
+  @ApiModelProperty(example = "2", value = "How many times the downtime is rescheduled. `until_occurences` and `until_date` are mutually exclusive.")
   @JsonIgnore
 
   public Integer getUntilOccurrences() {
@@ -191,11 +192,11 @@ public class DowntimeRecurrence {
   }
 
    /**
-   * Get weekDays
+   * A list of week days to repeat on. Choose from &#x60;Mon&#x60;, &#x60;Tue&#x60;, &#x60;Wed&#x60;, &#x60;Thu&#x60;, &#x60;Fri&#x60;, &#x60;Sat&#x60; or &#x60;Sun&#x60;. Only applicable when type is weeks. First letter must be capitalized.
    * @return weekDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"Mon\",\"Tue\"]", value = "")
+  @ApiModelProperty(example = "[\"Mon\",\"Tue\"]", value = "A list of week days to repeat on. Choose from `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when type is weeks. First letter must be capitalized.")
   @JsonProperty(JSON_PROPERTY_WEEK_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -26,9 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Definition of a logs pipeline
+ * Pipelines and processors operate on incoming logs, parsing and transforming them into structured attributes for easier querying.  **Note**: These endpoints are only available for admin users. Make sure to use an application key created by an admin.
  */
-@ApiModel(description = "Definition of a logs pipeline")
+@ApiModel(description = "Pipelines and processors operate on incoming logs, parsing and transforming them into structured attributes for easier querying.  **Note**: These endpoints are only available for admin users. Make sure to use an application key created by an admin.")
 @JsonPropertyOrder({
   LogsPipeline.JSON_PROPERTY_FILTER,
   LogsPipeline.JSON_PROPERTY_ID,
@@ -88,11 +88,11 @@ public class LogsPipeline {
 
 
    /**
-   * ID of the pipeline
+   * ID of the pipeline.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the pipeline")
+  @ApiModelProperty(value = "ID of the pipeline.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -110,11 +110,11 @@ public class LogsPipeline {
   }
 
    /**
-   * Whether or not the pipeline is enabled
+   * Whether or not the pipeline is enabled.
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the pipeline is enabled")
+  @ApiModelProperty(value = "Whether or not the pipeline is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -129,11 +129,11 @@ public class LogsPipeline {
 
 
    /**
-   * Whether or not the pipeline can be edited
+   * Whether or not the pipeline can be edited.
    * @return isReadOnly
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the pipeline can be edited")
+  @ApiModelProperty(value = "Whether or not the pipeline can be edited.")
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,10 +151,10 @@ public class LogsPipeline {
   }
 
    /**
-   * Name of the pipeline
+   * Name of the pipeline.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name of the pipeline")
+  @ApiModelProperty(required = true, value = "Name of the pipeline.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -183,11 +183,11 @@ public class LogsPipeline {
   }
 
    /**
-   * Ordered list of processors in this pipeline
+   * Ordered list of processors in this pipeline.
    * @return processors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ordered list of processors in this pipeline")
+  @ApiModelProperty(value = "Ordered list of processors in this pipeline.")
   @JsonProperty(JSON_PROPERTY_PROCESSORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -202,11 +202,11 @@ public class LogsPipeline {
 
 
    /**
-   * Type of pipeline
+   * Type of pipeline.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "pipeline", value = "Type of pipeline")
+  @ApiModelProperty(example = "pipeline", value = "Type of pipeline.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

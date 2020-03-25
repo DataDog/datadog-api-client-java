@@ -4,11 +4,11 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllLogIndexes**](LogsIndexesApi.md#getAllLogIndexes) | **GET** /api/v1/logs/config/indexes | Get all Indexes
+[**getAllLogIndexes**](LogsIndexesApi.md#getAllLogIndexes) | **GET** /api/v1/logs/config/indexes | Get all indexes
 [**getLogsIndex**](LogsIndexesApi.md#getLogsIndex) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
-[**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get Indexes Order
-[**updateLogsIndex**](LogsIndexesApi.md#updateLogsIndex) | **PUT** /api/v1/logs/config/indexes/{name} | Update an Index
-[**updateLogsIndexOrder**](LogsIndexesApi.md#updateLogsIndexOrder) | **PUT** /api/v1/logs/config/index-order | Update Indexes Order
+[**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get indexes order
+[**updateLogsIndex**](LogsIndexesApi.md#updateLogsIndex) | **PUT** /api/v1/logs/config/indexes/{name} | Update an index
+[**updateLogsIndexOrder**](LogsIndexesApi.md#updateLogsIndexOrder) | **PUT** /api/v1/logs/config/index-order | Update indexes order
 
 
 
@@ -16,8 +16,9 @@ Method | HTTP request | Description
 
 > LogsIndexListResponse getAllLogIndexes().execute();
 
-Get all Indexes
+Get all indexes
 
+The Index object describes the configuration of a log index.
 This endpoint returns an array of the `LogIndex` objects of your organization.
 
 ### Example
@@ -94,10 +95,7 @@ This endpoint does not need any parameter.
 
 Get an index
 
-## Overview
-Get one log index from your organization.
-### Arguments
-This endpoint takes no JSON arguments.
+Get one log index from your organization. This endpoint takes no JSON arguments.
 
 ### Example
 
@@ -128,7 +126,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
-        String name = "name_example"; // String | Name of the log index
+        String name = "name_example"; // String | Name of the log index.
         try {
             LogsIndex result = api.getLogsIndex(name)
                 .execute();
@@ -149,7 +147,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the log index |
+ **name** | **String**| Name of the log index. |
 
 ### Return type
 
@@ -176,12 +174,12 @@ Name | Type | Description  | Notes
 
 > LogsIndexesOrder getLogsIndexOrder().execute();
 
-Get Indexes Order
+Get indexes order
 
-## Overview
-Get the current order of your log indexes.
-### Arguments
-This endpoint takes no JSON arguments.
+Get the current order of your log indexes. This endpoint takes no JSON arguments.
+
+**Note**: This endpoint is in public beta.
+If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
 
 ### Example
 
@@ -255,31 +253,12 @@ This endpoint does not need any parameter.
 
 > LogsIndex updateLogsIndex(name).body(body).execute();
 
-Update an Index
+Update an index
 
-## Overview
 It returns the Index object passed in the request body when the request is successful.
-**Note:** Using the PUT method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
-### Arguments
-* **`filter.query`**  [*required*]:
-    Only logs matching the filter criteria will be considered for this index. The search query follows the [Log search syntax][1]
 
-* **`exclusion_filters`** An array of `ExclusionFilter` objects (see hereafter). The logs are tested against the query of each `ExclusionFilter`, following the order of the array. Only the first matching active `ExclusionFilter` matters, others (if any) are ignored. The `ExclusionFilter` object describes the configuration of an [exclusion filter][2]. It has the following attributes:
-
-  * **`name`** [*required*]:
-    The name of the exclusion filter
-
-  * **`is_enabled`**  [*optional*, *default*=**False**]:
-    A boolean stating if the exclusion is active.
-
-  * **`filter.query`** [*optional*]:
-    Only logs matching the filter criteria AND the query of the parent index will be considered for this exclusion filter. The search query follows the [Log search syntax][1]
-
-  * **`filter.sample_rate`** [*required*]:
-    The fraction of logs excluded by the exclusion filter, when active. The sampling is uniform.
-
-[1]: /logs/explorer/search
-[2]: /logs/indexes/#exclusion-filters
+Using the `PUT` method updates your index’s configuration by **replacing**
+your current configuration with the new one sent to your Datadog organization.
 
 ### Example
 
@@ -310,8 +289,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
-        String name = "name_example"; // String | Name of the log index
-        LogsIndex body = new LogsIndex(); // LogsIndex | Object containing the new LogsIndex
+        String name = "name_example"; // String | Name of the log index.
+        LogsIndex body = new LogsIndex(); // LogsIndex | Object containing the new LogsIndex.
         try {
             LogsIndex result = api.updateLogsIndex(name)
                 .body(body)
@@ -333,8 +312,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the log index |
- **body** | [**LogsIndex**](LogsIndex.md)| Object containing the new LogsIndex | [optional]
+ **name** | **String**| Name of the log index. |
+ **body** | [**LogsIndex**](LogsIndex.md)| Object containing the new LogsIndex. | [optional]
 
 ### Return type
 
@@ -362,12 +341,13 @@ Name | Type | Description  | Notes
 
 > LogsIndexesOrder updateLogsIndexOrder().body(body).execute();
 
-Update Indexes Order
+Update indexes order
 
-## Overview
-This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
-### Arguments
-- **`index_names`** [*required*]: Array of strings identifying by their name(s) the index(es) of your organisation. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
+This endpoint updates the index order of your organization.
+It returns the index order object passed in the request body when the request is successful.
+
+**Note**: This endpoint is in public beta.
+If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
 
 ### Example
 

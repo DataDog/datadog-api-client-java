@@ -142,7 +142,7 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
 
     /**
      * Set graphDef
-     * @param graphDef A JSON document defining the graph. graph_def can be used instead of metric_query. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URLEncoded. (optional)
+     * @param graphDef A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URLEncoded. (optional)
      * @return APIgetGraphSnapshotRequest
      */
     public APIgetGraphSnapshotRequest graphDef(String graphDef) {
@@ -199,7 +199,7 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
 
   /**
    * Take graph snapshots
-   * ### Overview Take graph snapshots ### Arguments * **&#x60;metric_query&#x60;** [*optional*]: The metric query. One of metric_query or graph_def is required * **&#x60;start&#x60;** [*required*]: The POSIX timestamp of the start of the query. * **&#x60;end&#x60;** [*required*]: The POSIX timestamp of the end of the query. * **&#x60;event_query&#x60;** [*optional*, *default* &#x3D; **None**]: A query that adds event bands to the graph. * **&#x60;graph_def&#x60;** [*optional*, *default* &#x3D; **None**]: A JSON document defining the graph.   graph_def can be used instead of metric_query. The JSON document uses the   [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)   and should be formatted to a single line then URLEncoded.  * **&#x60;title&#x60;** [*optional*, *default* &#x3D; **None**]: A title for the graph.   If no title is specified, the graph doesn’t have a title.
+   * Take graph snapshots.
    * @return getGraphSnapshotRequest
    * @throws ApiException if fails to make API call
    

@@ -16,6 +16,7 @@ import java.util.Arrays;
 import com.datadog.api.v1.client.model.AccessRole;
 import com.datadog.api.v1.client.model.OrgSettingsSaml;
 import com.datadog.api.v1.client.model.OrgSettingsSamlAutocreateUsersDomains;
+import com.datadog.api.v1.client.model.OrgSettingsSamlIdpInitiatedLogin;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,8 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * OrgSettings
+ * A JSON array of settings.
  */
+@ApiModel(description = "A JSON array of settings.")
 @JsonPropertyOrder({
   OrgSettings.JSON_PROPERTY_PRIVATE_WIDGET_SHARE,
   OrgSettings.JSON_PROPERTY_SAML,
@@ -48,7 +50,7 @@ public class OrgSettings {
   private OrgSettingsSaml saml;
 
   public static final String JSON_PROPERTY_SAML_AUTOCREATE_ACCESS_ROLE = "saml_autocreate_access_role";
-  private AccessRole samlAutocreateAccessRole;
+  private AccessRole samlAutocreateAccessRole = AccessRole.STANDARD;
 
   public static final String JSON_PROPERTY_SAML_AUTOCREATE_USERS_DOMAINS = "saml_autocreate_users_domains";
   private OrgSettingsSamlAutocreateUsersDomains samlAutocreateUsersDomains;
@@ -60,7 +62,7 @@ public class OrgSettings {
   private String samlIdpEndpoint;
 
   public static final String JSON_PROPERTY_SAML_IDP_INITIATED_LOGIN = "saml_idp_initiated_login";
-  private OrgSettingsSaml samlIdpInitiatedLogin;
+  private OrgSettingsSamlIdpInitiatedLogin samlIdpInitiatedLogin;
 
   public static final String JSON_PROPERTY_SAML_IDP_METADATA_UPLOADED = "saml_idp_metadata_uploaded";
   private Boolean samlIdpMetadataUploaded;
@@ -69,7 +71,7 @@ public class OrgSettings {
   private String samlLoginUrl;
 
   public static final String JSON_PROPERTY_SAML_STRICT_MODE = "saml_strict_mode";
-  private OrgSettingsSaml samlStrictMode;
+  private OrgSettingsSamlIdpInitiatedLogin samlStrictMode;
 
 
   public OrgSettings privateWidgetShare(Boolean privateWidgetShare) {
@@ -79,11 +81,11 @@ public class OrgSettings {
   }
 
    /**
-   * Get privateWidgetShare
+   * TODO.
    * @return privateWidgetShare
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
+  @ApiModelProperty(example = "false", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PRIVATE_WIDGET_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -179,11 +181,11 @@ public class OrgSettings {
   }
 
    /**
-   * Get samlCanBeEnabled
+   * TODO.
    * @return samlCanBeEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
+  @ApiModelProperty(example = "false", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SAML_CAN_BE_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -204,11 +206,11 @@ public class OrgSettings {
   }
 
    /**
-   * Get samlIdpEndpoint
+   * TODO.
    * @return samlIdpEndpoint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://my.saml.endpoint", value = "")
+  @ApiModelProperty(example = "https://my.saml.endpoint", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SAML_IDP_ENDPOINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -222,7 +224,7 @@ public class OrgSettings {
   }
 
 
-  public OrgSettings samlIdpInitiatedLogin(OrgSettingsSaml samlIdpInitiatedLogin) {
+  public OrgSettings samlIdpInitiatedLogin(OrgSettingsSamlIdpInitiatedLogin samlIdpInitiatedLogin) {
     
     this.samlIdpInitiatedLogin = samlIdpInitiatedLogin;
     return this;
@@ -237,12 +239,12 @@ public class OrgSettings {
   @JsonProperty(JSON_PROPERTY_SAML_IDP_INITIATED_LOGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OrgSettingsSaml getSamlIdpInitiatedLogin() {
+  public OrgSettingsSamlIdpInitiatedLogin getSamlIdpInitiatedLogin() {
     return samlIdpInitiatedLogin;
   }
 
 
-  public void setSamlIdpInitiatedLogin(OrgSettingsSaml samlIdpInitiatedLogin) {
+  public void setSamlIdpInitiatedLogin(OrgSettingsSamlIdpInitiatedLogin samlIdpInitiatedLogin) {
     this.samlIdpInitiatedLogin = samlIdpInitiatedLogin;
   }
 
@@ -254,11 +256,11 @@ public class OrgSettings {
   }
 
    /**
-   * Get samlIdpMetadataUploaded
+   * TODO.
    * @return samlIdpMetadataUploaded
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
+  @ApiModelProperty(example = "false", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SAML_IDP_METADATA_UPLOADED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -279,11 +281,11 @@ public class OrgSettings {
   }
 
    /**
-   * Get samlLoginUrl
+   * TODO.
    * @return samlLoginUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://my.saml.login.url", value = "")
+  @ApiModelProperty(example = "https://my.saml.login.url", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SAML_LOGIN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -297,7 +299,7 @@ public class OrgSettings {
   }
 
 
-  public OrgSettings samlStrictMode(OrgSettingsSaml samlStrictMode) {
+  public OrgSettings samlStrictMode(OrgSettingsSamlIdpInitiatedLogin samlStrictMode) {
     
     this.samlStrictMode = samlStrictMode;
     return this;
@@ -312,12 +314,12 @@ public class OrgSettings {
   @JsonProperty(JSON_PROPERTY_SAML_STRICT_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OrgSettingsSaml getSamlStrictMode() {
+  public OrgSettingsSamlIdpInitiatedLogin getSamlStrictMode() {
     return samlStrictMode;
   }
 
 
-  public void setSamlStrictMode(OrgSettingsSaml samlStrictMode) {
+  public void setSamlStrictMode(OrgSettingsSamlIdpInitiatedLogin samlStrictMode) {
     this.samlStrictMode = samlStrictMode;
   }
 

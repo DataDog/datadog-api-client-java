@@ -70,11 +70,11 @@ public class LogsCategoryProcessorCategories {
   }
 
    /**
-   * Value to assign to the target attribute
+   * Value to assign to the target attribute.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Value to assign to the target attribute")
+  @ApiModelProperty(value = "Value to assign to the target attribute.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

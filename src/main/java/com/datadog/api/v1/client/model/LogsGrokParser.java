@@ -99,11 +99,11 @@ public class LogsGrokParser implements LogsProcessor {
   }
 
    /**
-   * List of sample logs to test this grok parser
+   * List of sample logs to test this grok parser.
    * @return samples
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of sample logs to test this grok parser")
+  @ApiModelProperty(value = "List of sample logs to test this grok parser.")
   @JsonProperty(JSON_PROPERTY_SAMPLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -124,10 +124,10 @@ public class LogsGrokParser implements LogsProcessor {
   }
 
    /**
-   * Name of the log attribute to parse
+   * Name of the log attribute to parse.
    * @return source
   **/
-  @ApiModelProperty(required = true, value = "Name of the log attribute to parse")
+  @ApiModelProperty(required = true, value = "Name of the log attribute to parse.")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -142,11 +142,11 @@ public class LogsGrokParser implements LogsProcessor {
 
 
    /**
-   * Type of processor
+   * Type of processor.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor")
+  @ApiModelProperty(value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -164,11 +164,11 @@ public class LogsGrokParser implements LogsProcessor {
   }
 
    /**
-   * Whether or not the processor is enabled
+   * Whether or not the processor is enabled.
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled")
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -189,11 +189,11 @@ public class LogsGrokParser implements LogsProcessor {
   }
 
    /**
-   * Name of the processor
+   * Name of the processor.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor")
+  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

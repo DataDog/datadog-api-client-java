@@ -113,8 +113,8 @@ private ApiResponse<LogsIndexListResponse> getAllLogIndexesWithHttpInfo() throws
   }
 
   /**
-   * Get all Indexes
-   * This endpoint returns an array of the &#x60;LogIndex&#x60; objects of your organization.
+   * Get all indexes
+   * The Index object describes the configuration of a log index. This endpoint returns an array of the &#x60;LogIndex&#x60; objects of your organization.
    * @return getAllLogIndexesRequest
    * @throws ApiException if fails to make API call
    
@@ -122,6 +122,12 @@ private ApiResponse<LogsIndexListResponse> getAllLogIndexesWithHttpInfo() throws
    */
   
   public APIgetAllLogIndexesRequest getAllLogIndexes() throws ApiException {
+    String operationId = "getAllLogIndexes";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIgetAllLogIndexesRequest();
   }
 
@@ -210,8 +216,8 @@ private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiE
 
   /**
    * Get an index
-   * ## Overview Get one log index from your organization. ### Arguments This endpoint takes no JSON arguments.
-   * @param name Name of the log index (required)
+   * Get one log index from your organization. This endpoint takes no JSON arguments.
+   * @param name Name of the log index. (required)
    * @return getLogsIndexRequest
    * @throws ApiException if fails to make API call
    
@@ -219,6 +225,12 @@ private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiE
    */
   
   public APIgetLogsIndexRequest getLogsIndex(String name) throws ApiException {
+    String operationId = "getLogsIndex";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIgetLogsIndexRequest(name);
   }
 
@@ -296,8 +308,8 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
   }
 
   /**
-   * Get Indexes Order
-   * ## Overview Get the current order of your log indexes. ### Arguments This endpoint takes no JSON arguments.
+   * Get indexes order
+   * Get the current order of your log indexes. This endpoint takes no JSON arguments.  **Note**: This endpoint is in public beta. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
    * @return getLogsIndexOrderRequest
    * @throws ApiException if fails to make API call
    
@@ -357,7 +369,7 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
 
     /**
      * Set body
-     * @param body Object containing the new LogsIndex (optional)
+     * @param body Object containing the new LogsIndex. (optional)
      * @return APIupdateLogsIndexRequest
      */
     public APIupdateLogsIndexRequest body(LogsIndex body) {
@@ -406,9 +418,9 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
   }
 
   /**
-   * Update an Index
-   * ## Overview It returns the Index object passed in the request body when the request is successful. **Note:** Using the PUT method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization. ### Arguments * **&#x60;filter.query&#x60;**  [*required*]:     Only logs matching the filter criteria will be considered for this index. The search query follows the [Log search syntax][1]  * **&#x60;exclusion_filters&#x60;** An array of &#x60;ExclusionFilter&#x60; objects (see hereafter). The logs are tested against the query of each &#x60;ExclusionFilter&#x60;, following the order of the array. Only the first matching active &#x60;ExclusionFilter&#x60; matters, others (if any) are ignored. The &#x60;ExclusionFilter&#x60; object describes the configuration of an [exclusion filter][2]. It has the following attributes:    * **&#x60;name&#x60;** [*required*]:     The name of the exclusion filter    * **&#x60;is_enabled&#x60;**  [*optional*, *default*&#x3D;**False**]:     A boolean stating if the exclusion is active.    * **&#x60;filter.query&#x60;** [*optional*]:     Only logs matching the filter criteria AND the query of the parent index will be considered for this exclusion filter. The search query follows the [Log search syntax][1]    * **&#x60;filter.sample_rate&#x60;** [*required*]:     The fraction of logs excluded by the exclusion filter, when active. The sampling is uniform.  [1]: /logs/explorer/search [2]: /logs/indexes/#exclusion-filters
-   * @param name Name of the log index (required)
+   * Update an index
+   * It returns the Index object passed in the request body when the request is successful.  Using the &#x60;PUT&#x60; method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * @param name Name of the log index. (required)
    * @return updateLogsIndexRequest
    * @throws ApiException if fails to make API call
    
@@ -416,6 +428,12 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
    */
   
   public APIupdateLogsIndexRequest updateLogsIndex(String name) throws ApiException {
+    String operationId = "updateLogsIndex";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIupdateLogsIndexRequest(name);
   }
 
@@ -507,8 +525,8 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
   }
 
   /**
-   * Update Indexes Order
-   * ## Overview This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful. ### Arguments - **&#x60;index_names&#x60;** [*required*]: Array of strings identifying by their name(s) the index(es) of your organisation. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
+   * Update indexes order
+   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.  **Note**: This endpoint is in public beta. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
    * @return updateLogsIndexOrderRequest
    * @throws ApiException if fails to make API call
    

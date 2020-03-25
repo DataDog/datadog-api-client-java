@@ -13,9 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveGroups;
 import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveMetrics;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveOverall;
+import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveSLIData;
 import com.datadog.api.v1.client.model.SLOThreshold;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveType;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveTypeNumeric;
@@ -31,8 +30,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HistoryServiceLevelObjectiveResponseData
+ * An array of service level objective objects.
  */
+@ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
   HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_FROM_TS,
   HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_GROUPS,
@@ -49,10 +49,10 @@ public class HistoryServiceLevelObjectiveResponseData {
   private Long fromTs;
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  private HistoryServiceLevelObjectiveGroups groups;
+  private HistoryServiceLevelObjectiveSLIData groups;
 
   public static final String JSON_PROPERTY_OVERALL = "overall";
-  private HistoryServiceLevelObjectiveOverall overall;
+  private HistoryServiceLevelObjectiveSLIData overall;
 
   public static final String JSON_PROPERTY_SERIES = "series";
   private HistoryServiceLevelObjectiveMetrics series;
@@ -77,11 +77,11 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
    /**
-   * the &#x60;from&#x60; timestamp in epoch seconds
+   * The &#x60;from&#x60; timestamp in epoch seconds.
    * @return fromTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "the `from` timestamp in epoch seconds")
+  @ApiModelProperty(value = "The `from` timestamp in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_FROM_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -95,7 +95,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData groups(HistoryServiceLevelObjectiveGroups groups) {
+  public HistoryServiceLevelObjectiveResponseData groups(HistoryServiceLevelObjectiveSLIData groups) {
     
     this.groups = groups;
     return this;
@@ -110,17 +110,17 @@ public class HistoryServiceLevelObjectiveResponseData {
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public HistoryServiceLevelObjectiveGroups getGroups() {
+  public HistoryServiceLevelObjectiveSLIData getGroups() {
     return groups;
   }
 
 
-  public void setGroups(HistoryServiceLevelObjectiveGroups groups) {
+  public void setGroups(HistoryServiceLevelObjectiveSLIData groups) {
     this.groups = groups;
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData overall(HistoryServiceLevelObjectiveOverall overall) {
+  public HistoryServiceLevelObjectiveResponseData overall(HistoryServiceLevelObjectiveSLIData overall) {
     
     this.overall = overall;
     return this;
@@ -135,12 +135,12 @@ public class HistoryServiceLevelObjectiveResponseData {
   @JsonProperty(JSON_PROPERTY_OVERALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public HistoryServiceLevelObjectiveOverall getOverall() {
+  public HistoryServiceLevelObjectiveSLIData getOverall() {
     return overall;
   }
 
 
-  public void setOverall(HistoryServiceLevelObjectiveOverall overall) {
+  public void setOverall(HistoryServiceLevelObjectiveSLIData overall) {
     this.overall = overall;
   }
 
@@ -210,11 +210,11 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
    /**
-   * the &#x60;to&#x60; timestamp in epoch seconds
+   * The &#x60;to&#x60; timestamp in epoch seconds.
    * @return toTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "the `to` timestamp in epoch seconds")
+  @ApiModelProperty(value = "The `to` timestamp in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_TO_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

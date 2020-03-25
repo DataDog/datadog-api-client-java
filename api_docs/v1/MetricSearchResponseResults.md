@@ -2,12 +2,12 @@
 
 # MetricSearchResponseResults
 
-Search result
+Search result.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metrics** | **List&lt;String&gt;** | List of metrics that match the search query |  [optional]
+**metrics** | **List&lt;String&gt;** | List of metrics that match the search query. |  [optional]
 
 
 

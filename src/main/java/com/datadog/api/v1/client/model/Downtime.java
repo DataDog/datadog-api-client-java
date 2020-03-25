@@ -28,8 +28,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Downtime
+ * Downtiming gives you greater control over monitor notifications by allowing you to globally exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times, prevent all alerting related to specified Datadog tags.
  */
+@ApiModel(description = "Downtiming gives you greater control over monitor notifications by allowing you to globally exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times, prevent all alerting related to specified Datadog tags.")
 @JsonPropertyOrder({
   Downtime.JSON_PROPERTY_ACTIVE,
   Downtime.JSON_PROPERTY_CANCELED,
@@ -96,15 +97,15 @@ public class Downtime {
   private String timezone;
 
   public static final String JSON_PROPERTY_UPDATER_ID = "updater_id";
-  private Integer updaterId;
+  private JsonNullable<Integer> updaterId = JsonNullable.<Integer>undefined();
 
 
    /**
-   * Get active
+   * If a scheduled downtime currently exists.
    * @return active
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(example = "true", value = "If a scheduled downtime currently exists.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -116,11 +117,11 @@ public class Downtime {
 
 
    /**
-   * Get canceled
+   * If a scheduled downtime is cancelled.
    * @return canceled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1412799983", value = "")
+  @ApiModelProperty(example = "1412799983", value = "If a scheduled downtime is cancelled.")
   @JsonIgnore
 
   public Long getCanceled() {
@@ -146,12 +147,12 @@ public class Downtime {
 
 
    /**
-   * Get creatorId
+   * TODO.
    * maximum: 2147483647
    * @return creatorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "")
+  @ApiModelProperty(example = "123456", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CREATOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -169,11 +170,11 @@ public class Downtime {
   }
 
    /**
-   * Get disabled
+   * If a downtime has been disabled.
    * @return disabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
+  @ApiModelProperty(example = "false", value = "If a downtime has been disabled.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -188,12 +189,12 @@ public class Downtime {
 
 
    /**
-   * Get downtimeType
+   * TODO.
    * maximum: 2147483647
    * @return downtimeType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2", value = "")
+  @ApiModelProperty(example = "2", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DOWNTIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -211,11 +212,11 @@ public class Downtime {
   }
 
    /**
-   * Get end
+   * POSIX timestamp to end the downtime. If not provided, the downtime is in effect indefinitely until you cancel it.
    * @return end
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1412793983", value = "")
+  @ApiModelProperty(example = "1412793983", value = "POSIX timestamp to end the downtime. If not provided, the downtime is in effect indefinitely until you cancel it.")
   @JsonIgnore
 
   public Long getEnd() {
@@ -240,11 +241,11 @@ public class Downtime {
 
 
    /**
-   * Get id
+   * TODO.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1625", value = "")
+  @ApiModelProperty(example = "1625", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -262,11 +263,11 @@ public class Downtime {
   }
 
    /**
-   * Get message
+   * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same ‘@username’ notation as events.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Message on the downtime", value = "")
+  @ApiModelProperty(example = "Message on the downtime", value = "A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same ‘@username’ notation as events.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -287,11 +288,11 @@ public class Downtime {
   }
 
    /**
-   * Get monitorId
+   * A single monitor to which the downtime applies. If not provided, the downtime applies to all monitors.
    * @return monitorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "")
+  @ApiModelProperty(example = "123456", value = "A single monitor to which the downtime applies. If not provided, the downtime applies to all monitors.")
   @JsonIgnore
 
   public Long getMonitorId() {
@@ -330,11 +331,11 @@ public class Downtime {
   }
 
    /**
-   * Get monitorTags
+   * A comma-separated list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match ALL provided monitor tags. For example, &#x60;service:postgres&#x60; **AND** &#x60;team:frontend&#x60;.
    * @return monitorTags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"*\"]", value = "")
+  @ApiModelProperty(example = "[\"*\"]", value = "A comma-separated list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match ALL provided monitor tags. For example, `service:postgres` **AND** `team:frontend`.")
   @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -355,11 +356,11 @@ public class Downtime {
   }
 
    /**
-   * Get parentId
+   * TODO.
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123", value = "")
+  @ApiModelProperty(example = "123", value = "TODO.")
   @JsonIgnore
 
   public Long getParentId() {
@@ -433,11 +434,11 @@ public class Downtime {
   }
 
    /**
-   * Get scope
+   * The scope(s) to which the downtime applies. For example, &#x60;host:app2&#x60;. Provide multiple scopes as a comma-separated list like &#x60;env:dev,env:prod&#x60;. The resulting downtime applies to sources that matches ALL provided scopes (&#x60;env:dev&#x60; **AND** &#x60;env:prod&#x60;).
    * @return scope
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"env:staging\"]", value = "")
+  @ApiModelProperty(example = "[\"env:staging\"]", value = "The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -458,11 +459,11 @@ public class Downtime {
   }
 
    /**
-   * Get start
+   * POSIX timestamp to start the downtime. If not provided, the downtime starts the moment it is created.
    * @return start
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1412792983", value = "")
+  @ApiModelProperty(example = "1412792983", value = "POSIX timestamp to start the downtime. If not provided, the downtime starts the moment it is created.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -483,11 +484,11 @@ public class Downtime {
   }
 
    /**
-   * Get timezone
+   * The timezone for the downtime.
    * @return timezone
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "America/New_York", value = "")
+  @ApiModelProperty(example = "America/New_York", value = "The timezone for the downtime.")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -502,19 +503,33 @@ public class Downtime {
 
 
    /**
-   * Get updaterId
+   * TODO.
    * maximum: 2147483647
    * @return updaterId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "")
+  @ApiModelProperty(example = "123456", value = "TODO.")
+  @JsonIgnore
+
+  public Integer getUpdaterId() {
+    
+    if (updaterId == null) {
+      updaterId = JsonNullable.<Integer>undefined();
+    }
+    return updaterId.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_UPDATER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getUpdaterId() {
+  public JsonNullable<Integer> getUpdaterId_JsonNullable() {
     return updaterId;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_UPDATER_ID)
+  private void setUpdaterId_JsonNullable(JsonNullable<Integer> updaterId) {
+    this.updaterId = updaterId;
+  }
 
 
 

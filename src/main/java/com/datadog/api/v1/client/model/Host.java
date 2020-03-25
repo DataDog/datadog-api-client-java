@@ -106,11 +106,11 @@ public class Host {
   }
 
    /**
-   * Get aliases
+   * TODO.
    * @return aliases
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ALIASES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -139,11 +139,11 @@ public class Host {
   }
 
    /**
-   * Get apps
+   * TODO.
    * @return apps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -164,11 +164,11 @@ public class Host {
   }
 
    /**
-   * Get awsName
+   * TODO.
    * @return awsName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "mycoolhost-1", value = "")
+  @ApiModelProperty(example = "mycoolhost-1", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_AWS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -189,11 +189,11 @@ public class Host {
   }
 
    /**
-   * Get hostName
+   * The host name.
    * @return hostName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "i-deadbeef", value = "")
+  @ApiModelProperty(example = "i-deadbeef", value = "The host name.")
   @JsonProperty(JSON_PROPERTY_HOST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -214,11 +214,11 @@ public class Host {
   }
 
    /**
-   * Get id
+   * TODO.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "")
+  @ApiModelProperty(example = "123456", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -239,11 +239,11 @@ public class Host {
   }
 
    /**
-   * Get isMuted
+   * If a host is muted or unmuted.
    * @return isMuted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
+  @ApiModelProperty(example = "false", value = "If a host is muted or unmuted.")
   @JsonProperty(JSON_PROPERTY_IS_MUTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -264,11 +264,11 @@ public class Host {
   }
 
    /**
-   * Get lastReportedTime
+   * TODO.
    * @return lastReportedTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1565000000", value = "")
+  @ApiModelProperty(example = "1565000000", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LAST_REPORTED_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -339,11 +339,11 @@ public class Host {
   }
 
    /**
-   * Get muteTimeout
+   * TODO.
    * @return muteTimeout
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MUTE_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -364,11 +364,11 @@ public class Host {
   }
 
    /**
-   * Get name
+   * The host name.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "i-hostname", value = "")
+  @ApiModelProperty(example = "i-hostname", value = "The host name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -397,11 +397,11 @@ public class Host {
   }
 
    /**
-   * Get sources
+   * TODO.
    * @return sources
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -430,11 +430,11 @@ public class Host {
   }
 
    /**
-   * Get tagsBySource
+   * TODO.
    * @return tagsBySource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TAGS_BY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -455,11 +455,11 @@ public class Host {
   }
 
    /**
-   * Get up
+   * TODO.
    * @return up
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(example = "true", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_UP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

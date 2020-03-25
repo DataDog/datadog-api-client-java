@@ -95,6 +95,8 @@ public class DowntimesApiTest extends V1ApiTest {
         assertEquals(testingDowntimeRecurrencePeriod, obtained.getRecurrence().getPeriod());
         assertEquals(testingDowntimeRecurrenceWeekDays, obtained.getRecurrence().getWeekDays());
         assertEquals(testingUntilDowntimeRecurrenceOccurrences, obtained.getRecurrence().getUntilOccurrences());
+        assertNull(obtained.getUpdaterId());
+        assertTrue(obtained.getUpdaterId_JsonNullable().isPresent());
 
         // test updating downtime
         downtime.setMessage("New message");
@@ -108,6 +110,8 @@ public class DowntimesApiTest extends V1ApiTest {
         assertEquals(testingDowntimeRecurrencePeriod, obtained.getRecurrence().getPeriod());
         assertEquals(testingDowntimeRecurrenceWeekDays, obtained.getRecurrence().getWeekDays());
         assertEquals(testingUntilDowntimeRecurrenceOccurrences, obtained.getRecurrence().getUntilOccurrences());
+        assertNotNull(obtained.getUpdaterId());
+        assertTrue(obtained.getUpdaterId_JsonNullable().isPresent());
 
         // test canceling downtime
         api.cancelDowntime(downtimeId).execute();

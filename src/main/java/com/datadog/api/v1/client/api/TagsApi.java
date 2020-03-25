@@ -206,7 +206,7 @@ private ApiResponse<TagToHosts> getAllHostTagsWithHttpInfo(String source) throws
 
     /**
      * Set source
-     * @param source When specified, filters host list to those tags with the specified source (optional)
+     * @param source When specified, filters host list to those tags with the specified source. (optional)
      * @return APIgetAllHostTagsRequest
      */
     public APIgetAllHostTagsRequest source(String source) {
@@ -425,7 +425,7 @@ private ApiResponse<Void> removeHostTagsWithHttpInfo(String hostName, String sou
 
     /**
      * Set source
-     * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) (optional)
+     * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). (optional)
      * @return APIremoveHostTagsRequest
      */
     public APIremoveHostTagsRequest source(String source) {

@@ -106,11 +106,11 @@ public class DashboardListItem {
 
 
    /**
-   * Date of creation of the dashboard
+   * Date of creation of the dashboard.
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date of creation of the dashboard")
+  @ApiModelProperty(value = "Date of creation of the dashboard.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -122,11 +122,11 @@ public class DashboardListItem {
 
 
    /**
-   * URL to the icon of the dashboard
+   * URL to the icon of the dashboard.
    * @return icon
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL to the icon of the dashboard")
+  @ApiModelProperty(value = "URL to the icon of the dashboard.")
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -144,10 +144,10 @@ public class DashboardListItem {
   }
 
    /**
-   * ID of the dashboard
+   * ID of the dashboard.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "ID of the dashboard")
+  @ApiModelProperty(required = true, value = "ID of the dashboard.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -162,11 +162,11 @@ public class DashboardListItem {
 
 
    /**
-   * Whether or not the dashboard is in the favorites
+   * Whether or not the dashboard is in the favorites.
    * @return isFavorite
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the dashboard is in the favorites")
+  @ApiModelProperty(value = "Whether or not the dashboard is in the favorites.")
   @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -178,11 +178,11 @@ public class DashboardListItem {
 
 
    /**
-   * Whether or not the dashboard is read only
+   * Whether or not the dashboard is read only.
    * @return isReadOnly
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the dashboard is read only")
+  @ApiModelProperty(value = "Whether or not the dashboard is read only.")
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -194,11 +194,11 @@ public class DashboardListItem {
 
 
    /**
-   * Whether the dashboard is publicly shared or not
+   * Whether the dashboard is publicly shared or not.
    * @return isShared
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the dashboard is publicly shared or not")
+  @ApiModelProperty(value = "Whether the dashboard is publicly shared or not.")
   @JsonProperty(JSON_PROPERTY_IS_SHARED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -210,11 +210,11 @@ public class DashboardListItem {
 
 
    /**
-   * Date of last edition of the dashboard
+   * Date of last edition of the dashboard.
    * @return modified
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date of last edition of the dashboard")
+  @ApiModelProperty(value = "Date of last edition of the dashboard.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -226,12 +226,12 @@ public class DashboardListItem {
 
 
    /**
-   * Popularity of the dashboard
+   * Popularity of the dashboard.
    * maximum: 5
    * @return popularity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Popularity of the dashboard")
+  @ApiModelProperty(value = "Popularity of the dashboard.")
   @JsonProperty(JSON_PROPERTY_POPULARITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -243,11 +243,11 @@ public class DashboardListItem {
 
 
    /**
-   * Title of the dashboard
+   * Title of the dashboard.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the dashboard")
+  @ApiModelProperty(value = "Title of the dashboard.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -283,11 +283,11 @@ public class DashboardListItem {
 
 
    /**
-   * URL path to the dashboard
+   * URL path to the dashboard.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL path to the dashboard")
+  @ApiModelProperty(value = "URL path to the dashboard.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

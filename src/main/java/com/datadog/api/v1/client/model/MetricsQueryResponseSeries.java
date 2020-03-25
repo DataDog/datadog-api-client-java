@@ -77,11 +77,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * Aggregation type
+   * Aggregation type.
    * @return aggr
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "avg", value = "Aggregation type")
+  @ApiModelProperty(example = "avg", value = "Aggregation type.")
   @JsonProperty(JSON_PROPERTY_AGGR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -93,11 +93,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * Display name of the metric
+   * Display name of the metric.
    * @return displayName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "system.cpu.idle", value = "Display name of the metric")
+  @ApiModelProperty(example = "system.cpu.idle", value = "Display name of the metric.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -109,11 +109,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * End of the time window, milliseconds since Unix epoch
+   * End of the time window, milliseconds since Unix epoch.
    * @return end
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "End of the time window, milliseconds since Unix epoch")
+  @ApiModelProperty(value = "End of the time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -125,11 +125,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * Metric expression
+   * Metric expression.
    * @return expression
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "system.cpu.idle{host:foo,env:test}", value = "Metric expression")
+  @ApiModelProperty(example = "system.cpu.idle{host:foo,env:test}", value = "Metric expression.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -141,11 +141,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * Number of seconds between data samples
+   * Number of seconds between data samples.
    * @return interval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of seconds between data samples")
+  @ApiModelProperty(value = "Number of seconds between data samples.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,11 +157,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * Number of data samples
+   * Number of data samples.
    * @return length
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of data samples")
+  @ApiModelProperty(value = "Number of data samples.")
   @JsonProperty(JSON_PROPERTY_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -173,11 +173,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * Metric name
+   * Metric name.
    * @return metric
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "system.cpu.idle", value = "Metric name")
+  @ApiModelProperty(example = "system.cpu.idle", value = "Metric name.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -189,11 +189,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * List of points of the time series
+   * List of points of the time series.
    * @return pointlist
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of points of the time series")
+  @ApiModelProperty(value = "List of points of the time series.")
   @JsonProperty(JSON_PROPERTY_POINTLIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -205,11 +205,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * Metric scope, comma separated list of tags
+   * Metric scope, comma separated list of tags.
    * @return scope
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host:foo,env:test", value = "Metric scope, comma separated list of tags")
+  @ApiModelProperty(example = "host:foo,env:test", value = "Metric scope, comma separated list of tags.")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -221,11 +221,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * Start of the time window, milliseconds since Unix epoch
+   * Start of the time window, milliseconds since Unix epoch.
    * @return start
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Start of the time window, milliseconds since Unix epoch")
+  @ApiModelProperty(value = "Start of the time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -237,11 +237,11 @@ public class MetricsQueryResponseSeries {
 
 
    /**
-   * Detailed information about the metric unit. First element describes the \&quot;primary unit\&quot; (e.g. &#x60;bytes&#x60; in &#x60;bytes per second&#x60;), second describes the \&quot;per unit\&quot; (e.g. &#x60;second&#x60; in &#x60;bytes per second&#x60;)
+   * Detailed information about the metric unit. First element describes the \&quot;primary unit\&quot; (for example, &#x60;bytes&#x60; in &#x60;bytes per second&#x60;), second describes the \&quot;per unit\&quot; (for example, &#x60;second&#x60; in &#x60;bytes per second&#x60;).
    * @return unit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Detailed information about the metric unit. First element describes the \"primary unit\" (e.g. `bytes` in `bytes per second`), second describes the \"per unit\" (e.g. `second` in `bytes per second`)")
+  @ApiModelProperty(value = "Detailed information about the metric unit. First element describes the \"primary unit\" (for example, `bytes` in `bytes per second`), second describes the \"per unit\" (for example, `second` in `bytes per second`).")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

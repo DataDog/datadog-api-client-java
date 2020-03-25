@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HTTPLogError
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   HTTPLogError.JSON_PROPERTY_CODE,
   HTTPLogError.JSON_PROPERTY_MESSAGE
@@ -44,11 +45,11 @@ public class HTTPLogError {
   }
 
    /**
-   * Get code
+   * TODO.
    * maximum: 2147483647
    * @return code
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -69,10 +70,10 @@ public class HTTPLogError {
   }
 
    /**
-   * Get message
+   * TODO.
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

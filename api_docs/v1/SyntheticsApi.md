@@ -25,11 +25,7 @@ Method | HTTP request | Description
 
 Create or clone test
 
-### Overview
-Create (or clone) a Synthetics test
-### Arguments
-* **`from_test_id`** The public id of the test to clone, undefined if the test is created ex nihilo
-* **`test`** [*required*] The details of the test to create
+Create (or clone) a Synthetics test.
 
 ### Example
 
@@ -60,8 +56,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | Details of the test to create
-        String fromTestId = "fromTestId_example"; // String | Public id of the test to clone, undefined if the test is created ex nihilo
+        SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | Details of the test to create.
+        String fromTestId = "fromTestId_example"; // String | Public id of the test to clone, undefined if the test is created ex nihilo.
         try {
             SyntheticsTestDetails result = api.createTest()
                 .body(body)
@@ -84,8 +80,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| Details of the test to create |
- **fromTestId** | **String**| Public id of the test to clone, undefined if the test is created ex nihilo | [optional]
+ **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| Details of the test to create. |
+ **fromTestId** | **String**| Public id of the test to clone, undefined if the test is created ex nihilo. | [optional]
 
 ### Return type
 
@@ -103,10 +99,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns the created/cloned test details |  -  |
-| **400** | JSON format is wrong, creation/cloning failed |  -  |
-| **402** | test quota is reached |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user, the test to clone can&#39;t be found |  -  |
+| **200** | OK - Returns the created/cloned test details. |  -  |
+| **400** | JSON format is wrong, creation/cloning failed. |  -  |
+| **402** | Test quota is reached. |  -  |
+| **404** | Synthetics is not activated for the user, test is not owned by the user, the test to clone can&#39;t be found. |  -  |
 
 
 ## deleteTests
@@ -115,10 +111,7 @@ Name | Type | Description  | Notes
 
 Delete multiple tests
 
-### Overview
 Delete multiple Synthetics tests by id
-### Arguments
-* **`public_ids`** [*required*] The public id list of the Synthetics tests to delete
 
 ### Example
 
@@ -200,13 +193,7 @@ Name | Type | Description  | Notes
 
 Get test latest results (as summaries)
 
-### Overview
-Get the latest results (as summaries) from a given API Synthetics test
-### Arguments
-* **`public_id`** [*required*] The public id of the test to get results from
-* **`from_ts`** [*required*] The timestamp for the start of the time frame in which to search for results
-* **`to_ts`** [*required*] The timestamp for the end of the time frame in which to search for results
-* **`probe_dc`** [*required*] The list of locations for which to search for results
+Get the latest results (as summaries) from a given API Synthetics test.
 
 ### Example
 
@@ -237,8 +224,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the test for which to search results for
-        SyntheticsGetTestLatestResultsPayload body = new SyntheticsGetTestLatestResultsPayload(); // SyntheticsGetTestLatestResultsPayload | Pause/live status to set the given Synthetics test to
+        String publicId = "publicId_example"; // String | The public id of the test for which to search results for.
+        SyntheticsGetTestLatestResultsPayload body = new SyntheticsGetTestLatestResultsPayload(); // SyntheticsGetTestLatestResultsPayload | Pause/live status to set the given Synthetics test to.
         try {
             SyntheticsGetAPITestLatestResultsResponse result = api.getAPITestLatestResults(publicId)
                 .body(body)
@@ -260,8 +247,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the test for which to search results for |
- **body** | [**SyntheticsGetTestLatestResultsPayload**](SyntheticsGetTestLatestResultsPayload.md)| Pause/live status to set the given Synthetics test to |
+ **publicId** | **String**| The public id of the test for which to search results for. |
+ **body** | [**SyntheticsGetTestLatestResultsPayload**](SyntheticsGetTestLatestResultsPayload.md)| Pause/live status to set the given Synthetics test to. |
 
 ### Return type
 
@@ -280,7 +267,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user |  -  |
+| **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
 
 
 ## getAPITestResult
@@ -289,11 +276,7 @@ Name | Type | Description  | Notes
 
 Get test result (API)
 
-### Overview
-Get a specific full result from a given (API) Synthetics test
-### Arguments
-* **`public_id`** [*required*] The public id of the API test to get the result from
-* **`result_id`** [*required*] The id of the result to get
+Get a specific full result from a given (API) Synthetics test.
 
 ### Example
 
@@ -324,8 +307,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the API test to which the target result belongs
-        String resultId = "resultId_example"; // String | The id of the result to get
+        String publicId = "publicId_example"; // String | The public id of the API test to which the target result belongs.
+        String resultId = "resultId_example"; // String | The id of the result to get.
         try {
             SyntheticsAPITestResultFull result = api.getAPITestResult(publicId, resultId)
                 .execute();
@@ -346,8 +329,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the API test to which the target result belongs |
- **resultId** | **String**| The id of the result to get |
+ **publicId** | **String**| The public id of the API test to which the target result belongs. |
+ **resultId** | **String**| The id of the result to get. |
 
 ### Return type
 
@@ -366,7 +349,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **404** | Synthetics is not activated for the user, test or result is not owned by the user |  -  |
+| **404** | Synthetics is not activated for the user, test or result is not owned by the user. |  -  |
 
 
 ## getAllDevices
@@ -375,10 +358,7 @@ Name | Type | Description  | Notes
 
 Get all devices
 
-### Overview
-Get the list of devices available for Synthetics browser tests
-### Arguments
-No arguments required
+Get the list of devices available for Synthetics browser tests.
 
 ### Example
 
@@ -453,10 +433,7 @@ This endpoint does not need any parameter.
 
 Get all locations (public and private)
 
-### Overview
-Get the list of public and private locations available for Synthetics tests
-### Arguments
-No arguments required
+Get the list of public and private locations available for Synthetics tests. No arguments required
 
 ### Example
 
@@ -531,10 +508,7 @@ This endpoint does not need any parameter.
 
 Get all test
 
-### Overview
-Get the list of all Synthetics tests (can be filtered by type)
-### Arguments
-* **`check_type`** The type to filter on (api or browser to filter the list by type, undefined to get the unfiltered list)
+Get the list of all Synthetics tests (can be filtered by type).
 
 ### Example
 
@@ -565,7 +539,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String checkType = "checkType_example"; // String | api or browser to filter the list by type, undefined to get the unfiltered list
+        String checkType = "checkType_example"; // String | API or browser to filter the list by type, undefined to get the unfiltered list.
         try {
             SyntheticsGetAllTestsResponse result = api.getAllTests()
                 .checkType(checkType)
@@ -587,7 +561,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **checkType** | **String**| api or browser to filter the list by type, undefined to get the unfiltered list | [optional]
+ **checkType** | **String**| API or browser to filter the list by type, undefined to get the unfiltered list. | [optional]
 
 ### Return type
 
@@ -605,8 +579,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns the list of all Synthetics test (properly filtered by type) |  -  |
-| **404** | Synthetics is not activated for the user |  -  |
+| **200** | OK - Returns the list of all Synthetics test (properly filtered by type). |  -  |
+| **404** | Synthetics is not activated for the user. |  -  |
 
 
 ## getBrowserTestLatestResults
@@ -615,13 +589,7 @@ Name | Type | Description  | Notes
 
 Get test latest results (as summaries)
 
-### Overview
-Get the latest results (as summaries) from a given browser Synthetics test
-### Arguments
-* **`public_id`** [*required*] The public id of the test to get results from
-* **`from_ts`** [*required*] The timestamp for the start of the time frame in which to search for results
-* **`to_ts`** [*required*] The timestamp for the end of the time frame in which to search for results
-* **`probe_dc`** [*required*] The list of locations for which to search for results
+Get the latest results (as summaries) from a given browser Synthetics test.
 
 ### Example
 
@@ -652,8 +620,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the browser test for which to search results for
-        SyntheticsGetTestLatestResultsPayload body = new SyntheticsGetTestLatestResultsPayload(); // SyntheticsGetTestLatestResultsPayload | Pause/live status to set the given Synthetics test to
+        String publicId = "publicId_example"; // String | The public id of the browser test for which to search results for.
+        SyntheticsGetTestLatestResultsPayload body = new SyntheticsGetTestLatestResultsPayload(); // SyntheticsGetTestLatestResultsPayload | Pause/live status to set the given Synthetics test to.
         try {
             SyntheticsGetBrowserTestLatestResultsResponse result = api.getBrowserTestLatestResults(publicId)
                 .body(body)
@@ -675,8 +643,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the browser test for which to search results for |
- **body** | [**SyntheticsGetTestLatestResultsPayload**](SyntheticsGetTestLatestResultsPayload.md)| Pause/live status to set the given Synthetics test to |
+ **publicId** | **String**| The public id of the browser test for which to search results for. |
+ **body** | [**SyntheticsGetTestLatestResultsPayload**](SyntheticsGetTestLatestResultsPayload.md)| Pause/live status to set the given Synthetics test to. |
 
 ### Return type
 
@@ -695,7 +663,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user |  -  |
+| **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
 
 
 ## getBrowserTestResult
@@ -704,11 +672,7 @@ Name | Type | Description  | Notes
 
 Get test result (browser)
 
-### Overview
-Get a specific full result from a given (browser) Synthetics test
-### Arguments
-* **`public_id`** [*required*] The public id of the browser test to get the result from
-* **`result_id`** [*required*] The id of the result to get
+Get a specific full result from a given (browser) Synthetics test.
 
 ### Example
 
@@ -739,8 +703,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the browser test to which the target result belongs
-        String resultId = "resultId_example"; // String | The id of the result to get
+        String publicId = "publicId_example"; // String | The public id of the browser test to which the target result belongs.
+        String resultId = "resultId_example"; // String | The id of the result to get.
         try {
             SyntheticsBrowserTestResultFull result = api.getBrowserTestResult(publicId, resultId)
                 .execute();
@@ -761,8 +725,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the browser test to which the target result belongs |
- **resultId** | **String**| The id of the result to get |
+ **publicId** | **String**| The public id of the browser test to which the target result belongs. |
+ **resultId** | **String**| The id of the result to get. |
 
 ### Return type
 
@@ -781,7 +745,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **404** | Synthetics is not activated for the user, test or result is not owned by the user |  -  |
+| **404** | Synthetics is not activated for the user, test or result is not owned by the user. |  -  |
 
 
 ## getTest
@@ -790,10 +754,7 @@ Name | Type | Description  | Notes
 
 Get test
 
-### Overview
-Get the details of a specific Synthetics test
-### Arguments
-* **`public_id`** [*required*] The public id of the test to get details from
+Get the details of a specific Synthetics test.
 
 ### Example
 
@@ -824,7 +785,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the test to get details from
+        String publicId = "publicId_example"; // String | The public id of the test to get details from.
         try {
             SyntheticsTestDetails result = api.getTest(publicId)
                 .execute();
@@ -845,7 +806,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the test to get details from |
+ **publicId** | **String**| The public id of the test to get details from. |
 
 ### Return type
 
@@ -864,7 +825,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user |  -  |
+| **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
 
 
 ## setTestPauseStatus
@@ -873,11 +834,7 @@ Name | Type | Description  | Notes
 
 Change test pause/live status
 
-### Overview
-Change pause/live status of a given Synthetics test
-### Arguments
-* **`public_id`** [*required*] The public id of the Synthetics test to update
-* **`new_status`** [*required*] The pause/live status to set the given Synthetics test to
+Change pause/live status of a given Synthetics test.
 
 ### Example
 
@@ -961,11 +918,7 @@ Name | Type | Description  | Notes
 
 Update test
 
-### Overview
-Update the details of a specific Synthetics test
-### Arguments
-* **`public_id`** [*required*] The public id of the test to update
-* **`test`** [*required*] The new test details to be saved
+Update the details of a specific Synthetics test.
 
 ### Example
 
@@ -996,8 +949,8 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the test to get details from
-        SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | New test details to be saved
+        String publicId = "publicId_example"; // String | The public id of the test to get details from.
+        SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | New test details to be saved.
         try {
             SyntheticsTestDetails result = api.updateTest(publicId)
                 .body(body)
@@ -1019,8 +972,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the test to get details from |
- **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| New test details to be saved |
+ **publicId** | **String**| The public id of the test to get details from. |
+ **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| New test details to be saved. |
 
 ### Return type
 
@@ -1039,6 +992,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | JSON format is wrong, updating subtype is forbidden |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user, test can&#39;t be found |  -  |
+| **400** | JSON format is wrong, updating subtype is forbidden. |  -  |
+| **404** | Synthetics is not activated for the user, test is not owned by the user, test can&#39;t be found. |  -  |
 
