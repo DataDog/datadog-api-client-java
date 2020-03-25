@@ -160,7 +160,7 @@ public class SloApiTest extends V1ApiTest {
         HistoryServiceLevelObjectiveResponse historyResp = api.historyForSLO(edited.getId())
                 .fromTs(Long.toString(time - 11)).toTs(Long.toString(time - 1)).execute();
 
-        HistoryServiceLevelObjectiveOverall overall = historyResp.getData().getOverall();
+        HistoryServiceLevelObjectiveSLIData overall = historyResp.getData().getOverall();
         Double sliValue = overall.getSliValue();
         assertNotNull(sliValue);
         assertEquals(50, Math.round(sliValue));
