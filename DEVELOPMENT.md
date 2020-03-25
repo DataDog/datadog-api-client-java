@@ -17,3 +17,15 @@ Export the following environment variables:
 This project contains both Integration and Unit tests.
 __Never__ run the test suite against an organization with production data.
 The testing framework in this repository is JUnit, and can be executed via `mvn test`
+
+### CI Setup
+This project utilizes Azure Pipelines and Github Actions to perform CI test steps.
+
+This repository contains three types of tests:
+1) Integration tests - This runs real api calls to the Datadog API and runs assertions based on the responses. These tests requires a valid Datadog API and Application key.
+2) Integration tests with cassettes - This is the same set of tests from the Integration tests, however, these don't connect to the real Datadog api. Instead these tests playback a set of pre recorded real responses and run the assertions there. These types of tests don't require any secrets. 
+3) Unit Tests - These tests utilize a set of fixture data to run assertions and don't connect to the Datadog API. These tests also don't require any secrets. 
+
+Tests running in Github Actions are those that __require no__ secrets, to allow for PRs created from forks to run as expected. These are the unit tests and Integration tests with cassettes. These tests are run on each commit from a PR. 
+
+Tests running in Azure Pipelines are those that __do require__ secrets, these being the Integration tests that connect to the Datadog API. These tests run only when a maintainer provides a github comment on the PR after performing a review. 
