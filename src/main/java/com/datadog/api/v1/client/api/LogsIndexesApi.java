@@ -122,6 +122,12 @@ private ApiResponse<LogsIndexListResponse> getAllLogIndexesWithHttpInfo() throws
    */
   
   public APIgetAllLogIndexesRequest getAllLogIndexes() throws ApiException {
+    String operationId = "getAllLogIndexes";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIgetAllLogIndexesRequest();
   }
 
@@ -219,6 +225,12 @@ private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiE
    */
   
   public APIgetLogsIndexRequest getLogsIndex(String name) throws ApiException {
+    String operationId = "getLogsIndex";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIgetLogsIndexRequest(name);
   }
 
@@ -416,6 +428,12 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
    */
   
   public APIupdateLogsIndexRequest updateLogsIndex(String name) throws ApiException {
+    String operationId = "updateLogsIndex";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIupdateLogsIndexRequest(name);
   }
 
