@@ -18,14 +18,30 @@ This project contains both Integration and Unit tests.
 __Never__ run the test suite against an organization with production data.
 The testing framework in this repository is JUnit, and can be executed via `mvn test`
 
+This project uses `mvn` with `JUnit` for the testing framework.
+When creating a PR that adds or updates a test, __never__ commit the 
+generated code, only commit the test files being updated. 
+
+When making test changes that require a regeneration (aka spec changes), create a Draft Pull Request. 
+This ensures the CI doesn't run, as it is expected to fail until the code is regenerated. 
+The regeneration and inclusion of your test changes will be created by a separate pipeline after it's reviewed.
+
+When making test changes that don't require a regeneration, create a regular Pull Request. 
+This ensure the CI will trigger and should pass before merging. 
+
 ### CI Setup
 This project utilizes Azure Pipelines and Github Actions to perform CI test steps.
 
-This repository contains three types of tests:
-1) Integration tests - This runs real api calls to the Datadog API and runs assertions based on the responses. These tests requires a valid Datadog API and Application key.
-2) Integration tests with cassettes - This is the same set of tests from the Integration tests, however, these don't connect to the real Datadog api. Instead these tests playback a set of pre recorded real responses and run the assertions there. These types of tests don't require any secrets. 
-3) Unit Tests - These tests utilize a set of fixture data to run assertions and don't connect to the Datadog API. These tests also don't require any secrets. 
+This repository contains a few types of tests:
+
+| Test Type                        | CI Provider                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                          |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Integration Tests                | [Azure Pipelines](https://github.com/DataDog/datadog-api-client-java/blob/master/.azure-pipelines/all.yml)   | This runs real API calls to the Datadog API and runs assertions based on the responses. These tests requires a valid Datadog API and Application key.                                                                                                                                                                                                |
+| Integration Tests with Cassettes | [Github Actions](https://github.com/DataDog/datadog-api-client-java/blob/master/.github/workflows/test.yml)  | This is the same set of tests from the Integration tests, however, these don't connect to the real Datadog api. Instead these tests playback a set of pre recorded real responses and run the assertions there. These types of tests don't require any secrets and allow for rapid iteration and quickly testing against a large OS/version matrix.  |
+| Unit Tests                       | [Github Actions](https://github.com/DataDog/datadog-api-client-java/blob/master/.github/workflows/test.yml)  | These tests utilize a set of fixture data to run assertions and don't connect to the Datadog API. These tests also don't require any secrets.                                                                                                                                                                                                        |
+
+See the `CI Provider` links above for the full natrix this project tests against. 
 
 Tests running in Github Actions are those that __require no__ secrets, to allow for PRs created from forks to run as expected. These are the unit tests and Integration tests with cassettes. These tests are run on each commit from a PR. 
 
-Tests running in Azure Pipelines are those that __do require__ secrets, these being the Integration tests that connect to the Datadog API. These tests run only when a maintainer provides a github comment on the PR after performing a review. 
+Tests running in Azure Pipelines are those that __do require__ secrets, these being the Integration tests that connect to the Datadog API. These tests run only when a maintainer provides a Github comment on the PR after performing a review. 
