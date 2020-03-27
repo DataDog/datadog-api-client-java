@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeFalse;
 
 /**
  * API tests for DashboardListsApi
@@ -59,6 +60,8 @@ public class DashboardListsApiTest extends V2APITest {
 
     @Test
     public void dashboardListItemCRUDTest() throws ApiException {
+        // ignore this test on IBM JDK for now
+        assumeFalse(TestUtils.isIbmJdk());
         DashboardListItem integrationTimeboard = new DashboardListItem().type(DashboardType.INTEGRATION_TIMEBOARD).id(INTEGRATION_TIMEBOARD_ID);
         DashboardListItem customTimeboard = new DashboardListItem().type(DashboardType.CUSTOM_TIMEBOARD).id(CUSTOM_TIMEBOARD_ID);
         DashboardListItem customScreenboard = new DashboardListItem().type(DashboardType.CUSTOM_SCREENBOARD).id(CUSTOM_SCREENBOARD_ID);
