@@ -14,7 +14,6 @@ package com.datadog.api.v1.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.MonitorOverallStates;
-import com.datadog.api.v1.client.model.MonitorStateGroupValue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -28,21 +27,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "Monitor state for a single group.")
 @JsonPropertyOrder({
-  MonitorStateGroup.JSON_PROPERTY_LAST_DATA_TS,
   MonitorStateGroup.JSON_PROPERTY_LAST_NODATA_TS,
   MonitorStateGroup.JSON_PROPERTY_LAST_NOTIFIED_TS,
   MonitorStateGroup.JSON_PROPERTY_LAST_RESOLVED_TS,
   MonitorStateGroup.JSON_PROPERTY_LAST_TRIGGERED_TS,
-  MonitorStateGroup.JSON_PROPERTY_MESSAGE,
   MonitorStateGroup.JSON_PROPERTY_NAME,
-  MonitorStateGroup.JSON_PROPERTY_STATUS,
-  MonitorStateGroup.JSON_PROPERTY_TRIGGERING_VALUE
+  MonitorStateGroup.JSON_PROPERTY_STATUS
 })
 
 public class MonitorStateGroup {
-  public static final String JSON_PROPERTY_LAST_DATA_TS = "last_data_ts";
-  private Long lastDataTs;
-
   public static final String JSON_PROPERTY_LAST_NODATA_TS = "last_nodata_ts";
   private Long lastNodataTs;
 
@@ -55,42 +48,11 @@ public class MonitorStateGroup {
   public static final String JSON_PROPERTY_LAST_TRIGGERED_TS = "last_triggered_ts";
   private Long lastTriggeredTs;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private MonitorOverallStates status;
-
-  public static final String JSON_PROPERTY_TRIGGERING_VALUE = "triggering_value";
-  private MonitorStateGroupValue triggeringValue;
-
-
-  public MonitorStateGroup lastDataTs(Long lastDataTs) {
-    
-    this.lastDataTs = lastDataTs;
-    return this;
-  }
-
-   /**
-   * Lastest data timestamp for this monitor group.
-   * @return lastDataTs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Lastest data timestamp for this monitor group.")
-  @JsonProperty(JSON_PROPERTY_LAST_DATA_TS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getLastDataTs() {
-    return lastDataTs;
-  }
-
-
-  public void setLastDataTs(Long lastDataTs) {
-    this.lastDataTs = lastDataTs;
-  }
 
 
   public MonitorStateGroup lastNodataTs(Long lastNodataTs) {
@@ -193,31 +155,6 @@ public class MonitorStateGroup {
   }
 
 
-  public MonitorStateGroup message(String message) {
-    
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same ‘@username’ notation as events.
-   * @return message
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same ‘@username’ notation as events.")
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
   public MonitorStateGroup name(String name) {
     
     this.name = name;
@@ -268,31 +205,6 @@ public class MonitorStateGroup {
   }
 
 
-  public MonitorStateGroup triggeringValue(MonitorStateGroupValue triggeringValue) {
-    
-    this.triggeringValue = triggeringValue;
-    return this;
-  }
-
-   /**
-   * Get triggeringValue
-   * @return triggeringValue
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TRIGGERING_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public MonitorStateGroupValue getTriggeringValue() {
-    return triggeringValue;
-  }
-
-
-  public void setTriggeringValue(MonitorStateGroupValue triggeringValue) {
-    this.triggeringValue = triggeringValue;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -302,20 +214,17 @@ public class MonitorStateGroup {
       return false;
     }
     MonitorStateGroup monitorStateGroup = (MonitorStateGroup) o;
-    return Objects.equals(this.lastDataTs, monitorStateGroup.lastDataTs) &&
-        Objects.equals(this.lastNodataTs, monitorStateGroup.lastNodataTs) &&
+    return Objects.equals(this.lastNodataTs, monitorStateGroup.lastNodataTs) &&
         Objects.equals(this.lastNotifiedTs, monitorStateGroup.lastNotifiedTs) &&
         Objects.equals(this.lastResolvedTs, monitorStateGroup.lastResolvedTs) &&
         Objects.equals(this.lastTriggeredTs, monitorStateGroup.lastTriggeredTs) &&
-        Objects.equals(this.message, monitorStateGroup.message) &&
         Objects.equals(this.name, monitorStateGroup.name) &&
-        Objects.equals(this.status, monitorStateGroup.status) &&
-        Objects.equals(this.triggeringValue, monitorStateGroup.triggeringValue);
+        Objects.equals(this.status, monitorStateGroup.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastDataTs, lastNodataTs, lastNotifiedTs, lastResolvedTs, lastTriggeredTs, message, name, status, triggeringValue);
+    return Objects.hash(lastNodataTs, lastNotifiedTs, lastResolvedTs, lastTriggeredTs, name, status);
   }
 
 
@@ -323,15 +232,12 @@ public class MonitorStateGroup {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorStateGroup {\n");
-    sb.append("    lastDataTs: ").append(toIndentedString(lastDataTs)).append("\n");
     sb.append("    lastNodataTs: ").append(toIndentedString(lastNodataTs)).append("\n");
     sb.append("    lastNotifiedTs: ").append(toIndentedString(lastNotifiedTs)).append("\n");
     sb.append("    lastResolvedTs: ").append(toIndentedString(lastResolvedTs)).append("\n");
     sb.append("    lastTriggeredTs: ").append(toIndentedString(lastTriggeredTs)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    triggeringValue: ").append(toIndentedString(triggeringValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }
