@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Array of Datadog users for a given organization.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Array of Datadog users for a given organization.")
 @JsonPropertyOrder({
   UserListResponse.JSON_PROPERTY_USERS
 })
@@ -52,11 +52,11 @@ public class UserListResponse {
   }
 
    /**
-   * TODO.
+   * Array of users.
    * @return users
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of users.")
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

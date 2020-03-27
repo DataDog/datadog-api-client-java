@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Combination of settings to mute a host.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Combination of settings to mute a host.")
 @JsonPropertyOrder({
   HostMuteSettings.JSON_PROPERTY_END,
   HostMuteSettings.JSON_PROPERTY_MESSAGE,

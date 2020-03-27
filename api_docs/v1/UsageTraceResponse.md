@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usage** | [**List&lt;UsageTraceHour&gt;**](UsageTraceHour.md) | TODO. |  [optional]
+**usage** | [**List&lt;UsageTraceHour&gt;**](UsageTraceHour.md) | Array with the number of hourly traces indexed for a given organization. |  [optional]
 
 
 

@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Monitor state for a single group.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Monitor state for a single group.")
 @JsonPropertyOrder({
   MonitorStateGroup.JSON_PROPERTY_LAST_DATA_TS,
   MonitorStateGroup.JSON_PROPERTY_LAST_NODATA_TS,
@@ -75,11 +75,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * TODO.
+   * Lastest data timestamp for this monitor group.
    * @return lastDataTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Lastest data timestamp for this monitor group.")
   @JsonProperty(JSON_PROPERTY_LAST_DATA_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -125,11 +125,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * TODO.
+   * Timestamp of the last notification sent for this monitor group.
    * @return lastNotifiedTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Timestamp of the last notification sent for this monitor group.")
   @JsonProperty(JSON_PROPERTY_LAST_NOTIFIED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,11 +150,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * TODO.
+   * Lastest timestamp the monitor group was resolved.
    * @return lastResolvedTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Lastest timestamp the monitor group was resolved.")
   @JsonProperty(JSON_PROPERTY_LAST_RESOLVED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -175,11 +175,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * TODO.
+   * Last timestamp the monitor group triggered.
    * @return lastTriggeredTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Last timestamp the monitor group triggered.")
   @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

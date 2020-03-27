@@ -27,9 +27,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * A metric to submit to Datadog. See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "A metric to submit to Datadog. See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).")
 @JsonPropertyOrder({
   Series.JSON_PROPERTY_HOST,
   Series.JSON_PROPERTY_INTERVAL,

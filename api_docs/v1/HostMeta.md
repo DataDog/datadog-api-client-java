@@ -2,7 +2,7 @@
 
 # HostMeta
 
-TODO.
+Metadata associated with your host.
 ## Properties
 
 Name | Type | Description | Notes

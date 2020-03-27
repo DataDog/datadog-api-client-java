@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Number of hourly recorded custom metrics for a given organization.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Number of hourly recorded custom metrics for a given organization.")
 @JsonPropertyOrder({
   UsageTopAvgMetricsHour.JSON_PROPERTY_AVG_METRIC_HOUR,
   UsageTopAvgMetricsHour.JSON_PROPERTY_MAX_METRIC_HOUR,

@@ -87,11 +87,11 @@ public class Org {
 
 
    /**
-   * TODO.
+   * Date of the organization creation.
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-09-26 17:28:28", value = "TODO.")
+  @ApiModelProperty(example = "2019-09-26 17:28:28", value = "Date of the organization creation.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

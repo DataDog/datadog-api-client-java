@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Response with an organization.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Response with an organization.")
 @JsonPropertyOrder({
   OrgResponse.JSON_PROPERTY_ORG
 })

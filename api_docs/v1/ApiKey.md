@@ -7,10 +7,10 @@ Manage your Datadog API and application keys.  You need an API and applications 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **String** | TODO. |  [optional] [readonly]
-**createdBy** | **String** | TODO. |  [optional] [readonly]
-**key** | **String** | TODO. |  [optional] [readonly]
-**name** | **String** | Name of your application key. |  [optional]
+**created** | **String** | Date of creation of the API key. |  [optional] [readonly]
+**createdBy** | **String** | Datadog user handle that created the API key. |  [optional] [readonly]
+**key** | **String** | API key. |  [optional] [readonly]
+**name** | **String** | Name of your API key. |  [optional]
 
 
 

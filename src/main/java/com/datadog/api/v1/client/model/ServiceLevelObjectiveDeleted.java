@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * A response list of all service level objective deleted.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "A response list of all service level objective deleted.")
 @JsonPropertyOrder({
   ServiceLevelObjectiveDeleted.JSON_PROPERTY_DATA
 })
