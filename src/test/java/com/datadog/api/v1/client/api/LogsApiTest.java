@@ -43,10 +43,8 @@ public class LogsApiTest extends V1ApiTest {
 
     @Test
     public void listLogTest() throws ApiException, TestUtils.RetryException, InterruptedException {
-        // ignore this test on IBM JDK for now
-        assumeFalse(TestUtils.isIbmJdk());
         long nowNano = now.toEpochSecond() * 1000000 + now.getNano();
-        String source = String.format("go-client-test-%d", nowNano);
+        String source = String.format("java-client-test-%d", nowNano);
         String message = String.format("test-log-list-%d", nowNano);
         String hostname = String.format("datadog-api-client-java-test-%d", nowNano);
 
