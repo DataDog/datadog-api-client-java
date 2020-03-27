@@ -47,11 +47,11 @@ public class ApiKey {
 
 
    /**
-   * TODO.
+   * Date of creation of the API key.
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-08-02 15:31:07", value = "TODO.")
+  @ApiModelProperty(example = "2019-08-02 15:31:07", value = "Date of creation of the API key.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -63,11 +63,11 @@ public class ApiKey {
 
 
    /**
-   * TODO.
+   * Datadog user handle that created the API key.
    * @return createdBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example.com", value = "TODO.")
+  @ApiModelProperty(example = "john@example.com", value = "Datadog user handle that created the API key.")
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -79,11 +79,11 @@ public class ApiKey {
 
 
    /**
-   * TODO.
+   * API key.
    * @return key
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1234512345123456abcabc912349abcd", value = "TODO.")
+  @ApiModelProperty(example = "1234512345123456abcabc912349abcd", value = "API key.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -101,11 +101,11 @@ public class ApiKey {
   }
 
    /**
-   * Name of your application key.
+   * Name of your API key.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example user", value = "Name of your application key.")
+  @ApiModelProperty(example = "example user", value = "Name of your API key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

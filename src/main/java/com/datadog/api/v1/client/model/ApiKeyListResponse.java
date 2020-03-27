@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * List of API and application keys available for a given organization.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "List of API and application keys available for a given organization.")
 @JsonPropertyOrder({
   ApiKeyListResponse.JSON_PROPERTY_API_KEYS
 })

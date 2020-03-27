@@ -81,11 +81,11 @@ public class OrgSettings {
   }
 
    /**
-   * TODO.
+   * Whether or not the organization users can share widgets outside of Datadog.
    * @return privateWidgetShare
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "TODO.")
+  @ApiModelProperty(example = "false", value = "Whether or not the organization users can share widgets outside of Datadog.")
   @JsonProperty(JSON_PROPERTY_PRIVATE_WIDGET_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -181,11 +181,11 @@ public class OrgSettings {
   }
 
    /**
-   * TODO.
+   * Whether or not SAML can be enabled for this organization.
    * @return samlCanBeEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "TODO.")
+  @ApiModelProperty(example = "false", value = "Whether or not SAML can be enabled for this organization.")
   @JsonProperty(JSON_PROPERTY_SAML_CAN_BE_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -206,11 +206,11 @@ public class OrgSettings {
   }
 
    /**
-   * TODO.
+   * Identity provider endpoint for SAML authentication.
    * @return samlIdpEndpoint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://my.saml.endpoint", value = "TODO.")
+  @ApiModelProperty(example = "https://my.saml.endpoint", value = "Identity provider endpoint for SAML authentication.")
   @JsonProperty(JSON_PROPERTY_SAML_IDP_ENDPOINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -256,11 +256,11 @@ public class OrgSettings {
   }
 
    /**
-   * TODO.
+   * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
    * @return samlIdpMetadataUploaded
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "TODO.")
+  @ApiModelProperty(example = "false", value = "Whether or not a SAML identity provider metadata file was provided to the Datadog organization.")
   @JsonProperty(JSON_PROPERTY_SAML_IDP_METADATA_UPLOADED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -281,11 +281,11 @@ public class OrgSettings {
   }
 
    /**
-   * TODO.
+   * URL for SAML loging.
    * @return samlLoginUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://my.saml.login.url", value = "TODO.")
+  @ApiModelProperty(example = "https://my.saml.login.url", value = "URL for SAML loging.")
   @JsonProperty(JSON_PROPERTY_SAML_LOGIN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

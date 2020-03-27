@@ -33,6 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AWSAccount.JSON_PROPERTY_ACCESS_KEY_ID,
   AWSAccount.JSON_PROPERTY_ACCOUNT_ID,
   AWSAccount.JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES,
+  AWSAccount.JSON_PROPERTY_EXCLUDED_REGIONS,
   AWSAccount.JSON_PROPERTY_FILTER_TAGS,
   AWSAccount.JSON_PROPERTY_HOST_TAGS,
   AWSAccount.JSON_PROPERTY_ROLE_NAME,
@@ -48,6 +49,9 @@ public class AWSAccount {
 
   public static final String JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES = "account_specific_namespace_rules";
   private Map<String, Boolean> accountSpecificNamespaceRules = null;
+
+  public static final String JSON_PROPERTY_EXCLUDED_REGIONS = "excluded_regions";
+  private List<String> excludedRegions = null;
 
   public static final String JSON_PROPERTY_FILTER_TAGS = "filter_tags";
   private List<String> filterTags = null;
@@ -142,6 +146,39 @@ public class AWSAccount {
 
   public void setAccountSpecificNamespaceRules(Map<String, Boolean> accountSpecificNamespaceRules) {
     this.accountSpecificNamespaceRules = accountSpecificNamespaceRules;
+  }
+
+
+  public AWSAccount excludedRegions(List<String> excludedRegions) {
+    
+    this.excludedRegions = excludedRegions;
+    return this;
+  }
+
+  public AWSAccount addExcludedRegionsItem(String excludedRegionsItem) {
+    if (this.excludedRegions == null) {
+      this.excludedRegions = new ArrayList<>();
+    }
+    this.excludedRegions.add(excludedRegionsItem);
+    return this;
+  }
+
+   /**
+   * An array of AWS regions to exclude from metrics collection.
+   * @return excludedRegions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "[\"us-east-1\",\"us-west-2\"]", value = "An array of AWS regions to exclude from metrics collection.")
+  @JsonProperty(JSON_PROPERTY_EXCLUDED_REGIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getExcludedRegions() {
+    return excludedRegions;
+  }
+
+
+  public void setExcludedRegions(List<String> excludedRegions) {
+    this.excludedRegions = excludedRegions;
   }
 
 
@@ -273,6 +310,7 @@ public class AWSAccount {
     return Objects.equals(this.accessKeyId, awSAccount.accessKeyId) &&
         Objects.equals(this.accountId, awSAccount.accountId) &&
         Objects.equals(this.accountSpecificNamespaceRules, awSAccount.accountSpecificNamespaceRules) &&
+        Objects.equals(this.excludedRegions, awSAccount.excludedRegions) &&
         Objects.equals(this.filterTags, awSAccount.filterTags) &&
         Objects.equals(this.hostTags, awSAccount.hostTags) &&
         Objects.equals(this.roleName, awSAccount.roleName) &&
@@ -281,7 +319,7 @@ public class AWSAccount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, accountId, accountSpecificNamespaceRules, filterTags, hostTags, roleName, secretAccessKey);
+    return Objects.hash(accessKeyId, accountId, accountSpecificNamespaceRules, excludedRegions, filterTags, hostTags, roleName, secretAccessKey);
   }
 
 
@@ -292,6 +330,7 @@ public class AWSAccount {
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    accountSpecificNamespaceRules: ").append(toIndentedString(accountSpecificNamespaceRules)).append("\n");
+    sb.append("    excludedRegions: ").append(toIndentedString(excludedRegions)).append("\n");
     sb.append("    filterTags: ").append(toIndentedString(filterTags)).append("\n");
     sb.append("    hostTags: ").append(toIndentedString(hostTags)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");

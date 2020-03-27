@@ -51,11 +51,11 @@ public class UsageTraceResponse {
   }
 
    /**
-   * TODO.
+   * Array with the number of hourly traces indexed for a given organization.
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array with the number of hourly traces indexed for a given organization.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

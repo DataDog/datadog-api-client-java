@@ -2,7 +2,7 @@
 
 # MonitorThresholdWindowOptions
 
-TODO.
+Alerting time window options.
 ## Properties
 
 Name | Type | Description | Notes

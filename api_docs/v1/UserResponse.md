@@ -2,7 +2,7 @@
 
 # UserResponse
 
-TODO.
+A Datadog User.
 ## Properties
 
 Name | Type | Description | Notes

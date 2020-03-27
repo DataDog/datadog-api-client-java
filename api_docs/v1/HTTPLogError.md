@@ -2,13 +2,13 @@
 
 # HTTPLogError
 
-TODO.
+Invalid query performed.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** | TODO. | 
-**message** | **String** | TODO. | 
+**code** | **Integer** | Error code. | 
+**message** | **String** | Error message. | 
 
 
 

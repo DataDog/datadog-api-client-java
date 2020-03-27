@@ -8,7 +8,7 @@ Create, edit, and manage organizations.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **billing** | [**OrgBilling**](OrgBilling.md) |  |  [optional]
-**created** | **String** | TODO. |  [optional] [readonly]
+**created** | **String** | Date of the organization creation. |  [optional] [readonly]
 **description** | **String** | Description of the organization. |  [optional]
 **name** | **String** | The name of the new child-organization, limited to 32 characters. |  [optional]
 **publicId** | **String** | The public_id of the org you are operating within. |  [optional]

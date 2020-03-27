@@ -50,11 +50,11 @@ public class CanceledDowntimesIds {
   }
 
    /**
-   * TODO.
+   * ID of downtimes that were canceled.
    * @return cancelledIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[123456789,123456790]", value = "TODO.")
+  @ApiModelProperty(example = "[123456789,123456790]", value = "ID of downtimes that were canceled.")
   @JsonProperty(JSON_PROPERTY_CANCELLED_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

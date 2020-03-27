@@ -2,7 +2,7 @@
 
 # ServiceLevelObjectiveDeleted
 
-TODO.
+A response list of all service level objective deleted.
 ## Properties
 
 Name | Type | Description | Notes

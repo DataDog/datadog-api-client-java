@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Global hourly report of all data billed by Datadog for a given organization.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Global hourly report of all data billed by Datadog for a given organization.")
 @JsonPropertyOrder({
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_HOST_TOP99P,

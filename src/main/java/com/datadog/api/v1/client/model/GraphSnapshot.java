@@ -98,11 +98,11 @@ public class GraphSnapshot {
   }
 
    /**
-   * TODO.
+   * URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).
    * @return snapshotUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(example = "https://app.datadoghq.com/s/f12345678/aaa-bbb-ccc", value = "URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

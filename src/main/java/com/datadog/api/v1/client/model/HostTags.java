@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Set of tags to associate with your host.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Set of tags to associate with your host.")
 @JsonPropertyOrder({
   HostTags.JSON_PROPERTY_HOST,
   HostTags.JSON_PROPERTY_TAGS
@@ -47,11 +47,11 @@ public class HostTags {
   }
 
    /**
-   * TODO.
+   * Your host name.
    * @return host
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test.host", value = "TODO.")
+  @ApiModelProperty(example = "test.host", value = "Your host name.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -1,0 +1,21 @@
+FROM ibmjava:8-sdk
+
+ENTRYPOINT ["/datadog-api-client-java/run-tests.sh"]
+
+RUN cd /tmp && \
+    wget https://mirror.dkm.cz/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
+    tar -zxf apache-maven-3.6.3-bin.tar.gz
+
+ENV PATH="/tmp/apache-maven-3.6.3/bin:${PATH}"
+
+# Predownload the dependencies, so that execution of the image is fast.
+# Also, this will make us better use Docker build cache, as pom.xml won't
+# be changed very often and so maven dependency installation will be cached.
+# Unfortunately there seems to be no way to download all scope:test
+# dependencies, but at least this downloads most of them.
+COPY pom.xml /tmp/mock-pom-structure/
+RUN mvn --batch-mode -f /tmp/mock-pom-structure/pom.xml dependency:go-offline
+
+COPY . /datadog-api-client-java
+
+WORKDIR /datadog-api-client-java
