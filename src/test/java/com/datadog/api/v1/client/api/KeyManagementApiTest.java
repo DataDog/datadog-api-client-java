@@ -17,11 +17,11 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static org.junit.Assert.assertEquals;
 
 /**
- * API tests for KeysApi
+ * API tests for KeyManagementApi
  */
-public class KeysApiTest extends V1ApiTest {
+public class KeyManagementApiTest extends V1ApiTest {
 
-    private final KeysApi api = new KeysApi(generalApiUnitTestClient);
+    private final KeyManagementApi api = new KeyManagementApi(generalApiUnitTestClient);
     private final String apiUri = "/api/v1/api_key";
     private final String appUri = "/api/v1/application_key";
     private final String fixturePrefix = "v1/client/api/keys_fixtures";

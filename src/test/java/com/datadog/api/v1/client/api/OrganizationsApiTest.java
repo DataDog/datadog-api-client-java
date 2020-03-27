@@ -23,9 +23,9 @@ import static org.junit.Assert.assertEquals;
 /**
  * API tests for OrgsApi
  */
-public class OrgsApiTest extends V1ApiTest {
+public class OrganizationsApiTest extends V1ApiTest {
 
-    private final OrgsApi api = new OrgsApi(generalApiUnitTestClient);
+    private final OrganizationsApi api = new OrganizationsApi(generalApiUnitTestClient);
     private final String apiUri = "/api/v1/org";
     private final String fixturePrefix = "v1/client/api/org_fixtures";
 
@@ -46,11 +46,11 @@ public class OrgsApiTest extends V1ApiTest {
 
         // CreateBody can contain anything since we're mocking the response
         // Just confirmation that the proper fields can be set
-        OrgCreateBody orgCreateBody = new OrgCreateBody()
+        OrganizationCreateBody orgCreateBody = new OrganizationCreateBody()
                 .name("My Org")
-                .billing(new OrgBilling().type("parent_billing"))
-                .subscription(new OrgSubscription().type("pro"));
-        OrgCreateResponse response = api.createChildOrg().body(orgCreateBody).execute();
+                .billing(new OrganizationBilling().type("parent_billing"))
+                .subscription(new OrganizationSubscription().type("pro"));
+        OrganizationCreateResponse response = api.createChildOrg().body(orgCreateBody).execute();
 
         // Assert values match whats in create_child_org.json
         assertEquals(response.getOrg().getName(), "My Org");
@@ -81,7 +81,7 @@ public class OrgsApiTest extends V1ApiTest {
         MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_orgs.json", "get");
         stubFor(stub);
 
-        OrgListResponse response = api.getOrg().execute();
+        OrganizationListResponse response = api.getOrg().execute();
 
         // Assert values match whats in get_orgs.json fixture
         assertEquals(response.getOrgs().size(), 1);
@@ -110,26 +110,26 @@ public class OrgsApiTest extends V1ApiTest {
 
         // Update Body can contain anything since we're mocking the response
         // Just confirmation that the proper fields can be set
-        Org org = new Org().name("My Org").settings(
-                new OrgSettings().saml(
-                        new OrgSettingsSaml().enabled(true)
+        Organization org = new Organization().name("My Org").settings(
+                new OrganizationSettings().saml(
+                        new OrganizationSettingsSaml().enabled(true)
                 )
                         .samlIdpInitiatedLogin(
-                                new OrgSettingsSamlIdpInitiatedLogin().enabled(true)
+                                new OrganizationSettingsSamlIdpInitiatedLogin().enabled(true)
                         )
                         .samlStrictMode(
-                                new OrgSettingsSamlIdpInitiatedLogin().enabled(true)
+                                new OrganizationSettingsSamlIdpInitiatedLogin().enabled(true)
                         )
                         .samlAutocreateUsersDomains(
-                                new OrgSettingsSamlAutocreateUsersDomains().enabled(true).addDomainsItem("my-org.com").addDomainsItem("example.com")
+                                new OrganizationSettingsSamlAutocreateUsersDomains().enabled(true).addDomainsItem("my-org.com").addDomainsItem("example.com")
                         )
         );
-        OrgResponse response = api.updateOrg(publicId).body(org).execute();
+        OrganizationResponse response = api.updateOrg(publicId).body(org).execute();
 
         // Assert values match whats in update_orgs.json fixture
         assertEquals(response.getOrg().getPublicId(), "axd2s");
         assertEquals(response.getOrg().getName(), "My Org");
-        assertEquals(response.getOrg().getBilling(), new OrgBilling());
+        assertEquals(response.getOrg().getBilling(), new OrganizationBilling());
         assertEquals(response.getOrg().getCreated(), "2016-10-06 21:41:12");
         assertEquals(response.getOrg().getSettings().getSamlCanBeEnabled(), true);
         assertEquals(response.getOrg().getSettings().getSamlIdpInitiatedLogin().getEnabled(), true);
@@ -164,7 +164,7 @@ public class OrgsApiTest extends V1ApiTest {
 
         String publicId = "123456";
         // Open a file to test the request. Any file can do, content does not matter since the endpoint is mocked.
-        File idpFile = new File(OrgsApiTest.class.getResource("org_fixtures/update_idp_meta.json").toURI());
+        File idpFile = new File(OrganizationsApiTest.class.getResource("org_fixtures/update_idp_meta.json").toURI());
         IdpResponse response = api.uploadIdPForOrg(publicId).idpFile(idpFile).execute(); //.uploadIdPForOrg(publicId);
 
         assertEquals(response.getMessage(), "IdP metadata successfully uploaded for org Datadog HQ");

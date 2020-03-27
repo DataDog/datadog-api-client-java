@@ -26,10 +26,10 @@ import static org.junit.Assert.assertNotNull;
 /**
  * API tests for UsageApi
  */
-public class UsageApiTest extends V1ApiTest {
+public class UsageMeteringApiTest extends V1ApiTest {
 
-    private static UsageApi api;
-    private static UsageApi unitAPI;
+    private static UsageMeteringApi api;
+    private static UsageMeteringApi unitAPI;
 
     private static OffsetDateTime startHr;
     private static OffsetDateTime endHr;
@@ -38,8 +38,8 @@ public class UsageApiTest extends V1ApiTest {
 
     @BeforeClass
     public static void initApi() {
-        api = new UsageApi(generalApiClient);
-        unitAPI = new UsageApi(generalApiUnitTestClient);
+        api = new UsageMeteringApi(generalApiClient);
+        unitAPI = new UsageMeteringApi(generalApiUnitTestClient);
     }
 
     @Before
