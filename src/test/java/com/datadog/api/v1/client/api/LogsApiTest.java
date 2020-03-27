@@ -17,6 +17,7 @@ import java.time.OffsetDateTime;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assume.assumeFalse;
 
 /**
  * API tests for LogsApi
@@ -43,7 +44,7 @@ public class LogsApiTest extends V1ApiTest {
     @Test
     public void listLogTest() throws ApiException, TestUtils.RetryException, InterruptedException {
         long nowNano = now.toEpochSecond() * 1000000 + now.getNano();
-        String source = String.format("go-client-test-%d", nowNano);
+        String source = String.format("java-client-test-%d", nowNano);
         String message = String.format("test-log-list-%d", nowNano);
         String hostname = String.format("datadog-api-client-java-test-%d", nowNano);
 
