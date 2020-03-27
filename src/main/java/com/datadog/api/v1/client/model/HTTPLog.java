@@ -52,11 +52,11 @@ public class HTTPLog {
   }
 
    /**
-   * TODO.
+   * The integration name associated with your log: the technology from which the log originated. When it matches an integration name, Datadog automatically installs the corresponding parsers and facets. See [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).
    * @return ddsource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "python", value = "TODO.")
+  @ApiModelProperty(example = "nginx", value = "The integration name associated with your log: the technology from which the log originated. When it matches an integration name, Datadog automatically installs the corresponding parsers and facets. See [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).")
   @JsonProperty(JSON_PROPERTY_DDSOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -77,11 +77,11 @@ public class HTTPLog {
   }
 
    /**
-   * TODO.
+   * Tags associated with your logs.
    * @return ddtags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "env:staging,service:payment", value = "TODO.")
+  @ApiModelProperty(example = "env:staging,service:payment", value = "Tags associated with your logs.")
   @JsonProperty(JSON_PROPERTY_DDTAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -102,11 +102,11 @@ public class HTTPLog {
   }
 
    /**
-   * TODO.
+   * The name of the originating host of the log.
    * @return hostname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "i-012345678", value = "TODO.")
+  @ApiModelProperty(example = "i-012345678", value = "The name of the originating host of the log.")
   @JsonProperty(JSON_PROPERTY_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -127,11 +127,11 @@ public class HTTPLog {
   }
 
    /**
-   * TODO.
+   * The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World", value = "TODO.")
+  @ApiModelProperty(example = "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World", value = "The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

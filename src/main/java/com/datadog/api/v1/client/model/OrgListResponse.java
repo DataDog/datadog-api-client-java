@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Response with the list of organizations.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Response with the list of organizations.")
 @JsonPropertyOrder({
   OrgListResponse.JSON_PROPERTY_ORGS
 })

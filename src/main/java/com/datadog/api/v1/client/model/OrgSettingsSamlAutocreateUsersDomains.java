@@ -55,11 +55,11 @@ public class OrgSettingsSamlAutocreateUsersDomains {
   }
 
    /**
-   * TODO.
+   * List of domains where the SAML automated user creation is enabled.
    * @return domains
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of domains where the SAML automated user creation is enabled.")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -80,11 +80,11 @@ public class OrgSettingsSamlAutocreateUsersDomains {
   }
 
    /**
-   * TODO.
+   * Whether or not the automated user creation based on SAML domain is enabled.
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "TODO.")
+  @ApiModelProperty(example = "false", value = "Whether or not the automated user creation based on SAML domain is enabled.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

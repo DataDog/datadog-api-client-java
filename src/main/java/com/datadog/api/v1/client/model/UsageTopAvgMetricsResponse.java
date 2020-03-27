@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Response containing the number of hourly recorded custom metrics for a given organization.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Response containing the number of hourly recorded custom metrics for a given organization.")
 @JsonPropertyOrder({
   UsageTopAvgMetricsResponse.JSON_PROPERTY_USAGE
 })
@@ -52,11 +52,11 @@ public class UsageTopAvgMetricsResponse {
   }
 
    /**
-   * TODO.
+   * Number of hourly recorded custom metrics for a given organization.
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Number of hourly recorded custom metrics for a given organization.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

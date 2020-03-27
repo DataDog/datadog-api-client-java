@@ -2,7 +2,7 @@
 
 # ServiceLevelObjectiveResponse
 
-TODO.
+A service level objective response containing a single service level objective.
 ## Properties
 
 Name | Type | Description | Notes

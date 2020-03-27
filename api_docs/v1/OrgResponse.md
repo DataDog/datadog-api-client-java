@@ -2,7 +2,7 @@
 
 # OrgResponse
 
-TODO.
+Response with an organization.
 ## Properties
 
 Name | Type | Description | Notes

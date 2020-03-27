@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Array of user disabled for a given organization.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Array of user disabled for a given organization.")
 @JsonPropertyOrder({
   UserDisableResponse.JSON_PROPERTY_MESSAGE
 })

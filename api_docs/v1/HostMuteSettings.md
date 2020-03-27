@@ -2,7 +2,7 @@
 
 # HostMuteSettings
 
-TODO.
+Combination of settings to mute a host.
 ## Properties
 
 Name | Type | Description | Notes

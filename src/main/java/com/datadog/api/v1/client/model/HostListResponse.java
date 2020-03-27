@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Response with Host information from Datadog.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Response with Host information from Datadog.")
 @JsonPropertyOrder({
   HostListResponse.JSON_PROPERTY_HOST_LIST,
   HostListResponse.JSON_PROPERTY_TOTAL_MATCHING,
@@ -60,11 +60,11 @@ public class HostListResponse {
   }
 
    /**
-   * TODO.
+   * Array of hosts.
    * @return hostList
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of hosts.")
   @JsonProperty(JSON_PROPERTY_HOST_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,11 +85,11 @@ public class HostListResponse {
   }
 
    /**
-   * TODO.
+   * Number of host matching the query.
    * @return totalMatching
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "TODO.")
+  @ApiModelProperty(example = "1", value = "Number of host matching the query.")
   @JsonProperty(JSON_PROPERTY_TOTAL_MATCHING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -110,11 +110,11 @@ public class HostListResponse {
   }
 
    /**
-   * TODO.
+   * Number of host returned.
    * @return totalReturned
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "TODO.")
+  @ApiModelProperty(example = "1", value = "Number of host returned.")
   @JsonProperty(JSON_PROPERTY_TOTAL_RETURNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
