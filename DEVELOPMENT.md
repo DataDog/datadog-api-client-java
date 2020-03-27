@@ -22,12 +22,7 @@ This project uses `mvn` with `JUnit` for the testing framework.
 When creating a PR that adds or updates a test, __never__ commit the 
 generated code, only commit the test files being updated. 
 
-When making test changes that require a regeneration (aka spec changes), create a Draft Pull Request. 
-This ensures the CI doesn't run, as it is expected to fail until the code is regenerated. 
-The regeneration and inclusion of your test changes will be created by a separate pipeline after it's reviewed.
-
-When making test changes that don't require a regeneration, create a regular Pull Request. 
-This ensure the CI will trigger and should pass before merging. 
+__NOTE__ Its not possible to change the client implementation by contributing to this repository directly. This project is generated using the [openapi-generator](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources/Java) and [apigentools](https://apigentools.readthedocs.io/en/latest/) projects. Contributions to this repository should only relate to test changes. 
 
 ### CI Setup
 This project utilizes Azure Pipelines and Github Actions to perform CI test steps.
