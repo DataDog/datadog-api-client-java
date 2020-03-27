@@ -23,9 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Number of hosts/containers recorded for each hour for a given organization.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Number of hosts/containers recorded for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageHostHour.JSON_PROPERTY_AGENT_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_APM_HOST_COUNT,

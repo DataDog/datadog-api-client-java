@@ -51,11 +51,11 @@ public class UsageSyntheticsResponse {
   }
 
    /**
-   * TODO.
+   * Array with the number of hourly Synthetics test run for a given organization.
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array with the number of hourly Synthetics test run for a given organization.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

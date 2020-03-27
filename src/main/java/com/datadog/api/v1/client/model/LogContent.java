@@ -73,11 +73,11 @@ public class LogContent {
   }
 
    /**
-   * TODO.
+   * JSON object of attributes from your log.
    * @return attributes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"customAttribute\":123,\"duration\":2345}", value = "TODO.")
+  @ApiModelProperty(example = "{\"customAttribute\":123,\"duration\":2345}", value = "JSON object of attributes from your log.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -123,11 +123,11 @@ public class LogContent {
   }
 
    /**
-   * TODO.
+   * The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host connected to remote", value = "TODO.")
+  @ApiModelProperty(example = "host connected to remote", value = "The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,11 +148,11 @@ public class LogContent {
   }
 
    /**
-   * TODO.
+   * The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products.
    * @return service
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "agent", value = "TODO.")
+  @ApiModelProperty(example = "agent", value = "The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -181,11 +181,11 @@ public class LogContent {
   }
 
    /**
-   * TODO.
+   * Array of tags associated with your log.
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"team:A\"]", value = "TODO.")
+  @ApiModelProperty(example = "[\"team:A\"]", value = "Array of tags associated with your log.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -206,11 +206,11 @@ public class LogContent {
   }
 
    /**
-   * TODO.
+   * Timestamp of your log.
    * @return timestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "TODO.")
+  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "Timestamp of your log.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

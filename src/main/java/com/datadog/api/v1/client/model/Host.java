@@ -106,11 +106,11 @@ public class Host {
   }
 
    /**
-   * TODO.
+   * Host aliases collected by Datadog.
    * @return aliases
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Host aliases collected by Datadog.")
   @JsonProperty(JSON_PROPERTY_ALIASES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -139,11 +139,11 @@ public class Host {
   }
 
    /**
-   * TODO.
+   * The Datadog integrations reporting metrics for the host.
    * @return apps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The Datadog integrations reporting metrics for the host.")
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -164,11 +164,11 @@ public class Host {
   }
 
    /**
-   * TODO.
+   * AWS name of your host.
    * @return awsName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "mycoolhost-1", value = "TODO.")
+  @ApiModelProperty(example = "mycoolhost-1", value = "AWS name of your host.")
   @JsonProperty(JSON_PROPERTY_AWS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -214,11 +214,11 @@ public class Host {
   }
 
    /**
-   * TODO.
+   * The host ID.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "TODO.")
+  @ApiModelProperty(example = "123456", value = "The host ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -264,11 +264,11 @@ public class Host {
   }
 
    /**
-   * TODO.
+   * Last time the host reported a metric data point.
    * @return lastReportedTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1565000000", value = "TODO.")
+  @ApiModelProperty(example = "1565000000", value = "Last time the host reported a metric data point.")
   @JsonProperty(JSON_PROPERTY_LAST_REPORTED_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -339,11 +339,11 @@ public class Host {
   }
 
    /**
-   * TODO.
+   * Timeout of the mute applied to your host.
    * @return muteTimeout
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Timeout of the mute applied to your host.")
   @JsonProperty(JSON_PROPERTY_MUTE_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -397,11 +397,11 @@ public class Host {
   }
 
    /**
-   * TODO.
+   * Source or cloud provider associated with your host.
    * @return sources
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Source or cloud provider associated with your host.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -430,11 +430,11 @@ public class Host {
   }
 
    /**
-   * TODO.
+   * List of tags for each source (AWS, Datadog Agent, Chef..).
    * @return tagsBySource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of tags for each source (AWS, Datadog Agent, Chef..).")
   @JsonProperty(JSON_PROPERTY_TAGS_BY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -455,11 +455,11 @@ public class Host {
   }
 
    /**
-   * TODO.
+   * Displays UP when the expected metrics are received and displays &#x60;???&#x60; if no metrics are received.
    * @return up
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "TODO.")
+  @ApiModelProperty(example = "true", value = "Displays UP when the expected metrics are received and displays `???` if no metrics are received.")
   @JsonProperty(JSON_PROPERTY_UP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

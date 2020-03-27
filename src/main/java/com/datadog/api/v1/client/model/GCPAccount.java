@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Your Google Cloud Platform Account.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Your Google Cloud Platform Account.")
 @JsonPropertyOrder({
   GCPAccount.JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL,
   GCPAccount.JSON_PROPERTY_AUTH_URI,

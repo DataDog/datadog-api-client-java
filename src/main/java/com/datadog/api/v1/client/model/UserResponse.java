@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * A Datadog User.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "A Datadog User.")
 @JsonPropertyOrder({
   UserResponse.JSON_PROPERTY_USER
 })

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeFalse;
 
 /**
  * API tests for DashboardListsApi
@@ -48,7 +49,9 @@ public class DashboardListsApiTest extends V2APITest {
         v1Client.configureApiKeys(secrets);
         v1Client.setDebugging("true".equals(System.getenv("DEBUG")));
         ClientConfig config = (ClientConfig) v1Client.getHttpClient().getConfiguration();
-        config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+        if (!TestUtils.isIbmJdk()) {
+            config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+        }
 
         dashboardListsApiV1 = new com.datadog.api.v1.client.api.DashboardListsApi(v1Client);
         DashboardList res = dashboardListsApiV1.createDashboardList().body(

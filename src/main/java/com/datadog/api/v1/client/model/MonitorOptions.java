@@ -33,9 +33,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * List of options associated with your monitor.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "List of options associated with your monitor.")
 @JsonPropertyOrder({
   MonitorOptions.JSON_PROPERTY_AGGREGATION,
   MonitorOptions.JSON_PROPERTY_DEVICE_IDS,
@@ -161,11 +161,11 @@ public class MonitorOptions {
   }
 
    /**
-   * TODO.
+   * IDs of the device the Synthetics monitor is running on.
    * @return deviceIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "IDs of the device the Synthetics monitor is running on.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -186,11 +186,11 @@ public class MonitorOptions {
   }
 
    /**
-   * TODO.
+   * Whether or not to send a log sample when the log monitor triggers.
    * @return enableLogsSample
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Whether or not to send a log sample when the log monitor triggers.")
   @JsonProperty(JSON_PROPERTY_ENABLE_LOGS_SAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -581,11 +581,11 @@ public class MonitorOptions {
   }
 
    /**
-   * TODO.
+   * Information about the downtime applied to the monitor.
    * @return silenced
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Information about the downtime applied to the monitor.")
   @JsonProperty(JSON_PROPERTY_SILENCED)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -606,11 +606,11 @@ public class MonitorOptions {
   }
 
    /**
-   * TODO.
+   * ID of the corresponding Synthetic check.
    * @return syntheticsCheckId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "ID of the corresponding Synthetic check.")
   @JsonIgnore
 
   public Long getSyntheticsCheckId() {

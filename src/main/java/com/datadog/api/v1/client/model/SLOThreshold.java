@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * SLO thresholds (target and optionally warning) for a single time window.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "SLO thresholds (target and optionally warning) for a single time window.")
 @JsonPropertyOrder({
   SLOThreshold.JSON_PROPERTY_TARGET,
   SLOThreshold.JSON_PROPERTY_TARGET_DISPLAY,

@@ -147,12 +147,12 @@ public class Downtime {
 
 
    /**
-   * TODO.
+   * User ID of the downtime creator.
    * maximum: 2147483647
    * @return creatorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "TODO.")
+  @ApiModelProperty(example = "123456", value = "User ID of the downtime creator.")
   @JsonProperty(JSON_PROPERTY_CREATOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -189,12 +189,12 @@ public class Downtime {
 
 
    /**
-   * TODO.
+   * 0 for a downtime applied on &#x60;*&#x60; or all; 1 when the downtime is only scoped to hosts; 2 when the downtime is scoped to anything but hosts.
    * maximum: 2147483647
    * @return downtimeType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2", value = "TODO.")
+  @ApiModelProperty(example = "2", value = "0 for a downtime applied on `*` or all; 1 when the downtime is only scoped to hosts; 2 when the downtime is scoped to anything but hosts.")
   @JsonProperty(JSON_PROPERTY_DOWNTIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -241,11 +241,11 @@ public class Downtime {
 
 
    /**
-   * TODO.
+   * The downtime ID.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1625", value = "TODO.")
+  @ApiModelProperty(example = "1625", value = "The downtime ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -356,11 +356,11 @@ public class Downtime {
   }
 
    /**
-   * TODO.
+   * ID of the parent Downtime.
    * @return parentId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123", value = "TODO.")
+  @ApiModelProperty(example = "123", value = "ID of the parent Downtime.")
   @JsonIgnore
 
   public Long getParentId() {
@@ -503,12 +503,12 @@ public class Downtime {
 
 
    /**
-   * TODO.
+   * ID of the last user that updated the downtime.
    * maximum: 2147483647
    * @return updaterId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "TODO.")
+  @ApiModelProperty(example = "123456", value = "ID of the last user that updated the downtime.")
   @JsonIgnore
 
   public Integer getUpdaterId() {

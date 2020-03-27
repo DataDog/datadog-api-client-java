@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Metadata associated with your host.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Metadata associated with your host.")
 @JsonPropertyOrder({
   HostMeta.JSON_PROPERTY_NIX_V
 })

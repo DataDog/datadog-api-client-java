@@ -25,9 +25,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Alerting time window options.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Alerting time window options.")
 @JsonPropertyOrder({
   MonitorThresholdWindowOptions.JSON_PROPERTY_RECOVERY_WINDOW,
   MonitorThresholdWindowOptions.JSON_PROPERTY_TRIGGER_WINDOW

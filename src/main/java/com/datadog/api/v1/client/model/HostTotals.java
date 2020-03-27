@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Total number of host currently monitored by Datadog.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Total number of host currently monitored by Datadog.")
 @JsonPropertyOrder({
   HostTotals.JSON_PROPERTY_TOTAL_ACTIVE,
   HostTotals.JSON_PROPERTY_TOTAL_UP
@@ -45,11 +45,11 @@ public class HostTotals {
   }
 
    /**
-   * Get totalActive
+   * Total number of active host (UP and ???) reporting to Datadog.
    * @return totalActive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Total number of active host (UP and ???) reporting to Datadog.")
   @JsonProperty(JSON_PROPERTY_TOTAL_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -70,11 +70,11 @@ public class HostTotals {
   }
 
    /**
-   * Get totalUp
+   * Number of host that are UP and reporting to Datadog.
    * @return totalUp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of host that are UP and reporting to Datadog.")
   @JsonProperty(JSON_PROPERTY_TOTAL_UP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
