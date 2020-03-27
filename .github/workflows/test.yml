@@ -9,15 +9,19 @@ jobs:
  test:
    strategy:
      matrix:
-       java-version: ["8", "13"]
-       platform: [ubuntu-latest, macos-latest, windows-latest]
-   runs-on: ${{ matrix.platform }}
+       # see DEVELOPMENT.md for information why we're using this specific combination
+       # of JDKs to run unit tests on
+       java-version: ["adopt@1.8.0-242", "amazon-corretto@1.11.0-6.10.1", "1.13.0", "thisshouldfail"]
+   runs-on: ubuntu-18.04
    steps:
    - name: Install Java
-     uses: actions/setup-java@v1
+     # the setup-scala action is the only available action that allows us to access
+     # https://github.com/shyiko/jabba - a tool that can install various JDKs
+     uses: olafurpg/setup-scala@8a9a839
      with:
        java-version: ${{ matrix.java-version }}
+       jabba-version: 0.11.2
    - name: Checkout code
      uses: actions/checkout@v2
    - name: Test
-     run: mvn --batch-mode test
+     run: ./run-tests.sh
