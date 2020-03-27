@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeFalse;
 
 /**
  * API tests for DashboardListsApi
@@ -36,29 +37,37 @@ public class DashboardListsApiTest extends V2APITest {
 
     @After
     public void deleteDashboardList() throws com.datadog.api.v1.client.ApiException {
-        dashboardListsApiV1.deleteDashboardList(dashboardListID).execute();
+        // assume.assumeFalse doesn't work in @After/@Before
+        if (!TestUtils.isIbmJdk()) {
+            dashboardListsApiV1.deleteDashboardList(dashboardListID).execute();
+        }
     }
 
     @Before
     public void createDashboardList() throws com.datadog.api.v1.client.ApiException, NoSuchAlgorithmException {
-        com.datadog.api.v1.client.ApiClient v1Client = new com.datadog.api.v1.client.ApiClient();
-        HashMap<String, String> secrets = new HashMap<>();
-        secrets.put("apiKeyAuth", TEST_API_KEY);
-        secrets.put("appKeyAuth", TEST_APP_KEY);
-        v1Client.configureApiKeys(secrets);
-        v1Client.setDebugging("true".equals(System.getenv("DEBUG")));
-        ClientConfig config = (ClientConfig) v1Client.getHttpClient().getConfiguration();
-        config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+        // assume.assumeFalse doesn't work in @After/@Before
+        if (!TestUtils.isIbmJdk()) {
+            com.datadog.api.v1.client.ApiClient v1Client = new com.datadog.api.v1.client.ApiClient();
+            HashMap<String, String> secrets = new HashMap<>();
+            secrets.put("apiKeyAuth", TEST_API_KEY);
+            secrets.put("appKeyAuth", TEST_APP_KEY);
+            v1Client.configureApiKeys(secrets);
+            v1Client.setDebugging("true".equals(System.getenv("DEBUG")));
+            ClientConfig config = (ClientConfig) v1Client.getHttpClient().getConfiguration();
+            config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
 
-        dashboardListsApiV1 = new com.datadog.api.v1.client.api.DashboardListsApi(v1Client);
-        DashboardList res = dashboardListsApiV1.createDashboardList().body(
-                new DashboardList().name("java-test-client-v2-" + now.toInstant().toEpochMilli())
-        ).execute();
-        dashboardListID = res.getId();
+            dashboardListsApiV1 = new com.datadog.api.v1.client.api.DashboardListsApi(v1Client);
+            DashboardList res = dashboardListsApiV1.createDashboardList().body(
+                    new DashboardList().name("java-test-client-v2-" + now.toInstant().toEpochMilli())
+            ).execute();
+            dashboardListID = res.getId();
+        }
     }
 
     @Test
     public void dashboardListItemCRUDTest() throws ApiException {
+        // ignore this test on IBM JDK for now
+        assumeFalse(TestUtils.isIbmJdk());
         DashboardListItem integrationTimeboard = new DashboardListItem().type(DashboardType.INTEGRATION_TIMEBOARD).id(INTEGRATION_TIMEBOARD_ID);
         DashboardListItem customTimeboard = new DashboardListItem().type(DashboardType.CUSTOM_TIMEBOARD).id(CUSTOM_TIMEBOARD_ID);
         DashboardListItem customScreenboard = new DashboardListItem().type(DashboardType.CUSTOM_SCREENBOARD).id(CUSTOM_SCREENBOARD_ID);
