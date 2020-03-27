@@ -17,7 +17,9 @@ jobs:
    - name: Install Java
      # the setup-scala action is the only available action that allows us to access
      # https://github.com/shyiko/jabba - a tool that can install various JDKs
-     uses: olafurpg/setup-scala@8a9a839
+     # NOTE: when upstream releases version 8, we can change this to:
+     # uses: olafurpg/setup-scala@v8
+     uses: bkabrda/setup-scala@0af3a8259815032a2604ba25c4df5ab0b9591e8f
      with:
        java-version: ${{ matrix.java-version }}
        jabba-version: 0.11.2
