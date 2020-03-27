@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** | TODO. | 
+**message** | **String** | Identity provider response. | 
 
 
 

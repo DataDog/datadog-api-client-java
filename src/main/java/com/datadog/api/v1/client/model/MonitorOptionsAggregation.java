@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Type of aggregation performed in the monitor query.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Type of aggregation performed in the monitor query.")
 @JsonPropertyOrder({
   MonitorOptionsAggregation.JSON_PROPERTY_GROUP_BY,
   MonitorOptionsAggregation.JSON_PROPERTY_METRIC,
@@ -49,11 +49,11 @@ public class MonitorOptionsAggregation {
   }
 
    /**
-   * Get groupBy
+   * Group to break down the monitor on.
    * @return groupBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host", value = "")
+  @ApiModelProperty(example = "host", value = "Group to break down the monitor on.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -74,11 +74,11 @@ public class MonitorOptionsAggregation {
   }
 
    /**
-   * TODO.
+   * Metric name used in the monitor.
    * @return metric
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "count", value = "TODO.")
+  @ApiModelProperty(example = "metrics.name", value = "Metric name used in the monitor.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,11 +99,11 @@ public class MonitorOptionsAggregation {
   }
 
    /**
-   * Get type
+   * Metric type used in the monitor.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "count", value = "")
+  @ApiModelProperty(example = "count", value = "Metric type used in the monitor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

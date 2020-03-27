@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * ID of the device the Synthetics monitor is running on. Same as SyntheticsDeviceID.
  */
 public enum MonitorDeviceID {
   

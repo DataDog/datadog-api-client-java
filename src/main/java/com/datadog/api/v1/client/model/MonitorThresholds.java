@@ -25,9 +25,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * List of the different monitor threshold available.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "List of the different monitor threshold available.")
 @JsonPropertyOrder({
   MonitorThresholds.JSON_PROPERTY_CRITICAL,
   MonitorThresholds.JSON_PROPERTY_CRITICAL_RECOVERY,
@@ -64,11 +64,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * TODO.
+   * The monitor CRITICAL threshold.
    * @return critical
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The monitor CRITICAL threshold.")
   @JsonProperty(JSON_PROPERTY_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -89,11 +89,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * TODO.
+   * The monitor CRITICAL recovery threshold.
    * @return criticalRecovery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The monitor CRITICAL recovery threshold.")
   @JsonIgnore
 
   public Double getCriticalRecovery() {
@@ -124,11 +124,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * TODO.
+   * The monitor OK threshold.
    * @return ok
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The monitor OK threshold.")
   @JsonIgnore
 
   public Double getOk() {
@@ -194,11 +194,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * TODO.
+   * The monitor WARNING threshold.
    * @return warning
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The monitor WARNING threshold.")
   @JsonIgnore
 
   public Double getWarning() {
@@ -229,11 +229,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * TODO.
+   * The monitor WARNING recovery threshold.
    * @return warningRecovery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The monitor WARNING recovery threshold.")
   @JsonIgnore
 
   public Double getWarningRecovery() {

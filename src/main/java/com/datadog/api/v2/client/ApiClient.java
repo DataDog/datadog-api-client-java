@@ -975,6 +975,21 @@ public class ApiClient {
       java.util.logging.Logger.getLogger("org.glassfish.jersey.client").setLevel(java.util.logging.Level.SEVERE);
     }
     performAdditionalClientConfiguration(clientConfig);
+    if (System.getProperty("java.vendor").equals("IBM Corporation")) {
+      // We explicitly use TLSv1.2 for IBM Java. The reason is that IBM JRE 8 has only TLSv1.0 enabled
+      // by default unless `-Dcom.ibm.jsse2.overrideDefaultTLS=true` is used (in which case also
+      // TLSv1.1 and TLSv1.2 are enabled). The only other option to change this would be to call
+      // System.setProperty("https.protocols", "TLSv1.2"), but that modifies the global system properties
+      // and thus might be the cause of unwanted side effects. Also see
+      // https://www.ibm.com/support/knowledgecenter/SSYKE2_8.0.0/com.ibm.java.security.component.80.doc/security-component/jsse2Docs/matchsslcontext_tls.html
+      try {
+        javax.net.ssl.SSLContext ctx = javax.net.ssl.SSLContext.getInstance("TLSv1.2");
+        ctx.init(null, null, null); // use the default installed implementations by providing nulls
+        return ClientBuilder.newBuilder().withConfig(clientConfig).sslContext(ctx).build();
+      } catch (java.security.NoSuchAlgorithmException|java.security.KeyManagementException e) {
+        throw new RuntimeException(e);
+      }
+    }
     return ClientBuilder.newClient(clientConfig);
   }
 

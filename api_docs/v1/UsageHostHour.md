@@ -2,7 +2,7 @@
 
 # UsageHostHour
 
-TODO.
+Number of hosts/containers recorded for each hour for a given organization.
 ## Properties
 
 Name | Type | Description | Notes

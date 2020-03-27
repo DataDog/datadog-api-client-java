@@ -13,7 +13,6 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.MonitorOverallStates;
 import com.datadog.api.v1.client.model.MonitorStateGroup;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -27,24 +26,16 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Wrapper object with the different monitor states.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Wrapper object with the different monitor states.")
 @JsonPropertyOrder({
-  MonitorState.JSON_PROPERTY_GROUPS,
-  MonitorState.JSON_PROPERTY_MONITOR_ID,
-  MonitorState.JSON_PROPERTY_OVERALL_STATE
+  MonitorState.JSON_PROPERTY_GROUPS
 })
 
 public class MonitorState {
   public static final String JSON_PROPERTY_GROUPS = "groups";
   private Map<String, MonitorStateGroup> groups = null;
-
-  public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
-  private Long monitorId;
-
-  public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
-  private MonitorOverallStates overallState;
 
 
   public MonitorState groups(Map<String, MonitorStateGroup> groups) {
@@ -62,11 +53,11 @@ public class MonitorState {
   }
 
    /**
-   * TODO.
+   * Dictionary where the keys are groups (comma separated lists of tags) and the values are the list of groups your monitor is broken down on.
    * @return groups
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Dictionary where the keys are groups (comma separated lists of tags) and the values are the list of groups your monitor is broken down on.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -80,56 +71,6 @@ public class MonitorState {
   }
 
 
-  public MonitorState monitorId(Long monitorId) {
-    
-    this.monitorId = monitorId;
-    return this;
-  }
-
-   /**
-   * A single monitor identification.
-   * @return monitorId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A single monitor identification.")
-  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getMonitorId() {
-    return monitorId;
-  }
-
-
-  public void setMonitorId(Long monitorId) {
-    this.monitorId = monitorId;
-  }
-
-
-  public MonitorState overallState(MonitorOverallStates overallState) {
-    
-    this.overallState = overallState;
-    return this;
-  }
-
-   /**
-   * Get overallState
-   * @return overallState
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public MonitorOverallStates getOverallState() {
-    return overallState;
-  }
-
-
-  public void setOverallState(MonitorOverallStates overallState) {
-    this.overallState = overallState;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,14 +80,12 @@ public class MonitorState {
       return false;
     }
     MonitorState monitorState = (MonitorState) o;
-    return Objects.equals(this.groups, monitorState.groups) &&
-        Objects.equals(this.monitorId, monitorState.monitorId) &&
-        Objects.equals(this.overallState, monitorState.overallState);
+    return Objects.equals(this.groups, monitorState.groups);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groups, monitorId, overallState);
+    return Objects.hash(groups);
   }
 
 
@@ -155,8 +94,6 @@ public class MonitorState {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorState {\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
-    sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
-    sb.append("    overallState: ").append(toIndentedString(overallState)).append("\n");
     sb.append("}");
     return sb.toString();
   }

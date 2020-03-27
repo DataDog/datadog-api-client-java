@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * An application key with its associated metadata.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "An application key with its associated metadata.")
 @JsonPropertyOrder({
   ApplicationKey.JSON_PROPERTY_HASH,
   ApplicationKey.JSON_PROPERTY_NAME,

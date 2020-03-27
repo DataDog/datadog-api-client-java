@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cancelledIds** | **List&lt;Long&gt;** | TODO. |  [optional]
+**cancelledIds** | **List&lt;Long&gt;** | ID of downtimes that were canceled. |  [optional]
 
 
 

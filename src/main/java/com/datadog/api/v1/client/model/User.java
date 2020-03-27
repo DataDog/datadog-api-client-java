@@ -160,11 +160,11 @@ public class User {
 
 
    /**
-   * TODO.
+   * Gravatar icon associated to the user.
    * @return icon
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "/path/to/matching/gravatar/icon", value = "TODO.")
+  @ApiModelProperty(example = "/path/to/matching/gravatar/icon", value = "Gravatar icon associated to the user.")
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -201,11 +201,11 @@ public class User {
 
 
    /**
-   * TODO.
+   * Whether or not the user logged in Datadog at least once.
    * @return verified
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "TODO.")
+  @ApiModelProperty(example = "true", value = "Whether or not the user logged in Datadog at least once.")
   @JsonProperty(JSON_PROPERTY_VERIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

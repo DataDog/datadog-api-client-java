@@ -37,8 +37,10 @@ public abstract class V1ApiTest extends TestUtils.APITest {
 
         // Set proxy to the mockServer for recording
         if (TestUtils.isRecording()) {
-            ClientConfig config = (ClientConfig) generalApiClient.getHttpClient().getConfiguration();
-            config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+            if (!TestUtils.isIbmJdk()) {
+                ClientConfig config = (ClientConfig) generalApiClient.getHttpClient().getConfiguration();
+                config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+            }
         } else {
             // Set base path to the mock server for replaying
             generalApiClient.setBasePath("https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);

@@ -78,6 +78,21 @@ public class TestUtils {
         return Boolean.parseBoolean(System.getenv("RECORD"));
     }
 
+    public static boolean isIbmJdk() {
+        return System.getProperty("java.vendor").equals("IBM Corporation");
+    }
+
+    public static boolean handleIbmJdk() {
+        if (!isIbmJdk()) {
+            return false;
+        }
+        if (!isRecording()) {
+            throw new RuntimeException("Can't run recorded tests on IBM JDK: https://github.com/mock-server/mockserver/issues/750");
+        }
+        System.err.println("NOTE: Running on IBM JDK can't record cassettes, will only run tests: https://github.com/mock-server/mockserver/issues/750");
+        return true;
+    }
+
     public static class RetryException extends Exception {
         public RetryException(String message) {
             super(message);
@@ -112,6 +127,9 @@ public class TestUtils {
 
         @BeforeClass
         public static void trustProxyCerts() {
+            if (handleIbmJdk()) {
+                return;
+            }
             // Needed otherwise the Trust store does not have the correct type for java > 8.
             // See https://github.com/mock-server/mockserver/issues/744
             Security.setProperty("keystore.type", "jks");
@@ -144,6 +162,9 @@ public class TestUtils {
 
         @Before
         public void setupMockServer() {
+            if (isIbmJdk()) {
+                return;
+            }
             if (TestUtils.isRecording()) {
                 ConfigurationProperties.persistExpectations(true);
                 ConfigurationProperties.persistedExpectationsPath(
@@ -159,6 +180,10 @@ public class TestUtils {
 
         @Before
         public void setupClock() throws IOException {
+            if (isIbmJdk()) {
+                now = OffsetDateTime.now();
+                return;
+            }
             // Use a fixed time in tests to allow replaying from cassettes
             if (TestUtils.isRecording()) {
                 // When recording, set the clock to the current time and save it to a `freeze` file for replaying
@@ -186,6 +211,9 @@ public class TestUtils {
         public void cleanAndSendExpectations() {
             // Cleanup the recorded requests from sensitive information (API keys in headers and query params),
             // create the associated expectations and send them to mockserver to save them on disk in the `cassettes/**/*.json` files
+            if (isIbmJdk()) {
+                return;
+            }
             List<Expectation> expectations = new ArrayList<>();
             LogEventRequestAndResponse[] requestsAndResponses = mockServer.retrieveRecordedRequestsAndResponses(null);
             for (LogEventRequestAndResponse requestAndResponse : requestsAndResponses) {
