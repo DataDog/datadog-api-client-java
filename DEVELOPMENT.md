@@ -18,7 +18,18 @@ This project contains both Integration and Unit tests.
 __Never__ run the test suite against an organization with production data.
 The testing framework in this repository is JUnit, and can be executed via `mvn test`
 
-This project uses `mvn` with `JUnit` for the testing framework.
+Tests for a single class can be executed via:
+
+```
+mvn test -Dtest=TEST_CLASS_NAME
+```
+
+A single test method can be executed via:
+
+```
+mvn test -Dtest=TEST_CLASS_NAME#TEST_METHOD_NAME
+```
+
 When creating a PR that adds or updates a test, __never__ commit the 
 generated code, only commit the test files being updated. 
 
