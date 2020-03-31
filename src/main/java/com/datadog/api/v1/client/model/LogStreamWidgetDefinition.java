@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.WidgetFieldSort;
+import com.datadog.api.v1.client.model.WidgetMessageDisplay;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -35,7 +37,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   LogStreamWidgetDefinition.JSON_PROPERTY_COLUMNS,
   LogStreamWidgetDefinition.JSON_PROPERTY_INDEXES,
+  LogStreamWidgetDefinition.JSON_PROPERTY_MESSAGE_DISPLAY,
   LogStreamWidgetDefinition.JSON_PROPERTY_QUERY,
+  LogStreamWidgetDefinition.JSON_PROPERTY_SHOW_DATE_COLUMN,
+  LogStreamWidgetDefinition.JSON_PROPERTY_SHOW_MESSAGE_COLUMN,
+  LogStreamWidgetDefinition.JSON_PROPERTY_SORT,
   LogStreamWidgetDefinition.JSON_PROPERTY_TIME,
   LogStreamWidgetDefinition.JSON_PROPERTY_TITLE,
   LogStreamWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
@@ -50,8 +56,20 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
 
+  public static final String JSON_PROPERTY_MESSAGE_DISPLAY = "message_display";
+  private WidgetMessageDisplay messageDisplay;
+
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_SHOW_DATE_COLUMN = "show_date_column";
+  private Boolean showDateColumn;
+
+  public static final String JSON_PROPERTY_SHOW_MESSAGE_COLUMN = "show_message_column";
+  private Boolean showMessageColumn;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private WidgetFieldSort sort;
 
   public static final String JSON_PROPERTY_TIME = "time";
   private WidgetTime time;
@@ -135,6 +153,31 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public LogStreamWidgetDefinition messageDisplay(WidgetMessageDisplay messageDisplay) {
+    
+    this.messageDisplay = messageDisplay;
+    return this;
+  }
+
+   /**
+   * Get messageDisplay
+   * @return messageDisplay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MESSAGE_DISPLAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WidgetMessageDisplay getMessageDisplay() {
+    return messageDisplay;
+  }
+
+
+  public void setMessageDisplay(WidgetMessageDisplay messageDisplay) {
+    this.messageDisplay = messageDisplay;
+  }
+
+
   public LogStreamWidgetDefinition query(String query) {
     
     this.query = query;
@@ -157,6 +200,81 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
 
   public void setQuery(String query) {
     this.query = query;
+  }
+
+
+  public LogStreamWidgetDefinition showDateColumn(Boolean showDateColumn) {
+    
+    this.showDateColumn = showDateColumn;
+    return this;
+  }
+
+   /**
+   * Whether to show the date column or not
+   * @return showDateColumn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to show the date column or not")
+  @JsonProperty(JSON_PROPERTY_SHOW_DATE_COLUMN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getShowDateColumn() {
+    return showDateColumn;
+  }
+
+
+  public void setShowDateColumn(Boolean showDateColumn) {
+    this.showDateColumn = showDateColumn;
+  }
+
+
+  public LogStreamWidgetDefinition showMessageColumn(Boolean showMessageColumn) {
+    
+    this.showMessageColumn = showMessageColumn;
+    return this;
+  }
+
+   /**
+   * Whether to show the message column or not
+   * @return showMessageColumn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to show the message column or not")
+  @JsonProperty(JSON_PROPERTY_SHOW_MESSAGE_COLUMN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getShowMessageColumn() {
+    return showMessageColumn;
+  }
+
+
+  public void setShowMessageColumn(Boolean showMessageColumn) {
+    this.showMessageColumn = showMessageColumn;
+  }
+
+
+  public LogStreamWidgetDefinition sort(WidgetFieldSort sort) {
+    
+    this.sort = sort;
+    return this;
+  }
+
+   /**
+   * Get sort
+   * @return sort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WidgetFieldSort getSort() {
+    return sort;
+  }
+
+
+  public void setSort(WidgetFieldSort sort) {
+    this.sort = sort;
   }
 
 
@@ -286,7 +404,11 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
     LogStreamWidgetDefinition logStreamWidgetDefinition = (LogStreamWidgetDefinition) o;
     return Objects.equals(this.columns, logStreamWidgetDefinition.columns) &&
         Objects.equals(this.indexes, logStreamWidgetDefinition.indexes) &&
+        Objects.equals(this.messageDisplay, logStreamWidgetDefinition.messageDisplay) &&
         Objects.equals(this.query, logStreamWidgetDefinition.query) &&
+        Objects.equals(this.showDateColumn, logStreamWidgetDefinition.showDateColumn) &&
+        Objects.equals(this.showMessageColumn, logStreamWidgetDefinition.showMessageColumn) &&
+        Objects.equals(this.sort, logStreamWidgetDefinition.sort) &&
         Objects.equals(this.time, logStreamWidgetDefinition.time) &&
         Objects.equals(this.title, logStreamWidgetDefinition.title) &&
         Objects.equals(this.titleAlign, logStreamWidgetDefinition.titleAlign) &&
@@ -296,7 +418,7 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, indexes, query, time, title, titleAlign, titleSize, type);
+    return Objects.hash(columns, indexes, messageDisplay, query, showDateColumn, showMessageColumn, sort, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -306,7 +428,11 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
     sb.append("class LogStreamWidgetDefinition {\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
+    sb.append("    messageDisplay: ").append(toIndentedString(messageDisplay)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    showDateColumn: ").append(toIndentedString(showDateColumn)).append("\n");
+    sb.append("    showMessageColumn: ").append(toIndentedString(showMessageColumn)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");

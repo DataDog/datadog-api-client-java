@@ -245,7 +245,15 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Logstream Widget")
                 .titleSize("16")
                 .titleAlign(WidgetTextAlign.RIGHT)
-                .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_TWO_DAYS));
+                .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_TWO_DAYS))
+                .messageDisplay(WidgetMessageDisplay.EXPANDED_LARGE)
+                .showDateColumn(true)
+                .showMessageColumn(true)
+                .sort(
+                        new WidgetFieldSort()
+                                .column("Route")
+                                .order(WidgetSort.ASCENDING)
+                );;
         Widget logStreamWidget = new Widget().definition(logStreamWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(logStreamWidget);
@@ -536,7 +544,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .isReadOnly(false)
                 .templateVariables(templateVariables)
                 .addTemplateVariablePresetsItem(dashboardTemplateVariablePreset)
-                .addNotifyListItem("test@example.com");
+                .addNotifyListItem("test@datadoghq.com");
         // Create ordered dashboard with all expected fields
         Dashboard response = api.createDashboard()
                 .body(dashboard)
