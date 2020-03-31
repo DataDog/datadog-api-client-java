@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **lastUpdated** | [**OffsetDateTime**](OffsetDateTime.md) | Shows the the most recent hour in the current month(s) for all orgs for which all usages were calculated. |  [optional]
 **netflowIndexedEventsCountAggSum** | **Long** | Shows the sum of all Network flows indexed over all hours in the current month(s) for all orgs. |  [optional]
 **npmHostTop99pSum** | **Long** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current month(s) for all orgs. |  [optional]
+**rumSessionCountAggSum** | **Long** | Shows the sum of all RUM Sessions over all hours in the current month(s) for all orgs. |  [optional]
 **startDate** | [**OffsetDateTime**](OffsetDateTime.md) | Shows the first date of usage in the current month(s) for all orgs. |  [optional]
 **syntheticsBrowserCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current month(s) for all orgs. |  [optional]
 **syntheticsCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current month(s) for all orgs. |  [optional]
