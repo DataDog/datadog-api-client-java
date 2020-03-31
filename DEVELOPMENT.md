@@ -30,6 +30,8 @@ A single test method can be executed via:
 mvn test -Dtest=TEST_CLASS_NAME#TEST_METHOD_NAME
 ```
 
+By default integration tests use recorded API responses stored in cassettes. To record new API responses run the tests with `RECORD=true`.
+
 When creating a PR that adds or updates a test, __never__ commit the 
 generated code, only commit the test files being updated. 
 
