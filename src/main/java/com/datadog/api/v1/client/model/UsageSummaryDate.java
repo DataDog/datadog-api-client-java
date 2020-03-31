@@ -48,6 +48,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UsageSummaryDate.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
+  UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM
@@ -110,6 +111,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private List<UsageSummaryDateOrg> orgs = null;
+
+  public static final String JSON_PROPERTY_RUM_SESSION_COUNT_SUM = "rum_session_count_sum";
+  private Long rumSessionCountSum;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM = "synthetics_browser_check_calls_count_sum";
   private Long syntheticsBrowserCheckCallsCountSum;
@@ -604,6 +608,31 @@ public class UsageSummaryDate {
   }
 
 
+  public UsageSummaryDate rumSessionCountSum(Long rumSessionCountSum) {
+    
+    this.rumSessionCountSum = rumSessionCountSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all RUM Sessions over all hours in the current date for all orgs
+   * @return rumSessionCountSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all RUM Sessions over all hours in the current date for all orgs")
+  @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getRumSessionCountSum() {
+    return rumSessionCountSum;
+  }
+
+
+  public void setRumSessionCountSum(Long rumSessionCountSum) {
+    this.rumSessionCountSum = rumSessionCountSum;
+  }
+
+
   public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(Long syntheticsBrowserCheckCallsCountSum) {
     
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
@@ -707,6 +736,7 @@ public class UsageSummaryDate {
         Objects.equals(this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum) &&
         Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p) &&
         Objects.equals(this.orgs, usageSummaryDate.orgs) &&
+        Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum) &&
         Objects.equals(this.syntheticsBrowserCheckCallsCountSum, usageSummaryDate.syntheticsBrowserCheckCallsCountSum) &&
         Objects.equals(this.syntheticsCheckCallsCountSum, usageSummaryDate.syntheticsCheckCallsCountSum) &&
         Objects.equals(this.traceSearchIndexedEventsCountSum, usageSummaryDate.traceSearchIndexedEventsCountSum);
@@ -714,7 +744,7 @@ public class UsageSummaryDate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, date, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, netflowIndexedEventsCountSum, npmHostTop99p, orgs, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum);
+    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, date, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, netflowIndexedEventsCountSum, npmHostTop99p, orgs, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum);
   }
 
 
@@ -741,6 +771,7 @@ public class UsageSummaryDate {
     sb.append("    netflowIndexedEventsCountSum: ").append(toIndentedString(netflowIndexedEventsCountSum)).append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
+    sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountSum)).append("\n");
     sb.append("    syntheticsCheckCallsCountSum: ").append(toIndentedString(syntheticsCheckCallsCountSum)).append("\n");
     sb.append("    traceSearchIndexedEventsCountSum: ").append(toIndentedString(traceSearchIndexedEventsCountSum)).append("\n");

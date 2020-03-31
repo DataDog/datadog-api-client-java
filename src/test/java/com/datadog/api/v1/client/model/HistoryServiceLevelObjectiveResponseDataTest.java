@@ -11,10 +11,11 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveGroups;
 import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveMetrics;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveOverall;
+import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveSLIData;
 import com.datadog.api.v1.client.model.SLOThreshold;
+import com.datadog.api.v1.client.model.ServiceLevelObjectiveType;
+import com.datadog.api.v1.client.model.ServiceLevelObjectiveTypeNumeric;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -89,6 +90,22 @@ public class HistoryServiceLevelObjectiveResponseDataTest {
     @Test
     public void toTsTest() {
         // TODO: test toTs
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
+     * Test the property 'typeId'
+     */
+    @Test
+    public void typeIdTest() {
+        // TODO: test typeId
     }
 
 }
