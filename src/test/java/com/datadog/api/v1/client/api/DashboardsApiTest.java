@@ -11,11 +11,13 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import org.junit.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,21 +30,54 @@ import static org.junit.Assert.*;
 public class DashboardsApiTest extends V1ApiTest{
 
     private static DashboardsApi api;
+    private static SloApi sloApi;
     private List<String> cleanupDashIDs = new ArrayList<>();
+    private String deleteSLO = null;
+    private final ServiceLevelObjective eventSLO = new ServiceLevelObjective()
+            .type(ServiceLevelObjectiveType.METRIC)
+            .name("HTTP Return Codes")
+            .description("Make sure we don't have too many failed HTTP responses")
+            .thresholds(Arrays.asList(new SLOThreshold()
+                    .timeframe(SLOTimeframe.SEVEN_DAYS)
+                    .target(95.0)
+                    .warning(98.0)
+            ))
+            .query(new ServiceLevelObjectiveQuery()
+                // Using the default function with non-existant metrics ensures that this
+                // test will behave the same in all environments. The default function
+                // should never be used for real SLO queries.
+                 .numerator("default(sum:non_existant_metric{*}.as_count(), 1)")
+                 .denominator("default(sum:non_existant_metric{*}.as_count(), 2)")
+            );
 
     @BeforeClass
     public static void initAPI() {
         api = new DashboardsApi(generalApiClient);
+        sloApi = new SloApi(generalApiClient);
     }
 
     @After
-    public void cleanupDash() {
+    public void cleanupDash() throws ApiException {
         try {
             for(String id: cleanupDashIDs) {
                 api.deleteDashboard(id).execute();
             }
         } catch (ApiException e) {
             System.out.printf("Error deleting dashboard, it may have already been deleted by a test: %s", e.getMessage());
+        }
+        cleanupDashIDs = new ArrayList<>();
+        if (deleteSLO != null) {
+            try {
+                sloApi.deleteSLO(deleteSLO).execute();
+            } catch (ApiException e) {
+                if (e.getCode() == 404) {
+                    // doesn't exist => ok
+                } else {
+                    throw e;
+                }
+            } finally {
+                deleteSLO = null;
+            }
         }
     }
 
@@ -55,6 +90,11 @@ public class DashboardsApiTest extends V1ApiTest{
     @Test
     public void dashboardLifecycleTest() throws ApiException {
         // Create a Dashboard with each available Widget type
+
+        // Create an SLO to reference in the SLO widget
+        ServiceLevelObjectiveListResponse sloResp = sloApi.createSLO().body(eventSLO).execute();
+        ServiceLevelObjective slo = sloResp.getData().get(0);
+        deleteSLO = slo.getId();
 
         // Add widgets to this list and the created dashboard to have them dynamically tested against the "get" call
         Set<Widget> orderedWidgetList = new HashSet();
@@ -287,7 +327,7 @@ public class DashboardsApiTest extends V1ApiTest{
         SLOWidgetDefinition sloWidgetDefinition = new SLOWidgetDefinition()
                 .viewType("detail").title("Test SLO Widget").titleSize("16")
                 .titleAlign(WidgetTextAlign.CENTER)
-                .sloId("1234L")
+                .sloId(slo.getId())
                 .showErrorBudget(true)
                 .viewMode(WidgetViewMode.BOTH)
                 .addTimeWindowsItem(WidgetTimeWindows.SEVEN_DAYS);

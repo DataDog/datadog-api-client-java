@@ -62,6 +62,15 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageRumSessionsTest() throws ApiException {
+        UsageRumSessionsResponse response = api.getUsageRumSessions()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
     public void getUsageHostsTest() throws ApiException {
         UsageHostsResponse response = api.getUsageHosts()
                 .startHr(startHr)
