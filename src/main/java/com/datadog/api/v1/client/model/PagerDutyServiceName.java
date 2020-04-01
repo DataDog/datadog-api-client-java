@@ -22,47 +22,19 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Configure your Datadog-PagerDuty integration directly through the Datadog API. For more informations, see the [PagerDuty integration page](https://docs.datadoghq.com/integrations/pagerduty/).
+ * PagerDuty service object Name.
  */
-@ApiModel(description = "Configure your Datadog-PagerDuty integration directly through the Datadog API. For more informations, see the [PagerDuty integration page](https://docs.datadoghq.com/integrations/pagerduty/).")
+@ApiModel(description = "PagerDuty service object Name.")
 @JsonPropertyOrder({
-  PagerDutyService.JSON_PROPERTY_SERVICE_KEY,
-  PagerDutyService.JSON_PROPERTY_SERVICE_NAME
+  PagerDutyServiceName.JSON_PROPERTY_SERVICE_NAME
 })
 
-public class PagerDutyService {
-  public static final String JSON_PROPERTY_SERVICE_KEY = "service_key";
-  private String serviceKey;
-
+public class PagerDutyServiceName {
   public static final String JSON_PROPERTY_SERVICE_NAME = "service_name";
   private String serviceName;
 
 
-  public PagerDutyService serviceKey(String serviceKey) {
-    
-    this.serviceKey = serviceKey;
-    return this;
-  }
-
-   /**
-   * Your Service key in PagerDuty.
-   * @return serviceKey
-  **/
-  @ApiModelProperty(required = true, value = "Your Service key in PagerDuty.")
-  @JsonProperty(JSON_PROPERTY_SERVICE_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getServiceKey() {
-    return serviceKey;
-  }
-
-
-  public void setServiceKey(String serviceKey) {
-    this.serviceKey = serviceKey;
-  }
-
-
-  public PagerDutyService serviceName(String serviceName) {
+  public PagerDutyServiceName serviceName(String serviceName) {
     
     this.serviceName = serviceName;
     return this;
@@ -94,22 +66,20 @@ public class PagerDutyService {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PagerDutyService pagerDutyService = (PagerDutyService) o;
-    return Objects.equals(this.serviceKey, pagerDutyService.serviceKey) &&
-        Objects.equals(this.serviceName, pagerDutyService.serviceName);
+    PagerDutyServiceName pagerDutyServiceName = (PagerDutyServiceName) o;
+    return Objects.equals(this.serviceName, pagerDutyServiceName.serviceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceKey, serviceName);
+    return Objects.hash(serviceName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PagerDutyService {\n");
-    sb.append("    serviceKey: ").append(toIndentedString(serviceKey)).append("\n");
+    sb.append("class PagerDutyServiceName {\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("}");
     return sb.toString();
