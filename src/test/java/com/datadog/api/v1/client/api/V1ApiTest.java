@@ -103,7 +103,7 @@ public abstract class V1ApiTest extends TestUtils.APITest {
 
     public <T> ApiResponse<T> sendRequest(String method, String url, String payload, GenericType<T> responseType) throws ApiException {
         String originalBasePath = generalApiClient.getBasePath();
-        int originalServerIndex = generalApiClient.getServerIndex();
+        Integer originalServerIndex = generalApiClient.getServerIndex();
         if (url.startsWith("https://")) {
             // if we got full URL, ensure that invokeAPI method doesn't use builtin operation servers
             // but rather falls back to basePath, which is empty => we'll get precisely the URL we want as result
