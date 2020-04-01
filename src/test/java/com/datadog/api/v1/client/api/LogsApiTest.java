@@ -40,9 +40,15 @@ public class LogsApiTest extends V1ApiTest {
         String secondMessage = "second-" + message;
         String hostname = String.format("datadog-api-client-java-test-%d", nowNano);
 
+        String intakeURL = "https://http-intake.logs.datadoghq.com/v1/input";
+        if (!TestUtils.isRecording()) {
+            // when running from cassettes, we need to make sure that the default base URL
+            // is used for mock server certificates to work properly
+            intakeURL = "/v1/input";
+        }
         sendRequest(
                 "POST",
-                "https://http-intake.logs.datadoghq.com/v1/input",
+                intakeURL,
                 String.format(
                         "{\"ddsource\":\"%s\",\"ddtags\":\"java,test,list\",\"hostname\":\"%s\",\"message\":\"{\\\"timestamp\\\": %d, \\\"message\\\": \\\"%s\\\"}\"}",
                         source, hostname, (now.toEpochSecond() - 1) * 1000, message
@@ -52,7 +58,7 @@ public class LogsApiTest extends V1ApiTest {
         Thread.sleep(500);
         sendRequest(
                 "POST",
-                "https://http-intake.logs.datadoghq.com/v1/input",
+                intakeURL,
                 String.format(
                         "{\"ddsource\":\"%s\",\"ddtags\":\"java,test,list\",\"hostname\":\"%s\",\"message\":\"{\\\"timestamp\\\": %d, \\\"message\\\": \\\"%s\\\"}\"}",
                         source, hostname, (now.toEpochSecond()) * 1000, secondMessage
