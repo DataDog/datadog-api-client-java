@@ -89,6 +89,34 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageLogsByIndexTest() throws ApiException {
+        UsageLogsByIndexResponse response = api.getUsageLogsByIndex()
+                .startHr(startHr)
+                .endHr(endHr)
+                .indexName(null)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageNetworkFlowsTest() throws ApiException {
+        UsageNetworkFlowsResponse response = api.getUsageNetworkFlows()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageNetworkHostsTest() throws ApiException {
+        UsageNetworkHostsResponse response = api.getUsageNetworkHosts()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
     public void getUsageSummaryTest() throws ApiException, IOException {
         Boolean includeOrgDetails = true;
         OffsetDateTime startMonth = OffsetDateTime.now();
@@ -147,6 +175,24 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getUsageSyntheticsTest() throws ApiException {
         UsageSyntheticsResponse response = api.getUsageSynthetics()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageSyntheticsAPITest() throws ApiException {
+        UsageSyntheticsAPIResponse response = api.getUsageSyntheticsAPI()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageSyntheticsBrowserTest() throws ApiException {
+        UsageSyntheticsBrowserResponse response = api.getUsageSyntheticsBrowser()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
