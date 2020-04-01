@@ -22,23 +22,19 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Configure your Datadog-PagerDuty integration directly through the Datadog API. For more informations, see the [PagerDuty integration page](https://docs.datadoghq.com/integrations/pagerduty/).
+ * PagerDuty service object Key.
  */
-@ApiModel(description = "Configure your Datadog-PagerDuty integration directly through the Datadog API. For more informations, see the [PagerDuty integration page](https://docs.datadoghq.com/integrations/pagerduty/).")
+@ApiModel(description = "PagerDuty service object Key.")
 @JsonPropertyOrder({
-  PagerDutyService.JSON_PROPERTY_SERVICE_KEY,
-  PagerDutyService.JSON_PROPERTY_SERVICE_NAME
+  PagerDutyServiceKey.JSON_PROPERTY_SERVICE_KEY
 })
 
-public class PagerDutyService {
+public class PagerDutyServiceKey {
   public static final String JSON_PROPERTY_SERVICE_KEY = "service_key";
   private String serviceKey;
 
-  public static final String JSON_PROPERTY_SERVICE_NAME = "service_name";
-  private String serviceName;
 
-
-  public PagerDutyService serviceKey(String serviceKey) {
+  public PagerDutyServiceKey serviceKey(String serviceKey) {
     
     this.serviceKey = serviceKey;
     return this;
@@ -62,30 +58,6 @@ public class PagerDutyService {
   }
 
 
-  public PagerDutyService serviceName(String serviceName) {
-    
-    this.serviceName = serviceName;
-    return this;
-  }
-
-   /**
-   * Your Service name associated service key in PagerDuty.
-   * @return serviceName
-  **/
-  @ApiModelProperty(required = true, value = "Your Service name associated service key in PagerDuty.")
-  @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getServiceName() {
-    return serviceName;
-  }
-
-
-  public void setServiceName(String serviceName) {
-    this.serviceName = serviceName;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -94,23 +66,21 @@ public class PagerDutyService {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PagerDutyService pagerDutyService = (PagerDutyService) o;
-    return Objects.equals(this.serviceKey, pagerDutyService.serviceKey) &&
-        Objects.equals(this.serviceName, pagerDutyService.serviceName);
+    PagerDutyServiceKey pagerDutyServiceKey = (PagerDutyServiceKey) o;
+    return Objects.equals(this.serviceKey, pagerDutyServiceKey.serviceKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceKey, serviceName);
+    return Objects.hash(serviceKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PagerDutyService {\n");
+    sb.append("class PagerDutyServiceKey {\n");
     sb.append("    serviceKey: ").append(toIndentedString(serviceKey)).append("\n");
-    sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

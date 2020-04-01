@@ -5,9 +5,13 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createPagerDutyIntegration**](PagerDutyIntegrationApi.md#createPagerDutyIntegration) | **PUT** /api/v1/integration/pagerduty | Create a PagerDuty integration
+[**createPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#createPagerDutyIntegrationService) | **POST** /api/v1/integration/pagerduty/configuration/services | Create a new service object
 [**deletePagerDutyIntegration**](PagerDutyIntegrationApi.md#deletePagerDutyIntegration) | **DELETE** /api/v1/integration/pagerduty | Delete a PagerDuty integration
+[**deletePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#deletePagerDutyIntegrationService) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
 [**getPagerDutyIntegration**](PagerDutyIntegrationApi.md#getPagerDutyIntegration) | **GET** /api/v1/integration/pagerduty | Get a PagerDuty integration
+[**getPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#getPagerDutyIntegrationService) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
 [**updatePagerDutyIntegration**](PagerDutyIntegrationApi.md#updatePagerDutyIntegration) | **POST** /api/v1/integration/pagerduty | Add new services and schedules
+[**updatePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#updatePagerDutyIntegrationService) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
 
 
 
@@ -94,6 +98,88 @@ null (empty response body)
 | **403** | Authentication error |  -  |
 
 
+## createPagerDutyIntegrationService
+
+> PagerDutyServiceName createPagerDutyIntegrationService().body(body).execute();
+
+Create a new service object
+
+Create a new service object in the PagerDuty integration.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.PagerDutyIntegrationApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
+        PagerDutyService body = new PagerDutyService(); // PagerDutyService | Create a new service object in the Datadog-PagerDuty integration.
+        try {
+            PagerDutyServiceName result = api.createPagerDutyIntegrationService()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PagerDutyIntegrationApi#createPagerDutyIntegrationService");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**PagerDutyService**](PagerDutyService.md)| Create a new service object in the Datadog-PagerDuty integration. |
+
+### Return type
+
+[**PagerDutyServiceName**](PagerDutyServiceName.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+
+
 ## deletePagerDutyIntegration
 
 > deletePagerDutyIntegration().execute();
@@ -148,6 +234,86 @@ public class Example {
 ### Parameters
 
 This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **204** | Integration does not exist |  -  |
+| **403** | Authentication error |  -  |
+
+
+## deletePagerDutyIntegrationService
+
+> deletePagerDutyIntegrationService(serviceName).execute();
+
+Delete a single service object
+
+Delete a single service object in the Datadog-PagerDuty integration.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.PagerDutyIntegrationApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
+        String serviceName = "serviceName_example"; // String | The service name
+        try {
+            api.deletePagerDutyIntegrationService(serviceName)
+                .execute();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PagerDutyIntegrationApi#deletePagerDutyIntegrationService");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceName** | **String**| The service name |
 
 ### Return type
 
@@ -248,6 +414,88 @@ This endpoint does not need any parameter.
 | **404** | Item Not Found |  -  |
 
 
+## getPagerDutyIntegrationService
+
+> PagerDutyServiceName getPagerDutyIntegrationService(serviceName).execute();
+
+Get a single service object
+
+Get service name in the Datadog-PagerDuty integration.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.PagerDutyIntegrationApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
+        String serviceName = "serviceName_example"; // String | The service name
+        try {
+            PagerDutyServiceName result = api.getPagerDutyIntegrationService(serviceName)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PagerDutyIntegrationApi#getPagerDutyIntegrationService");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceName** | **String**| The service name |
+
+### Return type
+
+[**PagerDutyServiceName**](PagerDutyServiceName.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Item Not Found |  -  |
+
+
 ## updatePagerDutyIntegration
 
 > updatePagerDutyIntegration().body(body).execute();
@@ -326,5 +574,88 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+
+
+## updatePagerDutyIntegrationService
+
+> updatePagerDutyIntegrationService(serviceName).body(body).execute();
+
+Update a single service object
+
+Update a single service object in the Datadog-PagerDuty integration
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.PagerDutyIntegrationApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
+        String serviceName = "serviceName_example"; // String | The service name
+        PagerDutyServiceKey body = new PagerDutyServiceKey(); // PagerDutyServiceKey | Update an existing service object in the Datadog-PagerDuty integration.
+        try {
+            api.updatePagerDutyIntegrationService(serviceName)
+                .body(body)
+                .execute();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PagerDutyIntegrationApi#updatePagerDutyIntegrationService");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceName** | **String**| The service name |
+ **body** | [**PagerDutyServiceKey**](PagerDutyServiceKey.md)| Update an existing service object in the Datadog-PagerDuty integration. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **204** | Integration does not exist |  -  |
 | **403** | Authentication error |  -  |
 
