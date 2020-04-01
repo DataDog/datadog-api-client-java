@@ -4,86 +4,9 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEvent**](EventsApi.md#createEvent) | **POST** /api/v1/events | Post an event
 [**getEvent**](EventsApi.md#getEvent) | **GET** /api/v1/events/{event_id} | Get an event
 [**listEvents**](EventsApi.md#listEvents) | **GET** /api/v1/events | Query the event stream
 
-
-
-## createEvent
-
-> EventResponse createEvent().body(body).execute();
-
-Post an event
-
-This endpoint allows you to post events to the stream.
-Tag them, set priority and event aggregate them with other events.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.EventsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuthQuery
-        ApiKeyAuth apiKeyAuthQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuthQuery");
-        apiKeyAuthQuery.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuthQuery.setApiKeyPrefix("Token");
-
-        EventsApi apiInstance = new EventsApi(defaultClient);
-        Event body = new Event(); // Event | Event request object
-        try {
-            EventResponse result = api.createEvent()
-                .body(body)
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EventsApi#createEvent");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Event**](Event.md)| Event request object |
-
-### Return type
-
-[**EventResponse**](EventResponse.md)
-
-### Authorization
-
-[apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **202** | OK |  -  |
-| **400** | Bad Request |  -  |
 
 
 ## getEvent

@@ -13,6 +13,7 @@ import com.datadog.api.v1.client.model.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import javax.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
 
 import static org.junit.Assert.assertEquals;
@@ -32,36 +33,38 @@ public class LogsApiTest extends V1ApiTest {
     }
 
     @Test
-    public void sendLogsTest() throws ApiException {
-        HTTPLog body = new HTTPLog()
-                .ddsource("source")
-                .ddtags("tags")
-                .hostname("datadog-api-client-java-test")
-                .message("testing message");
-        api.sendLog().body(body).execute();
-    }
-
-    @Test
     public void listLogTest() throws ApiException, TestUtils.RetryException, InterruptedException {
         long nowNano = now.toEpochSecond() * 1000000 + now.getNano();
         String source = String.format("java-client-test-%d", nowNano);
         String message = String.format("test-log-list-%d", nowNano);
+        String secondMessage = "second-" + message;
         String hostname = String.format("datadog-api-client-java-test-%d", nowNano);
 
-        HTTPLog httpLog = new HTTPLog()
-            .ddsource(source)
-            .ddtags("java,test,list")
-            .hostname(hostname)
-            .message(String.format("{\"timestamp\": %d, \"message\": \"%s\"}", (now.toEpochSecond() - 1) * 1000, message));
-
-        api.sendLog().body(httpLog).execute();
-
+        String intakeURL = "https://http-intake.logs.datadoghq.com/v1/input";
+        if (!TestUtils.isRecording()) {
+            // when running from cassettes, we need to make sure that the default base URL
+            // is used for mock server certificates to work properly
+            intakeURL = "/v1/input";
+        }
+        sendRequest(
+                "POST",
+                intakeURL,
+                String.format(
+                        "{\"ddsource\":\"%s\",\"ddtags\":\"java,test,list\",\"hostname\":\"%s\",\"message\":\"{\\\"timestamp\\\": %d, \\\"message\\\": \\\"%s\\\"}\"}",
+                        source, hostname, (now.toEpochSecond() - 1) * 1000, message
+                ),
+                new GenericType<String>(String.class)
+        );
         Thread.sleep(500);
-
-        String secondMessage = "second-" + message;
-        httpLog.setMessage(String.format("{\"timestamp\": %d, \"message\": \"%s\"}", now.toEpochSecond() * 1000, secondMessage));
-
-        api.sendLog().body(httpLog).execute();
+        sendRequest(
+                "POST",
+                intakeURL,
+                String.format(
+                        "{\"ddsource\":\"%s\",\"ddtags\":\"java,test,list\",\"hostname\":\"%s\",\"message\":\"{\\\"timestamp\\\": %d, \\\"message\\\": \\\"%s\\\"}\"}",
+                        source, hostname, (now.toEpochSecond()) * 1000, secondMessage
+                ),
+                new GenericType<String>(String.class)
+        );
 
         final LogsListRequest request = new LogsListRequest()
                 .query(String.format("source:%s", source))
@@ -103,5 +106,4 @@ public class LogsApiTest extends V1ApiTest {
         assertEquals(hostname, log.getContent().getHost());
         assertEquals(secondMessage, log.getContent().getMessage());
     }
-
 }

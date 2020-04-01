@@ -9,7 +9,6 @@ import com.datadog.api.v1.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v1.client.model.APIErrorResponse;
-import com.datadog.api.v1.client.model.Event;
 import com.datadog.api.v1.client.model.EventListResponse;
 import com.datadog.api.v1.client.model.EventPriority;
 import com.datadog.api.v1.client.model.EventResponse;
@@ -37,109 +36,6 @@ public class EventsApi {
 
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
-  }
-
-private ApiResponse<EventResponse> createEventWithHttpInfo(Event body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createEvent");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/events";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuthQuery" };
-
-    GenericType<EventResponse> localVarReturnType = new GenericType<EventResponse>() {};
-    return apiClient.invokeAPI("EventsApi.createEvent", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIcreateEventRequest {
-    private Event body;
-
-    private APIcreateEventRequest() {
-    }
-    
-
-    /**
-     * Set body
-     * @param body Event request object (required)
-     * @return APIcreateEventRequest
-     */
-    public APIcreateEventRequest body(Event body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute createEvent request
-     * @return EventResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public EventResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createEvent request with HTTP info returned
-     * @return ApiResponse&lt;EventResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<EventResponse> executeWithHttpInfo() throws ApiException {
-      return createEventWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Post an event
-   * This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
-   * @return createEventRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIcreateEventRequest createEvent() throws ApiException {
-    return new APIcreateEventRequest();
   }
 
 private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws ApiException {
