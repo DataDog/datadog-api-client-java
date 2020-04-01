@@ -9,11 +9,9 @@ import com.datadog.api.v1.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v1.client.model.APIErrorResponse;
-import com.datadog.api.v1.client.model.IntakePayloadAccepted;
 import com.datadog.api.v1.client.model.MetricMetadata;
 import com.datadog.api.v1.client.model.MetricSearchResponse;
 import com.datadog.api.v1.client.model.MetricsListResponse;
-import com.datadog.api.v1.client.model.MetricsPayload;
 import com.datadog.api.v1.client.model.MetricsQueryResponse;
 
 import java.util.ArrayList;
@@ -609,114 +607,5 @@ private ApiResponse<MetricSearchResponse> searchMetricsWithHttpInfo(String q) th
   
   public APIsearchMetricsRequest searchMetrics() throws ApiException {
     return new APIsearchMetricsRequest();
-  }
-
-private ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(MetricsPayload body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling submitMetrics");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/series";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuthQuery" };
-
-    GenericType<IntakePayloadAccepted> localVarReturnType = new GenericType<IntakePayloadAccepted>() {};
-    return apiClient.invokeAPI("MetricsApi.submitMetrics", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIsubmitMetricsRequest {
-    private MetricsPayload body;
-
-    private APIsubmitMetricsRequest() {
-    }
-    
-
-    /**
-     * Set body
-     * @param body  (required)
-     * @return APIsubmitMetricsRequest
-     */
-    public APIsubmitMetricsRequest body(MetricsPayload body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute submitMetrics request
-     * @return IntakePayloadAccepted
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-         <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public IntakePayloadAccepted execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute submitMetrics request with HTTP info returned
-     * @return ApiResponse&lt;IntakePayloadAccepted&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-         <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<IntakePayloadAccepted> executeWithHttpInfo() throws ApiException {
-      return submitMetricsWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Submit metrics
-   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The limit for compressed payloads is 3.2 megabytes (3200000), and 62 megabytes (62914560) for decompressed payloads.  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect  - 64 bits for the timestamp - 64 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
-   * @return submitMetricsRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIsubmitMetricsRequest submitMetrics() throws ApiException {
-    return new APIsubmitMetricsRequest();
   }
 }
