@@ -8,10 +8,14 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
+import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.model.EventPriority;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import javax.ws.rs.core.GenericType;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
@@ -39,20 +43,20 @@ public class EventsApiTest extends V1ApiTest {
      */
     @Test
     public void eventLifecycleTest() throws ApiException, TestUtils.RetryException {
-        final Event event = new Event().title("test event from java client").text("example text")
-                .tags(new ArrayList<String>(Arrays.asList("test", "client:java"))).priority(EventPriority.NORMAL)
-                .sourceTypeName("datadog-api-client-java");
+        String eventTitle = "test event from java client";
+        String eventText = "example text";
 
-        EventResponse response = api.createEvent().body(event).execute();
+        ApiResponse<EventResponse> response = sendRequest(
+                "POST",
+                "/api/v1/events",
+                String.format(
+                        "{\"priority\":\"normal\",\"source_type_name\":\"datadog-api-client-java\",\"tags\":[\"test\",\"client:java\"],\"text\":\"%s\",\"title\":\"%s\"}",
+                        eventText, eventTitle
+                ),
+                new GenericType<EventResponse>(EventResponse.class)
+        );
 
-        final Event createdEvent = response.getEvent();
-        final String status = response.getStatus();
-        assertEquals("ok", status);
-        assertEquals(event.getTitle(), createdEvent.getTitle());
-        assertEquals(event.getText(), createdEvent.getText());
-        assertNotEquals("", createdEvent.getUrl());
-
-        final Long eventId = createdEvent.getId();
+        final Long eventId = response.getData().getEvent().getId();
 
         AtomicReference<EventResponse> eventGetResponse = new AtomicReference<>();
         // Confirm the event is retrievable from the API
@@ -68,8 +72,8 @@ public class EventsApiTest extends V1ApiTest {
         });
 
         final Event fetchedEvent = eventGetResponse.get().getEvent();
-        assertEquals(event.getTitle(), fetchedEvent.getTitle());
-        assertEquals(event.getText(), fetchedEvent.getText());
+        assertEquals(eventTitle, fetchedEvent.getTitle());
+        assertEquals(eventText, fetchedEvent.getText());
         assertNotEquals("", fetchedEvent.getUrl());
 
         final Long start = fetchedEvent.getDateHappened() - 10;

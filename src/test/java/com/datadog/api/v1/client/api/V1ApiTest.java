@@ -8,11 +8,14 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.ApiResponse;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.junit.BeforeClass;
 
+import javax.ws.rs.core.GenericType;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -96,5 +99,35 @@ public abstract class V1ApiTest extends TestUtils.APITest {
 
     public void beginStub(MappingBuilder stub) {
         stubFor(stub);
+    }
+
+    public <T> ApiResponse<T> sendRequest(String method, String url, String payload, GenericType<T> responseType) throws ApiException {
+        String originalBasePath = generalApiClient.getBasePath();
+        int originalServerIndex = generalApiClient.getServerIndex();
+        if (url.startsWith("https://")) {
+            // if we got full URL, ensure that invokeAPI method doesn't use builtin operation servers
+            // but rather falls back to basePath, which is empty => we'll get precisely the URL we want as result
+            generalApiClient.setBasePath("");
+            generalApiClient.setServerIndex(null);
+        }
+        try {
+            return generalApiClient.invokeAPI(
+                    "",
+                    url,
+                    method,
+                    null,
+                    payload,
+                    new HashMap<String, String>(),
+                    new HashMap<String, String>(),
+                    null,
+                    "application/json",
+                    "application/json",
+                    new String[]{"apiKeyAuth", "appKeyAuth"},
+                    responseType
+            );
+        } finally {
+            generalApiClient.setBasePath(originalBasePath);
+            generalApiClient.setServerIndex(originalServerIndex);
+        }
     }
 }

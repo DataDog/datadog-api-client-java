@@ -8,6 +8,7 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
+import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.*;
 
 import static org.hamcrest.CoreMatchers.hasItem;
@@ -18,6 +19,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import javax.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,24 +38,23 @@ public class TagsApiTest extends V1ApiTest {
         metricsAPI = new MetricsApi(generalApiClient);
     }
 
-
     @Test
     public void tagsTest() throws ApiException, TestUtils.RetryException {
         String commonHostTag = "test:client_java";
         long nowSeconds = now.toEpochSecond();
         String hostname = String.format("java-client-test-host-%d", nowSeconds);
-        List<Double> p1 = new ArrayList<>();
-        p1.add((double) nowSeconds);
-        p1.add(0.);
 
         // create host by sending a metric
-        MetricsPayload metricsPayload= new MetricsPayload()
-                .addSeriesItem(new Series()
-                        .addPointsItem(p1)
-                        .host(hostname)
-                        .metric("java.client.test.metric"));
-        IntakePayloadAccepted response = metricsAPI.submitMetrics().body(metricsPayload).execute();
-        assertEquals("ok", response.getStatus());
+        ApiResponse<String> response = sendRequest(
+                "POST",
+                "/api/v1/series",
+                String.format(
+                        "{\"series\":[{\"host\":\"%s\",\"metric\":\"java.client.test.metric\",\"points\":[[%f,0.0]],\"type\":\"gauge\"}]}",
+                        hostname, (double)nowSeconds
+                ),
+                new GenericType<String>(String.class)
+        );
+        assertEquals("{\"status\": \"ok\"}", response.getData());
 
         // wait for host to appear
         TestUtils.retry(10, 10, () -> {
