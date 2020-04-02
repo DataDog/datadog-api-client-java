@@ -26,12 +26,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * UsageLogsHour
  */
 @JsonPropertyOrder({
+  UsageLogsHour.JSON_PROPERTY_BILLABLE_INGESTED_BYTES,
   UsageLogsHour.JSON_PROPERTY_HOUR,
   UsageLogsHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT,
   UsageLogsHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES
 })
 
 public class UsageLogsHour {
+  public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES = "billable_ingested_bytes";
+  private Long billableIngestedBytes;
+
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
@@ -40,6 +44,31 @@ public class UsageLogsHour {
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES = "ingested_events_bytes";
   private Long ingestedEventsBytes;
+
+
+  public UsageLogsHour billableIngestedBytes(Long billableIngestedBytes) {
+    
+    this.billableIngestedBytes = billableIngestedBytes;
+    return this;
+  }
+
+   /**
+   * Contains the number of billable log bytes ingested.
+   * @return billableIngestedBytes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of billable log bytes ingested.")
+  @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getBillableIngestedBytes() {
+    return billableIngestedBytes;
+  }
+
+
+  public void setBillableIngestedBytes(Long billableIngestedBytes) {
+    this.billableIngestedBytes = billableIngestedBytes;
+  }
 
 
   public UsageLogsHour hour(OffsetDateTime hour) {
@@ -126,14 +155,15 @@ public class UsageLogsHour {
       return false;
     }
     UsageLogsHour usageLogsHour = (UsageLogsHour) o;
-    return Objects.equals(this.hour, usageLogsHour.hour) &&
+    return Objects.equals(this.billableIngestedBytes, usageLogsHour.billableIngestedBytes) &&
+        Objects.equals(this.hour, usageLogsHour.hour) &&
         Objects.equals(this.indexedEventsCount, usageLogsHour.indexedEventsCount) &&
         Objects.equals(this.ingestedEventsBytes, usageLogsHour.ingestedEventsBytes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, indexedEventsCount, ingestedEventsBytes);
+    return Objects.hash(billableIngestedBytes, hour, indexedEventsCount, ingestedEventsBytes);
   }
 
 
@@ -141,6 +171,7 @@ public class UsageLogsHour {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageLogsHour {\n");
+    sb.append("    billableIngestedBytes: ").append(toIndentedString(billableIngestedBytes)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    indexedEventsCount: ").append(toIndentedString(indexedEventsCount)).append("\n");
     sb.append("    ingestedEventsBytes: ").append(toIndentedString(ingestedEventsBytes)).append("\n");

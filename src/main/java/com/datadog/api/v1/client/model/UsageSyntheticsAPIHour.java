@@ -27,11 +27,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "Number of Synthetics API tests run for each hour for a given organization.")
 @JsonPropertyOrder({
-  UsageSyntheticsHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
-  UsageSyntheticsHour.JSON_PROPERTY_HOUR
+  UsageSyntheticsAPIHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
+  UsageSyntheticsAPIHour.JSON_PROPERTY_HOUR
 })
 
-public class UsageSyntheticsHour {
+public class UsageSyntheticsAPIHour {
   public static final String JSON_PROPERTY_CHECK_CALLS_COUNT = "check_calls_count";
   private Long checkCallsCount;
 
@@ -39,7 +39,7 @@ public class UsageSyntheticsHour {
   private OffsetDateTime hour;
 
 
-  public UsageSyntheticsHour checkCallsCount(Long checkCallsCount) {
+  public UsageSyntheticsAPIHour checkCallsCount(Long checkCallsCount) {
     
     this.checkCallsCount = checkCallsCount;
     return this;
@@ -64,7 +64,7 @@ public class UsageSyntheticsHour {
   }
 
 
-  public UsageSyntheticsHour hour(OffsetDateTime hour) {
+  public UsageSyntheticsAPIHour hour(OffsetDateTime hour) {
     
     this.hour = hour;
     return this;
@@ -97,9 +97,9 @@ public class UsageSyntheticsHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSyntheticsHour usageSyntheticsHour = (UsageSyntheticsHour) o;
-    return Objects.equals(this.checkCallsCount, usageSyntheticsHour.checkCallsCount) &&
-        Objects.equals(this.hour, usageSyntheticsHour.hour);
+    UsageSyntheticsAPIHour usageSyntheticsAPIHour = (UsageSyntheticsAPIHour) o;
+    return Objects.equals(this.checkCallsCount, usageSyntheticsAPIHour.checkCallsCount) &&
+        Objects.equals(this.hour, usageSyntheticsAPIHour.hour);
   }
 
   @Override
@@ -111,7 +111,7 @@ public class UsageSyntheticsHour {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UsageSyntheticsHour {\n");
+    sb.append("class UsageSyntheticsAPIHour {\n");
     sb.append("    checkCallsCount: ").append(toIndentedString(checkCallsCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("}");

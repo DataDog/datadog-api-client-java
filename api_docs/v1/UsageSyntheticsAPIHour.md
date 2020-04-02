@@ -1,6 +1,6 @@
 
 
-# UsageSyntheticsHour
+# UsageSyntheticsAPIHour
 
 Number of Synthetics API tests run for each hour for a given organization.
 ## Properties

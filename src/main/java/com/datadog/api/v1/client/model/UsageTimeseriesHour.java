@@ -27,12 +27,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   UsageTimeseriesHour.JSON_PROPERTY_HOUR,
+  UsageTimeseriesHour.JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES,
+  UsageTimeseriesHour.JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES,
   UsageTimeseriesHour.JSON_PROPERTY_NUM_CUSTOM_TIMESERIES
 })
 
 public class UsageTimeseriesHour {
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
+
+  public static final String JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES = "num_custom_input_timeseries";
+  private Long numCustomInputTimeseries;
+
+  public static final String JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES = "num_custom_output_timeseries";
+  private Long numCustomOutputTimeseries;
 
   public static final String JSON_PROPERTY_NUM_CUSTOM_TIMESERIES = "num_custom_timeseries";
   private Long numCustomTimeseries;
@@ -63,6 +71,56 @@ public class UsageTimeseriesHour {
   }
 
 
+  public UsageTimeseriesHour numCustomInputTimeseries(Long numCustomInputTimeseries) {
+    
+    this.numCustomInputTimeseries = numCustomInputTimeseries;
+    return this;
+  }
+
+   /**
+   * Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).
+   * @return numCustomInputTimeseries
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).")
+  @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getNumCustomInputTimeseries() {
+    return numCustomInputTimeseries;
+  }
+
+
+  public void setNumCustomInputTimeseries(Long numCustomInputTimeseries) {
+    this.numCustomInputTimeseries = numCustomInputTimeseries;
+  }
+
+
+  public UsageTimeseriesHour numCustomOutputTimeseries(Long numCustomOutputTimeseries) {
+    
+    this.numCustomOutputTimeseries = numCustomOutputTimeseries;
+    return this;
+  }
+
+   /**
+   * Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).
+   * @return numCustomOutputTimeseries
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).")
+  @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getNumCustomOutputTimeseries() {
+    return numCustomOutputTimeseries;
+  }
+
+
+  public void setNumCustomOutputTimeseries(Long numCustomOutputTimeseries) {
+    this.numCustomOutputTimeseries = numCustomOutputTimeseries;
+  }
+
+
   public UsageTimeseriesHour numCustomTimeseries(Long numCustomTimeseries) {
     
     this.numCustomTimeseries = numCustomTimeseries;
@@ -70,11 +128,11 @@ public class UsageTimeseriesHour {
   }
 
    /**
-   * Contains the number of distinct custom metrics.
+   * Contains the number of non-aggregation custom metrics.
    * @return numCustomTimeseries
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of distinct custom metrics.")
+  @ApiModelProperty(value = "Contains the number of non-aggregation custom metrics.")
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -98,12 +156,14 @@ public class UsageTimeseriesHour {
     }
     UsageTimeseriesHour usageTimeseriesHour = (UsageTimeseriesHour) o;
     return Objects.equals(this.hour, usageTimeseriesHour.hour) &&
+        Objects.equals(this.numCustomInputTimeseries, usageTimeseriesHour.numCustomInputTimeseries) &&
+        Objects.equals(this.numCustomOutputTimeseries, usageTimeseriesHour.numCustomOutputTimeseries) &&
         Objects.equals(this.numCustomTimeseries, usageTimeseriesHour.numCustomTimeseries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, numCustomTimeseries);
+    return Objects.hash(hour, numCustomInputTimeseries, numCustomOutputTimeseries, numCustomTimeseries);
   }
 
 
@@ -112,6 +172,8 @@ public class UsageTimeseriesHour {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageTimeseriesHour {\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    numCustomInputTimeseries: ").append(toIndentedString(numCustomInputTimeseries)).append("\n");
+    sb.append("    numCustomOutputTimeseries: ").append(toIndentedString(numCustomOutputTimeseries)).append("\n");
     sb.append("    numCustomTimeseries: ").append(toIndentedString(numCustomTimeseries)).append("\n");
     sb.append("}");
     return sb.toString();

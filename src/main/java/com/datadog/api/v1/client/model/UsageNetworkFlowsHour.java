@@ -23,48 +23,23 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Number of Synthetics API tests run for each hour for a given organization.
+ * Number of netflow events indexed for each hour for a given organization.
  */
-@ApiModel(description = "Number of Synthetics API tests run for each hour for a given organization.")
+@ApiModel(description = "Number of netflow events indexed for each hour for a given organization.")
 @JsonPropertyOrder({
-  UsageSyntheticsHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
-  UsageSyntheticsHour.JSON_PROPERTY_HOUR
+  UsageNetworkFlowsHour.JSON_PROPERTY_HOUR,
+  UsageNetworkFlowsHour.JSON_PROPERTY_INDEXED_EVENT_COUNT
 })
 
-public class UsageSyntheticsHour {
-  public static final String JSON_PROPERTY_CHECK_CALLS_COUNT = "check_calls_count";
-  private Long checkCallsCount;
-
+public class UsageNetworkFlowsHour {
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
-
-  public UsageSyntheticsHour checkCallsCount(Long checkCallsCount) {
-    
-    this.checkCallsCount = checkCallsCount;
-    return this;
-  }
-
-   /**
-   * Contains the number of Synthetics API tests run.
-   * @return checkCallsCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of Synthetics API tests run.")
-  @JsonProperty(JSON_PROPERTY_CHECK_CALLS_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getCheckCallsCount() {
-    return checkCallsCount;
-  }
+  public static final String JSON_PROPERTY_INDEXED_EVENT_COUNT = "indexed_event_count";
+  private Long indexedEventCount;
 
 
-  public void setCheckCallsCount(Long checkCallsCount) {
-    this.checkCallsCount = checkCallsCount;
-  }
-
-
-  public UsageSyntheticsHour hour(OffsetDateTime hour) {
+  public UsageNetworkFlowsHour hour(OffsetDateTime hour) {
     
     this.hour = hour;
     return this;
@@ -89,6 +64,31 @@ public class UsageSyntheticsHour {
   }
 
 
+  public UsageNetworkFlowsHour indexedEventCount(Long indexedEventCount) {
+    
+    this.indexedEventCount = indexedEventCount;
+    return this;
+  }
+
+   /**
+   * Contains the number of netflow events indexed.
+   * @return indexedEventCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of netflow events indexed.")
+  @JsonProperty(JSON_PROPERTY_INDEXED_EVENT_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getIndexedEventCount() {
+    return indexedEventCount;
+  }
+
+
+  public void setIndexedEventCount(Long indexedEventCount) {
+    this.indexedEventCount = indexedEventCount;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -97,23 +97,23 @@ public class UsageSyntheticsHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSyntheticsHour usageSyntheticsHour = (UsageSyntheticsHour) o;
-    return Objects.equals(this.checkCallsCount, usageSyntheticsHour.checkCallsCount) &&
-        Objects.equals(this.hour, usageSyntheticsHour.hour);
+    UsageNetworkFlowsHour usageNetworkFlowsHour = (UsageNetworkFlowsHour) o;
+    return Objects.equals(this.hour, usageNetworkFlowsHour.hour) &&
+        Objects.equals(this.indexedEventCount, usageNetworkFlowsHour.indexedEventCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkCallsCount, hour);
+    return Objects.hash(hour, indexedEventCount);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UsageSyntheticsHour {\n");
-    sb.append("    checkCallsCount: ").append(toIndentedString(checkCallsCount)).append("\n");
+    sb.append("class UsageNetworkFlowsHour {\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    indexedEventCount: ").append(toIndentedString(indexedEventCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
