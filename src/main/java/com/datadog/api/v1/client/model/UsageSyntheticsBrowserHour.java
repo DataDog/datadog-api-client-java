@@ -23,48 +23,48 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Number of Synthetics API tests run for each hour for a given organization.
+ * Number of Synthetics Browser tests run for each hour for a given organization.
  */
-@ApiModel(description = "Number of Synthetics API tests run for each hour for a given organization.")
+@ApiModel(description = "Number of Synthetics Browser tests run for each hour for a given organization.")
 @JsonPropertyOrder({
-  UsageSyntheticsHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
-  UsageSyntheticsHour.JSON_PROPERTY_HOUR
+  UsageSyntheticsBrowserHour.JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT,
+  UsageSyntheticsBrowserHour.JSON_PROPERTY_HOUR
 })
 
-public class UsageSyntheticsHour {
-  public static final String JSON_PROPERTY_CHECK_CALLS_COUNT = "check_calls_count";
-  private Long checkCallsCount;
+public class UsageSyntheticsBrowserHour {
+  public static final String JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT = "browser_check_calls_count";
+  private Long browserCheckCallsCount;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
 
-  public UsageSyntheticsHour checkCallsCount(Long checkCallsCount) {
+  public UsageSyntheticsBrowserHour browserCheckCallsCount(Long browserCheckCallsCount) {
     
-    this.checkCallsCount = checkCallsCount;
+    this.browserCheckCallsCount = browserCheckCallsCount;
     return this;
   }
 
    /**
-   * Contains the number of Synthetics API tests run.
-   * @return checkCallsCount
+   * Contains the number of Synthetics Browser tests run.
+   * @return browserCheckCallsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of Synthetics API tests run.")
-  @JsonProperty(JSON_PROPERTY_CHECK_CALLS_COUNT)
+  @ApiModelProperty(value = "Contains the number of Synthetics Browser tests run.")
+  @JsonProperty(JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getCheckCallsCount() {
-    return checkCallsCount;
+  public Long getBrowserCheckCallsCount() {
+    return browserCheckCallsCount;
   }
 
 
-  public void setCheckCallsCount(Long checkCallsCount) {
-    this.checkCallsCount = checkCallsCount;
+  public void setBrowserCheckCallsCount(Long browserCheckCallsCount) {
+    this.browserCheckCallsCount = browserCheckCallsCount;
   }
 
 
-  public UsageSyntheticsHour hour(OffsetDateTime hour) {
+  public UsageSyntheticsBrowserHour hour(OffsetDateTime hour) {
     
     this.hour = hour;
     return this;
@@ -97,22 +97,22 @@ public class UsageSyntheticsHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSyntheticsHour usageSyntheticsHour = (UsageSyntheticsHour) o;
-    return Objects.equals(this.checkCallsCount, usageSyntheticsHour.checkCallsCount) &&
-        Objects.equals(this.hour, usageSyntheticsHour.hour);
+    UsageSyntheticsBrowserHour usageSyntheticsBrowserHour = (UsageSyntheticsBrowserHour) o;
+    return Objects.equals(this.browserCheckCallsCount, usageSyntheticsBrowserHour.browserCheckCallsCount) &&
+        Objects.equals(this.hour, usageSyntheticsBrowserHour.hour);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkCallsCount, hour);
+    return Objects.hash(browserCheckCallsCount, hour);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UsageSyntheticsHour {\n");
-    sb.append("    checkCallsCount: ").append(toIndentedString(checkCallsCount)).append("\n");
+    sb.append("class UsageSyntheticsBrowserHour {\n");
+    sb.append("    browserCheckCallsCount: ").append(toIndentedString(browserCheckCallsCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("}");
     return sb.toString();

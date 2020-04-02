@@ -52,11 +52,11 @@ public class UsageRumSessionsResponse {
   }
 
    /**
-   * TODO.
+   * Get hourly usage for RUM Sessions.
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Get hourly usage for RUM Sessions.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

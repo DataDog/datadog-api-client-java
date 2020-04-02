@@ -13,7 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.UsageSyntheticsHour;
+import com.datadog.api.v1.client.model.UsageLogsByIndexHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +25,25 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Response containing the number of Synthetics API tests run for each hour for a given organization.
+ * Response containing the number of indexed logs for each hour and index for a given organization.
  */
-@ApiModel(description = "Response containing the number of Synthetics API tests run for each hour for a given organization.")
+@ApiModel(description = "Response containing the number of indexed logs for each hour and index for a given organization.")
 @JsonPropertyOrder({
-  UsageSyntheticsResponse.JSON_PROPERTY_USAGE
+  UsageLogsByIndexResponse.JSON_PROPERTY_USAGE
 })
 
-public class UsageSyntheticsResponse {
+public class UsageLogsByIndexResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
-  private List<UsageSyntheticsHour> usage = null;
+  private List<UsageLogsByIndexHour> usage = null;
 
 
-  public UsageSyntheticsResponse usage(List<UsageSyntheticsHour> usage) {
+  public UsageLogsByIndexResponse usage(List<UsageLogsByIndexHour> usage) {
     
     this.usage = usage;
     return this;
   }
 
-  public UsageSyntheticsResponse addUsageItem(UsageSyntheticsHour usageItem) {
+  public UsageLogsByIndexResponse addUsageItem(UsageLogsByIndexHour usageItem) {
     if (this.usage == null) {
       this.usage = new ArrayList<>();
     }
@@ -52,20 +52,20 @@ public class UsageSyntheticsResponse {
   }
 
    /**
-   * Array with the number of hourly Synthetics test run for a given organization.
+   * Get usage
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array with the number of hourly Synthetics test run for a given organization.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<UsageSyntheticsHour> getUsage() {
+  public List<UsageLogsByIndexHour> getUsage() {
     return usage;
   }
 
 
-  public void setUsage(List<UsageSyntheticsHour> usage) {
+  public void setUsage(List<UsageLogsByIndexHour> usage) {
     this.usage = usage;
   }
 
@@ -78,8 +78,8 @@ public class UsageSyntheticsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSyntheticsResponse usageSyntheticsResponse = (UsageSyntheticsResponse) o;
-    return Objects.equals(this.usage, usageSyntheticsResponse.usage);
+    UsageLogsByIndexResponse usageLogsByIndexResponse = (UsageLogsByIndexResponse) o;
+    return Objects.equals(this.usage, usageLogsByIndexResponse.usage);
   }
 
   @Override
@@ -91,7 +91,7 @@ public class UsageSyntheticsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UsageSyntheticsResponse {\n");
+    sb.append("class UsageLogsByIndexResponse {\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -7,7 +7,7 @@ Response containing the number of RUM Sessions for each hour for a given organiz
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usage** | [**List&lt;UsageRumSessionsHour&gt;**](UsageRumSessionsHour.md) | TODO. |  [optional]
+**usage** | [**List&lt;UsageRumSessionsHour&gt;**](UsageRumSessionsHour.md) | Get hourly usage for RUM Sessions. |  [optional]
 
 
 

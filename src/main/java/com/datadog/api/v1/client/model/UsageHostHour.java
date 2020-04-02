@@ -28,8 +28,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "Number of hosts/containers recorded for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageHostHour.JSON_PROPERTY_AGENT_HOST_COUNT,
+  UsageHostHour.JSON_PROPERTY_ALIBABA_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_APM_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_AWS_HOST_COUNT,
+  UsageHostHour.JSON_PROPERTY_AZURE_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_CONTAINER_COUNT,
   UsageHostHour.JSON_PROPERTY_GCP_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_HOST_COUNT,
@@ -40,11 +42,17 @@ public class UsageHostHour {
   public static final String JSON_PROPERTY_AGENT_HOST_COUNT = "agent_host_count";
   private Long agentHostCount;
 
+  public static final String JSON_PROPERTY_ALIBABA_HOST_COUNT = "alibaba_host_count";
+  private Long alibabaHostCount;
+
   public static final String JSON_PROPERTY_APM_HOST_COUNT = "apm_host_count";
   private Long apmHostCount;
 
   public static final String JSON_PROPERTY_AWS_HOST_COUNT = "aws_host_count";
   private Long awsHostCount;
+
+  public static final String JSON_PROPERTY_AZURE_HOST_COUNT = "azure_host_count";
+  private Long azureHostCount;
 
   public static final String JSON_PROPERTY_CONTAINER_COUNT = "container_count";
   private Long containerCount;
@@ -84,6 +92,31 @@ public class UsageHostHour {
   }
 
 
+  public UsageHostHour alibabaHostCount(Long alibabaHostCount) {
+    
+    this.alibabaHostCount = alibabaHostCount;
+    return this;
+  }
+
+   /**
+   * Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog).
+   * @return alibabaHostCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog).")
+  @JsonProperty(JSON_PROPERTY_ALIBABA_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getAlibabaHostCount() {
+    return alibabaHostCount;
+  }
+
+
+  public void setAlibabaHostCount(Long alibabaHostCount) {
+    this.alibabaHostCount = alibabaHostCount;
+  }
+
+
   public UsageHostHour apmHostCount(Long apmHostCount) {
     
     this.apmHostCount = apmHostCount;
@@ -116,11 +149,11 @@ public class UsageHostHour {
   }
 
    /**
-   * Contains the total number of hosts that reported via the AWS integration (and were NOT running the Datadog Agent). When AWS or GCP hosts are also running the Datadog Agent, they are counted as Agent hosts, NOT as AWS or GCP.
+   * Contains the total number of hosts that reported via the AWS integration (and were NOT running the Datadog Agent).
    * @return awsHostCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number of hosts that reported via the AWS integration (and were NOT running the Datadog Agent). When AWS or GCP hosts are also running the Datadog Agent, they are counted as Agent hosts, NOT as AWS or GCP.")
+  @ApiModelProperty(value = "Contains the total number of hosts that reported via the AWS integration (and were NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_AWS_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -131,6 +164,31 @@ public class UsageHostHour {
 
   public void setAwsHostCount(Long awsHostCount) {
     this.awsHostCount = awsHostCount;
+  }
+
+
+  public UsageHostHour azureHostCount(Long azureHostCount) {
+    
+    this.azureHostCount = azureHostCount;
+    return this;
+  }
+
+   /**
+   * Contains the total number of hosts that reported via Azure integration (and were NOT running the Datadog Agent).
+   * @return azureHostCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the total number of hosts that reported via Azure integration (and were NOT running the Datadog Agent).")
+  @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getAzureHostCount() {
+    return azureHostCount;
+  }
+
+
+  public void setAzureHostCount(Long azureHostCount) {
+    this.azureHostCount = azureHostCount;
   }
 
 
@@ -244,8 +302,10 @@ public class UsageHostHour {
     }
     UsageHostHour usageHostHour = (UsageHostHour) o;
     return Objects.equals(this.agentHostCount, usageHostHour.agentHostCount) &&
+        Objects.equals(this.alibabaHostCount, usageHostHour.alibabaHostCount) &&
         Objects.equals(this.apmHostCount, usageHostHour.apmHostCount) &&
         Objects.equals(this.awsHostCount, usageHostHour.awsHostCount) &&
+        Objects.equals(this.azureHostCount, usageHostHour.azureHostCount) &&
         Objects.equals(this.containerCount, usageHostHour.containerCount) &&
         Objects.equals(this.gcpHostCount, usageHostHour.gcpHostCount) &&
         Objects.equals(this.hostCount, usageHostHour.hostCount) &&
@@ -254,7 +314,7 @@ public class UsageHostHour {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostCount, apmHostCount, awsHostCount, containerCount, gcpHostCount, hostCount, hour);
+    return Objects.hash(agentHostCount, alibabaHostCount, apmHostCount, awsHostCount, azureHostCount, containerCount, gcpHostCount, hostCount, hour);
   }
 
 
@@ -263,8 +323,10 @@ public class UsageHostHour {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageHostHour {\n");
     sb.append("    agentHostCount: ").append(toIndentedString(agentHostCount)).append("\n");
+    sb.append("    alibabaHostCount: ").append(toIndentedString(alibabaHostCount)).append("\n");
     sb.append("    apmHostCount: ").append(toIndentedString(apmHostCount)).append("\n");
     sb.append("    awsHostCount: ").append(toIndentedString(awsHostCount)).append("\n");
+    sb.append("    azureHostCount: ").append(toIndentedString(azureHostCount)).append("\n");
     sb.append("    containerCount: ").append(toIndentedString(containerCount)).append("\n");
     sb.append("    gcpHostCount: ").append(toIndentedString(gcpHostCount)).append("\n");
     sb.append("    hostCount: ").append(toIndentedString(hostCount)).append("\n");

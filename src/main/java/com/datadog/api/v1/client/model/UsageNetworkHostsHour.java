@@ -23,48 +23,48 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Number of Synthetics API tests run for each hour for a given organization.
+ * Number of active NPM hosts for each hour for a given organization.
  */
-@ApiModel(description = "Number of Synthetics API tests run for each hour for a given organization.")
+@ApiModel(description = "Number of active NPM hosts for each hour for a given organization.")
 @JsonPropertyOrder({
-  UsageSyntheticsHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
-  UsageSyntheticsHour.JSON_PROPERTY_HOUR
+  UsageNetworkHostsHour.JSON_PROPERTY_HOST_COUNT,
+  UsageNetworkHostsHour.JSON_PROPERTY_HOUR
 })
 
-public class UsageSyntheticsHour {
-  public static final String JSON_PROPERTY_CHECK_CALLS_COUNT = "check_calls_count";
-  private Long checkCallsCount;
+public class UsageNetworkHostsHour {
+  public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
+  private Long hostCount;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
 
-  public UsageSyntheticsHour checkCallsCount(Long checkCallsCount) {
+  public UsageNetworkHostsHour hostCount(Long hostCount) {
     
-    this.checkCallsCount = checkCallsCount;
+    this.hostCount = hostCount;
     return this;
   }
 
    /**
-   * Contains the number of Synthetics API tests run.
-   * @return checkCallsCount
+   * Contains the number of active NPM hosts.
+   * @return hostCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of Synthetics API tests run.")
-  @JsonProperty(JSON_PROPERTY_CHECK_CALLS_COUNT)
+  @ApiModelProperty(value = "Contains the number of active NPM hosts.")
+  @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getCheckCallsCount() {
-    return checkCallsCount;
+  public Long getHostCount() {
+    return hostCount;
   }
 
 
-  public void setCheckCallsCount(Long checkCallsCount) {
-    this.checkCallsCount = checkCallsCount;
+  public void setHostCount(Long hostCount) {
+    this.hostCount = hostCount;
   }
 
 
-  public UsageSyntheticsHour hour(OffsetDateTime hour) {
+  public UsageNetworkHostsHour hour(OffsetDateTime hour) {
     
     this.hour = hour;
     return this;
@@ -97,22 +97,22 @@ public class UsageSyntheticsHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSyntheticsHour usageSyntheticsHour = (UsageSyntheticsHour) o;
-    return Objects.equals(this.checkCallsCount, usageSyntheticsHour.checkCallsCount) &&
-        Objects.equals(this.hour, usageSyntheticsHour.hour);
+    UsageNetworkHostsHour usageNetworkHostsHour = (UsageNetworkHostsHour) o;
+    return Objects.equals(this.hostCount, usageNetworkHostsHour.hostCount) &&
+        Objects.equals(this.hour, usageNetworkHostsHour.hour);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkCallsCount, hour);
+    return Objects.hash(hostCount, hour);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UsageSyntheticsHour {\n");
-    sb.append("    checkCallsCount: ").append(toIndentedString(checkCallsCount)).append("\n");
+    sb.append("class UsageNetworkHostsHour {\n");
+    sb.append("    hostCount: ").append(toIndentedString(hostCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("}");
     return sb.toString();
