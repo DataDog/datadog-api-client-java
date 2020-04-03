@@ -97,7 +97,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             return true;
         });
 
-        AWSLogsAsyncResponse response = api.aWSLogsCheckLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
+        AWSLogsAsyncResponse response = api.checkAWSLogsLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
         assertNull(response.getErrors());
         assertEquals(response.getStatus(), "created");
 
@@ -106,7 +106,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
         TestUtils.retry(5, 20, () -> {
             AWSLogsAsyncResponse retryResponse;
             try {
-                retryResponse = api.aWSLogsCheckLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
+                retryResponse = api.checkAWSLogsLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
             } catch(ApiException e) {
                 System.out.println(String.format("Error checking the lambda status: %s", e));
                 return false;
@@ -119,7 +119,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             }
         });
 
-        response = api.aWSLogsCheckLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
+        response = api.checkAWSLogsLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
         assertNotEquals(response.getErrors().get(0).getCode(), "");
         assertNotEquals(response.getErrors().get(0).getMessage(), "");
         assertEquals(response.getStatus(), "error");
@@ -143,7 +143,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             }
             return true;
         });
-        AWSLogsAsyncResponse response = api.aWSLogsCheckServicesAsync().body(uniqueAWSLogsServicesRequest).execute();
+        AWSLogsAsyncResponse response = api.checkAWSLogsServicesAsync().body(uniqueAWSLogsServicesRequest).execute();
         assertNotEquals(response.getErrors().get(0).getCode(), "");
         assertNotEquals(response.getErrors().get(0).getMessage(), "");
     }
@@ -172,7 +172,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
         api.enableAWSLogServices().body(uniqueAWSLogsServicesRequest).execute();
 
         // List AWS Logs integrations before deleting
-        List<AWSLogsListResponse> listOutput1 = api.aWSLogsList().execute();
+        List<AWSLogsListResponse> listOutput1 = api.getAllAWSLogsIntegrations().execute();
         Boolean accountExists = false;
         // Iterate over output and list Lambdas
         for (AWSLogsListResponse account : listOutput1) {
@@ -188,7 +188,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
 
         // Delete newly added Lambda
         api.deleteAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
-        List<AWSLogsListResponse> listOutput2 = api.aWSLogsList().execute();
+        List<AWSLogsListResponse> listOutput2 = api.getAllAWSLogsIntegrations().execute();
         Boolean accountExistsAfterDelete = false;
         List<AWSLogsListResponseLambdas> listOfARNs2 = new ArrayList<>();
 
@@ -215,7 +215,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
      */
     @Test
     public void aWSLogsServicesListTest() throws ApiException {
-        List<AWSLogsListServicesResponse> response = api.aWSLogsServicesList().execute();
+        List<AWSLogsListServicesResponse> response = api.getAllAWSLogsServices().execute();
         // There are currently 6 supported AWS Logs services as noted in the docs
         // https://docs.datadoghq.com/api/?lang=bash#get-list-of-aws-log-ready-services
         assertTrue(response.size() >= 6);
