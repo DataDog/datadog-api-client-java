@@ -162,7 +162,7 @@ public class HostsApiTest extends V1ApiTest {
 
         ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
-        HostListResponse response = unitAPI.getAllHosts()
+        HostListResponse response = unitAPI.listHosts()
                 .filter("filter string")
                 .count(4L)
                 .from(123L)

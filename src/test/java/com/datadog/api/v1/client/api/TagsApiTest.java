@@ -71,7 +71,7 @@ public class TagsApiTest extends V1ApiTest {
         // test methods
         HostTags hostTags = new HostTags().tags(new ArrayList<String>());
         hostTags.addTagsItem(commonHostTag);
-        HostTags addTagsResp = api.addToHostTags(hostname).body(hostTags).source("datadog").execute();
+        HostTags addTagsResp = api.createHostTags(hostname).body(hostTags).source("datadog").execute();
 
         // Confirm we can add host tags
         assertEquals(hostname, addTagsResp.getHost());
@@ -89,7 +89,7 @@ public class TagsApiTest extends V1ApiTest {
         TestUtils.retry(10, 10, () -> {
             MetricsListResponse metrics;
             try {
-                TagToHosts hostTagsResp = api.getAllHostTags().source("datadog").execute();
+                TagToHosts hostTagsResp = api.listHostTags().source("datadog").execute();
                 return hostTagsResp.getTags().containsKey(commonHostTag);
             } catch(ApiException e) {
                 System.out.println(String.format("Error getting list of host tags: %s", e));
@@ -98,7 +98,7 @@ public class TagsApiTest extends V1ApiTest {
         });
 
         // Confirm we don't receive tags under an unknown source
-        TagToHosts hostTagsResp = api.getAllHostTags().source("users").execute();
+        TagToHosts hostTagsResp = api.listHostTags().source("users").execute();
         assertThat(hostTagsResp.getTags().keySet(), not(hasItem(commonHostTag)));
 
         // Update host tags
@@ -110,6 +110,6 @@ public class TagsApiTest extends V1ApiTest {
         assertEquals(hostname, updateTagsResp.getHost());
 
         // Remove tags
-        api.removeHostTags(hostname).source("datadog").execute();
+        api.deleteHostTags(hostname).source("datadog").execute();
     }
 }

@@ -76,7 +76,7 @@ public class LogsPipelinesApiTest {
      */
     @Test
     public void getAllLogsPipelinesTest() throws ApiException {
-        List<LogsPipeline> response = api.getAllLogsPipelines()
+        List<LogsPipeline> response = api.listLogsPipelines()
                 .execute();
         // TODO: test validations
     }

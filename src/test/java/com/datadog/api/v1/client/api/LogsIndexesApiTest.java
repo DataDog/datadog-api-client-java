@@ -62,7 +62,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
      */
     @Test
     public void getAllLogIndexesTest() throws ApiException {
-        LogsIndexListResponse response = api.getAllLogIndexes().execute();
+        LogsIndexListResponse response = api.listLogIndexes().execute();
         assertTrue(0 < response.getIndexes().size());
     }
 

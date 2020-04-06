@@ -61,7 +61,7 @@ public class DashboardListsApiTest extends V1ApiTest {
         assertEquals(dashboardList.getName(), editedDashboardList.getName());
 
         // Get all dashboard lists
-        DashboardListListResponse allDashboardLists = api.getAllDashboardLists().execute();
+        DashboardListListResponse allDashboardLists = api.listDashboardLists().execute();
         assertTrue(allDashboardLists.getDashboardLists().size() > 0);
         // The actual dashboardList model is asserted when we create and get, so just ensure the get all is
         // returning the right object

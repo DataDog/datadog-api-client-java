@@ -107,7 +107,7 @@ public class UsersApiTest extends V1ApiTest {
             UserResponse response = api.createUser().body(user).execute();
             disableUsers.add(response.getUser().getHandle());
         }
-        UserListResponse response = api.getAllUsers().execute();
+        UserListResponse response = api.listUsers().execute();
         List<User> users = response.getUsers();
         for (String prefix: prefixes) {
             boolean found = false;

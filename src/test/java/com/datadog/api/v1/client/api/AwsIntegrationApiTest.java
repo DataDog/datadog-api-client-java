@@ -162,7 +162,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
             });
         }
 
-        List<AWSAccount> awsAllAccounts = api.getAllAWSAccounts().execute().getAccounts();
+        List<AWSAccount> awsAllAccounts = api.listAWSAccounts().execute().getAccounts();
         assertTrue(awsAllAccounts.size() >= 5);
         for (AWSAccount account : awsAccounts) {
             assertAccountIn(account, awsAllAccounts);
@@ -207,7 +207,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
             return true;
         });
 
-        AWSAccount newAccount = api.getAllAWSAccounts().accountId(awsAccount.getAccountId()).roleName(awsAccount.getRoleName()).execute().getAccounts().get(0);
+        AWSAccount newAccount = api.listAWSAccounts().accountId(awsAccount.getAccountId()).roleName(awsAccount.getRoleName()).execute().getAccounts().get(0);
         // collection fields are intialized to null on the objects, but returned as empty list/map by API
         awsAccount.setAccountSpecificNamespaceRules(new HashMap<String, Boolean>());
         awsAccount.setFilterTags(new ArrayList<String>());
@@ -232,7 +232,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
             return true;
         });
 
-        AWSAccountCreateResponse generateNewID = api.generateNewAWSExternalID().body(awsAccount).execute();
+        AWSAccountCreateResponse generateNewID = api.createNewAWSExternalID().body(awsAccount).execute();
         assertNotEquals(generateNewID.getExternalId(), "");
     }
 

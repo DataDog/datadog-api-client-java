@@ -149,13 +149,13 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         // NOTE: API tests are started by default, so we have to stop it first
         // Stop API test
-        pauseStatus = api.setTestPauseStatus(publicId)
+        pauseStatus = api.updateTestPauseStatus(publicId)
                 .body(new SyntheticsSetTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.PAUSED))
                 .execute();
         assertEquals(true, pauseStatus);
 
         // Start API test
-        pauseStatus = api.setTestPauseStatus(publicId)
+        pauseStatus = api.updateTestPauseStatus(publicId)
                 .body(new SyntheticsSetTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE))
                 .execute();
         assertEquals(true, pauseStatus);
@@ -240,13 +240,13 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         // NOTE: Browser tests are paused by default, so we have to run it first
         // Start Browser test
-        pauseStatus = api.setTestPauseStatus(publicId)
+        pauseStatus = api.updateTestPauseStatus(publicId)
                 .body(new SyntheticsSetTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE))
                 .execute();
         assertEquals(true, pauseStatus);
 
         // Stop Browser test
-        pauseStatus = api.setTestPauseStatus(publicId)
+        pauseStatus = api.updateTestPauseStatus(publicId)
                 .body(new SyntheticsSetTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.PAUSED))
                 .execute();
         assertEquals(true, pauseStatus);
@@ -296,7 +296,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         deleteSyntheticsTests.add(syntAPI.getPublicId());
         syntBrowser = api.createTest().body(browserTestConfig).execute();
         deleteSyntheticsTests.add(syntBrowser.getPublicId());
-        allTests = api.getAllTests().execute();
+        allTests = api.listTests().execute();
 
         assertPublicIdPresent(syntAPI.getPublicId(), allTests.getTests());
         assertPublicIdPresent(syntBrowser.getPublicId(), allTests.getTests());
@@ -304,13 +304,13 @@ public class SyntheticsApiTest extends V1ApiTest {
 
     @Test
     public void testSyntheticsGetAllLocations() throws ApiException {
-        SyntheticsLocations locs = api.getAllLocations().execute();
+        SyntheticsLocations locs = api.listLocations().execute();
         assertFalse(locs.getLocations().isEmpty());
     }
 
     @Test
     public void testSyntheticsGetAllDevices() throws ApiException {
-        SyntheticsDevices devs = api.getAllDevices().execute();
+        SyntheticsDevices devs = api.listDevices().execute();
         assertFalse(devs.getDevices().isEmpty());
     }
 

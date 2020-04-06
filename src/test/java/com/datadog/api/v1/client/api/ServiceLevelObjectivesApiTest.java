@@ -157,7 +157,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         // the contents of history really depend on the org that this test is running in, so we just ensure
         // that the structure deserialized properly and no exception was thrown
         Long time = now.toEpochSecond();
-        HistoryServiceLevelObjectiveResponse historyResp = api.historyForSLO(edited.getId())
+        HistoryServiceLevelObjectiveResponse historyResp = api.getSLOHistory(edited.getId())
                 .fromTs(Long.toString(time - 11)).toTs(Long.toString(time - 1)).execute();
 
         SLOHistorySLIData overall = historyResp.getData().getOverall();
@@ -211,7 +211,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         Map<String, List<SLOTimeframe>> toDelete = new HashMap<String, List<SLOTimeframe>>() {{
             put(createdEventSLO.getId(), Arrays.asList(SLOTimeframe.SEVEN_DAYS));
         }};
-        ServiceLevelObjectivesBulkDeleted deletedResp = api.bulkPartialDeleteSLO().body(toDelete).execute();
+        ServiceLevelObjectivesBulkDeleted deletedResp = api.deleteSLOTimeframeInBulk().body(toDelete).execute();
         assertEquals(Arrays.asList(createdEventSLO.getId()), deletedResp.getData().getDeleted());
         assertEquals(null, deletedResp.getData().getUpdated());
     }
