@@ -11,30 +11,32 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveMetricsSeries;
+import com.datadog.api.v1.client.model.SLOHistoryMetricsSeries;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for HistoryServiceLevelObjectiveMetrics
+ * Model tests for SLOHistoryMetrics
  */
-public class HistoryServiceLevelObjectiveMetricsTest {
-    private final HistoryServiceLevelObjectiveMetrics model = new HistoryServiceLevelObjectiveMetrics();
+public class SLOHistoryMetricsTest {
+    private final SLOHistoryMetrics model = new SLOHistoryMetrics();
 
     /**
-     * Model tests for HistoryServiceLevelObjectiveMetrics
+     * Model tests for SLOHistoryMetrics
      */
     @Test
-    public void testHistoryServiceLevelObjectiveMetrics() {
-        // TODO: test HistoryServiceLevelObjectiveMetrics
+    public void testSLOHistoryMetrics() {
+        // TODO: test SLOHistoryMetrics
     }
 
     /**
@@ -91,6 +93,14 @@ public class HistoryServiceLevelObjectiveMetricsTest {
     @Test
     public void respVersionTest() {
         // TODO: test respVersion
+    }
+
+    /**
+     * Test the property 'times'
+     */
+    @Test
+    public void timesTest() {
+        // TODO: test times
     }
 
 }

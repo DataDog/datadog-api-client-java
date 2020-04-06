@@ -18,10 +18,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -199,6 +198,14 @@ public class UsageSummaryResponseTest {
     @Test
     public void npmHostTop99pSumTest() {
         // TODO: test npmHostTop99pSum
+    }
+
+    /**
+     * Test the property 'rumSessionCountAggSum'
+     */
+    @Test
+    public void rumSessionCountAggSumTest() {
+        // TODO: test rumSessionCountAggSum
     }
 
     /**

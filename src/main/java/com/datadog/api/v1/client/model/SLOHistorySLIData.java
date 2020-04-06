@@ -30,16 +30,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value or the SLI value for a specific monitor (in multi-monitor SLOs) or group (in grouped SLOs). The uptime history is included for monitor SLOs.")
 @JsonPropertyOrder({
-  HistoryServiceLevelObjectiveSLIData.JSON_PROPERTY_HISTORY,
-  HistoryServiceLevelObjectiveSLIData.JSON_PROPERTY_NAME,
-  HistoryServiceLevelObjectiveSLIData.JSON_PROPERTY_PRECISION,
-  HistoryServiceLevelObjectiveSLIData.JSON_PROPERTY_PREVIEW,
-  HistoryServiceLevelObjectiveSLIData.JSON_PROPERTY_SLI_VALUE,
-  HistoryServiceLevelObjectiveSLIData.JSON_PROPERTY_SPAN_PRECISION,
-  HistoryServiceLevelObjectiveSLIData.JSON_PROPERTY_UPTIME
+  SLOHistorySLIData.JSON_PROPERTY_HISTORY,
+  SLOHistorySLIData.JSON_PROPERTY_NAME,
+  SLOHistorySLIData.JSON_PROPERTY_PRECISION,
+  SLOHistorySLIData.JSON_PROPERTY_PREVIEW,
+  SLOHistorySLIData.JSON_PROPERTY_SLI_VALUE,
+  SLOHistorySLIData.JSON_PROPERTY_SPAN_PRECISION,
+  SLOHistorySLIData.JSON_PROPERTY_UPTIME
 })
 
-public class HistoryServiceLevelObjectiveSLIData {
+public class SLOHistorySLIData {
   public static final String JSON_PROPERTY_HISTORY = "history";
   private List<List<Double>> history = null;
 
@@ -62,13 +62,13 @@ public class HistoryServiceLevelObjectiveSLIData {
   private Double uptime;
 
 
-  public HistoryServiceLevelObjectiveSLIData history(List<List<Double>> history) {
+  public SLOHistorySLIData history(List<List<Double>> history) {
     
     this.history = history;
     return this;
   }
 
-  public HistoryServiceLevelObjectiveSLIData addHistoryItem(List<Double> historyItem) {
+  public SLOHistorySLIData addHistoryItem(List<Double> historyItem) {
     if (this.history == null) {
       this.history = new ArrayList<>();
     }
@@ -95,7 +95,7 @@ public class HistoryServiceLevelObjectiveSLIData {
   }
 
 
-  public HistoryServiceLevelObjectiveSLIData name(String name) {
+  public SLOHistorySLIData name(String name) {
     
     this.name = name;
     return this;
@@ -120,13 +120,13 @@ public class HistoryServiceLevelObjectiveSLIData {
   }
 
 
-  public HistoryServiceLevelObjectiveSLIData precision(Map<String, Double> precision) {
+  public SLOHistorySLIData precision(Map<String, Double> precision) {
     
     this.precision = precision;
     return this;
   }
 
-  public HistoryServiceLevelObjectiveSLIData putPrecisionItem(String key, Double precisionItem) {
+  public SLOHistorySLIData putPrecisionItem(String key, Double precisionItem) {
     if (this.precision == null) {
       this.precision = new HashMap<>();
     }
@@ -153,7 +153,7 @@ public class HistoryServiceLevelObjectiveSLIData {
   }
 
 
-  public HistoryServiceLevelObjectiveSLIData preview(Boolean preview) {
+  public SLOHistorySLIData preview(Boolean preview) {
     
     this.preview = preview;
     return this;
@@ -178,7 +178,7 @@ public class HistoryServiceLevelObjectiveSLIData {
   }
 
 
-  public HistoryServiceLevelObjectiveSLIData sliValue(Double sliValue) {
+  public SLOHistorySLIData sliValue(Double sliValue) {
     
     this.sliValue = sliValue;
     return this;
@@ -203,7 +203,7 @@ public class HistoryServiceLevelObjectiveSLIData {
   }
 
 
-  public HistoryServiceLevelObjectiveSLIData spanPrecision(Double spanPrecision) {
+  public SLOHistorySLIData spanPrecision(Double spanPrecision) {
     
     this.spanPrecision = spanPrecision;
     return this;
@@ -228,7 +228,7 @@ public class HistoryServiceLevelObjectiveSLIData {
   }
 
 
-  public HistoryServiceLevelObjectiveSLIData uptime(Double uptime) {
+  public SLOHistorySLIData uptime(Double uptime) {
     
     this.uptime = uptime;
     return this;
@@ -261,14 +261,14 @@ public class HistoryServiceLevelObjectiveSLIData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoryServiceLevelObjectiveSLIData historyServiceLevelObjectiveSLIData = (HistoryServiceLevelObjectiveSLIData) o;
-    return Objects.equals(this.history, historyServiceLevelObjectiveSLIData.history) &&
-        Objects.equals(this.name, historyServiceLevelObjectiveSLIData.name) &&
-        Objects.equals(this.precision, historyServiceLevelObjectiveSLIData.precision) &&
-        Objects.equals(this.preview, historyServiceLevelObjectiveSLIData.preview) &&
-        Objects.equals(this.sliValue, historyServiceLevelObjectiveSLIData.sliValue) &&
-        Objects.equals(this.spanPrecision, historyServiceLevelObjectiveSLIData.spanPrecision) &&
-        Objects.equals(this.uptime, historyServiceLevelObjectiveSLIData.uptime);
+    SLOHistorySLIData slOHistorySLIData = (SLOHistorySLIData) o;
+    return Objects.equals(this.history, slOHistorySLIData.history) &&
+        Objects.equals(this.name, slOHistorySLIData.name) &&
+        Objects.equals(this.precision, slOHistorySLIData.precision) &&
+        Objects.equals(this.preview, slOHistorySLIData.preview) &&
+        Objects.equals(this.sliValue, slOHistorySLIData.sliValue) &&
+        Objects.equals(this.spanPrecision, slOHistorySLIData.spanPrecision) &&
+        Objects.equals(this.uptime, slOHistorySLIData.uptime);
   }
 
   @Override
@@ -280,7 +280,7 @@ public class HistoryServiceLevelObjectiveSLIData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoryServiceLevelObjectiveSLIData {\n");
+    sb.append("class SLOHistorySLIData {\n");
     sb.append("    history: ").append(toIndentedString(history)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    precision: ").append(toIndentedString(precision)).append("\n");

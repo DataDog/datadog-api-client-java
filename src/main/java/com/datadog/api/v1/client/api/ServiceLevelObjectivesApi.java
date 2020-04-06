@@ -24,14 +24,14 @@ import java.util.List;
 import java.util.Map;
 
 
-public class SloApi {
+public class ServiceLevelObjectivesApi {
   private ApiClient apiClient;
 
-  public SloApi() {
+  public ServiceLevelObjectivesApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public SloApi(ApiClient apiClient) {
+  public ServiceLevelObjectivesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -77,7 +77,7 @@ private ApiResponse<ServiceLevelObjectivesBulkDeleted> bulkPartialDeleteSLOWithH
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ServiceLevelObjectivesBulkDeleted> localVarReturnType = new GenericType<ServiceLevelObjectivesBulkDeleted>() {};
-    return apiClient.invokeAPI("SloApi.bulkPartialDeleteSLO", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.bulkPartialDeleteSLO", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIbulkPartialDeleteSLORequest {
@@ -185,7 +185,7 @@ private ApiResponse<CheckCanDeleteServiceLevelObjectiveResponse> checkCanDeleteS
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<CheckCanDeleteServiceLevelObjectiveResponse> localVarReturnType = new GenericType<CheckCanDeleteServiceLevelObjectiveResponse>() {};
-    return apiClient.invokeAPI("SloApi.checkCanDeleteSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.checkCanDeleteSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcheckCanDeleteSLORequest {
@@ -292,7 +292,7 @@ private ApiResponse<ServiceLevelObjectiveListResponse> createSLOWithHttpInfo(Ser
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ServiceLevelObjectiveListResponse> localVarReturnType = new GenericType<ServiceLevelObjectiveListResponse>() {};
-    return apiClient.invokeAPI("SloApi.createSLO", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.createSLO", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateSLORequest {
@@ -400,7 +400,7 @@ private ApiResponse<ServiceLevelObjectiveDeleted> deleteSLOWithHttpInfo(String s
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ServiceLevelObjectiveDeleted> localVarReturnType = new GenericType<ServiceLevelObjectiveDeleted>() {};
-    return apiClient.invokeAPI("SloApi.deleteSLO", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.deleteSLO", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIdeleteSLORequest {
@@ -466,124 +466,6 @@ private ApiResponse<ServiceLevelObjectiveDeleted> deleteSLOWithHttpInfo(String s
     return new APIdeleteSLORequest(sloId);
   }
 
-private ApiResponse<ServiceLevelObjectiveListResponse> editSLOWithHttpInfo(String sloId, ServiceLevelObjective body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'sloId' is set
-    if (sloId == null) {
-      throw new ApiException(400, "Missing the required parameter 'sloId' when calling editSLO");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling editSLO");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/slo/{slo_id}"
-      .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<ServiceLevelObjectiveListResponse> localVarReturnType = new GenericType<ServiceLevelObjectiveListResponse>() {};
-    return apiClient.invokeAPI("SloApi.editSLO", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIeditSLORequest {
-    private String sloId;
-    private ServiceLevelObjective body;
-
-    private APIeditSLORequest(String sloId) {
-      this.sloId = sloId;
-    }
-    
-
-    /**
-     * Set body
-     * @param body The edited service level objective request object. (required)
-     * @return APIeditSLORequest
-     */
-    public APIeditSLORequest body(ServiceLevelObjective body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute editSLO request
-     * @return ServiceLevelObjectiveListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ServiceLevelObjectiveListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute editSLO request with HTTP info returned
-     * @return ApiResponse&lt;ServiceLevelObjectiveListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<ServiceLevelObjectiveListResponse> executeWithHttpInfo() throws ApiException {
-      return editSLOWithHttpInfo(sloId, body);
-    }
-  }
-
-  /**
-   * Edit a SLO
-   * Edit the specified service level objective object.
-   * @param sloId The ID of the service level objective object. (required)
-   * @return editSLORequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIeditSLORequest editSLO(String sloId) throws ApiException {
-    return new APIeditSLORequest(sloId);
-  }
-
 private ApiResponse<ServiceLevelObjectiveResponse> getSLOWithHttpInfo(String sloId) throws ApiException {
     Object localVarPostBody = null;
     
@@ -619,7 +501,7 @@ private ApiResponse<ServiceLevelObjectiveResponse> getSLOWithHttpInfo(String slo
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ServiceLevelObjectiveResponse> localVarReturnType = new GenericType<ServiceLevelObjectiveResponse>() {};
-    return apiClient.invokeAPI("SloApi.getSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.getSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetSLORequest {
@@ -720,7 +602,7 @@ private ApiResponse<ServiceLevelObjectiveListResponse> getSLOsWithHttpInfo(Strin
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ServiceLevelObjectiveListResponse> localVarReturnType = new GenericType<ServiceLevelObjectiveListResponse>() {};
-    return apiClient.invokeAPI("SloApi.getSLOs", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.getSLOs", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetSLOsRequest {
@@ -840,7 +722,7 @@ private ApiResponse<HistoryServiceLevelObjectiveResponse> historyForSLOWithHttpI
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<HistoryServiceLevelObjectiveResponse> localVarReturnType = new GenericType<HistoryServiceLevelObjectiveResponse>() {};
-    return apiClient.invokeAPI("SloApi.historyForSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.historyForSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
   public class APIhistoryForSLORequest {
@@ -926,5 +808,123 @@ private ApiResponse<HistoryServiceLevelObjectiveResponse> historyForSLOWithHttpI
   
   public APIhistoryForSLORequest historyForSLO(String sloId) throws ApiException {
     return new APIhistoryForSLORequest(sloId);
+  }
+
+private ApiResponse<ServiceLevelObjectiveListResponse> updateSLOWithHttpInfo(String sloId, ServiceLevelObjective body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'sloId' is set
+    if (sloId == null) {
+      throw new ApiException(400, "Missing the required parameter 'sloId' when calling updateSLO");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateSLO");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/slo/{slo_id}"
+      .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<ServiceLevelObjectiveListResponse> localVarReturnType = new GenericType<ServiceLevelObjectiveListResponse>() {};
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.updateSLO", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIupdateSLORequest {
+    private String sloId;
+    private ServiceLevelObjective body;
+
+    private APIupdateSLORequest(String sloId) {
+      this.sloId = sloId;
+    }
+    
+
+    /**
+     * Set body
+     * @param body The edited service level objective request object. (required)
+     * @return APIupdateSLORequest
+     */
+    public APIupdateSLORequest body(ServiceLevelObjective body) {
+      this.body = body;
+      return this;
+    }
+    
+
+    /**
+     * Execute updateSLO request
+     * @return ServiceLevelObjectiveListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ServiceLevelObjectiveListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateSLO request with HTTP info returned
+     * @return ApiResponse&lt;ServiceLevelObjectiveListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<ServiceLevelObjectiveListResponse> executeWithHttpInfo() throws ApiException {
+      return updateSLOWithHttpInfo(sloId, body);
+    }
+  }
+
+  /**
+   * Update a SLO
+   * Update the specified service level objective object.
+   * @param sloId The ID of the service level objective object. (required)
+   * @return updateSLORequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIupdateSLORequest updateSLO(String sloId) throws ApiException {
+    return new APIupdateSLORequest(sloId);
   }
 }

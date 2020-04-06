@@ -26,15 +26,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "Query metadata.")
 @JsonPropertyOrder({
-  HistoryServiceLevelObjectiveMetricsSeriesMetadata.JSON_PROPERTY_AGGR,
-  HistoryServiceLevelObjectiveMetricsSeriesMetadata.JSON_PROPERTY_EXPRESSION,
-  HistoryServiceLevelObjectiveMetricsSeriesMetadata.JSON_PROPERTY_METRIC,
-  HistoryServiceLevelObjectiveMetricsSeriesMetadata.JSON_PROPERTY_QUERY_INDEX,
-  HistoryServiceLevelObjectiveMetricsSeriesMetadata.JSON_PROPERTY_SCOPE,
-  HistoryServiceLevelObjectiveMetricsSeriesMetadata.JSON_PROPERTY_UNIT
+  SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_AGGR,
+  SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_EXPRESSION,
+  SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_METRIC,
+  SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_QUERY_INDEX,
+  SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_SCOPE,
+  SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_UNIT
 })
 
-public class HistoryServiceLevelObjectiveMetricsSeriesMetadata {
+public class SLOHistoryMetricsSeriesMetadata {
   public static final String JSON_PROPERTY_AGGR = "aggr";
   private String aggr;
 
@@ -54,7 +54,7 @@ public class HistoryServiceLevelObjectiveMetricsSeriesMetadata {
   private String unit;
 
 
-  public HistoryServiceLevelObjectiveMetricsSeriesMetadata aggr(String aggr) {
+  public SLOHistoryMetricsSeriesMetadata aggr(String aggr) {
     
     this.aggr = aggr;
     return this;
@@ -79,7 +79,7 @@ public class HistoryServiceLevelObjectiveMetricsSeriesMetadata {
   }
 
 
-  public HistoryServiceLevelObjectiveMetricsSeriesMetadata expression(String expression) {
+  public SLOHistoryMetricsSeriesMetadata expression(String expression) {
     
     this.expression = expression;
     return this;
@@ -104,7 +104,7 @@ public class HistoryServiceLevelObjectiveMetricsSeriesMetadata {
   }
 
 
-  public HistoryServiceLevelObjectiveMetricsSeriesMetadata metric(String metric) {
+  public SLOHistoryMetricsSeriesMetadata metric(String metric) {
     
     this.metric = metric;
     return this;
@@ -129,7 +129,7 @@ public class HistoryServiceLevelObjectiveMetricsSeriesMetadata {
   }
 
 
-  public HistoryServiceLevelObjectiveMetricsSeriesMetadata queryIndex(Long queryIndex) {
+  public SLOHistoryMetricsSeriesMetadata queryIndex(Long queryIndex) {
     
     this.queryIndex = queryIndex;
     return this;
@@ -154,7 +154,7 @@ public class HistoryServiceLevelObjectiveMetricsSeriesMetadata {
   }
 
 
-  public HistoryServiceLevelObjectiveMetricsSeriesMetadata scope(String scope) {
+  public SLOHistoryMetricsSeriesMetadata scope(String scope) {
     
     this.scope = scope;
     return this;
@@ -179,7 +179,7 @@ public class HistoryServiceLevelObjectiveMetricsSeriesMetadata {
   }
 
 
-  public HistoryServiceLevelObjectiveMetricsSeriesMetadata unit(String unit) {
+  public SLOHistoryMetricsSeriesMetadata unit(String unit) {
     
     this.unit = unit;
     return this;
@@ -212,13 +212,13 @@ public class HistoryServiceLevelObjectiveMetricsSeriesMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoryServiceLevelObjectiveMetricsSeriesMetadata historyServiceLevelObjectiveMetricsSeriesMetadata = (HistoryServiceLevelObjectiveMetricsSeriesMetadata) o;
-    return Objects.equals(this.aggr, historyServiceLevelObjectiveMetricsSeriesMetadata.aggr) &&
-        Objects.equals(this.expression, historyServiceLevelObjectiveMetricsSeriesMetadata.expression) &&
-        Objects.equals(this.metric, historyServiceLevelObjectiveMetricsSeriesMetadata.metric) &&
-        Objects.equals(this.queryIndex, historyServiceLevelObjectiveMetricsSeriesMetadata.queryIndex) &&
-        Objects.equals(this.scope, historyServiceLevelObjectiveMetricsSeriesMetadata.scope) &&
-        Objects.equals(this.unit, historyServiceLevelObjectiveMetricsSeriesMetadata.unit);
+    SLOHistoryMetricsSeriesMetadata slOHistoryMetricsSeriesMetadata = (SLOHistoryMetricsSeriesMetadata) o;
+    return Objects.equals(this.aggr, slOHistoryMetricsSeriesMetadata.aggr) &&
+        Objects.equals(this.expression, slOHistoryMetricsSeriesMetadata.expression) &&
+        Objects.equals(this.metric, slOHistoryMetricsSeriesMetadata.metric) &&
+        Objects.equals(this.queryIndex, slOHistoryMetricsSeriesMetadata.queryIndex) &&
+        Objects.equals(this.scope, slOHistoryMetricsSeriesMetadata.scope) &&
+        Objects.equals(this.unit, slOHistoryMetricsSeriesMetadata.unit);
   }
 
   @Override
@@ -230,7 +230,7 @@ public class HistoryServiceLevelObjectiveMetricsSeriesMetadata {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoryServiceLevelObjectiveMetricsSeriesMetadata {\n");
+    sb.append("class SLOHistoryMetricsSeriesMetadata {\n");
     sb.append("    aggr: ").append(toIndentedString(aggr)).append("\n");
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");

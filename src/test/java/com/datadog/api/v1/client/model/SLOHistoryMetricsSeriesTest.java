@@ -11,37 +11,64 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.model.SLOHistoryMetricsSeriesMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for HistoryServiceLevelObjectiveResponseError
+ * Model tests for SLOHistoryMetricsSeries
  */
-public class HistoryServiceLevelObjectiveResponseErrorTest {
-    private final HistoryServiceLevelObjectiveResponseError model = new HistoryServiceLevelObjectiveResponseError();
+public class SLOHistoryMetricsSeriesTest {
+    private final SLOHistoryMetricsSeries model = new SLOHistoryMetricsSeries();
 
     /**
-     * Model tests for HistoryServiceLevelObjectiveResponseError
+     * Model tests for SLOHistoryMetricsSeries
      */
     @Test
-    public void testHistoryServiceLevelObjectiveResponseError() {
-        // TODO: test HistoryServiceLevelObjectiveResponseError
+    public void testSLOHistoryMetricsSeries() {
+        // TODO: test SLOHistoryMetricsSeries
     }
 
     /**
-     * Test the property 'error'
+     * Test the property 'count'
      */
     @Test
-    public void errorTest() {
-        // TODO: test error
+    public void countTest() {
+        // TODO: test count
+    }
+
+    /**
+     * Test the property 'metadata'
+     */
+    @Test
+    public void metadataTest() {
+        // TODO: test metadata
+    }
+
+    /**
+     * Test the property 'sum'
+     */
+    @Test
+    public void sumTest() {
+        // TODO: test sum
+    }
+
+    /**
+     * Test the property 'values'
+     */
+    @Test
+    public void valuesTest() {
+        // TODO: test values
     }
 
 }

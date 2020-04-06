@@ -46,6 +46,14 @@ public class UsageHostHourTest {
     }
 
     /**
+     * Test the property 'alibabaHostCount'
+     */
+    @Test
+    public void alibabaHostCountTest() {
+        // TODO: test alibabaHostCount
+    }
+
+    /**
      * Test the property 'apmHostCount'
      */
     @Test
@@ -59,6 +67,14 @@ public class UsageHostHourTest {
     @Test
     public void awsHostCountTest() {
         // TODO: test awsHostCount
+    }
+
+    /**
+     * Test the property 'azureHostCount'
+     */
+    @Test
+    public void azureHostCountTest() {
+        // TODO: test azureHostCount
     }
 
     /**

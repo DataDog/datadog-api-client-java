@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.SLOThreshold;
+import com.datadog.api.v1.client.model.SLOType;
+import com.datadog.api.v1.client.model.SLOTypeNumeric;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveQuery;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

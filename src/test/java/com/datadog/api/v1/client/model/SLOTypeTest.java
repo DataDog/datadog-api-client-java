@@ -18,15 +18,15 @@ import org.junit.Test;
 
 
 /**
- * Model tests for ServiceLevelObjectiveTypeNumeric
+ * Model tests for SLOType
  */
-public class ServiceLevelObjectiveTypeNumericTest {
+public class SLOTypeTest {
     /**
-     * Model tests for ServiceLevelObjectiveTypeNumeric
+     * Model tests for SLOType
      */
     @Test
-    public void testServiceLevelObjectiveTypeNumeric() {
-        // TODO: test ServiceLevelObjectiveTypeNumeric
+    public void testSLOType() {
+        // TODO: test SLOType
     }
 
 }

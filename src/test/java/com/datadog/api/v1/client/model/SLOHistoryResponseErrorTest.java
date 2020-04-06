@@ -11,41 +11,37 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.model.MonitorStateGroup;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for MonitorState
+ * Model tests for SLOHistoryResponseError
  */
-public class MonitorStateTest {
-    private final MonitorState model = new MonitorState();
+public class SLOHistoryResponseErrorTest {
+    private final SLOHistoryResponseError model = new SLOHistoryResponseError();
 
     /**
-     * Model tests for MonitorState
+     * Model tests for SLOHistoryResponseError
      */
     @Test
-    public void testMonitorState() {
-        // TODO: test MonitorState
+    public void testSLOHistoryResponseError() {
+        // TODO: test SLOHistoryResponseError
     }
 
     /**
-     * Test the property 'groups'
+     * Test the property 'error'
      */
     @Test
-    public void groupsTest() {
-        // TODO: test groups
+    public void errorTest() {
+        // TODO: test error
     }
 
 }

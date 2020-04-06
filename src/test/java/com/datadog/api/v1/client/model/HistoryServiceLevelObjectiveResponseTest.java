@@ -12,7 +12,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveResponseData;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveResponseError;
+import com.datadog.api.v1.client.model.SLOHistoryResponseError;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

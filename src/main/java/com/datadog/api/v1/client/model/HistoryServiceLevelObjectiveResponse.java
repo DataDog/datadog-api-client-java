@@ -14,7 +14,7 @@ package com.datadog.api.v1.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveResponseData;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveResponseError;
+import com.datadog.api.v1.client.model.SLOHistoryResponseError;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,7 +39,7 @@ public class HistoryServiceLevelObjectiveResponse {
   private HistoryServiceLevelObjectiveResponseData data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<HistoryServiceLevelObjectiveResponseError> errors = null;
+  private List<SLOHistoryResponseError> errors = null;
 
 
   public HistoryServiceLevelObjectiveResponse data(HistoryServiceLevelObjectiveResponseData data) {
@@ -66,13 +66,13 @@ public class HistoryServiceLevelObjectiveResponse {
   }
 
 
-  public HistoryServiceLevelObjectiveResponse errors(List<HistoryServiceLevelObjectiveResponseError> errors) {
+  public HistoryServiceLevelObjectiveResponse errors(List<SLOHistoryResponseError> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public HistoryServiceLevelObjectiveResponse addErrorsItem(HistoryServiceLevelObjectiveResponseError errorsItem) {
+  public HistoryServiceLevelObjectiveResponse addErrorsItem(SLOHistoryResponseError errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -89,12 +89,12 @@ public class HistoryServiceLevelObjectiveResponse {
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<HistoryServiceLevelObjectiveResponseError> getErrors() {
+  public List<SLOHistoryResponseError> getErrors() {
     return errors;
   }
 
 
-  public void setErrors(List<HistoryServiceLevelObjectiveResponseError> errors) {
+  public void setErrors(List<SLOHistoryResponseError> errors) {
     this.errors = errors;
   }
 

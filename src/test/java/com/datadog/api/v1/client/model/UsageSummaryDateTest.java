@@ -18,9 +18,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -190,6 +190,14 @@ public class UsageSummaryDateTest {
     @Test
     public void orgsTest() {
         // TODO: test orgs
+    }
+
+    /**
+     * Test the property 'rumSessionCountSum'
+     */
+    @Test
+    public void rumSessionCountSumTest() {
+        // TODO: test rumSessionCountSum
     }
 
     /**

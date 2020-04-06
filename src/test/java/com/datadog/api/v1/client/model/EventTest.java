@@ -11,6 +11,8 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.model.EventAlertType;
+import com.datadog.api.v1.client.model.EventPriority;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

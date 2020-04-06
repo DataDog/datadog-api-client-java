@@ -197,6 +197,14 @@ public class UsageSummaryDateOrgTest {
     }
 
     /**
+     * Test the property 'rumSessionCountSum'
+     */
+    @Test
+    public void rumSessionCountSumTest() {
+        // TODO: test rumSessionCountSum
+    }
+
+    /**
      * Test the property 'syntheticsBrowserCheckCallsCountSum'
      */
     @Test

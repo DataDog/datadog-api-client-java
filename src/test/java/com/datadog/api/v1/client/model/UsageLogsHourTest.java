@@ -38,6 +38,14 @@ public class UsageLogsHourTest {
     }
 
     /**
+     * Test the property 'billableIngestedBytes'
+     */
+    @Test
+    public void billableIngestedBytesTest() {
+        // TODO: test billableIngestedBytes
+    }
+
+    /**
      * Test the property 'hour'
      */
     @Test

@@ -11,11 +11,11 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveMetrics;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveSLIData;
+import com.datadog.api.v1.client.model.SLOHistoryMetrics;
+import com.datadog.api.v1.client.model.SLOHistorySLIData;
 import com.datadog.api.v1.client.model.SLOThreshold;
-import com.datadog.api.v1.client.model.ServiceLevelObjectiveType;
-import com.datadog.api.v1.client.model.ServiceLevelObjectiveTypeNumeric;
+import com.datadog.api.v1.client.model.SLOType;
+import com.datadog.api.v1.client.model.SLOTypeNumeric;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

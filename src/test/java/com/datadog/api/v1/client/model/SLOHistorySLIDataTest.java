@@ -27,17 +27,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for HistoryServiceLevelObjectiveSLIData
+ * Model tests for SLOHistorySLIData
  */
-public class HistoryServiceLevelObjectiveSLIDataTest {
-    private final HistoryServiceLevelObjectiveSLIData model = new HistoryServiceLevelObjectiveSLIData();
+public class SLOHistorySLIDataTest {
+    private final SLOHistorySLIData model = new SLOHistorySLIData();
 
     /**
-     * Model tests for HistoryServiceLevelObjectiveSLIData
+     * Model tests for SLOHistorySLIData
      */
     @Test
-    public void testHistoryServiceLevelObjectiveSLIData() {
-        // TODO: test HistoryServiceLevelObjectiveSLIData
+    public void testSLOHistorySLIData() {
+        // TODO: test SLOHistorySLIData
     }
 
     /**

@@ -12,6 +12,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.datadog.api.v1.client.model.DistributionWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -42,6 +43,14 @@ public class DistributionWidgetDefinitionTest {
     @Test
     public void testDistributionWidgetDefinition() {
         // TODO: test DistributionWidgetDefinition
+    }
+
+    /**
+     * Test the property 'legendSize'
+     */
+    @Test
+    public void legendSizeTest() {
+        // TODO: test legendSize
     }
 
     /**

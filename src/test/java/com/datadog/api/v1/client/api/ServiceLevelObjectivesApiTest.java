@@ -15,15 +15,15 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 /**
- * API tests for SloApi
+ * API tests for ServiceLevelObjectivesApi
  */
-public class SloApiTest extends V1ApiTest {
-    private static SloApi api;
+public class ServiceLevelObjectivesApiTest extends V1ApiTest {
+    private static ServiceLevelObjectivesApi api;
     private static MonitorsApi mApi;
     private ArrayList<String> deleteSLOs = null;
     private ArrayList<Long> deleteMonitors = null;
     private final ServiceLevelObjective monitorSLO = new ServiceLevelObjective()
-            .type(ServiceLevelObjectiveType.MONITOR)
+            .type(SLOType.MONITOR)
             .name("Critical Foo Host Uptime")
             .description("Track the uptime of host foo which is critical to us.")
             .tags(Arrays.asList("app:core", "kpi"))
@@ -33,7 +33,7 @@ public class SloApiTest extends V1ApiTest {
                 .warning(98.0)
             ));
     private final ServiceLevelObjective eventSLO = new ServiceLevelObjective()
-            .type(ServiceLevelObjectiveType.METRIC)
+            .type(SLOType.METRIC)
             .name("HTTP Return Codes")
             .description("Make sure we don't have too many failed HTTP responses")
             .tags(Arrays.asList("app:httpd"))
@@ -58,7 +58,7 @@ public class SloApiTest extends V1ApiTest {
 
     @BeforeClass
     public static void initApi() {
-        api = new SloApi(generalApiClient);
+        api = new ServiceLevelObjectivesApi(generalApiClient);
         mApi = new MonitorsApi(generalApiClient);
     }
 
@@ -109,9 +109,9 @@ public class SloApiTest extends V1ApiTest {
         deleteSLOs.add(created.getId());
         assertEquals(monitorSLO.getName(), created.getName());
 
-        // Edit SLO
+        // Update SLO
         created.setDescription("Updated description");
-        sloResp = api.editSLO(created.getId()).body(created).execute();
+        sloResp = api.updateSLO(created.getId()).body(created).execute();
         ServiceLevelObjective edited = sloResp.getData().get(0);
         assertEquals(created.getDescription(), edited.getDescription());
 
@@ -141,7 +141,7 @@ public class SloApiTest extends V1ApiTest {
 
         // Edit SLO
         created.setDescription("Updated description");
-        sloResp = api.editSLO(created.getId()).body(created).execute();
+        sloResp = api.updateSLO(created.getId()).body(created).execute();
         ServiceLevelObjective edited = sloResp.getData().get(0);
         assertEquals(created.getDescription(), edited.getDescription());
 
@@ -160,15 +160,15 @@ public class SloApiTest extends V1ApiTest {
         HistoryServiceLevelObjectiveResponse historyResp = api.historyForSLO(edited.getId())
                 .fromTs(Long.toString(time - 11)).toTs(Long.toString(time - 1)).execute();
 
-        HistoryServiceLevelObjectiveSLIData overall = historyResp.getData().getOverall();
+        SLOHistorySLIData overall = historyResp.getData().getOverall();
         Double sliValue = overall.getSliValue();
         assertNotNull(sliValue);
         assertEquals(50, Math.round(sliValue));
 
-        HistoryServiceLevelObjectiveMetrics series = historyResp.getData().getSeries();
+        SLOHistoryMetrics series = historyResp.getData().getSeries();
         assertNotNull(series);
         assertNotNull(series.getTimes());
-        HistoryServiceLevelObjectiveMetricsSeries numerator = series.getNumerator();
+        SLOHistoryMetricsSeries numerator = series.getNumerator();
         assertNotNull(numerator);
         assertNotNull(numerator.getValues());
 

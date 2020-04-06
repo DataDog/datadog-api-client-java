@@ -26,15 +26,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "A service level objective response containing the requested history.")
 @JsonPropertyOrder({
-  HistoryServiceLevelObjectiveResponseError.JSON_PROPERTY_ERROR
+  SLOHistoryResponseError.JSON_PROPERTY_ERROR
 })
 
-public class HistoryServiceLevelObjectiveResponseError {
+public class SLOHistoryResponseError {
   public static final String JSON_PROPERTY_ERROR = "error";
   private String error;
 
 
-  public HistoryServiceLevelObjectiveResponseError error(String error) {
+  public SLOHistoryResponseError error(String error) {
     
     this.error = error;
     return this;
@@ -67,8 +67,8 @@ public class HistoryServiceLevelObjectiveResponseError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoryServiceLevelObjectiveResponseError historyServiceLevelObjectiveResponseError = (HistoryServiceLevelObjectiveResponseError) o;
-    return Objects.equals(this.error, historyServiceLevelObjectiveResponseError.error);
+    SLOHistoryResponseError slOHistoryResponseError = (SLOHistoryResponseError) o;
+    return Objects.equals(this.error, slOHistoryResponseError.error);
   }
 
   @Override
@@ -80,7 +80,7 @@ public class HistoryServiceLevelObjectiveResponseError {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoryServiceLevelObjectiveResponseError {\n");
+    sb.append("class SLOHistoryResponseError {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");
     return sb.toString();

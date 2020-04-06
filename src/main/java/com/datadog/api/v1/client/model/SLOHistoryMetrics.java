@@ -13,7 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveMetricsSeries;
+import com.datadog.api.v1.client.model.SLOHistoryMetricsSeries;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,19 +29,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "A `metric` based SLO history response.")
 @JsonPropertyOrder({
-  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_DENOMINATOR,
-  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_INTERVAL,
-  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_MESSAGE,
-  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_NUMERATOR,
-  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_QUERY,
-  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_RES_TYPE,
-  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_RESP_VERSION,
-  HistoryServiceLevelObjectiveMetrics.JSON_PROPERTY_TIMES
+  SLOHistoryMetrics.JSON_PROPERTY_DENOMINATOR,
+  SLOHistoryMetrics.JSON_PROPERTY_INTERVAL,
+  SLOHistoryMetrics.JSON_PROPERTY_MESSAGE,
+  SLOHistoryMetrics.JSON_PROPERTY_NUMERATOR,
+  SLOHistoryMetrics.JSON_PROPERTY_QUERY,
+  SLOHistoryMetrics.JSON_PROPERTY_RES_TYPE,
+  SLOHistoryMetrics.JSON_PROPERTY_RESP_VERSION,
+  SLOHistoryMetrics.JSON_PROPERTY_TIMES
 })
 
-public class HistoryServiceLevelObjectiveMetrics {
+public class SLOHistoryMetrics {
   public static final String JSON_PROPERTY_DENOMINATOR = "denominator";
-  private HistoryServiceLevelObjectiveMetricsSeries denominator;
+  private SLOHistoryMetricsSeries denominator;
 
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private Long interval;
@@ -50,7 +50,7 @@ public class HistoryServiceLevelObjectiveMetrics {
   private String message;
 
   public static final String JSON_PROPERTY_NUMERATOR = "numerator";
-  private HistoryServiceLevelObjectiveMetricsSeries numerator;
+  private SLOHistoryMetricsSeries numerator;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
@@ -65,7 +65,7 @@ public class HistoryServiceLevelObjectiveMetrics {
   private List<Double> times = new ArrayList<>();
 
 
-  public HistoryServiceLevelObjectiveMetrics denominator(HistoryServiceLevelObjectiveMetricsSeries denominator) {
+  public SLOHistoryMetrics denominator(SLOHistoryMetricsSeries denominator) {
     
     this.denominator = denominator;
     return this;
@@ -79,17 +79,17 @@ public class HistoryServiceLevelObjectiveMetrics {
   @JsonProperty(JSON_PROPERTY_DENOMINATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public HistoryServiceLevelObjectiveMetricsSeries getDenominator() {
+  public SLOHistoryMetricsSeries getDenominator() {
     return denominator;
   }
 
 
-  public void setDenominator(HistoryServiceLevelObjectiveMetricsSeries denominator) {
+  public void setDenominator(SLOHistoryMetricsSeries denominator) {
     this.denominator = denominator;
   }
 
 
-  public HistoryServiceLevelObjectiveMetrics interval(Long interval) {
+  public SLOHistoryMetrics interval(Long interval) {
     
     this.interval = interval;
     return this;
@@ -113,7 +113,7 @@ public class HistoryServiceLevelObjectiveMetrics {
   }
 
 
-  public HistoryServiceLevelObjectiveMetrics message(String message) {
+  public SLOHistoryMetrics message(String message) {
     
     this.message = message;
     return this;
@@ -138,7 +138,7 @@ public class HistoryServiceLevelObjectiveMetrics {
   }
 
 
-  public HistoryServiceLevelObjectiveMetrics numerator(HistoryServiceLevelObjectiveMetricsSeries numerator) {
+  public SLOHistoryMetrics numerator(SLOHistoryMetricsSeries numerator) {
     
     this.numerator = numerator;
     return this;
@@ -152,17 +152,17 @@ public class HistoryServiceLevelObjectiveMetrics {
   @JsonProperty(JSON_PROPERTY_NUMERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public HistoryServiceLevelObjectiveMetricsSeries getNumerator() {
+  public SLOHistoryMetricsSeries getNumerator() {
     return numerator;
   }
 
 
-  public void setNumerator(HistoryServiceLevelObjectiveMetricsSeries numerator) {
+  public void setNumerator(SLOHistoryMetricsSeries numerator) {
     this.numerator = numerator;
   }
 
 
-  public HistoryServiceLevelObjectiveMetrics query(String query) {
+  public SLOHistoryMetrics query(String query) {
     
     this.query = query;
     return this;
@@ -186,7 +186,7 @@ public class HistoryServiceLevelObjectiveMetrics {
   }
 
 
-  public HistoryServiceLevelObjectiveMetrics resType(String resType) {
+  public SLOHistoryMetrics resType(String resType) {
     
     this.resType = resType;
     return this;
@@ -210,7 +210,7 @@ public class HistoryServiceLevelObjectiveMetrics {
   }
 
 
-  public HistoryServiceLevelObjectiveMetrics respVersion(Long respVersion) {
+  public SLOHistoryMetrics respVersion(Long respVersion) {
     
     this.respVersion = respVersion;
     return this;
@@ -234,13 +234,13 @@ public class HistoryServiceLevelObjectiveMetrics {
   }
 
 
-  public HistoryServiceLevelObjectiveMetrics times(List<Double> times) {
+  public SLOHistoryMetrics times(List<Double> times) {
     
     this.times = times;
     return this;
   }
 
-  public HistoryServiceLevelObjectiveMetrics addTimesItem(Double timesItem) {
+  public SLOHistoryMetrics addTimesItem(Double timesItem) {
     this.times.add(timesItem);
     return this;
   }
@@ -271,15 +271,15 @@ public class HistoryServiceLevelObjectiveMetrics {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoryServiceLevelObjectiveMetrics historyServiceLevelObjectiveMetrics = (HistoryServiceLevelObjectiveMetrics) o;
-    return Objects.equals(this.denominator, historyServiceLevelObjectiveMetrics.denominator) &&
-        Objects.equals(this.interval, historyServiceLevelObjectiveMetrics.interval) &&
-        Objects.equals(this.message, historyServiceLevelObjectiveMetrics.message) &&
-        Objects.equals(this.numerator, historyServiceLevelObjectiveMetrics.numerator) &&
-        Objects.equals(this.query, historyServiceLevelObjectiveMetrics.query) &&
-        Objects.equals(this.resType, historyServiceLevelObjectiveMetrics.resType) &&
-        Objects.equals(this.respVersion, historyServiceLevelObjectiveMetrics.respVersion) &&
-        Objects.equals(this.times, historyServiceLevelObjectiveMetrics.times);
+    SLOHistoryMetrics slOHistoryMetrics = (SLOHistoryMetrics) o;
+    return Objects.equals(this.denominator, slOHistoryMetrics.denominator) &&
+        Objects.equals(this.interval, slOHistoryMetrics.interval) &&
+        Objects.equals(this.message, slOHistoryMetrics.message) &&
+        Objects.equals(this.numerator, slOHistoryMetrics.numerator) &&
+        Objects.equals(this.query, slOHistoryMetrics.query) &&
+        Objects.equals(this.resType, slOHistoryMetrics.resType) &&
+        Objects.equals(this.respVersion, slOHistoryMetrics.respVersion) &&
+        Objects.equals(this.times, slOHistoryMetrics.times);
   }
 
   @Override
@@ -291,7 +291,7 @@ public class HistoryServiceLevelObjectiveMetrics {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoryServiceLevelObjectiveMetrics {\n");
+    sb.append("class SLOHistoryMetrics {\n");
     sb.append("    denominator: ").append(toIndentedString(denominator)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");

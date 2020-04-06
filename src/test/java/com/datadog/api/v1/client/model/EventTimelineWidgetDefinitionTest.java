@@ -52,6 +52,14 @@ public class EventTimelineWidgetDefinitionTest {
     }
 
     /**
+     * Test the property 'tagsExecution'
+     */
+    @Test
+    public void tagsExecutionTest() {
+        // TODO: test tagsExecution
+    }
+
+    /**
      * Test the property 'time'
      */
     @Test

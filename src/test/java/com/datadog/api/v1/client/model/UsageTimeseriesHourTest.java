@@ -46,6 +46,22 @@ public class UsageTimeseriesHourTest {
     }
 
     /**
+     * Test the property 'numCustomInputTimeseries'
+     */
+    @Test
+    public void numCustomInputTimeseriesTest() {
+        // TODO: test numCustomInputTimeseries
+    }
+
+    /**
+     * Test the property 'numCustomOutputTimeseries'
+     */
+    @Test
+    public void numCustomOutputTimeseriesTest() {
+        // TODO: test numCustomOutputTimeseries
+    }
+
+    /**
      * Test the property 'numCustomTimeseries'
      */
     @Test

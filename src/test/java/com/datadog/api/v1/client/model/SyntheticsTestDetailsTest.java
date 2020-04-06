@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import com.datadog.api.v1.client.model.SyntheticsTestAuthor;
 import com.datadog.api.v1.client.model.SyntheticsTestConfig;
+import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
+import com.datadog.api.v1.client.model.SyntheticsTestDetailsType;
 import com.datadog.api.v1.client.model.SyntheticsTestMonitorStatus;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;

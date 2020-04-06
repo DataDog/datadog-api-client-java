@@ -23,17 +23,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for HistoryServiceLevelObjectiveMetricsSeriesMetadata
+ * Model tests for SLOHistoryMetricsSeriesMetadata
  */
-public class HistoryServiceLevelObjectiveMetricsSeriesMetadataTest {
-    private final HistoryServiceLevelObjectiveMetricsSeriesMetadata model = new HistoryServiceLevelObjectiveMetricsSeriesMetadata();
+public class SLOHistoryMetricsSeriesMetadataTest {
+    private final SLOHistoryMetricsSeriesMetadata model = new SLOHistoryMetricsSeriesMetadata();
 
     /**
-     * Model tests for HistoryServiceLevelObjectiveMetricsSeriesMetadata
+     * Model tests for SLOHistoryMetricsSeriesMetadata
      */
     @Test
-    public void testHistoryServiceLevelObjectiveMetricsSeriesMetadata() {
-        // TODO: test HistoryServiceLevelObjectiveMetricsSeriesMetadata
+    public void testSLOHistoryMetricsSeriesMetadata() {
+        // TODO: test SLOHistoryMetricsSeriesMetadata
     }
 
     /**

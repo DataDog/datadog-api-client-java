@@ -20,22 +20,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The type of the service level objective.
+ * A numeric representation of the type of the service level objective (0 for monitor, 1 for metric).  Always included in service level objective responses. Ignored in create/update requests.
  */
-public enum ServiceLevelObjectiveType {
+public enum SLOTypeNumeric {
   
-  METRIC("metric"),
+  MONITOR(0),
   
-  MONITOR("monitor");
+  METRIC(1);
 
-  private String value;
+  private Integer value;
 
-  ServiceLevelObjectiveType(String value) {
+  SLOTypeNumeric(Integer value) {
     this.value = value;
   }
 
   @JsonValue
-  public String getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -45,8 +45,8 @@ public enum ServiceLevelObjectiveType {
   }
 
   @JsonCreator
-  public static ServiceLevelObjectiveType fromValue(String value) {
-    for (ServiceLevelObjectiveType b : ServiceLevelObjectiveType.values()) {
+  public static SLOTypeNumeric fromValue(Integer value) {
+    for (SLOTypeNumeric b : SLOTypeNumeric.values()) {
       if (b.value.equals(value)) {
         return b;
       }

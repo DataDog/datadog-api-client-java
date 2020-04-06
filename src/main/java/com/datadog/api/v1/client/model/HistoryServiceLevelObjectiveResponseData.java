@@ -13,11 +13,11 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveMetrics;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveSLIData;
+import com.datadog.api.v1.client.model.SLOHistoryMetrics;
+import com.datadog.api.v1.client.model.SLOHistorySLIData;
 import com.datadog.api.v1.client.model.SLOThreshold;
-import com.datadog.api.v1.client.model.ServiceLevelObjectiveType;
-import com.datadog.api.v1.client.model.ServiceLevelObjectiveTypeNumeric;
+import com.datadog.api.v1.client.model.SLOType;
+import com.datadog.api.v1.client.model.SLOTypeNumeric;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -49,13 +49,13 @@ public class HistoryServiceLevelObjectiveResponseData {
   private Long fromTs;
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  private HistoryServiceLevelObjectiveSLIData groups;
+  private SLOHistorySLIData groups;
 
   public static final String JSON_PROPERTY_OVERALL = "overall";
-  private HistoryServiceLevelObjectiveSLIData overall;
+  private SLOHistorySLIData overall;
 
   public static final String JSON_PROPERTY_SERIES = "series";
-  private HistoryServiceLevelObjectiveMetrics series;
+  private SLOHistoryMetrics series;
 
   public static final String JSON_PROPERTY_THRESHOLDS = "thresholds";
   private Map<String, SLOThreshold> thresholds = null;
@@ -64,10 +64,10 @@ public class HistoryServiceLevelObjectiveResponseData {
   private Long toTs;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ServiceLevelObjectiveType type;
+  private SLOType type;
 
   public static final String JSON_PROPERTY_TYPE_ID = "type_id";
-  private ServiceLevelObjectiveTypeNumeric typeId;
+  private SLOTypeNumeric typeId;
 
 
   public HistoryServiceLevelObjectiveResponseData fromTs(Long fromTs) {
@@ -95,7 +95,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData groups(HistoryServiceLevelObjectiveSLIData groups) {
+  public HistoryServiceLevelObjectiveResponseData groups(SLOHistorySLIData groups) {
     
     this.groups = groups;
     return this;
@@ -110,17 +110,17 @@ public class HistoryServiceLevelObjectiveResponseData {
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public HistoryServiceLevelObjectiveSLIData getGroups() {
+  public SLOHistorySLIData getGroups() {
     return groups;
   }
 
 
-  public void setGroups(HistoryServiceLevelObjectiveSLIData groups) {
+  public void setGroups(SLOHistorySLIData groups) {
     this.groups = groups;
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData overall(HistoryServiceLevelObjectiveSLIData overall) {
+  public HistoryServiceLevelObjectiveResponseData overall(SLOHistorySLIData overall) {
     
     this.overall = overall;
     return this;
@@ -135,17 +135,17 @@ public class HistoryServiceLevelObjectiveResponseData {
   @JsonProperty(JSON_PROPERTY_OVERALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public HistoryServiceLevelObjectiveSLIData getOverall() {
+  public SLOHistorySLIData getOverall() {
     return overall;
   }
 
 
-  public void setOverall(HistoryServiceLevelObjectiveSLIData overall) {
+  public void setOverall(SLOHistorySLIData overall) {
     this.overall = overall;
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData series(HistoryServiceLevelObjectiveMetrics series) {
+  public HistoryServiceLevelObjectiveResponseData series(SLOHistoryMetrics series) {
     
     this.series = series;
     return this;
@@ -160,12 +160,12 @@ public class HistoryServiceLevelObjectiveResponseData {
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public HistoryServiceLevelObjectiveMetrics getSeries() {
+  public SLOHistoryMetrics getSeries() {
     return series;
   }
 
 
-  public void setSeries(HistoryServiceLevelObjectiveMetrics series) {
+  public void setSeries(SLOHistoryMetrics series) {
     this.series = series;
   }
 
@@ -228,7 +228,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData type(ServiceLevelObjectiveType type) {
+  public HistoryServiceLevelObjectiveResponseData type(SLOType type) {
     
     this.type = type;
     return this;
@@ -243,17 +243,17 @@ public class HistoryServiceLevelObjectiveResponseData {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ServiceLevelObjectiveType getType() {
+  public SLOType getType() {
     return type;
   }
 
 
-  public void setType(ServiceLevelObjectiveType type) {
+  public void setType(SLOType type) {
     this.type = type;
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData typeId(ServiceLevelObjectiveTypeNumeric typeId) {
+  public HistoryServiceLevelObjectiveResponseData typeId(SLOTypeNumeric typeId) {
     
     this.typeId = typeId;
     return this;
@@ -268,12 +268,12 @@ public class HistoryServiceLevelObjectiveResponseData {
   @JsonProperty(JSON_PROPERTY_TYPE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ServiceLevelObjectiveTypeNumeric getTypeId() {
+  public SLOTypeNumeric getTypeId() {
     return typeId;
   }
 
 
-  public void setTypeId(ServiceLevelObjectiveTypeNumeric typeId) {
+  public void setTypeId(SLOTypeNumeric typeId) {
     this.typeId = typeId;
   }
 

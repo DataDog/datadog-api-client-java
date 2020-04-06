@@ -11,6 +11,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.model.SyntheticsWarningType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

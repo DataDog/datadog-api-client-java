@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import com.datadog.api.v1.client.model.SyntheticsBrowserError;
 import com.datadog.api.v1.client.model.SyntheticsCheckType;
+import com.datadog.api.v1.client.model.SyntheticsPlayingTab;
 import com.datadog.api.v1.client.model.SyntheticsResource;
 import com.datadog.api.v1.client.model.SyntheticsStepDetailWarnings;
 import com.datadog.api.v1.client.model.SyntheticsStepType;

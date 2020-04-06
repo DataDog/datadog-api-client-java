@@ -11,6 +11,8 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.model.WidgetFieldSort;
+import com.datadog.api.v1.client.model.WidgetMessageDisplay;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -60,11 +62,43 @@ public class LogStreamWidgetDefinitionTest {
     }
 
     /**
+     * Test the property 'messageDisplay'
+     */
+    @Test
+    public void messageDisplayTest() {
+        // TODO: test messageDisplay
+    }
+
+    /**
      * Test the property 'query'
      */
     @Test
     public void queryTest() {
         // TODO: test query
+    }
+
+    /**
+     * Test the property 'showDateColumn'
+     */
+    @Test
+    public void showDateColumnTest() {
+        // TODO: test showDateColumn
+    }
+
+    /**
+     * Test the property 'showMessageColumn'
+     */
+    @Test
+    public void showMessageColumnTest() {
+        // TODO: test showMessageColumn
+    }
+
+    /**
+     * Test the property 'sort'
+     */
+    @Test
+    public void sortTest() {
+        // TODO: test sort
     }
 
     /**
