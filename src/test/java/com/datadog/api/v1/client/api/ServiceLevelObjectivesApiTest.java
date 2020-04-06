@@ -160,15 +160,15 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         HistoryServiceLevelObjectiveResponse historyResp = api.historyForSLO(edited.getId())
                 .fromTs(Long.toString(time - 11)).toTs(Long.toString(time - 1)).execute();
 
-        HistorySLOSLIData overall = historyResp.getData().getOverall();
+        SLOHistorySLIData overall = historyResp.getData().getOverall();
         Double sliValue = overall.getSliValue();
         assertNotNull(sliValue);
         assertEquals(50, Math.round(sliValue));
 
-        HistorySLOMetrics series = historyResp.getData().getSeries();
+        SLOHistoryMetrics series = historyResp.getData().getSeries();
         assertNotNull(series);
         assertNotNull(series.getTimes());
-        HistorySLOMetricsSeries numerator = series.getNumerator();
+        SLOHistoryMetricsSeries numerator = series.getNumerator();
         assertNotNull(numerator);
         assertNotNull(numerator.getValues());
 
