@@ -30,11 +30,11 @@ import static org.junit.Assert.*;
 public class DashboardsApiTest extends V1ApiTest{
 
     private static DashboardsApi api;
-    private static SloApi sloApi;
+    private static ServiceLevelObjectivesApi sloApi;
     private List<String> cleanupDashIDs = new ArrayList<>();
     private String deleteSLO = null;
     private final ServiceLevelObjective eventSLO = new ServiceLevelObjective()
-            .type(ServiceLevelObjectiveType.METRIC)
+            .type(SLOType.METRIC)
             .name("HTTP Return Codes")
             .description("Make sure we don't have too many failed HTTP responses")
             .thresholds(Arrays.asList(new SLOThreshold()
@@ -53,7 +53,7 @@ public class DashboardsApiTest extends V1ApiTest{
     @BeforeClass
     public static void initAPI() {
         api = new DashboardsApi(generalApiClient);
-        sloApi = new SloApi(generalApiClient);
+        sloApi = new ServiceLevelObjectivesApi(generalApiClient);
     }
 
     @After
