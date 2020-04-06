@@ -4,17 +4,17 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addToHostTags**](TagsApi.md#addToHostTags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host
-[**getAllHostTags**](TagsApi.md#getAllHostTags) | **GET** /api/v1/tags/hosts | Get Tags
+[**createHostTags**](TagsApi.md#createHostTags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host
+[**deleteHostTags**](TagsApi.md#deleteHostTags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags
 [**getHostTags**](TagsApi.md#getHostTags) | **GET** /api/v1/tags/hosts/{host_name} | Get host tags
-[**removeHostTags**](TagsApi.md#removeHostTags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags
+[**listHostTags**](TagsApi.md#listHostTags) | **GET** /api/v1/tags/hosts | Get Tags
 [**updateHostTags**](TagsApi.md#updateHostTags) | **PUT** /api/v1/tags/hosts/{host_name} | Update host tags
 
 
 
-## addToHostTags
+## createHostTags
 
-> HostTags addToHostTags(hostName).body(body).source(source).execute();
+> HostTags createHostTags(hostName).body(body).source(source).execute();
 
 Add tags to a host
 
@@ -54,13 +54,13 @@ public class Example {
         HostTags body = new HostTags(); // HostTags | Add tags to host
         String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
         try {
-            HostTags result = api.addToHostTags(hostName)
+            HostTags result = api.createHostTags(hostName)
                 .body(body)
                 .source(source)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling TagsApi#addToHostTags");
+            System.err.println("Exception when calling TagsApi#createHostTags");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -100,13 +100,14 @@ Name | Type | Description  | Notes
 | **401** | Authentication Error |  -  |
 
 
-## getAllHostTags
+## deleteHostTags
 
-> TagToHosts getAllHostTags().source(source).execute();
+> deleteHostTags(hostName).source(source).execute();
 
-Get Tags
+Remove host tags
 
-Return a mapping of tags to hosts for your whole infrastructure.
+This endpoint allows you to remove all user-assigned tags
+for a single host.
 
 ### Example
 
@@ -137,14 +138,14 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         TagsApi apiInstance = new TagsApi(defaultClient);
-        String source = "source_example"; // String | When specified, filters host list to those tags with the specified source.
+        String hostName = "hostName_example"; // String | This endpoint allows you to remove all user-assigned tags for a single host.
+        String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
         try {
-            TagToHosts result = api.getAllHostTags()
+            api.deleteHostTags(hostName)
                 .source(source)
                 .execute();
-            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling TagsApi#getAllHostTags");
+            System.err.println("Exception when calling TagsApi#deleteHostTags");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -159,11 +160,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source** | **String**| When specified, filters host list to those tags with the specified source. | [optional]
+ **hostName** | **String**| This endpoint allows you to remove all user-assigned tags for a single host. |
+ **source** | **String**| The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional]
 
 ### Return type
 
-[**TagToHosts**](TagToHosts.md)
+null (empty response body)
 
 ### Authorization
 
@@ -177,7 +179,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **204** | OK |  -  |
 | **400** | Bad request |  -  |
 | **401** | Authentication Error |  -  |
 
@@ -266,14 +268,13 @@ Name | Type | Description  | Notes
 | **401** | Authentication Error |  -  |
 
 
-## removeHostTags
+## listHostTags
 
-> removeHostTags(hostName).source(source).execute();
+> TagToHosts listHostTags().source(source).execute();
 
-Remove host tags
+Get Tags
 
-This endpoint allows you to remove all user-assigned tags
-for a single host.
+Return a mapping of tags to hosts for your whole infrastructure.
 
 ### Example
 
@@ -304,14 +305,14 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         TagsApi apiInstance = new TagsApi(defaultClient);
-        String hostName = "hostName_example"; // String | This endpoint allows you to remove all user-assigned tags for a single host.
-        String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+        String source = "source_example"; // String | When specified, filters host list to those tags with the specified source.
         try {
-            api.removeHostTags(hostName)
+            TagToHosts result = api.listHostTags()
                 .source(source)
                 .execute();
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling TagsApi#removeHostTags");
+            System.err.println("Exception when calling TagsApi#listHostTags");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -326,12 +327,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hostName** | **String**| This endpoint allows you to remove all user-assigned tags for a single host. |
- **source** | **String**| The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional]
+ **source** | **String**| When specified, filters host list to those tags with the specified source. | [optional]
 
 ### Return type
 
-null (empty response body)
+[**TagToHosts**](TagToHosts.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | OK |  -  |
+| **200** | OK |  -  |
 | **400** | Bad request |  -  |
 | **401** | Authentication Error |  -  |
 

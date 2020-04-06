@@ -341,105 +341,6 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
     return new APIcreateDowntimeRequest();
   }
 
-private ApiResponse<List<Downtime>> getAllDowntimesWithHttpInfo(Boolean currentOnly) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/downtime";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", currentOnly));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<List<Downtime>> localVarReturnType = new GenericType<List<Downtime>>() {};
-    return apiClient.invokeAPI("DowntimesApi.getAllDowntimes", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllDowntimesRequest {
-    private Boolean currentOnly;
-
-    private APIgetAllDowntimesRequest() {
-    }
-    
-
-    /**
-     * Set currentOnly
-     * @param currentOnly Only return downtimes that are active when the request is made. (optional)
-     * @return APIgetAllDowntimesRequest
-     */
-    public APIgetAllDowntimesRequest currentOnly(Boolean currentOnly) {
-      this.currentOnly = currentOnly;
-      return this;
-    }
-    
-
-    /**
-     * Execute getAllDowntimes request
-     * @return List&lt;Downtime&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public List<Downtime> execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllDowntimes request with HTTP info returned
-     * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<List<Downtime>> executeWithHttpInfo() throws ApiException {
-      return getAllDowntimesWithHttpInfo(currentOnly);
-    }
-  }
-
-  /**
-   * Get all downtimes
-   * Get all scheduled downtimes.
-   * @return getAllDowntimesRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllDowntimesRequest getAllDowntimes() throws ApiException {
-    return new APIgetAllDowntimesRequest();
-  }
-
 private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws ApiException {
     Object localVarPostBody = null;
     
@@ -533,6 +434,105 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
   
   public APIgetDowntimeRequest getDowntime(Long downtimeId) throws ApiException {
     return new APIgetDowntimeRequest(downtimeId);
+  }
+
+private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnly) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/downtime";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", currentOnly));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<List<Downtime>> localVarReturnType = new GenericType<List<Downtime>>() {};
+    return apiClient.invokeAPI("DowntimesApi.listDowntimes", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistDowntimesRequest {
+    private Boolean currentOnly;
+
+    private APIlistDowntimesRequest() {
+    }
+    
+
+    /**
+     * Set currentOnly
+     * @param currentOnly Only return downtimes that are active when the request is made. (optional)
+     * @return APIlistDowntimesRequest
+     */
+    public APIlistDowntimesRequest currentOnly(Boolean currentOnly) {
+      this.currentOnly = currentOnly;
+      return this;
+    }
+    
+
+    /**
+     * Execute listDowntimes request
+     * @return List&lt;Downtime&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public List<Downtime> execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listDowntimes request with HTTP info returned
+     * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<List<Downtime>> executeWithHttpInfo() throws ApiException {
+      return listDowntimesWithHttpInfo(currentOnly);
+    }
+  }
+
+  /**
+   * Get all downtimes
+   * Get all scheduled downtimes.
+   * @return listDowntimesRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistDowntimesRequest listDowntimes() throws ApiException {
+    return new APIlistDowntimesRequest();
   }
 
 private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downtime body) throws ApiException {

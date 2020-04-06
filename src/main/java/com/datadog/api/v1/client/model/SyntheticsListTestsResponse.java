@@ -13,49 +13,59 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
+import com.datadog.api.v1.client.model.SyntheticsTestDetails;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsSetTestPauseStatusPayload
+ * SyntheticsListTestsResponse
  */
 @JsonPropertyOrder({
-  SyntheticsSetTestPauseStatusPayload.JSON_PROPERTY_NEW_STATUS
+  SyntheticsListTestsResponse.JSON_PROPERTY_TESTS
 })
 
-public class SyntheticsSetTestPauseStatusPayload {
-  public static final String JSON_PROPERTY_NEW_STATUS = "new_status";
-  private SyntheticsTestPauseStatus newStatus;
+public class SyntheticsListTestsResponse {
+  public static final String JSON_PROPERTY_TESTS = "tests";
+  private List<SyntheticsTestDetails> tests = null;
 
 
-  public SyntheticsSetTestPauseStatusPayload newStatus(SyntheticsTestPauseStatus newStatus) {
+  public SyntheticsListTestsResponse tests(List<SyntheticsTestDetails> tests) {
     
-    this.newStatus = newStatus;
+    this.tests = tests;
+    return this;
+  }
+
+  public SyntheticsListTestsResponse addTestsItem(SyntheticsTestDetails testsItem) {
+    if (this.tests == null) {
+      this.tests = new ArrayList<>();
+    }
+    this.tests.add(testsItem);
     return this;
   }
 
    /**
-   * Get newStatus
-   * @return newStatus
+   * Get tests
+   * @return tests
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NEW_STATUS)
+  @JsonProperty(JSON_PROPERTY_TESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SyntheticsTestPauseStatus getNewStatus() {
-    return newStatus;
+  public List<SyntheticsTestDetails> getTests() {
+    return tests;
   }
 
 
-  public void setNewStatus(SyntheticsTestPauseStatus newStatus) {
-    this.newStatus = newStatus;
+  public void setTests(List<SyntheticsTestDetails> tests) {
+    this.tests = tests;
   }
 
 
@@ -67,21 +77,21 @@ public class SyntheticsSetTestPauseStatusPayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsSetTestPauseStatusPayload syntheticsSetTestPauseStatusPayload = (SyntheticsSetTestPauseStatusPayload) o;
-    return Objects.equals(this.newStatus, syntheticsSetTestPauseStatusPayload.newStatus);
+    SyntheticsListTestsResponse syntheticsListTestsResponse = (SyntheticsListTestsResponse) o;
+    return Objects.equals(this.tests, syntheticsListTestsResponse.tests);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newStatus);
+    return Objects.hash(tests);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsSetTestPauseStatusPayload {\n");
-    sb.append("    newStatus: ").append(toIndentedString(newStatus)).append("\n");
+    sb.append("class SyntheticsListTestsResponse {\n");
+    sb.append("    tests: ").append(toIndentedString(tests)).append("\n");
     sb.append("}");
     return sb.toString();
   }

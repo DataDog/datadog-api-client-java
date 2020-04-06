@@ -39,235 +39,6 @@ public class MetricsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<MetricMetadata> editMetricMetadataWithHttpInfo(String metricName, MetricMetadata body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'metricName' is set
-    if (metricName == null) {
-      throw new ApiException(400, "Missing the required parameter 'metricName' when calling editMetricMetadata");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling editMetricMetadata");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/metrics/{metric_name}"
-      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<MetricMetadata> localVarReturnType = new GenericType<MetricMetadata>() {};
-    return apiClient.invokeAPI("MetricsApi.editMetricMetadata", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIeditMetricMetadataRequest {
-    private String metricName;
-    private MetricMetadata body;
-
-    private APIeditMetricMetadataRequest(String metricName) {
-      this.metricName = metricName;
-    }
-    
-
-    /**
-     * Set body
-     * @param body New metadata. (required)
-     * @return APIeditMetricMetadataRequest
-     */
-    public APIeditMetricMetadataRequest body(MetricMetadata body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute editMetricMetadata request
-     * @return MetricMetadata
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public MetricMetadata execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute editMetricMetadata request with HTTP info returned
-     * @return ApiResponse&lt;MetricMetadata&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<MetricMetadata> executeWithHttpInfo() throws ApiException {
-      return editMetricMetadataWithHttpInfo(metricName, body);
-    }
-  }
-
-  /**
-   * Edit metric metadata
-   * Edit metadata of a specific metric.
-   * @param metricName Name of the metric for which to edit metadata. (required)
-   * @return editMetricMetadataRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIeditMetricMetadataRequest editMetricMetadata(String metricName) throws ApiException {
-    return new APIeditMetricMetadataRequest(metricName);
-  }
-
-private ApiResponse<MetricsListResponse> getAllActiveMetricsWithHttpInfo(Long from, String host) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'from' is set
-    if (from == null) {
-      throw new ApiException(400, "Missing the required parameter 'from' when calling getAllActiveMetrics");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/metrics";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "host", host));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<MetricsListResponse> localVarReturnType = new GenericType<MetricsListResponse>() {};
-    return apiClient.invokeAPI("MetricsApi.getAllActiveMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllActiveMetricsRequest {
-    private Long from;
-    private String host;
-
-    private APIgetAllActiveMetricsRequest() {
-    }
-    
-
-    /**
-     * Set from
-     * @param from Seconds since the Unix epoch (required)
-     * @return APIgetAllActiveMetricsRequest
-     */
-    public APIgetAllActiveMetricsRequest from(Long from) {
-      this.from = from;
-      return this;
-    }
-    
-
-    /**
-     * Set host
-     * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. (optional)
-     * @return APIgetAllActiveMetricsRequest
-     */
-    public APIgetAllActiveMetricsRequest host(String host) {
-      this.host = host;
-      return this;
-    }
-    
-
-    /**
-     * Execute getAllActiveMetrics request
-     * @return MetricsListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public MetricsListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllActiveMetrics request with HTTP info returned
-     * @return ApiResponse&lt;MetricsListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<MetricsListResponse> executeWithHttpInfo() throws ApiException {
-      return getAllActiveMetricsWithHttpInfo(from, host);
-    }
-  }
-
-  /**
-   * Get active metrics list
-   * Get the list of actively reporting metrics from a given time until now.
-   * @return getAllActiveMetricsRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllActiveMetricsRequest getAllActiveMetrics() throws ApiException {
-    return new APIgetAllActiveMetricsRequest();
-  }
-
 private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricName) throws ApiException {
     Object localVarPostBody = null;
     
@@ -361,6 +132,229 @@ private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricN
   
   public APIgetMetricMetadataRequest getMetricMetadata(String metricName) throws ApiException {
     return new APIgetMetricMetadataRequest(metricName);
+  }
+
+private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from, String host) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'from' is set
+    if (from == null) {
+      throw new ApiException(400, "Missing the required parameter 'from' when calling listActiveMetrics");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/metrics";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "host", host));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<MetricsListResponse> localVarReturnType = new GenericType<MetricsListResponse>() {};
+    return apiClient.invokeAPI("MetricsApi.listActiveMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistActiveMetricsRequest {
+    private Long from;
+    private String host;
+
+    private APIlistActiveMetricsRequest() {
+    }
+    
+
+    /**
+     * Set from
+     * @param from Seconds since the Unix epoch (required)
+     * @return APIlistActiveMetricsRequest
+     */
+    public APIlistActiveMetricsRequest from(Long from) {
+      this.from = from;
+      return this;
+    }
+    
+
+    /**
+     * Set host
+     * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. (optional)
+     * @return APIlistActiveMetricsRequest
+     */
+    public APIlistActiveMetricsRequest host(String host) {
+      this.host = host;
+      return this;
+    }
+    
+
+    /**
+     * Execute listActiveMetrics request
+     * @return MetricsListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public MetricsListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listActiveMetrics request with HTTP info returned
+     * @return ApiResponse&lt;MetricsListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<MetricsListResponse> executeWithHttpInfo() throws ApiException {
+      return listActiveMetricsWithHttpInfo(from, host);
+    }
+  }
+
+  /**
+   * Get active metrics list
+   * Get the list of actively reporting metrics from a given time until now.
+   * @return listActiveMetricsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistActiveMetricsRequest listActiveMetrics() throws ApiException {
+    return new APIlistActiveMetricsRequest();
+  }
+
+private ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'q' is set
+    if (q == null) {
+      throw new ApiException(400, "Missing the required parameter 'q' when calling listMetrics");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/search";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "q", q));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<MetricSearchResponse> localVarReturnType = new GenericType<MetricSearchResponse>() {};
+    return apiClient.invokeAPI("MetricsApi.listMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistMetricsRequest {
+    private String q;
+
+    private APIlistMetricsRequest() {
+    }
+    
+
+    /**
+     * Set q
+     * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. (required)
+     * @return APIlistMetricsRequest
+     */
+    public APIlistMetricsRequest q(String q) {
+      this.q = q;
+      return this;
+    }
+    
+
+    /**
+     * Execute listMetrics request
+     * @return MetricSearchResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public MetricSearchResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listMetrics request with HTTP info returned
+     * @return ApiResponse&lt;MetricSearchResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<MetricSearchResponse> executeWithHttpInfo() throws ApiException {
+      return listMetricsWithHttpInfo(q);
+    }
+  }
+
+  /**
+   * Search metrics
+   * Search for metrics from the last 24 hours in Datadog.
+   * @return listMetricsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistMetricsRequest listMetrics() throws ApiException {
+    return new APIlistMetricsRequest();
   }
 
 private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Long to, String query) throws ApiException {
@@ -503,16 +497,22 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
     return new APIqueryMetricsRequest();
   }
 
-private ApiResponse<MetricSearchResponse> searchMetricsWithHttpInfo(String q) throws ApiException {
-    Object localVarPostBody = null;
+private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(String metricName, MetricMetadata body) throws ApiException {
+    Object localVarPostBody = body;
     
-    // verify the required parameter 'q' is set
-    if (q == null) {
-      throw new ApiException(400, "Missing the required parameter 'q' when calling searchMetrics");
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(400, "Missing the required parameter 'metricName' when calling updateMetricMetadata");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateMetricMetadata");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/search";
+    String localVarPath = "/api/v1/metrics/{metric_name}"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -520,7 +520,6 @@ private ApiResponse<MetricSearchResponse> searchMetricsWithHttpInfo(String q) th
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "q", q));
 
     
     
@@ -531,81 +530,82 @@ private ApiResponse<MetricSearchResponse> searchMetricsWithHttpInfo(String q) th
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<MetricSearchResponse> localVarReturnType = new GenericType<MetricSearchResponse>() {};
-    return apiClient.invokeAPI("MetricsApi.searchMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    GenericType<MetricMetadata> localVarReturnType = new GenericType<MetricMetadata>() {};
+    return apiClient.invokeAPI("MetricsApi.updateMetricMetadata", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
-  public class APIsearchMetricsRequest {
-    private String q;
+  public class APIupdateMetricMetadataRequest {
+    private String metricName;
+    private MetricMetadata body;
 
-    private APIsearchMetricsRequest() {
+    private APIupdateMetricMetadataRequest(String metricName) {
+      this.metricName = metricName;
     }
     
 
     /**
-     * Set q
-     * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. (required)
-     * @return APIsearchMetricsRequest
+     * Set body
+     * @param body New metadata. (required)
+     * @return APIupdateMetricMetadataRequest
      */
-    public APIsearchMetricsRequest q(String q) {
-      this.q = q;
+    public APIupdateMetricMetadataRequest body(MetricMetadata body) {
+      this.body = body;
       return this;
     }
     
 
     /**
-     * Execute searchMetrics request
-     * @return MetricSearchResponse
+     * Execute updateMetricMetadata request
+     * @return MetricMetadata
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
     
-    public MetricSearchResponse execute() throws ApiException {
+    public MetricMetadata execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
-     * Execute searchMetrics request with HTTP info returned
-     * @return ApiResponse&lt;MetricSearchResponse&gt;
+     * Execute updateMetricMetadata request with HTTP info returned
+     * @return ApiResponse&lt;MetricMetadata&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
     
-    public ApiResponse<MetricSearchResponse> executeWithHttpInfo() throws ApiException {
-      return searchMetricsWithHttpInfo(q);
+    public ApiResponse<MetricMetadata> executeWithHttpInfo() throws ApiException {
+      return updateMetricMetadataWithHttpInfo(metricName, body);
     }
   }
 
   /**
-   * Search metrics
-   * Search for metrics from the last 24 hours in Datadog.
-   * @return searchMetricsRequest
+   * Edit metric metadata
+   * Edit metadata of a specific metric.
+   * @param metricName Name of the metric for which to edit metadata. (required)
+   * @return updateMetricMetadataRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIsearchMetricsRequest searchMetrics() throws ApiException {
-    return new APIsearchMetricsRequest();
+  public APIupdateMetricMetadataRequest updateMetricMetadata(String metricName) throws ApiException {
+    return new APIupdateMetricMetadataRequest(metricName);
   }
 }

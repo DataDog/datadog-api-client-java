@@ -143,6 +143,111 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
     return new APIcreateAWSAccountRequest();
   }
 
+private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo(AWSAccount body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createNewAWSExternalID");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/generate_new_external_id";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<AWSAccountCreateResponse> localVarReturnType = new GenericType<AWSAccountCreateResponse>() {};
+    return apiClient.invokeAPI("AwsIntegrationApi.createNewAWSExternalID", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIcreateNewAWSExternalIDRequest {
+    private AWSAccount body;
+
+    private APIcreateNewAWSExternalIDRequest() {
+    }
+    
+
+    /**
+     * Set body
+     * @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation). (required)
+     * @return APIcreateNewAWSExternalIDRequest
+     */
+    public APIcreateNewAWSExternalIDRequest body(AWSAccount body) {
+      this.body = body;
+      return this;
+    }
+    
+
+    /**
+     * Execute createNewAWSExternalID request
+     * @return AWSAccountCreateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public AWSAccountCreateResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createNewAWSExternalID request with HTTP info returned
+     * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
+      return createNewAWSExternalIDWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Generate New External ID
+   * Generate a new AWS external ID for a given AWS account ID and role name pair.
+   * @return createNewAWSExternalIDRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIcreateNewAWSExternalIDRequest createNewAWSExternalID() throws ApiException {
+    return new APIcreateNewAWSExternalIDRequest();
+  }
+
 private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
     Object localVarPostBody = body;
     
@@ -248,112 +353,7 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
     return new APIdeleteAWSAccountRequest();
   }
 
-private ApiResponse<AWSAccountCreateResponse> generateNewAWSExternalIDWithHttpInfo(AWSAccount body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling generateNewAWSExternalID");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integration/aws/generate_new_external_id";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<AWSAccountCreateResponse> localVarReturnType = new GenericType<AWSAccountCreateResponse>() {};
-    return apiClient.invokeAPI("AwsIntegrationApi.generateNewAWSExternalID", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgenerateNewAWSExternalIDRequest {
-    private AWSAccount body;
-
-    private APIgenerateNewAWSExternalIDRequest() {
-    }
-    
-
-    /**
-     * Set body
-     * @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation). (required)
-     * @return APIgenerateNewAWSExternalIDRequest
-     */
-    public APIgenerateNewAWSExternalIDRequest body(AWSAccount body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute generateNewAWSExternalID request
-     * @return AWSAccountCreateResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public AWSAccountCreateResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute generateNewAWSExternalID request with HTTP info returned
-     * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
-      return generateNewAWSExternalIDWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Generate New External ID
-   * Generate a new AWS external ID for a given AWS account ID and role name pair.
-   * @return generateNewAWSExternalIDRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgenerateNewAWSExternalIDRequest generateNewAWSExternalID() throws ApiException {
-    return new APIgenerateNewAWSExternalIDRequest();
-  }
-
-private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String accountId, String roleName, String accessKeyId) throws ApiException {
+private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String accountId, String roleName, String accessKeyId) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -385,24 +385,24 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<AWSAccountListResponse> localVarReturnType = new GenericType<AWSAccountListResponse>() {};
-    return apiClient.invokeAPI("AwsIntegrationApi.getAllAWSAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("AwsIntegrationApi.listAWSAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
-  public class APIgetAllAWSAccountsRequest {
+  public class APIlistAWSAccountsRequest {
     private String accountId;
     private String roleName;
     private String accessKeyId;
 
-    private APIgetAllAWSAccountsRequest() {
+    private APIlistAWSAccountsRequest() {
     }
     
 
     /**
      * Set accountId
      * @param accountId Only return AWS accounts that matches this account_id. (optional)
-     * @return APIgetAllAWSAccountsRequest
+     * @return APIlistAWSAccountsRequest
      */
-    public APIgetAllAWSAccountsRequest accountId(String accountId) {
+    public APIlistAWSAccountsRequest accountId(String accountId) {
       this.accountId = accountId;
       return this;
     }
@@ -411,9 +411,9 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
     /**
      * Set roleName
      * @param roleName Only return AWS accounts that matches this role_name. (optional)
-     * @return APIgetAllAWSAccountsRequest
+     * @return APIlistAWSAccountsRequest
      */
-    public APIgetAllAWSAccountsRequest roleName(String roleName) {
+    public APIlistAWSAccountsRequest roleName(String roleName) {
       this.roleName = roleName;
       return this;
     }
@@ -422,16 +422,16 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
     /**
      * Set accessKeyId
      * @param accessKeyId Only return AWS accounts that matches this access_key_id. (optional)
-     * @return APIgetAllAWSAccountsRequest
+     * @return APIlistAWSAccountsRequest
      */
-    public APIgetAllAWSAccountsRequest accessKeyId(String accessKeyId) {
+    public APIlistAWSAccountsRequest accessKeyId(String accessKeyId) {
       this.accessKeyId = accessKeyId;
       return this;
     }
     
 
     /**
-     * Execute getAllAWSAccounts request
+     * Execute listAWSAccounts request
      * @return AWSAccountListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -450,7 +450,7 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
     }
 
     /**
-     * Execute getAllAWSAccounts request with HTTP info returned
+     * Execute listAWSAccounts request with HTTP info returned
      * @return ApiResponse&lt;AWSAccountListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -465,21 +465,21 @@ private ApiResponse<AWSAccountListResponse> getAllAWSAccountsWithHttpInfo(String
      */
     
     public ApiResponse<AWSAccountListResponse> executeWithHttpInfo() throws ApiException {
-      return getAllAWSAccountsWithHttpInfo(accountId, roleName, accessKeyId);
+      return listAWSAccountsWithHttpInfo(accountId, roleName, accessKeyId);
     }
   }
 
   /**
    * List all AWS Integrations
    * List all Datadog-AWS integrations available in your Datadog organization.
-   * @return getAllAWSAccountsRequest
+   * @return listAWSAccountsRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIgetAllAWSAccountsRequest getAllAWSAccounts() throws ApiException {
-    return new APIgetAllAWSAccountsRequest();
+  public APIlistAWSAccountsRequest listAWSAccounts() throws ApiException {
+    return new APIlistAWSAccountsRequest();
   }
 
 private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {

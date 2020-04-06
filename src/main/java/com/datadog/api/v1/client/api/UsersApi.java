@@ -241,94 +241,6 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
     return new APIdisableUserRequest(userHandle);
   }
 
-private ApiResponse<UserListResponse> getAllUsersWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/user";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<UserListResponse> localVarReturnType = new GenericType<UserListResponse>() {};
-    return apiClient.invokeAPI("UsersApi.getAllUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllUsersRequest {
-
-    private APIgetAllUsersRequest() {
-    }
-    
-
-    /**
-     * Execute getAllUsers request
-     * @return UserListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public UserListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllUsers request with HTTP info returned
-     * @return ApiResponse&lt;UserListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<UserListResponse> executeWithHttpInfo() throws ApiException {
-      return getAllUsersWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get all users
-   * Get all users for your organization.
-   * @return getAllUsersRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllUsersRequest getAllUsers() throws ApiException {
-    return new APIgetAllUsersRequest();
-  }
-
 private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws ApiException {
     Object localVarPostBody = null;
     
@@ -424,6 +336,94 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
   
   public APIgetUserRequest getUser(String userHandle) throws ApiException {
     return new APIgetUserRequest(userHandle);
+  }
+
+private ApiResponse<UserListResponse> listUsersWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/user";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UserListResponse> localVarReturnType = new GenericType<UserListResponse>() {};
+    return apiClient.invokeAPI("UsersApi.listUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistUsersRequest {
+
+    private APIlistUsersRequest() {
+    }
+    
+
+    /**
+     * Execute listUsers request
+     * @return UserListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UserListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listUsers request with HTTP info returned
+     * @return ApiResponse&lt;UserListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<UserListResponse> executeWithHttpInfo() throws ApiException {
+      return listUsersWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all users
+   * Get all users for your organization.
+   * @return listUsersRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistUsersRequest listUsers() throws ApiException {
+    return new APIlistUsersRequest();
   }
 
 private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User body) throws ApiException {

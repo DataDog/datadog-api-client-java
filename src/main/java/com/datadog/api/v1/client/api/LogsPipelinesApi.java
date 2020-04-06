@@ -242,92 +242,6 @@ private ApiResponse<Void> deleteLogsPipelineWithHttpInfo(String pipelineId) thro
     return new APIdeleteLogsPipelineRequest(pipelineId);
   }
 
-private ApiResponse<List<LogsPipeline>> getAllLogsPipelinesWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/logs/config/pipelines";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<List<LogsPipeline>> localVarReturnType = new GenericType<List<LogsPipeline>>() {};
-    return apiClient.invokeAPI("LogsPipelinesApi.getAllLogsPipelines", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllLogsPipelinesRequest {
-
-    private APIgetAllLogsPipelinesRequest() {
-    }
-    
-
-    /**
-     * Execute getAllLogsPipelines request
-     * @return List&lt;LogsPipeline&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public List<LogsPipeline> execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllLogsPipelines request with HTTP info returned
-     * @return ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<List<LogsPipeline>> executeWithHttpInfo() throws ApiException {
-      return getAllLogsPipelinesWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get all Pipeline
-   * Get all pipelines from your organization. This endpoint takes no JSON arguments.
-   * @return getAllLogsPipelinesRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllLogsPipelinesRequest getAllLogsPipelines() throws ApiException {
-    return new APIgetAllLogsPipelinesRequest();
-  }
-
 private ApiResponse<LogsPipeline> getLogsPipelineWithHttpInfo(String pipelineId) throws ApiException {
     Object localVarPostBody = null;
     
@@ -509,6 +423,92 @@ private ApiResponse<LogsPipelinesOrder> getLogsPipelineOrderWithHttpInfo() throw
   
   public APIgetLogsPipelineOrderRequest getLogsPipelineOrder() throws ApiException {
     return new APIgetLogsPipelineOrderRequest();
+  }
+
+private ApiResponse<List<LogsPipeline>> listLogsPipelinesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/logs/config/pipelines";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<List<LogsPipeline>> localVarReturnType = new GenericType<List<LogsPipeline>>() {};
+    return apiClient.invokeAPI("LogsPipelinesApi.listLogsPipelines", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistLogsPipelinesRequest {
+
+    private APIlistLogsPipelinesRequest() {
+    }
+    
+
+    /**
+     * Execute listLogsPipelines request
+     * @return List&lt;LogsPipeline&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public List<LogsPipeline> execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listLogsPipelines request with HTTP info returned
+     * @return ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<List<LogsPipeline>> executeWithHttpInfo() throws ApiException {
+      return listLogsPipelinesWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all Pipeline
+   * Get all pipelines from your organization. This endpoint takes no JSON arguments.
+   * @return listLogsPipelinesRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistLogsPipelinesRequest listLogsPipelines() throws ApiException {
+    return new APIlistLogsPipelinesRequest();
   }
 
 private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipelineId, LogsPipeline body) throws ApiException {

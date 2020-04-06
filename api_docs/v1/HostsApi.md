@@ -4,110 +4,11 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllHosts**](HostsApi.md#getAllHosts) | **GET** /api/v1/hosts | Get all hosts for your organization
 [**getHostTotals**](HostsApi.md#getHostTotals) | **GET** /api/v1/hosts/totals | Get the total number of active hosts
+[**listHosts**](HostsApi.md#listHosts) | **GET** /api/v1/hosts | Get all hosts for your organization
 [**muteHost**](HostsApi.md#muteHost) | **POST** /api/v1/host/{host_name}/mute | Mute a host
 [**unmuteHost**](HostsApi.md#unmuteHost) | **POST** /api/v1/host/{host_name}/unmute | Unmute a host
 
-
-
-## getAllHosts
-
-> HostListResponse getAllHosts().filter(filter).sortField(sortField).sortDir(sortDir).start(start).count(count).from(from).execute();
-
-Get all hosts for your organization
-
-This endpoint allows searching for hosts by name, alias, or tag.
-Hosts live within the past 3 hours are included.
-Results are paginated with a max of 1000 results at a time.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.HostsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        HostsApi apiInstance = new HostsApi(defaultClient);
-        String filter = "filter_example"; // String | String to filter search results.
-        String sortField = "sortField_example"; // String | Sort hosts by this field.
-        String sortDir = "sortDir_example"; // String | Direction of sort. Options include `asc` and `desc`.
-        Long start = 56L; // Long | Host result to start search from.
-        Long count = 56L; // Long | Number of hosts to return. Max 1000.
-        Long from = 56L; // Long | Number of seconds since UNIX epoch from which you want to search your hosts.
-        try {
-            HostListResponse result = api.getAllHosts()
-                .filter(filter)
-                .sortField(sortField)
-                .sortDir(sortDir)
-                .start(start)
-                .count(count)
-                .from(from)
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling HostsApi#getAllHosts");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filter** | **String**| String to filter search results. | [optional]
- **sortField** | **String**| Sort hosts by this field. | [optional]
- **sortDir** | **String**| Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;. | [optional]
- **start** | **Long**| Host result to start search from. | [optional]
- **count** | **Long**| Number of hosts to return. Max 1000. | [optional]
- **from** | **Long**| Number of seconds since UNIX epoch from which you want to search your hosts. | [optional]
-
-### Return type
-
-[**HostListResponse**](HostListResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Invalid Parameter Error |  -  |
-| **404** | Host Not Found Error |  -  |
 
 
 ## getHostTotals
@@ -190,6 +91,105 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Invalid Parameter Error |  -  |
+
+
+## listHosts
+
+> HostListResponse listHosts().filter(filter).sortField(sortField).sortDir(sortDir).start(start).count(count).from(from).execute();
+
+Get all hosts for your organization
+
+This endpoint allows searching for hosts by name, alias, or tag.
+Hosts live within the past 3 hours are included.
+Results are paginated with a max of 1000 results at a time.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.HostsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        HostsApi apiInstance = new HostsApi(defaultClient);
+        String filter = "filter_example"; // String | String to filter search results.
+        String sortField = "sortField_example"; // String | Sort hosts by this field.
+        String sortDir = "sortDir_example"; // String | Direction of sort. Options include `asc` and `desc`.
+        Long start = 56L; // Long | Host result to start search from.
+        Long count = 56L; // Long | Number of hosts to return. Max 1000.
+        Long from = 56L; // Long | Number of seconds since UNIX epoch from which you want to search your hosts.
+        try {
+            HostListResponse result = api.listHosts()
+                .filter(filter)
+                .sortField(sortField)
+                .sortDir(sortDir)
+                .start(start)
+                .count(count)
+                .from(from)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling HostsApi#listHosts");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filter** | **String**| String to filter search results. | [optional]
+ **sortField** | **String**| Sort hosts by this field. | [optional]
+ **sortDir** | **String**| Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;. | [optional]
+ **start** | **Long**| Host result to start search from. | [optional]
+ **count** | **Long**| Number of hosts to return. Max 1000. | [optional]
+ **from** | **Long**| Number of seconds since UNIX epoch from which you want to search your hosts. | [optional]
+
+### Return type
+
+[**HostListResponse**](HostListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Invalid Parameter Error |  -  |
+| **404** | Host Not Found Error |  -  |
 
 
 ## muteHost

@@ -36,111 +36,6 @@ public class AzureIntegrationApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<Object> azureUpdateHostFiltersWithHttpInfo(AzureAccount body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling azureUpdateHostFilters");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integration/azure/host_filters";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AzureIntegrationApi.azureUpdateHostFilters", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIazureUpdateHostFiltersRequest {
-    private AzureAccount body;
-
-    private APIazureUpdateHostFiltersRequest() {
-    }
-    
-
-    /**
-     * Set body
-     * @param body Update a Datadog-Azure integration&#39;s host filters. (required)
-     * @return APIazureUpdateHostFiltersRequest
-     */
-    public APIazureUpdateHostFiltersRequest body(AzureAccount body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute azureUpdateHostFilters request
-     * @return Object
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public Object execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute azureUpdateHostFilters request with HTTP info returned
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-      return azureUpdateHostFiltersWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Update Azure integration host filters
-   * Update the defined list of host filters for a given Datadog-Azure integration.
-   * @return azureUpdateHostFiltersRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIazureUpdateHostFiltersRequest azureUpdateHostFilters() throws ApiException {
-    return new APIazureUpdateHostFiltersRequest();
-  }
-
 private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body) throws ApiException {
     Object localVarPostBody = body;
     
@@ -437,6 +332,111 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
   
   public APIlistAzureIntegrationRequest listAzureIntegration() throws ApiException {
     return new APIlistAzureIntegrationRequest();
+  }
+
+private ApiResponse<Object> updateAzureHostFiltersWithHttpInfo(AzureAccount body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateAzureHostFilters");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/azure/host_filters";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
+    return apiClient.invokeAPI("AzureIntegrationApi.updateAzureHostFilters", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIupdateAzureHostFiltersRequest {
+    private AzureAccount body;
+
+    private APIupdateAzureHostFiltersRequest() {
+    }
+    
+
+    /**
+     * Set body
+     * @param body Update a Datadog-Azure integration&#39;s host filters. (required)
+     * @return APIupdateAzureHostFiltersRequest
+     */
+    public APIupdateAzureHostFiltersRequest body(AzureAccount body) {
+      this.body = body;
+      return this;
+    }
+    
+
+    /**
+     * Execute updateAzureHostFilters request
+     * @return Object
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public Object execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateAzureHostFilters request with HTTP info returned
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
+      return updateAzureHostFiltersWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Update Azure integration host filters
+   * Update the defined list of host filters for a given Datadog-Azure integration.
+   * @return updateAzureHostFiltersRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIupdateAzureHostFiltersRequest updateAzureHostFilters() throws ApiException {
+    return new APIupdateAzureHostFiltersRequest();
   }
 
 private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body) throws ApiException {
