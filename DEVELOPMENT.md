@@ -56,7 +56,15 @@ We utilize a couple CI Providers to accomplish testing this project:
 | Integration Tests with Cassettes | [Github Actions](https://github.com/DataDog/datadog-api-client-java/blob/master/.github/workflows/test.yml) | Adding an extended matrix to quickly test multiple OS and language versions is quick in Github Actions.                                                  |
 | Unit Tests                       | Azure Pipelines and Github Actions                                                                          | Unit tests run fast with fixture data and are part of the regular test suite, as this is run on each test command invocation, its run in both providers. |
 
-See the `CI Provider` links above for the full natrix this project tests against. 
+See the `CI Provider` links above for the full matrix this project tests against. An explanation of the specific testing matrix entries follows:
+
+| Test Type                        | JDK                | Reason                                                                                                                                                                                                     |
+|----------------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Integration Tests with Cassettes | AdoptOpenJDK 8     | We want to support Java 8 as the minimal version                                                                                                                                                           |
+| Integration Tests with Cassettes | Amazon Corretto 11 | This client is used in [Datadog CloudFormation resources](https://github.com/DataDog/datadog-cloudformation-resources/) and we want to ensure it runs correctly on Amazon's JDK                            |
+| Integration Tests with Cassettes | Oracle JDK 13      | To guarantee compatibility with Oracle JDK                                                                                                                                                                 |
+| Integration Tests                | IBM JDK 8          | IBM JDK requires some special treatment in terms of TLS usage; it's currently impossible to use it to with cassettes because of a [mockserver issue](https://github.com/mock-server/mockserver/issues/750) |
+| Integration Tests                | OpenJDK 8          | To ensure all integration tests pass on a canonical OpenJDK version 8                                                                                                                                      |
 
 Tests running in Github Actions are those that __require no__ secrets, to allow for PRs created from forks to run as expected. These are the unit tests and Integration tests with cassettes. These tests are run on each commit from a PR. 
 

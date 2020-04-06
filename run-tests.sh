@@ -26,4 +26,4 @@ else
     echo "LICENSE-3rdparty.csv is up to date"
 fi
 
-mvn --batch-mode test
+mvn --show-version --batch-mode test
