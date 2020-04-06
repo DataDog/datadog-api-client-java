@@ -117,7 +117,7 @@ public class MonitorsApiTest extends V1ApiTest {
      * Get all monitors
      */
     @Test
-    public void getAllMonitorsTest() throws ApiException {
+    public void listMonitorsTest() throws ApiException {
         ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
         for (String prefix: prefixes) {
             Monitor monitor = new Monitor()

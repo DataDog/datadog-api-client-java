@@ -96,7 +96,7 @@ public class UsersApiTest extends V1ApiTest {
      * Get all users
      */
     @Test
-    public void getAllUsersTest() throws ApiException {
+    public void listUsersTest() throws ApiException {
         Assume.assumeTrue("This test does not support replay from recording", TestUtils.isRecording());
         ArrayList<String> prefixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
         for (String prefix: prefixes) {

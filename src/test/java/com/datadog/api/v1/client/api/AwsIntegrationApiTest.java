@@ -133,7 +133,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getAllAWSAccountsTest() throws ApiException, TestUtils.RetryException {
+    public void listAWSAccountsTest() throws ApiException, TestUtils.RetryException {
         List<AWSAccount> awsAccounts = new ArrayList<AWSAccount>();
         Map<String, Boolean> accountSpecificNamespaceRules = new HashMap<String, Boolean>();
         List<String> hostTags = new ArrayList<String>();

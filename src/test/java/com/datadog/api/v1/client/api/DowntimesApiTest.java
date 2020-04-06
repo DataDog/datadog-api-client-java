@@ -123,7 +123,7 @@ public class DowntimesApiTest extends V1ApiTest {
      * Get all downtimes
      */
     @Test
-    public void getAllDowntimesTest() throws ApiException {
+    public void listDowntimesTest() throws ApiException {
         ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
         for (String prefix: prefixes) {
             Downtime downtime = new Downtime()
