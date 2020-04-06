@@ -150,13 +150,13 @@ public class SyntheticsApiTest extends V1ApiTest {
         // NOTE: API tests are started by default, so we have to stop it first
         // Stop API test
         pauseStatus = api.updateTestPauseStatus(publicId)
-                .body(new SyntheticsSetTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.PAUSED))
+                .body(new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.PAUSED))
                 .execute();
         assertEquals(true, pauseStatus);
 
         // Start API test
         pauseStatus = api.updateTestPauseStatus(publicId)
-                .body(new SyntheticsSetTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE))
+                .body(new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE))
                 .execute();
         assertEquals(true, pauseStatus);
 
@@ -241,13 +241,13 @@ public class SyntheticsApiTest extends V1ApiTest {
         // NOTE: Browser tests are paused by default, so we have to run it first
         // Start Browser test
         pauseStatus = api.updateTestPauseStatus(publicId)
-                .body(new SyntheticsSetTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE))
+                .body(new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE))
                 .execute();
         assertEquals(true, pauseStatus);
 
         // Stop Browser test
         pauseStatus = api.updateTestPauseStatus(publicId)
-                .body(new SyntheticsSetTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.PAUSED))
+                .body(new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.PAUSED))
                 .execute();
         assertEquals(true, pauseStatus);
 
@@ -290,7 +290,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     @Test
     public void testSyntheticsMultipleTestsOperations() throws ApiException {
         SyntheticsTestDetails syntAPI, syntBrowser;
-        SyntheticsGetAllTestsResponse allTests;
+        SyntheticsListTestsResponse allTests;
 
         syntAPI = api.createTest().body(apiTestConfig).execute();
         deleteSyntheticsTests.add(syntAPI.getPublicId());
@@ -303,13 +303,13 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
-    public void testSyntheticsGetAllLocations() throws ApiException {
+    public void testSyntheticsListLocations() throws ApiException {
         SyntheticsLocations locs = api.listLocations().execute();
         assertFalse(locs.getLocations().isEmpty());
     }
 
     @Test
-    public void testSyntheticsGetAllDevices() throws ApiException {
+    public void testSyntheticsListDevices() throws ApiException {
         SyntheticsDevices devs = api.listDevices().execute();
         assertFalse(devs.getDevices().isEmpty());
     }
