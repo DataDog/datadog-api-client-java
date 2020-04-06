@@ -15,9 +15,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.SLOThreshold;
+import com.datadog.api.v1.client.model.SLOType;
+import com.datadog.api.v1.client.model.SLOTypeNumeric;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveQuery;
-import com.datadog.api.v1.client.model.ServiceLevelObjectiveType;
-import com.datadog.api.v1.client.model.ServiceLevelObjectiveTypeNumeric;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -90,10 +90,10 @@ public class ServiceLevelObjective {
   private List<SLOThreshold> thresholds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ServiceLevelObjectiveType type;
+  private SLOType type;
 
   public static final String JSON_PROPERTY_TYPE_ID = "type_id";
-  private ServiceLevelObjectiveTypeNumeric typeId;
+  private SLOTypeNumeric typeId;
 
 
    /**
@@ -414,7 +414,7 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective type(ServiceLevelObjectiveType type) {
+  public ServiceLevelObjective type(SLOType type) {
     
     this.type = type;
     return this;
@@ -428,17 +428,17 @@ public class ServiceLevelObjective {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ServiceLevelObjectiveType getType() {
+  public SLOType getType() {
     return type;
   }
 
 
-  public void setType(ServiceLevelObjectiveType type) {
+  public void setType(SLOType type) {
     this.type = type;
   }
 
 
-  public ServiceLevelObjective typeId(ServiceLevelObjectiveTypeNumeric typeId) {
+  public ServiceLevelObjective typeId(SLOTypeNumeric typeId) {
     
     this.typeId = typeId;
     return this;
@@ -453,12 +453,12 @@ public class ServiceLevelObjective {
   @JsonProperty(JSON_PROPERTY_TYPE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ServiceLevelObjectiveTypeNumeric getTypeId() {
+  public SLOTypeNumeric getTypeId() {
     return typeId;
   }
 
 
-  public void setTypeId(ServiceLevelObjectiveTypeNumeric typeId) {
+  public void setTypeId(SLOTypeNumeric typeId) {
     this.typeId = typeId;
   }
 

@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **query** | [**ServiceLevelObjectiveQuery**](ServiceLevelObjectiveQuery.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** | A list of tags (e.g. \&quot;env:prod\&quot;) associated with this service level objective.  Always included in service level objective responses (but may be empty). Optional in create/update requests. |  [optional]
 **thresholds** | [**List&lt;SLOThreshold&gt;**](SLOThreshold.md) | The thresholds (timeframes and associated targets) for this service level objective object. | 
-**type** | [**ServiceLevelObjectiveType**](ServiceLevelObjectiveType.md) |  | 
-**typeId** | [**ServiceLevelObjectiveTypeNumeric**](ServiceLevelObjectiveTypeNumeric.md) |  |  [optional]
+**type** | [**SLOType**](SLOType.md) |  | 
+**typeId** | [**SLOTypeNumeric**](SLOTypeNumeric.md) |  |  [optional]
 
 
 
