@@ -11,8 +11,6 @@
 
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.datadog.api.v1.client.model.LogsArithmeticProcessor;
 import com.datadog.api.v1.client.model.LogsAttributeRemapper;
 import com.datadog.api.v1.client.model.LogsCategoryProcessor;
@@ -42,28 +40,13 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.junit.Assert;
+import org.junit.Ignore;
+import org.junit.Test;
 
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = LogsArithmeticProcessor.class, name = "arithmetic-processor"),
-  @JsonSubTypes.Type(value = LogsAttributeRemapper.class, name = "attribute-remapper"),
-  @JsonSubTypes.Type(value = LogsCategoryProcessor.class, name = "category-processor"),
-  @JsonSubTypes.Type(value = LogsDateRemapper.class, name = "date-remapper"),
-  @JsonSubTypes.Type(value = LogsGeoIPParser.class, name = "geo-ip-parser"),
-  @JsonSubTypes.Type(value = LogsGrokParser.class, name = "grok-parser"),
-  @JsonSubTypes.Type(value = LogsLookupProcessor.class, name = "lookup-processor"),
-  @JsonSubTypes.Type(value = LogsMessageRemapper.class, name = "message-remapper"),
-  @JsonSubTypes.Type(value = LogsServiceRemapper.class, name = "service-remapper"),
-  @JsonSubTypes.Type(value = LogsStatusRemapper.class, name = "status-remapper"),
-  @JsonSubTypes.Type(value = LogsStringBuilderProcessor.class, name = "string-builder-processor"),
-  @JsonSubTypes.Type(value = LogsTraceRemapper.class, name = "trace-id-remapper"),
-  @JsonSubTypes.Type(value = LogsURLParser.class, name = "url-parser"),
-  @JsonSubTypes.Type(value = LogsUserAgentParser.class, name = "user-agent-parser"),
-})
-
-public interface LogsProcessor  {
-    public String getType();
+/**
+ * Model tests for LogsProcessor
+ */
+public class LogsProcessorTest {
 }
-

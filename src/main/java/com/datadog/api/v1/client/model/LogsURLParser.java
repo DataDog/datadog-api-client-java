@@ -21,6 +21,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.datadog.api.v1.client.model.LogsProcessor;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -31,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "This processor extracts query parameters and other important parameters from a URL.")
 @JsonPropertyOrder({
+  LogsURLParser.JSON_PROPERTY_NORMALIZE_ENDING_SLASHES,
   LogsURLParser.JSON_PROPERTY_SOURCES,
   LogsURLParser.JSON_PROPERTY_TARGET,
   LogsURLParser.JSON_PROPERTY_TYPE,
@@ -39,6 +43,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 
 public class LogsURLParser implements LogsProcessor {
+  public static final String JSON_PROPERTY_NORMALIZE_ENDING_SLASHES = "normalize_ending_slashes";
+  private JsonNullable<Boolean> normalizeEndingSlashes = JsonNullable.<Boolean>of(false);
+
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<String> sources = new ArrayList<>();
 
@@ -53,6 +60,41 @@ public class LogsURLParser implements LogsProcessor {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+
+  public LogsURLParser normalizeEndingSlashes(Boolean normalizeEndingSlashes) {
+    this.normalizeEndingSlashes = JsonNullable.<Boolean>of(normalizeEndingSlashes);
+    
+    return this;
+  }
+
+   /**
+   * Normalize the ending slashes or not.
+   * @return normalizeEndingSlashes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Normalize the ending slashes or not.")
+  @JsonIgnore
+
+  public Boolean getNormalizeEndingSlashes() {
+        return normalizeEndingSlashes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NORMALIZE_ENDING_SLASHES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getNormalizeEndingSlashes_JsonNullable() {
+    return normalizeEndingSlashes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NORMALIZE_ENDING_SLASHES)
+  public void setNormalizeEndingSlashes_JsonNullable(JsonNullable<Boolean> normalizeEndingSlashes) {
+    this.normalizeEndingSlashes = normalizeEndingSlashes;
+  }
+
+  public void setNormalizeEndingSlashes(Boolean normalizeEndingSlashes) {
+    this.normalizeEndingSlashes = JsonNullable.<Boolean>of(normalizeEndingSlashes);
+  }
 
 
   public LogsURLParser sources(List<String> sources) {
@@ -183,7 +225,8 @@ public class LogsURLParser implements LogsProcessor {
       return false;
     }
     LogsURLParser logsURLParser = (LogsURLParser) o;
-    return Objects.equals(this.sources, logsURLParser.sources) &&
+    return Objects.equals(this.normalizeEndingSlashes, logsURLParser.normalizeEndingSlashes) &&
+        Objects.equals(this.sources, logsURLParser.sources) &&
         Objects.equals(this.target, logsURLParser.target) &&
         Objects.equals(this.type, logsURLParser.type) &&
         Objects.equals(this.isEnabled, logsURLParser.isEnabled) &&
@@ -192,7 +235,7 @@ public class LogsURLParser implements LogsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sources, target, type, isEnabled, name);
+    return Objects.hash(normalizeEndingSlashes, sources, target, type, isEnabled, name);
   }
 
 
@@ -200,6 +243,7 @@ public class LogsURLParser implements LogsProcessor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsURLParser {\n");
+    sb.append("    normalizeEndingSlashes: ").append(toIndentedString(normalizeEndingSlashes)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

@@ -24,6 +24,9 @@ import java.util.List;
 import com.datadog.api.v1.client.model.LogsProcessor;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -31,18 +34,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "The remapper processor remaps any source attribute(s) or tag to another target attribute or tag. Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice). Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.")
 @JsonPropertyOrder({
-  LogsRemapper.JSON_PROPERTY_OVERRIDE_ON_CONFLICT,
-  LogsRemapper.JSON_PROPERTY_PRESERVE_SOURCE,
-  LogsRemapper.JSON_PROPERTY_SOURCE_TYPE,
-  LogsRemapper.JSON_PROPERTY_SOURCES,
-  LogsRemapper.JSON_PROPERTY_TARGET,
-  LogsRemapper.JSON_PROPERTY_TARGET_TYPE,
-  LogsRemapper.JSON_PROPERTY_TYPE,
-  LogsRemapper.JSON_PROPERTY_IS_ENABLED,
-  LogsRemapper.JSON_PROPERTY_NAME
+  LogsAttributeRemapper.JSON_PROPERTY_OVERRIDE_ON_CONFLICT,
+  LogsAttributeRemapper.JSON_PROPERTY_PRESERVE_SOURCE,
+  LogsAttributeRemapper.JSON_PROPERTY_SOURCE_TYPE,
+  LogsAttributeRemapper.JSON_PROPERTY_SOURCES,
+  LogsAttributeRemapper.JSON_PROPERTY_TARGET,
+  LogsAttributeRemapper.JSON_PROPERTY_TARGET_TYPE,
+  LogsAttributeRemapper.JSON_PROPERTY_TYPE,
+  LogsAttributeRemapper.JSON_PROPERTY_IS_ENABLED,
+  LogsAttributeRemapper.JSON_PROPERTY_NAME
 })
 
-public class LogsRemapper implements LogsProcessor {
+public class LogsAttributeRemapper implements LogsProcessor {
   public static final String JSON_PROPERTY_OVERRIDE_ON_CONFLICT = "override_on_conflict";
   private Boolean overrideOnConflict = false;
 
@@ -71,7 +74,7 @@ public class LogsRemapper implements LogsProcessor {
   private String name;
 
 
-  public LogsRemapper overrideOnConflict(Boolean overrideOnConflict) {
+  public LogsAttributeRemapper overrideOnConflict(Boolean overrideOnConflict) {
     
     this.overrideOnConflict = overrideOnConflict;
     return this;
@@ -96,7 +99,7 @@ public class LogsRemapper implements LogsProcessor {
   }
 
 
-  public LogsRemapper preserveSource(Boolean preserveSource) {
+  public LogsAttributeRemapper preserveSource(Boolean preserveSource) {
     
     this.preserveSource = preserveSource;
     return this;
@@ -121,7 +124,7 @@ public class LogsRemapper implements LogsProcessor {
   }
 
 
-  public LogsRemapper sourceType(String sourceType) {
+  public LogsAttributeRemapper sourceType(String sourceType) {
     
     this.sourceType = sourceType;
     return this;
@@ -146,13 +149,13 @@ public class LogsRemapper implements LogsProcessor {
   }
 
 
-  public LogsRemapper sources(List<String> sources) {
+  public LogsAttributeRemapper sources(List<String> sources) {
     
     this.sources = sources;
     return this;
   }
 
-  public LogsRemapper addSourcesItem(String sourcesItem) {
+  public LogsAttributeRemapper addSourcesItem(String sourcesItem) {
     this.sources.add(sourcesItem);
     return this;
   }
@@ -175,7 +178,7 @@ public class LogsRemapper implements LogsProcessor {
   }
 
 
-  public LogsRemapper target(String target) {
+  public LogsAttributeRemapper target(String target) {
     
     this.target = target;
     return this;
@@ -199,7 +202,7 @@ public class LogsRemapper implements LogsProcessor {
   }
 
 
-  public LogsRemapper targetType(String targetType) {
+  public LogsAttributeRemapper targetType(String targetType) {
     
     this.targetType = targetType;
     return this;
@@ -240,7 +243,7 @@ public class LogsRemapper implements LogsProcessor {
 
 
 
-  public LogsRemapper isEnabled(Boolean isEnabled) {
+  public LogsAttributeRemapper isEnabled(Boolean isEnabled) {
     
     this.isEnabled = isEnabled;
     return this;
@@ -265,7 +268,7 @@ public class LogsRemapper implements LogsProcessor {
   }
 
 
-  public LogsRemapper name(String name) {
+  public LogsAttributeRemapper name(String name) {
     
     this.name = name;
     return this;
@@ -298,16 +301,16 @@ public class LogsRemapper implements LogsProcessor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsRemapper logsRemapper = (LogsRemapper) o;
-    return Objects.equals(this.overrideOnConflict, logsRemapper.overrideOnConflict) &&
-        Objects.equals(this.preserveSource, logsRemapper.preserveSource) &&
-        Objects.equals(this.sourceType, logsRemapper.sourceType) &&
-        Objects.equals(this.sources, logsRemapper.sources) &&
-        Objects.equals(this.target, logsRemapper.target) &&
-        Objects.equals(this.targetType, logsRemapper.targetType) &&
-        Objects.equals(this.type, logsRemapper.type) &&
-        Objects.equals(this.isEnabled, logsRemapper.isEnabled) &&
-        Objects.equals(this.name, logsRemapper.name);
+    LogsAttributeRemapper logsAttributeRemapper = (LogsAttributeRemapper) o;
+    return Objects.equals(this.overrideOnConflict, logsAttributeRemapper.overrideOnConflict) &&
+        Objects.equals(this.preserveSource, logsAttributeRemapper.preserveSource) &&
+        Objects.equals(this.sourceType, logsAttributeRemapper.sourceType) &&
+        Objects.equals(this.sources, logsAttributeRemapper.sources) &&
+        Objects.equals(this.target, logsAttributeRemapper.target) &&
+        Objects.equals(this.targetType, logsAttributeRemapper.targetType) &&
+        Objects.equals(this.type, logsAttributeRemapper.type) &&
+        Objects.equals(this.isEnabled, logsAttributeRemapper.isEnabled) &&
+        Objects.equals(this.name, logsAttributeRemapper.name);
   }
 
   @Override
@@ -319,7 +322,7 @@ public class LogsRemapper implements LogsProcessor {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogsRemapper {\n");
+    sb.append("class LogsAttributeRemapper {\n");
     sb.append("    overrideOnConflict: ").append(toIndentedString(overrideOnConflict)).append("\n");
     sb.append("    preserveSource: ").append(toIndentedString(preserveSource)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
