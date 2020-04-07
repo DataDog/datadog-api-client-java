@@ -8,12 +8,12 @@ Method | HTTP request | Description
 [**createApplicationKey**](KeyManagementApi.md#createApplicationKey) | **POST** /api/v1/application_key | Create an application key
 [**deleteAPIKey**](KeyManagementApi.md#deleteAPIKey) | **DELETE** /api/v1/api_key/{key} | Delete an API key
 [**deleteApplicationKey**](KeyManagementApi.md#deleteApplicationKey) | **DELETE** /api/v1/application_key/{key} | Delete an application key
-[**editAPIKey**](KeyManagementApi.md#editAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key
-[**editApplicationKey**](KeyManagementApi.md#editApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key
 [**getAPIKey**](KeyManagementApi.md#getAPIKey) | **GET** /api/v1/api_key/{key} | Get API key
-[**getAllAPIKeys**](KeyManagementApi.md#getAllAPIKeys) | **GET** /api/v1/api_key | Get all API keys
-[**getAllApplicationKeys**](KeyManagementApi.md#getAllApplicationKeys) | **GET** /api/v1/application_key | Get all application keys
 [**getApplicationKey**](KeyManagementApi.md#getApplicationKey) | **GET** /api/v1/application_key/{key} | Get an application key
+[**listAPIKeys**](KeyManagementApi.md#listAPIKeys) | **GET** /api/v1/api_key | Get all API keys
+[**listApplicationKeys**](KeyManagementApi.md#listApplicationKeys) | **GET** /api/v1/application_key | Get all application keys
+[**updateAPIKey**](KeyManagementApi.md#updateAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key
+[**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key
 
 
 
@@ -347,176 +347,6 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 
-## editAPIKey
-
-> ApiKeyResponse editAPIKey(key).body(body).execute();
-
-Edit an API key
-
-Edit an API key name.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.KeyManagementApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        String key = "key_example"; // String | The specific API key you are working with.
-        ApiKey body = new ApiKey(); // ApiKey | 
-        try {
-            ApiKeyResponse result = api.editAPIKey(key)
-                .body(body)
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling KeyManagementApi#editAPIKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific API key you are working with. |
- **body** | [**ApiKey**](ApiKey.md)|  | [optional]
-
-### Return type
-
-[**ApiKeyResponse**](ApiKeyResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-
-
-## editApplicationKey
-
-> ApplicationKeyResponse editApplicationKey(key).body(body).execute();
-
-Edit an application key
-
-Edit an application key name.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.KeyManagementApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        String key = "key_example"; // String | The specific APP key you are working with.
-        ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
-        try {
-            ApplicationKeyResponse result = api.editApplicationKey(key)
-                .body(body)
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling KeyManagementApi#editApplicationKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **String**| The specific APP key you are working with. |
- **body** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
-
-### Return type
-
-[**ApplicationKeyResponse**](ApplicationKeyResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-
-
 ## getAPIKey
 
 > ApiKeyResponse getAPIKey(key).execute();
@@ -599,160 +429,6 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 
-## getAllAPIKeys
-
-> ApiKeyListResponse getAllAPIKeys().execute();
-
-Get all API keys
-
-Get all API keys available for your account.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.KeyManagementApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        try {
-            ApiKeyListResponse result = api.getAllAPIKeys()
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling KeyManagementApi#getAllAPIKeys");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ApiKeyListResponse**](ApiKeyListResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-
-
-## getAllApplicationKeys
-
-> ApplicationKeyListResponse getAllApplicationKeys().execute();
-
-Get all application keys
-
-Get all application keys available for your Datadog account.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.KeyManagementApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        try {
-            ApplicationKeyListResponse result = api.getAllApplicationKeys()
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling KeyManagementApi#getAllApplicationKeys");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ApplicationKeyListResponse**](ApplicationKeyListResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-
-
 ## getApplicationKey
 
 > ApplicationKeyResponse getApplicationKey(key).execute();
@@ -824,6 +500,330 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## listAPIKeys
+
+> ApiKeyListResponse listAPIKeys().execute();
+
+Get all API keys
+
+Get all API keys available for your account.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.KeyManagementApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
+        try {
+            ApiKeyListResponse result = api.listAPIKeys()
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling KeyManagementApi#listAPIKeys");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ApiKeyListResponse**](ApiKeyListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
+
+## listApplicationKeys
+
+> ApplicationKeyListResponse listApplicationKeys().execute();
+
+Get all application keys
+
+Get all application keys available for your Datadog account.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.KeyManagementApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
+        try {
+            ApplicationKeyListResponse result = api.listApplicationKeys()
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling KeyManagementApi#listApplicationKeys");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ApplicationKeyListResponse**](ApplicationKeyListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
+
+## updateAPIKey
+
+> ApiKeyResponse updateAPIKey(key).body(body).execute();
+
+Edit an API key
+
+Edit an API key name.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.KeyManagementApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
+        String key = "key_example"; // String | The specific API key you are working with.
+        ApiKey body = new ApiKey(); // ApiKey | 
+        try {
+            ApiKeyResponse result = api.updateAPIKey(key)
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling KeyManagementApi#updateAPIKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **String**| The specific API key you are working with. |
+ **body** | [**ApiKey**](ApiKey.md)|  | [optional]
+
+### Return type
+
+[**ApiKeyResponse**](ApiKeyResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## updateApplicationKey
+
+> ApplicationKeyResponse updateApplicationKey(key).body(body).execute();
+
+Edit an application key
+
+Edit an application key name.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.KeyManagementApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
+        String key = "key_example"; // String | The specific APP key you are working with.
+        ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
+        try {
+            ApplicationKeyResponse result = api.updateApplicationKey(key)
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling KeyManagementApi#updateApplicationKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **String**| The specific APP key you are working with. |
+ **body** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
+
+### Return type
+
+[**ApplicationKeyResponse**](ApplicationKeyResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

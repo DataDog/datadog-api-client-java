@@ -4,96 +4,14 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addAWSLambdaARN**](AwsLogsIntegrationApi.md#addAWSLambdaARN) | **POST** /api/v1/integration/aws/logs | Add AWS Log Lambda ARN
 [**checkAWSLogsLambdaAsync**](AwsLogsIntegrationApi.md#checkAWSLogsLambdaAsync) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists
 [**checkAWSLogsServicesAsync**](AwsLogsIntegrationApi.md#checkAWSLogsServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for Log Services
+[**createAWSLambdaARN**](AwsLogsIntegrationApi.md#createAWSLambdaARN) | **POST** /api/v1/integration/aws/logs | Add AWS Log Lambda ARN
 [**deleteAWSLambdaARN**](AwsLogsIntegrationApi.md#deleteAWSLambdaARN) | **DELETE** /api/v1/integration/aws/logs | Delete an AWS Logs integration
 [**enableAWSLogServices**](AwsLogsIntegrationApi.md#enableAWSLogServices) | **POST** /api/v1/integration/aws/logs/services | Enable an AWS Logs integration
-[**getAllAWSLogsIntegrations**](AwsLogsIntegrationApi.md#getAllAWSLogsIntegrations) | **GET** /api/v1/integration/aws/logs | List all AWS Logs Integrations
-[**getAllAWSLogsServices**](AwsLogsIntegrationApi.md#getAllAWSLogsServices) | **GET** /api/v1/integration/aws/logs/services | Get list of AWS log ready services
+[**listAWSLogsIntegrations**](AwsLogsIntegrationApi.md#listAWSLogsIntegrations) | **GET** /api/v1/integration/aws/logs | List all AWS Logs Integrations
+[**listAWSLogsServices**](AwsLogsIntegrationApi.md#listAWSLogsServices) | **GET** /api/v1/integration/aws/logs/services | Get list of AWS log ready services
 
-
-
-## addAWSLambdaARN
-
-> Object addAWSLambdaARN().body(body).execute();
-
-Add AWS Log Lambda ARN
-
-Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
-        try {
-            Object result = api.addAWSLambdaARN()
-                .body(body)
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#addAWSLambdaARN");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Check AWS Log Lambda Async request body. |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
 
 
 ## checkAWSLogsLambdaAsync
@@ -270,6 +188,88 @@ Name | Type | Description  | Notes
 | **403** | Authentication Error |  -  |
 
 
+## createAWSLambdaARN
+
+> Object createAWSLambdaARN().body(body).execute();
+
+Add AWS Log Lambda ARN
+
+Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
+        AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
+        try {
+            Object result = api.createAWSLambdaARN()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AwsLogsIntegrationApi#createAWSLambdaARN");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Check AWS Log Lambda Async request body. |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
+
+
 ## deleteAWSLambdaARN
 
 > Object deleteAWSLambdaARN().body(body).execute();
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 
 Enable an AWS Logs integration
 
-Enable automatic log collection for a list of services. This should be run after running 'AddAWSLambdaARN' to save the config.
+Enable automatic log collection for a list of services. This should be run after running 'CreateAWSLambdaARN' to save the config.
 
 ### Example
 
@@ -434,9 +434,9 @@ Name | Type | Description  | Notes
 | **403** | Authentication Error |  -  |
 
 
-## getAllAWSLogsIntegrations
+## listAWSLogsIntegrations
 
-> List&lt;AWSLogsListResponse&gt; getAllAWSLogsIntegrations().execute();
+> List&lt;AWSLogsListResponse&gt; listAWSLogsIntegrations().execute();
 
 List all AWS Logs Integrations
 
@@ -472,11 +472,11 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         try {
-            List<AWSLogsListResponse> result = api.getAllAWSLogsIntegrations()
+            List<AWSLogsListResponse> result = api.listAWSLogsIntegrations()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#getAllAWSLogsIntegrations");
+            System.err.println("Exception when calling AwsLogsIntegrationApi#listAWSLogsIntegrations");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -511,9 +511,9 @@ This endpoint does not need any parameter.
 | **403** | Authentication Error |  -  |
 
 
-## getAllAWSLogsServices
+## listAWSLogsServices
 
-> List&lt;AWSLogsListServicesResponse&gt; getAllAWSLogsServices().execute();
+> List&lt;AWSLogsListServicesResponse&gt; listAWSLogsServices().execute();
 
 Get list of AWS log ready services
 
@@ -549,11 +549,11 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         try {
-            List<AWSLogsListServicesResponse> result = api.getAllAWSLogsServices()
+            List<AWSLogsListServicesResponse> result = api.listAWSLogsServices()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#getAllAWSLogsServices");
+            System.err.println("Exception when calling AwsLogsIntegrationApi#listAWSLogsServices");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

@@ -15,12 +15,12 @@ import com.datadog.api.v1.client.model.SyntheticsDeleteTestsPayload;
 import com.datadog.api.v1.client.model.SyntheticsDeleteTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsDevices;
 import com.datadog.api.v1.client.model.SyntheticsGetAPITestLatestResultsResponse;
-import com.datadog.api.v1.client.model.SyntheticsGetAllTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetBrowserTestLatestResultsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetTestLatestResultsPayload;
+import com.datadog.api.v1.client.model.SyntheticsListTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsLocations;
-import com.datadog.api.v1.client.model.SyntheticsSetTestPauseStatusPayload;
 import com.datadog.api.v1.client.model.SyntheticsTestDetails;
+import com.datadog.api.v1.client.model.SyntheticsUpdateTestPauseStatusPayload;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -488,273 +488,6 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
     return new APIgetAPITestResultRequest(publicId, resultId);
   }
 
-private ApiResponse<SyntheticsDevices> getAllDevicesWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/synthetics/browser/devices";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<SyntheticsDevices> localVarReturnType = new GenericType<SyntheticsDevices>() {};
-    return apiClient.invokeAPI("SyntheticsApi.getAllDevices", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllDevicesRequest {
-
-    private APIgetAllDevicesRequest() {
-    }
-    
-
-    /**
-     * Execute getAllDevices request
-     * @return SyntheticsDevices
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public SyntheticsDevices execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllDevices request with HTTP info returned
-     * @return ApiResponse&lt;SyntheticsDevices&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<SyntheticsDevices> executeWithHttpInfo() throws ApiException {
-      return getAllDevicesWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get all devices
-   * Get the list of devices available for Synthetics browser tests.
-   * @return getAllDevicesRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllDevicesRequest getAllDevices() throws ApiException {
-    return new APIgetAllDevicesRequest();
-  }
-
-private ApiResponse<SyntheticsLocations> getAllLocationsWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/synthetics/locations";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<SyntheticsLocations> localVarReturnType = new GenericType<SyntheticsLocations>() {};
-    return apiClient.invokeAPI("SyntheticsApi.getAllLocations", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllLocationsRequest {
-
-    private APIgetAllLocationsRequest() {
-    }
-    
-
-    /**
-     * Execute getAllLocations request
-     * @return SyntheticsLocations
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public SyntheticsLocations execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllLocations request with HTTP info returned
-     * @return ApiResponse&lt;SyntheticsLocations&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<SyntheticsLocations> executeWithHttpInfo() throws ApiException {
-      return getAllLocationsWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get all locations (public and private)
-   * Get the list of public and private locations available for Synthetics tests. No arguments required
-   * @return getAllLocationsRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllLocationsRequest getAllLocations() throws ApiException {
-    return new APIgetAllLocationsRequest();
-  }
-
-private ApiResponse<SyntheticsGetAllTestsResponse> getAllTestsWithHttpInfo(String checkType) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/synthetics/tests";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "check_type", checkType));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<SyntheticsGetAllTestsResponse> localVarReturnType = new GenericType<SyntheticsGetAllTestsResponse>() {};
-    return apiClient.invokeAPI("SyntheticsApi.getAllTests", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllTestsRequest {
-    private String checkType;
-
-    private APIgetAllTestsRequest() {
-    }
-    
-
-    /**
-     * Set checkType
-     * @param checkType API or browser to filter the list by type, undefined to get the unfiltered list. (optional)
-     * @return APIgetAllTestsRequest
-     */
-    public APIgetAllTestsRequest checkType(String checkType) {
-      this.checkType = checkType;
-      return this;
-    }
-    
-
-    /**
-     * Execute getAllTests request
-     * @return SyntheticsGetAllTestsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the list of all Synthetics test (properly filtered by type). </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public SyntheticsGetAllTestsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllTests request with HTTP info returned
-     * @return ApiResponse&lt;SyntheticsGetAllTestsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the list of all Synthetics test (properly filtered by type). </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<SyntheticsGetAllTestsResponse> executeWithHttpInfo() throws ApiException {
-      return getAllTestsWithHttpInfo(checkType);
-    }
-  }
-
-  /**
-   * Get all test
-   * Get the list of all Synthetics tests (can be filtered by type).
-   * @return getAllTestsRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllTestsRequest getAllTests() throws ApiException {
-    return new APIgetAllTestsRequest();
-  }
-
 private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTestLatestResultsWithHttpInfo(String publicId, SyntheticsGetTestLatestResultsPayload body) throws ApiException {
     Object localVarPostBody = body;
     
@@ -1066,22 +799,11 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
     return new APIgetTestRequest(publicId);
   }
 
-private ApiResponse<Boolean> setTestPauseStatusWithHttpInfo(String publicId, SyntheticsSetTestPauseStatusPayload body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'publicId' is set
-    if (publicId == null) {
-      throw new ApiException(400, "Missing the required parameter 'publicId' when calling setTestPauseStatus");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling setTestPauseStatus");
-    }
+private ApiResponse<SyntheticsDevices> listDevicesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/api/v1/synthetics/tests/{public_id}/status"
-      .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+    String localVarPath = "/api/v1/synthetics/browser/devices";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1099,85 +821,249 @@ private ApiResponse<Boolean> setTestPauseStatusWithHttpInfo(String publicId, Syn
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<Boolean> localVarReturnType = new GenericType<Boolean>() {};
-    return apiClient.invokeAPI("SyntheticsApi.setTestPauseStatus", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    GenericType<SyntheticsDevices> localVarReturnType = new GenericType<SyntheticsDevices>() {};
+    return apiClient.invokeAPI("SyntheticsApi.listDevices", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
-  public class APIsetTestPauseStatusRequest {
-    private String publicId;
-    private SyntheticsSetTestPauseStatusPayload body;
+  public class APIlistDevicesRequest {
 
-    private APIsetTestPauseStatusRequest(String publicId) {
-      this.publicId = publicId;
+    private APIlistDevicesRequest() {
     }
     
 
     /**
-     * Set body
-     * @param body Pause/live status to set the given Synthetics test to (required)
-     * @return APIsetTestPauseStatusRequest
-     */
-    public APIsetTestPauseStatusRequest body(SyntheticsSetTestPauseStatusPayload body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute setTestPauseStatus request
-     * @return Boolean
+     * Execute listDevices request
+     * @return SyntheticsDevices
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        </table>
      
      */
     
-    public Boolean execute() throws ApiException {
+    public SyntheticsDevices execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
-     * Execute setTestPauseStatus request with HTTP info returned
-     * @return ApiResponse&lt;Boolean&gt;
+     * Execute listDevices request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsDevices&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        </table>
      
      */
     
-    public ApiResponse<Boolean> executeWithHttpInfo() throws ApiException {
-      return setTestPauseStatusWithHttpInfo(publicId, body);
+    public ApiResponse<SyntheticsDevices> executeWithHttpInfo() throws ApiException {
+      return listDevicesWithHttpInfo();
     }
   }
 
   /**
-   * Change test pause/live status
-   * Change pause/live status of a given Synthetics test.
-   * @param publicId The public id of the Synthetics test to update (required)
-   * @return setTestPauseStatusRequest
+   * Get all devices
+   * Get the list of devices available for Synthetics browser tests.
+   * @return listDevicesRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIsetTestPauseStatusRequest setTestPauseStatus(String publicId) throws ApiException {
-    return new APIsetTestPauseStatusRequest(publicId);
+  public APIlistDevicesRequest listDevices() throws ApiException {
+    return new APIlistDevicesRequest();
+  }
+
+private ApiResponse<SyntheticsLocations> listLocationsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/locations";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsLocations> localVarReturnType = new GenericType<SyntheticsLocations>() {};
+    return apiClient.invokeAPI("SyntheticsApi.listLocations", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistLocationsRequest {
+
+    private APIlistLocationsRequest() {
+    }
+    
+
+    /**
+     * Execute listLocations request
+     * @return SyntheticsLocations
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsLocations execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listLocations request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsLocations&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<SyntheticsLocations> executeWithHttpInfo() throws ApiException {
+      return listLocationsWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all locations (public and private)
+   * Get the list of public and private locations available for Synthetics tests. No arguments required
+   * @return listLocationsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistLocationsRequest listLocations() throws ApiException {
+    return new APIlistLocationsRequest();
+  }
+
+private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String checkType) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "check_type", checkType));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsListTestsResponse> localVarReturnType = new GenericType<SyntheticsListTestsResponse>() {};
+    return apiClient.invokeAPI("SyntheticsApi.listTests", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistTestsRequest {
+    private String checkType;
+
+    private APIlistTestsRequest() {
+    }
+    
+
+    /**
+     * Set checkType
+     * @param checkType API or browser to filter the list by type, undefined to get the unfiltered list. (optional)
+     * @return APIlistTestsRequest
+     */
+    public APIlistTestsRequest checkType(String checkType) {
+      this.checkType = checkType;
+      return this;
+    }
+    
+
+    /**
+     * Execute listTests request
+     * @return SyntheticsListTestsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the list of all Synthetics test (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsListTestsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listTests request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the list of all Synthetics test (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<SyntheticsListTestsResponse> executeWithHttpInfo() throws ApiException {
+      return listTestsWithHttpInfo(checkType);
+    }
+  }
+
+  /**
+   * Get all test
+   * Get the list of all Synthetics tests (can be filtered by type).
+   * @return listTestsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistTestsRequest listTests() throws ApiException {
+    return new APIlistTestsRequest();
   }
 
 private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicId, SyntheticsTestDetails body) throws ApiException {
@@ -1292,5 +1178,119 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
   
   public APIupdateTestRequest updateTest(String publicId) throws ApiException {
     return new APIupdateTestRequest(publicId);
+  }
+
+private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, SyntheticsUpdateTestPauseStatusPayload body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(400, "Missing the required parameter 'publicId' when calling updateTestPauseStatus");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateTestPauseStatus");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/{public_id}/status"
+      .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<Boolean> localVarReturnType = new GenericType<Boolean>() {};
+    return apiClient.invokeAPI("SyntheticsApi.updateTestPauseStatus", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIupdateTestPauseStatusRequest {
+    private String publicId;
+    private SyntheticsUpdateTestPauseStatusPayload body;
+
+    private APIupdateTestPauseStatusRequest(String publicId) {
+      this.publicId = publicId;
+    }
+    
+
+    /**
+     * Set body
+     * @param body Pause/live status to set the given Synthetics test to (required)
+     * @return APIupdateTestPauseStatusRequest
+     */
+    public APIupdateTestPauseStatusRequest body(SyntheticsUpdateTestPauseStatusPayload body) {
+      this.body = body;
+      return this;
+    }
+    
+
+    /**
+     * Execute updateTestPauseStatus request
+     * @return Boolean
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public Boolean execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateTestPauseStatus request with HTTP info returned
+     * @return ApiResponse&lt;Boolean&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<Boolean> executeWithHttpInfo() throws ApiException {
+      return updateTestPauseStatusWithHttpInfo(publicId, body);
+    }
+  }
+
+  /**
+   * Change test pause/live status
+   * Change pause/live status of a given Synthetics test.
+   * @param publicId The public id of the Synthetics test to update (required)
+   * @return updateTestPauseStatusRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIupdateTestPauseStatusRequest updateTestPauseStatus(String publicId) throws ApiException {
+    return new APIupdateTestPauseStatusRequest(publicId);
   }
 }

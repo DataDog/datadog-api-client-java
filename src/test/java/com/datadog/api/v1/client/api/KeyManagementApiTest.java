@@ -137,14 +137,14 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    public void editAPIKeyTest() throws ApiException, IOException {
+    public void updateAPIKeyTest() throws ApiException, IOException {
         String apiKeyName = "TestName";
         MappingBuilder stub = setupStub(apiUri + "/" + apiKeyName, fixturePrefix + "/edit_api_key.json", "put");
         stubFor(stub);
 
         // We're mocking the response so the query param we select can be anything
         ApiKey apiKey = new ApiKey().name("TestName");
-        ApiKeyResponse response = api.editAPIKey(apiKeyName).body(apiKey).execute();
+        ApiKeyResponse response = api.updateAPIKey(apiKeyName).body(apiKey).execute();
 
         // Assert values match whats in edit_api_key.json
         assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -165,14 +165,14 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    public void editApplicationKeyTest() throws ApiException, IOException {
+    public void updateApplicationKeyTest() throws ApiException, IOException {
         // We're mocking the response so the query param we select can be anything
         String appKeyName = "TestName";
         MappingBuilder stub = setupStub(appUri + "/" + appKeyName, fixturePrefix + "/edit_app_key.json", "put");
         stubFor(stub);
 
         ApplicationKey applicationKey = new ApplicationKey().name("<NEW_APP_KEY_NAME>");
-        ApplicationKeyResponse response = api.editApplicationKey(appKeyName).body(applicationKey).execute();
+        ApplicationKeyResponse response = api.updateApplicationKey(appKeyName).body(applicationKey).execute();
 
         // Assert values match whats in edit_api_key.json
         assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -219,11 +219,11 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    public void getAllAPIKeysTest() throws ApiException, IOException {
+    public void listAPIKeysTest() throws ApiException, IOException {
         MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_all_api_keys.json", "get");
         stubFor(stub);
 
-        ApiKeyListResponse response = api.getAllAPIKeys().execute();
+        ApiKeyListResponse response = api.listAPIKeys().execute();
 
         // Assert values match whats in get_all_api_keys.json
         assertEquals(response.getApiKeys().size(), 2);
@@ -251,11 +251,11 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    public void getAllApplicationKeysTest() throws ApiException, IOException {
+    public void listApplicationKeysTest() throws ApiException, IOException {
         MappingBuilder stub = setupStub(appUri, fixturePrefix + "/get_all_app_keys.json", "get");
         stubFor(stub);
 
-        ApplicationKeyListResponse response = api.getAllApplicationKeys().execute();
+        ApplicationKeyListResponse response = api.listApplicationKeys().execute();
 
         // Assert values match whats in get_app_key.json
         assertEquals(response.getApplicationKeys().size(), 2);

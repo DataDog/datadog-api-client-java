@@ -8,14 +8,14 @@ Method | HTTP request | Description
 [**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete multiple tests
 [**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get test latest results (as summaries)
 [**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get test result (API)
-[**getAllDevices**](SyntheticsApi.md#getAllDevices) | **GET** /api/v1/synthetics/browser/devices | Get all devices
-[**getAllLocations**](SyntheticsApi.md#getAllLocations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
-[**getAllTests**](SyntheticsApi.md#getAllTests) | **GET** /api/v1/synthetics/tests | Get all test
 [**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get test latest results (as summaries)
 [**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get test result (browser)
 [**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get test
-[**setTestPauseStatus**](SyntheticsApi.md#setTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Change test pause/live status
+[**listDevices**](SyntheticsApi.md#listDevices) | **GET** /api/v1/synthetics/browser/devices | Get all devices
+[**listLocations**](SyntheticsApi.md#listLocations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
+[**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get all test
 [**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Update test
+[**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Change test pause/live status
 
 
 
@@ -352,237 +352,6 @@ Name | Type | Description  | Notes
 | **404** | Synthetics is not activated for the user, test or result is not owned by the user. |  -  |
 
 
-## getAllDevices
-
-> SyntheticsDevices getAllDevices().execute();
-
-Get all devices
-
-Get the list of devices available for Synthetics browser tests.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        try {
-            SyntheticsDevices result = api.getAllDevices()
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SyntheticsApi#getAllDevices");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**SyntheticsDevices**](SyntheticsDevices.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-
-## getAllLocations
-
-> SyntheticsLocations getAllLocations().execute();
-
-Get all locations (public and private)
-
-Get the list of public and private locations available for Synthetics tests. No arguments required
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        try {
-            SyntheticsLocations result = api.getAllLocations()
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SyntheticsApi#getAllLocations");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**SyntheticsLocations**](SyntheticsLocations.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-
-## getAllTests
-
-> SyntheticsGetAllTestsResponse getAllTests().checkType(checkType).execute();
-
-Get all test
-
-Get the list of all Synthetics tests (can be filtered by type).
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
-
-        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String checkType = "checkType_example"; // String | API or browser to filter the list by type, undefined to get the unfiltered list.
-        try {
-            SyntheticsGetAllTestsResponse result = api.getAllTests()
-                .checkType(checkType)
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SyntheticsApi#getAllTests");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **checkType** | **String**| API or browser to filter the list by type, undefined to get the unfiltered list. | [optional]
-
-### Return type
-
-[**SyntheticsGetAllTestsResponse**](SyntheticsGetAllTestsResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK - Returns the list of all Synthetics test (properly filtered by type). |  -  |
-| **404** | Synthetics is not activated for the user. |  -  |
-
-
 ## getBrowserTestLatestResults
 
 > SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(publicId).body(body).execute();
@@ -828,13 +597,13 @@ Name | Type | Description  | Notes
 | **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
 
 
-## setTestPauseStatus
+## listDevices
 
-> Boolean setTestPauseStatus(publicId).body(body).execute();
+> SyntheticsDevices listDevices().execute();
 
-Change test pause/live status
+Get all devices
 
-Change pause/live status of a given Synthetics test.
+Get the list of devices available for Synthetics browser tests.
 
 ### Example
 
@@ -865,15 +634,164 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the Synthetics test to update
-        SyntheticsSetTestPauseStatusPayload body = new SyntheticsSetTestPauseStatusPayload(); // SyntheticsSetTestPauseStatusPayload | Pause/live status to set the given Synthetics test to
         try {
-            Boolean result = api.setTestPauseStatus(publicId)
-                .body(body)
+            SyntheticsDevices result = api.listDevices()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SyntheticsApi#setTestPauseStatus");
+            System.err.println("Exception when calling SyntheticsApi#listDevices");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SyntheticsDevices**](SyntheticsDevices.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+
+## listLocations
+
+> SyntheticsLocations listLocations().execute();
+
+Get all locations (public and private)
+
+Get the list of public and private locations available for Synthetics tests. No arguments required
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        try {
+            SyntheticsLocations result = api.listLocations()
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#listLocations");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SyntheticsLocations**](SyntheticsLocations.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+
+## listTests
+
+> SyntheticsListTestsResponse listTests().checkType(checkType).execute();
+
+Get all test
+
+Get the list of all Synthetics tests (can be filtered by type).
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        String checkType = "checkType_example"; // String | API or browser to filter the list by type, undefined to get the unfiltered list.
+        try {
+            SyntheticsListTestsResponse result = api.listTests()
+                .checkType(checkType)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#listTests");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -888,12 +806,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the Synthetics test to update |
- **body** | [**SyntheticsSetTestPauseStatusPayload**](SyntheticsSetTestPauseStatusPayload.md)| Pause/live status to set the given Synthetics test to |
+ **checkType** | **String**| API or browser to filter the list by type, undefined to get the unfiltered list. | [optional]
 
 ### Return type
 
-**Boolean**
+[**SyntheticsListTestsResponse**](SyntheticsListTestsResponse.md)
 
 ### Authorization
 
@@ -901,15 +818,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns a boolean indicating if the update was successful |  -  |
-| **400** | JSON format is wrong |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user |  -  |
+| **200** | OK - Returns the list of all Synthetics test (properly filtered by type). |  -  |
+| **404** | Synthetics is not activated for the user. |  -  |
 
 
 ## updateTest
@@ -994,4 +910,88 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | JSON format is wrong, updating subtype is forbidden. |  -  |
 | **404** | Synthetics is not activated for the user, test is not owned by the user, test can&#39;t be found. |  -  |
+
+
+## updateTestPauseStatus
+
+> Boolean updateTestPauseStatus(publicId).body(body).execute();
+
+Change test pause/live status
+
+Change pause/live status of a given Synthetics test.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.datadoghq.com");
+        
+        // Configure API key authorization: apiKeyAuth
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+        apiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //apiKeyAuth.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: appKeyAuth
+        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
+        appKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //appKeyAuth.setApiKeyPrefix("Token");
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        String publicId = "publicId_example"; // String | The public id of the Synthetics test to update
+        SyntheticsUpdateTestPauseStatusPayload body = new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload | Pause/live status to set the given Synthetics test to
+        try {
+            Boolean result = api.updateTestPauseStatus(publicId)
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#updateTestPauseStatus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicId** | **String**| The public id of the Synthetics test to update |
+ **body** | [**SyntheticsUpdateTestPauseStatusPayload**](SyntheticsUpdateTestPauseStatusPayload.md)| Pause/live status to set the given Synthetics test to |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK - Returns a boolean indicating if the update was successful |  -  |
+| **400** | JSON format is wrong |  -  |
+| **404** | Synthetics is not activated for the user, test is not owned by the user |  -  |
 

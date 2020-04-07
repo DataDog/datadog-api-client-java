@@ -55,7 +55,7 @@ public class MetricsApiTest extends V1ApiTest {
         TestUtils.retry(10, 10, () -> {
             MetricsListResponse metrics;
             try {
-                metrics = api.getAllActiveMetrics().from(nowSeconds).execute();
+                metrics = api.listActiveMetrics().from(nowSeconds).execute();
             } catch(ApiException e) {
                 System.out.println(String.format("Error getting list of active metrics: %s", e));
                 return false;
@@ -92,7 +92,7 @@ public class MetricsApiTest extends V1ApiTest {
 
         // Test search
         String searchQuery = String.format("metrics:%s", testMetric);
-        MetricSearchResponse searchResult = api.searchMetrics().q(searchQuery).execute();
+        MetricSearchResponse searchResult = api.listMetrics().q(searchQuery).execute();
         List<String> metrics = searchResult.getResults().getMetrics();
         assertEquals(1, metrics.size());
         assertEquals(testMetric, metrics.get(0));
@@ -108,7 +108,7 @@ public class MetricsApiTest extends V1ApiTest {
         assertEquals("rate", metadata.getType());
 
         MetricMetadata newMetadata = new MetricMetadata().description("description").perUnit("second").unit("byte").shortName("short_name").statsdInterval(20L).type("count");
-        metadata = api.editMetricMetadata(testMetric).body(newMetadata).execute();
+        metadata = api.updateMetricMetadata(testMetric).body(newMetadata).execute();
         assertEquals("description", metadata.getDescription());
         assertNull(metadata.getIntegration());
         assertEquals("second", metadata.getPerUnit());
@@ -131,7 +131,7 @@ public class MetricsApiTest extends V1ApiTest {
             .withQueryParam("host", equalTo("host"))
             .willReturn(okJson(expectedJSON))
         );
-        MetricsListResponse r = api.getAllActiveMetrics().from(1L).host("host").execute();
+        MetricsListResponse r = api.listActiveMetrics().from(1L).host("host").execute();
 
         assertEquals(expected, r);
     }

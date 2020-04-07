@@ -242,96 +242,6 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
     return new APIdeleteDashboardRequest(dashboardId);
   }
 
-private ApiResponse<DashboardSummary> getAllDashboardsWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/dashboard";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<DashboardSummary> localVarReturnType = new GenericType<DashboardSummary>() {};
-    return apiClient.invokeAPI("DashboardsApi.getAllDashboards", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllDashboardsRequest {
-
-    private APIgetAllDashboardsRequest() {
-    }
-    
-
-    /**
-     * Execute getAllDashboards request
-     * @return DashboardSummary
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public DashboardSummary execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllDashboards request with HTTP info returned
-     * @return ApiResponse&lt;DashboardSummary&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<DashboardSummary> executeWithHttpInfo() throws ApiException {
-      return getAllDashboardsWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get all Dashboards
-   * ### Overview Get all dashboards
-   * @return getAllDashboardsRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllDashboardsRequest getAllDashboards() throws ApiException {
-    return new APIgetAllDashboardsRequest();
-  }
-
 private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) throws ApiException {
     Object localVarPostBody = null;
     
@@ -427,6 +337,96 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
   
   public APIgetDashboardRequest getDashboard(String dashboardId) throws ApiException {
     return new APIgetDashboardRequest(dashboardId);
+  }
+
+private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/dashboard";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<DashboardSummary> localVarReturnType = new GenericType<DashboardSummary>() {};
+    return apiClient.invokeAPI("DashboardsApi.listDashboards", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistDashboardsRequest {
+
+    private APIlistDashboardsRequest() {
+    }
+    
+
+    /**
+     * Execute listDashboards request
+     * @return DashboardSummary
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public DashboardSummary execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listDashboards request with HTTP info returned
+     * @return ApiResponse&lt;DashboardSummary&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<DashboardSummary> executeWithHttpInfo() throws ApiException {
+      return listDashboardsWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all Dashboards
+   * ### Overview Get all dashboards
+   * @return listDashboardsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistDashboardsRequest listDashboards() throws ApiException {
+    return new APIlistDashboardsRequest();
   }
 
 private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, Dashboard body) throws ApiException {

@@ -98,7 +98,7 @@ public class MonitorsApiTest extends V1ApiTest {
 
         // test updating monitor
         obtained.setName("New name");
-        obtained = api.editMonitor(monitorId).body(obtained).execute();
+        obtained = api.updateMonitor(monitorId).body(obtained).execute();
 
         assertEquals("New name", obtained.getName());
         assertEquals(testingMonitorType, obtained.getType());
@@ -117,7 +117,7 @@ public class MonitorsApiTest extends V1ApiTest {
      * Get all monitors
      */
     @Test
-    public void getAllMonitorsTest() throws ApiException {
+    public void listMonitorsTest() throws ApiException {
         ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
         for (String prefix: prefixes) {
             Monitor monitor = new Monitor()
@@ -127,7 +127,7 @@ public class MonitorsApiTest extends V1ApiTest {
             Monitor created = api.createMonitor().body(monitor).execute();
             deleteMonitors.add(created.getId());
         }
-        List<Monitor> allMonitors = api.getAllMonitors().execute();
+        List<Monitor> allMonitors = api.listMonitors().execute();
         for (String prefix: prefixes) {
             boolean found = false;
             for (Monitor monitor: allMonitors) {

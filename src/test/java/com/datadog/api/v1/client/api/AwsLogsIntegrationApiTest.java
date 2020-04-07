@@ -167,12 +167,12 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             return true;
         });
         // Add Lambda to Account
-        api.addAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
+        api.createAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
         // Enable services for Lambda
         api.enableAWSLogServices().body(uniqueAWSLogsServicesRequest).execute();
 
         // List AWS Logs integrations before deleting
-        List<AWSLogsListResponse> listOutput1 = api.getAllAWSLogsIntegrations().execute();
+        List<AWSLogsListResponse> listOutput1 = api.listAWSLogsIntegrations().execute();
         Boolean accountExists = false;
         // Iterate over output and list Lambdas
         for (AWSLogsListResponse account : listOutput1) {
@@ -188,7 +188,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
 
         // Delete newly added Lambda
         api.deleteAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
-        List<AWSLogsListResponse> listOutput2 = api.getAllAWSLogsIntegrations().execute();
+        List<AWSLogsListResponse> listOutput2 = api.listAWSLogsIntegrations().execute();
         Boolean accountExistsAfterDelete = false;
         List<AWSLogsListResponseLambdas> listOfARNs2 = new ArrayList<>();
 
@@ -215,7 +215,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
      */
     @Test
     public void aWSLogsServicesListTest() throws ApiException {
-        List<AWSLogsListServicesResponse> response = api.getAllAWSLogsServices().execute();
+        List<AWSLogsListServicesResponse> response = api.listAWSLogsServices().execute();
         // There are currently 6 supported AWS Logs services as noted in the docs
         // https://docs.datadoghq.com/api/?lang=bash#get-list-of-aws-log-ready-services
         assertTrue(response.size() >= 6);

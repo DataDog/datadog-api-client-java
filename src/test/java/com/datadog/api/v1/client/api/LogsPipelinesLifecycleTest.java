@@ -148,7 +148,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertEquals(traceRemapper, createdPipeline.getProcessors().get(13));
 
         // Get all pipelines and assert our freshly created one is part of the result
-        List<LogsPipeline> pipelines = api.getAllLogsPipelines().execute();
+        List<LogsPipeline> pipelines = api.listLogsPipelines().execute();
         boolean asserted = false;
         for(LogsPipeline pipe: pipelines) {
             if(pipe.equals(createdPipeline)){

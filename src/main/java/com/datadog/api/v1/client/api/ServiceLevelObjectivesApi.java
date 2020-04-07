@@ -43,113 +43,6 @@ public class ServiceLevelObjectivesApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<ServiceLevelObjectivesBulkDeleted> bulkPartialDeleteSLOWithHttpInfo(Map<String, List<SLOTimeframe>> body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling bulkPartialDeleteSLO");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/slo/bulk_delete";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<ServiceLevelObjectivesBulkDeleted> localVarReturnType = new GenericType<ServiceLevelObjectivesBulkDeleted>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.bulkPartialDeleteSLO", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIbulkPartialDeleteSLORequest {
-    private Map<String, List<SLOTimeframe>> body;
-
-    private APIbulkPartialDeleteSLORequest() {
-    }
-    
-
-    /**
-     * Set body
-     * @param body Thresholds by service level objective object ID. (required)
-     * @return APIbulkPartialDeleteSLORequest
-     */
-    public APIbulkPartialDeleteSLORequest body(Map<String, List<SLOTimeframe>> body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute bulkPartialDeleteSLO request
-     * @return ServiceLevelObjectivesBulkDeleted
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ServiceLevelObjectivesBulkDeleted execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute bulkPartialDeleteSLO request with HTTP info returned
-     * @return ApiResponse&lt;ServiceLevelObjectivesBulkDeleted&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<ServiceLevelObjectivesBulkDeleted> executeWithHttpInfo() throws ApiException {
-      return bulkPartialDeleteSLOWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Bulk Delete SLO Timeframes
-   * Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
-   * @return bulkPartialDeleteSLORequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIbulkPartialDeleteSLORequest bulkPartialDeleteSLO() throws ApiException {
-    return new APIbulkPartialDeleteSLORequest();
-  }
-
 private ApiResponse<CheckCanDeleteServiceLevelObjectiveResponse> checkCanDeleteSLOWithHttpInfo(String ids) throws ApiException {
     Object localVarPostBody = null;
     
@@ -466,6 +359,113 @@ private ApiResponse<ServiceLevelObjectiveDeleted> deleteSLOWithHttpInfo(String s
     return new APIdeleteSLORequest(sloId);
   }
 
+private ApiResponse<ServiceLevelObjectivesBulkDeleted> deleteSLOTimeframeInBulkWithHttpInfo(Map<String, List<SLOTimeframe>> body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling deleteSLOTimeframeInBulk");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/slo/bulk_delete";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<ServiceLevelObjectivesBulkDeleted> localVarReturnType = new GenericType<ServiceLevelObjectivesBulkDeleted>() {};
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIdeleteSLOTimeframeInBulkRequest {
+    private Map<String, List<SLOTimeframe>> body;
+
+    private APIdeleteSLOTimeframeInBulkRequest() {
+    }
+    
+
+    /**
+     * Set body
+     * @param body Thresholds by service level objective object ID. (required)
+     * @return APIdeleteSLOTimeframeInBulkRequest
+     */
+    public APIdeleteSLOTimeframeInBulkRequest body(Map<String, List<SLOTimeframe>> body) {
+      this.body = body;
+      return this;
+    }
+    
+
+    /**
+     * Execute deleteSLOTimeframeInBulk request
+     * @return ServiceLevelObjectivesBulkDeleted
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ServiceLevelObjectivesBulkDeleted execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute deleteSLOTimeframeInBulk request with HTTP info returned
+     * @return ApiResponse&lt;ServiceLevelObjectivesBulkDeleted&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<ServiceLevelObjectivesBulkDeleted> executeWithHttpInfo() throws ApiException {
+      return deleteSLOTimeframeInBulkWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Bulk Delete SLO Timeframes
+   * Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
+   * @return deleteSLOTimeframeInBulkRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIdeleteSLOTimeframeInBulkRequest deleteSLOTimeframeInBulk() throws ApiException {
+    return new APIdeleteSLOTimeframeInBulkRequest();
+  }
+
 private ApiResponse<ServiceLevelObjectiveResponse> getSLOWithHttpInfo(String sloId) throws ApiException {
     Object localVarPostBody = null;
     
@@ -565,6 +565,141 @@ private ApiResponse<ServiceLevelObjectiveResponse> getSLOWithHttpInfo(String slo
   
   public APIgetSLORequest getSLO(String sloId) throws ApiException {
     return new APIgetSLORequest(sloId);
+  }
+
+private ApiResponse<HistoryServiceLevelObjectiveResponse> getSLOHistoryWithHttpInfo(String sloId, String fromTs, String toTs) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'sloId' is set
+    if (sloId == null) {
+      throw new ApiException(400, "Missing the required parameter 'sloId' when calling getSLOHistory");
+    }
+    
+    // verify the required parameter 'fromTs' is set
+    if (fromTs == null) {
+      throw new ApiException(400, "Missing the required parameter 'fromTs' when calling getSLOHistory");
+    }
+    
+    // verify the required parameter 'toTs' is set
+    if (toTs == null) {
+      throw new ApiException(400, "Missing the required parameter 'toTs' when calling getSLOHistory");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/slo/{slo_id}/history"
+      .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<HistoryServiceLevelObjectiveResponse> localVarReturnType = new GenericType<HistoryServiceLevelObjectiveResponse>() {};
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.getSLOHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIgetSLOHistoryRequest {
+    private String sloId;
+    private String fromTs;
+    private String toTs;
+
+    private APIgetSLOHistoryRequest(String sloId) {
+      this.sloId = sloId;
+    }
+    
+
+    /**
+     * Set fromTs
+     * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
+     * @return APIgetSLOHistoryRequest
+     */
+    public APIgetSLOHistoryRequest fromTs(String fromTs) {
+      this.fromTs = fromTs;
+      return this;
+    }
+    
+
+    /**
+     * Set toTs
+     * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds. (required)
+     * @return APIgetSLOHistoryRequest
+     */
+    public APIgetSLOHistoryRequest toTs(String toTs) {
+      this.toTs = toTs;
+      return this;
+    }
+    
+
+    /**
+     * Execute getSLOHistory request
+     * @return HistoryServiceLevelObjectiveResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public HistoryServiceLevelObjectiveResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getSLOHistory request with HTTP info returned
+     * @return ApiResponse&lt;HistoryServiceLevelObjectiveResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<HistoryServiceLevelObjectiveResponse> executeWithHttpInfo() throws ApiException {
+      return getSLOHistoryWithHttpInfo(sloId, fromTs, toTs);
+    }
+  }
+
+  /**
+   * Get an SLO&#39;s history
+   * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
+   * @param sloId The ID of the service level objective object. (required)
+   * @return getSLOHistoryRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIgetSLOHistoryRequest getSLOHistory(String sloId) throws ApiException {
+    return new APIgetSLOHistoryRequest(sloId);
   }
 
 private ApiResponse<ServiceLevelObjectiveListResponse> getSLOsWithHttpInfo(String ids) throws ApiException {
@@ -673,141 +808,6 @@ private ApiResponse<ServiceLevelObjectiveListResponse> getSLOsWithHttpInfo(Strin
   
   public APIgetSLOsRequest getSLOs() throws ApiException {
     return new APIgetSLOsRequest();
-  }
-
-private ApiResponse<HistoryServiceLevelObjectiveResponse> historyForSLOWithHttpInfo(String sloId, String fromTs, String toTs) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'sloId' is set
-    if (sloId == null) {
-      throw new ApiException(400, "Missing the required parameter 'sloId' when calling historyForSLO");
-    }
-    
-    // verify the required parameter 'fromTs' is set
-    if (fromTs == null) {
-      throw new ApiException(400, "Missing the required parameter 'fromTs' when calling historyForSLO");
-    }
-    
-    // verify the required parameter 'toTs' is set
-    if (toTs == null) {
-      throw new ApiException(400, "Missing the required parameter 'toTs' when calling historyForSLO");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/slo/{slo_id}/history"
-      .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<HistoryServiceLevelObjectiveResponse> localVarReturnType = new GenericType<HistoryServiceLevelObjectiveResponse>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.historyForSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIhistoryForSLORequest {
-    private String sloId;
-    private String fromTs;
-    private String toTs;
-
-    private APIhistoryForSLORequest(String sloId) {
-      this.sloId = sloId;
-    }
-    
-
-    /**
-     * Set fromTs
-     * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
-     * @return APIhistoryForSLORequest
-     */
-    public APIhistoryForSLORequest fromTs(String fromTs) {
-      this.fromTs = fromTs;
-      return this;
-    }
-    
-
-    /**
-     * Set toTs
-     * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds. (required)
-     * @return APIhistoryForSLORequest
-     */
-    public APIhistoryForSLORequest toTs(String toTs) {
-      this.toTs = toTs;
-      return this;
-    }
-    
-
-    /**
-     * Execute historyForSLO request
-     * @return HistoryServiceLevelObjectiveResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public HistoryServiceLevelObjectiveResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute historyForSLO request with HTTP info returned
-     * @return ApiResponse&lt;HistoryServiceLevelObjectiveResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<HistoryServiceLevelObjectiveResponse> executeWithHttpInfo() throws ApiException {
-      return historyForSLOWithHttpInfo(sloId, fromTs, toTs);
-    }
-  }
-
-  /**
-   * Get an SLO&#39;s history
-   * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
-   * @param sloId The ID of the service level objective object. (required)
-   * @return historyForSLORequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIhistoryForSLORequest historyForSLO(String sloId) throws ApiException {
-    return new APIhistoryForSLORequest(sloId);
   }
 
 private ApiResponse<ServiceLevelObjectiveListResponse> updateSLOWithHttpInfo(String sloId, ServiceLevelObjective body) throws ApiException {

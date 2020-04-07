@@ -657,7 +657,7 @@ public class DashboardsApiTest extends V1ApiTest{
     @Test
     public void getAllDashboardTest() throws ApiException {
         // Get all dashboards and confirm the first returned entry has all expected fields set to not null
-        DashboardSummary getAllResponse = api.getAllDashboards().execute();
+        DashboardSummary getAllResponse = api.listDashboards().execute();
         assertNotNull(getAllResponse.getDashboards().get(0).getAuthorHandle());
         assertNotNull(getAllResponse.getDashboards().get(0).getCreatedAt());
         assertNotNull(getAllResponse.getDashboards().get(0).getModifiedAt());

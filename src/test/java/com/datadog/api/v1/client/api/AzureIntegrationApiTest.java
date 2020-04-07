@@ -133,7 +133,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
         assertEquals(uniqueUpdatedAzureAccount.getHostFilters(), retrievedAccount.getHostFilters());
 
         // Test update host filters endpoint
-        api.azureUpdateHostFilters().body(uniqueUpdatedHostFilters).execute();
+        api.updateAzureHostFilters().body(uniqueUpdatedHostFilters).execute();
         listAccounts = api.listAzureIntegration().execute();
         retrievedAccount = retrieveAccountInList(listAccounts, uniqueUpdatedHostFilters.getTenantName());
         assertEquals(uniqueUpdatedHostFilters.getHostFilters(), retrievedAccount.getHostFilters());

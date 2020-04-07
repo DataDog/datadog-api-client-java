@@ -39,98 +39,6 @@ public class LogsIndexesApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<LogsIndexListResponse> getAllLogIndexesWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/logs/config/indexes";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<LogsIndexListResponse> localVarReturnType = new GenericType<LogsIndexListResponse>() {};
-    return apiClient.invokeAPI("LogsIndexesApi.getAllLogIndexes", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllLogIndexesRequest {
-
-    private APIgetAllLogIndexesRequest() {
-    }
-    
-
-    /**
-     * Execute getAllLogIndexes request
-     * @return LogsIndexListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public LogsIndexListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllLogIndexes request with HTTP info returned
-     * @return ApiResponse&lt;LogsIndexListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<LogsIndexListResponse> executeWithHttpInfo() throws ApiException {
-      return getAllLogIndexesWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get all indexes
-   * The Index object describes the configuration of a log index. This endpoint returns an array of the &#x60;LogIndex&#x60; objects of your organization.
-   * @return getAllLogIndexesRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllLogIndexesRequest getAllLogIndexes() throws ApiException {
-    String operationId = "getAllLogIndexes";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIgetAllLogIndexesRequest();
-  }
-
 private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiException {
     Object localVarPostBody = null;
     
@@ -318,6 +226,98 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
   
   public APIgetLogsIndexOrderRequest getLogsIndexOrder() throws ApiException {
     return new APIgetLogsIndexOrderRequest();
+  }
+
+private ApiResponse<LogsIndexListResponse> listLogIndexesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/logs/config/indexes";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<LogsIndexListResponse> localVarReturnType = new GenericType<LogsIndexListResponse>() {};
+    return apiClient.invokeAPI("LogsIndexesApi.listLogIndexes", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistLogIndexesRequest {
+
+    private APIlistLogIndexesRequest() {
+    }
+    
+
+    /**
+     * Execute listLogIndexes request
+     * @return LogsIndexListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public LogsIndexListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listLogIndexes request with HTTP info returned
+     * @return ApiResponse&lt;LogsIndexListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<LogsIndexListResponse> executeWithHttpInfo() throws ApiException {
+      return listLogIndexesWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all indexes
+   * The Index object describes the configuration of a log index. This endpoint returns an array of the &#x60;LogIndex&#x60; objects of your organization.
+   * @return listLogIndexesRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistLogIndexesRequest listLogIndexes() throws ApiException {
+    String operationId = "listLogIndexes";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIlistLogIndexesRequest();
   }
 
 private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsIndex body) throws ApiException {

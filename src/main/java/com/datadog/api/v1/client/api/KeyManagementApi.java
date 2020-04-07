@@ -443,228 +443,6 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
     return new APIdeleteApplicationKeyRequest(key);
   }
 
-private ApiResponse<ApiKeyResponse> editAPIKeyWithHttpInfo(String key, ApiKey body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling editAPIKey");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/api_key/{key}"
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<ApiKeyResponse> localVarReturnType = new GenericType<ApiKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.editAPIKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIeditAPIKeyRequest {
-    private String key;
-    private ApiKey body;
-
-    private APIeditAPIKeyRequest(String key) {
-      this.key = key;
-    }
-    
-
-    /**
-     * Set body
-     * @param body  (optional)
-     * @return APIeditAPIKeyRequest
-     */
-    public APIeditAPIKeyRequest body(ApiKey body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute editAPIKey request
-     * @return ApiKeyResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiKeyResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute editAPIKey request with HTTP info returned
-     * @return ApiResponse&lt;ApiKeyResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<ApiKeyResponse> executeWithHttpInfo() throws ApiException {
-      return editAPIKeyWithHttpInfo(key, body);
-    }
-  }
-
-  /**
-   * Edit an API key
-   * Edit an API key name.
-   * @param key The specific API key you are working with. (required)
-   * @return editAPIKeyRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIeditAPIKeyRequest editAPIKey(String key) throws ApiException {
-    return new APIeditAPIKeyRequest(key);
-  }
-
-private ApiResponse<ApplicationKeyResponse> editApplicationKeyWithHttpInfo(String key, ApplicationKey body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling editApplicationKey");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/application_key/{key}"
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<ApplicationKeyResponse> localVarReturnType = new GenericType<ApplicationKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.editApplicationKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIeditApplicationKeyRequest {
-    private String key;
-    private ApplicationKey body;
-
-    private APIeditApplicationKeyRequest(String key) {
-      this.key = key;
-    }
-    
-
-    /**
-     * Set body
-     * @param body  (optional)
-     * @return APIeditApplicationKeyRequest
-     */
-    public APIeditApplicationKeyRequest body(ApplicationKey body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute editApplicationKey request
-     * @return ApplicationKeyResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApplicationKeyResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute editApplicationKey request with HTTP info returned
-     * @return ApiResponse&lt;ApplicationKeyResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<ApplicationKeyResponse> executeWithHttpInfo() throws ApiException {
-      return editApplicationKeyWithHttpInfo(key, body);
-    }
-  }
-
-  /**
-   * Edit an application key
-   * Edit an application key name.
-   * @param key The specific APP key you are working with. (required)
-   * @return editApplicationKeyRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIeditApplicationKeyRequest editApplicationKey(String key) throws ApiException {
-    return new APIeditApplicationKeyRequest(key);
-  }
-
 private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws ApiException {
     Object localVarPostBody = null;
     
@@ -764,182 +542,6 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
     return new APIgetAPIKeyRequest(key);
   }
 
-private ApiResponse<ApiKeyListResponse> getAllAPIKeysWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/api_key";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<ApiKeyListResponse> localVarReturnType = new GenericType<ApiKeyListResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.getAllAPIKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllAPIKeysRequest {
-
-    private APIgetAllAPIKeysRequest() {
-    }
-    
-
-    /**
-     * Execute getAllAPIKeys request
-     * @return ApiKeyListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiKeyListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllAPIKeys request with HTTP info returned
-     * @return ApiResponse&lt;ApiKeyListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<ApiKeyListResponse> executeWithHttpInfo() throws ApiException {
-      return getAllAPIKeysWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get all API keys
-   * Get all API keys available for your account.
-   * @return getAllAPIKeysRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllAPIKeysRequest getAllAPIKeys() throws ApiException {
-    return new APIgetAllAPIKeysRequest();
-  }
-
-private ApiResponse<ApplicationKeyListResponse> getAllApplicationKeysWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/application_key";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<ApplicationKeyListResponse> localVarReturnType = new GenericType<ApplicationKeyListResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.getAllApplicationKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllApplicationKeysRequest {
-
-    private APIgetAllApplicationKeysRequest() {
-    }
-    
-
-    /**
-     * Execute getAllApplicationKeys request
-     * @return ApplicationKeyListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApplicationKeyListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllApplicationKeys request with HTTP info returned
-     * @return ApiResponse&lt;ApplicationKeyListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<ApplicationKeyListResponse> executeWithHttpInfo() throws ApiException {
-      return getAllApplicationKeysWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get all application keys
-   * Get all application keys available for your Datadog account.
-   * @return getAllApplicationKeysRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllApplicationKeysRequest getAllApplicationKeys() throws ApiException {
-    return new APIgetAllApplicationKeysRequest();
-  }
-
 private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String key) throws ApiException {
     Object localVarPostBody = null;
     
@@ -1037,5 +639,403 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
   
   public APIgetApplicationKeyRequest getApplicationKey(String key) throws ApiException {
     return new APIgetApplicationKeyRequest(key);
+  }
+
+private ApiResponse<ApiKeyListResponse> listAPIKeysWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/api_key";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<ApiKeyListResponse> localVarReturnType = new GenericType<ApiKeyListResponse>() {};
+    return apiClient.invokeAPI("KeyManagementApi.listAPIKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistAPIKeysRequest {
+
+    private APIlistAPIKeysRequest() {
+    }
+    
+
+    /**
+     * Execute listAPIKeys request
+     * @return ApiKeyListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiKeyListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listAPIKeys request with HTTP info returned
+     * @return ApiResponse&lt;ApiKeyListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<ApiKeyListResponse> executeWithHttpInfo() throws ApiException {
+      return listAPIKeysWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all API keys
+   * Get all API keys available for your account.
+   * @return listAPIKeysRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistAPIKeysRequest listAPIKeys() throws ApiException {
+    return new APIlistAPIKeysRequest();
+  }
+
+private ApiResponse<ApplicationKeyListResponse> listApplicationKeysWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/application_key";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<ApplicationKeyListResponse> localVarReturnType = new GenericType<ApplicationKeyListResponse>() {};
+    return apiClient.invokeAPI("KeyManagementApi.listApplicationKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistApplicationKeysRequest {
+
+    private APIlistApplicationKeysRequest() {
+    }
+    
+
+    /**
+     * Execute listApplicationKeys request
+     * @return ApplicationKeyListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApplicationKeyListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listApplicationKeys request with HTTP info returned
+     * @return ApiResponse&lt;ApplicationKeyListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<ApplicationKeyListResponse> executeWithHttpInfo() throws ApiException {
+      return listApplicationKeysWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all application keys
+   * Get all application keys available for your Datadog account.
+   * @return listApplicationKeysRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistApplicationKeysRequest listApplicationKeys() throws ApiException {
+    return new APIlistApplicationKeysRequest();
+  }
+
+private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'key' is set
+    if (key == null) {
+      throw new ApiException(400, "Missing the required parameter 'key' when calling updateAPIKey");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/api_key/{key}"
+      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<ApiKeyResponse> localVarReturnType = new GenericType<ApiKeyResponse>() {};
+    return apiClient.invokeAPI("KeyManagementApi.updateAPIKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIupdateAPIKeyRequest {
+    private String key;
+    private ApiKey body;
+
+    private APIupdateAPIKeyRequest(String key) {
+      this.key = key;
+    }
+    
+
+    /**
+     * Set body
+     * @param body  (optional)
+     * @return APIupdateAPIKeyRequest
+     */
+    public APIupdateAPIKeyRequest body(ApiKey body) {
+      this.body = body;
+      return this;
+    }
+    
+
+    /**
+     * Execute updateAPIKey request
+     * @return ApiKeyResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiKeyResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateAPIKey request with HTTP info returned
+     * @return ApiResponse&lt;ApiKeyResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<ApiKeyResponse> executeWithHttpInfo() throws ApiException {
+      return updateAPIKeyWithHttpInfo(key, body);
+    }
+  }
+
+  /**
+   * Edit an API key
+   * Edit an API key name.
+   * @param key The specific API key you are working with. (required)
+   * @return updateAPIKeyRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIupdateAPIKeyRequest updateAPIKey(String key) throws ApiException {
+    return new APIupdateAPIKeyRequest(key);
+  }
+
+private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(String key, ApplicationKey body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'key' is set
+    if (key == null) {
+      throw new ApiException(400, "Missing the required parameter 'key' when calling updateApplicationKey");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/application_key/{key}"
+      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<ApplicationKeyResponse> localVarReturnType = new GenericType<ApplicationKeyResponse>() {};
+    return apiClient.invokeAPI("KeyManagementApi.updateApplicationKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIupdateApplicationKeyRequest {
+    private String key;
+    private ApplicationKey body;
+
+    private APIupdateApplicationKeyRequest(String key) {
+      this.key = key;
+    }
+    
+
+    /**
+     * Set body
+     * @param body  (optional)
+     * @return APIupdateApplicationKeyRequest
+     */
+    public APIupdateApplicationKeyRequest body(ApplicationKey body) {
+      this.body = body;
+      return this;
+    }
+    
+
+    /**
+     * Execute updateApplicationKey request
+     * @return ApplicationKeyResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApplicationKeyResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateApplicationKey request with HTTP info returned
+     * @return ApiResponse&lt;ApplicationKeyResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<ApplicationKeyResponse> executeWithHttpInfo() throws ApiException {
+      return updateApplicationKeyWithHttpInfo(key, body);
+    }
+  }
+
+  /**
+   * Edit an application key
+   * Edit an application key name.
+   * @param key The specific APP key you are working with. (required)
+   * @return updateApplicationKeyRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIupdateApplicationKeyRequest updateApplicationKey(String key) throws ApiException {
+    return new APIupdateApplicationKeyRequest(key);
   }
 }

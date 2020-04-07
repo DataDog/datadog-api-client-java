@@ -239,273 +239,6 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
     return new APIdeleteMonitorRequest(monitorId);
   }
 
-private ApiResponse<Monitor> editMonitorWithHttpInfo(Long monitorId, Monitor body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'monitorId' is set
-    if (monitorId == null) {
-      throw new ApiException(400, "Missing the required parameter 'monitorId' when calling editMonitor");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling editMonitor");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/monitor/{monitor_id}"
-      .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.editMonitor", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIeditMonitorRequest {
-    private Long monitorId;
-    private Monitor body;
-
-    private APIeditMonitorRequest(Long monitorId) {
-      this.monitorId = monitorId;
-    }
-    
-
-    /**
-     * Set body
-     * @param body Monitor request object. (required)
-     * @return APIeditMonitorRequest
-     */
-    public APIeditMonitorRequest body(Monitor body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute editMonitor request
-     * @return Monitor
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public Monitor execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute editMonitor request with HTTP info returned
-     * @return ApiResponse&lt;Monitor&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
-      return editMonitorWithHttpInfo(monitorId, body);
-    }
-  }
-
-  /**
-   * Edit a monitor
-   * Edit the specified monitor.
-   * @param monitorId The id of the monitor. (required)
-   * @return editMonitorRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIeditMonitorRequest editMonitor(Long monitorId) throws ApiException {
-    return new APIeditMonitorRequest(monitorId);
-  }
-
-private ApiResponse<List<Monitor>> getAllMonitorsWithHttpInfo(String groupStates, String name, String tags, String monitorTags, Boolean withDowntimes) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/monitor";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", groupStates));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "monitor_tags", monitorTags));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", withDowntimes));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<List<Monitor>> localVarReturnType = new GenericType<List<Monitor>>() {};
-    return apiClient.invokeAPI("MonitorsApi.getAllMonitors", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllMonitorsRequest {
-    private String groupStates;
-    private String name;
-    private String tags;
-    private String monitorTags;
-    private Boolean withDowntimes;
-
-    private APIgetAllMonitorsRequest() {
-    }
-    
-
-    /**
-     * Set groupStates
-     * @param groupStates When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. (optional)
-     * @return APIgetAllMonitorsRequest
-     */
-    public APIgetAllMonitorsRequest groupStates(String groupStates) {
-      this.groupStates = groupStates;
-      return this;
-    }
-    
-
-    /**
-     * Set name
-     * @param name A string to filter monitors by name. (optional)
-     * @return APIgetAllMonitorsRequest
-     */
-    public APIgetAllMonitorsRequest name(String name) {
-      this.name = name;
-      return this;
-    }
-    
-
-    /**
-     * Set tags
-     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, &#x60;host:host0&#x60;. (optional)
-     * @return APIgetAllMonitorsRequest
-     */
-    public APIgetAllMonitorsRequest tags(String tags) {
-      this.tags = tags;
-      return this;
-    }
-    
-
-    /**
-     * Set monitorTags
-     * @param monitorTags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. (optional)
-     * @return APIgetAllMonitorsRequest
-     */
-    public APIgetAllMonitorsRequest monitorTags(String monitorTags) {
-      this.monitorTags = monitorTags;
-      return this;
-    }
-    
-
-    /**
-     * Set withDowntimes
-     * @param withDowntimes If this argument is set to true, then the returned data includes all current downtimes for each monitor. (optional)
-     * @return APIgetAllMonitorsRequest
-     */
-    public APIgetAllMonitorsRequest withDowntimes(Boolean withDowntimes) {
-      this.withDowntimes = withDowntimes;
-      return this;
-    }
-    
-
-    /**
-     * Execute getAllMonitors request
-     * @return List&lt;Monitor&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public List<Monitor> execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllMonitors request with HTTP info returned
-     * @return ApiResponse&lt;List&lt;Monitor&gt;&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<List<Monitor>> executeWithHttpInfo() throws ApiException {
-      return getAllMonitorsWithHttpInfo(groupStates, name, tags, monitorTags, withDowntimes);
-    }
-  }
-
-  /**
-   * Get all monitor details
-   * Get details about the specified monitor from your organization.
-   * @return getAllMonitorsRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllMonitorsRequest getAllMonitors() throws ApiException {
-    return new APIgetAllMonitorsRequest();
-  }
-
 private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String groupStates) throws ApiException {
     Object localVarPostBody = null;
     
@@ -614,6 +347,273 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
   
   public APIgetMonitorRequest getMonitor(Long monitorId) throws ApiException {
     return new APIgetMonitorRequest(monitorId);
+  }
+
+private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, String name, String tags, String monitorTags, Boolean withDowntimes) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/monitor";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", groupStates));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "monitor_tags", monitorTags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", withDowntimes));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<List<Monitor>> localVarReturnType = new GenericType<List<Monitor>>() {};
+    return apiClient.invokeAPI("MonitorsApi.listMonitors", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistMonitorsRequest {
+    private String groupStates;
+    private String name;
+    private String tags;
+    private String monitorTags;
+    private Boolean withDowntimes;
+
+    private APIlistMonitorsRequest() {
+    }
+    
+
+    /**
+     * Set groupStates
+     * @param groupStates When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest groupStates(String groupStates) {
+      this.groupStates = groupStates;
+      return this;
+    }
+    
+
+    /**
+     * Set name
+     * @param name A string to filter monitors by name. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest name(String name) {
+      this.name = name;
+      return this;
+    }
+    
+
+    /**
+     * Set tags
+     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, &#x60;host:host0&#x60;. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest tags(String tags) {
+      this.tags = tags;
+      return this;
+    }
+    
+
+    /**
+     * Set monitorTags
+     * @param monitorTags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest monitorTags(String monitorTags) {
+      this.monitorTags = monitorTags;
+      return this;
+    }
+    
+
+    /**
+     * Set withDowntimes
+     * @param withDowntimes If this argument is set to true, then the returned data includes all current downtimes for each monitor. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest withDowntimes(Boolean withDowntimes) {
+      this.withDowntimes = withDowntimes;
+      return this;
+    }
+    
+
+    /**
+     * Execute listMonitors request
+     * @return List&lt;Monitor&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public List<Monitor> execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listMonitors request with HTTP info returned
+     * @return ApiResponse&lt;List&lt;Monitor&gt;&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<List<Monitor>> executeWithHttpInfo() throws ApiException {
+      return listMonitorsWithHttpInfo(groupStates, name, tags, monitorTags, withDowntimes);
+    }
+  }
+
+  /**
+   * Get all monitor details
+   * Get details about the specified monitor from your organization.
+   * @return listMonitorsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistMonitorsRequest listMonitors() throws ApiException {
+    return new APIlistMonitorsRequest();
+  }
+
+private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      throw new ApiException(400, "Missing the required parameter 'monitorId' when calling updateMonitor");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateMonitor");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/monitor/{monitor_id}"
+      .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
+    return apiClient.invokeAPI("MonitorsApi.updateMonitor", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIupdateMonitorRequest {
+    private Long monitorId;
+    private Monitor body;
+
+    private APIupdateMonitorRequest(Long monitorId) {
+      this.monitorId = monitorId;
+    }
+    
+
+    /**
+     * Set body
+     * @param body Monitor request object. (required)
+     * @return APIupdateMonitorRequest
+     */
+    public APIupdateMonitorRequest body(Monitor body) {
+      this.body = body;
+      return this;
+    }
+    
+
+    /**
+     * Execute updateMonitor request
+     * @return Monitor
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public Monitor execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateMonitor request with HTTP info returned
+     * @return ApiResponse&lt;Monitor&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
+      return updateMonitorWithHttpInfo(monitorId, body);
+    }
+  }
+
+  /**
+   * Edit a monitor
+   * Edit the specified monitor.
+   * @param monitorId The id of the monitor. (required)
+   * @return updateMonitorRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIupdateMonitorRequest updateMonitor(Long monitorId) throws ApiException {
+    return new APIupdateMonitorRequest(monitorId);
   }
 
 private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws ApiException {

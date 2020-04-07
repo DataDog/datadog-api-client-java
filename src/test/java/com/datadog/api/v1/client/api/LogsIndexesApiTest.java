@@ -38,20 +38,20 @@ public class LogsIndexesApiTest extends V1ApiTest {
     @BeforeClass
     public static void enableUnstableOperations() {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", true);
-        generalApiClient.setUnstableOperationEnabled("getAllLogIndexes", true);
+        generalApiClient.setUnstableOperationEnabled("listLogIndexes", true);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", true);
-        generalApiUnitTestClient.setUnstableOperationEnabled("getAllLogIndexes", true);
+        generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", true);
     }
 
     @AfterClass
     public static void disableUnstableOperations() {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", false);
-        generalApiClient.setUnstableOperationEnabled("getAllLogIndexes", false);
+        generalApiClient.setUnstableOperationEnabled("listLogIndexes", false);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", false);
-        generalApiUnitTestClient.setUnstableOperationEnabled("getAllLogIndexes", false);
+        generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", false);
     }
 
@@ -61,8 +61,8 @@ public class LogsIndexesApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void getAllLogIndexesTest() throws ApiException {
-        LogsIndexListResponse response = api.getAllLogIndexes().execute();
+    public void listLogIndexesTest() throws ApiException {
+        LogsIndexListResponse response = api.listLogIndexes().execute();
         assertTrue(0 < response.getIndexes().size());
     }
 

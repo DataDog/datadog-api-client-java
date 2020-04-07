@@ -75,8 +75,8 @@ public class LogsPipelinesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getAllLogsPipelinesTest() throws ApiException {
-        List<LogsPipeline> response = api.getAllLogsPipelines()
+    public void listLogsPipelinesTest() throws ApiException {
+        List<LogsPipeline> response = api.listLogsPipelines()
                 .execute();
         // TODO: test validations
     }

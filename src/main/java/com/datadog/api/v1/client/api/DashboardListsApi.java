@@ -240,94 +240,6 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
     return new APIdeleteDashboardListRequest(listId);
   }
 
-private ApiResponse<DashboardListListResponse> getAllDashboardListsWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/dashboard/lists/manual";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<DashboardListListResponse> localVarReturnType = new GenericType<DashboardListListResponse>() {};
-    return apiClient.invokeAPI("DashboardListsApi.getAllDashboardLists", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllDashboardListsRequest {
-
-    private APIgetAllDashboardListsRequest() {
-    }
-    
-
-    /**
-     * Execute getAllDashboardLists request
-     * @return DashboardListListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public DashboardListListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllDashboardLists request with HTTP info returned
-     * @return ApiResponse&lt;DashboardListListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<DashboardListListResponse> executeWithHttpInfo() throws ApiException {
-      return getAllDashboardListsWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get all dashboard lists
-   * Fetch all of your existing dashboard list definitions.
-   * @return getAllDashboardListsRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllDashboardListsRequest getAllDashboardLists() throws ApiException {
-    return new APIgetAllDashboardListsRequest();
-  }
-
 private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) throws ApiException {
     Object localVarPostBody = null;
     
@@ -423,6 +335,94 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
   
   public APIgetDashboardListRequest getDashboardList(Long listId) throws ApiException {
     return new APIgetDashboardListRequest(listId);
+  }
+
+private ApiResponse<DashboardListListResponse> listDashboardListsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/dashboard/lists/manual";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<DashboardListListResponse> localVarReturnType = new GenericType<DashboardListListResponse>() {};
+    return apiClient.invokeAPI("DashboardListsApi.listDashboardLists", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistDashboardListsRequest {
+
+    private APIlistDashboardListsRequest() {
+    }
+    
+
+    /**
+     * Execute listDashboardLists request
+     * @return DashboardListListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public DashboardListListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listDashboardLists request with HTTP info returned
+     * @return ApiResponse&lt;DashboardListListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<DashboardListListResponse> executeWithHttpInfo() throws ApiException {
+      return listDashboardListsWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all dashboard lists
+   * Fetch all of your existing dashboard list definitions.
+   * @return listDashboardListsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistDashboardListsRequest listDashboardLists() throws ApiException {
+    return new APIlistDashboardListsRequest();
   }
 
 private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, DashboardList body) throws ApiException {

@@ -39,172 +39,6 @@ public class HostsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<HostListResponse> getAllHostsWithHttpInfo(String filter, String sortField, String sortDir, Long start, Long count, Long from) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/hosts";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_field", sortField));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<HostListResponse> localVarReturnType = new GenericType<HostListResponse>() {};
-    return apiClient.invokeAPI("HostsApi.getAllHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetAllHostsRequest {
-    private String filter;
-    private String sortField;
-    private String sortDir;
-    private Long start;
-    private Long count;
-    private Long from;
-
-    private APIgetAllHostsRequest() {
-    }
-    
-
-    /**
-     * Set filter
-     * @param filter String to filter search results. (optional)
-     * @return APIgetAllHostsRequest
-     */
-    public APIgetAllHostsRequest filter(String filter) {
-      this.filter = filter;
-      return this;
-    }
-    
-
-    /**
-     * Set sortField
-     * @param sortField Sort hosts by this field. (optional)
-     * @return APIgetAllHostsRequest
-     */
-    public APIgetAllHostsRequest sortField(String sortField) {
-      this.sortField = sortField;
-      return this;
-    }
-    
-
-    /**
-     * Set sortDir
-     * @param sortDir Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;. (optional)
-     * @return APIgetAllHostsRequest
-     */
-    public APIgetAllHostsRequest sortDir(String sortDir) {
-      this.sortDir = sortDir;
-      return this;
-    }
-    
-
-    /**
-     * Set start
-     * @param start Host result to start search from. (optional)
-     * @return APIgetAllHostsRequest
-     */
-    public APIgetAllHostsRequest start(Long start) {
-      this.start = start;
-      return this;
-    }
-    
-
-    /**
-     * Set count
-     * @param count Number of hosts to return. Max 1000. (optional)
-     * @return APIgetAllHostsRequest
-     */
-    public APIgetAllHostsRequest count(Long count) {
-      this.count = count;
-      return this;
-    }
-    
-
-    /**
-     * Set from
-     * @param from Number of seconds since UNIX epoch from which you want to search your hosts. (optional)
-     * @return APIgetAllHostsRequest
-     */
-    public APIgetAllHostsRequest from(Long from) {
-      this.from = from;
-      return this;
-    }
-    
-
-    /**
-     * Execute getAllHosts request
-     * @return HostListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Host Not Found Error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public HostListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAllHosts request with HTTP info returned
-     * @return ApiResponse&lt;HostListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Host Not Found Error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<HostListResponse> executeWithHttpInfo() throws ApiException {
-      return getAllHostsWithHttpInfo(filter, sortField, sortDir, start, count, from);
-    }
-  }
-
-  /**
-   * Get all hosts for your organization
-   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included. Results are paginated with a max of 1000 results at a time.
-   * @return getAllHostsRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetAllHostsRequest getAllHosts() throws ApiException {
-    return new APIgetAllHostsRequest();
-  }
-
 private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiException {
     Object localVarPostBody = null;
     
@@ -302,6 +136,172 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
   
   public APIgetHostTotalsRequest getHostTotals() throws ApiException {
     return new APIgetHostTotalsRequest();
+  }
+
+private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, String sortField, String sortDir, Long start, Long count, Long from) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/hosts";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_field", sortField));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<HostListResponse> localVarReturnType = new GenericType<HostListResponse>() {};
+    return apiClient.invokeAPI("HostsApi.listHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIlistHostsRequest {
+    private String filter;
+    private String sortField;
+    private String sortDir;
+    private Long start;
+    private Long count;
+    private Long from;
+
+    private APIlistHostsRequest() {
+    }
+    
+
+    /**
+     * Set filter
+     * @param filter String to filter search results. (optional)
+     * @return APIlistHostsRequest
+     */
+    public APIlistHostsRequest filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+    
+
+    /**
+     * Set sortField
+     * @param sortField Sort hosts by this field. (optional)
+     * @return APIlistHostsRequest
+     */
+    public APIlistHostsRequest sortField(String sortField) {
+      this.sortField = sortField;
+      return this;
+    }
+    
+
+    /**
+     * Set sortDir
+     * @param sortDir Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;. (optional)
+     * @return APIlistHostsRequest
+     */
+    public APIlistHostsRequest sortDir(String sortDir) {
+      this.sortDir = sortDir;
+      return this;
+    }
+    
+
+    /**
+     * Set start
+     * @param start Host result to start search from. (optional)
+     * @return APIlistHostsRequest
+     */
+    public APIlistHostsRequest start(Long start) {
+      this.start = start;
+      return this;
+    }
+    
+
+    /**
+     * Set count
+     * @param count Number of hosts to return. Max 1000. (optional)
+     * @return APIlistHostsRequest
+     */
+    public APIlistHostsRequest count(Long count) {
+      this.count = count;
+      return this;
+    }
+    
+
+    /**
+     * Set from
+     * @param from Number of seconds since UNIX epoch from which you want to search your hosts. (optional)
+     * @return APIlistHostsRequest
+     */
+    public APIlistHostsRequest from(Long from) {
+      this.from = from;
+      return this;
+    }
+    
+
+    /**
+     * Execute listHosts request
+     * @return HostListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Host Not Found Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public HostListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listHosts request with HTTP info returned
+     * @return ApiResponse&lt;HostListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Host Not Found Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<HostListResponse> executeWithHttpInfo() throws ApiException {
+      return listHostsWithHttpInfo(filter, sortField, sortDir, start, count, from);
+    }
+  }
+
+  /**
+   * Get all hosts for your organization
+   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included. Results are paginated with a max of 1000 results at a time.
+   * @return listHostsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIlistHostsRequest listHosts() throws ApiException {
+    return new APIlistHostsRequest();
   }
 
 private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, HostMuteSettings body) throws ApiException {

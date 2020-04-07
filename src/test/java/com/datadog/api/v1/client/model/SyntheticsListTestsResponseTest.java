@@ -11,38 +11,40 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
+import com.datadog.api.v1.client.model.SyntheticsTestDetails;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for SyntheticsSetTestPauseStatusPayload
+ * Model tests for SyntheticsListTestsResponse
  */
-public class SyntheticsSetTestPauseStatusPayloadTest {
-    private final SyntheticsSetTestPauseStatusPayload model = new SyntheticsSetTestPauseStatusPayload();
+public class SyntheticsListTestsResponseTest {
+    private final SyntheticsListTestsResponse model = new SyntheticsListTestsResponse();
 
     /**
-     * Model tests for SyntheticsSetTestPauseStatusPayload
+     * Model tests for SyntheticsListTestsResponse
      */
     @Test
-    public void testSyntheticsSetTestPauseStatusPayload() {
-        // TODO: test SyntheticsSetTestPauseStatusPayload
+    public void testSyntheticsListTestsResponse() {
+        // TODO: test SyntheticsListTestsResponse
     }
 
     /**
-     * Test the property 'newStatus'
+     * Test the property 'tests'
      */
     @Test
-    public void newStatusTest() {
-        // TODO: test newStatus
+    public void testsTest() {
+        // TODO: test tests
     }
 
 }
