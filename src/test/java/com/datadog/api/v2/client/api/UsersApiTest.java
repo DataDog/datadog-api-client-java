@@ -29,7 +29,6 @@ import java.util.Map;
 public class UsersApiTest extends V2APITest {
 
     private static UsersApi api = new UsersApi();
-    private final String testingUserHandle = "testinguser" + new Timestamp(System.currentTimeMillis()).getTime() + "@datadoghq.com";
     private final String testingUserName = "Testing User";
     private final String testingUserTitle = "Bigboss";
     private ArrayList<String> disableUsers = null;
@@ -56,10 +55,15 @@ public class UsersApiTest extends V2APITest {
         }
     }
 
+    public String generateUserHandle() {
+        return "testinguser" + new Timestamp(System.currentTimeMillis()).getTime() + "@datadoghq.com";
+    }
+
     @Test
     public void userLifecycleTest() throws ApiException {
         // TODO: test roles, permissions when we can
         // first, test creating a user
+        final String testingUserHandle = generateUserHandle();
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
                 .name(testingUserName)
@@ -103,6 +107,7 @@ public class UsersApiTest extends V2APITest {
 
     @Test
     public void userInvitationTest() throws ApiException {
+        final String testingUserHandle = generateUserHandle();
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
                 .name(testingUserName)
