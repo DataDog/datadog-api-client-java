@@ -56,7 +56,7 @@ public class UsersApiTest extends V2APITest {
     }
 
     public String generateUserHandle() {
-        return "testinguser" + new Timestamp(System.currentTimeMillis()).getTime() + "@datadoghq.com";
+        return "testinguser" + now.toEpochSecond() + "@datadoghq.com";
     }
 
     @Test
