@@ -22,23 +22,26 @@ import java.util.List;
 import com.datadog.api.v1.client.model.LogsProcessor;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for LogsRemapper
+ * Model tests for LogsAttributeRemapper
  */
-public class LogsRemapperTest {
-    private final LogsRemapper model = new LogsRemapper();
+public class LogsAttributeRemapperTest {
+    private final LogsAttributeRemapper model = new LogsAttributeRemapper();
 
     /**
-     * Model tests for LogsRemapper
+     * Model tests for LogsAttributeRemapper
      */
     @Test
-    public void testLogsRemapper() {
-        // TODO: test LogsRemapper
+    public void testLogsAttributeRemapper() {
+        // TODO: test LogsAttributeRemapper
     }
 
     /**
