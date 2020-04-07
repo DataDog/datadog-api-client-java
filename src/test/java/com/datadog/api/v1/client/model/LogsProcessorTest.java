@@ -12,6 +12,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.datadog.api.v1.client.model.LogsArithmeticProcessor;
+import com.datadog.api.v1.client.model.LogsAttributeRemapper;
 import com.datadog.api.v1.client.model.LogsCategoryProcessor;
 import com.datadog.api.v1.client.model.LogsCategoryProcessorCategories;
 import com.datadog.api.v1.client.model.LogsDateRemapper;
@@ -20,7 +21,6 @@ import com.datadog.api.v1.client.model.LogsGrokParser;
 import com.datadog.api.v1.client.model.LogsGrokParserRules;
 import com.datadog.api.v1.client.model.LogsLookupProcessor;
 import com.datadog.api.v1.client.model.LogsMessageRemapper;
-import com.datadog.api.v1.client.model.LogsRemapper;
 import com.datadog.api.v1.client.model.LogsServiceRemapper;
 import com.datadog.api.v1.client.model.LogsStatusRemapper;
 import com.datadog.api.v1.client.model.LogsStringBuilderProcessor;
@@ -37,6 +37,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;

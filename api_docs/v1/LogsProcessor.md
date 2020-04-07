@@ -6,13 +6,13 @@ Definition of a logs processor.
 ## Implementing Classes
 
 * LogsArithmeticProcessor
+* LogsAttributeRemapper
 * LogsCategoryProcessor
 * LogsDateRemapper
 * LogsGeoIPParser
 * LogsGrokParser
 * LogsLookupProcessor
 * LogsMessageRemapper
-* LogsRemapper
 * LogsServiceRemapper
 * LogsStatusRemapper
 * LogsStringBuilderProcessor

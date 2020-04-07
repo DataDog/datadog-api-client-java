@@ -14,6 +14,7 @@ package com.datadog.api.v1.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.LogsArithmeticProcessor;
+import com.datadog.api.v1.client.model.LogsAttributeRemapper;
 import com.datadog.api.v1.client.model.LogsCategoryProcessor;
 import com.datadog.api.v1.client.model.LogsCategoryProcessorCategories;
 import com.datadog.api.v1.client.model.LogsDateRemapper;
@@ -22,7 +23,6 @@ import com.datadog.api.v1.client.model.LogsGrokParser;
 import com.datadog.api.v1.client.model.LogsGrokParserRules;
 import com.datadog.api.v1.client.model.LogsLookupProcessor;
 import com.datadog.api.v1.client.model.LogsMessageRemapper;
-import com.datadog.api.v1.client.model.LogsRemapper;
 import com.datadog.api.v1.client.model.LogsServiceRemapper;
 import com.datadog.api.v1.client.model.LogsStatusRemapper;
 import com.datadog.api.v1.client.model.LogsStringBuilderProcessor;
@@ -39,13 +39,16 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
   @JsonSubTypes.Type(value = LogsArithmeticProcessor.class, name = "arithmetic-processor"),
-  @JsonSubTypes.Type(value = LogsRemapper.class, name = "attribute-remapper"),
+  @JsonSubTypes.Type(value = LogsAttributeRemapper.class, name = "attribute-remapper"),
   @JsonSubTypes.Type(value = LogsCategoryProcessor.class, name = "category-processor"),
   @JsonSubTypes.Type(value = LogsDateRemapper.class, name = "date-remapper"),
   @JsonSubTypes.Type(value = LogsGeoIPParser.class, name = "geo-ip-parser"),

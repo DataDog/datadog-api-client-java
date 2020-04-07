@@ -61,7 +61,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         LogsProcessor logMessageRemapper = new LogsMessageRemapper()
                 .addSourcesItem("source")
                 .name("log message remapper");
-        LogsProcessor remapper = new LogsRemapper()
+        LogsProcessor remapper = new LogsAttributeRemapper()
                 .addSourcesItem("source")
                 .sourceType("tag")
                 .target("target")
