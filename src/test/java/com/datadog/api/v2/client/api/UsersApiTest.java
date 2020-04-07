@@ -96,28 +96,13 @@ public class UsersApiTest extends V2APITest {
         assertEquals(1, usrp.getData().size());
         assertEquals(testingUserHandle, usrp.getData().get(0).getAttributes().getHandle());
 
-        // now, test getting a user organization
-        /*
-        TODO: it seems that this can only be called for the current user, but how do we get current user UUID?
-        - {"errors": ["Unauthorized request as the passed in user uuid (e44c2998-7844-11ea-93dc-1fdf3b8cb3d1) does not match the current user's uuid."]}
-        UserResponsePayload orgurp = api.getUserOrganization(uid).execute();
-        boolean foundOrg = false;
-        for (UserResponseIncludedItem incl : orgurp.getIncluded()) {
-            if (incl.getType().equals("orgs")) {
-                foundOrg = true;
-                Organization org = (Organization) incl;
-                // check that the org has at least ID set
-                assertNotEquals(null, org.getAttributes().getPublicId());
-                assertNotEquals("", org.getAttributes().getPublicId());
-            }
-        }
-        assertTrue(foundOrg);
-         */
+        // NOTE: to test getting a user organization, we'd need to have a "whoami" API endpoint
+        // to get the UUID of the current user, but there's no such stable endpoint right now
+        // (a user can only get organization for itself, never for a different user)
     }
 
     @Test
     public void userInvitationTest() throws ApiException {
-        // TODO: setting login_method
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
                 .name(testingUserName)
