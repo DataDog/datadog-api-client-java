@@ -99,6 +99,8 @@ public class UsersApiTest extends V2APITest {
         UsersResponsePayload usrp = api.listUsers().filter(testingUserHandle).pageSize(1L).pageNumber(0L).execute();
         assertEquals(1, usrp.getData().size());
         assertEquals(testingUserHandle, usrp.getData().get(0).getAttributes().getHandle());
+        assertTrue(usrp.getMeta().getPage().getTotalCount() >= 1L);
+        assertTrue(usrp.getMeta().getPage().getTotalFilteredCount() >= 1L);
 
         // NOTE: to test getting a user organization, we'd need to have a "whoami" API endpoint
         // to get the UUID of the current user, but there's no such stable endpoint right now
