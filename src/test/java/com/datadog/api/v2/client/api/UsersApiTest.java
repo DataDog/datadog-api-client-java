@@ -96,7 +96,13 @@ public class UsersApiTest extends V2APITest {
         api.disableUser(uid).execute();
 
         // now, test filtering for it in the list call
-        UsersResponsePayload usrp = api.listUsers().filter(testingUserHandle).pageSize(1L).pageNumber(0L).execute();
+        UsersResponsePayload usrp = api
+                .listUsers()
+                .filter(testingUserHandle)
+                .pageSize(1L)
+                .pageNumber(0L)
+                .sortDir(QuerySortOrder.ASC)
+                .execute();
         assertEquals(1, usrp.getData().size());
         assertEquals(testingUserHandle, usrp.getData().get(0).getAttributes().getHandle());
         assertTrue(usrp.getMeta().getPage().getTotalCount() >= 1L);
