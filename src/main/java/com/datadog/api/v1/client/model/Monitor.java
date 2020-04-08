@@ -33,8 +33,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Monitor
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   Monitor.JSON_PROPERTY_CREATED,
   Monitor.JSON_PROPERTY_CREATOR,
@@ -322,11 +323,11 @@ public class Monitor {
   }
 
    /**
-   * Get query
+   * TODO.
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

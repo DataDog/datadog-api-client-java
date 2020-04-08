@@ -2,13 +2,14 @@
 
 # SyntheticsBrowserError
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **String** |  | 
-**name** | **String** |  | 
-**statusCode** | **Long** |  |  [optional]
+**description** | **String** | TODO. | 
+**name** | **String** | TODO. | 
+**statusCode** | **Long** | TODO. |  [optional]
 **type** | [**SyntheticsBrowserErrorType**](SyntheticsBrowserErrorType.md) |  | 
 
 

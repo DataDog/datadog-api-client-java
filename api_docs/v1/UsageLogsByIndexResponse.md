@@ -7,7 +7,7 @@ Response containing the number of indexed logs for each hour and index for a giv
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usage** | [**List&lt;UsageLogsByIndexHour&gt;**](UsageLogsByIndexHour.md) |  |  [optional]
+**usage** | [**List&lt;UsageLogsByIndexHour&gt;**](UsageLogsByIndexHour.md) | TODO. |  [optional]
 
 
 

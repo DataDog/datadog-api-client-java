@@ -27,8 +27,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * LogQueryDefinition
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   LogQueryDefinition.JSON_PROPERTY_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_GROUP_BY,
@@ -94,11 +95,11 @@ public class LogQueryDefinition {
   }
 
    /**
-   * Get groupBy
+   * TODO.
    * @return groupBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -119,11 +120,11 @@ public class LogQueryDefinition {
   }
 
    /**
-   * Get index
+   * TODO.
    * @return index
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -30,8 +30,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TimeseriesWidgetRequest
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   TimeseriesWidgetRequest.JSON_PROPERTY_APM_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_DISPLAY_TYPE,
@@ -267,11 +268,11 @@ public class TimeseriesWidgetRequest {
   }
 
    /**
-   * Get q
+   * TODO.
    * @return q
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * LogsListResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   LogsListResponse.JSON_PROPERTY_LOGS,
   LogsListResponse.JSON_PROPERTY_NEXT_LOG_ID,
@@ -59,11 +60,11 @@ public class LogsListResponse {
   }
 
    /**
-   * Get logs
+   * TODO.
    * @return logs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -109,11 +110,11 @@ public class LogsListResponse {
   }
 
    /**
-   * Get status
+   * TODO.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

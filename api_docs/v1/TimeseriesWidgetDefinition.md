@@ -7,10 +7,10 @@ The timeseries visualization allows you to display the evolution of one or more 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**events** | [**List&lt;WidgetEvent&gt;**](WidgetEvent.md) |  |  [optional]
+**events** | [**List&lt;WidgetEvent&gt;**](WidgetEvent.md) | TODO. |  [optional]
 **legendSize** | [**WidgetLegendSize**](WidgetLegendSize.md) |  |  [optional]
-**markers** | [**List&lt;WidgetMarker&gt;**](WidgetMarker.md) |  |  [optional]
-**requests** | [**List&lt;TimeseriesWidgetRequest&gt;**](TimeseriesWidgetRequest.md) |  | 
+**markers** | [**List&lt;WidgetMarker&gt;**](WidgetMarker.md) | TODO. |  [optional]
+**requests** | [**List&lt;TimeseriesWidgetRequest&gt;**](TimeseriesWidgetRequest.md) | TODO. | 
 **showLegend** | **Boolean** | (screenboard only) Show the legend for this widget |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]

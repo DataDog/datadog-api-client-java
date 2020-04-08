@@ -28,8 +28,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Host
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   Host.JSON_PROPERTY_ALIASES,
   Host.JSON_PROPERTY_APPS,

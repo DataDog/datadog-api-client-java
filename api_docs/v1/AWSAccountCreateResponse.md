@@ -2,11 +2,12 @@
 
 # AWSAccountCreateResponse
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**externalId** | **String** |  |  [optional]
+**externalId** | **String** | TODO. |  [optional]
 
 
 

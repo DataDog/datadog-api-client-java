@@ -2,15 +2,16 @@
 
 # SyntheticsDevice
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**height** | **Long** |  | 
+**height** | **Long** | TODO. | 
 **id** | [**SyntheticsDeviceID**](SyntheticsDeviceID.md) |  | 
-**isMobile** | **Boolean** |  |  [optional]
-**name** | **String** |  | 
-**width** | **Long** |  | 
+**isMobile** | **Boolean** | TODO. |  [optional]
+**name** | **String** | TODO. | 
+**width** | **Long** | TODO. | 
 
 
 

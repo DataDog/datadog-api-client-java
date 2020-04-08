@@ -26,8 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsBrowserTestResultData
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultData.JSON_PROPERTY_BROWSER_TYPE,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_BROWSER_VERSION,
@@ -84,11 +85,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get browserType
+   * TODO.
    * @return browserType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_BROWSER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -109,11 +110,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get browserVersion
+   * TODO.
    * @return browserVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_BROWSER_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -159,11 +160,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get duration
+   * TODO.
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -184,11 +185,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get error
+   * TODO.
    * @return error
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -209,11 +210,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get passed
+   * TODO.
    * @return passed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -234,11 +235,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get receivedEmailCount
+   * TODO.
    * @return receivedEmailCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_RECEIVED_EMAIL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -259,11 +260,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get startUrl
+   * TODO.
    * @return startUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_START_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -292,11 +293,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get stepDetails
+   * TODO.
    * @return stepDetails
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_STEP_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -317,11 +318,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get thumbnailsBucketKey
+   * TODO.
    * @return thumbnailsBucketKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_THUMBNAILS_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -342,11 +343,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * Get timeToInteractive
+   * TODO.
    * @return timeToInteractive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

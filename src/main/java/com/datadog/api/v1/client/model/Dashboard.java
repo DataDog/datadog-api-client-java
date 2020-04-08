@@ -32,8 +32,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Dashboard
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   Dashboard.JSON_PROPERTY_AUTHOR_HANDLE,
   Dashboard.JSON_PROPERTY_CREATED_AT,
@@ -92,11 +93,11 @@ public class Dashboard {
 
 
    /**
-   * Get authorHandle
+   * TODO.
    * @return authorHandle
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test@datadoghq.com", value = "")
+  @ApiModelProperty(example = "test@datadoghq.com", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_AUTHOR_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,11 +109,11 @@ public class Dashboard {
 
 
    /**
-   * Get createdAt
+   * TODO.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -224,11 +225,11 @@ public class Dashboard {
 
 
    /**
-   * Get modifiedAt
+   * TODO.
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -305,11 +306,11 @@ public class Dashboard {
   }
 
    /**
-   * Get templateVariablePresets
+   * TODO.
    * @return templateVariablePresets
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonIgnore
 
   public List<DashboardTemplateVariablePreset> getTemplateVariablePresets() {
@@ -352,11 +353,11 @@ public class Dashboard {
   }
 
    /**
-   * Get templateVariables
+   * TODO.
    * @return templateVariables
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonIgnore
 
   public List<DashboardTemplateVariables> getTemplateVariables() {
@@ -405,11 +406,11 @@ public class Dashboard {
 
 
    /**
-   * Get url
+   * TODO.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "/dashboard/123-abc-456/example-dashboard-title", value = "")
+  @ApiModelProperty(example = "/dashboard/123-abc-456/example-dashboard-title", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -7,7 +7,7 @@ A JSON array of subscription type. Types available are `trial`, `free`, and `pro
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** |  |  [optional]
+**type** | **String** | TODO. |  [optional]
 
 
 

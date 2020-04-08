@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * ApplicationKeyListResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   ApplicationKeyListResponse.JSON_PROPERTY_APPLICATION_KEYS
 })
@@ -51,11 +52,11 @@ public class ApplicationKeyListResponse {
   }
 
    /**
-   * Get applicationKeys
+   * TODO.
    * @return applicationKeys
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_APPLICATION_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -78,10 +78,10 @@ public class ServiceLevelObjectivesBulkDeleted {
   }
 
    /**
-   * Get errors
+   * TODO.
    * @return errors
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

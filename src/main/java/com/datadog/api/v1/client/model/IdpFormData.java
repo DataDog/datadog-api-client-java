@@ -23,8 +23,9 @@ import java.io.File;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * IdpFormData
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   IdpFormData.JSON_PROPERTY_IDP_FILE
 })

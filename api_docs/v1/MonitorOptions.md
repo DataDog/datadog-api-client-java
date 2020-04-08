@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **escalationMessage** | **String** | A message to include with a re-notification. Supports the ‘@username’ notification we allow elsewhere. Not applicable if &#x60;renotify_interval&#x60; is None. |  [optional]
 **evaluationDelay** | **Long** | Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation. |  [optional]
 **includeTags** | **Boolean** | A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.  **Examples** - If &#x60;True&#x60;, &#x60;[Triggered on {host:h1}] Monitor Title&#x60; - If &#x60;False&#x60;, &#x60;[Triggered] Monitor Title&#x60; |  [optional]
-**locked** | **Boolean** |  |  [optional]
+**locked** | **Boolean** | TODO. |  [optional]
 **minFailureDuration** | **Long** | How long the test should be in failure before alerting (integer, number of seconds, max 7200). |  [optional]
 **minLocationFailed** | **Long** | The minimum number of locations in failure at the same time during at least one moment in the &#x60;min_failure_duration&#x60; period (&#x60;min_location_failed&#x60; and &#x60;min_failure_duration&#x60; are part of the advanced alerting rules - integer, &gt;&#x3D; 1). |  [optional]
 **newHostDelay** | **Long** | Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer. |  [optional]

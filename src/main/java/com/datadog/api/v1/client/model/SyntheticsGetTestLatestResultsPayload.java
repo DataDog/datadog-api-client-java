@@ -24,8 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsGetTestLatestResultsPayload
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsGetTestLatestResultsPayload.JSON_PROPERTY_FROM_TS,
   SyntheticsGetTestLatestResultsPayload.JSON_PROPERTY_PROBE_DC,
@@ -50,10 +51,10 @@ public class SyntheticsGetTestLatestResultsPayload {
   }
 
    /**
-   * Get fromTs
+   * TODO.
    * @return fromTs
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_FROM_TS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -82,11 +83,11 @@ public class SyntheticsGetTestLatestResultsPayload {
   }
 
    /**
-   * Get probeDc
+   * TODO.
    * @return probeDc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PROBE_DC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -107,10 +108,10 @@ public class SyntheticsGetTestLatestResultsPayload {
   }
 
    /**
-   * Get toTs
+   * TODO.
    * @return toTs
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TO_TS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

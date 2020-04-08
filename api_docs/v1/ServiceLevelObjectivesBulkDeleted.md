@@ -8,7 +8,7 @@ The bulk partial delete service level objective object endpoint response.  This 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**ServiceLevelObjectivesBulkDeletedData**](ServiceLevelObjectivesBulkDeletedData.md) |  | 
-**errors** | [**List&lt;ServiceLevelObjectivesBulkDeletedErrors&gt;**](ServiceLevelObjectivesBulkDeletedErrors.md) |  | 
+**errors** | [**List&lt;ServiceLevelObjectivesBulkDeletedErrors&gt;**](ServiceLevelObjectivesBulkDeletedErrors.md) | TODO. | 
 
 
 

@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * AWSLogsAsyncResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   AWSLogsAsyncResponse.JSON_PROPERTY_ERRORS,
   AWSLogsAsyncResponse.JSON_PROPERTY_STATUS
@@ -55,11 +56,11 @@ public class AWSLogsAsyncResponse {
   }
 
    /**
-   * Get errors
+   * TODO.
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -80,11 +81,11 @@ public class AWSLogsAsyncResponse {
   }
 
    /**
-   * Get status
+   * TODO.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "created", value = "")
+  @ApiModelProperty(example = "created", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

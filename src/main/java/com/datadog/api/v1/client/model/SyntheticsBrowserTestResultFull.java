@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsBrowserTestResultFull
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_CHECK,
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_CHECK_TIME,
@@ -92,11 +93,11 @@ public class SyntheticsBrowserTestResultFull {
   }
 
    /**
-   * Get checkTime
+   * TODO.
    * @return checkTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CHECK_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,11 +118,11 @@ public class SyntheticsBrowserTestResultFull {
   }
 
    /**
-   * Get checkVersion
+   * TODO.
    * @return checkVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CHECK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -142,11 +143,11 @@ public class SyntheticsBrowserTestResultFull {
   }
 
    /**
-   * Get probeDc
+   * TODO.
    * @return probeDc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PROBE_DC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,11 +193,11 @@ public class SyntheticsBrowserTestResultFull {
   }
 
    /**
-   * Get resultId
+   * TODO.
    * @return resultId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

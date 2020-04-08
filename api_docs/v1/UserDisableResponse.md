@@ -7,7 +7,7 @@ Array of user disabled for a given organization.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  |  [optional]
+**message** | **String** | TODO. |  [optional]
 
 
 

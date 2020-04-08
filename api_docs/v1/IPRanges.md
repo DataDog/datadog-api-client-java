@@ -2,19 +2,20 @@
 
 # IPRanges
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agents** | [**IPPrefixes**](IPPrefixes.md) |  |  [optional]
-**api** | [**IPPrefixes**](IPPrefixes.md) |  |  [optional]
-**apm** | [**IPPrefixes**](IPPrefixes.md) |  |  [optional]
-**logs** | [**IPPrefixes**](IPPrefixes.md) |  |  [optional]
+**agents** | [**IPAgentsPrefixes**](IPAgentsPrefixes.md) |  |  [optional]
+**api** | [**IPAPIPrefixes**](IPAPIPrefixes.md) |  |  [optional]
+**apm** | [**IPAPMPrefixes**](IPAPMPrefixes.md) |  |  [optional]
+**logs** | [**IPLogsPrefixes**](IPLogsPrefixes.md) |  |  [optional]
 **modified** | **String** | Date when last updated, in the form &#x60;YYYY-MM-DD-hh-mm-ss&#x60;. |  [optional]
-**process** | [**IPPrefixes**](IPPrefixes.md) |  |  [optional]
-**synthetics** | [**IPPrefixes**](IPPrefixes.md) |  |  [optional]
+**process** | [**IPProcessPrefixes**](IPProcessPrefixes.md) |  |  [optional]
+**synthetics** | [**IPSyntheticsPrefixes**](IPSyntheticsPrefixes.md) |  |  [optional]
 **version** | **Long** | Version of the IP list. |  [optional]
-**webhooks** | [**IPPrefixes**](IPPrefixes.md) |  |  [optional]
+**webhooks** | [**IPWebhooksPrefixes**](IPWebhooksPrefixes.md) |  |  [optional]
 
 
 

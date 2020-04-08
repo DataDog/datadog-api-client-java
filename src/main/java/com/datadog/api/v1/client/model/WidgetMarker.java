@@ -103,11 +103,11 @@ public class WidgetMarker {
   }
 
    /**
-   * Get time
+   * TODO.
    * @return time
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

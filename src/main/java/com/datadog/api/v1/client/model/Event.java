@@ -26,8 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Event
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   Event.JSON_PROPERTY_AGGREGATION_KEY,
   Event.JSON_PROPERTY_ALERT_TYPE,
@@ -223,11 +224,11 @@ public class Event {
 
 
    /**
-   * Get id
+   * TODO.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -239,11 +240,11 @@ public class Event {
 
 
    /**
-   * Get payload
+   * TODO.
    * @return payload
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{}", value = "")
+  @ApiModelProperty(example = "{}", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PAYLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -411,11 +412,11 @@ public class Event {
 
 
    /**
-   * Get url
+   * TODO.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -2,18 +2,19 @@
 
 # SyntheticsResource
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**duration** | **Double** |  |  [optional]
-**method** | **String** |  |  [optional]
-**size** | **Long** |  |  [optional]
-**status** | **Long** |  |  [optional]
-**timestamp** | **Double** |  |  [optional]
-**traceId** | **String** |  |  [optional]
+**duration** | **Double** | TODO. |  [optional]
+**method** | **String** | TODO. |  [optional]
+**size** | **Long** | TODO. |  [optional]
+**status** | **Long** | TODO. |  [optional]
+**timestamp** | **Double** | TODO. |  [optional]
+**traceId** | **String** | TODO. |  [optional]
 **type** | [**SyntheticsResourceType**](SyntheticsResourceType.md) |  |  [optional]
-**url** | **String** |  |  [optional]
+**url** | **String** | TODO. |  [optional]
 
 
 

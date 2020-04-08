@@ -30,8 +30,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsStepDetail
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsStepDetail.JSON_PROPERTY_BROWSER_ERRORS,
   SyntheticsStepDetail.JSON_PROPERTY_CHECK_TYPE,
@@ -120,11 +121,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get browserErrors
+   * TODO.
    * @return browserErrors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_BROWSER_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -170,11 +171,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get description
+   * TODO.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -195,11 +196,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get duration
+   * TODO.
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -220,11 +221,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get error
+   * TODO.
    * @return error
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -278,11 +279,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get resources
+   * TODO.
    * @return resources
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -303,11 +304,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get screenshotBucketKey
+   * TODO.
    * @return screenshotBucketKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SCREENSHOT_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -328,11 +329,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get skipped
+   * TODO.
    * @return skipped
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SKIPPED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -353,11 +354,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get snapshotBucketKey
+   * TODO.
    * @return snapshotBucketKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -378,11 +379,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get stepId
+   * TODO.
    * @return stepId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_STEP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -411,11 +412,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get subTestStepDetails
+   * TODO.
    * @return subTestStepDetails
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SUB_TEST_STEP_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -436,11 +437,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get timeToInteractive
+   * TODO.
    * @return timeToInteractive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -486,11 +487,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get url
+   * TODO.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -511,11 +512,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get value
+   * TODO.
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -544,11 +545,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Get warnings
+   * TODO.
    * @return warnings
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

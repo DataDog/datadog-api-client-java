@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * AWSLogsListResponseLambdas
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   AWSLogsListResponseLambdas.JSON_PROPERTY_ARN
 })
@@ -40,11 +41,11 @@ public class AWSLogsListResponseLambdas {
   }
 
    /**
-   * Get arn
+   * TODO.
    * @return arn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

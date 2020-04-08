@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * AWSLogsListResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   AWSLogsListResponse.JSON_PROPERTY_ACCOUNT_ID,
   AWSLogsListResponse.JSON_PROPERTY_LAMBDAS,

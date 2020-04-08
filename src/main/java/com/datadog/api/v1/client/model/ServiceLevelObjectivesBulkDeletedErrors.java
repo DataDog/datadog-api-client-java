@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * ServiceLevelObjectivesBulkDeletedErrors
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   ServiceLevelObjectivesBulkDeletedErrors.JSON_PROPERTY_ID,
   ServiceLevelObjectivesBulkDeletedErrors.JSON_PROPERTY_MESSAGE,

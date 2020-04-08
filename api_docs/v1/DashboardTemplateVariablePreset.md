@@ -8,7 +8,7 @@ Template variables saved views.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | The name of the variable |  [optional]
-**templateVariables** | [**List&lt;DashboardTemplateVariablePresetValue&gt;**](DashboardTemplateVariablePresetValue.md) |  |  [optional]
+**templateVariables** | [**List&lt;DashboardTemplateVariablePresetValue&gt;**](DashboardTemplateVariablePresetValue.md) | TODO. |  [optional]
 
 
 

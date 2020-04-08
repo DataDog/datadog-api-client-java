@@ -7,7 +7,7 @@ Metadata associated with your host.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nixV** | **List&lt;String&gt;** |  |  [optional]
+**nixV** | **List&lt;String&gt;** | TODO. |  [optional]
 
 
 

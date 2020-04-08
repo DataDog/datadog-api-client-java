@@ -24,8 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * WidgetConditionalFormat
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   WidgetConditionalFormat.JSON_PROPERTY_COMPARATOR,
   WidgetConditionalFormat.JSON_PROPERTY_CUSTOM_BG_COLOR,
@@ -148,11 +149,11 @@ public class WidgetConditionalFormat {
   }
 
    /**
-   * Get hideValue
+   * TODO.
    * @return hideValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_HIDE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -247,11 +248,11 @@ public class WidgetConditionalFormat {
   }
 
    /**
-   * Get timeframe
+   * TODO.
    * @return timeframe
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

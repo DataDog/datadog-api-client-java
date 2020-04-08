@@ -2,12 +2,13 @@
 
 # SyntheticsTestRequestBasicAuth
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**password** | **String** |  | 
-**username** | **String** |  | 
+**password** | **String** | TODO. | 
+**username** | **String** | TODO. | 
 
 
 

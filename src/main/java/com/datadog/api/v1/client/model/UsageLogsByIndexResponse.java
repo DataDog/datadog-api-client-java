@@ -52,11 +52,11 @@ public class UsageLogsByIndexResponse {
   }
 
    /**
-   * Get usage
+   * TODO.
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

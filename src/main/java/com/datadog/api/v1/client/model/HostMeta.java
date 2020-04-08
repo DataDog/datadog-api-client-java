@@ -51,11 +51,11 @@ public class HostMeta {
   }
 
    /**
-   * Get nixV
+   * TODO.
    * @return nixV
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_NIX_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
