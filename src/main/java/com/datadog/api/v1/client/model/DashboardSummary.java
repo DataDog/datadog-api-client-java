@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * DashboardSummary
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   DashboardSummary.JSON_PROPERTY_DASHBOARDS
 })
@@ -51,11 +52,11 @@ public class DashboardSummary {
   }
 
    /**
-   * Get dashboards
+   * TODO.
    * @return dashboards
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

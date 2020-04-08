@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsTestOptionsRetry
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
   SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
@@ -44,11 +45,11 @@ public class SyntheticsTestOptionsRetry {
   }
 
    /**
-   * Get count
+   * TODO.
    * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -69,11 +70,11 @@ public class SyntheticsTestOptionsRetry {
   }
 
    /**
-   * Get interval
+   * TODO.
    * @return interval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

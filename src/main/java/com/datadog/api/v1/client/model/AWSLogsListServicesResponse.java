@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * AWSLogsListServicesResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   AWSLogsListServicesResponse.JSON_PROPERTY_ID,
   AWSLogsListServicesResponse.JSON_PROPERTY_LABEL

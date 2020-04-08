@@ -7,9 +7,9 @@ An application key with its associated metadata.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hash** | **String** |  |  [optional] [readonly]
+**hash** | **String** | TODO. |  [optional] [readonly]
 **name** | **String** | Name of your application key. |  [optional]
-**owner** | **String** |  |  [optional] [readonly]
+**owner** | **String** | TODO. |  [optional] [readonly]
 
 
 

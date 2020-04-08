@@ -2,6 +2,7 @@
 
 # TimeseriesWidgetRequest
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 **metadata** | [**List&lt;TimeseriesWidgetRequestMetadata&gt;**](TimeseriesWidgetRequestMetadata.md) | Used to define expression aliases. |  [optional]
 **networkQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
-**q** | **String** |  |  [optional]
+**q** | **String** | TODO. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **style** | [**TimeseriesWidgetRequestStyle**](TimeseriesWidgetRequestStyle.md) |  |  [optional]
 

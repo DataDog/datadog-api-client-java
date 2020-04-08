@@ -27,8 +27,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsTestOptions
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
@@ -65,11 +66,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * Get acceptSelfSigned
+   * TODO.
    * @return acceptSelfSigned
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ACCEPT_SELF_SIGNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -98,11 +99,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * Get deviceIds
+   * TODO.
    * @return deviceIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -123,11 +124,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * Get followRedirects
+   * TODO.
    * @return followRedirects
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,11 +149,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * Get minLocationFailed
+   * TODO.
    * @return minLocationFailed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

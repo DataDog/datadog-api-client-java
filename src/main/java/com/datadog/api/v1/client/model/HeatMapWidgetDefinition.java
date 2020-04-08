@@ -96,11 +96,11 @@ public class HeatMapWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get events
+   * TODO.
    * @return events
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,10 +151,10 @@ public class HeatMapWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get requests
+   * TODO.
    * @return requests
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -7,7 +7,7 @@ Has one property enabled (boolean).
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enabled** | **Boolean** |  |  [optional]
+**enabled** | **Boolean** | TODO. |  [optional]
 
 
 

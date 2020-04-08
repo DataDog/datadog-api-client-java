@@ -23,8 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * LogsListRequestTime
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   LogsListRequestTime.JSON_PROPERTY_FROM,
   LogsListRequestTime.JSON_PROPERTY_TIMEZONE,

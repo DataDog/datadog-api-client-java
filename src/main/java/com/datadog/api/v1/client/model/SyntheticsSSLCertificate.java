@@ -27,8 +27,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsSSLCertificate
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsSSLCertificate.JSON_PROPERTY_CIPHER,
   SyntheticsSSLCertificate.JSON_PROPERTY_EXPONENT,
@@ -89,11 +90,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get cipher
+   * TODO.
    * @return cipher
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CIPHER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -114,11 +115,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get exponent
+   * TODO.
    * @return exponent
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_EXPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -147,11 +148,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get extKeyUsage
+   * TODO.
    * @return extKeyUsage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_EXT_KEY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -172,11 +173,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get fingerprint
+   * TODO.
    * @return fingerprint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -197,11 +198,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get fingerprint256
+   * TODO.
    * @return fingerprint256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_FINGERPRINT256)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -247,11 +248,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get modulus
+   * TODO.
    * @return modulus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MODULUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -272,11 +273,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get protocol
+   * TODO.
    * @return protocol
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PROTOCOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -297,11 +298,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get serialNumber
+   * TODO.
    * @return serialNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -347,11 +348,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get validFrom
+   * TODO.
    * @return validFrom
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_VALID_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -372,11 +373,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * Get validTo
+   * TODO.
    * @return validTo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_VALID_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

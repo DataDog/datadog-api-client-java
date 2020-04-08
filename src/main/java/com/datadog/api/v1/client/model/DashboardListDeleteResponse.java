@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * DashboardListDeleteResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   DashboardListDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID
 })

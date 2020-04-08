@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MetricsQueryResponseUnit
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   MetricsQueryResponseUnit.JSON_PROPERTY_FAMILY,
   MetricsQueryResponseUnit.JSON_PROPERTY_NAME,

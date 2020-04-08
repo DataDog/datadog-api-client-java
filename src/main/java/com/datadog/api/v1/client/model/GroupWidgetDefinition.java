@@ -129,10 +129,10 @@ public class GroupWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get widgets
+   * TODO.
    * @return widgets
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_WIDGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

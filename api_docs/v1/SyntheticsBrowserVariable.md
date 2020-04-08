@@ -2,14 +2,15 @@
 
 # SyntheticsBrowserVariable
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**example** | **String** |  |  [optional]
-**id** | **String** |  |  [optional]
-**name** | **String** |  | 
-**pattern** | **String** |  |  [optional]
+**example** | **String** | TODO. |  [optional]
+**id** | **String** | TODO. |  [optional]
+**name** | **String** | TODO. | 
+**pattern** | **String** | TODO. |  [optional]
 **type** | [**SyntheticsBrowserVariableType**](SyntheticsBrowserVariableType.md) |  | 
 
 

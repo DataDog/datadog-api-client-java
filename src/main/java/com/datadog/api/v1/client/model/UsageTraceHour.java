@@ -23,8 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * UsageTraceHour
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   UsageTraceHour.JSON_PROPERTY_HOUR,
   UsageTraceHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT

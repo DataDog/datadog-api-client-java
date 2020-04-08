@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TimeseriesWidgetRequestMetadata
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   TimeseriesWidgetRequestMetadata.JSON_PROPERTY_ALIAS_NAME,
   TimeseriesWidgetRequestMetadata.JSON_PROPERTY_EXPRESSION
@@ -44,11 +45,11 @@ public class TimeseriesWidgetRequestMetadata {
   }
 
    /**
-   * Get aliasName
+   * TODO.
    * @return aliasName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ALIAS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -69,10 +70,10 @@ public class TimeseriesWidgetRequestMetadata {
   }
 
    /**
-   * Get expression
+   * TODO.
    * @return expression
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

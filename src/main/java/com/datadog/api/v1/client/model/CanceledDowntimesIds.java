@@ -24,8 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * CanceledDowntimesIds
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   CanceledDowntimesIds.JSON_PROPERTY_CANCELLED_IDS
 })

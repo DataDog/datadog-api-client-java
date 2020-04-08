@@ -26,8 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * UsageSummaryDate
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   UsageSummaryDate.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APM_HOST_TOP99P,
@@ -590,11 +591,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Get orgs
+   * TODO.
    * @return orgs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

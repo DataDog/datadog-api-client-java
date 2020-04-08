@@ -24,8 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * AzureAccount
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   AzureAccount.JSON_PROPERTY_CLIENT_ID,
   AzureAccount.JSON_PROPERTY_CLIENT_SECRET,
@@ -124,11 +125,11 @@ public class AzureAccount {
   }
 
    /**
-   * Get errors
+   * TODO.
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"*\"]", value = "")
+  @ApiModelProperty(example = "[\"*\"]", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

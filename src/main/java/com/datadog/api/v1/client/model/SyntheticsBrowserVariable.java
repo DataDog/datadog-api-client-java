@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsBrowserVariable
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsBrowserVariable.JSON_PROPERTY_EXAMPLE,
   SyntheticsBrowserVariable.JSON_PROPERTY_ID,
@@ -57,11 +58,11 @@ public class SyntheticsBrowserVariable {
   }
 
    /**
-   * Get example
+   * TODO.
    * @return example
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -82,11 +83,11 @@ public class SyntheticsBrowserVariable {
   }
 
    /**
-   * Get id
+   * TODO.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -107,10 +108,10 @@ public class SyntheticsBrowserVariable {
   }
 
    /**
-   * Get name
+   * TODO.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -131,11 +132,11 @@ public class SyntheticsBrowserVariable {
   }
 
    /**
-   * Get pattern
+   * TODO.
    * @return pattern
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

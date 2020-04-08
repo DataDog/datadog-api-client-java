@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * LogQueryDefinitionGroupBy
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   LogQueryDefinitionGroupBy.JSON_PROPERTY_FACET,
   LogQueryDefinitionGroupBy.JSON_PROPERTY_LIMIT,
@@ -49,10 +50,10 @@ public class LogQueryDefinitionGroupBy {
   }
 
    /**
-   * Get facet
+   * TODO.
    * @return facet
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -73,11 +74,11 @@ public class LogQueryDefinitionGroupBy {
   }
 
    /**
-   * Get limit
+   * TODO.
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

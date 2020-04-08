@@ -26,8 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * OrganizationCreateResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   OrganizationCreateResponse.JSON_PROPERTY_API_KEY,
   OrganizationCreateResponse.JSON_PROPERTY_APPLICATION_KEY,

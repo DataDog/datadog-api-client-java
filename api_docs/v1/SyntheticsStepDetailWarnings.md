@@ -2,11 +2,12 @@
 
 # SyntheticsStepDetailWarnings
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  | 
+**message** | **String** | TODO. | 
 **type** | [**SyntheticsWarningType**](SyntheticsWarningType.md) |  | 
 
 

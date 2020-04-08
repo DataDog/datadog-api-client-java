@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * AWSLogsAsyncResponseErrors
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   AWSLogsAsyncResponseErrors.JSON_PROPERTY_CODE,
   AWSLogsAsyncResponseErrors.JSON_PROPERTY_MESSAGE
@@ -44,11 +45,11 @@ public class AWSLogsAsyncResponseErrors {
   }
 
    /**
-   * Get code
+   * TODO.
    * @return code
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "no_such_config", value = "")
+  @ApiModelProperty(example = "no_such_config", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -69,11 +70,11 @@ public class AWSLogsAsyncResponseErrors {
   }
 
    /**
-   * Get message
+   * TODO.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "AWS account 12345 has no lambda config to update", value = "")
+  @ApiModelProperty(example = "AWS account 12345 has no lambda config to update", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

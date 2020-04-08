@@ -25,8 +25,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * DashboardTemplateVariables
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   DashboardTemplateVariables.JSON_PROPERTY_DEFAULT,
   DashboardTemplateVariables.JSON_PROPERTY_NAME,
@@ -51,11 +52,11 @@ public class DashboardTemplateVariables {
   }
 
    /**
-   * Get _default
+   * TODO.
    * @return _default
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "my-host", value = "")
+  @ApiModelProperty(example = "my-host", value = "TODO.")
   @JsonIgnore
 
   public String getDefault() {
@@ -86,10 +87,10 @@ public class DashboardTemplateVariables {
   }
 
    /**
-   * Get name
+   * TODO.
    * @return name
   **/
-  @ApiModelProperty(example = "host1", required = true, value = "")
+  @ApiModelProperty(example = "host1", required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -110,11 +111,11 @@ public class DashboardTemplateVariables {
   }
 
    /**
-   * Get prefix
+   * TODO.
    * @return prefix
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host", value = "")
+  @ApiModelProperty(example = "host", value = "TODO.")
   @JsonIgnore
 
   public String getPrefix() {

@@ -108,10 +108,10 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get requests
+   * TODO.
    * @return requests
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

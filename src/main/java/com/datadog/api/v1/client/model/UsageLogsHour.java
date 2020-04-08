@@ -23,8 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * UsageLogsHour
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   UsageLogsHour.JSON_PROPERTY_BILLABLE_INGESTED_BYTES,
   UsageLogsHour.JSON_PROPERTY_HOUR,

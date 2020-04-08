@@ -26,8 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * LogsIndex
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   LogsIndex.JSON_PROPERTY_DAILY_LIMIT,
   LogsIndex.JSON_PROPERTY_EXCLUSION_FILTERS,

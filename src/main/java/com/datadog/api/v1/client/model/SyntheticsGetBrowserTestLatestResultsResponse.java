@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsGetBrowserTestLatestResultsResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsGetBrowserTestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
   SyntheticsGetBrowserTestLatestResultsResponse.JSON_PROPERTY_RESULTS
@@ -47,11 +48,11 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
   }
 
    /**
-   * Get lastTimestampFetched
+   * TODO.
    * @return lastTimestampFetched
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LAST_TIMESTAMP_FETCHED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -80,11 +81,11 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
   }
 
    /**
-   * Get results
+   * TODO.
    * @return results
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

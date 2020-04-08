@@ -7,9 +7,9 @@ Creator of the object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **String** |  |  [optional]
-**handle** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
+**email** | **String** | TODO. |  [optional]
+**handle** | **String** | TODO. |  [optional]
+**name** | **String** | TODO. |  [optional]
 
 
 

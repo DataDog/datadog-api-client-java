@@ -24,8 +24,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * DashboardList
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   DashboardList.JSON_PROPERTY_AUTHOR,
   DashboardList.JSON_PROPERTY_CREATED,

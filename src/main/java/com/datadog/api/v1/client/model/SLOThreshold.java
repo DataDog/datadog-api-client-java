@@ -131,11 +131,11 @@ public class SLOThreshold {
   }
 
    /**
-   * Get warning
+   * TODO.
    * @return warning
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

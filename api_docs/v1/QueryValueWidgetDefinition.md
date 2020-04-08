@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **autoscale** | **Boolean** | Whether to use autoscaling or not. |  [optional]
 **customUnit** | **String** | Display a unit of your choice on the widget. |  [optional]
 **precision** | **Long** | Number of decimals to show. If not defined, the widget uses the raw value. |  [optional]
-**requests** | [**List&lt;QueryValueWidgetRequest&gt;**](QueryValueWidgetRequest.md) |  | 
+**requests** | [**List&lt;QueryValueWidgetRequest&gt;**](QueryValueWidgetRequest.md) | TODO. | 
 **textAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]

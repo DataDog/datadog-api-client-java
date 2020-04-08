@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsSSLCertificateIssuer
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_C,
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_C_N,
@@ -60,11 +61,11 @@ public class SyntheticsSSLCertificateIssuer {
   }
 
    /**
-   * Get C
+   * TODO.
    * @return C
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,11 +86,11 @@ public class SyntheticsSSLCertificateIssuer {
   }
 
    /**
-   * Get CN
+   * TODO.
    * @return CN
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_C_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -110,11 +111,11 @@ public class SyntheticsSSLCertificateIssuer {
   }
 
    /**
-   * Get L
+   * TODO.
    * @return L
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -135,11 +136,11 @@ public class SyntheticsSSLCertificateIssuer {
   }
 
    /**
-   * Get O
+   * TODO.
    * @return O
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_O)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,11 +161,11 @@ public class SyntheticsSSLCertificateIssuer {
   }
 
    /**
-   * Get OU
+   * TODO.
    * @return OU
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_O_U)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,11 +186,11 @@ public class SyntheticsSSLCertificateIssuer {
   }
 
    /**
-   * Get ST
+   * TODO.
    * @return ST
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_S_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

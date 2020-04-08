@@ -2,19 +2,20 @@
 
 # SyntheticsTiming
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dns** | **Double** |  |  [optional]
-**download** | **Double** |  |  [optional]
-**firstByte** | **Double** |  |  [optional]
-**handshake** | **Double** |  |  [optional]
-**redirect** | **Double** |  |  [optional]
-**ssl** | **Double** |  |  [optional]
-**tcp** | **Double** |  |  [optional]
-**total** | **Double** |  |  [optional]
-**wait** | **Double** |  |  [optional]
+**dns** | **Double** | TODO. |  [optional]
+**download** | **Double** | TODO. |  [optional]
+**firstByte** | **Double** | TODO. |  [optional]
+**handshake** | **Double** | TODO. |  [optional]
+**redirect** | **Double** | TODO. |  [optional]
+**ssl** | **Double** | TODO. |  [optional]
+**tcp** | **Double** | TODO. |  [optional]
+**total** | **Double** | TODO. |  [optional]
+**wait** | **Double** | TODO. |  [optional]
 
 
 

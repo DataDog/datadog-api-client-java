@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * DashboardListItems
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   DashboardListItems.JSON_PROPERTY_DASHBOARDS,
   DashboardListItems.JSON_PROPERTY_TOTAL

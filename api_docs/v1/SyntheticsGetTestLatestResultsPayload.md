@@ -2,13 +2,14 @@
 
 # SyntheticsGetTestLatestResultsPayload
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fromTs** | **Double** |  | 
-**probeDc** | **List&lt;String&gt;** |  |  [optional]
-**toTs** | **Double** |  | 
+**fromTs** | **Double** | TODO. | 
+**probeDc** | **List&lt;String&gt;** | TODO. |  [optional]
+**toTs** | **Double** | TODO. | 
 
 
 
