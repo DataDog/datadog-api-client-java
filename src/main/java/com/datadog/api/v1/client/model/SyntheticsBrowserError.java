@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsBrowserError
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsBrowserError.JSON_PROPERTY_DESCRIPTION,
   SyntheticsBrowserError.JSON_PROPERTY_NAME,
@@ -53,10 +54,10 @@ public class SyntheticsBrowserError {
   }
 
    /**
-   * Get description
+   * TODO.
    * @return description
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -77,10 +78,10 @@ public class SyntheticsBrowserError {
   }
 
    /**
-   * Get name
+   * TODO.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -101,11 +102,11 @@ public class SyntheticsBrowserError {
   }
 
    /**
-   * Get statusCode
+   * TODO.
    * @return statusCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

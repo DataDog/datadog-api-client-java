@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsUpdateTestPauseStatusPayload
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsUpdateTestPauseStatusPayload.JSON_PROPERTY_NEW_STATUS
 })

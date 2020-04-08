@@ -27,8 +27,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * LogContent
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   LogContent.JSON_PROPERTY_ATTRIBUTES,
   LogContent.JSON_PROPERTY_HOST,

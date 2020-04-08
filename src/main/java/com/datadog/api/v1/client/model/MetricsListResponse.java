@@ -24,8 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * MetricsListResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   MetricsListResponse.JSON_PROPERTY_FROM,
   MetricsListResponse.JSON_PROPERTY_METRICS

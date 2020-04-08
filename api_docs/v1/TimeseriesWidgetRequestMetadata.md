@@ -2,12 +2,13 @@
 
 # TimeseriesWidgetRequestMetadata
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aliasName** | **String** |  |  [optional]
-**expression** | **String** |  | 
+**aliasName** | **String** | TODO. |  [optional]
+**expression** | **String** | TODO. | 
 
 
 

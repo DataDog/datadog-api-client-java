@@ -358,11 +358,11 @@ public class UsageSummaryDateOrg {
   }
 
    /**
-   * Get fargateTasksCountAvg
+   * TODO.
    * @return fargateTasksCountAvg
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -24,8 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Widget
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   Widget.JSON_PROPERTY_DEFINITION,
   Widget.JSON_PROPERTY_ID,

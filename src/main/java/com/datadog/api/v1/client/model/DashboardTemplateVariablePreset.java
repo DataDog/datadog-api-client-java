@@ -81,11 +81,11 @@ public class DashboardTemplateVariablePreset {
   }
 
    /**
-   * Get templateVariables
+   * TODO.
    * @return templateVariables
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

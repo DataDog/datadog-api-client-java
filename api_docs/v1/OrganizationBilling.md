@@ -7,7 +7,7 @@ A JSON array of billing type. Note that only `parent_billing` is supported.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** |  |  [optional]
+**type** | **String** | TODO. |  [optional]
 
 
 

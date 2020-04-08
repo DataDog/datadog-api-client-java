@@ -202,11 +202,11 @@ public class HostMapWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get notes
+   * TODO.
    * @return notes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_NOTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

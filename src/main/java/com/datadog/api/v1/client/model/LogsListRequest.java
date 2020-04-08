@@ -24,8 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * LogsListRequest
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   LogsListRequest.JSON_PROPERTY_INDEX,
   LogsListRequest.JSON_PROPERTY_LIMIT,

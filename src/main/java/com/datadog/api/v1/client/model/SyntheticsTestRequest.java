@@ -27,8 +27,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsTestRequest
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsTestRequest.JSON_PROPERTY_BASIC_AUTH,
   SyntheticsTestRequest.JSON_PROPERTY_BODY,
@@ -102,11 +103,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * Get body
+   * TODO.
    * @return body
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -135,11 +136,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * Get headers
+   * TODO.
    * @return headers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,11 +161,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * Get host
+   * TODO.
    * @return host
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -209,11 +210,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * Get port
+   * TODO.
    * @return port
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -234,11 +235,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * Get query
+   * TODO.
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -259,11 +260,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * Get timeout
+   * TODO.
    * @return timeout
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -284,10 +285,10 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * Get url
+   * TODO.
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

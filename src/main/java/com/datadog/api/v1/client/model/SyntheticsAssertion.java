@@ -24,8 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsAssertion
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsAssertion.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertion.JSON_PROPERTY_PROPERTY,
@@ -78,11 +79,11 @@ public class SyntheticsAssertion {
   }
 
    /**
-   * Get property
+   * TODO.
    * @return property
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PROPERTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,11 +104,11 @@ public class SyntheticsAssertion {
   }
 
    /**
-   * Get target
+   * TODO.
    * @return target
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

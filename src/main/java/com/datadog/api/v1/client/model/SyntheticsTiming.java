@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsTiming
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsTiming.JSON_PROPERTY_DNS,
   SyntheticsTiming.JSON_PROPERTY_DOWNLOAD,
@@ -72,11 +73,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * Get dns
+   * TODO.
    * @return dns
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -97,11 +98,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * Get download
+   * TODO.
    * @return download
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DOWNLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -122,11 +123,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * Get firstByte
+   * TODO.
    * @return firstByte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_FIRST_BYTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -147,11 +148,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * Get handshake
+   * TODO.
    * @return handshake
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_HANDSHAKE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -172,11 +173,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * Get redirect
+   * TODO.
    * @return redirect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_REDIRECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -197,11 +198,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * Get ssl
+   * TODO.
    * @return ssl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SSL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -222,11 +223,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * Get tcp
+   * TODO.
    * @return tcp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TCP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -247,11 +248,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * Get total
+   * TODO.
    * @return total
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -272,11 +273,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * Get wait
+   * TODO.
    * @return wait
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_WAIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

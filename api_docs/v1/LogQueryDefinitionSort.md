@@ -2,12 +2,13 @@
 
 # LogQueryDefinitionSort
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aggregation** | **String** |  | 
-**facet** | **String** |  |  [optional]
+**aggregation** | **String** | TODO. | 
+**facet** | **String** | TODO. |  [optional]
 **order** | [**WidgetSort**](WidgetSort.md) |  | 
 
 

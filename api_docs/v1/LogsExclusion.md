@@ -8,8 +8,8 @@ Represents the index exclusion filter object from config API.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**LogsExclusionFilter**](LogsExclusionFilter.md) |  |  [optional]
-**isEnabled** | **Boolean** |  |  [optional]
-**name** | **String** |  | 
+**isEnabled** | **Boolean** | TODO. |  [optional]
+**name** | **String** | TODO. | 
 
 
 

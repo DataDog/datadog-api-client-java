@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsDeleteTestsResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsDeleteTestsResponse.JSON_PROPERTY_DELETED_TESTS
 })
@@ -51,11 +52,11 @@ public class SyntheticsDeleteTestsResponse {
   }
 
    /**
-   * Get deletedTests
+   * TODO.
    * @return deletedTests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DELETED_TESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

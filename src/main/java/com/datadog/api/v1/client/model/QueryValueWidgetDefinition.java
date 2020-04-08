@@ -165,10 +165,10 @@ public class QueryValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get requests
+   * TODO.
    * @return requests
   **/
-  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "")
+  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

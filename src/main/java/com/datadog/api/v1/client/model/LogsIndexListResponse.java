@@ -25,8 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * LogsIndexListResponse
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   LogsIndexListResponse.JSON_PROPERTY_INDEXES
 })
@@ -51,11 +52,11 @@ public class LogsIndexListResponse {
   }
 
    /**
-   * Get indexes
+   * TODO.
    * @return indexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

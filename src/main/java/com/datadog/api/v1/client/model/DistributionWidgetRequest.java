@@ -26,8 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * DistributionWidgetRequest
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   DistributionWidgetRequest.JSON_PROPERTY_APM_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
@@ -197,11 +198,11 @@ public class DistributionWidgetRequest {
   }
 
    /**
-   * Get q
+   * TODO.
    * @return q
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

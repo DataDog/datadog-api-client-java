@@ -296,11 +296,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Get locked
+   * TODO.
    * @return locked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

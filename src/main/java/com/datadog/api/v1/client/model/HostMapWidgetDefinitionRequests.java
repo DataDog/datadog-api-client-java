@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HostMapWidgetDefinitionRequests
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILL,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_SIZE

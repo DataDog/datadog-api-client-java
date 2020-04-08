@@ -2,12 +2,13 @@
 
 # LogQueryDefinitionGroupBy
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**facet** | **String** |  | 
-**limit** | **Long** |  |  [optional]
+**facet** | **String** | TODO. | 
+**limit** | **Long** | TODO. |  [optional]
 **sort** | [**LogQueryDefinitionSort**](LogQueryDefinitionSort.md) |  |  [optional]
 
 

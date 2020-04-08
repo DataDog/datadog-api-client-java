@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * EventQueryDefinition
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   EventQueryDefinition.JSON_PROPERTY_SEARCH,
   EventQueryDefinition.JSON_PROPERTY_TAGS_EXECUTION
@@ -44,10 +45,10 @@ public class EventQueryDefinition {
   }
 
    /**
-   * Get search
+   * TODO.
    * @return search
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -24,8 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * IPPrefixes
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   IPPrefixes.JSON_PROPERTY_PREFIXES_IPV4,
   IPPrefixes.JSON_PROPERTY_PREFIXES_IPV6

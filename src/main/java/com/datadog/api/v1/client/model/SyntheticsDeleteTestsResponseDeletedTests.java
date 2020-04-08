@@ -23,8 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * SyntheticsDeleteTestsResponseDeletedTests
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsDeleteTestsResponseDeletedTests.JSON_PROPERTY_DELETED_AT,
   SyntheticsDeleteTestsResponseDeletedTests.JSON_PROPERTY_PUBLIC_ID
@@ -45,11 +46,11 @@ public class SyntheticsDeleteTestsResponseDeletedTests {
   }
 
    /**
-   * Get deletedAt
+   * TODO.
    * @return deletedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_DELETED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -70,11 +71,11 @@ public class SyntheticsDeleteTestsResponseDeletedTests {
   }
 
    /**
-   * Get publicId
+   * TODO.
    * @return publicId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -25,8 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * HostMapRequest
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   HostMapRequest.JSON_PROPERTY_APM_QUERY,
   HostMapRequest.JSON_PROPERTY_EVENT_QUERY,
@@ -192,11 +193,11 @@ public class HostMapRequest {
   }
 
    /**
-   * Get q
+   * TODO.
    * @return q
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -2,12 +2,13 @@
 
 # SyntheticsTestOptionsRetry
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** |  |  [optional]
-**interval** | **Double** |  |  [optional]
+**count** | **Long** | TODO. |  [optional]
+**interval** | **Double** | TODO. |  [optional]
 
 
 

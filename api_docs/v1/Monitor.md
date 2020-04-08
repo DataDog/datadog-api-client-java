@@ -2,6 +2,7 @@
 
 # Monitor
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 **name** | **String** | The monitor name. |  [optional]
 **options** | [**MonitorOptions**](MonitorOptions.md) |  |  [optional]
 **overallState** | [**MonitorOverallStates**](MonitorOverallStates.md) |  |  [optional]
-**query** | **String** |  |  [optional]
+**query** | **String** | TODO. |  [optional]
 **state** | [**MonitorState**](MonitorState.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** | Tags associated to your monitor. |  [optional]
 **type** | [**MonitorType**](MonitorType.md) |  |  [optional]

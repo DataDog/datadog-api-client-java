@@ -81,11 +81,11 @@ public class SLOWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get showErrorBudget
+   * TODO.
    * @return showErrorBudget
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SHOW_ERROR_BUDGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -106,11 +106,11 @@ public class SLOWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get sloId
+   * TODO.
    * @return sloId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_SLO_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -139,11 +139,11 @@ public class SLOWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get timeWindows
+   * TODO.
    * @return timeWindows
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_TIME_WINDOWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -279,10 +279,10 @@ public class SLOWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Get viewType
+   * TODO.
    * @return viewType
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "TODO.")
   @JsonProperty(JSON_PROPERTY_VIEW_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

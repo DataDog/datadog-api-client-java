@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * IPRanges
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   IPRanges.JSON_PROPERTY_AGENTS,
   IPRanges.JSON_PROPERTY_API,

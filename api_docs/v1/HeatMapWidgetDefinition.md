@@ -7,9 +7,9 @@ The heat map visualization shows metrics aggregated across many tags, such as ho
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**events** | [**List&lt;WidgetEvent&gt;**](WidgetEvent.md) |  |  [optional]
+**events** | [**List&lt;WidgetEvent&gt;**](WidgetEvent.md) | TODO. |  [optional]
 **legendSize** | [**WidgetLegendSize**](WidgetLegendSize.md) |  |  [optional]
-**requests** | [**List&lt;HeatMapWidgetRequest&gt;**](HeatMapWidgetRequest.md) |  | 
+**requests** | [**List&lt;HeatMapWidgetRequest&gt;**](HeatMapWidgetRequest.md) | TODO. | 
 **showLegend** | **Boolean** | Whether or not to display the legend on this widget |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of the widget |  [optional]

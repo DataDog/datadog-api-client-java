@@ -29,8 +29,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * QueryValueWidgetRequest
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   QueryValueWidgetRequest.JSON_PROPERTY_AGGREGATOR,
   QueryValueWidgetRequest.JSON_PROPERTY_APM_QUERY,
@@ -137,11 +138,11 @@ public class QueryValueWidgetRequest {
   }
 
    /**
-   * Get conditionalFormats
+   * TODO.
    * @return conditionalFormats
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -262,11 +263,11 @@ public class QueryValueWidgetRequest {
   }
 
    /**
-   * Get q
+   * TODO.
    * @return q
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

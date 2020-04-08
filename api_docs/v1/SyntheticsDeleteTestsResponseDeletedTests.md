@@ -2,12 +2,13 @@
 
 # SyntheticsDeleteTestsResponseDeletedTests
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deletedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**publicId** | **String** |  |  [optional]
+**deletedAt** | [**OffsetDateTime**](OffsetDateTime.md) | TODO. |  [optional]
+**publicId** | **String** | TODO. |  [optional]
 
 
 

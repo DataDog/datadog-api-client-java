@@ -2,22 +2,23 @@
 
 # SyntheticsSSLCertificate
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cipher** | **String** |  |  [optional]
-**exponent** | **Double** |  |  [optional]
-**extKeyUsage** | **List&lt;String&gt;** |  |  [optional]
-**fingerprint** | **String** |  |  [optional]
-**fingerprint256** | **String** |  |  [optional]
+**cipher** | **String** | TODO. |  [optional]
+**exponent** | **Double** | TODO. |  [optional]
+**extKeyUsage** | **List&lt;String&gt;** | TODO. |  [optional]
+**fingerprint** | **String** | TODO. |  [optional]
+**fingerprint256** | **String** | TODO. |  [optional]
 **issuer** | [**SyntheticsSSLCertificateIssuer**](SyntheticsSSLCertificateIssuer.md) |  |  [optional]
-**modulus** | **String** |  |  [optional]
-**protocol** | **String** |  |  [optional]
-**serialNumber** | **String** |  |  [optional]
+**modulus** | **String** | TODO. |  [optional]
+**protocol** | **String** | TODO. |  [optional]
+**serialNumber** | **String** | TODO. |  [optional]
 **subject** | [**SyntheticsSSLCertificateSubject**](SyntheticsSSLCertificateSubject.md) |  |  [optional]
-**validFrom** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**validTo** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**validFrom** | [**OffsetDateTime**](OffsetDateTime.md) | TODO. |  [optional]
+**validTo** | [**OffsetDateTime**](OffsetDateTime.md) | TODO. |  [optional]
 
 
 

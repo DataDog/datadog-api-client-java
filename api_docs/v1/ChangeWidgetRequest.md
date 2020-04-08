@@ -2,6 +2,7 @@
 
 # ChangeWidgetRequest
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 **orderBy** | [**WidgetOrderBy**](WidgetOrderBy.md) |  |  [optional]
 **orderDir** | [**WidgetSort**](WidgetSort.md) |  |  [optional]
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
-**q** | **String** |  |  [optional]
+**q** | **String** | TODO. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **showPresent** | **Boolean** | Whether to show the present value. |  [optional]
 

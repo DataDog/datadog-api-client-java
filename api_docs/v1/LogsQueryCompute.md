@@ -2,13 +2,14 @@
 
 # LogsQueryCompute
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aggregation** | **String** |  | 
-**facet** | **String** |  |  [optional]
-**interval** | **Long** |  |  [optional]
+**aggregation** | **String** | TODO. | 
+**facet** | **String** | TODO. |  [optional]
+**interval** | **Long** | TODO. |  [optional]
 
 
 

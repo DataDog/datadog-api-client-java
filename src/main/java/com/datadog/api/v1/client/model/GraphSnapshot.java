@@ -22,8 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * GraphSnapshot
+ * TODO.
  */
+@ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   GraphSnapshot.JSON_PROPERTY_GRAPH_DEF,
   GraphSnapshot.JSON_PROPERTY_METRIC_QUERY,

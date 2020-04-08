@@ -7,7 +7,7 @@ The top list visualization enables you to display a list of Tag value like hostn
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requests** | [**List&lt;ToplistWidgetRequest&gt;**](ToplistWidgetRequest.md) |  | 
+**requests** | [**List&lt;ToplistWidgetRequest&gt;**](ToplistWidgetRequest.md) | TODO. | 
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]

@@ -2,6 +2,7 @@
 
 # ScatterPlotRequest
 
+TODO.
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 **logQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **networkQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
-**q** | **String** |  |  [optional]
+**q** | **String** | TODO. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 
 
