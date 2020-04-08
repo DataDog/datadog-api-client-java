@@ -13,7 +13,13 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.IPPrefixes;
+import com.datadog.api.v1.client.model.IPPrefixesAPI;
+import com.datadog.api.v1.client.model.IPPrefixesAPM;
+import com.datadog.api.v1.client.model.IPPrefixesAgents;
+import com.datadog.api.v1.client.model.IPPrefixesLogs;
+import com.datadog.api.v1.client.model.IPPrefixesProcess;
+import com.datadog.api.v1.client.model.IPPrefixesSynthetics;
+import com.datadog.api.v1.client.model.IPPrefixesWebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,34 +46,34 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class IPRanges {
   public static final String JSON_PROPERTY_AGENTS = "agents";
-  private IPPrefixes agents;
+  private IPPrefixesAgents agents;
 
   public static final String JSON_PROPERTY_API = "api";
-  private IPPrefixes api;
+  private IPPrefixesAPI api;
 
   public static final String JSON_PROPERTY_APM = "apm";
-  private IPPrefixes apm;
+  private IPPrefixesAPM apm;
 
   public static final String JSON_PROPERTY_LOGS = "logs";
-  private IPPrefixes logs;
+  private IPPrefixesLogs logs;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
   private String modified;
 
   public static final String JSON_PROPERTY_PROCESS = "process";
-  private IPPrefixes process;
+  private IPPrefixesProcess process;
 
   public static final String JSON_PROPERTY_SYNTHETICS = "synthetics";
-  private IPPrefixes synthetics;
+  private IPPrefixesSynthetics synthetics;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
 
   public static final String JSON_PROPERTY_WEBHOOKS = "webhooks";
-  private IPPrefixes webhooks;
+  private IPPrefixesWebhooks webhooks;
 
 
-  public IPRanges agents(IPPrefixes agents) {
+  public IPRanges agents(IPPrefixesAgents agents) {
     
     this.agents = agents;
     return this;
@@ -82,17 +88,17 @@ public class IPRanges {
   @JsonProperty(JSON_PROPERTY_AGENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IPPrefixes getAgents() {
+  public IPPrefixesAgents getAgents() {
     return agents;
   }
 
 
-  public void setAgents(IPPrefixes agents) {
+  public void setAgents(IPPrefixesAgents agents) {
     this.agents = agents;
   }
 
 
-  public IPRanges api(IPPrefixes api) {
+  public IPRanges api(IPPrefixesAPI api) {
     
     this.api = api;
     return this;
@@ -107,17 +113,17 @@ public class IPRanges {
   @JsonProperty(JSON_PROPERTY_API)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IPPrefixes getApi() {
+  public IPPrefixesAPI getApi() {
     return api;
   }
 
 
-  public void setApi(IPPrefixes api) {
+  public void setApi(IPPrefixesAPI api) {
     this.api = api;
   }
 
 
-  public IPRanges apm(IPPrefixes apm) {
+  public IPRanges apm(IPPrefixesAPM apm) {
     
     this.apm = apm;
     return this;
@@ -132,17 +138,17 @@ public class IPRanges {
   @JsonProperty(JSON_PROPERTY_APM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IPPrefixes getApm() {
+  public IPPrefixesAPM getApm() {
     return apm;
   }
 
 
-  public void setApm(IPPrefixes apm) {
+  public void setApm(IPPrefixesAPM apm) {
     this.apm = apm;
   }
 
 
-  public IPRanges logs(IPPrefixes logs) {
+  public IPRanges logs(IPPrefixesLogs logs) {
     
     this.logs = logs;
     return this;
@@ -157,12 +163,12 @@ public class IPRanges {
   @JsonProperty(JSON_PROPERTY_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IPPrefixes getLogs() {
+  public IPPrefixesLogs getLogs() {
     return logs;
   }
 
 
-  public void setLogs(IPPrefixes logs) {
+  public void setLogs(IPPrefixesLogs logs) {
     this.logs = logs;
   }
 
@@ -192,7 +198,7 @@ public class IPRanges {
   }
 
 
-  public IPRanges process(IPPrefixes process) {
+  public IPRanges process(IPPrefixesProcess process) {
     
     this.process = process;
     return this;
@@ -207,17 +213,17 @@ public class IPRanges {
   @JsonProperty(JSON_PROPERTY_PROCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IPPrefixes getProcess() {
+  public IPPrefixesProcess getProcess() {
     return process;
   }
 
 
-  public void setProcess(IPPrefixes process) {
+  public void setProcess(IPPrefixesProcess process) {
     this.process = process;
   }
 
 
-  public IPRanges synthetics(IPPrefixes synthetics) {
+  public IPRanges synthetics(IPPrefixesSynthetics synthetics) {
     
     this.synthetics = synthetics;
     return this;
@@ -232,12 +238,12 @@ public class IPRanges {
   @JsonProperty(JSON_PROPERTY_SYNTHETICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IPPrefixes getSynthetics() {
+  public IPPrefixesSynthetics getSynthetics() {
     return synthetics;
   }
 
 
-  public void setSynthetics(IPPrefixes synthetics) {
+  public void setSynthetics(IPPrefixesSynthetics synthetics) {
     this.synthetics = synthetics;
   }
 
@@ -267,7 +273,7 @@ public class IPRanges {
   }
 
 
-  public IPRanges webhooks(IPPrefixes webhooks) {
+  public IPRanges webhooks(IPPrefixesWebhooks webhooks) {
     
     this.webhooks = webhooks;
     return this;
@@ -282,12 +288,12 @@ public class IPRanges {
   @JsonProperty(JSON_PROPERTY_WEBHOOKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IPPrefixes getWebhooks() {
+  public IPPrefixesWebhooks getWebhooks() {
     return webhooks;
   }
 
 
-  public void setWebhooks(IPPrefixes webhooks) {
+  public void setWebhooks(IPPrefixesWebhooks webhooks) {
     this.webhooks = webhooks;
   }
 
