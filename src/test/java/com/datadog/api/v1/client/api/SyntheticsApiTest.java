@@ -302,18 +302,6 @@ public class SyntheticsApiTest extends V1ApiTest {
         assertPublicIdPresent(syntBrowser.getPublicId(), allTests.getTests());
     }
 
-    @Test
-    public void testSyntheticsListLocations() throws ApiException {
-        SyntheticsLocations locs = api.listLocations().execute();
-        assertFalse(locs.getLocations().isEmpty());
-    }
-
-    @Test
-    public void testSyntheticsListDevices() throws ApiException {
-        SyntheticsDevices devs = api.listDevices().execute();
-        assertFalse(devs.getDevices().isEmpty());
-    }
-
     public void assertPublicIdPresent(String publicId, List<SyntheticsTestDetails> tests) {
         for (SyntheticsTestDetails test : tests) {
             if (test.getPublicId().equals(publicId)) {
