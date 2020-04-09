@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **overallState** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  |  [optional]
 **publicId** | **String** | TODO. |  [optional]
 **status** | [**SyntheticsTestPauseStatus**](SyntheticsTestPauseStatus.md) |  |  [optional]
-**stepCount** | **Long** | TODO. |  [optional]
 **subtype** | [**SyntheticsTestDetailsSubType**](SyntheticsTestDetailsSubType.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** | TODO. |  [optional]
 **type** | [**SyntheticsTestDetailsType**](SyntheticsTestDetailsType.md) |  |  [optional]

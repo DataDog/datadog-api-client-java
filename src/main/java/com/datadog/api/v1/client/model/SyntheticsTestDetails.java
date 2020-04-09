@@ -47,7 +47,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsTestDetails.JSON_PROPERTY_OVERALL_STATE,
   SyntheticsTestDetails.JSON_PROPERTY_PUBLIC_ID,
   SyntheticsTestDetails.JSON_PROPERTY_STATUS,
-  SyntheticsTestDetails.JSON_PROPERTY_STEP_COUNT,
   SyntheticsTestDetails.JSON_PROPERTY_SUBTYPE,
   SyntheticsTestDetails.JSON_PROPERTY_TAGS,
   SyntheticsTestDetails.JSON_PROPERTY_TYPE
@@ -89,9 +88,6 @@ public class SyntheticsTestDetails {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private SyntheticsTestPauseStatus status;
-
-  public static final String JSON_PROPERTY_STEP_COUNT = "stepCount";
-  private Long stepCount;
 
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private SyntheticsTestDetailsSubType subtype;
@@ -411,31 +407,6 @@ public class SyntheticsTestDetails {
   }
 
 
-  public SyntheticsTestDetails stepCount(Long stepCount) {
-    
-    this.stepCount = stepCount;
-    return this;
-  }
-
-   /**
-   * TODO.
-   * @return stepCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
-  @JsonProperty(JSON_PROPERTY_STEP_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getStepCount() {
-    return stepCount;
-  }
-
-
-  public void setStepCount(Long stepCount) {
-    this.stepCount = stepCount;
-  }
-
-
   public SyntheticsTestDetails subtype(SyntheticsTestDetailsSubType subtype) {
     
     this.subtype = subtype;
@@ -540,7 +511,6 @@ public class SyntheticsTestDetails {
         Objects.equals(this.overallState, syntheticsTestDetails.overallState) &&
         Objects.equals(this.publicId, syntheticsTestDetails.publicId) &&
         Objects.equals(this.status, syntheticsTestDetails.status) &&
-        Objects.equals(this.stepCount, syntheticsTestDetails.stepCount) &&
         Objects.equals(this.subtype, syntheticsTestDetails.subtype) &&
         Objects.equals(this.tags, syntheticsTestDetails.tags) &&
         Objects.equals(this.type, syntheticsTestDetails.type);
@@ -548,7 +518,7 @@ public class SyntheticsTestDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, createdAt, createdBy, locations, message, modifiedAt, modifiedBy, name, options, overallState, publicId, status, stepCount, subtype, tags, type);
+    return Objects.hash(config, createdAt, createdBy, locations, message, modifiedAt, modifiedBy, name, options, overallState, publicId, status, subtype, tags, type);
   }
 
 
@@ -568,7 +538,6 @@ public class SyntheticsTestDetails {
     sb.append("    overallState: ").append(toIndentedString(overallState)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    stepCount: ").append(toIndentedString(stepCount)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
