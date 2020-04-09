@@ -17,7 +17,6 @@ import com.datadog.api.v1.client.model.SyntheticsTestAuthor;
 import com.datadog.api.v1.client.model.SyntheticsTestConfig;
 import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.v1.client.model.SyntheticsTestDetailsType;
-import com.datadog.api.v1.client.model.SyntheticsTestMonitorStatus;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -44,10 +43,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsTestDetails.JSON_PROPERTY_MODIFIED_BY,
   SyntheticsTestDetails.JSON_PROPERTY_NAME,
   SyntheticsTestDetails.JSON_PROPERTY_OPTIONS,
-  SyntheticsTestDetails.JSON_PROPERTY_OVERALL_STATE,
   SyntheticsTestDetails.JSON_PROPERTY_PUBLIC_ID,
   SyntheticsTestDetails.JSON_PROPERTY_STATUS,
-  SyntheticsTestDetails.JSON_PROPERTY_STEP_COUNT,
   SyntheticsTestDetails.JSON_PROPERTY_SUBTYPE,
   SyntheticsTestDetails.JSON_PROPERTY_TAGS,
   SyntheticsTestDetails.JSON_PROPERTY_TYPE
@@ -81,17 +78,11 @@ public class SyntheticsTestDetails {
   public static final String JSON_PROPERTY_OPTIONS = "options";
   private SyntheticsTestOptions options;
 
-  public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
-  private SyntheticsTestMonitorStatus overallState;
-
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private SyntheticsTestPauseStatus status;
-
-  public static final String JSON_PROPERTY_STEP_COUNT = "stepCount";
-  private Long stepCount;
 
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private SyntheticsTestDetailsSubType subtype;
@@ -336,31 +327,6 @@ public class SyntheticsTestDetails {
   }
 
 
-  public SyntheticsTestDetails overallState(SyntheticsTestMonitorStatus overallState) {
-    
-    this.overallState = overallState;
-    return this;
-  }
-
-   /**
-   * Get overallState
-   * @return overallState
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SyntheticsTestMonitorStatus getOverallState() {
-    return overallState;
-  }
-
-
-  public void setOverallState(SyntheticsTestMonitorStatus overallState) {
-    this.overallState = overallState;
-  }
-
-
   public SyntheticsTestDetails publicId(String publicId) {
     
     this.publicId = publicId;
@@ -408,31 +374,6 @@ public class SyntheticsTestDetails {
 
   public void setStatus(SyntheticsTestPauseStatus status) {
     this.status = status;
-  }
-
-
-  public SyntheticsTestDetails stepCount(Long stepCount) {
-    
-    this.stepCount = stepCount;
-    return this;
-  }
-
-   /**
-   * TODO.
-   * @return stepCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
-  @JsonProperty(JSON_PROPERTY_STEP_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getStepCount() {
-    return stepCount;
-  }
-
-
-  public void setStepCount(Long stepCount) {
-    this.stepCount = stepCount;
   }
 
 
@@ -537,10 +478,8 @@ public class SyntheticsTestDetails {
         Objects.equals(this.modifiedBy, syntheticsTestDetails.modifiedBy) &&
         Objects.equals(this.name, syntheticsTestDetails.name) &&
         Objects.equals(this.options, syntheticsTestDetails.options) &&
-        Objects.equals(this.overallState, syntheticsTestDetails.overallState) &&
         Objects.equals(this.publicId, syntheticsTestDetails.publicId) &&
         Objects.equals(this.status, syntheticsTestDetails.status) &&
-        Objects.equals(this.stepCount, syntheticsTestDetails.stepCount) &&
         Objects.equals(this.subtype, syntheticsTestDetails.subtype) &&
         Objects.equals(this.tags, syntheticsTestDetails.tags) &&
         Objects.equals(this.type, syntheticsTestDetails.type);
@@ -548,7 +487,7 @@ public class SyntheticsTestDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, createdAt, createdBy, locations, message, modifiedAt, modifiedBy, name, options, overallState, publicId, status, stepCount, subtype, tags, type);
+    return Objects.hash(config, createdAt, createdBy, locations, message, modifiedAt, modifiedBy, name, options, publicId, status, subtype, tags, type);
   }
 
 
@@ -565,10 +504,8 @@ public class SyntheticsTestDetails {
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    overallState: ").append(toIndentedString(overallState)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    stepCount: ").append(toIndentedString(stepCount)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
