@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **modifiedBy** | [**SyntheticsTestAuthor**](SyntheticsTestAuthor.md) |  |  [optional]
 **name** | **String** | TODO. |  [optional]
 **options** | [**SyntheticsTestOptions**](SyntheticsTestOptions.md) |  |  [optional]
-**overallState** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  |  [optional]
 **publicId** | **String** | TODO. |  [optional]
 **status** | [**SyntheticsTestPauseStatus**](SyntheticsTestPauseStatus.md) |  |  [optional]
 **subtype** | [**SyntheticsTestDetailsSubType**](SyntheticsTestDetailsSubType.md) |  |  [optional]
