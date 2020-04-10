@@ -162,6 +162,8 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         // Get the most recent API test results
         latestResults = api.getAPITestLatestResults(publicId)
+                .fromTs(0)
+                .toTs(now.toInstant().toEpochMilli())
                 .probeDc(Arrays.asList("aws:us-east-2"))
                 .execute();
         // API tests sometimes have a delay before getting first result, so we use a mock response to verify
@@ -249,6 +251,8 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         // Get the most recent Browser test results
         latestResults = api.getBrowserTestLatestResults(publicId)
+                .fromTs(0)
+                .toTs(now.toInstant().toEpochMilli())
                 .probeDc(Arrays.asList("aws:us-east-2"))
                 .execute();
         assertTrue(latestResults.getResults().isEmpty());
