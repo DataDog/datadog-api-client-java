@@ -29,8 +29,8 @@ import java.util.Map;
 public class UsersApiTest extends V2APITest {
 
     private static UsersApi api = new UsersApi();
-    private final String testingUserName = "Testing User";
-    private final String testingUserTitle = "Bigboss";
+    private final String testingUserName = "Test Datadog Client Java";
+    private final String testingUserTitle = "Big boss";
     private ArrayList<String> disableUsers = null;
 
     @Before
