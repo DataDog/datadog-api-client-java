@@ -56,7 +56,7 @@ public class UsersApiTest extends V2APITest {
     }
 
     public String generateUserHandle() {
-        return "testinguser" + now.toEpochSecond() + "@datadoghq.com";
+        return "test-datadog-client-java-" + now.toEpochSecond() + "@datadoghq.com";
     }
 
     @Test
