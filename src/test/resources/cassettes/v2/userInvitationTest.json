@@ -1,5 +1,5 @@
 [ {
-  "id" : "c3dec9ba-3cf9-4f61-b6f6-5a76e8113790",
+  "id" : "866ce0c7-29ae-40d0-afab-e751cb17e930",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v2/users",
@@ -8,13 +8,13 @@
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "126" ]
+      "Content-Length" : [ "153" ]
     },
     "keepAlive" : true,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"email\":\"testinguser1586290010@datadoghq.com\",\"name\":\"Testing User\",\"title\":\"Bigboss\"},\"type\":\"users\"}}"
+      "json" : "{\"data\":{\"attributes\":{\"email\":\"test-datadog-client-java-1586619248@datadoghq.com\",\"name\":\"Test Datadog Client Java\",\"title\":\"Big boss\"},\"type\":\"users\"}}"
     }
   },
   "times" : {
@@ -27,26 +27,26 @@
     "statusCode" : 201,
     "reasonPhrase" : "Created",
     "headers" : {
-      "Date" : [ "Tue, 07 Apr 2020 20:06:52 GMT" ],
+      "Date" : [ "Sat, 11 Apr 2020 15:34:09 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "548" ],
+      "Content-Length" : [ "589" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=89; Max-Age=604800; Path=/; expires=Tue, 14-Apr-2020 20:06:52 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2366043" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 18-Apr-2020 15:34:09 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2379606" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ]
     },
     "cookies" : {
-      "DD-PSHARD" : "89"
+      "DD-PSHARD" : "233"
     },
-    "body" : "{\"data\":{\"type\":\"users\",\"id\":\"52bd0f84-790b-11ea-93dc-af19ea3a4992\",\"attributes\":{\"name\":\"Testing User\",\"handle\":\"testinguser1586290010@datadoghq.com\",\"created_at\":\"2020-04-07T20:06:52.792467+00:00\",\"email\":\"testinguser1586290010@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/fcb4df0e3d2cc4986e9fd92dfb728b8a?s=48&d=retro\",\"title\":\"Bigboss\",\"verified\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"3f438004-00cc-11ea-a77b-f733310cd8e6\"}}}}}"
+    "body" : "{\"data\":{\"type\":\"users\",\"id\":\"e2f5f3a8-7c09-11ea-93dc-83296b686a35\",\"attributes\":{\"name\":\"Test Datadog Client Java\",\"handle\":\"test-datadog-client-java-1586619248@datadoghq.com\",\"created_at\":\"2020-04-11T15:34:09.253018+00:00\",\"email\":\"test-datadog-client-java-1586619248@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/ae92b9dfde218e49e62027545b43ddc4?s=48&d=retro\",\"title\":\"Big boss\",\"verified\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}"
   }
 }, {
-  "id" : "f714548c-04b5-4fdf-9117-568b6259a6a6",
+  "id" : "40eb3b8b-3fd3-4c91-adb0-8b81f3cd50fe",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v2/user_invitations",
@@ -61,7 +61,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"data\":[{\"relationships\":{\"user\":{\"data\":{\"id\":\"52bd0f84-790b-11ea-93dc-af19ea3a4992\",\"type\":\"users\"}}},\"type\":\"user_invitations\"}]}"
+      "json" : "{\"data\":[{\"relationships\":{\"user\":{\"data\":{\"id\":\"e2f5f3a8-7c09-11ea-93dc-83296b686a35\",\"type\":\"users\"}}},\"type\":\"user_invitations\"}]}"
     }
   },
   "times" : {
@@ -74,29 +74,29 @@
     "statusCode" : 201,
     "reasonPhrase" : "Created",
     "headers" : {
-      "Date" : [ "Tue, 07 Apr 2020 20:06:55 GMT" ],
+      "Date" : [ "Sat, 11 Apr 2020 15:34:10 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "384" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=89; Max-Age=604800; Path=/; expires=Tue, 14-Apr-2020 20:06:53 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2366043" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 18-Apr-2020 15:34:10 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2379606" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ]
     },
     "cookies" : {
-      "DD-PSHARD" : "89"
+      "DD-PSHARD" : "233"
     },
-    "body" : "{\"data\":[{\"type\":\"user_invitations\",\"id\":\"536fa040-790b-11ea-93dc-d78c61ef1ac4\",\"attributes\":{\"uuid\":\"536fa040-790b-11ea-93dc-d78c61ef1ac4\",\"login_method\":null,\"invite_type\":\"openid_invite\",\"created_at\":\"2020-04-07T20:06:53.963804+00:00\",\"expires_at\":\"2020-04-09T20:06:53.764380+00:00\"},\"relationships\":{\"user\":{\"data\":{\"type\":\"users\",\"id\":\"52bd0f84-790b-11ea-93dc-af19ea3a4992\"}}}}]}"
+    "body" : "{\"data\":[{\"type\":\"user_invitations\",\"id\":\"e3cc0be6-7c09-11ea-93dc-dbb600861168\",\"attributes\":{\"uuid\":\"e3cc0be6-7c09-11ea-93dc-dbb600861168\",\"login_method\":null,\"invite_type\":\"openid_invite\",\"created_at\":\"2020-04-11T15:34:10.656301+00:00\",\"expires_at\":\"2020-04-13T15:34:10.372808+00:00\"},\"relationships\":{\"user\":{\"data\":{\"type\":\"users\",\"id\":\"e2f5f3a8-7c09-11ea-93dc-83296b686a35\"}}}}]}"
   }
 }, {
-  "id" : "c906a1a9-99e8-4c42-b9da-5ec91e5af604",
+  "id" : "14ac47ec-c721-4989-afe8-b592f15314b9",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v2/user_invitations/536fa040-790b-11ea-93dc-d78c61ef1ac4",
+    "path" : "/api/v2/user_invitations/e3cc0be6-7c09-11ea-93dc-dbb600861168",
     "headers" : {
       "Accept" : [ "application/json" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
@@ -116,22 +116,22 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 07 Apr 2020 20:06:56 GMT" ],
+      "Date" : [ "Sat, 11 Apr 2020 15:34:11 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "382" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=89; Max-Age=604800; Path=/; expires=Tue, 14-Apr-2020 20:06:55 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2366043" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 18-Apr-2020 15:34:11 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2379606" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ]
     },
     "cookies" : {
-      "DD-PSHARD" : "89"
+      "DD-PSHARD" : "233"
     },
-    "body" : "{\"data\":{\"type\":\"user_invitations\",\"id\":\"536fa040-790b-11ea-93dc-d78c61ef1ac4\",\"attributes\":{\"uuid\":\"536fa040-790b-11ea-93dc-d78c61ef1ac4\",\"login_method\":null,\"invite_type\":\"openid_invite\",\"created_at\":\"2020-04-07T20:06:53.963804+00:00\",\"expires_at\":\"2020-04-09T20:06:53.764380+00:00\"},\"relationships\":{\"user\":{\"data\":{\"type\":\"users\",\"id\":\"52bd0f84-790b-11ea-93dc-af19ea3a4992\"}}}}}"
+    "body" : "{\"data\":{\"type\":\"user_invitations\",\"id\":\"e3cc0be6-7c09-11ea-93dc-dbb600861168\",\"attributes\":{\"uuid\":\"e3cc0be6-7c09-11ea-93dc-dbb600861168\",\"login_method\":null,\"invite_type\":\"openid_invite\",\"created_at\":\"2020-04-11T15:34:10.656301+00:00\",\"expires_at\":\"2020-04-13T15:34:10.372808+00:00\"},\"relationships\":{\"user\":{\"data\":{\"type\":\"users\",\"id\":\"e2f5f3a8-7c09-11ea-93dc-83296b686a35\"}}}}}"
   }
 } ]
