@@ -53,9 +53,6 @@
                                 <requireMavenVersion>
                                     <version>2.2.0</version>
                                 </requireMavenVersion>
-                                <requireJavaVersion>
-                                    <version>[1.8.0-0,1.9.0-0)</version>
-                                </requireJavaVersion>
                             </rules>
                         </configuration>
                     </execution>
