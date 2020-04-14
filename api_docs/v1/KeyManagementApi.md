@@ -76,7 +76,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ApiKey**](ApiKey.md)|  | [optional]
+ **body** | [**ApiKey**](ApiKey.md)|  |
 
 ### Return type
 
@@ -97,7 +97,6 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
-| **409** | Conflict |  -  |
 
 
 ## createApplicationKey
@@ -159,7 +158,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
+ **body** | [**ApplicationKey**](ApplicationKey.md)|  |
 
 ### Return type
 
@@ -342,7 +341,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
@@ -424,7 +422,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
@@ -506,7 +503,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
@@ -584,7 +580,6 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
 
@@ -661,7 +656,6 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
 
@@ -726,7 +720,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **String**| The specific API key you are working with. |
- **body** | [**ApiKey**](ApiKey.md)|  | [optional]
+ **body** | [**ApiKey**](ApiKey.md)|  |
 
 ### Return type
 
@@ -811,7 +805,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **String**| The specific APP key you are working with. |
- **body** | [**ApplicationKey**](ApplicationKey.md)|  | [optional]
+ **body** | [**ApplicationKey**](ApplicationKey.md)|  |
 
 ### Return type
 
@@ -833,4 +827,5 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 

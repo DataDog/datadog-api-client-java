@@ -89,6 +89,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
 
@@ -174,6 +175,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 
 
 ## listMetrics
@@ -255,7 +257,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **500** | Internal Server Error |  -  |
+| **403** | Forbidden |  -  |
 
 
 ## queryMetrics
@@ -343,6 +345,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 
 
 ## updateMetricMetadata
@@ -425,5 +428,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 

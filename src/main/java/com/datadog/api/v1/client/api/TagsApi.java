@@ -121,8 +121,8 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -139,8 +139,8 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -231,8 +231,8 @@ private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String sou
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -249,8 +249,8 @@ private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String sou
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -341,8 +341,8 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -359,8 +359,8 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -443,8 +443,8 @@ private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws A
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -461,8 +461,8 @@ private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws A
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -569,8 +569,8 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -587,8 +587,8 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */

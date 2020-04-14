@@ -104,6 +104,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
          <tr><td> 200 </td><td> User created </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
      
      */
@@ -122,6 +123,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
          <tr><td> 200 </td><td> User created </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
      
      */
@@ -200,6 +202,7 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
          <tr><td> 200 </td><td> User disabled </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -218,6 +221,7 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
          <tr><td> 200 </td><td> User disabled </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -295,8 +299,8 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK for get user </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -313,8 +317,8 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK for get user </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -384,7 +388,6 @@ private ApiResponse<UserListResponse> listUsersWithHttpInfo() throws ApiExceptio
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
      
@@ -402,7 +405,6 @@ private ApiResponse<UserListResponse> listUsersWithHttpInfo() throws ApiExceptio
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
      
@@ -499,6 +501,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
          <tr><td> 200 </td><td> User updated </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -517,6 +520,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
          <tr><td> 200 </td><td> User updated </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */

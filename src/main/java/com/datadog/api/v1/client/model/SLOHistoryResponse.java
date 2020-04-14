@@ -13,7 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.ServiceLevelObjective;
+import com.datadog.api.v1.client.model.SLOHistoryResponseData;
+import com.datadog.api.v1.client.model.SLOHistoryResponseError;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +26,23 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A service level objective response containing a single service level objective.
+ * A service level objective history response.
  */
-@ApiModel(description = "A service level objective response containing a single service level objective.")
+@ApiModel(description = "A service level objective history response.")
 @JsonPropertyOrder({
-  ServiceLevelObjectiveResponse.JSON_PROPERTY_DATA,
-  ServiceLevelObjectiveResponse.JSON_PROPERTY_ERRORS
+  SLOHistoryResponse.JSON_PROPERTY_DATA,
+  SLOHistoryResponse.JSON_PROPERTY_ERRORS
 })
 
-public class ServiceLevelObjectiveResponse {
+public class SLOHistoryResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private ServiceLevelObjective data;
+  private SLOHistoryResponseData data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<String> errors = null;
+  private List<SLOHistoryResponseError> errors = null;
 
 
-  public ServiceLevelObjectiveResponse data(ServiceLevelObjective data) {
+  public SLOHistoryResponse data(SLOHistoryResponseData data) {
     
     this.data = data;
     return this;
@@ -51,27 +52,28 @@ public class ServiceLevelObjectiveResponse {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ServiceLevelObjective getData() {
+  public SLOHistoryResponseData getData() {
     return data;
   }
 
 
-  public void setData(ServiceLevelObjective data) {
+  public void setData(SLOHistoryResponseData data) {
     this.data = data;
   }
 
 
-  public ServiceLevelObjectiveResponse errors(List<String> errors) {
+  public SLOHistoryResponse errors(List<SLOHistoryResponseError> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public ServiceLevelObjectiveResponse addErrorsItem(String errorsItem) {
+  public SLOHistoryResponse addErrorsItem(SLOHistoryResponseError errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -80,20 +82,20 @@ public class ServiceLevelObjectiveResponse {
   }
 
    /**
-   * An array of error messages. Each endpoint documents how/whether this field is used.
+   * A list of errors while querying the history data for the service level obective.
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of error messages. Each endpoint documents how/whether this field is used.")
+  @ApiModelProperty(value = "A list of errors while querying the history data for the service level obective.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getErrors() {
+  public List<SLOHistoryResponseError> getErrors() {
     return errors;
   }
 
 
-  public void setErrors(List<String> errors) {
+  public void setErrors(List<SLOHistoryResponseError> errors) {
     this.errors = errors;
   }
 
@@ -106,9 +108,9 @@ public class ServiceLevelObjectiveResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceLevelObjectiveResponse serviceLevelObjectiveResponse = (ServiceLevelObjectiveResponse) o;
-    return Objects.equals(this.data, serviceLevelObjectiveResponse.data) &&
-        Objects.equals(this.errors, serviceLevelObjectiveResponse.errors);
+    SLOHistoryResponse slOHistoryResponse = (SLOHistoryResponse) o;
+    return Objects.equals(this.data, slOHistoryResponse.data) &&
+        Objects.equals(this.errors, slOHistoryResponse.errors);
   }
 
   @Override
@@ -120,7 +122,7 @@ public class ServiceLevelObjectiveResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceLevelObjectiveResponse {\n");
+    sb.append("class SLOHistoryResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");

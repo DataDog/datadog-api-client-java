@@ -34,17 +34,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
-  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_FROM_TS,
-  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_GROUPS,
-  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_OVERALL,
-  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_SERIES,
-  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_THRESHOLDS,
-  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_TO_TS,
-  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_TYPE,
-  HistoryServiceLevelObjectiveResponseData.JSON_PROPERTY_TYPE_ID
+  SLOHistoryResponseData.JSON_PROPERTY_FROM_TS,
+  SLOHistoryResponseData.JSON_PROPERTY_GROUPS,
+  SLOHistoryResponseData.JSON_PROPERTY_OVERALL,
+  SLOHistoryResponseData.JSON_PROPERTY_SERIES,
+  SLOHistoryResponseData.JSON_PROPERTY_THRESHOLDS,
+  SLOHistoryResponseData.JSON_PROPERTY_TO_TS,
+  SLOHistoryResponseData.JSON_PROPERTY_TYPE,
+  SLOHistoryResponseData.JSON_PROPERTY_TYPE_ID
 })
 
-public class HistoryServiceLevelObjectiveResponseData {
+public class SLOHistoryResponseData {
   public static final String JSON_PROPERTY_FROM_TS = "from_ts";
   private Long fromTs;
 
@@ -70,7 +70,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   private SLOTypeNumeric typeId;
 
 
-  public HistoryServiceLevelObjectiveResponseData fromTs(Long fromTs) {
+  public SLOHistoryResponseData fromTs(Long fromTs) {
     
     this.fromTs = fromTs;
     return this;
@@ -95,7 +95,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData groups(SLOHistorySLIData groups) {
+  public SLOHistoryResponseData groups(SLOHistorySLIData groups) {
     
     this.groups = groups;
     return this;
@@ -120,7 +120,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData overall(SLOHistorySLIData overall) {
+  public SLOHistoryResponseData overall(SLOHistorySLIData overall) {
     
     this.overall = overall;
     return this;
@@ -145,7 +145,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData series(SLOHistoryMetrics series) {
+  public SLOHistoryResponseData series(SLOHistoryMetrics series) {
     
     this.series = series;
     return this;
@@ -170,13 +170,13 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData thresholds(Map<String, SLOThreshold> thresholds) {
+  public SLOHistoryResponseData thresholds(Map<String, SLOThreshold> thresholds) {
     
     this.thresholds = thresholds;
     return this;
   }
 
-  public HistoryServiceLevelObjectiveResponseData putThresholdsItem(String key, SLOThreshold thresholdsItem) {
+  public SLOHistoryResponseData putThresholdsItem(String key, SLOThreshold thresholdsItem) {
     if (this.thresholds == null) {
       this.thresholds = new HashMap<>();
     }
@@ -203,7 +203,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData toTs(Long toTs) {
+  public SLOHistoryResponseData toTs(Long toTs) {
     
     this.toTs = toTs;
     return this;
@@ -228,7 +228,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData type(SLOType type) {
+  public SLOHistoryResponseData type(SLOType type) {
     
     this.type = type;
     return this;
@@ -253,7 +253,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   }
 
 
-  public HistoryServiceLevelObjectiveResponseData typeId(SLOTypeNumeric typeId) {
+  public SLOHistoryResponseData typeId(SLOTypeNumeric typeId) {
     
     this.typeId = typeId;
     return this;
@@ -286,15 +286,15 @@ public class HistoryServiceLevelObjectiveResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoryServiceLevelObjectiveResponseData historyServiceLevelObjectiveResponseData = (HistoryServiceLevelObjectiveResponseData) o;
-    return Objects.equals(this.fromTs, historyServiceLevelObjectiveResponseData.fromTs) &&
-        Objects.equals(this.groups, historyServiceLevelObjectiveResponseData.groups) &&
-        Objects.equals(this.overall, historyServiceLevelObjectiveResponseData.overall) &&
-        Objects.equals(this.series, historyServiceLevelObjectiveResponseData.series) &&
-        Objects.equals(this.thresholds, historyServiceLevelObjectiveResponseData.thresholds) &&
-        Objects.equals(this.toTs, historyServiceLevelObjectiveResponseData.toTs) &&
-        Objects.equals(this.type, historyServiceLevelObjectiveResponseData.type) &&
-        Objects.equals(this.typeId, historyServiceLevelObjectiveResponseData.typeId);
+    SLOHistoryResponseData slOHistoryResponseData = (SLOHistoryResponseData) o;
+    return Objects.equals(this.fromTs, slOHistoryResponseData.fromTs) &&
+        Objects.equals(this.groups, slOHistoryResponseData.groups) &&
+        Objects.equals(this.overall, slOHistoryResponseData.overall) &&
+        Objects.equals(this.series, slOHistoryResponseData.series) &&
+        Objects.equals(this.thresholds, slOHistoryResponseData.thresholds) &&
+        Objects.equals(this.toTs, slOHistoryResponseData.toTs) &&
+        Objects.equals(this.type, slOHistoryResponseData.type) &&
+        Objects.equals(this.typeId, slOHistoryResponseData.typeId);
   }
 
   @Override
@@ -306,7 +306,7 @@ public class HistoryServiceLevelObjectiveResponseData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoryServiceLevelObjectiveResponseData {\n");
+    sb.append("class SLOHistoryResponseData {\n");
     sb.append("    fromTs: ").append(toIndentedString(fromTs)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    overall: ").append(toIndentedString(overall)).append("\n");

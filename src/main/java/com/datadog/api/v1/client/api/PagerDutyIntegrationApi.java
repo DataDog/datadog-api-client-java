@@ -134,7 +134,7 @@ private ApiResponse<Void> createPagerDutyIntegrationWithHttpInfo(PagerDutyIntegr
 
   /**
    * Create a PagerDuty integration
-   * Create a new Datadog-PagerDuty integration.  **Note:** All arguments are required when creating (&#x60;PUT&#x60;) a new PagerDuty configuration.
+   * Create a new Datadog-PagerDuty integration. **Note:** All arguments are required when creating (&#x60;PUT&#x60;) a new PagerDuty configuration.
    * @return createPagerDutyIntegrationRequest
    * @throws ApiException if fails to make API call
    
@@ -210,6 +210,7 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
          <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -228,6 +229,7 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
          <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -392,8 +394,8 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 204 </td><td> Integration does not exist </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -410,8 +412,8 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 204 </td><td> Integration does not exist </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -481,7 +483,6 @@ private ApiResponse<PagerDutyIntegration> getPagerDutyIntegrationWithHttpInfo() 
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
@@ -500,7 +501,6 @@ private ApiResponse<PagerDutyIntegration> getPagerDutyIntegrationWithHttpInfo() 
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
@@ -579,7 +579,6 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
@@ -598,7 +597,6 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
@@ -800,8 +798,9 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 204 </td><td> Integration does not exist </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -818,8 +817,9 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 204 </td><td> Integration does not exist </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
      
      */

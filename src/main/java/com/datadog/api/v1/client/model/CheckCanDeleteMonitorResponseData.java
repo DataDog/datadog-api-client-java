@@ -24,25 +24,25 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * An array of service level objective objects.
+ * Wrapper object with the list of monitor IDs.
  */
-@ApiModel(description = "An array of service level objective objects.")
+@ApiModel(description = "Wrapper object with the list of monitor IDs.")
 @JsonPropertyOrder({
-  CheckCanDeleteServiceLevelObjectiveResponseData.JSON_PROPERTY_OK
+  CheckCanDeleteMonitorResponseData.JSON_PROPERTY_OK
 })
 
-public class CheckCanDeleteServiceLevelObjectiveResponseData {
+public class CheckCanDeleteMonitorResponseData {
   public static final String JSON_PROPERTY_OK = "ok";
-  private List<String> ok = null;
+  private List<Long> ok = null;
 
 
-  public CheckCanDeleteServiceLevelObjectiveResponseData ok(List<String> ok) {
+  public CheckCanDeleteMonitorResponseData ok(List<Long> ok) {
     
     this.ok = ok;
     return this;
   }
 
-  public CheckCanDeleteServiceLevelObjectiveResponseData addOkItem(String okItem) {
+  public CheckCanDeleteMonitorResponseData addOkItem(Long okItem) {
     if (this.ok == null) {
       this.ok = new ArrayList<>();
     }
@@ -51,20 +51,20 @@ public class CheckCanDeleteServiceLevelObjectiveResponseData {
   }
 
    /**
-   * An array of of SLO IDs that can be safely deleted.
+   * An array of of Monitor IDs that can be safely deleted.
    * @return ok
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of of SLO IDs that can be safely deleted.")
+  @ApiModelProperty(value = "An array of of Monitor IDs that can be safely deleted.")
   @JsonProperty(JSON_PROPERTY_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getOk() {
+  public List<Long> getOk() {
     return ok;
   }
 
 
-  public void setOk(List<String> ok) {
+  public void setOk(List<Long> ok) {
     this.ok = ok;
   }
 
@@ -77,8 +77,8 @@ public class CheckCanDeleteServiceLevelObjectiveResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckCanDeleteServiceLevelObjectiveResponseData checkCanDeleteServiceLevelObjectiveResponseData = (CheckCanDeleteServiceLevelObjectiveResponseData) o;
-    return Objects.equals(this.ok, checkCanDeleteServiceLevelObjectiveResponseData.ok);
+    CheckCanDeleteMonitorResponseData checkCanDeleteMonitorResponseData = (CheckCanDeleteMonitorResponseData) o;
+    return Objects.equals(this.ok, checkCanDeleteMonitorResponseData.ok);
   }
 
   @Override
@@ -90,7 +90,7 @@ public class CheckCanDeleteServiceLevelObjectiveResponseData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckCanDeleteServiceLevelObjectiveResponseData {\n");
+    sb.append("class CheckCanDeleteMonitorResponseData {\n");
     sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
     sb.append("}");
     return sb.toString();

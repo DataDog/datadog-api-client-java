@@ -147,7 +147,104 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
     return new APIcreateChildOrgRequest();
   }
 
-private ApiResponse<OrganizationListResponse> getOrgWithHttpInfo() throws ApiException {
+private ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(400, "Missing the required parameter 'publicId' when calling getOrg");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/org/{public_id}"
+      .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<OrganizationResponse> localVarReturnType = new GenericType<OrganizationResponse>() {};
+    return apiClient.invokeAPI("OrganizationsApi.getOrg", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIgetOrgRequest {
+    private String publicId;
+
+    private APIgetOrgRequest(String publicId) {
+      this.publicId = publicId;
+    }
+    
+
+    /**
+     * Execute getOrg request
+     * @return OrganizationResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public OrganizationResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getOrg request with HTTP info returned
+     * @return ApiResponse&lt;OrganizationResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<OrganizationResponse> executeWithHttpInfo() throws ApiException {
+      return getOrgWithHttpInfo(publicId);
+    }
+  }
+
+  /**
+   * Get organization information
+   * Get organization information.
+   * @param publicId The public_id of the org you are operating within. (required)
+   * @return getOrgRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIgetOrgRequest getOrg(String publicId) throws ApiException {
+    return new APIgetOrgRequest(publicId);
+  }
+
+private ApiResponse<OrganizationListResponse> listOrgsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -176,24 +273,23 @@ private ApiResponse<OrganizationListResponse> getOrgWithHttpInfo() throws ApiExc
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<OrganizationListResponse> localVarReturnType = new GenericType<OrganizationListResponse>() {};
-    return apiClient.invokeAPI("OrganizationsApi.getOrg", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("OrganizationsApi.listOrgs", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
-  public class APIgetOrgRequest {
+  public class APIlistOrgsRequest {
 
-    private APIgetOrgRequest() {
+    private APIlistOrgsRequest() {
     }
     
 
     /**
-     * Execute getOrg request
+     * Execute listOrgs request
      * @return OrganizationListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -204,35 +300,34 @@ private ApiResponse<OrganizationListResponse> getOrgWithHttpInfo() throws ApiExc
     }
 
     /**
-     * Execute getOrg request with HTTP info returned
+     * Execute listOrgs request with HTTP info returned
      * @return ApiResponse&lt;OrganizationListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
     
     public ApiResponse<OrganizationListResponse> executeWithHttpInfo() throws ApiException {
-      return getOrgWithHttpInfo();
+      return listOrgsWithHttpInfo();
     }
   }
 
   /**
-   * Get organization information
-   * Get information about your organization.
-   * @return getOrgRequest
+   * List your managed organizations
+   * List your managed organizations.
+   * @return listOrgsRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIgetOrgRequest getOrg() throws ApiException {
-    return new APIgetOrgRequest();
+  public APIlistOrgsRequest listOrgs() throws ApiException {
+    return new APIlistOrgsRequest();
   }
 
 private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId, Organization body) throws ApiException {
@@ -241,6 +336,11 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
     // verify the required parameter 'publicId' is set
     if (publicId == null) {
       throw new ApiException(400, "Missing the required parameter 'publicId' when calling updateOrg");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateOrg");
     }
     
     // create path and map variables
@@ -284,7 +384,7 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIupdateOrgRequest
      */
     public APIupdateOrgRequest body(Organization body) {

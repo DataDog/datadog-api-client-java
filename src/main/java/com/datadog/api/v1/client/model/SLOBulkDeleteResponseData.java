@@ -28,11 +28,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
-  ServiceLevelObjectivesBulkDeletedData.JSON_PROPERTY_DELETED,
-  ServiceLevelObjectivesBulkDeletedData.JSON_PROPERTY_UPDATED
+  SLOBulkDeleteResponseData.JSON_PROPERTY_DELETED,
+  SLOBulkDeleteResponseData.JSON_PROPERTY_UPDATED
 })
 
-public class ServiceLevelObjectivesBulkDeletedData {
+public class SLOBulkDeleteResponseData {
   public static final String JSON_PROPERTY_DELETED = "deleted";
   private List<String> deleted = null;
 
@@ -40,13 +40,13 @@ public class ServiceLevelObjectivesBulkDeletedData {
   private List<String> updated = null;
 
 
-  public ServiceLevelObjectivesBulkDeletedData deleted(List<String> deleted) {
+  public SLOBulkDeleteResponseData deleted(List<String> deleted) {
     
     this.deleted = deleted;
     return this;
   }
 
-  public ServiceLevelObjectivesBulkDeletedData addDeletedItem(String deletedItem) {
+  public SLOBulkDeleteResponseData addDeletedItem(String deletedItem) {
     if (this.deleted == null) {
       this.deleted = new ArrayList<>();
     }
@@ -73,13 +73,13 @@ public class ServiceLevelObjectivesBulkDeletedData {
   }
 
 
-  public ServiceLevelObjectivesBulkDeletedData updated(List<String> updated) {
+  public SLOBulkDeleteResponseData updated(List<String> updated) {
     
     this.updated = updated;
     return this;
   }
 
-  public ServiceLevelObjectivesBulkDeletedData addUpdatedItem(String updatedItem) {
+  public SLOBulkDeleteResponseData addUpdatedItem(String updatedItem) {
     if (this.updated == null) {
       this.updated = new ArrayList<>();
     }
@@ -114,9 +114,9 @@ public class ServiceLevelObjectivesBulkDeletedData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceLevelObjectivesBulkDeletedData serviceLevelObjectivesBulkDeletedData = (ServiceLevelObjectivesBulkDeletedData) o;
-    return Objects.equals(this.deleted, serviceLevelObjectivesBulkDeletedData.deleted) &&
-        Objects.equals(this.updated, serviceLevelObjectivesBulkDeletedData.updated);
+    SLOBulkDeleteResponseData slOBulkDeleteResponseData = (SLOBulkDeleteResponseData) o;
+    return Objects.equals(this.deleted, slOBulkDeleteResponseData.deleted) &&
+        Objects.equals(this.updated, slOBulkDeleteResponseData.updated);
   }
 
   @Override
@@ -128,7 +128,7 @@ public class ServiceLevelObjectivesBulkDeletedData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceLevelObjectivesBulkDeletedData {\n");
+    sb.append("class SLOBulkDeleteResponseData {\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("}");

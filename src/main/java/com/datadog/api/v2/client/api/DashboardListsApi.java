@@ -38,17 +38,17 @@ public class DashboardListsApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<DashboardListAddItemsResponse> addDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListItems body) throws ApiException {
+private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListItems body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'dashboardListId' is set
     if (dashboardListId == null) {
-      throw new ApiException(400, "Missing the required parameter 'dashboardListId' when calling addDashboardListItems");
+      throw new ApiException(400, "Missing the required parameter 'dashboardListId' when calling createDashboardListItems");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling addDashboardListItems");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createDashboardListItems");
     }
     
     // create path and map variables
@@ -78,14 +78,14 @@ private ApiResponse<DashboardListAddItemsResponse> addDashboardListItemsWithHttp
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardListAddItemsResponse> localVarReturnType = new GenericType<DashboardListAddItemsResponse>() {};
-    return apiClient.invokeAPI("DashboardListsApi.addDashboardListItems", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI("DashboardListsApi.createDashboardListItems", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
-  public class APIaddDashboardListItemsRequest {
+  public class APIcreateDashboardListItemsRequest {
     private Long dashboardListId;
     private DashboardListItems body;
 
-    private APIaddDashboardListItemsRequest(Long dashboardListId) {
+    private APIcreateDashboardListItemsRequest(Long dashboardListId) {
       this.dashboardListId = dashboardListId;
     }
     
@@ -93,16 +93,16 @@ private ApiResponse<DashboardListAddItemsResponse> addDashboardListItemsWithHttp
     /**
      * Set body
      * @param body Dashboards to add to the dashboard list. (required)
-     * @return APIaddDashboardListItemsRequest
+     * @return APIcreateDashboardListItemsRequest
      */
-    public APIaddDashboardListItemsRequest body(DashboardListItems body) {
+    public APIcreateDashboardListItemsRequest body(DashboardListItems body) {
       this.body = body;
       return this;
     }
     
 
     /**
-     * Execute addDashboardListItems request
+     * Execute createDashboardListItems request
      * @return DashboardListAddItemsResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -121,7 +121,7 @@ private ApiResponse<DashboardListAddItemsResponse> addDashboardListItemsWithHttp
     }
 
     /**
-     * Execute addDashboardListItems request with HTTP info returned
+     * Execute createDashboardListItems request with HTTP info returned
      * @return ApiResponse&lt;DashboardListAddItemsResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -136,7 +136,7 @@ private ApiResponse<DashboardListAddItemsResponse> addDashboardListItemsWithHttp
      */
     
     public ApiResponse<DashboardListAddItemsResponse> executeWithHttpInfo() throws ApiException {
-      return addDashboardListItemsWithHttpInfo(dashboardListId, body);
+      return createDashboardListItemsWithHttpInfo(dashboardListId, body);
     }
   }
 
@@ -144,14 +144,14 @@ private ApiResponse<DashboardListAddItemsResponse> addDashboardListItemsWithHttp
    * Add Items to a Dashboard List
    * Add dashboards to an existing dashboard list.
    * @param dashboardListId ID of the dashboard list to add items to. (required)
-   * @return addDashboardListItemsRequest
+   * @return createDashboardListItemsRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIaddDashboardListItemsRequest addDashboardListItems(Long dashboardListId) throws ApiException {
-    return new APIaddDashboardListItemsRequest(dashboardListId);
+  public APIcreateDashboardListItemsRequest createDashboardListItems(Long dashboardListId) throws ApiException {
+    return new APIcreateDashboardListItemsRequest(dashboardListId);
   }
 
 private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListItems body) throws ApiException {

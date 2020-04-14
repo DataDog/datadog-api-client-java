@@ -4,16 +4,16 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addDashboardListItems**](DashboardListsApi.md#addDashboardListItems) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List
+[**createDashboardListItems**](DashboardListsApi.md#createDashboardListItems) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List
 [**deleteDashboardListItems**](DashboardListsApi.md#deleteDashboardListItems) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list
 [**getDashboardListItems**](DashboardListsApi.md#getDashboardListItems) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get a Dashboard List
 [**updateDashboardListItems**](DashboardListsApi.md#updateDashboardListItems) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update items of a dashboard list
 
 
 
-## addDashboardListItems
+## createDashboardListItems
 
-> DashboardListAddItemsResponse addDashboardListItems(dashboardListId).body(body).execute();
+> DashboardListAddItemsResponse createDashboardListItems(dashboardListId).body(body).execute();
 
 Add Items to a Dashboard List
 
@@ -51,12 +51,12 @@ public class Example {
         Long dashboardListId = 56L; // Long | ID of the dashboard list to add items to.
         DashboardListItems body = new DashboardListItems(); // DashboardListItems | Dashboards to add to the dashboard list.
         try {
-            DashboardListAddItemsResponse result = api.addDashboardListItems(dashboardListId)
+            DashboardListAddItemsResponse result = api.createDashboardListItems(dashboardListId)
                 .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardListsApi#addDashboardListItems");
+            System.err.println("Exception when calling DashboardListsApi#createDashboardListItems");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

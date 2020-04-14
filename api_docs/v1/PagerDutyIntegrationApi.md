@@ -22,7 +22,6 @@ Method | HTTP request | Description
 Create a PagerDuty integration
 
 Create a new Datadog-PagerDuty integration.
-
 **Note:** All arguments are required when creating (`PUT`) a new PagerDuty configuration.
 
 ### Example
@@ -178,6 +177,7 @@ Name | Type | Description  | Notes
 | **201** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
+| **404** | Not Found |  -  |
 
 
 ## deletePagerDutyIntegration
@@ -332,8 +332,8 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **204** | Integration does not exist |  -  |
 | **403** | Authentication error |  -  |
+| **404** | Item Not Found |  -  |
 
 
 ## getPagerDutyIntegration
@@ -409,7 +409,6 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
 | **404** | Item Not Found |  -  |
 
@@ -491,7 +490,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
 | **404** | Item Not Found |  -  |
 
@@ -656,6 +654,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **204** | Integration does not exist |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
+| **404** | Item Not Found |  -  |
 
