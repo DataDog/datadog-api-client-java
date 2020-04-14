@@ -23,7 +23,7 @@ public class TelemetryTest extends V1ApiTest {
 
         // Mock a random endpoint and make sure we send the operation id header. Return an arbitrary success response code.
         stubFor(get(urlPathEqualTo("/api/v1/integration/aws"))
-                .withHeader("DD-OPERATION-ID", equalTo("ListAWSAccounts"))
+                .withHeader("DD-OPERATION-ID", equalTo("listAWSAccounts"))
                 .willReturn(status(299))
         );
 
