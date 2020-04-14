@@ -9,6 +9,7 @@ import com.datadog.api.v1.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v1.client.model.APIErrorResponse;
+import com.datadog.api.v1.client.model.CheckCanDeleteMonitorResponse;
 import com.datadog.api.v1.client.model.DeletedMonitor;
 import com.datadog.api.v1.client.model.Monitor;
 
@@ -35,6 +36,114 @@ public class MonitorsApi {
 
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttpInfo(List<Long> monitorIds) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'monitorIds' is set
+    if (monitorIds == null) {
+      throw new ApiException(400, "Missing the required parameter 'monitorIds' when calling checkCanDeleteMonitor");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/monitor/can_delete";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "monitor_ids", monitorIds));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<CheckCanDeleteMonitorResponse> localVarReturnType = new GenericType<CheckCanDeleteMonitorResponse>() {};
+    return apiClient.invokeAPI("MonitorsApi.checkCanDeleteMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIcheckCanDeleteMonitorRequest {
+    private List<Long> monitorIds;
+
+    private APIcheckCanDeleteMonitorRequest() {
+    }
+    
+
+    /**
+     * Set monitorIds
+     * @param monitorIds The IDs of the monitor to check. (required)
+     * @return APIcheckCanDeleteMonitorRequest
+     */
+    public APIcheckCanDeleteMonitorRequest monitorIds(List<Long> monitorIds) {
+      this.monitorIds = monitorIds;
+      return this;
+    }
+    
+
+    /**
+     * Execute checkCanDeleteMonitor request
+     * @return CheckCanDeleteMonitorResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Deletion conflict error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public CheckCanDeleteMonitorResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute checkCanDeleteMonitor request with HTTP info returned
+     * @return ApiResponse&lt;CheckCanDeleteMonitorResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Deletion conflict error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiResponse<CheckCanDeleteMonitorResponse> executeWithHttpInfo() throws ApiException {
+      return checkCanDeleteMonitorWithHttpInfo(monitorIds);
+    }
+  }
+
+  /**
+   * Check if the given monitors can be deleted
+   * Check if the given monitors can be deleted.
+   * @return checkCanDeleteMonitorRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  
+  public APIcheckCanDeleteMonitorRequest checkCanDeleteMonitor() throws ApiException {
+    return new APIcheckCanDeleteMonitorRequest();
   }
 
 private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiException {
@@ -101,6 +210,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -118,6 +228,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -196,6 +307,7 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
        </table>
      
@@ -215,6 +327,7 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
        </table>
      
@@ -308,6 +421,7 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -326,6 +440,7 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -461,6 +576,7 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -478,6 +594,7 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -573,6 +690,7 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor b
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
        </table>
      
@@ -592,6 +710,7 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor b
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
        </table>
      
@@ -680,6 +799,7 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid JSON </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -697,6 +817,7 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid JSON </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */

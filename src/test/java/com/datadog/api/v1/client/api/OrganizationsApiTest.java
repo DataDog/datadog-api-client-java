@@ -81,7 +81,7 @@ public class OrganizationsApiTest extends V1ApiTest {
         MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_orgs.json", "get");
         stubFor(stub);
 
-        OrganizationListResponse response = api.getOrg().execute();
+        OrganizationListResponse response = api.listOrgs().execute();
 
         // Assert values match whats in get_orgs.json fixture
         assertEquals(response.getOrgs().size(), 1);

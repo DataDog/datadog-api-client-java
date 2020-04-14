@@ -13,8 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.HistoryServiceLevelObjectiveResponseData;
-import com.datadog.api.v1.client.model.SLOHistoryResponseError;
+import com.datadog.api.v1.client.model.SLOBulkDeleteResponseData;
+import com.datadog.api.v1.client.model.SLOBulkDeleteResponseErrors;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,23 +26,23 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A service level objective history response.
+ * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions succeeded and failed.
  */
-@ApiModel(description = "A service level objective history response.")
+@ApiModel(description = "The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed.")
 @JsonPropertyOrder({
-  HistoryServiceLevelObjectiveResponse.JSON_PROPERTY_DATA,
-  HistoryServiceLevelObjectiveResponse.JSON_PROPERTY_ERRORS
+  SLOBulkDeleteResponse.JSON_PROPERTY_DATA,
+  SLOBulkDeleteResponse.JSON_PROPERTY_ERRORS
 })
 
-public class HistoryServiceLevelObjectiveResponse {
+public class SLOBulkDeleteResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private HistoryServiceLevelObjectiveResponseData data;
+  private SLOBulkDeleteResponseData data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<SLOHistoryResponseError> errors = null;
+  private List<SLOBulkDeleteResponseErrors> errors = null;
 
 
-  public HistoryServiceLevelObjectiveResponse data(HistoryServiceLevelObjectiveResponseData data) {
+  public SLOBulkDeleteResponse data(SLOBulkDeleteResponseData data) {
     
     this.data = data;
     return this;
@@ -52,27 +52,28 @@ public class HistoryServiceLevelObjectiveResponse {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public HistoryServiceLevelObjectiveResponseData getData() {
+  public SLOBulkDeleteResponseData getData() {
     return data;
   }
 
 
-  public void setData(HistoryServiceLevelObjectiveResponseData data) {
+  public void setData(SLOBulkDeleteResponseData data) {
     this.data = data;
   }
 
 
-  public HistoryServiceLevelObjectiveResponse errors(List<SLOHistoryResponseError> errors) {
+  public SLOBulkDeleteResponse errors(List<SLOBulkDeleteResponseErrors> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public HistoryServiceLevelObjectiveResponse addErrorsItem(SLOHistoryResponseError errorsItem) {
+  public SLOBulkDeleteResponse addErrorsItem(SLOBulkDeleteResponseErrors errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -81,20 +82,20 @@ public class HistoryServiceLevelObjectiveResponse {
   }
 
    /**
-   * A list of errors while querying the history data for the service level obective.
+   * TODO.
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of errors while querying the history data for the service level obective.")
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SLOHistoryResponseError> getErrors() {
+  public List<SLOBulkDeleteResponseErrors> getErrors() {
     return errors;
   }
 
 
-  public void setErrors(List<SLOHistoryResponseError> errors) {
+  public void setErrors(List<SLOBulkDeleteResponseErrors> errors) {
     this.errors = errors;
   }
 
@@ -107,9 +108,9 @@ public class HistoryServiceLevelObjectiveResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoryServiceLevelObjectiveResponse historyServiceLevelObjectiveResponse = (HistoryServiceLevelObjectiveResponse) o;
-    return Objects.equals(this.data, historyServiceLevelObjectiveResponse.data) &&
-        Objects.equals(this.errors, historyServiceLevelObjectiveResponse.errors);
+    SLOBulkDeleteResponse slOBulkDeleteResponse = (SLOBulkDeleteResponse) o;
+    return Objects.equals(this.data, slOBulkDeleteResponse.data) &&
+        Objects.equals(this.errors, slOBulkDeleteResponse.errors);
   }
 
   @Override
@@ -121,7 +122,7 @@ public class HistoryServiceLevelObjectiveResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoryServiceLevelObjectiveResponse {\n");
+    sb.append("class SLOBulkDeleteResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");

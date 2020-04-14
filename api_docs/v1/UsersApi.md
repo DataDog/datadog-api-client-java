@@ -95,6 +95,7 @@ Name | Type | Description  | Notes
 | **200** | User created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
+| **409** | Conflict |  -  |
 
 
 ## disableUser
@@ -179,6 +180,7 @@ Name | Type | Description  | Notes
 | **200** | User disabled |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
+| **404** | Not Found |  -  |
 
 
 ## getUser
@@ -258,8 +260,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK for get user |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
+| **404** | Not Found |  -  |
 
 
 ## listUsers
@@ -335,7 +337,6 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
 
 
@@ -423,4 +424,5 @@ Name | Type | Description  | Notes
 | **200** | User updated |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
+| **404** | Not Found |  -  |
 

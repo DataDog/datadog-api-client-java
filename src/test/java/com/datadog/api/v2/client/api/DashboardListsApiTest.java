@@ -71,7 +71,7 @@ public class DashboardListsApiTest extends V2APITest {
         dashboards.add(customScreenboard);
         DashboardListItems body = new DashboardListItems().dashboards(dashboards);
 
-        DashboardListAddItemsResponse addResponse = api.addDashboardListItems(dashboardListID).body(body).execute();
+        DashboardListAddItemsResponse addResponse = api.createDashboardListItems(dashboardListID).body(body).execute();
         assertNotNull(addResponse.getAddedDashboardsToList());
         assertEquals(3, addResponse.getAddedDashboardsToList().size());
         assertTrue(addResponse.getAddedDashboardsToList().contains(integrationTimeboard));

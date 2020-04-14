@@ -92,6 +92,7 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
        </table>
      
@@ -109,6 +110,7 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
        </table>
      
@@ -197,6 +199,7 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtimes not found </td><td>  -  </td></tr>
        </table>
      
@@ -215,6 +218,7 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtimes not found </td><td>  -  </td></tr>
        </table>
      
@@ -302,6 +306,7 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -319,6 +324,7 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -395,6 +401,7 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
        </table>
      
@@ -412,6 +419,7 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
        </table>
      
@@ -495,7 +503,7 @@ private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnl
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -512,7 +520,7 @@ private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnl
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -607,6 +615,7 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
        </table>
      
@@ -625,6 +634,7 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
        </table>
      

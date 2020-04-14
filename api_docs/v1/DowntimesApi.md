@@ -89,6 +89,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | OK |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Downtime not found |  -  |
 
 
@@ -171,6 +172,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Downtimes not found |  -  |
 
 
@@ -253,6 +255,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 
 
 ## getDowntime
@@ -332,6 +335,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Downtime not found |  -  |
 
 
@@ -413,7 +417,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 
 
 ## updateDowntime
@@ -497,5 +501,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Downtime not found |  -  |
 

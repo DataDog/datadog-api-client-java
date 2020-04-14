@@ -388,7 +388,7 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+         <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
        </table>
      
      */
@@ -407,7 +407,7 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+         <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
        </table>
      
      */

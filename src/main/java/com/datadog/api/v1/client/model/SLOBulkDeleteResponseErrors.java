@@ -27,12 +27,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "TODO.")
 @JsonPropertyOrder({
-  ServiceLevelObjectivesBulkDeletedErrors.JSON_PROPERTY_ID,
-  ServiceLevelObjectivesBulkDeletedErrors.JSON_PROPERTY_MESSAGE,
-  ServiceLevelObjectivesBulkDeletedErrors.JSON_PROPERTY_TIMEFRAME
+  SLOBulkDeleteResponseErrors.JSON_PROPERTY_ID,
+  SLOBulkDeleteResponseErrors.JSON_PROPERTY_MESSAGE,
+  SLOBulkDeleteResponseErrors.JSON_PROPERTY_TIMEFRAME
 })
 
-public class ServiceLevelObjectivesBulkDeletedErrors {
+public class SLOBulkDeleteResponseErrors {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -43,7 +43,7 @@ public class ServiceLevelObjectivesBulkDeletedErrors {
   private SLOErrorTimeframe timeframe;
 
 
-  public ServiceLevelObjectivesBulkDeletedErrors id(String id) {
+  public SLOBulkDeleteResponseErrors id(String id) {
     
     this.id = id;
     return this;
@@ -67,7 +67,7 @@ public class ServiceLevelObjectivesBulkDeletedErrors {
   }
 
 
-  public ServiceLevelObjectivesBulkDeletedErrors message(String message) {
+  public SLOBulkDeleteResponseErrors message(String message) {
     
     this.message = message;
     return this;
@@ -91,7 +91,7 @@ public class ServiceLevelObjectivesBulkDeletedErrors {
   }
 
 
-  public ServiceLevelObjectivesBulkDeletedErrors timeframe(SLOErrorTimeframe timeframe) {
+  public SLOBulkDeleteResponseErrors timeframe(SLOErrorTimeframe timeframe) {
     
     this.timeframe = timeframe;
     return this;
@@ -123,10 +123,10 @@ public class ServiceLevelObjectivesBulkDeletedErrors {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceLevelObjectivesBulkDeletedErrors serviceLevelObjectivesBulkDeletedErrors = (ServiceLevelObjectivesBulkDeletedErrors) o;
-    return Objects.equals(this.id, serviceLevelObjectivesBulkDeletedErrors.id) &&
-        Objects.equals(this.message, serviceLevelObjectivesBulkDeletedErrors.message) &&
-        Objects.equals(this.timeframe, serviceLevelObjectivesBulkDeletedErrors.timeframe);
+    SLOBulkDeleteResponseErrors slOBulkDeleteResponseErrors = (SLOBulkDeleteResponseErrors) o;
+    return Objects.equals(this.id, slOBulkDeleteResponseErrors.id) &&
+        Objects.equals(this.message, slOBulkDeleteResponseErrors.message) &&
+        Objects.equals(this.timeframe, slOBulkDeleteResponseErrors.timeframe);
   }
 
   @Override
@@ -138,7 +138,7 @@ public class ServiceLevelObjectivesBulkDeletedErrors {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceLevelObjectivesBulkDeletedErrors {\n");
+    sb.append("class SLOBulkDeleteResponseErrors {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    timeframe: ").append(toIndentedString(timeframe)).append("\n");

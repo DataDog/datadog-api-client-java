@@ -44,6 +44,11 @@ public class KeyManagementApi {
 private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws ApiException {
     Object localVarPostBody = body;
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createAPIKey");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v1/api_key";
 
@@ -82,7 +87,7 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIcreateAPIKeyRequest
      */
     public APIcreateAPIKeyRequest body(ApiKey body) {
@@ -101,7 +106,6 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
      
      */
@@ -120,7 +124,6 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
      
      */
@@ -145,6 +148,11 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
 
 private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(ApplicationKey body) throws ApiException {
     Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createApplicationKey");
+    }
     
     // create path and map variables
     String localVarPath = "/api/v1/application_key";
@@ -184,7 +192,7 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIcreateApplicationKeyRequest
      */
     public APIcreateApplicationKeyRequest body(ApplicationKey body) {
@@ -398,7 +406,6 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
@@ -417,7 +424,6 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
@@ -497,7 +503,6 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
@@ -516,7 +521,6 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
@@ -596,7 +600,6 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
@@ -615,7 +618,6 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
@@ -687,7 +689,6 @@ private ApiResponse<ApiKeyListResponse> listAPIKeysWithHttpInfo() throws ApiExce
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -705,7 +706,6 @@ private ApiResponse<ApiKeyListResponse> listAPIKeysWithHttpInfo() throws ApiExce
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -775,7 +775,6 @@ private ApiResponse<ApplicationKeyListResponse> listApplicationKeysWithHttpInfo(
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -793,7 +792,6 @@ private ApiResponse<ApplicationKeyListResponse> listApplicationKeysWithHttpInfo(
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -823,6 +821,11 @@ private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey 
     // verify the required parameter 'key' is set
     if (key == null) {
       throw new ApiException(400, "Missing the required parameter 'key' when calling updateAPIKey");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateAPIKey");
     }
     
     // create path and map variables
@@ -866,7 +869,7 @@ private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey 
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIupdateAPIKeyRequest
      */
     public APIupdateAPIKeyRequest body(ApiKey body) {
@@ -936,6 +939,11 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
       throw new ApiException(400, "Missing the required parameter 'key' when calling updateApplicationKey");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateApplicationKey");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v1/application_key/{key}"
       .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(key.toString()));
@@ -977,7 +985,7 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIupdateApplicationKeyRequest
      */
     public APIupdateApplicationKeyRequest body(ApplicationKey body) {
@@ -997,6 +1005,7 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1016,6 +1025,7 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
      
      */

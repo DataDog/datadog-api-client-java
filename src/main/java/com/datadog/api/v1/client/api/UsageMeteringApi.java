@@ -129,7 +129,6 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -148,7 +147,6 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -250,7 +248,6 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -269,7 +266,6 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -371,7 +367,6 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -390,7 +385,6 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -492,7 +486,6 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -511,7 +504,6 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -626,7 +618,6 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -645,7 +636,6 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -747,7 +737,6 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -766,7 +755,6 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -868,7 +856,6 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -887,7 +874,6 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -989,7 +975,6 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1008,7 +993,6 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1123,7 +1107,6 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1142,7 +1125,6 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1244,7 +1226,6 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      * @deprecated
@@ -1263,7 +1244,6 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      * @deprecated
@@ -1365,7 +1345,6 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1384,7 +1363,6 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1486,7 +1464,6 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1505,7 +1482,6 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1607,7 +1583,6 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1626,7 +1601,6 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1728,7 +1702,6 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1747,7 +1720,6 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1849,7 +1821,6 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
@@ -1868,7 +1839,6 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
