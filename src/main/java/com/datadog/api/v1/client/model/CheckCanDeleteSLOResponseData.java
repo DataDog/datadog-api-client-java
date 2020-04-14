@@ -24,44 +24,48 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A response list of all service level objective deleted.
+ * An array of service level objective objects.
  */
-@ApiModel(description = "A response list of all service level objective deleted.")
+@ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
-  ServiceLevelObjectiveDeleted.JSON_PROPERTY_DATA
+  CheckCanDeleteSLOResponseData.JSON_PROPERTY_OK
 })
 
-public class ServiceLevelObjectiveDeleted {
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<String> data = new ArrayList<>();
+public class CheckCanDeleteSLOResponseData {
+  public static final String JSON_PROPERTY_OK = "ok";
+  private List<String> ok = null;
 
 
-  public ServiceLevelObjectiveDeleted data(List<String> data) {
+  public CheckCanDeleteSLOResponseData ok(List<String> ok) {
     
-    this.data = data;
+    this.ok = ok;
     return this;
   }
 
-  public ServiceLevelObjectiveDeleted addDataItem(String dataItem) {
-    this.data.add(dataItem);
+  public CheckCanDeleteSLOResponseData addOkItem(String okItem) {
+    if (this.ok == null) {
+      this.ok = new ArrayList<>();
+    }
+    this.ok.add(okItem);
     return this;
   }
 
    /**
-   * An array containing the ID of the deleted service level objective object.
-   * @return data
+   * An array of of SLO IDs that can be safely deleted.
+   * @return ok
   **/
-  @ApiModelProperty(required = true, value = "An array containing the ID of the deleted service level objective object.")
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of of SLO IDs that can be safely deleted.")
+  @JsonProperty(JSON_PROPERTY_OK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getData() {
-    return data;
+  public List<String> getOk() {
+    return ok;
   }
 
 
-  public void setData(List<String> data) {
-    this.data = data;
+  public void setOk(List<String> ok) {
+    this.ok = ok;
   }
 
 
@@ -73,21 +77,21 @@ public class ServiceLevelObjectiveDeleted {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceLevelObjectiveDeleted serviceLevelObjectiveDeleted = (ServiceLevelObjectiveDeleted) o;
-    return Objects.equals(this.data, serviceLevelObjectiveDeleted.data);
+    CheckCanDeleteSLOResponseData checkCanDeleteSLOResponseData = (CheckCanDeleteSLOResponseData) o;
+    return Objects.equals(this.ok, checkCanDeleteSLOResponseData.ok);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(ok);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceLevelObjectiveDeleted {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class CheckCanDeleteSLOResponseData {\n");
+    sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
     sb.append("}");
     return sb.toString();
   }

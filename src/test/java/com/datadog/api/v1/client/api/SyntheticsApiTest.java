@@ -162,11 +162,9 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         // Get the most recent API test results
         latestResults = api.getAPITestLatestResults(publicId)
-                .body(new SyntheticsGetTestLatestResultsPayload()
-                        .fromTs(0.0)
-                        .probeDc(Arrays.asList("aws:us-east-2"))
-                        .toTs((double) new Date().getTime())
-                )
+                .fromTs(0L)
+                .toTs(now.toInstant().toEpochMilli())
+                .probeDc(Arrays.asList("aws:us-east-2"))
                 .execute();
         // API tests sometimes have a delay before getting first result, so we use a mock response to verify
         // that deserialization works properly
@@ -253,11 +251,9 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         // Get the most recent Browser test results
         latestResults = api.getBrowserTestLatestResults(publicId)
-                .body(new SyntheticsGetTestLatestResultsPayload()
-                        .fromTs(0.0)
-                        .probeDc(Arrays.asList("aws:us-east-2"))
-                        .toTs((double) new Date().getTime())
-                )
+                .fromTs(0L)
+                .toTs(now.toInstant().toEpochMilli())
+                .probeDc(Arrays.asList("aws:us-east-2"))
                 .execute();
         assertTrue(latestResults.getResults().isEmpty());
         // Browser tests are asynchronous and take some time to run, so we use a mock response to verify

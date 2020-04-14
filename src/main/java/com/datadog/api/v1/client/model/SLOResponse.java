@@ -25,58 +25,54 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A response with one or more service level objective.
+ * A service level objective response containing a single service level objective.
  */
-@ApiModel(description = "A response with one or more service level objective.")
+@ApiModel(description = "A service level objective response containing a single service level objective.")
 @JsonPropertyOrder({
-  ServiceLevelObjectiveListResponse.JSON_PROPERTY_DATA,
-  ServiceLevelObjectiveListResponse.JSON_PROPERTY_ERRORS
+  SLOResponse.JSON_PROPERTY_DATA,
+  SLOResponse.JSON_PROPERTY_ERRORS
 })
 
-public class ServiceLevelObjectiveListResponse {
+public class SLOResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<ServiceLevelObjective> data = new ArrayList<>();
+  private ServiceLevelObjective data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = null;
 
 
-  public ServiceLevelObjectiveListResponse data(List<ServiceLevelObjective> data) {
+  public SLOResponse data(ServiceLevelObjective data) {
     
     this.data = data;
     return this;
   }
 
-  public ServiceLevelObjectiveListResponse addDataItem(ServiceLevelObjective dataItem) {
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * An array of service level objective objects.
+   * Get data
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "An array of service level objective objects.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<ServiceLevelObjective> getData() {
+  public ServiceLevelObjective getData() {
     return data;
   }
 
 
-  public void setData(List<ServiceLevelObjective> data) {
+  public void setData(ServiceLevelObjective data) {
     this.data = data;
   }
 
 
-  public ServiceLevelObjectiveListResponse errors(List<String> errors) {
+  public SLOResponse errors(List<String> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public ServiceLevelObjectiveListResponse addErrorsItem(String errorsItem) {
+  public SLOResponse addErrorsItem(String errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -111,9 +107,9 @@ public class ServiceLevelObjectiveListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceLevelObjectiveListResponse serviceLevelObjectiveListResponse = (ServiceLevelObjectiveListResponse) o;
-    return Objects.equals(this.data, serviceLevelObjectiveListResponse.data) &&
-        Objects.equals(this.errors, serviceLevelObjectiveListResponse.errors);
+    SLOResponse slOResponse = (SLOResponse) o;
+    return Objects.equals(this.data, slOResponse.data) &&
+        Objects.equals(this.errors, slOResponse.errors);
   }
 
   @Override
@@ -125,7 +121,7 @@ public class ServiceLevelObjectiveListResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceLevelObjectiveListResponse {\n");
+    sb.append("class SLOResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");

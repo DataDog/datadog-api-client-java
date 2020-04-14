@@ -10,14 +10,14 @@ Method | HTTP request | Description
 [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
 [**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details
 [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
-[**getSLOs**](ServiceLevelObjectivesApi.md#getSLOs) | **GET** /api/v1/slo | Search SLOs
+[**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Search SLOs
 [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
 
 
 
 ## checkCanDeleteSLO
 
-> CheckCanDeleteServiceLevelObjectiveResponse checkCanDeleteSLO().ids(ids).execute();
+> CheckCanDeleteSLOResponse checkCanDeleteSLO().ids(ids).execute();
 
 Check if SLOs can be safely deleted
 
@@ -55,7 +55,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects (e.g. \"id1,id2,id3\").
         try {
-            CheckCanDeleteServiceLevelObjectiveResponse result = api.checkCanDeleteSLO()
+            CheckCanDeleteSLOResponse result = api.checkCanDeleteSLO()
                 .ids(ids)
                 .execute();
             System.out.println(result);
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CheckCanDeleteServiceLevelObjectiveResponse**](CheckCanDeleteServiceLevelObjectiveResponse.md)
+[**CheckCanDeleteSLOResponse**](CheckCanDeleteSLOResponse.md)
 
 ### Authorization
 
@@ -95,13 +95,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
 
 
 ## createSLO
 
-> ServiceLevelObjectiveListResponse createSLO().body(body).execute();
+> SLOListResponse createSLO().body(body).execute();
 
 Create a SLO object
 
@@ -138,7 +138,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | Service level objective request object.
         try {
-            ServiceLevelObjectiveListResponse result = api.createSLO()
+            SLOListResponse result = api.createSLO()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceLevelObjectiveListResponse**](ServiceLevelObjectiveListResponse.md)
+[**SLOListResponse**](SLOListResponse.md)
 
 ### Authorization
 
@@ -178,13 +178,12 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 
 
 ## deleteSLO
 
-> ServiceLevelObjectiveDeleted deleteSLO(sloId).execute();
+> SLODeleteResponse deleteSLO(sloId).execute();
 
 Delete a SLO
 
@@ -224,7 +223,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The id of the service level objective.
         try {
-            ServiceLevelObjectiveDeleted result = api.deleteSLO(sloId)
+            SLODeleteResponse result = api.deleteSLO(sloId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -247,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceLevelObjectiveDeleted**](ServiceLevelObjectiveDeleted.md)
+[**SLODeleteResponse**](SLODeleteResponse.md)
 
 ### Authorization
 
@@ -262,15 +261,14 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not found |  -  |
+| **409** | Conflict |  -  |
 
 
 ## deleteSLOTimeframeInBulk
 
-> ServiceLevelObjectivesBulkDeleted deleteSLOTimeframeInBulk().body(body).execute();
+> SLOBulkDeleteResponse deleteSLOTimeframeInBulk().body(body).execute();
 
 Bulk Delete SLO Timeframes
 
@@ -311,7 +309,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Thresholds by service level objective object ID.
         try {
-            ServiceLevelObjectivesBulkDeleted result = api.deleteSLOTimeframeInBulk()
+            SLOBulkDeleteResponse result = api.deleteSLOTimeframeInBulk()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -335,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceLevelObjectivesBulkDeleted**](ServiceLevelObjectivesBulkDeleted.md)
+[**SLOBulkDeleteResponse**](SLOBulkDeleteResponse.md)
 
 ### Authorization
 
@@ -351,13 +349,12 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 
 
 ## getSLO
 
-> ServiceLevelObjectiveResponse getSLO(sloId).execute();
+> SLOResponse getSLO(sloId).execute();
 
 Get a SLO&#39;s details
 
@@ -394,7 +391,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
         try {
-            ServiceLevelObjectiveResponse result = api.getSLO(sloId)
+            SLOResponse result = api.getSLO(sloId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -417,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceLevelObjectiveResponse**](ServiceLevelObjectiveResponse.md)
+[**SLOResponse**](SLOResponse.md)
 
 ### Authorization
 
@@ -432,15 +429,13 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not found |  -  |
 
 
 ## getSLOHistory
 
-> HistoryServiceLevelObjectiveResponse getSLOHistory(sloId).fromTs(fromTs).toTs(toTs).execute();
+> SLOHistoryResponse getSLOHistory(sloId).fromTs(fromTs).toTs(toTs).execute();
 
 Get an SLO&#39;s history
 
@@ -483,10 +478,10 @@ public class Example {
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
-        String fromTs = "fromTs_example"; // String | The `from` timestamp for the query window in epoch seconds.
-        String toTs = "toTs_example"; // String | The `to` timestamp for the query window in epoch seconds.
+        Long fromTs = 56L; // Long | The `from` timestamp for the query window in epoch seconds.
+        Long toTs = 56L; // Long | The `to` timestamp for the query window in epoch seconds.
         try {
-            HistoryServiceLevelObjectiveResponse result = api.getSLOHistory(sloId)
+            SLOHistoryResponse result = api.getSLOHistory(sloId)
                 .fromTs(fromTs)
                 .toTs(toTs)
                 .execute();
@@ -508,12 +503,12 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sloId** | **String**| The ID of the service level objective object. |
- **fromTs** | **String**| The &#x60;from&#x60; timestamp for the query window in epoch seconds. |
- **toTs** | **String**| The &#x60;to&#x60; timestamp for the query window in epoch seconds. |
+ **fromTs** | **Long**| The &#x60;from&#x60; timestamp for the query window in epoch seconds. |
+ **toTs** | **Long**| The &#x60;to&#x60; timestamp for the query window in epoch seconds. |
 
 ### Return type
 
-[**HistoryServiceLevelObjectiveResponse**](HistoryServiceLevelObjectiveResponse.md)
+[**SLOHistoryResponse**](SLOHistoryResponse.md)
 
 ### Authorization
 
@@ -529,13 +524,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
 
-## getSLOs
+## listSLOs
 
-> ServiceLevelObjectiveListResponse getSLOs().ids(ids).execute();
+> SLOListResponse listSLOs().ids(ids).execute();
 
 Search SLOs
 
@@ -572,12 +567,12 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects. For example, \"id1,id2,id3\".
         try {
-            ServiceLevelObjectiveListResponse result = api.getSLOs()
+            SLOListResponse result = api.listSLOs()
                 .ids(ids)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ServiceLevelObjectivesApi#getSLOs");
+            System.err.println("Exception when calling ServiceLevelObjectivesApi#listSLOs");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -596,7 +591,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceLevelObjectiveListResponse**](ServiceLevelObjectiveListResponse.md)
+[**SLOListResponse**](SLOListResponse.md)
 
 ### Authorization
 
@@ -612,13 +607,12 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 
 
 ## updateSLO
 
-> ServiceLevelObjectiveListResponse updateSLO(sloId).body(body).execute();
+> SLOListResponse updateSLO(sloId).body(body).execute();
 
 Update a SLO
 
@@ -656,7 +650,7 @@ public class Example {
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
         ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | The edited service level objective request object.
         try {
-            ServiceLevelObjectiveListResponse result = api.updateSLO(sloId)
+            SLOListResponse result = api.updateSLO(sloId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -681,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceLevelObjectiveListResponse**](ServiceLevelObjectiveListResponse.md)
+[**SLOListResponse**](SLOListResponse.md)
 
 ### Authorization
 
@@ -697,7 +691,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 

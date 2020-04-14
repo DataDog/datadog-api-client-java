@@ -13,7 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.CheckCanDeleteServiceLevelObjectiveResponseData;
+import com.datadog.api.v1.client.model.CheckCanDeleteSLOResponseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,19 +30,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "A service level objective response containing the requested object.")
 @JsonPropertyOrder({
-  CheckCanDeleteServiceLevelObjectiveResponse.JSON_PROPERTY_DATA,
-  CheckCanDeleteServiceLevelObjectiveResponse.JSON_PROPERTY_ERRORS
+  CheckCanDeleteSLOResponse.JSON_PROPERTY_DATA,
+  CheckCanDeleteSLOResponse.JSON_PROPERTY_ERRORS
 })
 
-public class CheckCanDeleteServiceLevelObjectiveResponse {
+public class CheckCanDeleteSLOResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private CheckCanDeleteServiceLevelObjectiveResponseData data;
+  private CheckCanDeleteSLOResponseData data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private Map<String, String> errors = null;
 
 
-  public CheckCanDeleteServiceLevelObjectiveResponse data(CheckCanDeleteServiceLevelObjectiveResponseData data) {
+  public CheckCanDeleteSLOResponse data(CheckCanDeleteSLOResponseData data) {
     
     this.data = data;
     return this;
@@ -52,27 +52,28 @@ public class CheckCanDeleteServiceLevelObjectiveResponse {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CheckCanDeleteServiceLevelObjectiveResponseData getData() {
+  public CheckCanDeleteSLOResponseData getData() {
     return data;
   }
 
 
-  public void setData(CheckCanDeleteServiceLevelObjectiveResponseData data) {
+  public void setData(CheckCanDeleteSLOResponseData data) {
     this.data = data;
   }
 
 
-  public CheckCanDeleteServiceLevelObjectiveResponse errors(Map<String, String> errors) {
+  public CheckCanDeleteSLOResponse errors(Map<String, String> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public CheckCanDeleteServiceLevelObjectiveResponse putErrorsItem(String key, String errorsItem) {
+  public CheckCanDeleteSLOResponse putErrorsItem(String key, String errorsItem) {
     if (this.errors == null) {
       this.errors = new HashMap<>();
     }
@@ -107,9 +108,9 @@ public class CheckCanDeleteServiceLevelObjectiveResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckCanDeleteServiceLevelObjectiveResponse checkCanDeleteServiceLevelObjectiveResponse = (CheckCanDeleteServiceLevelObjectiveResponse) o;
-    return Objects.equals(this.data, checkCanDeleteServiceLevelObjectiveResponse.data) &&
-        Objects.equals(this.errors, checkCanDeleteServiceLevelObjectiveResponse.errors);
+    CheckCanDeleteSLOResponse checkCanDeleteSLOResponse = (CheckCanDeleteSLOResponse) o;
+    return Objects.equals(this.data, checkCanDeleteSLOResponse.data) &&
+        Objects.equals(this.errors, checkCanDeleteSLOResponse.errors);
   }
 
   @Override
@@ -121,7 +122,7 @@ public class CheckCanDeleteServiceLevelObjectiveResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckCanDeleteServiceLevelObjectiveResponse {\n");
+    sb.append("class CheckCanDeleteSLOResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");

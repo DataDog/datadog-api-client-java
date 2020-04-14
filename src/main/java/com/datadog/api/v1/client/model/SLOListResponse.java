@@ -13,8 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.ServiceLevelObjectivesBulkDeletedData;
-import com.datadog.api.v1.client.model.ServiceLevelObjectivesBulkDeletedErrors;
+import com.datadog.api.v1.client.model.ServiceLevelObjective;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,71 +25,84 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions succeeded and failed.
+ * A response with one or more service level objective.
  */
-@ApiModel(description = "The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed.")
+@ApiModel(description = "A response with one or more service level objective.")
 @JsonPropertyOrder({
-  ServiceLevelObjectivesBulkDeleted.JSON_PROPERTY_DATA,
-  ServiceLevelObjectivesBulkDeleted.JSON_PROPERTY_ERRORS
+  SLOListResponse.JSON_PROPERTY_DATA,
+  SLOListResponse.JSON_PROPERTY_ERRORS
 })
 
-public class ServiceLevelObjectivesBulkDeleted {
+public class SLOListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private ServiceLevelObjectivesBulkDeletedData data;
+  private List<ServiceLevelObjective> data = null;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<ServiceLevelObjectivesBulkDeletedErrors> errors = new ArrayList<>();
+  private List<String> errors = null;
 
 
-  public ServiceLevelObjectivesBulkDeleted data(ServiceLevelObjectivesBulkDeletedData data) {
+  public SLOListResponse data(List<ServiceLevelObjective> data) {
     
     this.data = data;
     return this;
   }
 
+  public SLOListResponse addDataItem(ServiceLevelObjective dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
    /**
-   * Get data
+   * An array of service level objective objects.
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of service level objective objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ServiceLevelObjectivesBulkDeletedData getData() {
+  public List<ServiceLevelObjective> getData() {
     return data;
   }
 
 
-  public void setData(ServiceLevelObjectivesBulkDeletedData data) {
+  public void setData(List<ServiceLevelObjective> data) {
     this.data = data;
   }
 
 
-  public ServiceLevelObjectivesBulkDeleted errors(List<ServiceLevelObjectivesBulkDeletedErrors> errors) {
+  public SLOListResponse errors(List<String> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public ServiceLevelObjectivesBulkDeleted addErrorsItem(ServiceLevelObjectivesBulkDeletedErrors errorsItem) {
+  public SLOListResponse addErrorsItem(String errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
     this.errors.add(errorsItem);
     return this;
   }
 
    /**
-   * TODO.
+   * An array of error messages. Each endpoint documents how/whether this field is used.
    * @return errors
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of error messages. Each endpoint documents how/whether this field is used.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<ServiceLevelObjectivesBulkDeletedErrors> getErrors() {
+  public List<String> getErrors() {
     return errors;
   }
 
 
-  public void setErrors(List<ServiceLevelObjectivesBulkDeletedErrors> errors) {
+  public void setErrors(List<String> errors) {
     this.errors = errors;
   }
 
@@ -103,9 +115,9 @@ public class ServiceLevelObjectivesBulkDeleted {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceLevelObjectivesBulkDeleted serviceLevelObjectivesBulkDeleted = (ServiceLevelObjectivesBulkDeleted) o;
-    return Objects.equals(this.data, serviceLevelObjectivesBulkDeleted.data) &&
-        Objects.equals(this.errors, serviceLevelObjectivesBulkDeleted.errors);
+    SLOListResponse slOListResponse = (SLOListResponse) o;
+    return Objects.equals(this.data, slOListResponse.data) &&
+        Objects.equals(this.errors, slOListResponse.errors);
   }
 
   @Override
@@ -117,7 +129,7 @@ public class ServiceLevelObjectivesBulkDeleted {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceLevelObjectivesBulkDeleted {\n");
+    sb.append("class SLOListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");

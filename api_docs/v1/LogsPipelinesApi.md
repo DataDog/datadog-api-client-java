@@ -94,7 +94,6 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
-| **422** | Unprocessable Entity |  -  |
 
 
 ## deleteLogsPipeline
@@ -499,7 +498,6 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
-| **422** | Unprocessable Entity |  -  |
 
 
 ## updateLogsPipelineOrder
@@ -565,7 +563,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md)| Object containing the new ordered list of pipeline IDs. | [optional]
+ **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md)| Object containing the new ordered list of pipeline IDs. |
 
 ### Return type
 

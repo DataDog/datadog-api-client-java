@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 | **200** | OK - Returns the created/cloned test details. |  -  |
 | **400** | JSON format is wrong, creation/cloning failed. |  -  |
 | **402** | Test quota is reached. |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user, the test to clone can&#39;t be found. |  -  |
+| **403** | forbidden |  -  |
 
 
 ## deleteTests
@@ -182,12 +182,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | JSON format is wrong, test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget), some ids are not owned by the user |  -  |
+| **403** | forbidden |  -  |
 | **404** | tests to be deleted can&#39;t be found or Synthetics is not activated for the user |  -  |
 
 
 ## getAPITestLatestResults
 
-> SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(publicId).body(body).execute();
+> SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(publicId).fromTs(fromTs).toTs(toTs).probeDc(probeDc).execute();
 
 Get test latest results (as summaries)
 
@@ -223,10 +224,14 @@ public class Example {
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public id of the test for which to search results for.
-        SyntheticsGetTestLatestResultsPayload body = new SyntheticsGetTestLatestResultsPayload(); // SyntheticsGetTestLatestResultsPayload | Pause/live status to set the given Synthetics test to.
+        Long fromTs = 56L; // Long | Timestamp from which to start querying results.
+        Long toTs = 56L; // Long | Timestamp up to which to query results.
+        List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
             SyntheticsGetAPITestLatestResultsResponse result = api.getAPITestLatestResults(publicId)
-                .body(body)
+                .fromTs(fromTs)
+                .toTs(toTs)
+                .probeDc(probeDc)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -246,7 +251,9 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **publicId** | **String**| The public id of the test for which to search results for. |
- **body** | [**SyntheticsGetTestLatestResultsPayload**](SyntheticsGetTestLatestResultsPayload.md)| Pause/live status to set the given Synthetics test to. |
+ **fromTs** | **Long**| Timestamp from which to start querying results. | [optional]
+ **toTs** | **Long**| Timestamp up to which to query results. | [optional]
+ **probeDc** | [**List&lt;String&gt;**](String.md)| Locations for which to query results. | [optional]
 
 ### Return type
 
@@ -258,13 +265,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | forbidden |  -  |
 | **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
 
 
@@ -347,12 +355,13 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | forbidden |  -  |
 | **404** | Synthetics is not activated for the user, test or result is not owned by the user. |  -  |
 
 
 ## getBrowserTestLatestResults
 
-> SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(publicId).body(body).execute();
+> SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(publicId).fromTs(fromTs).toTs(toTs).probeDc(probeDc).execute();
 
 Get test latest results (as summaries)
 
@@ -388,10 +397,14 @@ public class Example {
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public id of the browser test for which to search results for.
-        SyntheticsGetTestLatestResultsPayload body = new SyntheticsGetTestLatestResultsPayload(); // SyntheticsGetTestLatestResultsPayload | Pause/live status to set the given Synthetics test to.
+        Long fromTs = 56L; // Long | Timestamp from which to start querying results.
+        Long toTs = 56L; // Long | Timestamp up to which to query results.
+        List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
             SyntheticsGetBrowserTestLatestResultsResponse result = api.getBrowserTestLatestResults(publicId)
-                .body(body)
+                .fromTs(fromTs)
+                .toTs(toTs)
+                .probeDc(probeDc)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -411,7 +424,9 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **publicId** | **String**| The public id of the browser test for which to search results for. |
- **body** | [**SyntheticsGetTestLatestResultsPayload**](SyntheticsGetTestLatestResultsPayload.md)| Pause/live status to set the given Synthetics test to. |
+ **fromTs** | **Long**| Timestamp from which to start querying results. | [optional]
+ **toTs** | **Long**| Timestamp up to which to query results. | [optional]
+ **probeDc** | [**List&lt;String&gt;**](String.md)| Locations for which to query results. | [optional]
 
 ### Return type
 
@@ -423,13 +438,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | forbidden |  -  |
 | **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
 
 
@@ -512,6 +528,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | forbidden |  -  |
 | **404** | Synthetics is not activated for the user, test or result is not owned by the user. |  -  |
 
 
@@ -592,6 +609,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | forbidden |  -  |
 | **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
 
 
@@ -673,6 +691,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK - Returns the list of all Synthetics test (properly filtered by type). |  -  |
+| **403** | forbidden |  -  |
 | **404** | Synthetics is not activated for the user. |  -  |
 
 
@@ -757,6 +776,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | JSON format is wrong, updating subtype is forbidden. |  -  |
+| **403** | forbidden |  -  |
 | **404** | Synthetics is not activated for the user, test is not owned by the user, test can&#39;t be found. |  -  |
 
 
@@ -841,5 +861,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK - Returns a boolean indicating if the update was successful |  -  |
 | **400** | JSON format is wrong |  -  |
+| **403** | forbidden |  -  |
 | **404** | Synthetics is not activated for the user, test is not owned by the user |  -  |
 

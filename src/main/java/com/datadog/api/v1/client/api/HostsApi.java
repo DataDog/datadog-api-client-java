@@ -99,6 +99,7 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -116,6 +117,7 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -263,7 +265,7 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Host Not Found Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -281,7 +283,7 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Host Not Found Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -371,6 +373,7 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -388,6 +391,7 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -466,6 +470,7 @@ private ApiResponse<HostMuteResponse> unmuteHostWithHttpInfo(String hostName) th
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -483,6 +488,7 @@ private ApiResponse<HostMuteResponse> unmuteHostWithHttpInfo(String hostName) th
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
      
      */

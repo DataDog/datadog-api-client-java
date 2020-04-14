@@ -91,6 +91,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Invalid Parameter Error |  -  |
+| **403** | Forbidden |  -  |
 
 
 ## listHosts
@@ -189,7 +190,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Invalid Parameter Error |  -  |
-| **404** | Host Not Found Error |  -  |
+| **403** | Forbidden |  -  |
 
 
 ## muteHost
@@ -273,6 +274,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Invalid Parameter Error |  -  |
+| **403** | Forbidden |  -  |
 
 
 ## unmuteHost
@@ -353,4 +355,5 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Invalid Parameter Error |  -  |
+| **403** | Forbidden |  -  |
 

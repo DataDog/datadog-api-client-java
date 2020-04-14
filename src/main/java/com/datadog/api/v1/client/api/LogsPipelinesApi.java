@@ -103,7 +103,6 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
        </table>
      
      */
@@ -122,7 +121,6 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
        </table>
      
      */
@@ -584,7 +582,6 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
        </table>
      
      */
@@ -603,7 +600,6 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
        </table>
      
      */
@@ -629,6 +625,11 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
 
 private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(LogsPipelinesOrder body) throws ApiException {
     Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateLogsPipelineOrder");
+    }
     
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/pipeline-order";
@@ -668,7 +669,7 @@ private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(Logs
 
     /**
      * Set body
-     * @param body Object containing the new ordered list of pipeline IDs. (optional)
+     * @param body Object containing the new ordered list of pipeline IDs. (required)
      * @return APIupdateLogsPipelineOrderRequest
      */
     public APIupdateLogsPipelineOrderRequest body(LogsPipelinesOrder body) {

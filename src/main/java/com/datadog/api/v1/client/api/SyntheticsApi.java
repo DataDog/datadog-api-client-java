@@ -15,7 +15,6 @@ import com.datadog.api.v1.client.model.SyntheticsDeleteTestsPayload;
 import com.datadog.api.v1.client.model.SyntheticsDeleteTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetAPITestLatestResultsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetBrowserTestLatestResultsResponse;
-import com.datadog.api.v1.client.model.SyntheticsGetTestLatestResultsPayload;
 import com.datadog.api.v1.client.model.SyntheticsListTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsTestDetails;
 import com.datadog.api.v1.client.model.SyntheticsUpdateTestPauseStatusPayload;
@@ -123,7 +122,7 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
          <tr><td> 200 </td><td> OK - Returns the created/cloned test details. </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> JSON format is wrong, creation/cloning failed. </td><td>  -  </td></tr>
          <tr><td> 402 </td><td> Test quota is reached. </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user, the test to clone can&#39;t be found. </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -142,7 +141,7 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
          <tr><td> 200 </td><td> OK - Returns the created/cloned test details. </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> JSON format is wrong, creation/cloning failed. </td><td>  -  </td></tr>
          <tr><td> 402 </td><td> Test quota is reached. </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user, the test to clone can&#39;t be found. </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
        </table>
      
      */
@@ -229,6 +228,7 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> JSON format is wrong, test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget), some ids are not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> tests to be deleted can&#39;t be found or Synthetics is not activated for the user </td><td>  -  </td></tr>
        </table>
      
@@ -247,6 +247,7 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> JSON format is wrong, test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget), some ids are not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> tests to be deleted can&#39;t be found or Synthetics is not activated for the user </td><td>  -  </td></tr>
        </table>
      
@@ -270,17 +271,12 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
     return new APIdeleteTestsRequest();
   }
 
-private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestResultsWithHttpInfo(String publicId, SyntheticsGetTestLatestResultsPayload body) throws ApiException {
-    Object localVarPostBody = body;
+private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestResultsWithHttpInfo(String publicId, Long fromTs, Long toTs, List<String> probeDc) throws ApiException {
+    Object localVarPostBody = null;
     
     // verify the required parameter 'publicId' is set
     if (publicId == null) {
       throw new ApiException(400, "Missing the required parameter 'publicId' when calling getAPITestLatestResults");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling getAPITestLatestResults");
     }
     
     // create path and map variables
@@ -293,6 +289,9 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
 
     
     
@@ -303,7 +302,7 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -315,7 +314,9 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
 
   public class APIgetAPITestLatestResultsRequest {
     private String publicId;
-    private SyntheticsGetTestLatestResultsPayload body;
+    private Long fromTs;
+    private Long toTs;
+    private List<String> probeDc;
 
     private APIgetAPITestLatestResultsRequest(String publicId) {
       this.publicId = publicId;
@@ -323,12 +324,34 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
     
 
     /**
-     * Set body
-     * @param body Pause/live status to set the given Synthetics test to. (required)
+     * Set fromTs
+     * @param fromTs Timestamp from which to start querying results. (optional)
      * @return APIgetAPITestLatestResultsRequest
      */
-    public APIgetAPITestLatestResultsRequest body(SyntheticsGetTestLatestResultsPayload body) {
-      this.body = body;
+    public APIgetAPITestLatestResultsRequest fromTs(Long fromTs) {
+      this.fromTs = fromTs;
+      return this;
+    }
+    
+
+    /**
+     * Set toTs
+     * @param toTs Timestamp up to which to query results. (optional)
+     * @return APIgetAPITestLatestResultsRequest
+     */
+    public APIgetAPITestLatestResultsRequest toTs(Long toTs) {
+      this.toTs = toTs;
+      return this;
+    }
+    
+
+    /**
+     * Set probeDc
+     * @param probeDc Locations for which to query results. (optional)
+     * @return APIgetAPITestLatestResultsRequest
+     */
+    public APIgetAPITestLatestResultsRequest probeDc(List<String> probeDc) {
+      this.probeDc = probeDc;
       return this;
     }
     
@@ -341,6 +364,7 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
@@ -358,13 +382,14 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
      */
     
     public ApiResponse<SyntheticsGetAPITestLatestResultsResponse> executeWithHttpInfo() throws ApiException {
-      return getAPITestLatestResultsWithHttpInfo(publicId, body);
+      return getAPITestLatestResultsWithHttpInfo(publicId, fromTs, toTs, probeDc);
     }
   }
 
@@ -444,6 +469,7 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test or result is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
@@ -461,6 +487,7 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test or result is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
@@ -486,17 +513,12 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
     return new APIgetAPITestResultRequest(publicId, resultId);
   }
 
-private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTestLatestResultsWithHttpInfo(String publicId, SyntheticsGetTestLatestResultsPayload body) throws ApiException {
-    Object localVarPostBody = body;
+private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTestLatestResultsWithHttpInfo(String publicId, Long fromTs, Long toTs, List<String> probeDc) throws ApiException {
+    Object localVarPostBody = null;
     
     // verify the required parameter 'publicId' is set
     if (publicId == null) {
       throw new ApiException(400, "Missing the required parameter 'publicId' when calling getBrowserTestLatestResults");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling getBrowserTestLatestResults");
     }
     
     // create path and map variables
@@ -509,6 +531,9 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
 
     
     
@@ -519,7 +544,7 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -531,7 +556,9 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
 
   public class APIgetBrowserTestLatestResultsRequest {
     private String publicId;
-    private SyntheticsGetTestLatestResultsPayload body;
+    private Long fromTs;
+    private Long toTs;
+    private List<String> probeDc;
 
     private APIgetBrowserTestLatestResultsRequest(String publicId) {
       this.publicId = publicId;
@@ -539,12 +566,34 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
     
 
     /**
-     * Set body
-     * @param body Pause/live status to set the given Synthetics test to. (required)
+     * Set fromTs
+     * @param fromTs Timestamp from which to start querying results. (optional)
      * @return APIgetBrowserTestLatestResultsRequest
      */
-    public APIgetBrowserTestLatestResultsRequest body(SyntheticsGetTestLatestResultsPayload body) {
-      this.body = body;
+    public APIgetBrowserTestLatestResultsRequest fromTs(Long fromTs) {
+      this.fromTs = fromTs;
+      return this;
+    }
+    
+
+    /**
+     * Set toTs
+     * @param toTs Timestamp up to which to query results. (optional)
+     * @return APIgetBrowserTestLatestResultsRequest
+     */
+    public APIgetBrowserTestLatestResultsRequest toTs(Long toTs) {
+      this.toTs = toTs;
+      return this;
+    }
+    
+
+    /**
+     * Set probeDc
+     * @param probeDc Locations for which to query results. (optional)
+     * @return APIgetBrowserTestLatestResultsRequest
+     */
+    public APIgetBrowserTestLatestResultsRequest probeDc(List<String> probeDc) {
+      this.probeDc = probeDc;
       return this;
     }
     
@@ -557,6 +606,7 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
@@ -574,13 +624,14 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
      */
     
     public ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> executeWithHttpInfo() throws ApiException {
-      return getBrowserTestLatestResultsWithHttpInfo(publicId, body);
+      return getBrowserTestLatestResultsWithHttpInfo(publicId, fromTs, toTs, probeDc);
     }
   }
 
@@ -660,6 +711,7 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test or result is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
@@ -677,6 +729,7 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test or result is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
@@ -756,6 +809,7 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
@@ -773,6 +827,7 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user. </td><td>  -  </td></tr>
        </table>
      
@@ -856,6 +911,7 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK - Returns the list of all Synthetics test (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
        </table>
      
@@ -873,6 +929,7 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK - Returns the list of all Synthetics test (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
        </table>
      
@@ -968,6 +1025,7 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> JSON format is wrong, updating subtype is forbidden. </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user, test can&#39;t be found. </td><td>  -  </td></tr>
        </table>
      
@@ -986,6 +1044,7 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> JSON format is wrong, updating subtype is forbidden. </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user, test can&#39;t be found. </td><td>  -  </td></tr>
        </table>
      
@@ -1082,6 +1141,7 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user </td><td>  -  </td></tr>
        </table>
      
@@ -1100,6 +1160,7 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user, test is not owned by the user </td><td>  -  </td></tr>
        </table>
      

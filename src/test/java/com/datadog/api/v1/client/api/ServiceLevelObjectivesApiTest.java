@@ -104,7 +104,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         monitorSLO.monitorIds(Arrays.asList(m.getId()));
 
         // Create SLO
-        ServiceLevelObjectiveListResponse sloResp = api.createSLO().body(monitorSLO).execute();
+        SLOListResponse sloResp = api.createSLO().body(monitorSLO).execute();
         ServiceLevelObjective created = sloResp.getData().get(0);
         deleteSLOs.add(created.getId());
         assertEquals(monitorSLO.getName(), created.getName());
@@ -116,15 +116,15 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         assertEquals(created.getDescription(), edited.getDescription());
 
         // Check that the SLO can be deleted
-        CheckCanDeleteServiceLevelObjectiveResponse canDelete = api.checkCanDeleteSLO().ids(edited.getId()).execute();
+        CheckCanDeleteSLOResponse canDelete = api.checkCanDeleteSLO().ids(edited.getId()).execute();
         assertEquals(Arrays.asList(edited.getId()), canDelete.getData().getOk());
 
         // Get SLO
-        ServiceLevelObjectiveResponse oneSLO = api.getSLO(edited.getId()).execute();
+        SLOResponse oneSLO = api.getSLO(edited.getId()).execute();
         assertEquals(edited, oneSLO.getData());
 
         // Delete SLO
-        ServiceLevelObjectiveDeleted deletedResp = api.deleteSLO(edited.getId()).execute();
+        SLODeleteResponse deletedResp = api.deleteSLO(edited.getId()).execute();
         assertEquals(Arrays.asList(edited.getId()), deletedResp.getData());
     }
 
@@ -134,7 +134,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     @Test
     public void createModifyDeleteEventSLO() throws ApiException {
         // Create SLO
-        ServiceLevelObjectiveListResponse sloResp = api.createSLO().body(eventSLO).execute();
+        SLOListResponse sloResp = api.createSLO().body(eventSLO).execute();
         ServiceLevelObjective created = sloResp.getData().get(0);
         deleteSLOs.add(created.getId());
         assertEquals(eventSLO.getName(), created.getName());
@@ -146,19 +146,19 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         assertEquals(created.getDescription(), edited.getDescription());
 
         // Check that the SLO can be deleted
-        CheckCanDeleteServiceLevelObjectiveResponse canDelete = api.checkCanDeleteSLO().ids(edited.getId()).execute();
+        CheckCanDeleteSLOResponse canDelete = api.checkCanDeleteSLO().ids(edited.getId()).execute();
         assertEquals(Arrays.asList(edited.getId()), canDelete.getData().getOk());
 
         // Get SLO
-        ServiceLevelObjectiveResponse oneSLO = api.getSLO(edited.getId()).execute();
+        SLOResponse oneSLO = api.getSLO(edited.getId()).execute();
         assertEquals(edited, oneSLO.getData());
 
         // Get SLO history
         // the contents of history really depend on the org that this test is running in, so we just ensure
         // that the structure deserialized properly and no exception was thrown
         Long time = now.toEpochSecond();
-        HistoryServiceLevelObjectiveResponse historyResp = api.getSLOHistory(edited.getId())
-                .fromTs(Long.toString(time - 11)).toTs(Long.toString(time - 1)).execute();
+        SLOHistoryResponse historyResp = api.getSLOHistory(edited.getId())
+                .fromTs(time - 11).toTs(time - 1).execute();
 
         SLOHistorySLIData overall = historyResp.getData().getOverall();
         Double sliValue = overall.getSliValue();
@@ -173,7 +173,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         assertNotNull(numerator.getValues());
 
         // Delete SLO
-        ServiceLevelObjectiveDeleted deletedResp = api.deleteSLO(edited.getId()).execute();
+        SLODeleteResponse deletedResp = api.deleteSLO(edited.getId()).execute();
         assertEquals(Arrays.asList(edited.getId()), deletedResp.getData());
     }
 
@@ -192,7 +192,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         monitorSLO.monitorIds(Arrays.asList(m.getId()));
 
         // Create Monitor SLO
-        ServiceLevelObjectiveListResponse sloResp = api.createSLO().body(monitorSLO).execute();
+        SLOListResponse sloResp = api.createSLO().body(monitorSLO).execute();
         final ServiceLevelObjective createdMonitorSLO = sloResp.getData().get(0);
         deleteSLOs.add(createdMonitorSLO.getId());
 
@@ -202,7 +202,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         deleteSLOs.add(createdEventSLO.getId());
 
         // Get multiple SLOs
-        ServiceLevelObjectiveListResponse slosResp = api.getSLOs()
+        SLOListResponse slosResp = api.listSLOs()
                 .ids(String.format("%s,%s", createdMonitorSLO.getId(), createdEventSLO.getId())).execute();
         assertSLOInList(slosResp.getData(), createdEventSLO.getId());
         assertSLOInList(slosResp.getData(), createdMonitorSLO.getId());
@@ -211,7 +211,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         Map<String, List<SLOTimeframe>> toDelete = new HashMap<String, List<SLOTimeframe>>() {{
             put(createdEventSLO.getId(), Arrays.asList(SLOTimeframe.SEVEN_DAYS));
         }};
-        ServiceLevelObjectivesBulkDeleted deletedResp = api.deleteSLOTimeframeInBulk().body(toDelete).execute();
+        SLOBulkDeleteResponse deletedResp = api.deleteSLOTimeframeInBulk().body(toDelete).execute();
         assertEquals(Arrays.asList(createdEventSLO.getId()), deletedResp.getData().getDeleted());
         assertEquals(null, deletedResp.getData().getUpdated());
     }

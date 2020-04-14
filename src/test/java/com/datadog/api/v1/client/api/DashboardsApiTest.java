@@ -92,7 +92,7 @@ public class DashboardsApiTest extends V1ApiTest{
         // Create a Dashboard with each available Widget type
 
         // Create an SLO to reference in the SLO widget
-        ServiceLevelObjectiveListResponse sloResp = sloApi.createSLO().body(eventSLO).execute();
+        SLOListResponse sloResp = sloApi.createSLO().body(eventSLO).execute();
         ServiceLevelObjective slo = sloResp.getData().get(0);
         deleteSLO = slo.getId();
 
