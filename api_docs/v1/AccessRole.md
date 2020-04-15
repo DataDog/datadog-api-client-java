@@ -11,5 +11,7 @@
 
 * `READ_ONLY` (value: `"ro"`)
 
+* `ERROR` (value: `"ERROR"`)
+
 
 

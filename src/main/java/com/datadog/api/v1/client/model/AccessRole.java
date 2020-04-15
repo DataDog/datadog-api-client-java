@@ -28,7 +28,9 @@ public enum AccessRole {
   
   ADMIN("adm"),
   
-  READ_ONLY("ro");
+  READ_ONLY("ro"),
+  
+  ERROR("ERROR");
 
   private String value;
 
