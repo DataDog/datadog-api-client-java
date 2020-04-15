@@ -56,6 +56,9 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsPipeline");
+
     
     
     
@@ -162,6 +165,9 @@ private ApiResponse<Void> deleteLogsPipelineWithHttpInfo(String pipelineId) thro
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteLogsPipeline");
+
     
     
     
@@ -259,6 +265,9 @@ private ApiResponse<LogsPipeline> getLogsPipelineWithHttpInfo(String pipelineId)
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipeline");
+
     
     
     
@@ -350,6 +359,9 @@ private ApiResponse<LogsPipelinesOrder> getLogsPipelineOrderWithHttpInfo() throw
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipelineOrder");
+
     
     
     
@@ -435,6 +447,9 @@ private ApiResponse<List<LogsPipeline>> listLogsPipelinesWithHttpInfo() throws A
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsPipelines");
 
     
     
@@ -532,6 +547,9 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipeline");
 
     
     
@@ -640,6 +658,9 @@ private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(Logs
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipelineOrder");
 
     
     

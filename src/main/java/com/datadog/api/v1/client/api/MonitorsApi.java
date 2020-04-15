@@ -57,6 +57,9 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "monitor_ids", monitorIds));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "checkCanDeleteMonitor");
+
     
     
     
@@ -164,6 +167,9 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createMonitor");
+
     
     
     
@@ -270,6 +276,9 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteMonitor");
+
     
     
     
@@ -371,6 +380,9 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", groupStates));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getMonitor");
 
     
     
@@ -481,6 +493,9 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "monitor_tags", monitorTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", withDowntimes));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listMonitors");
 
     
     
@@ -641,6 +656,9 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor b
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateMonitor");
+
     
     
     
@@ -752,6 +770,9 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "validateMonitor");
 
     
     

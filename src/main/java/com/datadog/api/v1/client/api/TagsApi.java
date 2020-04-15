@@ -62,6 +62,9 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createHostTags");
+
     
     
     
@@ -184,6 +187,9 @@ private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String sou
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteHostTags");
+
     
     
     
@@ -294,6 +300,9 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getHostTags");
+
     
     
     
@@ -397,6 +406,9 @@ private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws A
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listHostTags");
 
     
     
@@ -509,6 +521,9 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateHostTags");
 
     
     
