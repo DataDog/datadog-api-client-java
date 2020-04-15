@@ -53,6 +53,9 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getHostTotals");
+
     
     
     
@@ -158,6 +161,9 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listHosts");
 
     
     
@@ -325,6 +331,9 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "muteHost");
+
     
     
     
@@ -433,6 +442,9 @@ private ApiResponse<HostMuteResponse> unmuteHostWithHttpInfo(String hostName) th
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "unmuteHost");
 
     
     

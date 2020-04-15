@@ -58,6 +58,9 @@ private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiE
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsIndex");
+
     
     
     
@@ -155,6 +158,9 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsIndexOrder");
+
     
     
     
@@ -240,6 +246,9 @@ private ApiResponse<LogsIndexListResponse> listLogIndexesWithHttpInfo() throws A
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listLogIndexes");
 
     
     
@@ -338,6 +347,9 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsIndex");
 
     
     
@@ -449,6 +461,9 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsIndexOrder");
 
     
     

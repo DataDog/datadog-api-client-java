@@ -56,6 +56,9 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listLogs");
+
     
     
     

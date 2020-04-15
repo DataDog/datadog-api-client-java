@@ -58,6 +58,9 @@ private ApiResponse<Void> createPagerDutyIntegrationWithHttpInfo(PagerDutyIntegr
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createPagerDutyIntegration");
+
     
     
     
@@ -163,6 +166,9 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createPagerDutyIntegrationService");
+
     
     
     
@@ -265,6 +271,9 @@ private ApiResponse<Void> deletePagerDutyIntegrationWithHttpInfo() throws ApiExc
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deletePagerDutyIntegration");
+
     
     
     
@@ -359,6 +368,9 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deletePagerDutyIntegrationService");
+
     
     
     
@@ -449,6 +461,9 @@ private ApiResponse<PagerDutyIntegration> getPagerDutyIntegrationWithHttpInfo() 
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getPagerDutyIntegration");
 
     
     
@@ -543,6 +558,9 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getPagerDutyIntegrationService");
 
     
     
@@ -639,6 +657,9 @@ private ApiResponse<Void> updatePagerDutyIntegrationWithHttpInfo(PagerDutyServic
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updatePagerDutyIntegration");
 
     
     
@@ -750,6 +771,9 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updatePagerDutyIntegrationService");
 
     
     

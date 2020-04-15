@@ -62,6 +62,9 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "checkCanDeleteSLO");
+
     
     
     
@@ -169,6 +172,9 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createSLO");
+
     
     
     
@@ -275,6 +281,9 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId) throw
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSLO");
+
     
     
     
@@ -372,6 +381,9 @@ private ApiResponse<SLOBulkDeleteResponse> deleteSLOTimeframeInBulkWithHttpInfo(
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSLOTimeframeInBulk");
 
     
     
@@ -478,6 +490,9 @@ private ApiResponse<SLOResponse> getSLOWithHttpInfo(String sloId) throws ApiExce
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getSLO");
 
     
     
@@ -587,6 +602,9 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getSLOHistory");
 
     
     
@@ -711,6 +729,9 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listSLOs");
+
     
     
     
@@ -821,6 +842,9 @@ private ApiResponse<SLOListResponse> updateSLOWithHttpInfo(String sloId, Service
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateSLO");
 
     
     

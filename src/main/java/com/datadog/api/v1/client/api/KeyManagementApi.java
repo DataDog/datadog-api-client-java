@@ -59,6 +59,9 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createAPIKey");
+
     
     
     
@@ -163,6 +166,9 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createApplicationKey");
 
     
     
@@ -272,6 +278,9 @@ private ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws 
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAPIKey");
+
     
     
     
@@ -371,6 +380,9 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteApplicationKey");
+
     
     
     
@@ -467,6 +479,9 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getAPIKey");
 
     
     
@@ -565,6 +580,9 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getApplicationKey");
+
     
     
     
@@ -656,6 +674,9 @@ private ApiResponse<ApiKeyListResponse> listAPIKeysWithHttpInfo() throws ApiExce
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listAPIKeys");
+
     
     
     
@@ -741,6 +762,9 @@ private ApiResponse<ApplicationKeyListResponse> listApplicationKeysWithHttpInfo(
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listApplicationKeys");
 
     
     
@@ -838,6 +862,9 @@ private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey 
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateAPIKey");
 
     
     
@@ -954,6 +981,9 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateApplicationKey");
 
     
     
