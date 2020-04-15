@@ -934,6 +934,7 @@ public class ApiClient {
     }
 
     Entity<?> entity = serialize(body, formParams, contentType);
+    logger.info(entity.toString());
 
     Response response = null;
 
@@ -957,6 +958,8 @@ public class ApiClient {
       } else {
         throw new ApiException(500, "unknown method type " + method);
       }
+
+      logger.info(response.toString());
 
       int statusCode = response.getStatusInfo().getStatusCode();
       Map<String, List<String>> responseHeaders = buildResponseHeaders(response);

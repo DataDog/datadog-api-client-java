@@ -812,6 +812,9 @@ public class ApiClient {
    * @throws ApiException API exception
    */
   public <T> ApiResponse<T> invokeAPI(String operation, String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType) throws ApiException {
+    logger.info(operation);
+    logger.info(method + " " + path + " " + queryParams.toString());
+
     updateParamsForAuth(authNames, queryParams, headerParams, cookieParams);
 
     // Not using `.target(targetURL).path(path)` below,
@@ -884,6 +887,7 @@ public class ApiClient {
     }
 
     Entity<?> entity = serialize(body, formParams, contentType);
+    logger.info(entity.toString());
 
     Response response = null;
 
@@ -908,6 +912,8 @@ public class ApiClient {
         throw new ApiException(500, "unknown method type " + method);
       }
 
+      logger.info(response.toString());
+
       int statusCode = response.getStatusInfo().getStatusCode();
       Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
 
@@ -926,7 +932,7 @@ public class ApiClient {
             respBody = String.valueOf(response.readEntity(String.class));
             message = respBody;
           } catch (RuntimeException e) {
-            // e.printStackTrace();
+            e.printStackTrace();
           }
         }
         throw new ApiException(

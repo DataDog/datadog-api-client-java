@@ -78,6 +78,12 @@ public class UsersApiTest extends V2APITest {
         assertEquals(testingUserName, ur.getData().getAttributes().getName());
         assertEquals(testingUserTitle, ur.getData().getAttributes().getTitle());
 
+        // now, test getting it
+        UserResponsePayload urp = api.getUser(uid).execute();
+        assertEquals(testingUserHandle, urp.getData().getAttributes().getEmail());
+        assertEquals(testingUserName, urp.getData().getAttributes().getName());
+        assertEquals(testingUserTitle, urp.getData().getAttributes().getTitle());
+
         // now, test updating it
         UserUpdateAttributes uua = new UserUpdateAttributes().disabled(false).name("Joe Doe");
         UserUpdateData uud = new UserUpdateData().attributes(uua).id(uid);
@@ -86,7 +92,7 @@ public class UsersApiTest extends V2APITest {
         api.updateUser(uid).body(uup).execute();
 
         // now, test getting it
-        UserResponsePayload urp = api.getUser(uid).execute();
+        urp = api.getUser(uid).execute();
         assertEquals(testingUserHandle, urp.getData().getAttributes().getEmail());
         assertEquals("Joe Doe", urp.getData().getAttributes().getName());
         assertFalse(urp.getData().getAttributes().getDisabled());
