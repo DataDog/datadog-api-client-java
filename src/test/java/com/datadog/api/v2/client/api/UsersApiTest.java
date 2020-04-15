@@ -59,59 +59,59 @@ public class UsersApiTest extends V2APITest {
         return "test-datadog-client-java-" + now.toEpochSecond() + "@datadoghq.com";
     }
 
-//    @Test
-//    public void userLifecycleTest() throws ApiException {
-//        // TODO: test roles, permissions when we can
-//        // first, test creating a user
-//        final String testingUserHandle = generateUserHandle();
-//        UserCreateAttributes uca = new UserCreateAttributes()
-//                .email(testingUserHandle)
-//                .name(testingUserName)
-//                .title(testingUserTitle);
-//        UserCreateData ucd = new UserCreateData().attributes(uca);
-//        UserCreatePayload ucp = new UserCreatePayload().data(ucd);
-//        UserResponsePayload ur = api.createUser().body(ucp).execute();
-//        String uid = ur.getData().getId();
-//        disableUsers.add(uid);
-//
-//        assertEquals(testingUserHandle, ur.getData().getAttributes().getEmail());
-//        assertEquals(testingUserName, ur.getData().getAttributes().getName());
-//        assertEquals(testingUserTitle, ur.getData().getAttributes().getTitle());
-//
-//        // now, test updating it
-//        UserUpdateAttributes uua = new UserUpdateAttributes().disabled(false).name("Joe Doe");
-//        UserUpdateData uud = new UserUpdateData().attributes(uua).id(uid);
-//        UserUpdatePayload uup = new UserUpdatePayload().data(uud);
-//        // no response payload; we're ok if it didn't throw exception
-//        api.updateUser(uid).body(uup).execute();
-//
-//        // now, test getting it
-//        UserResponsePayload urp = api.getUser(uid).execute();
-//        assertEquals(testingUserHandle, urp.getData().getAttributes().getEmail());
-//        assertEquals("Joe Doe", urp.getData().getAttributes().getName());
-//        assertFalse(urp.getData().getAttributes().getDisabled());
-//
-//        // now, test disabling it
-//        // no response payload; we're of it it didn't throw exception
-//        api.disableUser(uid).execute();
-//
-//        // now, test filtering for it in the list call
-//        UsersResponsePayload usrp = api
-//                .listUsers()
-//                .filter(testingUserHandle)
-//                .pageSize(1L)
-//                .pageNumber(0L)
-//                .sortDir(QuerySortOrder.ASC)
-//                .execute();
-//        assertEquals(1, usrp.getData().size());
-//        assertEquals(testingUserHandle, usrp.getData().get(0).getAttributes().getHandle());
-//        assertTrue(usrp.getMeta().getPage().getTotalCount() >= 1L);
-//        assertTrue(usrp.getMeta().getPage().getTotalFilteredCount() >= 1L);
-//
-//        // NOTE: to test getting a user organization, we'd need to have a "whoami" API endpoint
-//        // to get the UUID of the current user, but there's no such stable endpoint right now
-//        // (a user can only get organization for itself, never for a different user)
-//    }
+    @Test
+    public void userLifecycleTest() throws ApiException {
+        // TODO: test roles, permissions when we can
+        // first, test creating a user
+        final String testingUserHandle = generateUserHandle();
+        UserCreateAttributes uca = new UserCreateAttributes()
+                .email(testingUserHandle)
+                .name(testingUserName)
+                .title(testingUserTitle);
+        UserCreateData ucd = new UserCreateData().attributes(uca);
+        UserCreatePayload ucp = new UserCreatePayload().data(ucd);
+        UserResponsePayload ur = api.createUser().body(ucp).execute();
+        String uid = ur.getData().getId();
+        disableUsers.add(uid);
+
+        assertEquals(testingUserHandle, ur.getData().getAttributes().getEmail());
+        assertEquals(testingUserName, ur.getData().getAttributes().getName());
+        assertEquals(testingUserTitle, ur.getData().getAttributes().getTitle());
+
+        // now, test updating it
+        UserUpdateAttributes uua = new UserUpdateAttributes().disabled(false).name("Joe Doe");
+        UserUpdateData uud = new UserUpdateData().attributes(uua).id(uid);
+        UserUpdatePayload uup = new UserUpdatePayload().data(uud);
+        // no response payload; we're ok if it didn't throw exception
+        api.updateUser(uid).body(uup).execute();
+
+        // now, test getting it
+        UserResponsePayload urp = api.getUser(uid).execute();
+        assertEquals(testingUserHandle, urp.getData().getAttributes().getEmail());
+        assertEquals("Joe Doe", urp.getData().getAttributes().getName());
+        assertFalse(urp.getData().getAttributes().getDisabled());
+
+        // now, test disabling it
+        // no response payload; we're of it it didn't throw exception
+        api.disableUser(uid).execute();
+
+        // now, test filtering for it in the list call
+        UsersResponsePayload usrp = api
+                .listUsers()
+                .filter(testingUserHandle)
+                .pageSize(1L)
+                .pageNumber(0L)
+                .sortDir(QuerySortOrder.ASC)
+                .execute();
+        assertEquals(1, usrp.getData().size());
+        assertEquals(testingUserHandle, usrp.getData().get(0).getAttributes().getHandle());
+        assertTrue(usrp.getMeta().getPage().getTotalCount() >= 1L);
+        assertTrue(usrp.getMeta().getPage().getTotalFilteredCount() >= 1L);
+
+        // NOTE: to test getting a user organization, we'd need to have a "whoami" API endpoint
+        // to get the UUID of the current user, but there's no such stable endpoint right now
+        // (a user can only get organization for itself, never for a different user)
+    }
 
     @Test
     public void userInvitationTest() throws ApiException {
