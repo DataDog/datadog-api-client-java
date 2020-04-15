@@ -58,6 +58,9 @@ private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricN
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getMetricMetadata");
+
     
     
     
@@ -155,6 +158,9 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "host", host));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listActiveMetrics");
 
     
     
@@ -274,6 +280,9 @@ private ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) thro
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "q", q));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listMetrics");
+
     
     
     
@@ -391,6 +400,9 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "queryMetrics");
 
     
     
@@ -526,6 +538,9 @@ private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(String metr
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateMetricMetadata");
 
     
     

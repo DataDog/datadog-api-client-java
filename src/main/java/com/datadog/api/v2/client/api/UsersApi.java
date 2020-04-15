@@ -57,6 +57,9 @@ private ApiResponse<UserResponsePayload> createUserWithHttpInfo(UserCreatePayloa
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createUser");
+
     
     
     
@@ -163,6 +166,9 @@ private ApiResponse<Void> disableUserWithHttpInfo(String userId) throws ApiExcep
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "disableUser");
+
     
     
     
@@ -259,6 +265,9 @@ private ApiResponse<UserInvitationResponse> getInvitationWithHttpInfo(String use
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getInvitation");
 
     
     
@@ -357,6 +366,9 @@ private ApiResponse<UserResponsePayload> getUserWithHttpInfo(String userId) thro
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUser");
+
     
     
     
@@ -453,6 +465,9 @@ private ApiResponse<UserResponsePayload> getUserOrganizationWithHttpInfo(String 
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUserOrganization");
 
     
     
@@ -551,6 +566,9 @@ private ApiResponse<Permissions> getUserPermissionsWithHttpInfo(String userId) t
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUserPermissions");
+
     
     
     
@@ -647,6 +665,9 @@ private ApiResponse<UsersResponsePayload> listUsersWithHttpInfo(Long pageSize, L
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listUsers");
 
     
     
@@ -808,6 +829,9 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "sendInvitations");
+
     
     
     
@@ -913,6 +937,9 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayloa
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateUser");
 
     
     

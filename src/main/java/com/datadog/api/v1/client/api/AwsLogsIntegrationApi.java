@@ -58,6 +58,9 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(AW
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "checkAWSLogsLambdaAsync");
+
     
     
     
@@ -162,6 +165,9 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "checkAWSLogsServicesAsync");
 
     
     
@@ -268,6 +274,9 @@ private ApiResponse<Object> createAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createAWSLambdaARN");
+
     
     
     
@@ -372,6 +381,9 @@ private ApiResponse<Object> deleteAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSLambdaARN");
 
     
     
@@ -478,6 +490,9 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "enableAWSLogServices");
+
     
     
     
@@ -578,6 +593,9 @@ private ApiResponse<List<AWSLogsListResponse>> listAWSLogsIntegrationsWithHttpIn
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSLogsIntegrations");
+
     
     
     
@@ -665,6 +683,9 @@ private ApiResponse<List<AWSLogsListServicesResponse>> listAWSLogsServicesWithHt
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSLogsServices");
 
     
     

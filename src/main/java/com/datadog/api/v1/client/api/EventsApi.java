@@ -57,6 +57,9 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getEvent");
+
     
     
     
@@ -163,6 +166,9 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sources", sources));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "unaggregated", unaggregated));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listEvents");
 
     
     

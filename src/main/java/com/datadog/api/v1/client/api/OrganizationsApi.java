@@ -60,6 +60,9 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createChildOrg");
+
     
     
     
@@ -166,6 +169,9 @@ private ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId) th
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getOrg");
+
     
     
     
@@ -256,6 +262,9 @@ private ApiResponse<OrganizationListResponse> listOrgsWithHttpInfo() throws ApiE
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listOrgs");
 
     
     
@@ -353,6 +362,9 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateOrg");
 
     
     
@@ -467,6 +479,9 @@ private ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, Fi
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "uploadIdPForOrg");
 
     
     

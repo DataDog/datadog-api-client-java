@@ -63,6 +63,9 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_test_id", fromTestId));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createTest");
+
     
     
     
@@ -182,6 +185,9 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteTests");
+
     
     
     
@@ -292,6 +298,9 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getAPITestLatestResults");
 
     
     
@@ -432,6 +441,9 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getAPITestResult");
+
     
     
     
@@ -534,6 +546,9 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getBrowserTestLatestResults");
 
     
     
@@ -674,6 +689,9 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getBrowserTestResult");
+
     
     
     
@@ -774,6 +792,9 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getTest");
+
     
     
     
@@ -865,6 +886,9 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "check_type", checkType));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listTests");
 
     
     
@@ -976,6 +1000,9 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateTest");
 
     
     
@@ -1092,6 +1119,9 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateTestPauseStatus");
 
     
     

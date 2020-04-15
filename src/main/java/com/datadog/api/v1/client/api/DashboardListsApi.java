@@ -56,6 +56,9 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createDashboardList");
+
     
     
     
@@ -162,6 +165,9 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboardList");
+
     
     
     
@@ -259,6 +265,9 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getDashboardList");
+
     
     
     
@@ -349,6 +358,9 @@ private ApiResponse<DashboardListListResponse> listDashboardListsWithHttpInfo() 
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listDashboardLists");
 
     
     
@@ -446,6 +458,9 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateDashboardList");
 
     
     

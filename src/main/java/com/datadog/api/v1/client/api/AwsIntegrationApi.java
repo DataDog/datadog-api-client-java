@@ -56,6 +56,9 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createAWSAccount");
+
     
     
     
@@ -160,6 +163,9 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createNewAWSExternalID");
 
     
     
@@ -266,6 +272,9 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSAccount");
+
     
     
     
@@ -368,6 +377,9 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", roleName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", accessKeyId));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSAccounts");
 
     
     
@@ -493,6 +505,9 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listAvailableAWSNamespaces");
+
     
     
     
@@ -586,6 +601,9 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", roleName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", accessKeyId));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateAWSAccount");
 
     
     
