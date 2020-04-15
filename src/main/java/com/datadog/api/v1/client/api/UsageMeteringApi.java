@@ -71,6 +71,9 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageFargate");
+
     
     
     
@@ -189,6 +192,9 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageHosts");
 
     
     
@@ -309,6 +315,9 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLambda");
+
     
     
     
@@ -427,6 +436,9 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogs");
 
     
     
@@ -547,6 +559,9 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "index_name", indexName));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByIndex");
 
     
     
@@ -679,6 +694,9 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkFlows");
+
     
     
     
@@ -797,6 +815,9 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkHosts");
 
     
     
@@ -917,6 +938,9 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumSessions");
+
     
     
     
@@ -1036,6 +1060,9 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_org_details", includeOrgDetails));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSummary");
 
     
     
@@ -1168,6 +1195,9 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSynthetics");
+
     
     
     
@@ -1286,6 +1316,9 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsAPI");
 
     
     
@@ -1406,6 +1439,9 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsBrowser");
+
     
     
     
@@ -1524,6 +1560,9 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTimeseries");
 
     
     
@@ -1644,6 +1683,9 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "names", names));
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTopAvgMetrics");
+
     
     
     
@@ -1762,6 +1804,9 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTrace");
 
     
     

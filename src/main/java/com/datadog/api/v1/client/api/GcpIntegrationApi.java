@@ -54,6 +54,9 @@ private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) th
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createGCPIntegration");
+
     
     
     
@@ -159,6 +162,9 @@ private ApiResponse<Object> deleteGCPIntegrationWithHttpInfo(GCPAccount body) th
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteGCPIntegration");
+
     
     
     
@@ -259,6 +265,9 @@ private ApiResponse<List<GCPAccount>> listGCPIntegrationWithHttpInfo() throws Ap
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listGCPIntegration");
+
     
     
     
@@ -351,6 +360,9 @@ private ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) th
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateGCPIntegration");
 
     
     

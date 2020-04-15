@@ -48,6 +48,9 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getIPRanges");
+
     
     
     

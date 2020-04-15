@@ -54,6 +54,9 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createAzureIntegration");
+
     
     
     
@@ -159,6 +162,9 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAzureIntegration");
+
     
     
     
@@ -259,6 +265,9 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listAzureIntegration");
+
     
     
     
@@ -351,6 +360,9 @@ private ApiResponse<Object> updateAzureHostFiltersWithHttpInfo(AzureAccount body
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateAzureHostFilters");
 
     
     
@@ -456,6 +468,9 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateAzureIntegration");
 
     
     

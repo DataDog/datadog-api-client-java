@@ -57,6 +57,9 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "cancelDowntime");
+
     
     
     
@@ -152,6 +155,9 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "cancelDowntimesByScope");
 
     
     
@@ -260,6 +266,9 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createDowntime");
+
     
     
     
@@ -366,6 +375,9 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getDowntime");
+
     
     
     
@@ -457,6 +469,9 @@ private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnl
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", currentOnly));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listDowntimes");
 
     
     
@@ -566,6 +581,9 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateDowntime");
 
     
     
