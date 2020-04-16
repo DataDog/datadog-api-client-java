@@ -28,16 +28,22 @@ import java.util.Map;
 public class RolesApiTest extends V2APITest {
 
     private static RolesApi api;
+    private static UsersApi usersApi;
+    private ArrayList<String> disableUsers = null;
     private ArrayList<String> deleteRoles = null;
+    private final String testingUserName = "Test Datadog Client Java";
+    private final String testingUserTitle = "Big boss";
 
     @BeforeClass
     public static void initApi() {
         api = new RolesApi(generalApiClient);
+        usersApi = new UsersApi(generalApiClient);
     }
 
     @Before
-    public void resetDeleteRoles() {
+    public void resetResources() {
         deleteRoles = new ArrayList<String>();
+        disableUsers = new ArrayList<String>();
     }
 
     @After
@@ -53,8 +59,24 @@ public class RolesApiTest extends V2APITest {
         }
     }
 
+    @After
+    public void disableUsers() throws ApiException {
+        if (disableUsers != null) {
+            for (String id: disableUsers) {
+                UserResponse urp = usersApi.getUser(id).execute();
+                if (!urp.getData().getAttributes().getDisabled()) {
+                    usersApi.disableUser(id).execute();
+                }
+            }
+        }
+    }
+
     public String generateRoleName() {
         return "test-datadog-client-java-" + now.toEpochSecond();
+    }
+
+    public String generateUserHandle() {
+        return "test-datadog-client-java-" + now.toEpochSecond() + "@datadoghq.com";
     }
 
     @Test
@@ -153,6 +175,68 @@ public class RolesApiTest extends V2APITest {
         found = false;
         for (Permission p : drrtps.getData()) {
             if (pid.equals(p.getId())) {
+                found = true;
+                break;
+            }
+        }
+        assertFalse(found);
+    }
+
+    @Test
+    public void testRoleUsersLifecycle() throws ApiException {
+        final String testingRoleName = generateRoleName();
+        RoleCreateAttributes rca = new RoleCreateAttributes()
+                .name(testingRoleName);
+        RoleCreateData rcd = new RoleCreateData().attributes(rca);
+        RoleCreatePayload rcp = new RoleCreatePayload().data(rcd);
+
+        // first, create a role
+        RoleResponse rr = api.createRole().body(rcp).execute();
+        String rid = rr.getData().getId();
+        deleteRoles.add(rid);
+
+        // create a user
+        final String testingUserHandle = generateUserHandle();
+        UserCreateAttributes uca = new UserCreateAttributes()
+                .email(testingUserHandle)
+                .name(testingUserName)
+                .title(testingUserTitle);
+        UserCreateData ucd = new UserCreateData().attributes(uca);
+        UserCreatePayload ucp = new UserCreatePayload().data(ucd);
+        UserResponse ur = usersApi.createUser().body(ucp).execute();
+        String uid = ur.getData().getId();
+        disableUsers.add(uid);
+
+        // add a user to the role
+        RelationshipToUserData rtud = new RelationshipToUserData().id(uid);
+        RelationshipToUser rtu = new RelationshipToUser().data(rtud);
+
+        UsersResponse crrtus = api.addUserToRole(rid).body(rtu).execute();
+        boolean found = false;
+        for (User u : crrtus.getData()) {
+            if (uid.equals(u.getId())) {
+                found = true;
+                break;
+            }
+        }
+        assertTrue(found);
+
+        // get all users for the role
+        UsersResponse lrrtus = api.listRoleUsers(rid).execute();
+        found = false;
+        for (User u : lrrtus.getData()) {
+            if (uid.equals(u.getId())) {
+                found = true;
+                break;
+            }
+        }
+        assertTrue(found);
+
+        // remove the permission from the role
+        UsersResponse drrtus = api.removeUserFromRole(rid).body(rtu).execute();
+        found = false;
+        for (User u : drrtus.getData()) {
+            if (uid.equals(u.getId())) {
                 found = true;
                 break;
             }
