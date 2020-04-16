@@ -104,9 +104,65 @@ public class RolesApiTest extends V2APITest {
     }
 
     @Test
+    public void testRolePermissionsLifecycle() throws ApiException {
+        final String testingRoleName = generateRoleName();
+        RoleCreateAttributes rca = new RoleCreateAttributes()
+                .name(testingRoleName);
+        RoleCreateData rcd = new RoleCreateData().attributes(rca);
+        RoleCreatePayload rcp = new RoleCreatePayload().data(rcd);
+
+        // first, create a role
+        RoleResponse rr = api.createRole().body(rcp).execute();
+        String rid = rr.getData().getId();
+        deleteRoles.add(rid);
+
+        // find a permission
+        PermissionsResponse permissions = api.listPermissions().execute();
+        assertTrue(permissions.getData().size() > 0);
+
+        Permission permission = permissions.getData().get(0);
+        String pid = permission.getId();
+
+        // add a permission to the role
+        RelationshipToPermissionData rtpd = new RelationshipToPermissionData().id(pid);
+        RelationshipToPermission rtp = new RelationshipToPermission().data(rtpd);
+
+        PermissionsResponse crrtps = api.addPermissionToRole(rid).body(rtp).execute();
+        boolean found = false;
+        for (Permission p : crrtps.getData()) {
+            if (pid.equals(p.getId())) {
+                found = true;
+                break;
+            }
+        }
+        assertTrue(found);
+
+        // get all permissions for the role
+        PermissionsResponse lrrtps = api.listRolePermissions(rid).execute();
+        found = false;
+        for (Permission p : lrrtps.getData()) {
+            if (pid.equals(p.getId())) {
+                found = true;
+                break;
+            }
+        }
+        assertTrue(found);
+
+        // remove the permission from the role
+        PermissionsResponse drrtps = api.removePermissionFromRole(rid).body(rtp).execute();
+        found = false;
+        for (Permission p : drrtps.getData()) {
+            if (pid.equals(p.getId())) {
+                found = true;
+                break;
+            }
+        }
+        assertFalse(found);
+    }
+
+    @Test
     public void listPermissionsTest() throws ApiException {
-        PermissionsResponse response = api.listPermissions()
-                .execute();
-        assertTrue(response.getData().size() > 0);
+        PermissionsResponse psr = api.listPermissions().execute();
+        assertTrue(psr.getData().size() > 0);
     }
 }
