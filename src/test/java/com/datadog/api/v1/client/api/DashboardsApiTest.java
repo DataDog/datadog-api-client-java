@@ -747,5 +747,4 @@ public class DashboardsApiTest extends V1ApiTest{
             assertEquals(404, e.getCode());
         }
     }
-
 }

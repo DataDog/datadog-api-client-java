@@ -146,5 +146,4 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
 }

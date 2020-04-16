@@ -360,5 +360,4 @@ public class AwsIntegrationApiTest extends V1ApiTest {
             assertEquals(403, e.getCode());
         }
     }
-
 }
