@@ -5,8 +5,8 @@
     <artifactId>datadog-api-client</artifactId>
     <packaging>jar</packaging>
     <name>datadog-api-client</name>
-    <version>1.0.0</version>
-    <url>https://github.com/openapitools/openapi-generator</url>
+    <version>1.0.0-beta.1-SNAPSHOT</version>
+    <url>https://github.com/DataDog/datadog-api-client-java</url>
     <description>Java client library for Datadog API</description>
     <scm>
         <connection>scm:git:git://github.com/DataDog/datadog-api-client-java.git</connection>
@@ -23,6 +23,11 @@
     </licenses>
 
     <developers>
+        <developer> <!-- Additions for tests and small generation changes -->
+            <id>datadog</id>
+            <name>Datadog developers</name>
+            <email>dev@datadoghq.com</email>
+        </developer>
         <developer>
             <name>OpenAPI-Generator Contributors</name>
             <email>team@openapitools.org</email>
