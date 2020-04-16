@@ -13,18 +13,8 @@ package com.datadog.api.v2.client.api;
 
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.model.APIErrorResponse;
-import com.datadog.api.v2.client.model.Permissions;
-import com.datadog.api.v2.client.model.RelationshipToPermission;
-import com.datadog.api.v2.client.model.RelationshipToPermissions;
-import com.datadog.api.v2.client.model.RelationshipToUser;
-import com.datadog.api.v2.client.model.RelationshipToUsers;
-import com.datadog.api.v2.client.model.RoleCreatePayload;
-import com.datadog.api.v2.client.model.RoleResponsePayload;
-import com.datadog.api.v2.client.model.RoleUpdatePayload;
-import com.datadog.api.v2.client.model.RolesResponsePayload;
-import com.datadog.api.v2.client.model.RolesSort;
-import com.datadog.api.v2.client.model.UsersResponsePayload;
-import org.junit.Test;
+import com.datadog.api.v2.client.model.*;
+import org.junit.*;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -38,232 +28,85 @@ import java.util.Map;
 public class RolesApiTest extends V2APITest {
 
     private static RolesApi api;
-
+    private ArrayList<String> deleteRoles = null;
 
     @BeforeClass
     public static void initApi() {
         api = new RolesApi(generalApiClient);
     }
 
+    @Before
+    public void resetDeleteRoles() {
+        deleteRoles = new ArrayList<String>();
+    }
+
+    @After
+    public void deleteRoles() {
+        if (deleteRoles != null) {
+            for (String id: deleteRoles) {
+                try {
+                    api.deleteRole(id).execute();
+                } catch (ApiException e) {
+                    System.err.println("Role was already deleted: " + id);
+                }
+            }
+        }
+    }
+
     public String generateRoleName() {
         return "test-datadog-client-java-" + now.toEpochSecond();
     }
 
-    /**
-     * Create role
-     *
-     * Create a new role for your organization.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    //@Test
-    public void createRoleTest() throws ApiException {
-        RoleCreatePayload body = null;
-        RoleResponsePayload response = api.createRole()
-                .body(body)
+    @Test
+    public void testRoleLifecycle() throws ApiException {
+        final String testingRoleName = generateRoleName();
+        RoleCreateAttributes rca = new RoleCreateAttributes()
+                .name(testingRoleName);
+        RoleCreateData rcd = new RoleCreateData().attributes(rca);
+        RoleCreatePayload rcp = new RoleCreatePayload().data(rcd);
+
+        // first, test creating a role
+        RoleResponse rr = api.createRole().body(rcp).execute();
+        String rid = rr.getData().getId();
+        deleteRoles.add(rid);
+
+        assertEquals(testingRoleName, rr.getData().getAttributes().getName());
+
+        // now, test updating it
+        String updatedRoleName = "update-" + testingRoleName;
+        RoleUpdateAttributes rua = new RoleUpdateAttributes()
+                .name(updatedRoleName);
+        RoleUpdateData rud = new RoleUpdateData().attributes(rua).id(rid);
+        RoleUpdatePayload rup = new RoleUpdatePayload().data(rud);
+
+        RoleResponse urr = api.updateRole(rid).body(rup).execute();
+        assertEquals(updatedRoleName, urr.getData().getAttributes().getName());
+
+        // now, test getting it
+        RoleResponse grr = api.getRole(rid).execute();
+        assertEquals(updatedRoleName, grr.getData().getAttributes().getName());
+
+        // now, test filtering for it in the list call
+        RolesResponse rsr = api.listRoles()
+                .filter(updatedRoleName)
+                .pageSize(1L)
+                .pageNumber(0L)
+                .sort(RolesSort.MODIFIED_AT_DESCENDING)
                 .execute();
-        // TODO: test validations
+        assertEquals(1, rsr.getData().size());
+        assertEquals(updatedRoleName, rsr.getData().get(0).getAttributes().getName());
+        assertTrue(rsr.getMeta().getPage().getTotalCount() >= 1);
+        assertTrue(rsr.getMeta().getPage().getTotalFilteredCount() >= 1);
+
+        // now, test deleting it
+        // no response payload
+        api.deleteRole(rid);
     }
 
-    /**
-     * Grant permission to a role
-     *
-     * Adds a permission to a role.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    //@Test
-    public void createRoleRelationshipToPermissionTest() throws ApiException {
-        String roleId = null;
-        RelationshipToPermission body = null;
-        RelationshipToPermissions response = api.createRoleRelationshipToPermission(roleId)
-                .body(body)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * Adds permission to a role
-     *
-     * Adds a user to a role.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    //@Test
-    public void createRoleUserRelationshipsTest() throws ApiException {
-        String roleId = null;
-        RelationshipToUser body = null;
-        RelationshipToUsers response = api.createRoleUserRelationships(roleId)
-                .body(body)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * Delete role
-     *
-     * Disables a role.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    //@Test
-    public void deleteRoleTest() throws ApiException {
-        String roleId = null;
-        api.deleteRole(roleId)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * Revoke permission
-     *
-     * Removes a permission from a role.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    //@Test
-    public void deleteRoleRelationshipToPermissionTest() throws ApiException {
-        String roleId = null;
-        RelationshipToPermissions body = null;
-        api.deleteRoleRelationshipToPermission(roleId)
-                .body(body)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * Remove a user from a role
-     *
-     * Removes a user from a role.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    //@Test
-    public void deleteRoleUserRelationshipsTest() throws ApiException {
-        String roleId = null;
-        RelationshipToUser body = null;
-        UsersResponsePayload response = api.deleteRoleUserRelationships(roleId)
-                .body(body)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * Get a role
-     *
-     * Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    //@Test
-    public void getRoleTest() throws ApiException {
-        String roleId = null;
-        RoleResponsePayload response = api.getRole(roleId)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * Get all users of a role
-     *
-     * Gets all users of a role.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    //@Test
-    public void getRolePermissionRelationshipsTest() throws ApiException {
-        String roleId = null;
-        Long pageSize = null;
-        Long pageNumber = null;
-        String sort = null;
-        String filter = null;
-        RelationshipToUsers response = api.getRolePermissionRelationships(roleId)
-                .pageSize(pageSize)
-                .pageNumber(pageNumber)
-                .sort(sort)
-                .filter(filter)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * List permissions
-     *
-     * Returns a list of all permissions, including name, description, and ID.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
     @Test
     public void listPermissionsTest() throws ApiException {
-        Permissions response = api.listPermissions()
+        PermissionsResponse response = api.listPermissions()
                 .execute();
         assertTrue(response.getData().size() > 0);
     }
-
-    /**
-     * List permissions for a role
-     *
-     * Returns a list of all permissions for a single role.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    //@Test
-    public void listRoleRelationshipsToPermissionTest() throws ApiException {
-        String roleId = null;
-        RelationshipToPermissions response = api.listRoleRelationshipsToPermission(roleId)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * List roles
-     *
-     * Returns all roles, including their names and IDs.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void listRolesTest() throws ApiException {
-        Long pageSize = null;
-        Long pageNumber = null;
-        RolesSort sort = null;
-        String filter = null;
-        RolesResponsePayload response = api.listRoles()
-                .pageSize(pageSize)
-                .pageNumber(pageNumber)
-                .sort(sort)
-                .filter(filter)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * Update a role
-     *
-     * Edit a role. Can only be used with application keys belonging to administrators.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updateRoleTest() throws ApiException {
-        String roleId = null;
-        RoleUpdatePayload body = null;
-        api.updateRole(roleId)
-                .body(body)
-                .execute();
-        // TODO: test validations
-    }
-
 }
