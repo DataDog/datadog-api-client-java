@@ -240,7 +240,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
         // and it can't be done through the API
         try {
             unitApi.listAWSLogsIntegrations().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -250,7 +250,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     public void logsList403ErrorTest() {
         try {
             fakeAuthApi.listAWSLogsIntegrations().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -266,7 +266,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
         // and it can't be done through the API
         try {
             unitApi.createAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -276,7 +276,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     public void logsAdd403ErrorTest() {
         try {
             fakeAuthApi.createAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -291,7 +291,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
         // and it can't be done through the API
         try {
             unitApi.deleteAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -301,7 +301,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     public void logsDelete403ErrorTest() {
         try {
             fakeAuthApi.deleteAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -311,7 +311,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     public void logsServicesListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listAWSLogsServices().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -321,14 +321,14 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     public void logsServicesEnableErrorsTest() {
         try {
             api.enableAWSLogServices().body(new AWSLogsServicesRequest()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.enableAWSLogServices().body(new AWSLogsServicesRequest()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -339,14 +339,14 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     public void logsLambdaCheckListErrorsTest() {
         try {
             api.checkAWSLogsLambdaAsync().body(new AWSAccountAndLambdaRequest()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.checkAWSLogsLambdaAsync().body(new AWSAccountAndLambdaRequest()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }

@@ -16,6 +16,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -181,14 +183,14 @@ public class HostsApiTest extends V1ApiTest {
     public void hostsListErrorsTest() {
         try {
             api.listHosts().count(new Long(-1)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.listHosts().count(new Long(-1)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -198,14 +200,14 @@ public class HostsApiTest extends V1ApiTest {
     public void hostsGetTotalsErrorsTest() {
         try {
             api.getHostTotals().from(new Long(Instant.now().getEpochSecond() + 60)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.getHostTotals().from(new Long(Instant.now().getEpochSecond() + 60)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -219,14 +221,14 @@ public class HostsApiTest extends V1ApiTest {
         //The endpoint muteHost currently does not respond with 400 regardless of settings.
 //        try {
 //            api.muteHost(hostname).body(new HostMuteSettings()).execute();
-//            throw new AssertionError();
+//            fail("Expected ApiException not thrown");
 //        } catch (ApiException e) {
 ////            assertEquals(400, e.getCode());
 //        }
 
         try {
             fakeAuthApi.muteHost(hostname).body(new HostMuteSettings()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -239,14 +241,14 @@ public class HostsApiTest extends V1ApiTest {
 
         try {
             api.unmuteHost(hostname).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.unmuteHost(hostname).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }

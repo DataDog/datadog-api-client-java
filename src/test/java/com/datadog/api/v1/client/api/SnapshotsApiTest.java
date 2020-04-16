@@ -78,14 +78,14 @@ public class SnapshotsApiTest extends V1ApiTest {
     public void getGraphErrors() {
         try {
             api.getGraphSnapshot().start(new Long(345)).end(new Long(123)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.getGraphSnapshot().start(new Long(345)).end(new Long(123)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }

@@ -18,8 +18,7 @@ import org.junit.Test;
 import javax.ws.rs.core.GenericType;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -168,7 +167,7 @@ public class MetricsApiTest extends V1ApiTest {
     public void metricsListActiveErrorsTest() {
         try {
             fakeAuthApi.listActiveMetrics().from(new Long(-1)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -178,14 +177,14 @@ public class MetricsApiTest extends V1ApiTest {
     public void metricsMetadataGetErrorsTest() {
         try {
             fakeAuthApi.getMetricMetadata("ametric").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getMetricMetadata("ametric").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -200,7 +199,7 @@ public class MetricsApiTest extends V1ApiTest {
 
         try {
             unitApi.updateMetricMetadata("ametric").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -210,14 +209,14 @@ public class MetricsApiTest extends V1ApiTest {
     public void metricsMetadataUpdateErrorsTest() {
         try {
             fakeAuthApi.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -232,7 +231,7 @@ public class MetricsApiTest extends V1ApiTest {
         // Error 400 cannot be triggered from the client due to client side validation, so mock it
         try {
             unitApi.listMetrics().q("").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -242,7 +241,7 @@ public class MetricsApiTest extends V1ApiTest {
     public void metricsListErrorsTest() {
         try {
             fakeAuthApi.listMetrics().q("somequery").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -257,7 +256,7 @@ public class MetricsApiTest extends V1ApiTest {
         // Error 400 cannot be triggered from the client due to client side validation, so mock it
         try {
             unitApi.queryMetrics().query("").from(new Long(9)).to(new Long(9)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -267,7 +266,7 @@ public class MetricsApiTest extends V1ApiTest {
     public void metricsQueryErrorsTest() {
         try {
             fakeAuthApi.queryMetrics().query("").from(new Long(9)).to(new Long(9)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }

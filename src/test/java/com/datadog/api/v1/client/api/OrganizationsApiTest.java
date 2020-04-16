@@ -21,6 +21,7 @@ import java.util.List;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * API tests for OrgsApi
@@ -179,14 +180,14 @@ public class OrganizationsApiTest extends V1ApiTest {
     public void orgsCreateErrorsTest() {
         try {
             api.createChildOrg().body(new OrganizationCreateBody()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createChildOrg().body(new OrganizationCreateBody()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -196,7 +197,7 @@ public class OrganizationsApiTest extends V1ApiTest {
     public void orgsListErrorsTest() {
         try {
             fakeAuthApi.listOrgs().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -206,14 +207,14 @@ public class OrganizationsApiTest extends V1ApiTest {
     public void orgsGetErrorsTest() {
         try {
             api.getOrg("lsqdkjf").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.getOrg("lsqdkjf").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -223,14 +224,14 @@ public class OrganizationsApiTest extends V1ApiTest {
     public void orgsUpdateErrorsTest() {
         try {
             api.updateOrg("lsqdkjf").body(new Organization()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateOrg("lsqdkjf").body(new Organization()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -243,14 +244,14 @@ public class OrganizationsApiTest extends V1ApiTest {
 
         try {
             api.uploadIdPForOrg("lsqdkjf").idpFile(idpFile).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.uploadIdPForOrg("lsqdkjf").idpFile(idpFile).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -268,7 +269,7 @@ public class OrganizationsApiTest extends V1ApiTest {
         //Can't trigger 415 from the client because it will always send the proper MIME type so mock it
         try {
             unitApi.uploadIdPForOrg("id").idpFile(idpFile).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(415, e.getCode());
         }

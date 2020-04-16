@@ -175,7 +175,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public void logsIndexesListErrorsTest() {
         try {
             fakeAuthApi.listLogIndexes().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -186,14 +186,14 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public void logsIndexesGetErrorsTest() {
         try {
             fakeAuthApi.getLogsIndex("shrugs").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getLogsIndex("shrugs").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -204,14 +204,14 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public void logsIndexesUpdateErrorsTest() throws IOException {
         try {
             api.updateLogsIndex("shrugs").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateLogsIndex("shrugs").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -224,7 +224,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
         // Mock the 429 response
         try {
             unitApi.updateLogsIndex("shrugs").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(429, e.getCode());
         }
@@ -235,7 +235,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public void logsIndexesOrderGetErrorsTest() {
         try {
             fakeAuthApi.getLogsIndexOrder().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -246,14 +246,14 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public void logsIndexesOrderUpdateErrorsTest() {
         try {
             api.updateLogsIndexOrder().body(new LogsIndexesOrder()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
-//            assertEquals(400, e.getCode());
+            assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateLogsIndexOrder().body(new LogsIndexesOrder()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }

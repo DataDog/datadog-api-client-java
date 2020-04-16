@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import static org.junit.Assume.assumeTrue;
 
 /**
@@ -330,7 +331,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     public void aPIKeysMgmtListErrorsTest() {
         try {
             fakeAuthApi.listAPIKeys().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -340,14 +341,14 @@ public class KeyManagementApiTest extends V1ApiTest {
     public void aPIKeysMgmtCreateErrorsTest() {
         try {
             api.createAPIKey().body(new ApiKey()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createAPIKey().body(new ApiKey()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -357,14 +358,14 @@ public class KeyManagementApiTest extends V1ApiTest {
     public void aPIKeysMgmtGetErrorsTest() {
         try {
             fakeAuthApi.getAPIKey("whatever").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getAPIKey("whatever").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -374,21 +375,21 @@ public class KeyManagementApiTest extends V1ApiTest {
     public void aPIKeysMgmtUpdateErrorsTest() {
         try {
             api.updateAPIKey("whatever").body(new ApiKey()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateAPIKey("whatever").body(new ApiKey()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateAPIKey("whatever").body(new ApiKey().name("nonexistent key")).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -403,7 +404,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         // Mocked because we need 0 API keys to trigger the 400
         try {
             unitApi.deleteAPIKey("whatever").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -413,14 +414,14 @@ public class KeyManagementApiTest extends V1ApiTest {
     public void aPIKeysMgmtDeleteErrorsTest() {
         try {
             fakeAuthApi.deleteAPIKey("whatever").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.deleteAPIKey("whatever").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -430,7 +431,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     public void aPPKeysMgmtListErrorsTest() {
         try {
             fakeAuthApi.listApplicationKeys().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -440,14 +441,14 @@ public class KeyManagementApiTest extends V1ApiTest {
     public void aPPKeysMgmtCreateErrorsTest() {
         try {
             api.createApplicationKey().body(new ApplicationKey()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createApplicationKey().body(new ApplicationKey()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -466,7 +467,7 @@ public class KeyManagementApiTest extends V1ApiTest {
 
         try {
             api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             api.deleteApplicationKey(response.getApplicationKey().getHash()).execute();
             assertEquals(409, e.getCode());
@@ -477,14 +478,14 @@ public class KeyManagementApiTest extends V1ApiTest {
     public void aPPKeysMgmtGetErrorsTest() {
         try {
             fakeAuthApi.getApplicationKey("whatever").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getApplicationKey("whatever").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -494,21 +495,21 @@ public class KeyManagementApiTest extends V1ApiTest {
     public void aPPKeysMgmtUpdateErrorsTest() {
         try {
             api.updateApplicationKey("whatever").body(new ApplicationKey()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateApplicationKey("whatever").body(new ApplicationKey()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateApplicationKey("whatever").body(new ApplicationKey().name("nonexistent key")).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -530,7 +531,7 @@ public class KeyManagementApiTest extends V1ApiTest {
 
         try {
             api.updateApplicationKey(testAppKeyresponse1.getApplicationKey().getHash()).body(new ApplicationKey().name(testAppKeyName2)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(409, e.getCode());
         }
@@ -541,14 +542,14 @@ public class KeyManagementApiTest extends V1ApiTest {
         // This test case does not support reply from recording
         try {
             fakeAuthApi.deleteApplicationKey("whatever").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.deleteApplicationKey("whatever").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }

@@ -239,14 +239,14 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     public void createSLOErrorsTest() {
         try {
             api.createSLO().body(new ServiceLevelObjective()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createSLO().body(new ServiceLevelObjective()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -257,14 +257,14 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         //FIXME: currently triggering a 404. Need to figure out how to trigger 400
 //        try {
 //            api.listSLOs().ids("id1,id2").execute();
-//            throw new AssertionError();
+//            fail("Expected ApiException not thrown");
 //        } catch (ApiException e) {
 //            assertEquals(400, e.getCode());
 //        }
 
         try {
             fakeAuthApi.listSLOs().ids("id1,id2").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -274,21 +274,21 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     public void updateSLOErrorsTest() {
         try {
             api.updateSLO("id").body(new ServiceLevelObjective()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateSLO("id").body(new ServiceLevelObjective()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateSLO("id").body(monitorSLO).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -298,14 +298,14 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     public void getSLOErrorsTest() {
         try {
             fakeAuthApi.getSLO("id").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getSLO("id").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -315,14 +315,14 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     public void deleteSLOErrorsTest() {
         try {
             fakeAuthApi.deleteSLO("id").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.deleteSLO("id").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -339,7 +339,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         //// Create SLO and reference it in a dashboard to trigger 409
         try {
             unitApi.deleteSLO("id").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(409, e.getCode());
         }
@@ -363,21 +363,21 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
 
         try {
             api.getSLOHistory(created.getId()).fromTs(new Long(123)).toTs(new Long(12)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.getSLOHistory("id").fromTs(new Long(123)).toTs(new Long(12)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getSLOHistory("id").fromTs(new Long(123)).toTs(new Long(12)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -393,7 +393,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         // FIXME: Make it an integration test when feature is fixed
         try {
             unitApi.checkCanDeleteSLO().ids("id").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(409, e.getCode());
         }
@@ -405,14 +405,14 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
 
         try {
             api.deleteSLOTimeframeInBulk().body(toDelete).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.deleteSLOTimeframeInBulk().body(toDelete).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }

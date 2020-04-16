@@ -160,7 +160,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
         // and it can't be done through the API
         try {
             unitApi.listGCPIntegration().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -170,7 +170,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     public void gCPListErrorsTest() {
         try {
             fakeAuthApi.listGCPIntegration().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -180,14 +180,14 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     public void gCPCreateErrorsTest() {
         try {
             api.createGCPIntegration().body(new GCPAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createGCPIntegration().body(new GCPAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -197,14 +197,14 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     public void gCPDeleteErrorsTest() {
         try {
             api.deleteGCPIntegration().body(new GCPAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.deleteGCPIntegration().body(new GCPAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -214,17 +214,16 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     public void gCPUpdateErrorsTest() {
         try {
             api.updateGCPIntegration().body(new GCPAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateGCPIntegration().body(new GCPAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
     }
-
 }

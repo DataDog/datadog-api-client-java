@@ -261,14 +261,14 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     public void generateExternalIDErrorsTest() {
         try {
             api.createNewAWSExternalID().body(new AWSAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createNewAWSExternalID().body(new AWSAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -278,14 +278,14 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     public void createErrorsTest() {
         try {
             api.createAWSAccount().body(new AWSAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createAWSAccount().body(new AWSAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -295,14 +295,14 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     public void deleteErrorsTest() {
         try {
             api.deleteAWSAccount().body(new AWSAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.deleteAWSAccount().body(new AWSAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -312,7 +312,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     public void getAll403ErrorTest() {
         try {
             fakeAuthApi.listAWSAccounts().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -328,7 +328,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         // and it can't be done through the API
         try {
             unitApi.listAWSAccounts().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -338,7 +338,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     public void listNamespacesErrorsTest() {
         try {
             fakeAuthApi.listAvailableAWSNamespaces().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -348,14 +348,14 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     public void updateErrorsTest() {
         try {
             api.updateAWSAccount().body(new AWSAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateAWSAccount().body(new AWSAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }

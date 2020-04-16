@@ -186,14 +186,14 @@ public class MonitorsApiTest extends V1ApiTest {
     public void monitorsCreateErrorsTest() {
         try {
             api.createMonitor().body(new Monitor()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createMonitor().body(new Monitor()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -203,14 +203,14 @@ public class MonitorsApiTest extends V1ApiTest {
     public void monitorsListErrorsTest() {
         try {
             api.listMonitors().groupStates("notagroupstate").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.listMonitors().groupStates("notagroupstate").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -235,21 +235,21 @@ public class MonitorsApiTest extends V1ApiTest {
 
         try {
             api.updateMonitor(monitorId).body(updateMonitor).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateMonitor(new Long(1234)).body(new Monitor()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateMonitor(new Long(1234)).body(new Monitor()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -264,7 +264,7 @@ public class MonitorsApiTest extends V1ApiTest {
         // Cannot trigger 401 for client. Need underrestricted creds. Mock it.
         try {
             unitApi.updateMonitor(new Long(121)).body(new Monitor()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(401, e.getCode());
         }
@@ -289,21 +289,21 @@ public class MonitorsApiTest extends V1ApiTest {
 
         try {
             api.getMonitor(monitorId).groupStates("notagroupstate").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.getMonitor(new Long(1234)).groupStates("notagroupstate").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getMonitor(new Long(1234)).groupStates("notagroupstate").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -318,7 +318,7 @@ public class MonitorsApiTest extends V1ApiTest {
         // Cannot trigger 400 due to client side validations, so mock it
         try {
             unitApi.deleteMonitor(new Long(121)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -333,7 +333,7 @@ public class MonitorsApiTest extends V1ApiTest {
         // Cannot trigger 401 for client. Need underrestricted creds. Mock it.
         try {
             unitApi.deleteMonitor(new Long(121)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(401, e.getCode());
         }
@@ -364,21 +364,21 @@ public class MonitorsApiTest extends V1ApiTest {
 
         try {
             api.checkCanDeleteMonitor().monitorIds(emptyIdlist).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.checkCanDeleteMonitor().monitorIds(emptyIdlist).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.checkCanDeleteMonitor().monitorIds(monitorIdlist).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(409, e.getCode());
             // Manually delete the composite monitor as deleteMonitors() can fail
@@ -391,14 +391,14 @@ public class MonitorsApiTest extends V1ApiTest {
     public void monitorValidateErrorsTest() {
         try {
             api.validateMonitor().body(new Monitor()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.validateMonitor().body(new Monitor()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }

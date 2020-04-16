@@ -316,14 +316,14 @@ public class SyntheticsApiTest extends V1ApiTest {
     public void deleteSyntheticsErrorsTest() {
         try {
             api.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -338,7 +338,7 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         try {
             unitApi.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -353,21 +353,21 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         try {
             api.updateTestPauseStatus(publicId).body(new SyntheticsUpdateTestPauseStatusPayload()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateTestPauseStatus(publicId).body(new SyntheticsUpdateTestPauseStatusPayload()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateTestPauseStatus("aaa-aaa-aaa").body(new SyntheticsUpdateTestPauseStatusPayload()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -377,14 +377,14 @@ public class SyntheticsApiTest extends V1ApiTest {
     public void browserSpecificGetResultSyntheticsErrorsTest() {
         try {
             fakeAuthApi.getBrowserTestResult("id", "resultid").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getBrowserTestResult("aaa-aaa-aaa", "resultid").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -394,14 +394,14 @@ public class SyntheticsApiTest extends V1ApiTest {
     public void aPISpecificGetResultSyntheticsErrorsTest() {
         try {
             fakeAuthApi.getAPITestResult("id", "resultid").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getAPITestResult("aaa-aaa-aaa", "resultid").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -411,14 +411,14 @@ public class SyntheticsApiTest extends V1ApiTest {
     public void getTestSyntheticsErrorsTest() {
         try {
             fakeAuthApi.getTest( "id").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getTest( "aaa-aaa-aaa").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -433,21 +433,21 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         try {
             api.updateTest(publicId).body(new SyntheticsTestDetails()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateTest("id").body(new SyntheticsTestDetails()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateTest("aaa-aaa-aaa").body(new SyntheticsTestDetails()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -457,7 +457,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     public void listTestSyntheticsErrorsTest() {
         try {
             fakeAuthApi.listTests().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -472,7 +472,7 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         try {
             unitApi.listTests().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -482,14 +482,14 @@ public class SyntheticsApiTest extends V1ApiTest {
     public void createTestSyntheticsErrorsTest() {
         try {
             api.createTest().body(new SyntheticsTestDetails()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createTest().body(new SyntheticsTestDetails()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -504,7 +504,7 @@ public class SyntheticsApiTest extends V1ApiTest {
 
         try {
             unitApi.createTest().body(new SyntheticsTestDetails()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(402, e.getCode());
         }

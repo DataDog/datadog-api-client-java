@@ -679,14 +679,14 @@ public class DashboardsApiTest extends V1ApiTest{
     public void dashboardCreateErrorsTest() {
         try {
             api.createDashboard().body(emptyDashboard).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createDashboard().body(emptyDashboard).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -696,7 +696,7 @@ public class DashboardsApiTest extends V1ApiTest{
     public void dashboardListErrorsTest() {
         try {
             fakeAuthApi.listDashboards().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -706,14 +706,14 @@ public class DashboardsApiTest extends V1ApiTest{
     public void dashboardDeleteErrorsTest() {
         try {
             fakeAuthApi.deleteDashboard("random").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.deleteDashboard("random").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -728,21 +728,21 @@ public class DashboardsApiTest extends V1ApiTest{
 
         try {
             api.updateDashboard("random").body(emptyDashboard).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateDashboard("random").body(emptyDashboard).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateDashboard("random").body(dashboard).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }

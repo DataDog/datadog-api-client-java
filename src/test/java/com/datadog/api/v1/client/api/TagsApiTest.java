@@ -13,8 +13,7 @@ import com.datadog.api.v1.client.model.*;
 
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -119,14 +118,14 @@ public class TagsApiTest extends V1ApiTest {
     public void listTagsErrorsTest() {
         try {
             fakeAuthApi.listHostTags().source("nosource").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.listHostTags().source("nosource").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -136,14 +135,14 @@ public class TagsApiTest extends V1ApiTest {
     public void getTagsErrorsTest() {
         try {
             fakeAuthApi.getHostTags("notahostname1234").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getHostTags("notahostname1234").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -153,14 +152,14 @@ public class TagsApiTest extends V1ApiTest {
     public void createTagsErrorsTest() {
         try {
             fakeAuthApi.createHostTags("notahostname1234").body(new HostTags()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.createHostTags("notahostname1234").body(new HostTags()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -170,14 +169,14 @@ public class TagsApiTest extends V1ApiTest {
     public void updateTagsErrorsTest() {
         try {
             fakeAuthApi.updateHostTags("notahostname1234").body(new HostTags()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateHostTags("notahostname1234").body(new HostTags()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -187,14 +186,14 @@ public class TagsApiTest extends V1ApiTest {
     public void deleteTagsErrorsTest() {
         try {
             fakeAuthApi.deleteHostTags("notahostname1234").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.deleteHostTags("notahostname1234").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }

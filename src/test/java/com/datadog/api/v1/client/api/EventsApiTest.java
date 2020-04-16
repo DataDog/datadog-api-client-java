@@ -16,13 +16,12 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
+
+import static org.junit.Assert.*;
 
 /**
  * API tests for EventsApi
@@ -110,14 +109,14 @@ public class EventsApiTest extends V1ApiTest {
     public void eventListErrorTest() {
         try {
             api.listEvents().start(new Long(345)).end(new Long(123)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.listEvents().start(new Long(345)).end(new Long(123)).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -127,14 +126,14 @@ public class EventsApiTest extends V1ApiTest {
     public void eventGetErrorTest() {
         try {
             fakeAuthApi.getEvent(new Long((new Long(1234)))).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getEvent(new Long((new Long(1234)))).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }

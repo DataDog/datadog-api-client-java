@@ -17,8 +17,7 @@ import org.junit.Test;
 import javax.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import static org.junit.Assume.assumeFalse;
 
 /**
@@ -117,14 +116,14 @@ public class LogsApiTest extends V1ApiTest {
         logsListRequest.setStartAt("notanid");
         try {
             api.listLogs().body(logsListRequest).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.listLogs().body(logsListRequest).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }

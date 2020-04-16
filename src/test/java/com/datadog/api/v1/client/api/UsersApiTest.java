@@ -135,14 +135,14 @@ public class UsersApiTest extends V1ApiTest {
     public void userCreateErrorsTest() {
         try {
             api.createUser().body(new User()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createUser().body(new User()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -157,7 +157,7 @@ public class UsersApiTest extends V1ApiTest {
 
         try {
             unitApi.createUser().body(new User()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(409, e.getCode());
         }
@@ -167,7 +167,7 @@ public class UsersApiTest extends V1ApiTest {
     public void testUserListErrorsTest() {
         try {
             fakeAuthApi.listUsers().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -177,14 +177,14 @@ public class UsersApiTest extends V1ApiTest {
     public void userGetErrorsTest() {
         try {
             fakeAuthApi.getUser("notahandle").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getUser("notahandle").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -206,21 +206,21 @@ public class UsersApiTest extends V1ApiTest {
 
         try {
             api.updateUser(user.getHandle()).body(badUser).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateUser("notahandle").body(badUser).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updateUser("notahandle").body(badUser).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -238,21 +238,21 @@ public class UsersApiTest extends V1ApiTest {
 
         try {
             api.disableUser(user.getHandle()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.disableUser("notahandle").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.disableUser("notahandle").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }

@@ -21,6 +21,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * API tests for PagerDutyIntegrationApi
@@ -155,14 +156,14 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
 
         try {
             fakeAuthApi.getPagerDutyIntegration().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getPagerDutyIntegration().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -176,14 +177,14 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
 
         try {
             api.createPagerDutyIntegration().body(body).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createPagerDutyIntegration().body(body).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -196,14 +197,14 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
 
         try {
             api.updatePagerDutyIntegration().body(body).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updatePagerDutyIntegration().body(body).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -213,7 +214,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     public void deletePagerDutyIntegrationTest() {
         try {
             fakeAuthApi.deletePagerDutyIntegration().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -227,21 +228,21 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
 
         try {
             api.createPagerDutyIntegrationService().body(new PagerDutyService()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createPagerDutyIntegrationService().body(body).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.createPagerDutyIntegrationService().body(body).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -251,14 +252,14 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     public void getPagerDutyIntegrationServicesTest() {
         try {
             fakeAuthApi.getPagerDutyIntegrationService("service").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.getPagerDutyIntegrationService("service").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -271,21 +272,21 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
 
         try {
             api.updatePagerDutyIntegrationService("qoisdfhanniq").body(new PagerDutyServiceKey()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updatePagerDutyIntegrationService("qoisdfhanniq").body(body).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.updatePagerDutyIntegrationService("qoisdfhanniq").body(body).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
@@ -295,14 +296,14 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     public void deletePagerDutyIntegrationServicesTest() {
         try {
             fakeAuthApi.deletePagerDutyIntegrationService("lqnioiuyzbefnkje").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
 
         try {
             api.deletePagerDutyIntegrationService("lqnioiuyzbefnkje").execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }

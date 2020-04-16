@@ -171,7 +171,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
         // and it can't be done through the API
         try {
             unitApi.listAzureIntegration().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
@@ -181,7 +181,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     public void list403ErrorTest() {
         try {
             fakeAuthApi.listAzureIntegration().execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -191,14 +191,14 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     public void createErrorsTest() {
         try {
             api.createAzureIntegration().body(new AzureAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.createAzureIntegration().body(new AzureAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -208,14 +208,14 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     public void deleteErrorsTest() {
         try {
             api.deleteAzureIntegration().body(new AzureAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.deleteAzureIntegration().body(new AzureAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -225,14 +225,14 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     public void updateErrorsTest() {
         try {
             api.updateAzureIntegration().body(new AzureAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateAzureIntegration().body(new AzureAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
@@ -242,14 +242,14 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     public void updateHostFiltersErrorsTest() {
         try {
             api.updateAzureHostFilters().body(new AzureAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
             fakeAuthApi.updateAzureHostFilters().body(new AzureAccount()).execute();
-            throw new AssertionError();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
         }
