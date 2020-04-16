@@ -15,8 +15,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.*;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
 /**
@@ -25,13 +27,20 @@ import static org.junit.Assert.*;
 public class AwsIntegrationApiTest extends V1ApiTest {
 
     private static AwsIntegrationApi api;
+    private static AwsIntegrationApi fakeAuthApi;
+    private static AwsIntegrationApi unitApi;
     private static LinkedHashSet<AWSAccount> accountsToDelete;
     private static Random random = new Random();
+
+    private final String apiUri = "/api/v1/integration/aws";
+    private final String fixturePrefix = "v1/client/api/aws_fixtures";
 
 
     @BeforeClass
     public static void initApi() {
         api = new AwsIntegrationApi(generalApiClient);
+        fakeAuthApi = new AwsIntegrationApi(generalFakeAuthApiClient);
+        unitApi = new AwsIntegrationApi(generalApiUnitTestClient);
     }
 
     @Before
@@ -225,7 +234,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
                 AWSAccountCreateResponse createResponse = api.createAWSAccount().body(awsAccount).execute();
                 accountsToDelete.add(awsAccount);
                 assertNotNull(createResponse.getExternalId());
-            } catch(ApiException e) {
+            } catch (ApiException e) {
                 System.out.println(String.format("Error updating AWS Account: %s", e));
                 return false;
             }
@@ -246,6 +255,110 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         assertTrue(namespaces.contains("cloudsearch"));
         assertTrue(namespaces.contains("directconnect"));
         assertTrue(namespaces.contains("xray"));
+    }
+
+    @Test
+    public void generateExternalIDErrorsTest() {
+        try {
+            api.createNewAWSExternalID().body(new AWSAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createNewAWSExternalID().body(new AWSAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void createErrorsTest() {
+        try {
+            api.createAWSAccount().body(new AWSAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createAWSAccount().body(new AWSAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void deleteErrorsTest() {
+        try {
+            api.deleteAWSAccount().body(new AWSAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.deleteAWSAccount().body(new AWSAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getAll403ErrorTest() {
+        try {
+            fakeAuthApi.listAWSAccounts().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getAll400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo(apiUri))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked because it is only returned when the aws integration is not installed, which is not the case on test org
+        // and it can't be done through the API
+        try {
+            unitApi.listAWSAccounts().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void listNamespacesErrorsTest() {
+        try {
+            fakeAuthApi.listAvailableAWSNamespaces().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void updateErrorsTest() {
+        try {
+            api.updateAWSAccount().body(new AWSAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateAWSAccount().body(new AWSAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
     }
 
 }

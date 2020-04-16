@@ -11,6 +11,7 @@ import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
@@ -26,10 +27,12 @@ import static org.junit.Assume.assumeFalse;
 public class LogsApiTest extends V1ApiTest {
 
     private static LogsApi api;
+    private static LogsApi fakeAuthApi;
 
     @BeforeClass
     public static void initAPI() {
         api = new LogsApi(generalApiClient);
+        fakeAuthApi = new LogsApi(generalFakeAuthApiClient);
     }
 
     @Test
@@ -105,5 +108,25 @@ public class LogsApiTest extends V1ApiTest {
         log = logsResponse.getLogs().get(0);
         assertEquals(hostname, log.getContent().getHost());
         assertEquals(secondMessage, log.getContent().getMessage());
+    }
+
+    @Test
+    @Ignore //Ignore the test for now as the endpoint is responding with a 500
+    public void logsListErrorsTest() {
+        LogsListRequest logsListRequest = new LogsListRequest();
+        logsListRequest.setStartAt("notanid");
+        try {
+            api.listLogs().body(logsListRequest).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.listLogs().body(logsListRequest).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
     }
 }

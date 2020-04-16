@@ -14,6 +14,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -26,12 +27,18 @@ import java.util.List;
 public class LogsIndexesApiTest extends V1ApiTest {
 
     private static LogsIndexesApi api;
+    private static LogsIndexesApi fakeAuthApi;
     private static LogsIndexesApi unitApi;
     private final String INDEXNAME = "main";
+
+    private final String apiUri = "/api/v1/logs/config/indexes";
+    private final String fixturePrefix = "v1/client/api/logs_indexes_fixtures";
+
 
     @BeforeClass
     public static void initApi() {
         api = new LogsIndexesApi(generalApiClient);
+        fakeAuthApi = new LogsIndexesApi(generalFakeAuthApiClient);
         unitApi = new LogsIndexesApi(generalApiUnitTestClient);
     }
 
@@ -40,6 +47,9 @@ public class LogsIndexesApiTest extends V1ApiTest {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalApiClient.setUnstableOperationEnabled("listLogIndexes", true);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndex", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("listLogIndexes", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", true);
@@ -50,6 +60,9 @@ public class LogsIndexesApiTest extends V1ApiTest {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalApiClient.setUnstableOperationEnabled("listLogIndexes", false);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndex", false);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("listLogIndexes", false);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", false);
@@ -157,4 +170,92 @@ public class LogsIndexesApiTest extends V1ApiTest {
         assertEquals(body.getIndexNames(), response.getIndexNames());
     }
 
+    @Test
+    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
+    public void logsIndexesListErrorsTest() {
+        try {
+            fakeAuthApi.listLogIndexes().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
+    public void logsIndexesGetErrorsTest() {
+        try {
+            fakeAuthApi.getLogsIndex("shrugs").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getLogsIndex("shrugs").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
+    public void logsIndexesUpdateErrorsTest() throws IOException {
+        try {
+            api.updateLogsIndex("shrugs").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateLogsIndex("shrugs").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        //mock 429 - Too many requests response
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_429.json");
+        stubFor(put(urlPathEqualTo(apiUri + "/shrugs"))
+                .willReturn(okJson(fixtureData).withStatus(429))
+        );
+        // Mock the 429 response
+        try {
+            unitApi.updateLogsIndex("shrugs").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(429, e.getCode());
+        }
+    }
+
+    @Test
+    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
+    public void logsIndexesOrderGetErrorsTest() {
+        try {
+            fakeAuthApi.getLogsIndexOrder().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with 429 and 502
+    public void logsIndexesOrderUpdateErrorsTest() {
+        try {
+            api.updateLogsIndexOrder().body(new LogsIndexesOrder()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+//            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateLogsIndexOrder().body(new LogsIndexesOrder()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
 }

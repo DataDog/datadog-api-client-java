@@ -9,6 +9,7 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import org.eclipse.jetty.util.IO;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -29,17 +30,24 @@ import static org.junit.Assert.assertNotNull;
 public class UsageMeteringApiTest extends V1ApiTest {
 
     private static UsageMeteringApi api;
-    private static UsageMeteringApi unitAPI;
+    private static UsageMeteringApi fakeAuthApi;
+    private static UsageMeteringApi unitApi;
 
     private static OffsetDateTime startHr;
     private static OffsetDateTime endHr;
     private static OffsetDateTime startMonth;
     private static OffsetDateTime endMonth;
+    private static OffsetDateTime futureStartHr;
+    private static OffsetDateTime futureStartMonth;
+
+    private final String apiUri = "/api/v1/usage";
+    private final String fixturePrefix = "v1/client/api/usage_fixtures";
 
     @BeforeClass
     public static void initApi() {
         api = new UsageMeteringApi(generalApiClient);
-        unitAPI = new UsageMeteringApi(generalApiUnitTestClient);
+        fakeAuthApi = new UsageMeteringApi(generalFakeAuthApiClient);
+        unitApi = new UsageMeteringApi(generalApiUnitTestClient);
     }
 
     @Before
@@ -50,6 +58,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
         endHr = startHr.plusHours(1);
         startMonth = OffsetDateTime.of(nowDateTime.getYear(), nowDateTime.getMonth().getValue(), 1, 0, 0, 0, 0, ZoneOffset.UTC).minusMonths(2);
         endMonth = startHr.plusMonths(1);
+        futureStartHr = OffsetDateTime.of(now.getYear(), now.getMonth().getValue(), 1, 12, 0, 0, 0, ZoneOffset.UTC).plusHours(5);
+        futureStartMonth = OffsetDateTime.of(now.getYear(), now.getMonth().getValue(), 1, 12, 0, 0, 0, ZoneOffset.UTC).plusMonths(1);
     }
 
     @Test
@@ -129,7 +139,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/usage_fixtures/usage_summary.json")))
         );
 
-        UsageSummaryResponse usage = unitAPI.getUsageSummary()
+        UsageSummaryResponse usage = unitApi.getUsageSummary()
                 .startMonth(startMonth)
                 .endMonth(endMonth)
                 .includeOrgDetails(includeOrgDetails)
@@ -225,5 +235,269 @@ public class UsageMeteringApiTest extends V1ApiTest {
                 .endHr(endHr)
                 .execute();
         assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageHostsErrorsTest() {
+        try {
+            api.getUsageHosts().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageHosts().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageLogsErrorsTest() {
+        try {
+            api.getUsageLogs().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageLogs().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageLogsByIndexErrorsTest() {
+        try {
+            api.getUsageLogsByIndex().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageLogsByIndex().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageTimeSeriesErrorsTest() {
+        try {
+            api.getUsageTimeseries().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageTimeseries().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageTopAvgMetricsErrorsTest() {
+        try {
+            api.getUsageTopAvgMetrics().month(futureStartMonth).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageTopAvgMetrics().month(futureStartMonth).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageTraceErrorsTest() {
+        try {
+            api.getUsageTrace().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageTrace().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageSyntheticsErrorsTest() {
+        //This function is deprecated
+        try {
+            api.getUsageSynthetics().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageSynthetics().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageSyntheticsAPIErrorsTest() {
+        try {
+            api.getUsageSyntheticsAPI().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageSyntheticsAPI().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageSyntheticsBrowserErrorsTest() {
+        try {
+            api.getUsageSyntheticsBrowser().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageSyntheticsBrowser().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageFargateErrorsTest() {
+        try {
+            api.getUsageFargate().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageFargate().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageLambdaErrorsTest() {
+        try {
+            api.getUsageLambda().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageLambda().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageRumSessionErrorsTest() {
+        try {
+            api.getUsageRumSessions().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageRumSessions().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageNetworkHostsErrorsTest() {
+        try {
+            api.getUsageNetworkHosts().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageNetworkHosts().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageNetworkFlowsErrorsTest() {
+        try {
+            api.getUsageNetworkFlows().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getUsageNetworkFlows().startHr(futureStartHr).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageSummaryErrorsTest() {
+        try {
+            fakeAuthApi.getUsageSummary().startMonth(futureStartMonth).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void getUsageSummary400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo(apiUri + "/summary"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked because this requires multi org feature
+        try {
+            unitApi.getUsageSummary().startMonth(startMonth).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
     }
 }

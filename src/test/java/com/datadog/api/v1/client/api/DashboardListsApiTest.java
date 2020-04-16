@@ -23,6 +23,8 @@ import java.util.ArrayList;
 public class DashboardListsApiTest extends V1ApiTest {
 
     private static DashboardListsApi api;
+    private static DashboardListsApi fakeAuthApi;
+
     private ArrayList<Long> dashboardListsToDelete;
 
     @Before
@@ -33,6 +35,22 @@ public class DashboardListsApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new DashboardListsApi(generalApiClient);
+        fakeAuthApi = new DashboardListsApi(generalFakeAuthApiClient);
+    }
+
+    @After
+    public void deleteDashboardListsTest() throws ApiException {
+        if (dashboardListsToDelete != null) {
+            for (Long id : dashboardListsToDelete) {
+                try {
+                    api.getDashboardList(id).execute();
+                } catch (ApiException e) {
+                    // doesn't exist => continue
+                    continue;
+                }
+                api.deleteDashboardList(id).execute();
+            }
+        }
     }
 
     @Test
@@ -72,18 +90,88 @@ public class DashboardListsApiTest extends V1ApiTest {
         assertEquals(res.getDeletedDashboardListId(), dashboardList.getId());
     }
 
-    @After
-    public void deleteDashboardLists() throws ApiException {
-        if (dashboardListsToDelete != null) {
-            for (Long id : dashboardListsToDelete) {
-                try {
-                    api.getDashboardList(id).execute();
-                } catch (ApiException e) {
-                    // doesn't exist => continue
-                    continue;
-                }
-                api.deleteDashboardList(id).execute();
-            }
+    @Test
+    public void dashboardListListErrorsTest() {
+        try {
+            fakeAuthApi.listDashboardLists().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void dashboardListCreateErrorsTest() {
+        try {
+            api.createDashboardList().body(new DashboardList()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createDashboardList().body(new DashboardList()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void dashboardListGetErrorsTest() {
+        try {
+            fakeAuthApi.getDashboardList(new Long(1234)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getDashboardList(new Long(1234)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void dashboardListUpdateErrorsTest() {
+        try {
+            api.updateDashboardList(new Long(1234)).body(new DashboardList()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateDashboardList(new Long(1234)).body(new DashboardList()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.updateDashboardList(new Long(1234)).body(new DashboardList().name("nonexistent")).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void dashboardListDeleteErrorsTest() {
+        try {
+            fakeAuthApi.deleteDashboardList(new Long(1234)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getDashboardList(new Long(1234)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
         }
     }
 }

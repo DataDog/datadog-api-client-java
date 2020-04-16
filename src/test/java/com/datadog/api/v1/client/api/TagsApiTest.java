@@ -29,12 +29,14 @@ import java.util.List;
 public class TagsApiTest extends V1ApiTest {
 
     private static TagsApi api;
+    private static TagsApi fakeAuthApi;
     private static MetricsApi metricsAPI;
 
 
     @BeforeClass
     public static void initAPI() {
         api = new TagsApi(generalApiClient);
+        fakeAuthApi = new TagsApi(generalFakeAuthApiClient);
         metricsAPI = new MetricsApi(generalApiClient);
     }
 
@@ -111,5 +113,90 @@ public class TagsApiTest extends V1ApiTest {
 
         // Remove tags
         api.deleteHostTags(hostname).source("datadog").execute();
+    }
+
+    @Test
+    public void listTagsErrorsTest() {
+        try {
+            fakeAuthApi.listHostTags().source("nosource").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.listHostTags().source("nosource").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void getTagsErrorsTest() {
+        try {
+            fakeAuthApi.getHostTags("notahostname1234").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getHostTags("notahostname1234").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void createTagsErrorsTest() {
+        try {
+            fakeAuthApi.createHostTags("notahostname1234").body(new HostTags()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.createHostTags("notahostname1234").body(new HostTags()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void updateTagsErrorsTest() {
+        try {
+            fakeAuthApi.updateHostTags("notahostname1234").body(new HostTags()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.updateHostTags("notahostname1234").body(new HostTags()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void deleteTagsErrorsTest() {
+        try {
+            fakeAuthApi.deleteHostTags("notahostname1234").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.deleteHostTags("notahostname1234").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
     }
 }

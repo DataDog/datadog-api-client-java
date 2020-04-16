@@ -9,14 +9,14 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.mockserver.model.Format;
 
+import java.io.IOException;
 import java.util.*;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.*;
 
 /**
@@ -26,15 +26,24 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
 
     private static AwsLogsIntegrationApi api;
     private static AwsIntegrationApi AWSApi;
+    private static AwsLogsIntegrationApi fakeAuthApi;
+    private static AwsLogsIntegrationApi unitApi;
+
     private static AWSAccount uniqueAWSAccount = new AWSAccount();
     private static AWSAccountAndLambdaRequest uniqueAWSAccountLambdaRequest = new AWSAccountAndLambdaRequest();
     private static AWSLogsServicesRequest uniqueAWSLogsServicesRequest = new AWSLogsServicesRequest();
+
     private static Random random = new Random();
+    private final String apiUri = "/api/v1/integration/aws/logs";
+    private final String fixturePrefix = "v1/client/api/aws_fixtures";
+
 
     @BeforeClass
     public static void initApi() {
         api = new AwsLogsIntegrationApi(generalApiClient);
         AWSApi = new AwsIntegrationApi(generalApiClient);
+        fakeAuthApi = new AwsLogsIntegrationApi(generalFakeAuthApiClient);
+        unitApi = new AwsLogsIntegrationApi(generalApiUnitTestClient);
     }
 
     @Before
@@ -221,4 +230,125 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
         assertTrue(response.size() >= 6);
     }
 
+    @Test
+    public void logsList400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo(apiUri))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked because it is only returned when the aws integration is not installed, which is not the case on test org
+        // and it can't be done through the API
+        try {
+            unitApi.listAWSLogsIntegrations().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void logsList403ErrorTest() {
+        try {
+            fakeAuthApi.listAWSLogsIntegrations().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void logsAdd400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(post(urlPathEqualTo(apiUri))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked because it is only returned when the aws integration is not installed, which is not the case on test org
+        // and it can't be done through the API
+        try {
+            unitApi.createAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void logsAdd403ErrorTest() {
+        try {
+            fakeAuthApi.createAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+    @Test
+    public void logsDelete400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(delete(urlPathEqualTo(apiUri))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked because it is only returned when the aws integration is not installed, which is not the case on test org
+        // and it can't be done through the API
+        try {
+            unitApi.deleteAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void logsDelete403ErrorTest() {
+        try {
+            fakeAuthApi.deleteAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void logsServicesListErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listAWSLogsServices().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void logsServicesEnableErrorsTest() {
+        try {
+            api.enableAWSLogServices().body(new AWSLogsServicesRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.enableAWSLogServices().body(new AWSLogsServicesRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Ignore //FIXME: APi responds with 502 instead of 400 or 403, so skipping until it is fixed
+    @Test
+    public void logsLambdaCheckListErrorsTest() {
+        try {
+            api.checkAWSLogsLambdaAsync().body(new AWSAccountAndLambdaRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.checkAWSLogsLambdaAsync().body(new AWSAccountAndLambdaRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
 }

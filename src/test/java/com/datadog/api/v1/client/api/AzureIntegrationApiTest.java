@@ -7,12 +7,15 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.AzureAccount;
 import org.junit.*;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -21,13 +24,22 @@ import java.util.List;
 public class AzureIntegrationApiTest extends V1ApiTest {
 
     private static AzureIntegrationApi api;
+    private static AzureIntegrationApi unitApi;
+    private static AzureIntegrationApi fakeAuthApi;
+
     private static AzureAccount uniqueAzureAccount = new AzureAccount();
     private static AzureAccount uniqueUpdatedAzureAccount = new AzureAccount();
     private static AzureAccount uniqueUpdatedHostFilters = new AzureAccount();
 
+    private final String fixturePrefix = "v1/client/api/azure_fixtures";
+    private final String apiUri = "/api/v1/integration/azure";
+
+
     @BeforeClass
     public static void initApi() {
         api = new AzureIntegrationApi(generalApiClient);
+        unitApi = new AzureIntegrationApi(generalApiUnitTestClient);
+        fakeAuthApi = new AzureIntegrationApi(generalFakeAuthApiClient);
     }
 
     @Before
@@ -147,5 +159,99 @@ public class AzureIntegrationApiTest extends V1ApiTest {
             }
         }
         return retrievedAccount;
+    }
+
+    @Test
+    public void list400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo(apiUri))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked because it is only returned when the azure integration is not installed, which is not the case on test org
+        // and it can't be done through the API
+        try {
+            unitApi.listAzureIntegration().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void list403ErrorTest() {
+        try {
+            fakeAuthApi.listAzureIntegration().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void createErrorsTest() {
+        try {
+            api.createAzureIntegration().body(new AzureAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createAzureIntegration().body(new AzureAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void deleteErrorsTest() {
+        try {
+            api.deleteAzureIntegration().body(new AzureAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.deleteAzureIntegration().body(new AzureAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void updateErrorsTest() {
+        try {
+            api.updateAzureIntegration().body(new AzureAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateAzureIntegration().body(new AzureAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void updateHostFiltersErrorsTest() {
+        try {
+            api.updateAzureHostFilters().body(new AzureAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateAzureHostFilters().body(new AzureAccount()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
     }
 }

@@ -14,8 +14,11 @@ import com.datadog.api.v1.client.model.UserListResponse;
 import com.datadog.api.v1.client.model.UserResponse;
 import org.junit.*;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,6 +29,12 @@ import java.util.List;
 public class UsersApiTest extends V1ApiTest {
 
     private static UsersApi api;
+    private static UsersApi fakeAuthApi;
+    private static UsersApi unitApi;
+
+    private final String apiUri = "/api/v1/user";
+    private final String fixturePrefix = "v1/client/api/user_fixtures";
+
     private final String testingUserHandle = "testinguser@datadoghq.com";
     private final String testingUserName = "Testing User";
     private final AccessRole testingUserAR = AccessRole.STANDARD;
@@ -39,6 +48,8 @@ public class UsersApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new UsersApi(generalApiClient);
+        fakeAuthApi = new UsersApi(generalFakeAuthApiClient);
+        unitApi = new UsersApi(generalApiUnitTestClient);
     }
 
     @After
@@ -117,6 +128,133 @@ public class UsersApiTest extends V1ApiTest {
                 }
             }
             assertTrue(String.format("User %s%s not found", prefix, testingUserHandle), found);
+        }
+    }
+
+    @Test
+    public void userCreateErrorsTest() {
+        try {
+            api.createUser().body(new User()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createUser().body(new User()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void userCreate409ErrorsTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_409.json");
+        stubFor(post(urlPathEqualTo(apiUri))
+                .willReturn(okJson(fixtureData).withStatus(409))
+        );
+
+        try {
+            unitApi.createUser().body(new User()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(409, e.getCode());
+        }
+    }
+
+    @Test
+    public void testUserListErrorsTest() {
+        try {
+            fakeAuthApi.listUsers().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void userGetErrorsTest() {
+        try {
+            fakeAuthApi.getUser("notahandle").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getUser("notahandle").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void userUpdateErrorsTest() throws ApiException {
+        // Test creating user
+        User user = new User();
+        user.setAccessRole(testingUserAR);
+        user.setHandle(testingUserHandle);
+        user.setName(testingUserName);
+        UserResponse response = api.createUser().body(user).execute();
+        // If something fails, make sure we disable the user
+        disableUsers.add(testingUserHandle);
+
+        User badUser = new User();
+        badUser.setEmail("notanemail");
+
+        try {
+            api.updateUser(user.getHandle()).body(badUser).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateUser("notahandle").body(badUser).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.updateUser("notahandle").body(badUser).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+    @Test
+    public void userDisableErrorsTest() throws ApiException {
+        // Test creating user
+        User user = new User();
+        user.setAccessRole(testingUserAR);
+        user.setHandle(testingUserHandle);
+        user.setName(testingUserName);
+        UserResponse response = api.createUser().body(user).execute();
+        // If something fails, make sure we disable the user
+        disableUsers.add(testingUserHandle);
+
+        try {
+            api.disableUser(user.getHandle()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.disableUser("notahandle").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.disableUser("notahandle").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
         }
     }
 }

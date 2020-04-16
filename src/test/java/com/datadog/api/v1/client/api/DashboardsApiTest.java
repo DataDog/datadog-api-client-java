@@ -30,9 +30,12 @@ import static org.junit.Assert.*;
 public class DashboardsApiTest extends V1ApiTest{
 
     private static DashboardsApi api;
+    private static DashboardsApi fakeAuthApi;
     private static ServiceLevelObjectivesApi sloApi;
+
     private List<String> cleanupDashIDs = new ArrayList<>();
     private String deleteSLO = null;
+    private final Dashboard emptyDashboard = new Dashboard();
     private final ServiceLevelObjective eventSLO = new ServiceLevelObjective()
             .type(SLOType.METRIC)
             .name("HTTP Return Codes")
@@ -54,6 +57,7 @@ public class DashboardsApiTest extends V1ApiTest{
     public static void initAPI() {
         api = new DashboardsApi(generalApiClient);
         sloApi = new ServiceLevelObjectivesApi(generalApiClient);
+        fakeAuthApi = new DashboardsApi(generalFakeAuthApiClient);
     }
 
     @After
@@ -73,6 +77,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 if (e.getCode() == 404) {
                     // doesn't exist => ok
                 } else {
+                    System.out.printf("hello this is where the error is");
                     throw e;
                 }
             } finally {
@@ -669,4 +674,78 @@ public class DashboardsApiTest extends V1ApiTest{
         assertNotNull(getAllResponse.getDashboards().get(0).getTitle());
         assertNotNull(getAllResponse.getDashboards().get(0).getUrl());
     }
+
+    @Test
+    public void dashboardCreateErrorsTest() {
+        try {
+            api.createDashboard().body(emptyDashboard).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createDashboard().body(emptyDashboard).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void dashboardListErrorsTest() {
+        try {
+            fakeAuthApi.listDashboards().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void dashboardDeleteErrorsTest() {
+        try {
+            fakeAuthApi.deleteDashboard("random").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.deleteDashboard("random").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void dashboardUpdateErrorsTest() {
+        Dashboard dashboard = new Dashboard()
+                .title("Java Client Test ORDERED Dashboard")
+                .description("Test dashboard for Java client")
+                .layoutType(DashboardLayoutType.FREE);
+
+        try {
+            api.updateDashboard("random").body(emptyDashboard).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateDashboard("random").body(emptyDashboard).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.updateDashboard("random").body(dashboard).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
 }
