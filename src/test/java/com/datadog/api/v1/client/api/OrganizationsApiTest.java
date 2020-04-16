@@ -6,6 +6,7 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
@@ -17,7 +18,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -25,7 +27,10 @@ import static org.junit.Assert.assertEquals;
  */
 public class OrganizationsApiTest extends V1ApiTest {
 
-    private final OrganizationsApi api = new OrganizationsApi(generalApiUnitTestClient);
+    private final OrganizationsApi api = new OrganizationsApi(generalApiClient);
+    private final OrganizationsApi unitApi = new OrganizationsApi(generalApiUnitTestClient);
+    private final OrganizationsApi fakeAuthApi = new OrganizationsApi(generalFakeAuthApiClient);
+
     private final String apiUri = "/api/v1/org";
     private final String fixturePrefix = "v1/client/api/org_fixtures";
 
@@ -50,7 +55,7 @@ public class OrganizationsApiTest extends V1ApiTest {
                 .name("My Org")
                 .billing(new OrganizationBilling().type("parent_billing"))
                 .subscription(new OrganizationSubscription().type("pro"));
-        OrganizationCreateResponse response = api.createChildOrg().body(orgCreateBody).execute();
+        OrganizationCreateResponse response = unitApi.createChildOrg().body(orgCreateBody).execute();
 
         // Assert values match whats in create_child_org.json
         assertEquals(response.getOrg().getName(), "My Org");
@@ -81,7 +86,7 @@ public class OrganizationsApiTest extends V1ApiTest {
         MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_orgs.json", "get");
         stubFor(stub);
 
-        OrganizationListResponse response = api.listOrgs().execute();
+        OrganizationListResponse response = unitApi.listOrgs().execute();
 
         // Assert values match whats in get_orgs.json fixture
         assertEquals(response.getOrgs().size(), 1);
@@ -124,7 +129,7 @@ public class OrganizationsApiTest extends V1ApiTest {
                                 new OrganizationSettingsSamlAutocreateUsersDomains().enabled(true).addDomainsItem("my-org.com").addDomainsItem("example.com")
                         )
         );
-        OrganizationResponse response = api.updateOrg(publicId).body(org).execute();
+        OrganizationResponse response = unitApi.updateOrg(publicId).body(org).execute();
 
         // Assert values match whats in update_orgs.json fixture
         assertEquals(response.getOrg().getPublicId(), "axd2s");
@@ -165,9 +170,107 @@ public class OrganizationsApiTest extends V1ApiTest {
         String publicId = "123456";
         // Open a file to test the request. Any file can do, content does not matter since the endpoint is mocked.
         File idpFile = new File(OrganizationsApiTest.class.getResource("org_fixtures/update_idp_meta.json").toURI());
-        IdpResponse response = api.uploadIdPForOrg(publicId).idpFile(idpFile).execute(); //.uploadIdPForOrg(publicId);
+        IdpResponse response = unitApi.uploadIdPForOrg(publicId).idpFile(idpFile).execute(); //.uploadIdPForOrg(publicId);
 
         assertEquals(response.getMessage(), "IdP metadata successfully uploaded for org Datadog HQ");
     }
 
+    @Test
+    public void orgsCreateErrorsTest() {
+        try {
+            api.createChildOrg().body(new OrganizationCreateBody()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createChildOrg().body(new OrganizationCreateBody()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void orgsListErrorsTest() {
+        try {
+            fakeAuthApi.listOrgs().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void orgsGetErrorsTest() {
+        try {
+            api.getOrg("lsqdkjf").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getOrg("lsqdkjf").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void orgsUpdateErrorsTest() {
+        try {
+            api.updateOrg("lsqdkjf").body(new Organization()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateOrg("lsqdkjf").body(new Organization()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void orgsUploadIdpErrorsTest() throws URISyntaxException {
+        // Get random file.
+        File idpFile = new File(OrganizationsApiTest.class.getResource("org_fixtures/error_415.json").toURI());
+
+        try {
+            api.uploadIdPForOrg("lsqdkjf").idpFile(idpFile).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.uploadIdPForOrg("lsqdkjf").idpFile(idpFile).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void orgsUploadIdp415ErrorTest() throws IOException, URISyntaxException {
+        // Get file object. This fixture doesn't exist since we don't need it to.
+        File idpFile = new File(OrganizationsApiTest.class.getResource("org_fixtures/error_415.json").toURI());
+
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_415.json");
+        stubFor(post(urlPathEqualTo(apiUri + "/id/idp_metadata"))
+                .willReturn(okJson(fixtureData).withStatus(415))
+        );
+        //Can't trigger 415 from the client because it will always send the proper MIME type so mock it
+        try {
+            unitApi.uploadIdPForOrg("id").idpFile(idpFile).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(415, e.getCode());
+        }
+    }
 }

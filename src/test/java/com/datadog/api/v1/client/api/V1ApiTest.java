@@ -23,6 +23,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 public abstract class V1ApiTest extends TestUtils.APITest {
     protected static ApiClient generalApiClient;
+    protected static ApiClient generalFakeAuthApiClient;
+    protected static ApiClient generalEmptyAuthApiClient;
     protected static ApiClient generalApiUnitTestClient;
 
     @BeforeClass
@@ -49,6 +51,57 @@ public abstract class V1ApiTest extends TestUtils.APITest {
             generalApiClient.setBasePath("https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
             generalApiClient.setServerIndex(null);
         }
+    }
+
+    @BeforeClass
+    public static void initGeneralFakeAuthApiClient() {
+        generalFakeAuthApiClient = new ApiClient();
+
+        // Configure authorization
+        HashMap<String, String> secrets = new HashMap<>();
+        secrets.put("apiKeyAuth", "fake_api_key");
+        secrets.put("appKeyAuth", "fake_app_key");
+        generalFakeAuthApiClient.configureApiKeys(secrets);
+
+        // Set debugging based on env
+        generalFakeAuthApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
+
+        // Set proxy to the mockServer for recording
+        if (TestUtils.isRecording()) {
+            if (!TestUtils.isIbmJdk()) {
+                ClientConfig config = (ClientConfig) generalFakeAuthApiClient.getHttpClient().getConfiguration();
+                config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+            }
+        } else {
+            // Set base path to the mock server for replaying
+            generalFakeAuthApiClient.setBasePath("https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
+            generalFakeAuthApiClient.setServerIndex(null);
+        }
+    }
+
+    @BeforeClass
+    public static void initGeneralEmptyAuthApiClient() {
+        generalEmptyAuthApiClient = new ApiClient();
+
+        // Configure authorization
+        HashMap<String, String> secrets = new HashMap<>();
+        generalEmptyAuthApiClient.configureApiKeys(secrets);
+
+        // Set debugging based on env
+        generalEmptyAuthApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
+
+        // Set proxy to the mockServer for recording
+        if (TestUtils.isRecording()) {
+            if (!TestUtils.isIbmJdk()) {
+                ClientConfig config = (ClientConfig) generalEmptyAuthApiClient.getHttpClient().getConfiguration();
+                config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+            }
+        } else {
+            // Set base path to the mock server for replaying
+            generalEmptyAuthApiClient.setBasePath("https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
+            generalEmptyAuthApiClient.setServerIndex(null);
+        }
+
     }
 
     @BeforeClass

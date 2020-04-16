@@ -6,6 +6,7 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.GraphSnapshot;
 import org.junit.BeforeClass;
@@ -19,10 +20,12 @@ import static org.junit.Assert.*;
 public class SnapshotsApiTest extends V1ApiTest {
 
     private static SnapshotsApi api;
+    private static SnapshotsApi fakeAuthApi;
 
     @BeforeClass
     public static void initAPI() {
         api = new SnapshotsApi(generalApiClient);
+        fakeAuthApi = new SnapshotsApi(generalFakeAuthApiClient);
     }
 
     @Test
@@ -68,6 +71,23 @@ public class SnapshotsApiTest extends V1ApiTest {
             api.getGraphSnapshot().start(start).metricQuery(metricQuery).execute();
         } catch (ApiException e) {
             assertTrue(e.getMessage().contains("Missing the required parameter 'end"));
+        }
+    }
+
+    @Test
+    public void getGraphErrors() {
+        try {
+            api.getGraphSnapshot().start(new Long(345)).end(new Long(123)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getGraphSnapshot().start(new Long(345)).end(new Long(123)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
         }
     }
 }

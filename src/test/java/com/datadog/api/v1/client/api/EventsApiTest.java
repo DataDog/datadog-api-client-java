@@ -30,10 +30,12 @@ import java.util.concurrent.atomic.AtomicReference;
 public class EventsApiTest extends V1ApiTest {
 
     private static EventsApi api;
+    private static EventsApi fakeAuthApi;
 
     @BeforeClass
     public static void initApi() {
         api = new EventsApi(generalApiClient);
+        fakeAuthApi = new EventsApi(generalFakeAuthApiClient);
     }
 
     /**
@@ -102,5 +104,39 @@ public class EventsApiTest extends V1ApiTest {
                 return false;
             }
         });
+    }
+
+    @Test
+    public void eventListErrorTest() {
+        try {
+            api.listEvents().start(new Long(345)).end(new Long(123)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.listEvents().start(new Long(345)).end(new Long(123)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void eventGetErrorTest() {
+        try {
+            fakeAuthApi.getEvent(new Long((new Long(1234)))).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getEvent(new Long((new Long(1234)))).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
     }
 }

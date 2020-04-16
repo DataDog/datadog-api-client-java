@@ -16,6 +16,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import sun.reflect.generics.scope.Scope;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +28,8 @@ import java.util.List;
 public class DowntimesApiTest extends V1ApiTest {
 
     private static DowntimesApi api;
+    private static DowntimesApi fakeAuthApi;
+
     private ArrayList<Long> deleteDowntimes = null;
     private Long testingDowntimeStart;
 
@@ -46,6 +49,7 @@ public class DowntimesApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new DowntimesApi(generalApiClient);
+        fakeAuthApi = new DowntimesApi(generalFakeAuthApiClient);
     }
 
     @After
@@ -182,6 +186,115 @@ public class DowntimesApiTest extends V1ApiTest {
             } else {
                 assertFalse(String.format("Downtime %s%s found, but it should have been canceled", prefix, testingDowntimeMessage), found);
             }
+        }
+    }
+
+    @Test
+    public void downtimeListErrorsTest() {
+        try {
+            fakeAuthApi.listDowntimes().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void downtimeCreateErrorsTest() {
+        try {
+            api.createDowntime().body(new Downtime()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createDowntime().body(new Downtime()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void downtimeCancelByScopeErrorsTest() {
+        try {
+            api.cancelDowntimesByScope().body(new CancelDowntimesByScopeRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.cancelDowntimesByScope().body(new CancelDowntimesByScopeRequest()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.cancelDowntimesByScope().body(new CancelDowntimesByScopeRequest().scope("nonexistent")).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void downtimeCancelErrorsTest() {
+        try {
+            fakeAuthApi.cancelDowntime(new Long(1234)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.cancelDowntime(new Long(1234)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void downtimeGetErrorsTest() {
+        try {
+            fakeAuthApi.getDowntime(new Long(1234)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getDowntime(new Long(1234)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void downtimeUpdateErrorsTest() {
+        try {
+            api.updateDowntime(new Long(1234)).body(new Downtime().start(new Long(1234))).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateDowntime(new Long(1234)).body(new Downtime()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.updateDowntime(new Long(1234)).body(new Downtime()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
         }
     }
 }

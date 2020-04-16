@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,7 @@ import java.util.List;
 public class HostsApiTest extends V1ApiTest {
 
     private static HostsApi api;
+    private static HostsApi fakeAuthApi;
     private static HostsApi unitAPI;
     private static MetricsApi metricsAPI;
     private static TagsApi tagsAPI;
@@ -37,6 +39,7 @@ public class HostsApiTest extends V1ApiTest {
     @BeforeClass
     public static void initAPI() {
         api = new HostsApi(generalApiClient);
+        fakeAuthApi = new HostsApi(generalFakeAuthApiClient);
         unitAPI = new HostsApi(generalApiUnitTestClient);
         metricsAPI = new MetricsApi(generalApiClient);
         tagsAPI = new TagsApi(generalApiClient);
@@ -172,6 +175,81 @@ public class HostsApiTest extends V1ApiTest {
         HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
         assertEquals(expected, response);
+    }
+
+    @Test
+    public void hostsListErrorsTest() {
+        try {
+            api.listHosts().count(new Long(-1)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.listHosts().count(new Long(-1)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void hostsGetTotalsErrorsTest() {
+        try {
+            api.getHostTotals().from(new Long(Instant.now().getEpochSecond() + 60)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getHostTotals().from(new Long(Instant.now().getEpochSecond() + 60)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void hostsMuteErrorsTest() {
+        long nowMillis = now.toInstant().toEpochMilli()/1000;
+        String hostname = String.format("java-client-test-host-%d", nowMillis);
+
+        //The endpoint muteHost currently does not respond with 400 regardless of settings.
+//        try {
+//            api.muteHost(hostname).body(new HostMuteSettings()).execute();
+//            throw new AssertionError();
+//        } catch (ApiException e) {
+////            assertEquals(400, e.getCode());
+//        }
+
+        try {
+            fakeAuthApi.muteHost(hostname).body(new HostMuteSettings()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void hostsUnmuteErrorsTest() {
+        long nowMillis = now.toInstant().toEpochMilli()/1000;
+        String hostname = String.format("java-client-test-host-%d", nowMillis);
+
+        try {
+            api.unmuteHost(hostname).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.unmuteHost(hostname).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
     }
 
 }

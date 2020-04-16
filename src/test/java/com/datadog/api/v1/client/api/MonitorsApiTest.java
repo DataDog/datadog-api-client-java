@@ -6,17 +6,22 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.Monitor;
 import com.datadog.api.v1.client.model.MonitorType;
 import com.datadog.api.v1.client.model.MonitorOptions;
 import com.datadog.api.v1.client.model.DeletedMonitor;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,6 +32,8 @@ import java.util.List;
 public class MonitorsApiTest extends V1ApiTest {
 
     private static MonitorsApi api;
+    private static MonitorsApi fakeAuthApi;
+    private static MonitorsApi unitApi;
     private ArrayList<Long> deleteMonitors = null;
 
     private final String testingMonitorName = "Bytes received on host0";
@@ -37,6 +44,9 @@ public class MonitorsApiTest extends V1ApiTest {
     private final Boolean testingMonitorOptionsNotifyNoData = true;
     private final Long testingMonitorOptionsNoDataTimeframe = 20L;
 
+    private final String fixturePrefix = "v1/client/api/monitors_fixtures";
+    private final String apiUri = "/api/v1/monitor";
+
     @Before
     public void resetDeleteMonitors() {
         deleteMonitors = new ArrayList<Long>();
@@ -45,6 +55,8 @@ public class MonitorsApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new MonitorsApi(generalApiClient);
+        fakeAuthApi = new MonitorsApi(generalFakeAuthApiClient);
+        unitApi = new MonitorsApi(generalApiUnitTestClient);
     }
 
     @After
@@ -169,4 +181,226 @@ public class MonitorsApiTest extends V1ApiTest {
             // noop
         }
      }
+
+    @Test
+    public void monitorsCreateErrorsTest() {
+        try {
+            api.createMonitor().body(new Monitor()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createMonitor().body(new Monitor()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void monitorsListErrorsTest() {
+        try {
+            api.listMonitors().groupStates("notagroupstate").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.listMonitors().groupStates("notagroupstate").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void monitorUpdateErrorsTest() throws ApiException {
+        Monitor monitor = new Monitor()
+                .name(testingMonitorName)
+                .type(testingMonitorType)
+                .query(testingMonitorQuery)
+                .message(testingMonitorMessage)
+                .tags(testingMonitorTags);
+
+        // create monitor
+        Monitor obtained = api.createMonitor().body(monitor).execute();
+        Long monitorId = obtained.getId();
+        deleteMonitors.add(monitorId);
+
+        Monitor updateMonitor = new Monitor();
+        updateMonitor.setType(MonitorType.COMPOSITE);
+
+        try {
+            api.updateMonitor(monitorId).body(updateMonitor).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateMonitor(new Long(1234)).body(new Monitor()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.updateMonitor(new Long(1234)).body(new Monitor()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void monitorUpdate401ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_401.json");
+        stubFor(put(urlPathEqualTo(apiUri + "/121"))
+                .willReturn(okJson(fixtureData).withStatus(401))
+        );
+        // Cannot trigger 401 for client. Need underrestricted creds. Mock it.
+        try {
+            unitApi.updateMonitor(new Long(121)).body(new Monitor()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(401, e.getCode());
+        }
+    }
+
+    @Test
+    public void monitorGetErrorsTest() throws ApiException {
+        Monitor monitor = new Monitor()
+                .name(testingMonitorName)
+                .type(testingMonitorType)
+                .query(testingMonitorQuery)
+                .message(testingMonitorMessage)
+                .tags(testingMonitorTags);
+
+        // create monitor
+        Monitor obtained = api.createMonitor().body(monitor).execute();
+        Long monitorId = obtained.getId();
+        deleteMonitors.add(monitorId);
+
+        Monitor updateMonitor = new Monitor();
+        updateMonitor.setType(MonitorType.COMPOSITE);
+
+        try {
+            api.getMonitor(monitorId).groupStates("notagroupstate").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.getMonitor(new Long(1234)).groupStates("notagroupstate").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getMonitor(new Long(1234)).groupStates("notagroupstate").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void monitorDelete400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(delete(urlPathEqualTo(apiUri + "/121"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Cannot trigger 400 due to client side validations, so mock it
+        try {
+            unitApi.deleteMonitor(new Long(121)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void monitorDelete401ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_401.json");
+        stubFor(delete(urlPathEqualTo(apiUri + "/121"))
+                .willReturn(okJson(fixtureData).withStatus(401))
+        );
+        // Cannot trigger 401 for client. Need underrestricted creds. Mock it.
+        try {
+            unitApi.deleteMonitor(new Long(121)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(401, e.getCode());
+        }
+    }
+
+    @Test
+    public void monitorCanDeleteErrorsTest() throws ApiException {
+        // create metrics monitor
+        Monitor monitor = new Monitor()
+                .type(MonitorType.QUERY_ALERT)
+                .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
+
+        Monitor obtained = api.createMonitor().body(monitor).execute();
+        Long monitorId = obtained.getId();
+        deleteMonitors.add(monitorId);
+
+        // create composite monitor
+        Monitor composite = new Monitor()
+                .type(MonitorType.COMPOSITE)
+                .query(Long.toString(monitorId));
+
+        Monitor compositeObtained = api.createMonitor().body(composite).execute();
+        Long compositeMonitorId = compositeObtained.getId();
+        deleteMonitors.add(compositeMonitorId);
+
+        List<Long> monitorIdlist = new ArrayList<Long>(Arrays.asList(monitorId));
+        List<Long> emptyIdlist = new ArrayList<Long>();
+
+        try {
+            api.checkCanDeleteMonitor().monitorIds(emptyIdlist).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.checkCanDeleteMonitor().monitorIds(emptyIdlist).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.checkCanDeleteMonitor().monitorIds(monitorIdlist).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(409, e.getCode());
+            // Manually delete the composite monitor as deleteMonitors() can fail
+            // if trying to delete the dependent metrics monitor prior to deleting the composite monitor
+            api.deleteMonitor(compositeMonitorId).execute();
+        }
+    }
+
+    @Test
+    public void monitorValidateErrorsTest() {
+        try {
+            api.validateMonitor().body(new Monitor()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.validateMonitor().body(new Monitor()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
 }

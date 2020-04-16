@@ -12,6 +12,7 @@ import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
@@ -30,10 +31,22 @@ import java.util.List;
 public class MetricsApiTest extends V1ApiTest {
 
     private static MetricsApi api;
+    private static MetricsApi fakeAuthApi;
+    private static MetricsApi unitApi;
+
+    private final String fixturePrefix = "v1/client/api/metrics_fixtures";
+    private final String apiUri = "/api/v1/metrics";
+
+    @BeforeClass
+    public static void initApi() {
+        api = new MetricsApi(generalApiClient);
+        fakeAuthApi = new MetricsApi(generalFakeAuthApiClient);
+        unitApi = new MetricsApi(generalApiUnitTestClient);
+    }
+
 
     @Test
     public void metricsTests() throws ApiException, TestUtils.RetryException {
-        api = new MetricsApi(generalApiClient);
         long nowSeconds = now.toEpochSecond();
 
         String testMetric = String.format("java.client.test.%d", nowSeconds);
@@ -134,5 +147,129 @@ public class MetricsApiTest extends V1ApiTest {
         MetricsListResponse r = api.listActiveMetrics().from(1L).host("host").execute();
 
         assertEquals(expected, r);
+    }
+
+    @Test
+    public void metricsListActive400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo(apiUri))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Error 400 cannot be triggered from the client due to client side validation, so mock it
+        try {
+           unitApi.listActiveMetrics().from(new Long(-1)).execute();
+           throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void metricsListActiveErrorsTest() {
+        try {
+            fakeAuthApi.listActiveMetrics().from(new Long(-1)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void metricsMetadataGetErrorsTest() {
+        try {
+            fakeAuthApi.getMetricMetadata("ametric").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getMetricMetadata("ametric").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void metricsMetadataUpdate400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(put(urlPathEqualTo(apiUri + "/ametric"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+
+        try {
+            unitApi.updateMetricMetadata("ametric").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void metricsMetadataUpdateErrorsTest() {
+        try {
+            fakeAuthApi.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void metricsList400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo("/api/v1/search"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Error 400 cannot be triggered from the client due to client side validation, so mock it
+        try {
+            unitApi.listMetrics().q("").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void metricsListErrorsTest() {
+        try {
+            fakeAuthApi.listMetrics().q("somequery").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void metricsQuery400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo("/api/v1/query"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Error 400 cannot be triggered from the client due to client side validation, so mock it
+        try {
+            unitApi.queryMetrics().query("").from(new Long(9)).to(new Long(9)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    public void metricsQueryErrorsTest() {
+        try {
+            fakeAuthApi.queryMetrics().query("").from(new Long(9)).to(new Long(9)).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
     }
 }

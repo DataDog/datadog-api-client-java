@@ -23,7 +23,10 @@ import static org.junit.Assert.*;
  */
 public class SyntheticsApiTest extends V1ApiTest {
     private static SyntheticsApi api;
-    private static SyntheticsApi unitAPI;
+    private static SyntheticsApi fakeAuthApi;
+    private static SyntheticsApi unitApi;
+    private final String apiUri = "/api/v1/synthetics";
+    private final String fixturePrefix = "v1/client/api/synthetics_fixtures";
     private ArrayList<String> deleteSyntheticsTests = null;
     private SyntheticsTestDetails apiTestConfig = new SyntheticsTestDetails()
             .config(new SyntheticsTestConfig()
@@ -94,7 +97,8 @@ public class SyntheticsApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new SyntheticsApi(generalApiClient);
-        unitAPI = new SyntheticsApi(generalApiUnitTestClient);
+        fakeAuthApi = new SyntheticsApi(generalFakeAuthApiClient);
+        unitApi = new SyntheticsApi(generalApiUnitTestClient);
     }
 
     @After
@@ -192,7 +196,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         stubFor(get(urlPathEqualTo("/api/v1/synthetics/tests/test-synthetics-id/results/test-result-id"))
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/synthetics_fixtures/api_test_single_result.json")))
         );
-        SyntheticsAPITestResultFull result = unitAPI.getAPITestResult("test-synthetics-id", "test-result-id").execute();
+        SyntheticsAPITestResultFull result = unitApi.getAPITestResult("test-synthetics-id", "test-result-id").execute();
 
         // Assert a few of the returned attributes unmarshall properly
         assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.TRIGGERED);
@@ -272,7 +276,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         stubFor(get(urlPathEqualTo("/api/v1/synthetics/tests/browser/test-synthetics-id/results/test-result-id"))
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/synthetics_fixtures/browser_test_single_result.json")))
         );
-        SyntheticsBrowserTestResultFull result = unitAPI.getBrowserTestResult("test-synthetics-id", "test-result-id").execute();
+        SyntheticsBrowserTestResultFull result = unitApi.getBrowserTestResult("test-synthetics-id", "test-result-id").execute();
         // Assert based on the data from the fixture file, test a few fields
         assertEquals(result.getResultId(), "5140738909114888212");
         assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.UNTRIGGERED);
@@ -306,5 +310,203 @@ public class SyntheticsApiTest extends V1ApiTest {
         }
 
         assertTrue(String.format("Test %s not found in list retrieved from API", publicId), false);
+    }
+
+    @Test
+    public void deleteSyntheticsErrorsTest() {
+        try {
+            api.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void deleteSynthetics404ErrorsTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_404.json");
+        stubFor(post(urlPathEqualTo(apiUri + "/tests/delete"))
+                .willReturn(okJson(fixtureData).withStatus(404))
+        );
+
+        try {
+            unitApi.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void updateStatusSyntheticsErrorsTest() throws ApiException {
+        // Create API test
+        SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
+        String publicId = synt.getPublicId();
+        deleteSyntheticsTests.add(publicId);
+
+        try {
+            api.updateTestPauseStatus(publicId).body(new SyntheticsUpdateTestPauseStatusPayload()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateTestPauseStatus(publicId).body(new SyntheticsUpdateTestPauseStatusPayload()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.updateTestPauseStatus("aaa-aaa-aaa").body(new SyntheticsUpdateTestPauseStatusPayload()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void browserSpecificGetResultSyntheticsErrorsTest() {
+        try {
+            fakeAuthApi.getBrowserTestResult("id", "resultid").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getBrowserTestResult("aaa-aaa-aaa", "resultid").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void aPISpecificGetResultSyntheticsErrorsTest() {
+        try {
+            fakeAuthApi.getAPITestResult("id", "resultid").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getAPITestResult("aaa-aaa-aaa", "resultid").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void getTestSyntheticsErrorsTest() {
+        try {
+            fakeAuthApi.getTest( "id").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.getTest( "aaa-aaa-aaa").execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void updateTestSyntheticsErrorsTest() throws ApiException {
+        // Create API test
+        SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
+        String publicId = synt.getPublicId();
+        deleteSyntheticsTests.add(publicId);
+
+        try {
+            api.updateTest(publicId).body(new SyntheticsTestDetails()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.updateTest("id").body(new SyntheticsTestDetails()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+
+        try {
+            api.updateTest("aaa-aaa-aaa").body(new SyntheticsTestDetails()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void listTestSyntheticsErrorsTest() {
+        try {
+            fakeAuthApi.listTests().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void listTestSynthetics404ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_404.json");
+        stubFor(get(urlPathEqualTo(apiUri + "/tests"))
+                .willReturn(okJson(fixtureData).withStatus(404))
+        );
+
+        try {
+            unitApi.listTests().execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+        }
+    }
+
+    @Test
+    public void createTestSyntheticsErrorsTest() {
+        try {
+            api.createTest().body(new SyntheticsTestDetails()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
+
+        try {
+            fakeAuthApi.createTest().body(new SyntheticsTestDetails()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+        }
+    }
+
+    @Test
+    public void createTestSynthetics402ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_402.json");
+        stubFor(post(urlPathEqualTo(apiUri + "/tests"))
+                .willReturn(okJson(fixtureData).withStatus(402))
+        );
+
+        try {
+            unitApi.createTest().body(new SyntheticsTestDetails()).execute();
+            throw new AssertionError();
+        } catch (ApiException e) {
+            assertEquals(402, e.getCode());
+        }
     }
 }
