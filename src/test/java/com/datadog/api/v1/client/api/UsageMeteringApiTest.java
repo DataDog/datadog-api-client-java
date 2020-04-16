@@ -39,6 +39,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     private static OffsetDateTime endMonth;
     private static OffsetDateTime futureStartHr;
     private static OffsetDateTime futureStartMonth;
+    private static OffsetDateTime pastStartMonth;
 
     private final String apiUri = "/api/v1/usage";
     private final String fixturePrefix = "v1/client/api/usage_fixtures";
@@ -58,8 +59,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
         endHr = startHr.plusHours(1);
         startMonth = OffsetDateTime.of(nowDateTime.getYear(), nowDateTime.getMonth().getValue(), 1, 0, 0, 0, 0, ZoneOffset.UTC).minusMonths(2);
         endMonth = startHr.plusMonths(1);
-        futureStartHr = OffsetDateTime.of(now.getYear(), now.getMonth().getValue(), 1, 12, 0, 0, 0, ZoneOffset.UTC).plusHours(5);
-        futureStartMonth = OffsetDateTime.of(now.getYear(), now.getMonth().getValue(), 1, 12, 0, 0, 0, ZoneOffset.UTC).plusMonths(1);
+        futureStartHr = OffsetDateTime.of(now.getYear(), now.getMonth().getValue(), now.getDayOfMonth(), now.getHour(), now.getMinute(), 0, 0, ZoneOffset.UTC).plusHours(5);
+        futureStartMonth = futureStartHr.plusMonths(1);
+        pastStartMonth = startHr.minusYears(2);
     }
 
     @Test
@@ -308,14 +310,14 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getUsageTopAvgMetricsErrorsTest() {
         try {
-            api.getUsageTopAvgMetrics().month(futureStartMonth).execute();
+            api.getUsageTopAvgMetrics().month(pastStartMonth).execute();
             throw new AssertionError();
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
         }
 
         try {
-            fakeAuthApi.getUsageTopAvgMetrics().month(futureStartMonth).execute();
+            fakeAuthApi.getUsageTopAvgMetrics().month(pastStartMonth).execute();
             throw new AssertionError();
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
