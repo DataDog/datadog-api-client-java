@@ -96,7 +96,7 @@ public class UsersApiTest extends V2APITest {
         api.disableUser(uid).execute();
 
         // now, test filtering for it in the list call
-        UsersResponsePayload usrp = api
+        UsersResponse usrp = api
                 .listUsers()
                 .filter(testingUserHandle)
                 .pageSize(1L)
