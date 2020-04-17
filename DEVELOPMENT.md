@@ -58,13 +58,15 @@ We utilize a couple CI Providers to accomplish testing this project:
 
 See the `CI Provider` links above for the full matrix this project tests against. An explanation of the specific testing matrix entries follows:
 
-| Test Type                        | JDK                | Reason                                                                                                                                                                                                     |
-|----------------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Integration Tests with Cassettes | AdoptOpenJDK 8     | We want to support Java 8 as the minimal version                                                                                                                                                           |
-| Integration Tests with Cassettes | Amazon Corretto 11 | This client is used in [Datadog CloudFormation resources](https://github.com/DataDog/datadog-cloudformation-resources/) and we want to ensure it runs correctly on Amazon's JDK                            |
-| Integration Tests with Cassettes | Oracle JDK 14      | To guarantee compatibility with Oracle JDK                                                                                                                                                                 |
-| Integration Tests                | IBM JDK 8          | IBM JDK requires some special treatment in terms of TLS usage; it's currently impossible to use it to with cassettes because of a [mockserver issue](https://github.com/mock-server/mockserver/issues/750) |
-| Integration Tests                | OpenJDK 8          | To ensure all integration tests pass on a canonical OpenJDK version 8                                                                                                                                      |
+| Test Type                        | JDK                | Reason                                                                                                                                                                                                       |
+|----------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Integration Tests with Cassettes | AdoptOpenJDK 8     | We want to support Java 8 as the minimal version                                                                                                                                                             |
+| Integration Tests with Cassettes | Amazon Corretto 11 | This client is used in [Datadog CloudFormation resources](https://github.com/DataDog/datadog-cloudformation-resources/) and we want to ensure it runs correctly on Amazon's JDK                              |
+| Integration Tests with Cassettes | Oracle JDK 14      | To guarantee compatibility with Oracle JDK                                                                                                                                                                   |
+| Integration Tests                | OpenJDK 8          | To ensure all integration tests pass on a canonical OpenJDK version 8                                                                                                                                        |
+| ~Integration Tests~              | ~IBM JDK 8~        | ~IBM JDK requires some special treatment in terms of TLS usage; it's currently impossible to use it to with cassettes because of a [mockserver issue](https://github.com/mock-server/mockserver/issues/750)~ |
+
+Note: IBM JDK 8 is not supported because it does not support `PATCH` requests over `HTTPS`. 
 
 Tests running in Github Actions are those that __require no__ secrets, to allow for PRs created from forks to run as expected. These are the unit tests and Integration tests with cassettes. These tests are run on each commit from a PR. 
 
