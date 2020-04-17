@@ -17,7 +17,7 @@ import com.datadog.api.v2.client.model.Organization;
 import com.datadog.api.v2.client.model.Permission;
 import com.datadog.api.v2.client.model.Role;
 import com.datadog.api.v2.client.model.RoleAttributes;
-import com.datadog.api.v2.client.model.RoleRelationships;
+import com.datadog.api.v2.client.model.RoleResponseRelationships;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

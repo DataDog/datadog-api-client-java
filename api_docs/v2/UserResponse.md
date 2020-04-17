@@ -2,15 +2,13 @@
 
 # UserResponse
 
-User object returned by the API.
+Response containing information about a single user.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**UserResponseAttributes**](UserResponseAttributes.md) |  |  [optional]
-**id** | **String** | ID of the user. |  [optional]
-**relationships** | [**UserResponseRelationships**](UserResponseRelationships.md) |  |  [optional]
-**type** | **String** | Users type. |  [optional] [readonly]
+**data** | [**User**](User.md) |  |  [optional]
+**included** | [**List&lt;UserResponseIncludedItem&gt;**](UserResponseIncludedItem.md) | Array of objects related to the user. |  [optional]
 
 
 

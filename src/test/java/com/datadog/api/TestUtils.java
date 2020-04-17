@@ -55,9 +55,15 @@ public class TestUtils {
     public static int MOCKSERVER_PORT = 8081;
 
     public static void retry(int interval, int count, BooleanSupplier call) throws RetryException {
-        for (int i = 0; i < count; i++) {
-            if (call.getAsBoolean()) {
-                return;
+        for (int i = 0; i <= count; i++) {
+            try {
+                if (call.getAsBoolean()) {
+                    return;
+                }
+            } catch (AssertionError e) {
+                if (i == count) {
+                    throw e;
+                }
             }
             if (isRecording()) {
                 try {

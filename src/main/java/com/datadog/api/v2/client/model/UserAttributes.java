@@ -27,18 +27,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "Attributes of user object returned by the API.")
 @JsonPropertyOrder({
-  UserResponseAttributes.JSON_PROPERTY_CREATED_AT,
-  UserResponseAttributes.JSON_PROPERTY_DISABLED,
-  UserResponseAttributes.JSON_PROPERTY_EMAIL,
-  UserResponseAttributes.JSON_PROPERTY_HANDLE,
-  UserResponseAttributes.JSON_PROPERTY_ICON,
-  UserResponseAttributes.JSON_PROPERTY_NAME,
-  UserResponseAttributes.JSON_PROPERTY_STATUS,
-  UserResponseAttributes.JSON_PROPERTY_TITLE,
-  UserResponseAttributes.JSON_PROPERTY_VERIFIED
+  UserAttributes.JSON_PROPERTY_CREATED_AT,
+  UserAttributes.JSON_PROPERTY_DISABLED,
+  UserAttributes.JSON_PROPERTY_EMAIL,
+  UserAttributes.JSON_PROPERTY_HANDLE,
+  UserAttributes.JSON_PROPERTY_ICON,
+  UserAttributes.JSON_PROPERTY_NAME,
+  UserAttributes.JSON_PROPERTY_STATUS,
+  UserAttributes.JSON_PROPERTY_TITLE,
+  UserAttributes.JSON_PROPERTY_VERIFIED
 })
 
-public class UserResponseAttributes {
+public class UserAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -67,7 +67,7 @@ public class UserResponseAttributes {
   private Boolean verified;
 
 
-  public UserResponseAttributes createdAt(OffsetDateTime createdAt) {
+  public UserAttributes createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -92,7 +92,7 @@ public class UserResponseAttributes {
   }
 
 
-  public UserResponseAttributes disabled(Boolean disabled) {
+  public UserAttributes disabled(Boolean disabled) {
     
     this.disabled = disabled;
     return this;
@@ -117,7 +117,7 @@ public class UserResponseAttributes {
   }
 
 
-  public UserResponseAttributes email(String email) {
+  public UserAttributes email(String email) {
     
     this.email = email;
     return this;
@@ -142,7 +142,7 @@ public class UserResponseAttributes {
   }
 
 
-  public UserResponseAttributes handle(String handle) {
+  public UserAttributes handle(String handle) {
     
     this.handle = handle;
     return this;
@@ -167,7 +167,7 @@ public class UserResponseAttributes {
   }
 
 
-  public UserResponseAttributes icon(String icon) {
+  public UserAttributes icon(String icon) {
     
     this.icon = icon;
     return this;
@@ -192,7 +192,7 @@ public class UserResponseAttributes {
   }
 
 
-  public UserResponseAttributes name(String name) {
+  public UserAttributes name(String name) {
     
     this.name = name;
     return this;
@@ -217,7 +217,7 @@ public class UserResponseAttributes {
   }
 
 
-  public UserResponseAttributes status(String status) {
+  public UserAttributes status(String status) {
     
     this.status = status;
     return this;
@@ -242,7 +242,7 @@ public class UserResponseAttributes {
   }
 
 
-  public UserResponseAttributes title(String title) {
+  public UserAttributes title(String title) {
     
     this.title = title;
     return this;
@@ -267,7 +267,7 @@ public class UserResponseAttributes {
   }
 
 
-  public UserResponseAttributes verified(Boolean verified) {
+  public UserAttributes verified(Boolean verified) {
     
     this.verified = verified;
     return this;
@@ -300,16 +300,16 @@ public class UserResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserResponseAttributes userResponseAttributes = (UserResponseAttributes) o;
-    return Objects.equals(this.createdAt, userResponseAttributes.createdAt) &&
-        Objects.equals(this.disabled, userResponseAttributes.disabled) &&
-        Objects.equals(this.email, userResponseAttributes.email) &&
-        Objects.equals(this.handle, userResponseAttributes.handle) &&
-        Objects.equals(this.icon, userResponseAttributes.icon) &&
-        Objects.equals(this.name, userResponseAttributes.name) &&
-        Objects.equals(this.status, userResponseAttributes.status) &&
-        Objects.equals(this.title, userResponseAttributes.title) &&
-        Objects.equals(this.verified, userResponseAttributes.verified);
+    UserAttributes userAttributes = (UserAttributes) o;
+    return Objects.equals(this.createdAt, userAttributes.createdAt) &&
+        Objects.equals(this.disabled, userAttributes.disabled) &&
+        Objects.equals(this.email, userAttributes.email) &&
+        Objects.equals(this.handle, userAttributes.handle) &&
+        Objects.equals(this.icon, userAttributes.icon) &&
+        Objects.equals(this.name, userAttributes.name) &&
+        Objects.equals(this.status, userAttributes.status) &&
+        Objects.equals(this.title, userAttributes.title) &&
+        Objects.equals(this.verified, userAttributes.verified);
   }
 
   @Override
@@ -321,7 +321,7 @@ public class UserResponseAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserResponseAttributes {\n");
+    sb.append("class UserAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");

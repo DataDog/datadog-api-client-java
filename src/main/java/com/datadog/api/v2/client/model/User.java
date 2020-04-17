@@ -13,45 +13,42 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.RoleAttributes;
-import com.datadog.api.v2.client.model.RoleResponseRelationships;
+import com.datadog.api.v2.client.model.UserAttributes;
+import com.datadog.api.v2.client.model.UserResponseRelationships;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v2.client.model.UserResponseIncludedItem;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Role object returned by the API.
+ * User object returned by the API.
  */
-@ApiModel(description = "Role object returned by the API.")
+@ApiModel(description = "User object returned by the API.")
 @JsonPropertyOrder({
-  Role.JSON_PROPERTY_ATTRIBUTES,
-  Role.JSON_PROPERTY_ID,
-  Role.JSON_PROPERTY_RELATIONSHIPS,
-  Role.JSON_PROPERTY_TYPE
+  User.JSON_PROPERTY_ATTRIBUTES,
+  User.JSON_PROPERTY_ID,
+  User.JSON_PROPERTY_RELATIONSHIPS,
+  User.JSON_PROPERTY_TYPE
 })
 
-public class Role implements UserResponseIncludedItem {
+public class User {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private RoleAttributes attributes;
+  private UserAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private RoleResponseRelationships relationships;
+  private UserResponseRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "roles";
+  private String type = "users";
 
 
-  public Role attributes(RoleAttributes attributes) {
+  public User attributes(UserAttributes attributes) {
     
     this.attributes = attributes;
     return this;
@@ -66,28 +63,28 @@ public class Role implements UserResponseIncludedItem {
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public RoleAttributes getAttributes() {
+  public UserAttributes getAttributes() {
     return attributes;
   }
 
 
-  public void setAttributes(RoleAttributes attributes) {
+  public void setAttributes(UserAttributes attributes) {
     this.attributes = attributes;
   }
 
 
-  public Role id(String id) {
+  public User id(String id) {
     
     this.id = id;
     return this;
   }
 
    /**
-   * ID of the role.
+   * ID of the user.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the role.")
+  @ApiModelProperty(value = "ID of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -101,7 +98,7 @@ public class Role implements UserResponseIncludedItem {
   }
 
 
-  public Role relationships(RoleResponseRelationships relationships) {
+  public User relationships(UserResponseRelationships relationships) {
     
     this.relationships = relationships;
     return this;
@@ -116,22 +113,22 @@ public class Role implements UserResponseIncludedItem {
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public RoleResponseRelationships getRelationships() {
+  public UserResponseRelationships getRelationships() {
     return relationships;
   }
 
 
-  public void setRelationships(RoleResponseRelationships relationships) {
+  public void setRelationships(UserResponseRelationships relationships) {
     this.relationships = relationships;
   }
 
 
    /**
-   * Roles type.
+   * Users type.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Roles type.")
+  @ApiModelProperty(value = "Users type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,11 +147,11 @@ public class Role implements UserResponseIncludedItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Role role = (Role) o;
-    return Objects.equals(this.attributes, role.attributes) &&
-        Objects.equals(this.id, role.id) &&
-        Objects.equals(this.relationships, role.relationships) &&
-        Objects.equals(this.type, role.type);
+    User user = (User) o;
+    return Objects.equals(this.attributes, user.attributes) &&
+        Objects.equals(this.id, user.id) &&
+        Objects.equals(this.relationships, user.relationships) &&
+        Objects.equals(this.type, user.type);
   }
 
   @Override
@@ -166,7 +163,7 @@ public class Role implements UserResponseIncludedItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Role {\n");
+    sb.append("class User {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");

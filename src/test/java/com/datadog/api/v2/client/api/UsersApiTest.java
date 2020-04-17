@@ -47,7 +47,7 @@ public class UsersApiTest extends V2APITest {
     public void disableUsers() throws ApiException {
         if (disableUsers != null) {
             for (String id : disableUsers) {
-                UserResponsePayload urp = api.getUser(id).execute();
+                UserResponse urp = api.getUser(id).execute();
                 if (!urp.getData().getAttributes().getDisabled()) {
                     api.disableUser(id).execute();
                 }
@@ -70,7 +70,7 @@ public class UsersApiTest extends V2APITest {
                 .title(testingUserTitle);
         UserCreateData ucd = new UserCreateData().attributes(uca);
         UserCreatePayload ucp = new UserCreatePayload().data(ucd);
-        UserResponsePayload ur = api.createUser().body(ucp).execute();
+        UserResponse ur = api.createUser().body(ucp).execute();
         String uid = ur.getData().getId();
         disableUsers.add(uid);
 
@@ -86,7 +86,7 @@ public class UsersApiTest extends V2APITest {
         api.updateUser(uid).body(uup).execute();
 
         // now, test getting it
-        UserResponsePayload urp = api.getUser(uid).execute();
+        UserResponse urp = api.getUser(uid).execute();
         assertEquals(testingUserHandle, urp.getData().getAttributes().getEmail());
         assertEquals("Joe Doe", urp.getData().getAttributes().getName());
         assertFalse(urp.getData().getAttributes().getDisabled());
@@ -96,7 +96,7 @@ public class UsersApiTest extends V2APITest {
         api.disableUser(uid).execute();
 
         // now, test filtering for it in the list call
-        UsersResponsePayload usrp = api
+        UsersResponse usrp = api
                 .listUsers()
                 .filter(testingUserHandle)
                 .pageSize(1L)
@@ -122,7 +122,7 @@ public class UsersApiTest extends V2APITest {
                 .title(testingUserTitle);
         UserCreateData ucd = new UserCreateData().attributes(uca);
         UserCreatePayload ucp = new UserCreatePayload().data(ucd);
-        UserResponsePayload ur = api.createUser().body(ucp).execute();
+        UserResponse ur = api.createUser().body(ucp).execute();
         String id = ur.getData().getId();
 
         // first, create the user invitation
