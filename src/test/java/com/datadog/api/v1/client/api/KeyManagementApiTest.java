@@ -538,7 +538,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    public void aPPKeysMgmtDeleteErrorsTest() throws ApiException {
+    public void aPPKeysMgmtDeleteErrorsTest() {
         // This test case does not support reply from recording
         try {
             fakeAuthApi.deleteApplicationKey("whatever").execute();

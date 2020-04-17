@@ -65,7 +65,7 @@ public class EventsApiTest extends V1ApiTest {
         TestUtils.retry(10, 20, () -> {
             try {
                 eventGetResponse.set(api.getEvent(eventId).execute());
-            } catch(ApiException e) {
+            } catch (ApiException e) {
                 System.out.println(String.format("Error getting event: %s", e));
                 return false;
             }
@@ -98,7 +98,7 @@ public class EventsApiTest extends V1ApiTest {
                     System.out.printf("Error: Event %s not in event list: %s", fetchedEvent, eventListResponse);
                     return false;
                 }
-            } catch(ApiException e) {
+            } catch (ApiException e) {
                 System.out.println(String.format("Error getting list of events: %s", e));
                 return false;
             }
