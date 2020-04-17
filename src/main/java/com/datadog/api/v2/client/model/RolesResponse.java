@@ -13,8 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.UserResponse;
-import com.datadog.api.v2.client.model.UserResponseIncludedItem;
+import com.datadog.api.v2.client.model.ResponseMetaAttributes;
+import com.datadog.api.v2.client.model.Role;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,77 +26,77 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Response containing information about a single user.
+ * Response containing information about multiple roles.
  */
-@ApiModel(description = "Response containing information about a single user.")
+@ApiModel(description = "Response containing information about multiple roles.")
 @JsonPropertyOrder({
-  UserResponsePayload.JSON_PROPERTY_DATA,
-  UserResponsePayload.JSON_PROPERTY_INCLUDED
+  RolesResponse.JSON_PROPERTY_DATA,
+  RolesResponse.JSON_PROPERTY_META
 })
 
-public class UserResponsePayload {
+public class RolesResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private UserResponse data;
+  private List<Role> data = null;
 
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<UserResponseIncludedItem> included = null;
+  public static final String JSON_PROPERTY_META = "meta";
+  private ResponseMetaAttributes meta;
 
 
-  public UserResponsePayload data(UserResponse data) {
+  public RolesResponse data(List<Role> data) {
     
     this.data = data;
     return this;
   }
 
+  public RolesResponse addDataItem(Role dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
    /**
-   * Get data
+   * Array of returned roles.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of returned roles.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UserResponse getData() {
+  public List<Role> getData() {
     return data;
   }
 
 
-  public void setData(UserResponse data) {
+  public void setData(List<Role> data) {
     this.data = data;
   }
 
 
-  public UserResponsePayload included(List<UserResponseIncludedItem> included) {
+  public RolesResponse meta(ResponseMetaAttributes meta) {
     
-    this.included = included;
-    return this;
-  }
-
-  public UserResponsePayload addIncludedItem(UserResponseIncludedItem includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
+    this.meta = meta;
     return this;
   }
 
    /**
-   * Array of objects related to the user.
-   * @return included
+   * Get meta
+   * @return meta
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of objects related to the user.")
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<UserResponseIncludedItem> getIncluded() {
-    return included;
+  public ResponseMetaAttributes getMeta() {
+    return meta;
   }
 
 
-  public void setIncluded(List<UserResponseIncludedItem> included) {
-    this.included = included;
+  public void setMeta(ResponseMetaAttributes meta) {
+    this.meta = meta;
   }
 
 
@@ -108,23 +108,23 @@ public class UserResponsePayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserResponsePayload userResponsePayload = (UserResponsePayload) o;
-    return Objects.equals(this.data, userResponsePayload.data) &&
-        Objects.equals(this.included, userResponsePayload.included);
+    RolesResponse rolesResponse = (RolesResponse) o;
+    return Objects.equals(this.data, rolesResponse.data) &&
+        Objects.equals(this.meta, rolesResponse.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included);
+    return Objects.hash(data, meta);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserResponsePayload {\n");
+    sb.append("class RolesResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -13,60 +13,49 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.Permission;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Payload with API-returned permissions.
+ * Attributes of the created role.
  */
-@ApiModel(description = "Payload with API-returned permissions.")
+@ApiModel(description = "Attributes of the created role.")
 @JsonPropertyOrder({
-  Permissions.JSON_PROPERTY_DATA
+  RoleCreateAttributes.JSON_PROPERTY_NAME
 })
 
-public class Permissions {
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<Permission> data = null;
+public class RoleCreateAttributes {
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
 
-  public Permissions data(List<Permission> data) {
+  public RoleCreateAttributes name(String name) {
     
-    this.data = data;
-    return this;
-  }
-
-  public Permissions addDataItem(Permission dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
+    this.name = name;
     return this;
   }
 
    /**
-   * Array of permissions.
-   * @return data
+   * The name of the role.
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of permissions.")
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @ApiModelProperty(value = "The name of the role.")
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Permission> getData() {
-    return data;
+  public String getName() {
+    return name;
   }
 
 
-  public void setData(List<Permission> data) {
-    this.data = data;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -78,21 +67,21 @@ public class Permissions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Permissions permissions = (Permissions) o;
-    return Objects.equals(this.data, permissions.data);
+    RoleCreateAttributes roleCreateAttributes = (RoleCreateAttributes) o;
+    return Objects.equals(this.name, roleCreateAttributes.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Permissions {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class RoleCreateAttributes {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

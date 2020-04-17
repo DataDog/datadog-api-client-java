@@ -13,45 +13,37 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.RoleAttributes;
-import com.datadog.api.v2.client.model.RoleResponseRelationships;
+import com.datadog.api.v2.client.model.RoleUpdateAttributes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v2.client.model.UserResponseIncludedItem;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Role object returned by the API.
+ * TODO
  */
-@ApiModel(description = "Role object returned by the API.")
+@ApiModel(description = "TODO")
 @JsonPropertyOrder({
-  Role.JSON_PROPERTY_ATTRIBUTES,
-  Role.JSON_PROPERTY_ID,
-  Role.JSON_PROPERTY_RELATIONSHIPS,
-  Role.JSON_PROPERTY_TYPE
+  RoleUpdateData.JSON_PROPERTY_ATTRIBUTES,
+  RoleUpdateData.JSON_PROPERTY_ID,
+  RoleUpdateData.JSON_PROPERTY_TYPE
 })
 
-public class Role implements UserResponseIncludedItem {
+public class RoleUpdateData {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private RoleAttributes attributes;
+  private RoleUpdateAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
-
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private RoleResponseRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type = "roles";
 
 
-  public Role attributes(RoleAttributes attributes) {
+  public RoleUpdateData attributes(RoleUpdateAttributes attributes) {
     
     this.attributes = attributes;
     return this;
@@ -66,17 +58,17 @@ public class Role implements UserResponseIncludedItem {
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public RoleAttributes getAttributes() {
+  public RoleUpdateAttributes getAttributes() {
     return attributes;
   }
 
 
-  public void setAttributes(RoleAttributes attributes) {
+  public void setAttributes(RoleUpdateAttributes attributes) {
     this.attributes = attributes;
   }
 
 
-  public Role id(String id) {
+  public RoleUpdateData id(String id) {
     
     this.id = id;
     return this;
@@ -101,37 +93,18 @@ public class Role implements UserResponseIncludedItem {
   }
 
 
-  public Role relationships(RoleResponseRelationships relationships) {
+  public RoleUpdateData type(String type) {
     
-    this.relationships = relationships;
+    this.type = type;
     return this;
   }
 
    /**
-   * Get relationships
-   * @return relationships
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public RoleResponseRelationships getRelationships() {
-    return relationships;
-  }
-
-
-  public void setRelationships(RoleResponseRelationships relationships) {
-    this.relationships = relationships;
-  }
-
-
-   /**
-   * Roles type.
+   * TODO
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Roles type.")
+  @ApiModelProperty(value = "TODO")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -140,6 +113,9 @@ public class Role implements UserResponseIncludedItem {
   }
 
 
+  public void setType(String type) {
+    this.type = type;
+  }
 
 
   @Override
@@ -150,26 +126,24 @@ public class Role implements UserResponseIncludedItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Role role = (Role) o;
-    return Objects.equals(this.attributes, role.attributes) &&
-        Objects.equals(this.id, role.id) &&
-        Objects.equals(this.relationships, role.relationships) &&
-        Objects.equals(this.type, role.type);
+    RoleUpdateData roleUpdateData = (RoleUpdateData) o;
+    return Objects.equals(this.attributes, roleUpdateData.attributes) &&
+        Objects.equals(this.id, roleUpdateData.id) &&
+        Objects.equals(this.type, roleUpdateData.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type);
+    return Objects.hash(attributes, id, type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Role {\n");
+    sb.append("class RoleUpdateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

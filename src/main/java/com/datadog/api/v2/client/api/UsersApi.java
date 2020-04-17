@@ -9,15 +9,15 @@ import com.datadog.api.v2.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v2.client.model.APIErrorResponse;
-import com.datadog.api.v2.client.model.Permissions;
+import com.datadog.api.v2.client.model.PermissionsResponse;
 import com.datadog.api.v2.client.model.QuerySortOrder;
 import com.datadog.api.v2.client.model.UserCreatePayload;
 import com.datadog.api.v2.client.model.UserInvitationPayload;
 import com.datadog.api.v2.client.model.UserInvitationResponse;
 import com.datadog.api.v2.client.model.UserInvitationsResponse;
-import com.datadog.api.v2.client.model.UserResponsePayload;
+import com.datadog.api.v2.client.model.UserResponse;
 import com.datadog.api.v2.client.model.UserUpdatePayload;
-import com.datadog.api.v2.client.model.UsersResponsePayload;
+import com.datadog.api.v2.client.model.UsersResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +44,7 @@ public class UsersApi {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<UserResponsePayload> createUserWithHttpInfo(UserCreatePayload body) throws ApiException {
+private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreatePayload body) throws ApiException {
     Object localVarPostBody = body;
     
     // create path and map variables
@@ -75,7 +75,7 @@ private ApiResponse<UserResponsePayload> createUserWithHttpInfo(UserCreatePayloa
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<UserResponsePayload> localVarReturnType = new GenericType<UserResponsePayload>() {};
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
     return apiClient.invokeAPI("UsersApi.createUser", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
@@ -99,7 +99,7 @@ private ApiResponse<UserResponsePayload> createUserWithHttpInfo(UserCreatePayloa
 
     /**
      * Execute createUser request
-     * @return UserResponsePayload
+     * @return UserResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -111,13 +111,13 @@ private ApiResponse<UserResponsePayload> createUserWithHttpInfo(UserCreatePayloa
      
      */
     
-    public UserResponsePayload execute() throws ApiException {
+    public UserResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute createUser request with HTTP info returned
-     * @return ApiResponse&lt;UserResponsePayload&gt;
+     * @return ApiResponse&lt;UserResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -129,7 +129,7 @@ private ApiResponse<UserResponsePayload> createUserWithHttpInfo(UserCreatePayloa
      
      */
     
-    public ApiResponse<UserResponsePayload> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
       return createUserWithHttpInfo(body);
     }
   }
@@ -347,7 +347,7 @@ private ApiResponse<UserInvitationResponse> getInvitationWithHttpInfo(String use
     return new APIgetInvitationRequest(userInvitationUuid);
   }
 
-private ApiResponse<UserResponsePayload> getUserWithHttpInfo(String userId) throws ApiException {
+private ApiResponse<UserResponse> getUserWithHttpInfo(String userId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -384,7 +384,7 @@ private ApiResponse<UserResponsePayload> getUserWithHttpInfo(String userId) thro
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<UserResponsePayload> localVarReturnType = new GenericType<UserResponsePayload>() {};
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
     return apiClient.invokeAPI("UsersApi.getUser", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
@@ -398,7 +398,7 @@ private ApiResponse<UserResponsePayload> getUserWithHttpInfo(String userId) thro
 
     /**
      * Execute getUser request
-     * @return UserResponsePayload
+     * @return UserResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -410,13 +410,13 @@ private ApiResponse<UserResponsePayload> getUserWithHttpInfo(String userId) thro
      
      */
     
-    public UserResponsePayload execute() throws ApiException {
+    public UserResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute getUser request with HTTP info returned
-     * @return ApiResponse&lt;UserResponsePayload&gt;
+     * @return ApiResponse&lt;UserResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -428,7 +428,7 @@ private ApiResponse<UserResponsePayload> getUserWithHttpInfo(String userId) thro
      
      */
     
-    public ApiResponse<UserResponsePayload> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
       return getUserWithHttpInfo(userId);
     }
   }
@@ -447,12 +447,12 @@ private ApiResponse<UserResponsePayload> getUserWithHttpInfo(String userId) thro
     return new APIgetUserRequest(userId);
   }
 
-private ApiResponse<UserResponsePayload> getUserOrganizationWithHttpInfo(String userId) throws ApiException {
+private ApiResponse<UserResponse> listUserOrganizationsWithHttpInfo(String userId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling getUserOrganization");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling listUserOrganizations");
     }
     
     // create path and map variables
@@ -467,7 +467,7 @@ private ApiResponse<UserResponsePayload> getUserOrganizationWithHttpInfo(String 
 
 
     // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUserOrganization");
+    localVarHeaderParams.put("DD-OPERATION-ID", "listUserOrganizations");
 
     
     
@@ -484,21 +484,21 @@ private ApiResponse<UserResponsePayload> getUserOrganizationWithHttpInfo(String 
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<UserResponsePayload> localVarReturnType = new GenericType<UserResponsePayload>() {};
-    return apiClient.invokeAPI("UsersApi.getUserOrganization", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
+    return apiClient.invokeAPI("UsersApi.listUserOrganizations", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
-  public class APIgetUserOrganizationRequest {
+  public class APIlistUserOrganizationsRequest {
     private String userId;
 
-    private APIgetUserOrganizationRequest(String userId) {
+    private APIlistUserOrganizationsRequest(String userId) {
       this.userId = userId;
     }
     
 
     /**
-     * Execute getUserOrganization request
-     * @return UserResponsePayload
+     * Execute listUserOrganizations request
+     * @return UserResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -510,13 +510,13 @@ private ApiResponse<UserResponsePayload> getUserOrganizationWithHttpInfo(String 
      
      */
     
-    public UserResponsePayload execute() throws ApiException {
+    public UserResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
-     * Execute getUserOrganization request with HTTP info returned
-     * @return ApiResponse&lt;UserResponsePayload&gt;
+     * Execute listUserOrganizations request with HTTP info returned
+     * @return ApiResponse&lt;UserResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -528,8 +528,8 @@ private ApiResponse<UserResponsePayload> getUserOrganizationWithHttpInfo(String 
      
      */
     
-    public ApiResponse<UserResponsePayload> executeWithHttpInfo() throws ApiException {
-      return getUserOrganizationWithHttpInfo(userId);
+    public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
+      return listUserOrganizationsWithHttpInfo(userId);
     }
   }
 
@@ -537,22 +537,22 @@ private ApiResponse<UserResponsePayload> getUserOrganizationWithHttpInfo(String 
    * Get a user organization
    * Get a user organization. Returns the user information and all organizations joined by this user.
    * @param userId The ID of the user. (required)
-   * @return getUserOrganizationRequest
+   * @return listUserOrganizationsRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIgetUserOrganizationRequest getUserOrganization(String userId) throws ApiException {
-    return new APIgetUserOrganizationRequest(userId);
+  public APIlistUserOrganizationsRequest listUserOrganizations(String userId) throws ApiException {
+    return new APIlistUserOrganizationsRequest(userId);
   }
 
-private ApiResponse<Permissions> getUserPermissionsWithHttpInfo(String userId) throws ApiException {
+private ApiResponse<PermissionsResponse> listUserPermissionsWithHttpInfo(String userId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling getUserPermissions");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling listUserPermissions");
     }
     
     // create path and map variables
@@ -567,7 +567,7 @@ private ApiResponse<Permissions> getUserPermissionsWithHttpInfo(String userId) t
 
 
     // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUserPermissions");
+    localVarHeaderParams.put("DD-OPERATION-ID", "listUserPermissions");
 
     
     
@@ -584,21 +584,21 @@ private ApiResponse<Permissions> getUserPermissionsWithHttpInfo(String userId) t
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<Permissions> localVarReturnType = new GenericType<Permissions>() {};
-    return apiClient.invokeAPI("UsersApi.getUserPermissions", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    GenericType<PermissionsResponse> localVarReturnType = new GenericType<PermissionsResponse>() {};
+    return apiClient.invokeAPI("UsersApi.listUserPermissions", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
-  public class APIgetUserPermissionsRequest {
+  public class APIlistUserPermissionsRequest {
     private String userId;
 
-    private APIgetUserPermissionsRequest(String userId) {
+    private APIlistUserPermissionsRequest(String userId) {
       this.userId = userId;
     }
     
 
     /**
-     * Execute getUserPermissions request
-     * @return Permissions
+     * Execute listUserPermissions request
+     * @return PermissionsResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -610,13 +610,13 @@ private ApiResponse<Permissions> getUserPermissionsWithHttpInfo(String userId) t
      
      */
     
-    public Permissions execute() throws ApiException {
+    public PermissionsResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
-     * Execute getUserPermissions request with HTTP info returned
-     * @return ApiResponse&lt;Permissions&gt;
+     * Execute listUserPermissions request with HTTP info returned
+     * @return ApiResponse&lt;PermissionsResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -628,8 +628,8 @@ private ApiResponse<Permissions> getUserPermissionsWithHttpInfo(String userId) t
      
      */
     
-    public ApiResponse<Permissions> executeWithHttpInfo() throws ApiException {
-      return getUserPermissionsWithHttpInfo(userId);
+    public ApiResponse<PermissionsResponse> executeWithHttpInfo() throws ApiException {
+      return listUserPermissionsWithHttpInfo(userId);
     }
   }
 
@@ -637,17 +637,17 @@ private ApiResponse<Permissions> getUserPermissionsWithHttpInfo(String userId) t
    * Get a user permissions
    * Get a user permission set. Returns a list of the user’s permissions granted by the associated user&#39;s roles.
    * @param userId The ID of the user. (required)
-   * @return getUserPermissionsRequest
+   * @return listUserPermissionsRequest
    * @throws ApiException if fails to make API call
    
    
    */
   
-  public APIgetUserPermissionsRequest getUserPermissions(String userId) throws ApiException {
-    return new APIgetUserPermissionsRequest(userId);
+  public APIlistUserPermissionsRequest listUserPermissions(String userId) throws ApiException {
+    return new APIlistUserPermissionsRequest(userId);
   }
 
-private ApiResponse<UsersResponsePayload> listUsersWithHttpInfo(Long pageSize, Long pageNumber, String sort, QuerySortOrder sortDir, String filter, String filterStatus) throws ApiException {
+private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pageNumber, String sort, QuerySortOrder sortDir, String filter, String filterStatus) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -684,7 +684,7 @@ private ApiResponse<UsersResponsePayload> listUsersWithHttpInfo(Long pageSize, L
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<UsersResponsePayload> localVarReturnType = new GenericType<UsersResponsePayload>() {};
+    GenericType<UsersResponse> localVarReturnType = new GenericType<UsersResponse>() {};
     return apiClient.invokeAPI("UsersApi.listUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 
@@ -768,7 +768,7 @@ private ApiResponse<UsersResponsePayload> listUsersWithHttpInfo(Long pageSize, L
 
     /**
      * Execute listUsers request
-     * @return UsersResponsePayload
+     * @return UsersResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -780,13 +780,13 @@ private ApiResponse<UsersResponsePayload> listUsersWithHttpInfo(Long pageSize, L
      
      */
     
-    public UsersResponsePayload execute() throws ApiException {
+    public UsersResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute listUsers request with HTTP info returned
-     * @return ApiResponse&lt;UsersResponsePayload&gt;
+     * @return ApiResponse&lt;UsersResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -798,7 +798,7 @@ private ApiResponse<UsersResponsePayload> listUsersWithHttpInfo(Long pageSize, L
      
      */
     
-    public ApiResponse<UsersResponsePayload> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<UsersResponse> executeWithHttpInfo() throws ApiException {
       return listUsersWithHttpInfo(pageSize, pageNumber, sort, sortDir, filter, filterStatus);
     }
   }
