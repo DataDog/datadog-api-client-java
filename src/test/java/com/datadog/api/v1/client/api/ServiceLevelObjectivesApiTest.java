@@ -263,15 +263,23 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
 
     @Test
     public void listSLOErrorsTest() throws IOException {
-        //FIXME: currently triggering a 404. Need to figure out how to trigger 400
-//        try {
-//            api.listSLOs().ids("id1,id2").execute();
-//            fail("Expected ApiException not thrown");
-//        } catch (ApiException e) {
-//            assertEquals(400, e.getCode());
-//            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-//            assertNotNull(error.getErrors());
-//        }
+        try {
+            api.listSLOs().ids("id1,id1").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.listSLOs().ids("id1,id2").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
 
         try {
             fakeAuthApi.listSLOs().ids("id1,id2").execute();
