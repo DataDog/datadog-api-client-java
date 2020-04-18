@@ -1,20 +1,21 @@
 [ {
-  "id" : "84b9026f-b691-4b3a-8fc2-27a03c5dd293",
+  "id" : "09aa8844-5d28-4c08-b166-6e84738512a8",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "203" ]
+      "Content-Length" : [ "251" ]
     },
     "keepAlive" : true,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_5285459\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\"],\"role_name\":\"DatadogAWSIntegrationRole\"}"
+      "json" : "{\"account_id\":\"java_5186926\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"DatadogAWSIntegrationRole\"}"
     }
   },
   "times" : {
@@ -27,34 +28,33 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 18:48:11 GMT" ],
+      "Date" : [ "Fri, 17 Apr 2020 17:39:53 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:10 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2276156" ],
-      "X-DD-Debug" : [ "XsUcj00kgZUn78/yrMgBc2B4U9QizwFFNtN2OKmtTvmSRTdL165j4Ltg6xvjCzDU" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:39:52 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2404262" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "50" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"external_id\":\"82c61df8e03e49c9802662d5219beb1e\"}"
+    "body" : "{\"external_id\":\"df0cc98422074350b28c0f2e3214fd6a\"}"
   }
 }, {
-  "id" : "2f1d97dc-dc6c-4a9d-a5a1-e2d0f18ff422",
+  "id" : "49675c75-46e2-4379-b9ea-0b64470db757",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "createAWSLambdaARN" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
@@ -64,7 +64,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_5285459\",\"lambda_arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}"
+      "json" : "{\"account_id\":\"java_5186926\",\"lambda_arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}"
     }
   },
   "times" : {
@@ -77,20 +77,18 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 18:48:12 GMT" ],
+      "Date" : [ "Fri, 17 Apr 2020 17:39:59 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:12 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2276156" ],
-      "X-DD-Debug" : [ "v8lEj/pYmsavh1I0Db6FT/BAvLdOdAv91ctM9ImcmfZ/KHrCACXEdhuskTCPihd+" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:39:59 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2404178" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
@@ -98,22 +96,23 @@
     "body" : "{}"
   }
 }, {
-  "id" : "9734e849-d5b2-4f20-af41-2b41580fa8fd",
+  "id" : "edb305f3-418e-47cc-afb9-20d6acc6b6ee",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs/services",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "enableAWSLogServices" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "94" ]
+      "Content-Length" : [ "146" ]
     },
     "keepAlive" : true,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_5285459\",\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]}"
+      "json" : "{\"account_id\":\"java_5186926\",\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]}"
     }
   },
   "times" : {
@@ -126,20 +125,18 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 18:48:12 GMT" ],
+      "Date" : [ "Fri, 17 Apr 2020 17:39:59 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:12 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2276156" ],
-      "X-DD-Debug" : [ "UlUHD7I7ISIp2OTIKJ1HGCksOU1snpAx2HtkPJw2SYzWMPmqzICEuimWl9Uiyokg" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:39:59 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2404178" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
@@ -147,12 +144,13 @@
     "body" : "{}"
   }
 }, {
-  "id" : "8c5c0d5a-4fed-4cbc-b0a8-334bc741f70d",
+  "id" : "07e88373-bdea-4720-99d8-4ab3de1efc95",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws/logs",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "listAWSLogsIntegrations" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
@@ -170,34 +168,33 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 18:48:13 GMT" ],
+      "Date" : [ "Fri, 17 Apr 2020 17:40:00 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:13 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2276156" ],
-      "X-DD-Debug" : [ "og1WGdy+2nV+rkkclmd3Cf2I26XhV3/6yjBeQCP8aHbH2k2cKwC+X9WmhIghcJ94" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "966" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:39:59 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2404178" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "5251" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "[{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_4003459\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_666533723\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_510805739\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_4781679\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_970829315\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_811430263\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5285459\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}]}]"
+    "body" : "[{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5968680\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_6572440\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_6688427\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_7231529\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_7375260\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_197409182\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_697732766\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5736319\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5810224\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2140583\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2268057\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5560813\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5758953\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_6712754\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2640391\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2716467\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2138755\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2216335\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_8264542\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_624999251\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_883632461\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_442882942\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_801871818\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_8539665\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_8640320\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_9722953\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_0922291\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_1896729\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_188340227\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_536485040\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5170620\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_638680940\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_305727348\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_183886838\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_0205963\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_955975792\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_647886475\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_1568428\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_3659170\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_830316657\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_389981525\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_4518311\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5186926\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}]}]"
   }
 }, {
-  "id" : "ff516370-be44-46c2-bf7b-352edbf03ba6",
+  "id" : "639b6cb6-431a-4e5c-b80a-84e9569c30cf",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws/logs",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "deleteAWSLambdaARN" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
@@ -207,7 +204,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_5285459\",\"lambda_arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}"
+      "json" : "{\"account_id\":\"java_5186926\",\"lambda_arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}"
     }
   },
   "times" : {
@@ -220,20 +217,18 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 18:48:13 GMT" ],
+      "Date" : [ "Fri, 17 Apr 2020 17:40:00 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:13 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2276156" ],
-      "X-DD-Debug" : [ "f5hY0MW4w2fhZz0SAfv1+LF9me92dJz6mowUerU7gZ8k/CpuQLqOWzykixb5WZaX" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:40:00 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2404178" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
@@ -241,12 +236,13 @@
     "body" : "{}"
   }
 }, {
-  "id" : "f8f8f660-7b3d-4721-a65b-20dac7e97911",
+  "id" : "753e3abe-35f4-4bee-aa39-4b41d76fe0df",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws/logs",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "listAWSLogsIntegrations" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
@@ -264,44 +260,43 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 18:48:14 GMT" ],
+      "Date" : [ "Fri, 17 Apr 2020 17:40:00 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:13 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2276156" ],
-      "X-DD-Debug" : [ "menB+JzZJZWnsBMzYDdvLqZLyJ1Z3XKvvLNUvAnnxCkhc359HSRPRWZhATTwUzcU" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "895" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:40:00 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2404330" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "5180" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "[{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_4003459\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_666533723\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_510805739\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_4781679\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_970829315\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_811430263\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5285459\",\"lambdas\":[]}]"
+    "body" : "[{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5968680\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_6572440\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_6688427\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_7231529\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_7375260\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_197409182\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_697732766\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5736319\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5810224\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2140583\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2268057\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5560813\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5758953\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_6712754\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2640391\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2716467\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2138755\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_2216335\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_8264542\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_624999251\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_883632461\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_442882942\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_801871818\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_8539665\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_8640320\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_9722953\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_0922291\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_1896729\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_188340227\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_536485040\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5170620\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_638680940\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_305727348\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_183886838\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_0205963\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_955975792\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_647886475\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_1568428\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_3659170\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_830316657\",\"lambdas\":[{\"arn\":\"arn:aws:lambda:us-east-1:123456789101:function:GoClientTest\"}]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"go_389981525\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_4518311\",\"lambdas\":[]},{\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"],\"account_id\":\"java_5186926\",\"lambdas\":[]}]"
   }
 }, {
-  "id" : "7fafb83f-a426-455e-9894-2ac516265dd8",
+  "id" : "7d251c3f-de5e-4e87-8d33-1a66ec78a2cf",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "203" ]
+      "Content-Length" : [ "251" ]
     },
     "keepAlive" : true,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_5285459\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\"],\"role_name\":\"DatadogAWSIntegrationRole\"}"
+      "json" : "{\"account_id\":\"java_5186926\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"DatadogAWSIntegrationRole\"}"
     }
   },
   "times" : {
@@ -314,20 +309,18 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 13 Mar 2020 18:48:14 GMT" ],
+      "Date" : [ "Fri, 17 Apr 2020 17:40:01 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 20-Mar-2020 18:48:14 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2276156" ],
-      "X-DD-Debug" : [ "RL7BSOiWXeq2P2iJbmiDo/2BPpcpoCDzQceVuBkp6yO348trcqTrfm/pm8rvZRoT" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:40:00 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2404178" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
