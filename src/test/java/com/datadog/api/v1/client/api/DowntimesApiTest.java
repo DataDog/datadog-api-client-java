@@ -20,7 +20,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import sun.reflect.generics.scope.Scope;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -205,7 +205,7 @@ public class HostsApiTest extends V1ApiTest {
     @Test
     public void hostsGetTotalsErrorsTest() throws IOException {
         try {
-            api.getHostTotals().from(new Long(Instant.now().getEpochSecond() + 60)).execute();
+            api.getHostTotals().from(now.toEpochSecond() + 60).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
@@ -214,7 +214,7 @@ public class HostsApiTest extends V1ApiTest {
         }
 
         try {
-            fakeAuthApi.getHostTotals().from(new Long(Instant.now().getEpochSecond() + 60)).execute();
+            fakeAuthApi.getHostTotals().from(now.toEpochSecond() + 60).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
@@ -271,5 +271,4 @@ public class HostsApiTest extends V1ApiTest {
             assertNotNull(error.getErrors());
         }
     }
-
 }
