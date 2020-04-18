@@ -1,11 +1,11 @@
 [ {
-  "id" : "bb2cfd9c-a194-4a24-9c4d-dfa985a1ae31",
+  "id" : "c1c445a0-103c-4f51-b579-a4a20f887ca1",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/integration/aws/available_namespace_rules",
+    "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
-      "DD-OPERATION-ID" : [ "listAvailableAWSNamespaces" ],
+      "DD-OPERATION-ID" : [ "listAWSAccounts" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
@@ -23,7 +23,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 17:35:15 GMT" ],
+      "Date" : [ "Sat, 18 Apr 2020 03:43:21 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],

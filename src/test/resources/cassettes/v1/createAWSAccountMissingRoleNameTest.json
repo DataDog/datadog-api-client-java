@@ -1,5 +1,5 @@
 [ {
-  "id" : "a1d5944a-a124-4a88-a6e0-d12a365fe420",
+  "id" : "feebbe92-4669-4938-81a8-7624c1f9dc8f",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
@@ -15,7 +15,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_4853901\"}"
+      "json" : "{\"account_id\":\"java_1440500\"}"
     }
   },
   "times" : {
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 17:34:19 GMT" ],
+      "Date" : [ "Sat, 18 Apr 2020 03:44:05 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "57" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.2404178" ],
+      "x-dd-version" : [ "35.2405092" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],

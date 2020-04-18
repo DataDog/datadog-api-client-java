@@ -1,11 +1,11 @@
 [ {
-  "id" : "cda4b3bd-f910-4762-9b96-3b82f96eb39a",
+  "id" : "2999e33c-7cff-4e2c-ba13-a57dd393f0e2",
   "httpRequest" : {
-    "method" : "POST",
+    "method" : "PUT",
     "path" : "/api/v1/integration/azure",
     "headers" : {
       "Accept" : [ "application/json" ],
-      "DD-OPERATION-ID" : [ "createAzureIntegration" ],
+      "DD-OPERATION-ID" : [ "updateAzureIntegration" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
@@ -28,7 +28,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Sat, 18 Apr 2020 01:58:35 GMT" ],
+      "Date" : [ "Sat, 18 Apr 2020 03:59:34 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "59" ],
       "Connection" : [ "keep-alive" ],
@@ -43,13 +43,13 @@
     "body" : "{\"errors\": [\"Required parameter 'tenant_name' is missing\"]}"
   }
 }, {
-  "id" : "9a0e62b8-d8ba-47aa-b86d-a82d1e1d8246",
+  "id" : "b06c7e23-4c3c-43c7-adcd-2c01fa2c676b",
   "httpRequest" : {
-    "method" : "POST",
+    "method" : "PUT",
     "path" : "/api/v1/integration/azure",
     "headers" : {
       "Accept" : [ "application/json" ],
-      "DD-OPERATION-ID" : [ "createAzureIntegration" ],
+      "DD-OPERATION-ID" : [ "updateAzureIntegration" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
@@ -72,7 +72,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Sat, 18 Apr 2020 01:58:41 GMT" ],
+      "Date" : [ "Sat, 18 Apr 2020 03:59:39 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
@@ -82,7 +82,7 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "38c6c5a6-7f19-492b-b1be-a6f115eaf2c5",
+  "id" : "fa5c77ea-615e-4f4c-8b1b-f94efe6c2df8",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/azure",
@@ -98,7 +98,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"client_id\":\"javatest-1234-5678-9101-3fcbf464test\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"tenant_name\":\"java_test-5104364\"}"
+      "json" : "{\"client_id\":\"javatest-1234-5678-9101-3fcbf464test\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"tenant_name\":\"java_test-2362587\"}"
     }
   },
   "times" : {
@@ -111,13 +111,13 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Sat, 18 Apr 2020 01:58:41 GMT" ],
+      "Date" : [ "Sat, 18 Apr 2020 03:59:39 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 25-Apr-2020 01:58:41 GMT; secure; HttpOnly" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 25-Apr-2020 03:59:39 GMT; secure; HttpOnly" ],
       "x-dd-version" : [ "35.2405092" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
@@ -130,7 +130,7 @@
     "body" : "{}"
   }
 }, {
-  "id" : "c47a920b-a525-4e3d-839c-bdec5252e1c6",
+  "id" : "717155d3-df60-4d20-b4fd-d00e8983177e",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/azure",
@@ -159,13 +159,13 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Sat, 18 Apr 2020 01:58:42 GMT" ],
+      "Date" : [ "Sat, 18 Apr 2020 03:59:39 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 25-Apr-2020 01:58:41 GMT; secure; HttpOnly" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 25-Apr-2020 03:59:39 GMT; secure; HttpOnly" ],
       "x-dd-version" : [ "35.2405092" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],

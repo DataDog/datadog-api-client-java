@@ -1,5 +1,5 @@
 [ {
-  "id" : "dba13ccf-8c84-43d5-9470-e04bcaee479a",
+  "id" : "f7d0478d-e1c7-424d-aec7-7225502e17de",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws/available_namespace_rules",
@@ -23,14 +23,14 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 17:35:50 GMT" ],
+      "Date" : [ "Sat, 18 Apr 2020 03:45:09 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "vary" : [ "Accept-Encoding" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:35:50 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2404178" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 25-Apr-2020 03:45:09 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2405092" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
