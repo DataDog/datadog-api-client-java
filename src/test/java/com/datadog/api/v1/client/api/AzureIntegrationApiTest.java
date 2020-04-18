@@ -9,7 +9,10 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.AzureAccount;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -30,6 +33,8 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     private static AzureAccount uniqueAzureAccount = new AzureAccount();
     private static AzureAccount uniqueUpdatedAzureAccount = new AzureAccount();
     private static AzureAccount uniqueUpdatedHostFilters = new AzureAccount();
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private final String fixturePrefix = "v1/client/api/azure_fixtures";
     private final String apiUri = "/api/v1/integration/azure";
@@ -174,26 +179,32 @@ public class AzureIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void list403ErrorTest() {
+    public void list403ErrorTest() throws IOException {
         try {
             fakeAuthApi.listAzureIntegration().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void createErrorsTest() {
+    public void createErrorsTest() throws IOException {
         try {
             api.createAzureIntegration().body(new AzureAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -201,16 +212,20 @@ public class AzureIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void deleteErrorsTest() {
+    public void deleteErrorsTest() throws IOException {
         try {
             api.deleteAzureIntegration().body(new AzureAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -218,16 +233,20 @@ public class AzureIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void updateErrorsTest() {
+    public void updateErrorsTest() throws IOException {
         try {
             api.updateAzureIntegration().body(new AzureAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -235,16 +254,20 @@ public class AzureIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void updateHostFiltersErrorsTest() {
+    public void updateHostFiltersErrorsTest() throws IOException {
         try {
             api.updateAzureHostFilters().body(new AzureAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -252,6 +275,8 @@ public class AzureIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

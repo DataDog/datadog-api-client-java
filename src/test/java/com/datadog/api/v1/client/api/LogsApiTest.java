@@ -10,11 +10,14 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 
 import static org.junit.Assert.*;
@@ -27,6 +30,9 @@ public class LogsApiTest extends V1ApiTest {
 
     private static LogsApi api;
     private static LogsApi fakeAuthApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @BeforeClass
     public static void initAPI() {
@@ -111,7 +117,7 @@ public class LogsApiTest extends V1ApiTest {
 
     @Test
     @Ignore //Ignore the test for now as the endpoint is responding with a 500
-    public void logsListErrorsTest() {
+    public void logsListErrorsTest() throws IOException {
         LogsListRequest logsListRequest = new LogsListRequest();
         logsListRequest.setStartAt("notanid");
         try {
@@ -119,6 +125,8 @@ public class LogsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -126,6 +134,8 @@ public class LogsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

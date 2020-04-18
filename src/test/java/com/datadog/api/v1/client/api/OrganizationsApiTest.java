@@ -9,6 +9,8 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import org.junit.Test;
 
@@ -20,13 +22,15 @@ import java.util.List;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * API tests for OrgsApi
  */
 public class OrganizationsApiTest extends V1ApiTest {
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private final OrganizationsApi api = new OrganizationsApi(generalApiClient);
     private final OrganizationsApi unitApi = new OrganizationsApi(generalApiUnitTestClient);
@@ -177,12 +181,14 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     @Test
-    public void orgsCreateErrorsTest() {
+    public void orgsCreateErrorsTest() throws IOException {
         try {
             api.createChildOrg().body(new OrganizationCreateBody()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -190,26 +196,32 @@ public class OrganizationsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void orgsListErrorsTest() {
+    public void orgsListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listOrgs().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void orgsGetErrorsTest() {
+    public void orgsGetErrorsTest() throws IOException {
         try {
             api.getOrg("lsqdkjf").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -217,16 +229,20 @@ public class OrganizationsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void orgsUpdateErrorsTest() {
+    public void orgsUpdateErrorsTest() throws IOException {
         try {
             api.updateOrg("lsqdkjf").body(new Organization()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -234,11 +250,13 @@ public class OrganizationsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void orgsUploadIdpErrorsTest() throws URISyntaxException {
+    public void orgsUploadIdpErrorsTest() throws URISyntaxException, IOException {
         // Get random file.
         File idpFile = new File(OrganizationsApiTest.class.getResource("org_fixtures/error_415.json").toURI());
 
@@ -247,6 +265,8 @@ public class OrganizationsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -254,11 +274,13 @@ public class OrganizationsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void orgsUploadIdp415ErrorTest() throws IOException, URISyntaxException {
+    public void orgsUploadIdp415ErrorTest() throws URISyntaxException, IOException {
         // Get file object. This fixture doesn't exist since we don't need it to.
         File idpFile = new File(OrganizationsApiTest.class.getResource("org_fixtures/error_415.json").toURI());
 
@@ -272,6 +294,8 @@ public class OrganizationsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(415, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

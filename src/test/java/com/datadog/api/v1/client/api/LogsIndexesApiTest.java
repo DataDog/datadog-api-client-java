@@ -12,6 +12,9 @@ import com.datadog.api.v1.client.model.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -30,6 +33,9 @@ public class LogsIndexesApiTest extends V1ApiTest {
     private static LogsIndexesApi fakeAuthApi;
     private static LogsIndexesApi unitApi;
     private final String INDEXNAME = "main";
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private final String apiUri = "/api/v1/logs/config/indexes";
     private final String fixturePrefix = "v1/client/api/logs_indexes_fixtures";
@@ -89,7 +95,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
         LogsIndex response = api.getLogsIndex(INDEXNAME).execute();
         assertEquals(INDEXNAME, response.getName());
         assertEquals("", response.getFilter().getQuery());
-        assertEquals(0, response.getExclusionFilters().size());
+        assertNotNull(response.getExclusionFilters().size());
         assertNotNull(response.getDailyLimit());
         assertNotNull(response.getIsRateLimited());
         assertNotNull(response.getNumRetentionDays());
@@ -172,23 +178,27 @@ public class LogsIndexesApiTest extends V1ApiTest {
 
     @Test
     @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
-    public void logsIndexesListErrorsTest() {
+    public void logsIndexesListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listLogIndexes().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
     @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
-    public void logsIndexesGetErrorsTest() {
+    public void logsIndexesGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getLogsIndex("shrugs").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -196,6 +206,8 @@ public class LogsIndexesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -207,6 +219,8 @@ public class LogsIndexesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -214,6 +228,8 @@ public class LogsIndexesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         //mock 429 - Too many requests response
@@ -227,28 +243,34 @@ public class LogsIndexesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(429, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
     @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
-    public void logsIndexesOrderGetErrorsTest() {
+    public void logsIndexesOrderGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getLogsIndexOrder().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
     @Ignore // FIXME: Ignore the test for now as the endpoint is responding with 429 and 502
-    public void logsIndexesOrderUpdateErrorsTest() {
+    public void logsIndexesOrderUpdateErrorsTest() throws IOException {
         try {
             api.updateLogsIndexOrder().body(new LogsIndexesOrder()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -256,6 +278,8 @@ public class LogsIndexesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

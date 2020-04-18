@@ -8,8 +8,11 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.AWSAccount;
 import com.datadog.api.v1.client.model.AWSAccountCreateResponse;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -32,9 +35,11 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     private static LinkedHashSet<AWSAccount> accountsToDelete;
     private static Random random = new Random();
 
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
     private final String apiUri = "/api/v1/integration/aws";
     private final String fixturePrefix = "v1/client/api/aws_fixtures";
-
 
     @BeforeClass
     public static void initApi() {
@@ -258,12 +263,14 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void generateExternalIDErrorsTest() {
+    public void generateExternalIDErrorsTest() throws IOException {
         try {
             api.createNewAWSExternalID().body(new AWSAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -271,16 +278,20 @@ public class AwsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void createErrorsTest() {
+    public void createErrorsTest() throws IOException {
         try {
             api.createAWSAccount().body(new AWSAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -288,16 +299,20 @@ public class AwsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void deleteErrorsTest() {
+    public void deleteErrorsTest() throws IOException {
         try {
             api.deleteAWSAccount().body(new AWSAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -305,16 +320,20 @@ public class AwsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void getAll403ErrorTest() {
+    public void getAll403ErrorTest() throws IOException {
         try {
             fakeAuthApi.listAWSAccounts().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -331,26 +350,32 @@ public class AwsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void listNamespacesErrorsTest() {
+    public void listNamespacesErrorsTest() throws IOException {
         try {
             fakeAuthApi.listAvailableAWSNamespaces().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void updateErrorsTest() {
+    public void updateErrorsTest() throws IOException {
         try {
             api.updateAWSAccount().body(new AWSAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -358,6 +383,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

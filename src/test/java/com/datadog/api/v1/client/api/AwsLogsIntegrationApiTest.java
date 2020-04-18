@@ -9,6 +9,8 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 import org.mockserver.model.Format;
 
@@ -32,6 +34,8 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     private static AWSAccount uniqueAWSAccount = new AWSAccount();
     private static AWSAccountAndLambdaRequest uniqueAWSAccountLambdaRequest = new AWSAccountAndLambdaRequest();
     private static AWSLogsServicesRequest uniqueAWSLogsServicesRequest = new AWSLogsServicesRequest();
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private static Random random = new Random();
     private final String apiUri = "/api/v1/integration/aws/logs";
@@ -243,16 +247,20 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void logsList403ErrorTest() {
+    public void logsList403ErrorTest() throws IOException {
         try {
             fakeAuthApi.listAWSLogsIntegrations().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -269,16 +277,20 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void logsAdd403ErrorTest() {
+    public void logsAdd403ErrorTest() throws IOException {
         try {
             fakeAuthApi.createAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
     @Test
@@ -294,16 +306,20 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void logsDelete403ErrorTest() {
+    public void logsDelete403ErrorTest() throws IOException {
         try {
             fakeAuthApi.deleteAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -314,16 +330,20 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void logsServicesEnableErrorsTest() {
+    public void logsServicesEnableErrorsTest() throws IOException {
         try {
             api.enableAWSLogServices().body(new AWSLogsServicesRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -331,17 +351,21 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Ignore //FIXME: APi responds with 502 instead of 400 or 403, so skipping until it is fixed
     @Test
-    public void logsLambdaCheckListErrorsTest() {
+    public void logsLambdaCheckListErrorsTest() throws IOException {
         try {
             api.checkAWSLogsLambdaAsync().body(new AWSAccountAndLambdaRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -349,6 +373,8 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

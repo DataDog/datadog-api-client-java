@@ -15,8 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -37,6 +36,9 @@ public class HostsApiTest extends V1ApiTest {
     private static HostsApi unitAPI;
     private static MetricsApi metricsAPI;
     private static TagsApi tagsAPI;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @BeforeClass
     public static void initAPI() {
@@ -180,12 +182,14 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     @Test
-    public void hostsListErrorsTest() {
+    public void hostsListErrorsTest() throws IOException {
         try {
             api.listHosts().count(new Long(-1)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -193,16 +197,20 @@ public class HostsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void hostsGetTotalsErrorsTest() {
+    public void hostsGetTotalsErrorsTest() throws IOException {
         try {
             api.getHostTotals().from(new Long(Instant.now().getEpochSecond() + 60)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -210,20 +218,24 @@ public class HostsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void hostsMuteErrorsTest() {
+    public void hostsMuteErrorsTest() throws IOException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
         String hostname = String.format("java-client-test-host-%d", nowMillis);
 
-        //The endpoint muteHost currently does not respond with 400 regardless of settings.
+//        //The endpoint muteHost currently does not respond with 400 regardless of settings.
 //        try {
 //            api.muteHost(hostname).body(new HostMuteSettings()).execute();
 //            fail("Expected ApiException not thrown");
 //        } catch (ApiException e) {
-////            assertEquals(400, e.getCode());
+//             assertEquals(400, e.getCode());
+//             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+//             assertNotNull(error.getErrors());
 //        }
 
         try {
@@ -231,11 +243,13 @@ public class HostsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void hostsUnmuteErrorsTest() {
+    public void hostsUnmuteErrorsTest() throws IOException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
         String hostname = String.format("java-client-test-host-%d", nowMillis);
 
@@ -244,6 +258,8 @@ public class HostsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -251,6 +267,8 @@ public class HostsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 

@@ -8,14 +8,14 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.Monitor;
-import com.datadog.api.v1.client.model.MonitorType;
-import com.datadog.api.v1.client.model.MonitorOptions;
-import com.datadog.api.v1.client.model.DeletedMonitor;
+import com.datadog.api.v1.client.model.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -46,6 +46,9 @@ public class MonitorsApiTest extends V1ApiTest {
 
     private final String fixturePrefix = "v1/client/api/monitors_fixtures";
     private final String apiUri = "/api/v1/monitor";
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @Before
     public void resetDeleteMonitors() {
@@ -183,12 +186,14 @@ public class MonitorsApiTest extends V1ApiTest {
      }
 
     @Test
-    public void monitorsCreateErrorsTest() {
+    public void monitorsCreateErrorsTest() throws IOException {
         try {
             api.createMonitor().body(new Monitor()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -196,16 +201,20 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void monitorsListErrorsTest() {
+    public void monitorsListErrorsTest() throws IOException {
         try {
             api.listMonitors().groupStates("notagroupstate").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -213,11 +222,13 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void monitorUpdateErrorsTest() throws ApiException {
+    public void monitorUpdateErrorsTest() throws ApiException, IOException {
         Monitor monitor = new Monitor()
                 .name(testingMonitorName)
                 .type(testingMonitorType)
@@ -238,6 +249,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -245,6 +258,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -252,6 +267,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -267,11 +284,13 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(401, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void monitorGetErrorsTest() throws ApiException {
+    public void monitorGetErrorsTest() throws ApiException, IOException {
         Monitor monitor = new Monitor()
                 .name(testingMonitorName)
                 .type(testingMonitorType)
@@ -292,6 +311,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -299,6 +320,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -306,6 +329,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -321,6 +346,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -336,11 +363,13 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(401, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void monitorCanDeleteErrorsTest() throws ApiException {
+    public void monitorCanDeleteErrorsTest() throws ApiException, IOException {
         // create metrics monitor
         Monitor monitor = new Monitor()
                 .type(MonitorType.QUERY_ALERT)
@@ -367,6 +396,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -374,6 +405,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -381,6 +414,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(409, e.getCode());
+            CheckCanDeleteMonitorResponse error = objectMapper.readValue(e.getResponseBody(), CheckCanDeleteMonitorResponse.class);
+            assertNotNull(error.getErrors());
             // Manually delete the composite monitor as deleteMonitors() can fail
             // if trying to delete the dependent metrics monitor prior to deleting the composite monitor
             api.deleteMonitor(compositeMonitorId).execute();
@@ -388,12 +423,14 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     @Test
-    public void monitorValidateErrorsTest() {
+    public void monitorValidateErrorsTest() throws IOException {
         try {
             api.validateMonitor().body(new Monitor()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -401,6 +438,8 @@ public class MonitorsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

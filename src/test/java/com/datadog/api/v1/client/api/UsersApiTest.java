@@ -8,10 +8,9 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.AccessRole;
-import com.datadog.api.v1.client.model.User;
-import com.datadog.api.v1.client.model.UserListResponse;
-import com.datadog.api.v1.client.model.UserResponse;
+import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -31,6 +30,9 @@ public class UsersApiTest extends V1ApiTest {
     private static UsersApi api;
     private static UsersApi fakeAuthApi;
     private static UsersApi unitApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private final String apiUri = "/api/v1/user";
     private final String fixturePrefix = "v1/client/api/user_fixtures";
@@ -132,12 +134,14 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     @Test
-    public void userCreateErrorsTest() {
+    public void userCreateErrorsTest() throws IOException {
         try {
             api.createUser().body(new User()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -145,6 +149,8 @@ public class UsersApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -160,26 +166,32 @@ public class UsersApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(409, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void testUserListErrorsTest() {
+    public void testUserListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listUsers().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void userGetErrorsTest() {
+    public void userGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getUser("notahandle").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -187,11 +199,13 @@ public class UsersApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void userUpdateErrorsTest() throws ApiException {
+    public void userUpdateErrorsTest() throws ApiException, IOException {
         // Test creating user
         User user = new User();
         user.setAccessRole(testingUserAR);
@@ -209,6 +223,8 @@ public class UsersApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -216,6 +232,8 @@ public class UsersApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -223,10 +241,12 @@ public class UsersApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
     @Test
-    public void userDisableErrorsTest() throws ApiException {
+    public void userDisableErrorsTest() throws ApiException, IOException {
         // Test creating user
         User user = new User();
         user.setAccessRole(testingUserAR);
@@ -241,6 +261,8 @@ public class UsersApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -248,6 +270,8 @@ public class UsersApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -255,6 +279,8 @@ public class UsersApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

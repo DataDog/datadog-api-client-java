@@ -11,6 +11,7 @@ import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.*;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -32,6 +33,9 @@ public class MetricsApiTest extends V1ApiTest {
     private static MetricsApi api;
     private static MetricsApi fakeAuthApi;
     private static MetricsApi unitApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private final String fixturePrefix = "v1/client/api/metrics_fixtures";
     private final String apiUri = "/api/v1/metrics";
@@ -132,8 +136,6 @@ public class MetricsApiTest extends V1ApiTest {
 
     @Test
     public void metricListActiveTestMock() throws ApiException, IOException {
-        api = new MetricsApi(generalApiUnitTestClient);
-
         String expectedJSON = TestUtils.getFixture("v1/client/api/metrics_fixtures/active_metrics.json");
         ObjectMapper objectMapper = new ObjectMapper();
         MetricsListResponse expected = objectMapper.readValue(expectedJSON, MetricsListResponse.class);
@@ -143,7 +145,7 @@ public class MetricsApiTest extends V1ApiTest {
             .withQueryParam("host", equalTo("host"))
             .willReturn(okJson(expectedJSON))
         );
-        MetricsListResponse r = api.listActiveMetrics().from(1L).host("host").execute();
+        MetricsListResponse r = unitApi.listActiveMetrics().from(1L).host("host").execute();
 
         assertEquals(expected, r);
     }
@@ -160,26 +162,32 @@ public class MetricsApiTest extends V1ApiTest {
            throw new AssertionError();
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void metricsListActiveErrorsTest() {
+    public void metricsListActiveErrorsTest() throws IOException {
         try {
             fakeAuthApi.listActiveMetrics().from(new Long(-1)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void metricsMetadataGetErrorsTest() {
+    public void metricsMetadataGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getMetricMetadata("ametric").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -187,6 +195,8 @@ public class MetricsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -196,22 +206,26 @@ public class MetricsApiTest extends V1ApiTest {
         stubFor(put(urlPathEqualTo(apiUri + "/ametric"))
                 .willReturn(okJson(fixtureData).withStatus(400))
         );
-
+//         Error 400 cannot be triggered from the client due to client side validation, so mock it
         try {
-            unitApi.updateMetricMetadata("ametric").execute();
+            unitApi.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void metricsMetadataUpdateErrorsTest() {
+    public void metricsMetadataUpdateErrorsTest() throws IOException {
         try {
             fakeAuthApi.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -219,6 +233,8 @@ public class MetricsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -234,16 +250,20 @@ public class MetricsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void metricsListErrorsTest() {
+    public void metricsListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listMetrics().q("somequery").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -259,16 +279,20 @@ public class MetricsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void metricsQueryErrorsTest() {
+    public void metricsQueryErrorsTest() throws IOException {
         try {
             fakeAuthApi.queryMetrics().query("").from(new Long(9)).to(new Long(9)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

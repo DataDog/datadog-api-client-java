@@ -8,7 +8,10 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.GCPAccount;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -30,6 +33,8 @@ public class GcpIntegrationApiTest extends V1ApiTest {
 
     private static GCPAccount uniqueGCPAccount = new GCPAccount();
     private static GCPAccount uniqueUpdateGCPAccount = new GCPAccount();
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private final String apiUri = "/api/v1/integration/gcp";
     private final String fixturePrefix = "v1/client/api/gcp_fixtures";
@@ -163,26 +168,32 @@ public class GcpIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void gCPListErrorsTest() {
+    public void gCPListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listGCPIntegration().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void gCPCreateErrorsTest() {
+    public void gCPCreateErrorsTest() throws IOException {
         try {
             api.createGCPIntegration().body(new GCPAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -190,16 +201,20 @@ public class GcpIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void gCPDeleteErrorsTest() {
+    public void gCPDeleteErrorsTest() throws IOException {
         try {
             api.deleteGCPIntegration().body(new GCPAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -207,16 +222,20 @@ public class GcpIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void gCPUpdateErrorsTest() {
+    public void gCPUpdateErrorsTest() throws IOException {
         try {
             api.updateGCPIntegration().body(new GCPAccount()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -224,6 +243,8 @@ public class GcpIntegrationApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

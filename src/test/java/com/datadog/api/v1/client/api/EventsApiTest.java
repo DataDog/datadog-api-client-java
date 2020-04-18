@@ -11,11 +11,14 @@ import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.model.EventPriority;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +33,9 @@ public class EventsApiTest extends V1ApiTest {
 
     private static EventsApi api;
     private static EventsApi fakeAuthApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @BeforeClass
     public static void initApi() {
@@ -106,12 +112,14 @@ public class EventsApiTest extends V1ApiTest {
     }
 
     @Test
-    public void eventListErrorTest() {
+    public void eventListErrorTest() throws IOException {
         try {
             api.listEvents().start(new Long(345)).end(new Long(123)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -119,16 +127,20 @@ public class EventsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void eventGetErrorTest() {
+    public void eventGetErrorTest() throws IOException {
         try {
             fakeAuthApi.getEvent(new Long((new Long(1234)))).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -136,6 +148,8 @@ public class EventsApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

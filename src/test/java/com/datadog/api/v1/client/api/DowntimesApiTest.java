@@ -8,16 +8,21 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.api.V1ApiTest;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.CancelDowntimesByScopeRequest;
 import com.datadog.api.v1.client.model.Downtime;
 import com.datadog.api.v1.client.model.DowntimeRecurrence;
 import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import sun.reflect.generics.scope.Scope;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +34,9 @@ public class DowntimesApiTest extends V1ApiTest {
 
     private static DowntimesApi api;
     private static DowntimesApi fakeAuthApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private ArrayList<Long> deleteDowntimes = null;
     private Long testingDowntimeStart;
@@ -190,22 +198,26 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     @Test
-    public void downtimeListErrorsTest() {
+    public void downtimeListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listDowntimes().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void downtimeCreateErrorsTest() {
+    public void downtimeCreateErrorsTest() throws IOException {
         try {
             api.createDowntime().body(new Downtime()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -213,16 +225,20 @@ public class DowntimesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void downtimeCancelByScopeErrorsTest() {
+    public void downtimeCancelByScopeErrorsTest() throws IOException {
         try {
             api.cancelDowntimesByScope().body(new CancelDowntimesByScopeRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -230,6 +246,8 @@ public class DowntimesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -237,16 +255,20 @@ public class DowntimesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void downtimeCancelErrorsTest() {
+    public void downtimeCancelErrorsTest() throws IOException {
         try {
             fakeAuthApi.cancelDowntime(new Long(1234)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -254,16 +276,20 @@ public class DowntimesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void downtimeGetErrorsTest() {
+    public void downtimeGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getDowntime(new Long(1234)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -271,16 +297,20 @@ public class DowntimesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void downtimeUpdateErrorsTest() {
+    public void downtimeUpdateErrorsTest() throws IOException {
         try {
             api.updateDowntime(new Long(1234)).body(new Downtime().start(new Long(1234))).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -288,6 +318,8 @@ public class DowntimesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -295,6 +327,8 @@ public class DowntimesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

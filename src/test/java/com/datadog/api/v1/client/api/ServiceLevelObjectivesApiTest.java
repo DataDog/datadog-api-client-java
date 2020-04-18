@@ -9,6 +9,8 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
 import java.io.IOException;
@@ -57,6 +59,9 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
                  .numerator("default(sum:non_existant_metric{*}.as_count(), 1)")
                  .denominator("default(sum:non_existant_metric{*}.as_count(), 2)")
             );
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @Before
     public void resetDeleteSLOsMonitors() {
@@ -236,12 +241,14 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    public void createSLOErrorsTest() {
+    public void createSLOErrorsTest() throws IOException {
         try {
             api.createSLO().body(new ServiceLevelObjective()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -249,17 +256,21 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void listSLOErrorsTest() {
+    public void listSLOErrorsTest() throws IOException {
         //FIXME: currently triggering a 404. Need to figure out how to trigger 400
 //        try {
 //            api.listSLOs().ids("id1,id2").execute();
 //            fail("Expected ApiException not thrown");
 //        } catch (ApiException e) {
 //            assertEquals(400, e.getCode());
+//            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+//            assertNotNull(error.getErrors());
 //        }
 
         try {
@@ -267,16 +278,20 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void updateSLOErrorsTest() {
+    public void updateSLOErrorsTest() throws IOException {
         try {
             api.updateSLO("id").body(new ServiceLevelObjective()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -284,6 +299,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -291,16 +308,20 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void getSLOErrorsTest() {
+    public void getSLOErrorsTest() throws IOException {
         try {
             fakeAuthApi.getSLO("id").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -308,16 +329,20 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void deleteSLOErrorsTest() {
+    public void deleteSLOErrorsTest() throws IOException {
         try {
             fakeAuthApi.deleteSLO("id").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -325,6 +350,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -342,11 +369,13 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(409, e.getCode());
+            SLODeleteResponse error = objectMapper.readValue(e.getResponseBody(), SLODeleteResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void historyGetSLOErrorsTest() throws ApiException {
+    public void historyGetSLOErrorsTest() throws ApiException, IOException {
         // Create a monitor for testing the monitor SLO
         Monitor m = new Monitor()
                 .name("For testing monitor SLO")
@@ -366,6 +395,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -373,6 +404,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -380,6 +413,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
@@ -396,11 +431,13 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(409, e.getCode());
+            CheckCanDeleteSLOResponse error = objectMapper.readValue(e.getResponseBody(), CheckCanDeleteSLOResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 
     @Test
-    public void bulkDeleteSLOErrorsTest() {
+    public void bulkDeleteSLOErrorsTest() throws IOException {
         Map<String, List<SLOTimeframe>> toDelete = new HashMap<String, List<SLOTimeframe>>();
 
         try {
@@ -408,6 +445,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
@@ -415,6 +454,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }
