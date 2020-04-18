@@ -263,7 +263,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void generateExternalIDErrorsTest() throws IOException {
+    public void generateExternalIDAWSErrorsTest() throws IOException {
         try {
             api.createNewAWSExternalID().body(new AWSAccount()).execute();
             fail("Expected ApiException not thrown");
@@ -284,7 +284,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void createErrorsTest() throws IOException {
+    public void createErrorsAWSTest() throws IOException {
         try {
             api.createAWSAccount().body(new AWSAccount()).execute();
             fail("Expected ApiException not thrown");
@@ -305,7 +305,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void deleteErrorsTest() throws IOException {
+    public void deleteErrorsAWSTest() throws IOException {
         try {
             api.deleteAWSAccount().body(new AWSAccount()).execute();
             fail("Expected ApiException not thrown");
@@ -326,7 +326,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getAll403ErrorTest() throws IOException {
+    public void getAll403ErrorAWSTest() throws IOException {
         try {
             fakeAuthApi.listAWSAccounts().execute();
             fail("Expected ApiException not thrown");
@@ -338,7 +338,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getAll400ErrorTest() throws IOException {
+    public void getAll400ErrorAWSTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo(apiUri))
                 .willReturn(okJson(fixtureData).withStatus(400))
@@ -356,7 +356,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void listNamespacesErrorsTest() throws IOException {
+    public void listNamespacesAWSErrorsTest() throws IOException {
         try {
             fakeAuthApi.listAvailableAWSNamespaces().execute();
             fail("Expected ApiException not thrown");
@@ -368,7 +368,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void updateErrorsTest() throws IOException {
+    public void updateAWSErrorsTest() throws IOException {
         try {
             api.updateAWSAccount().body(new AWSAccount()).execute();
             fail("Expected ApiException not thrown");

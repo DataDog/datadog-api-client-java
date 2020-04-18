@@ -167,7 +167,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void list400ErrorTest() throws IOException {
+    public void list400AzureIntegrationErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo(apiUri))
                 .willReturn(okJson(fixtureData).withStatus(400))
@@ -185,7 +185,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void list403ErrorTest() throws IOException {
+    public void list403AzureIntegrationErrorTest() throws IOException {
         try {
             fakeAuthApi.listAzureIntegration().execute();
             fail("Expected ApiException not thrown");
@@ -197,7 +197,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void createErrorsTest() throws IOException {
+    public void createAzureIntegrationErrorsTest() throws IOException {
         try {
             api.createAzureIntegration().body(new AzureAccount()).execute();
             fail("Expected ApiException not thrown");
@@ -218,7 +218,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void deleteErrorsTest() throws IOException {
+    public void deleteAzureIntegrationErrorsTest() throws IOException {
         try {
             api.deleteAzureIntegration().body(new AzureAccount()).execute();
             fail("Expected ApiException not thrown");
@@ -239,7 +239,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void updateErrorsTest() throws IOException {
+    public void updateAzureIntegrationErrorsTest() throws IOException {
         try {
             api.updateAzureIntegration().body(new AzureAccount()).execute();
             fail("Expected ApiException not thrown");
@@ -260,7 +260,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    public void updateHostFiltersErrorsTest() throws IOException {
+    public void updateHostFiltersAzureIntegrationErrorsTest() throws IOException {
         try {
             api.updateAzureHostFilters().body(new AzureAccount()).execute();
             fail("Expected ApiException not thrown");
