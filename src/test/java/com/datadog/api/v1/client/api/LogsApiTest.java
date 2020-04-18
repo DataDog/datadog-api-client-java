@@ -116,7 +116,6 @@ public class LogsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Ignore //Ignore the test for now as the endpoint is responding with a 500
     public void logsListErrorsTest() throws IOException {
         LogsListRequest logsListRequest = new LogsListRequest();
         logsListRequest.setStartAt("notanid");
