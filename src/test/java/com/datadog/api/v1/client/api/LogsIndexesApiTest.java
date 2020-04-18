@@ -177,7 +177,6 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
     public void logsIndexesListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listLogIndexes().execute();
@@ -190,7 +189,6 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
     public void logsIndexesGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getLogsIndex("shrugs").execute();
@@ -212,7 +210,6 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
     public void logsIndexesUpdateErrorsTest() throws IOException {
         try {
             api.updateLogsIndex("shrugs").execute();
@@ -249,7 +246,6 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with a 502
     public void logsIndexesOrderGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getLogsIndexOrder().execute();
