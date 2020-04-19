@@ -1,5 +1,5 @@
 [ {
-  "id" : "21f80164-2c22-42a4-bbab-03419cee5645",
+  "id" : "d744b619-ea35-4073-9e94-03f8443d7ae1",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/hosts",
@@ -26,13 +26,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 20:13:19 GMT" ],
+      "Date" : [ "Sun, 19 Apr 2020 23:31:18 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "67" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.2405020" ],
+      "x-dd-version" : [ "35.2405092" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
@@ -41,7 +41,7 @@
     "body" : "{\"errors\": [\"The value provided for parameter 'count' is invalid\"]}"
   }
 }, {
-  "id" : "999c868c-c1bd-4cb9-9d99-3623f06b76fc",
+  "id" : "06efd9a0-78f1-48be-ae1b-8203e3e7be03",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/hosts",
@@ -68,7 +68,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 20:13:24 GMT" ],
+      "Date" : [ "Sun, 19 Apr 2020 23:31:23 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],

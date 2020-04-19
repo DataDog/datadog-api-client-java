@@ -1,8 +1,8 @@
 [ {
-  "id" : "c49d7938-4182-4d67-8262-57cd40e96a34",
+  "id" : "0c01a922-3b9b-4ccd-bfeb-a154866bd977",
   "httpRequest" : {
     "method" : "POST",
-    "path" : "/api/v1/host/java-client-test-host-1587154382/unmute",
+    "path" : "/api/v1/host/java-client-test-host-1587339060/unmute",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "unmuteHost" ],
@@ -28,25 +28,25 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 20:13:07 GMT" ],
+      "Date" : [ "Sun, 19 Apr 2020 23:31:06 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "67" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.2405020" ],
+      "x-dd-version" : [ "35.2405092" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ]
     },
-    "body" : "{\"errors\": [\"host:java-client-test-host-1587154382 is not muted.\"]}"
+    "body" : "{\"errors\": [\"host:java-client-test-host-1587339060 is not muted.\"]}"
   }
 }, {
-  "id" : "da2569a9-cf71-4958-9344-7cb198d0462f",
+  "id" : "e5ef80f4-8f92-43bc-ab63-7996dec0a618",
   "httpRequest" : {
     "method" : "POST",
-    "path" : "/api/v1/host/java-client-test-host-1587154382/unmute",
+    "path" : "/api/v1/host/java-client-test-host-1587339060/unmute",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "unmuteHost" ],
@@ -72,7 +72,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 20:13:12 GMT" ],
+      "Date" : [ "Sun, 19 Apr 2020 23:31:11 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],

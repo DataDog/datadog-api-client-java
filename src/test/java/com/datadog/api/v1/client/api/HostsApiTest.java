@@ -224,19 +224,23 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     @Test
-    public void hostsMuteErrorsTest() throws IOException {
+    public void hostsMuteErrorsTest() throws ApiException, IOException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
         String hostname = String.format("java-client-test-host-%d", nowMillis);
 
-//        //The endpoint muteHost currently does not respond with 400 regardless of settings.
-//        try {
-//            api.muteHost(hostname).body(new HostMuteSettings()).execute();
-//            fail("Expected ApiException not thrown");
-//        } catch (ApiException e) {
-//             assertEquals(400, e.getCode());
-//             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-//             assertNotNull(error.getErrors());
-//        }
+        //Mute host a first time in order to trigger a 400
+        HostMuteSettings muteSettings = new HostMuteSettings();
+        muteSettings.setOverride(true);
+        api.muteHost(hostname).body(muteSettings).execute();
+
+        try {
+            api.muteHost(hostname).body(new HostMuteSettings()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+             assertEquals(400, e.getCode());
+             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+             assertNotNull(error.getErrors());
+        }
 
         try {
             fakeAuthApi.muteHost(hostname).body(new HostMuteSettings()).execute();
