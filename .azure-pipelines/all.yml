@@ -9,8 +9,9 @@ pr:
     include:
       - master
 schedules:
-  - cron: "0 13 * * *"
-    displayName: Daily UTC 1pm build
+  - cron: "0 */6 * * *"
+    displayName: Scheduled CI run every 6 hours
+    always: true
     branches:
       include:
         - master
@@ -40,22 +41,3 @@ jobs:
       displayName: Upload to codecov.io
       env:
         CODECOV_TOKEN: $(codecovToken)
-- job: IntegrationTestsIbm
-  pool:
-    vmImage: "Ubuntu-16.04"
-  steps:
-    - task: Docker@2
-      displayName: Build the Image
-      inputs:
-        command: build
-        Dockerfile: Dockerfile.test.v1.ibm
-        arguments: -t datadog-java-integration-test-ibm
-    - task: Docker@2
-      inputs:
-        command: run
-        arguments: --volume /home/vsts/work/1/s:/datadog-api-client-java --env RECORD --env DD_TEST_CLIENT_API_KEY --env DD_TEST_CLIENT_APP_KEY datadog-java-integration-test-ibm
-      displayName: Run integration tests on IBM JDK
-      env:
-        DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
-        DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
-        RECORD: "true"

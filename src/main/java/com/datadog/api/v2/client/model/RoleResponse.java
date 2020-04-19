@@ -13,36 +13,29 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.User;
-import com.datadog.api.v2.client.model.UserResponseIncludedItem;
+import com.datadog.api.v2.client.model.Role;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Response containing information about a single user.
+ * Response containing information about a single role.
  */
-@ApiModel(description = "Response containing information about a single user.")
+@ApiModel(description = "Response containing information about a single role.")
 @JsonPropertyOrder({
-  UserResponse.JSON_PROPERTY_DATA,
-  UserResponse.JSON_PROPERTY_INCLUDED
+  RoleResponse.JSON_PROPERTY_DATA
 })
 
-public class UserResponse {
+public class RoleResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private User data;
-
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<UserResponseIncludedItem> included = null;
+  private Role data;
 
 
-  public UserResponse data(User data) {
+  public RoleResponse data(Role data) {
     
     this.data = data;
     return this;
@@ -57,46 +50,13 @@ public class UserResponse {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public User getData() {
+  public Role getData() {
     return data;
   }
 
 
-  public void setData(User data) {
+  public void setData(Role data) {
     this.data = data;
-  }
-
-
-  public UserResponse included(List<UserResponseIncludedItem> included) {
-    
-    this.included = included;
-    return this;
-  }
-
-  public UserResponse addIncludedItem(UserResponseIncludedItem includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    return this;
-  }
-
-   /**
-   * Array of objects related to the user.
-   * @return included
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of objects related to the user.")
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<UserResponseIncludedItem> getIncluded() {
-    return included;
-  }
-
-
-  public void setIncluded(List<UserResponseIncludedItem> included) {
-    this.included = included;
   }
 
 
@@ -108,23 +68,21 @@ public class UserResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserResponse userResponse = (UserResponse) o;
-    return Objects.equals(this.data, userResponse.data) &&
-        Objects.equals(this.included, userResponse.included);
+    RoleResponse roleResponse = (RoleResponse) o;
+    return Objects.equals(this.data, roleResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserResponse {\n");
+    sb.append("class RoleResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("}");
     return sb.toString();
   }

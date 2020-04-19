@@ -14,7 +14,7 @@ package com.datadog.api.v2.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v2.client.model.ResponseMetaAttributes;
-import com.datadog.api.v2.client.model.UserResponse;
+import com.datadog.api.v2.client.model.User;
 import com.datadog.api.v2.client.model.UserResponseIncludedItem;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -31,14 +31,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "Response containing information about multiple users.")
 @JsonPropertyOrder({
-  UsersResponsePayload.JSON_PROPERTY_DATA,
-  UsersResponsePayload.JSON_PROPERTY_INCLUDED,
-  UsersResponsePayload.JSON_PROPERTY_META
+  UsersResponse.JSON_PROPERTY_DATA,
+  UsersResponse.JSON_PROPERTY_INCLUDED,
+  UsersResponse.JSON_PROPERTY_META
 })
 
-public class UsersResponsePayload {
+public class UsersResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<UserResponse> data = null;
+  private List<User> data = null;
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<UserResponseIncludedItem> included = null;
@@ -47,13 +47,13 @@ public class UsersResponsePayload {
   private ResponseMetaAttributes meta;
 
 
-  public UsersResponsePayload data(List<UserResponse> data) {
+  public UsersResponse data(List<User> data) {
     
     this.data = data;
     return this;
   }
 
-  public UsersResponsePayload addDataItem(UserResponse dataItem) {
+  public UsersResponse addDataItem(User dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -70,23 +70,23 @@ public class UsersResponsePayload {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<UserResponse> getData() {
+  public List<User> getData() {
     return data;
   }
 
 
-  public void setData(List<UserResponse> data) {
+  public void setData(List<User> data) {
     this.data = data;
   }
 
 
-  public UsersResponsePayload included(List<UserResponseIncludedItem> included) {
+  public UsersResponse included(List<UserResponseIncludedItem> included) {
     
     this.included = included;
     return this;
   }
 
-  public UsersResponsePayload addIncludedItem(UserResponseIncludedItem includedItem) {
+  public UsersResponse addIncludedItem(UserResponseIncludedItem includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -113,7 +113,7 @@ public class UsersResponsePayload {
   }
 
 
-  public UsersResponsePayload meta(ResponseMetaAttributes meta) {
+  public UsersResponse meta(ResponseMetaAttributes meta) {
     
     this.meta = meta;
     return this;
@@ -146,10 +146,10 @@ public class UsersResponsePayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsersResponsePayload usersResponsePayload = (UsersResponsePayload) o;
-    return Objects.equals(this.data, usersResponsePayload.data) &&
-        Objects.equals(this.included, usersResponsePayload.included) &&
-        Objects.equals(this.meta, usersResponsePayload.meta);
+    UsersResponse usersResponse = (UsersResponse) o;
+    return Objects.equals(this.data, usersResponse.data) &&
+        Objects.equals(this.included, usersResponse.included) &&
+        Objects.equals(this.meta, usersResponse.meta);
   }
 
   @Override
@@ -161,7 +161,7 @@ public class UsersResponsePayload {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UsersResponsePayload {\n");
+    sb.append("class UsersResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");

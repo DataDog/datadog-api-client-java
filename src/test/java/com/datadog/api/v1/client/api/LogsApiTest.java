@@ -92,27 +92,36 @@ public class LogsApiTest extends V1ApiTest {
             }
         });
 
-        LogsListResponse logsResponse;
 
-        // Find first log item
-        LogsListRequest logsRequest = request.limit(1);
-        logsResponse = api.listLogs().body(logsRequest).execute();
-        assertEquals(1, logsResponse.getLogs().size());
 
-        Log log = logsResponse.getLogs().get(0);
-        assertEquals(hostname, log.getContent().getHost());
-        assertEquals(message, log.getContent().getMessage());
+        TestUtils.retry(5, 10, () -> {
+            try {
+                LogsListResponse logsResponse;
 
-        // Find second log item
-        assertNotNull(logsResponse.getNextLogId());
+                // Find first log item
+                LogsListRequest logsRequest = request.limit(1);
+                logsResponse = api.listLogs().body(logsRequest).execute();
+                assertEquals(1, logsResponse.getLogs().size());
 
-        logsRequest = logsRequest.startAt(logsResponse.getNextLogId());
-        logsResponse = api.listLogs().body(logsRequest).execute();
-        assertEquals(1, logsResponse.getLogs().size());
+                Log log = logsResponse.getLogs().get(0);
+                assertEquals(hostname, log.getContent().getHost());
+                assertEquals(message, log.getContent().getMessage());
 
-        log = logsResponse.getLogs().get(0);
-        assertEquals(hostname, log.getContent().getHost());
-        assertEquals(secondMessage, log.getContent().getMessage());
+                // Find second log item
+                assertNotNull(logsResponse.getNextLogId());
+
+                logsRequest = logsRequest.startAt(logsResponse.getNextLogId());
+                logsResponse = api.listLogs().body(logsRequest).execute();
+                assertEquals(1, logsResponse.getLogs().size());
+
+                log = logsResponse.getLogs().get(0);
+                assertEquals(hostname, log.getContent().getHost());
+                assertEquals(secondMessage, log.getContent().getMessage());
+                return true;
+            } catch (ApiException e) {
+                return false;
+            }
+        });
     }
 
     @Test
