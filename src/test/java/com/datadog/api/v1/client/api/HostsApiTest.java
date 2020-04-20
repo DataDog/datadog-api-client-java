@@ -181,7 +181,7 @@ public class HostsApiTest extends V1ApiTest {
     @Test
     public void hostsListErrorsTest() throws IOException {
         try {
-            api.listHosts().count(new Long(-1)).execute();
+            api.listHosts().count(-1L).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
@@ -190,7 +190,7 @@ public class HostsApiTest extends V1ApiTest {
         }
 
         try {
-            fakeAuthApi.listHosts().count(new Long(-1)).execute();
+            fakeAuthApi.listHosts().count(-1L).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
