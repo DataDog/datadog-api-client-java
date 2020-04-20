@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.APIErrorResponse;
+import com.datadog.api.v1.client.model.LogsAPIErrorResponse;
 import com.datadog.api.v1.client.model.LogsPipeline;
 import com.datadog.api.v1.client.model.LogsPipelinesOrder;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -175,6 +176,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
             api.updateLogsPipelineOrder().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
+            //400 Returned by the client. Cannot assert LogsAPIErrorResponse.class
             assertEquals(400, e.getCode());
             assertNotNull(e.getMessage());
         }
@@ -193,8 +195,8 @@ public class LogsPipelinesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(422, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
         }
     }
 
@@ -217,8 +219,8 @@ public class LogsPipelinesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
         }
 
         try {
@@ -238,8 +240,8 @@ public class LogsPipelinesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
         }
 
         try {
@@ -259,8 +261,8 @@ public class LogsPipelinesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(),  LogsAPIErrorResponse .class);
+            assertNotNull(error.getError());
         }
 
         try {
@@ -280,8 +282,8 @@ public class LogsPipelinesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
         }
 
         try {
