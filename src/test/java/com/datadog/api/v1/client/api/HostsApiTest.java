@@ -22,9 +22,6 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * API tests for HostsApi

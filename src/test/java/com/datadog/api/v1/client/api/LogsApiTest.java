@@ -13,15 +13,12 @@ import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 
 import static org.junit.Assert.*;
-import static org.junit.Assume.assumeFalse;
 
 /**
  * API tests for LogsApi

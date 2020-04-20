@@ -11,7 +11,6 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.eclipse.jetty.util.IO;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

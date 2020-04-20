@@ -19,8 +19,6 @@ import org.junit.Test;
 import javax.ws.rs.core.GenericType;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
