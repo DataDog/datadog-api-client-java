@@ -18,7 +18,9 @@ import org.junit.Test;
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 /**
  * API tests for LogsApi
@@ -89,14 +91,12 @@ public class LogsApiTest extends V1ApiTest {
             }
         });
 
-
-
         TestUtils.retry(5, 10, () -> {
             try {
                 LogsListResponse logsResponse;
 
                 // Find first log item
-                LogsListRequest logsRequest = request.limit(1);
+                LogsListRequest logsRequest = request.limit(1).startAt(null);
                 logsResponse = api.listLogs().body(logsRequest).execute();
                 assertEquals(1, logsResponse.getLogs().size());
 
