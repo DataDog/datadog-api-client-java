@@ -1,5 +1,53 @@
 [ {
-  "id" : "16029f51-81c3-4513-8d54-8e7b65dec927",
+  "id" : "adc3de53-d8ee-494d-a35d-65899a89eca5",
+  "httpRequest" : {
+    "method" : "PUT",
+    "path" : "/api/v1/logs/config/pipeline-order",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "updateLogsPipelineOrder" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "21" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"pipeline_ids\":null}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Mon, 20 Apr 2020 14:41:12 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "76" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "100" ],
+      "x-ratelimit-period" : [ "3600" ],
+      "x-ratelimit-reset" : [ "1128" ],
+      "x-ratelimit-remaining" : [ "87" ],
+      "x-dd-version" : [ "35.2411151" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "body" : "{\"error\":{\"code\":\"InvalidArgument\",\"message\":\"missing field: pipeline_ids\"}}"
+  }
+}, {
+  "id" : "a06507bc-309c-4480-a54c-7846cbed6704",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/logs/config/pipeline-order",
@@ -28,7 +76,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 20 Apr 2020 01:01:05 GMT" ],
+      "Date" : [ "Mon, 20 Apr 2020 14:41:18 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
@@ -38,7 +86,7 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "750e2146-7040-445d-a5d0-08a1e7241fdd",
+  "id" : "aff64da3-ac11-4653-836b-dde771b9d6b8",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/logs/config/pipeline-order",
@@ -67,18 +115,18 @@
     "statusCode" : 422,
     "reasonPhrase" : "Unprocessable Entity",
     "headers" : {
-      "Date" : [ "Mon, 20 Apr 2020 01:01:10 GMT" ],
+      "Date" : [ "Mon, 20 Apr 2020 14:41:18 GMT" ],
       "Content-Type" : [ "application/json;charset=utf-8" ],
       "Content-Length" : [ "90" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 27-Apr-2020 01:01:10 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2405092" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 27-Apr-2020 14:41:18 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2411151" ],
       "x-ratelimit-limit" : [ "100" ],
       "x-ratelimit-period" : [ "3600" ],
-      "x-ratelimit-reset" : [ "3530" ],
-      "x-ratelimit-remaining" : [ "97" ],
+      "x-ratelimit-reset" : [ "1122" ],
+      "x-ratelimit-remaining" : [ "86" ],
       "content-disposition" : [ "inline" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],

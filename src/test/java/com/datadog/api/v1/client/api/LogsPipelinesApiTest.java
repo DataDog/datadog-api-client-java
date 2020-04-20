@@ -173,12 +173,12 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     @Test
     public void orderUpdateLogsPipelineErrorsTest() throws IOException {
         try {
-            api.updateLogsPipelineOrder().execute();
+            api.updateLogsPipelineOrder().body(new LogsPipelinesOrder().pipelineIds(null)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
-            //400 Returned by the client. Cannot assert LogsAPIErrorResponse.class
             assertEquals(400, e.getCode());
-            assertNotNull(e.getMessage());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
 
         try {
