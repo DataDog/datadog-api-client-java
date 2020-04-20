@@ -1,5 +1,5 @@
 [ {
-  "id" : "147954eb-4916-431f-9332-be47058b7e1f",
+  "id" : "95bd240f-9866-460b-8111-a6105f665f61",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/logs_by_index",
@@ -9,6 +9,7 @@
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
+      "DD-OPERATION-ID" : [ "getUsageLogsByIndex" ],
       "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
@@ -26,24 +27,22 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 01 Apr 2020 20:58:38 GMT" ],
+      "Date" : [ "Mon, 20 Apr 2020 19:26:29 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "12" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 08-Apr-2020 20:58:38 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2345644" ],
-      "X-RateLimit-Limit" : [ "200" ],
-      "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "82" ],
-      "X-RateLimit-Remaining" : [ "182" ],
-      "X-DD-Debug" : [ "OxP+mFpjAbASiVhNf+t4MttAs95ZlMiGosIRnYJJGFoApNgv2oxtdzpnmNlMOki6" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 27-Apr-2020 19:26:29 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2412567" ],
+      "x-ratelimit-limit" : [ "200" ],
+      "x-ratelimit-period" : [ "3600" ],
+      "x-ratelimit-reset" : [ "2011" ],
+      "x-ratelimit-remaining" : [ "179" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
