@@ -17,7 +17,6 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
