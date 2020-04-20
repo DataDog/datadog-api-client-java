@@ -22,6 +22,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -204,31 +205,34 @@ public class LogsIndexesApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
         }
     }
 
     @Test
     public void logsIndexesUpdateErrorsTest() throws IOException {
         try {
-            api.updateLogsIndex("shrugs").execute();
+            api.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
         }
 
         try {
-            fakeAuthApi.updateLogsIndex("shrugs").execute();
+            fakeAuthApi.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
             assertNotNull(error.getErrors());
         }
+    }
 
+    @Test
+    public void logsIndexesOrderUpdate429ErrorTest() throws IOException {
         //mock 429 - Too many requests response
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_429.json");
         stubFor(put(urlPathEqualTo(apiUri + "/shrugs"))
@@ -236,12 +240,12 @@ public class LogsIndexesApiTest extends V1ApiTest {
         );
         // Mock the 429 response
         try {
-            unitApi.updateLogsIndex("shrugs").execute();
+            unitApi.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(429, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
         }
     }
 
@@ -258,19 +262,18 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Ignore // FIXME: Ignore the test for now as the endpoint is responding with 429 and 502
     public void logsIndexesOrderUpdateErrorsTest() throws IOException {
         try {
-            api.updateLogsIndexOrder().body(new LogsIndexesOrder()).execute();
+            api.updateLogsIndexOrder().body(new LogsIndexesOrder().indexNames(null)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
         }
 
         try {
-            fakeAuthApi.updateLogsIndexOrder().body(new LogsIndexesOrder()).execute();
+            fakeAuthApi.updateLogsIndexOrder().body(new LogsIndexesOrder().indexNames(null)).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());

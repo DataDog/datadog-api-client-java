@@ -17,6 +17,7 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -123,15 +124,17 @@ public class LogsApiTest extends V1ApiTest {
 
     @Test
     public void logsListErrorsTest() throws IOException {
-        LogsListRequest logsListRequest = new LogsListRequest();
-        logsListRequest.setStartAt("notanid");
+        LogsListRequest logsListRequest = new LogsListRequest()
+                .startAt("notanid")
+                .time(new LogsListRequestTime().from(now.minusHours(1)).to(now));
+
         try {
             api.listLogs().body(logsListRequest).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
         }
 
         try {

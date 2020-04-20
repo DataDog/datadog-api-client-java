@@ -1,5 +1,5 @@
 [ {
-  "id" : "e976ceb4-25b1-42a0-8be6-d534332613d8",
+  "id" : "ba7d5cc2-23e7-4bde-8637-0a77574b18d3",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/logs/config/indexes/main",
@@ -23,17 +23,17 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Sat, 18 Apr 2020 03:06:53 GMT" ],
+      "Date" : [ "Mon, 20 Apr 2020 14:57:23 GMT" ],
       "Content-Type" : [ "application/json;charset=utf-8" ],
       "Connection" : [ "keep-alive" ],
       "vary" : [ "Accept-Encoding" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 25-Apr-2020 03:06:53 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2405092" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 27-Apr-2020 14:57:23 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2411151" ],
       "x-ratelimit-limit" : [ "5000" ],
       "x-ratelimit-period" : [ "3600" ],
-      "x-ratelimit-reset" : [ "3187" ],
+      "x-ratelimit-reset" : [ "157" ],
       "x-ratelimit-remaining" : [ "4999" ],
       "content-disposition" : [ "inline" ],
       "x-content-type-options" : [ "nosniff" ],

@@ -1,1 +1,1 @@
-{"errors": ["Too Many Requests"]}
+{"error":{"code":"ResourceExhausted","message":"Limit reached. Cannot create new index."}}
