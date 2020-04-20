@@ -16,23 +16,27 @@ import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.LogsAPIErrorResponse;
 import com.datadog.api.v1.client.model.LogsPipeline;
 import com.datadog.api.v1.client.model.LogsPipelinesOrder;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.Ignore;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.util.*;
+
+import static org.junit.Assert.*;
 
 /**
  * API tests for LogsPipelinesApi
  */
-@Ignore
-public class LogsPipelinesApiTest {
+public class LogsPipelinesApiTest extends V1ApiTest {
 
-    private final LogsPipelinesApi api = new LogsPipelinesApi();
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-    
+    private final LogsPipelinesApi api = new LogsPipelinesApi(generalApiClient);
+    private final LogsPipelinesApi fakeAuthApi = new LogsPipelinesApi(generalFakeAuthApiClient);
+
     /**
      * Create a Pipeline
      *
@@ -42,6 +46,7 @@ public class LogsPipelinesApiTest {
      *          if the Api call fails
      */
     @Test
+    @Ignore
     public void createLogsPipelineTest() throws ApiException {
         LogsPipeline body = null;
         LogsPipeline response = api.createLogsPipeline()
@@ -49,7 +54,7 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Delete a Pipeline
      *
@@ -59,13 +64,14 @@ public class LogsPipelinesApiTest {
      *          if the Api call fails
      */
     @Test
+    @Ignore
     public void deleteLogsPipelineTest() throws ApiException {
         String pipelineId = null;
         api.deleteLogsPipeline(pipelineId)
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Get all Pipeline
      *
@@ -75,12 +81,13 @@ public class LogsPipelinesApiTest {
      *          if the Api call fails
      */
     @Test
+    @Ignore
     public void listLogsPipelinesTest() throws ApiException {
         List<LogsPipeline> response = api.listLogsPipelines()
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Get a Pipeline
      *
@@ -90,13 +97,14 @@ public class LogsPipelinesApiTest {
      *          if the Api call fails
      */
     @Test
+    @Ignore
     public void getLogsPipelineTest() throws ApiException {
         String pipelineId = null;
         LogsPipeline response = api.getLogsPipeline(pipelineId)
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Get Pipeline Order
      *
@@ -106,12 +114,13 @@ public class LogsPipelinesApiTest {
      *          if the Api call fails
      */
     @Test
+    @Ignore
     public void getLogsPipelineOrderTest() throws ApiException {
         LogsPipelinesOrder response = api.getLogsPipelineOrder()
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Update a Pipeline
      *
@@ -121,6 +130,7 @@ public class LogsPipelinesApiTest {
      *          if the Api call fails
      */
     @Test
+    @Ignore
     public void updateLogsPipelineTest() throws ApiException {
         String pipelineId = null;
         LogsPipeline body = null;
@@ -129,7 +139,7 @@ public class LogsPipelinesApiTest {
                 .execute();
         // TODO: test validations
     }
-    
+
     /**
      * Update Pipeline Order
      *
@@ -139,11 +149,149 @@ public class LogsPipelinesApiTest {
      *          if the Api call fails
      */
     @Test
+    @Ignore
     public void updateLogsPipelineOrderTest() throws ApiException {
         LogsPipelinesOrder body = null;
         LogsPipelinesOrder response = api.updateLogsPipelineOrder()
                 .body(body)
                 .execute();
         // TODO: test validations
+    }
+
+    @Test
+    public void orderGetLogsPipelineErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getLogsPipelineOrder().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void orderUpdateLogsPipelineErrorsTest() throws IOException {
+        try {
+            api.updateLogsPipelineOrder().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            assertNotNull(e.getMessage());
+        }
+
+        try {
+            fakeAuthApi.updateLogsPipelineOrder().body(new LogsPipelinesOrder()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updateLogsPipelineOrder().body(new LogsPipelinesOrder().pipelineIds(Arrays.asList("ids"))).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(422, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void listLogsPipelineErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listLogsPipelines().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void createLogsPipelineErrorsTest() throws IOException {
+        try {
+            api.createLogsPipeline().body(new LogsPipeline()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createLogsPipeline().body(new LogsPipeline()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getLogsPipelineErrorsTest() throws IOException {
+        try {
+            api.getLogsPipeline("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getLogsPipeline("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void deleteLogsPipelineErrorsTest() throws IOException {
+        try {
+            api.deleteLogsPipeline("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.deleteLogsPipeline("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void updateLogsPipelineErrorsTest() throws IOException {
+        try {
+            api.deleteLogsPipeline("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.deleteLogsPipeline("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
     }
 }

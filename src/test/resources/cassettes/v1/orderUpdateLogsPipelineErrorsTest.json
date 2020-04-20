@@ -1,0 +1,93 @@
+[ {
+  "id" : "16029f51-81c3-4513-8d54-8e7b65dec927",
+  "httpRequest" : {
+    "method" : "PUT",
+    "path" : "/api/v1/logs/config/pipeline-order",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "updateLogsPipelineOrder" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "19" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"pipeline_ids\":[]}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 403,
+    "reasonPhrase" : "Forbidden",
+    "headers" : {
+      "Date" : [ "Mon, 20 Apr 2020 01:01:05 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "170" ],
+      "Connection" : [ "keep-alive" ],
+      "cache-control" : [ "no-cache" ],
+      "via" : [ "haproxy" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+}, {
+  "id" : "750e2146-7040-445d-a5d0-08a1e7241fdd",
+  "httpRequest" : {
+    "method" : "PUT",
+    "path" : "/api/v1/logs/config/pipeline-order",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "updateLogsPipelineOrder" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "24" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"pipeline_ids\":[\"ids\"]}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 422,
+    "reasonPhrase" : "Unprocessable Entity",
+    "headers" : {
+      "Date" : [ "Mon, 20 Apr 2020 01:01:10 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Content-Length" : [ "90" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 27-Apr-2020 01:01:10 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2405092" ],
+      "x-ratelimit-limit" : [ "100" ],
+      "x-ratelimit-period" : [ "3600" ],
+      "x-ratelimit-reset" : [ "3530" ],
+      "x-ratelimit-remaining" : [ "97" ],
+      "content-disposition" : [ "inline" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"error\":{\"code\":\"UnprocessableEntity\",\"message\":\"Cannot map pipelines to existing ones\"}}"
+  }
+} ]
