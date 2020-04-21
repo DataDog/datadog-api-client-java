@@ -30,9 +30,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Alert graphs are timeseries graphs showing the current status of any monitor defined on your system
+ * Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
  */
-@ApiModel(description = "Alert graphs are timeseries graphs showing the current status of any monitor defined on your system")
+@ApiModel(description = "Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.")
 @JsonPropertyOrder({
   AlertGraphWidgetDefinition.JSON_PROPERTY_ALERT_ID,
   AlertGraphWidgetDefinition.JSON_PROPERTY_TIME,
@@ -73,10 +73,10 @@ public class AlertGraphWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * ID of the alert to use in the widget
+   * ID of the alert to use in the widget.
    * @return alertId
   **/
-  @ApiModelProperty(required = true, value = "ID of the alert to use in the widget")
+  @ApiModelProperty(required = true, value = "ID of the alert to use in the widget.")
   @JsonProperty(JSON_PROPERTY_ALERT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -122,11 +122,11 @@ public class AlertGraphWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * The title of the widget
+   * The title of the widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The title of the widget")
+  @ApiModelProperty(value = "The title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -172,11 +172,11 @@ public class AlertGraphWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -191,10 +191,10 @@ public class AlertGraphWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

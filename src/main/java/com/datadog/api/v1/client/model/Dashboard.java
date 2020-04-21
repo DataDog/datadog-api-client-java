@@ -32,9 +32,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.")
 @JsonPropertyOrder({
   Dashboard.JSON_PROPERTY_AUTHOR_HANDLE,
   Dashboard.JSON_PROPERTY_CREATED_AT,
@@ -93,11 +93,11 @@ public class Dashboard {
 
 
    /**
-   * TODO.
+   * Identifier of the dashboard author.
    * @return authorHandle
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test@datadoghq.com", value = "TODO.")
+  @ApiModelProperty(example = "test@datadoghq.com", value = "Identifier of the dashboard author.")
   @JsonProperty(JSON_PROPERTY_AUTHOR_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -109,11 +109,11 @@ public class Dashboard {
 
 
    /**
-   * TODO.
+   * Creation date of the dashboard.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Creation date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -131,11 +131,11 @@ public class Dashboard {
   }
 
    /**
-   * Description of the dashboard
+   * Description of the dashboard.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the dashboard")
+  @ApiModelProperty(value = "Description of the dashboard.")
   @JsonIgnore
 
   public String getDescription() {
@@ -160,11 +160,11 @@ public class Dashboard {
 
 
    /**
-   * ID of the dashboard
+   * ID of the dashboard.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123-abc-456", value = "ID of the dashboard")
+  @ApiModelProperty(example = "123-abc-456", value = "ID of the dashboard.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -225,11 +225,11 @@ public class Dashboard {
 
 
    /**
-   * TODO.
+   * Modification date of the dashboard.
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Modification date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -306,11 +306,11 @@ public class Dashboard {
   }
 
    /**
-   * TODO.
+   * Array of template variables saved views.
    * @return templateVariablePresets
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of template variables saved views.")
   @JsonIgnore
 
   public List<DashboardTemplateVariablePreset> getTemplateVariablePresets() {
@@ -353,11 +353,11 @@ public class Dashboard {
   }
 
    /**
-   * TODO.
+   * List of template variables for this dashboard.
    * @return templateVariables
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of template variables for this dashboard.")
   @JsonIgnore
 
   public List<DashboardTemplateVariables> getTemplateVariables() {
@@ -388,10 +388,10 @@ public class Dashboard {
   }
 
    /**
-   * Title of the dashboard
+   * Title of the dashboard.
    * @return title
   **/
-  @ApiModelProperty(required = true, value = "Title of the dashboard")
+  @ApiModelProperty(required = true, value = "Title of the dashboard.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -406,11 +406,11 @@ public class Dashboard {
 
 
    /**
-   * TODO.
+   * The URL of the dashboard.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "/dashboard/123-abc-456/example-dashboard-title", value = "TODO.")
+  @ApiModelProperty(example = "/dashboard/123-abc-456/example-dashboard-title", value = "The URL of the dashboard.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -433,10 +433,10 @@ public class Dashboard {
   }
 
    /**
-   * List of widgets to display on the dashboard
+   * List of widgets to display on the dashboard.
    * @return widgets
   **/
-  @ApiModelProperty(required = true, value = "List of widgets to display on the dashboard")
+  @ApiModelProperty(required = true, value = "List of widgets to display on the dashboard.")
   @JsonProperty(JSON_PROPERTY_WIDGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -138,11 +138,11 @@ public class QueryValueWidgetRequest {
   }
 
    /**
-   * TODO.
+   * List of conditional formats.
    * @return conditionalFormats
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of conditional formats.")
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

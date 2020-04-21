@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Type of display to use for the request. Available values are area, bars, or line.
+ * Type of display to use for the request.
  */
 public enum WidgetDisplayType {
   

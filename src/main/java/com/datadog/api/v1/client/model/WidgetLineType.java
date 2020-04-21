@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Type of lines displayed. Available values are dashed, dotted, or solid.
+ * Type of lines displayed.
  */
 public enum WidgetLineType {
   

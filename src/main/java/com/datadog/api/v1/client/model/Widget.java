@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Information about widget.  Note: The &#x60;layout&#x60; property is required for widgets in dashboards with &#x60;free&#x60; &#x60;layout_type&#x60; only.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Information about widget.  Note: The `layout` property is required for widgets in dashboards with `free` `layout_type` only.")
 @JsonPropertyOrder({
   Widget.JSON_PROPERTY_DEFINITION,
   Widget.JSON_PROPERTY_ID,
@@ -75,11 +75,11 @@ public class Widget {
   }
 
    /**
-   * ID of the widget
+   * ID of the widget.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the widget")
+  @ApiModelProperty(value = "ID of the widget.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

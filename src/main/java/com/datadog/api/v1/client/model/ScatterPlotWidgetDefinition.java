@@ -31,9 +31,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation
+ * The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
  */
-@ApiModel(description = "The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation")
+@ApiModel(description = "The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.")
 @JsonPropertyOrder({
   ScatterPlotWidgetDefinition.JSON_PROPERTY_COLOR_BY_GROUPS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -214,11 +214,11 @@ public class ScatterPlotWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -233,10 +233,10 @@ public class ScatterPlotWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

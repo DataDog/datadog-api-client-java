@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The style to apply to the widget
+ * The style to apply to the widget.
  */
-@ApiModel(description = "The style to apply to the widget")
+@ApiModel(description = "The style to apply to the widget.")
 @JsonPropertyOrder({
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_FILL_MAX,
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_FILL_MIN,

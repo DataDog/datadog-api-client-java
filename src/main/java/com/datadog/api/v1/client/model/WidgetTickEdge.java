@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * How to align the text on the widget
+ * Define how you want to align the text on the widget.
  */
 public enum WidgetTickEdge {
   

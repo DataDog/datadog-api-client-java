@@ -108,10 +108,10 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the &#x60;REQUEST_SCHEMA&#x60;.
    * @return requests
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -132,11 +132,11 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether or not to display the legend on this widget
+   * Whether or not to display the legend on this widget.
    * @return showLegend
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not to display the legend on this widget")
+  @ApiModelProperty(value = "Whether or not to display the legend on this widget.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -182,11 +182,11 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Title of the widget
+   * Title of the widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget")
+  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -232,11 +232,11 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -251,10 +251,10 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

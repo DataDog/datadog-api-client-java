@@ -18,10 +18,7 @@ Method | HTTP request | Description
 
 Create a new Dashboard
 
-### Overview
-Create a dashboard using the specified options
-### Arguments
-* **`Dashboard`** [*required*] The Dashboard Object to create
+Create a dashboard using the specified options.
 
 ### Example
 
@@ -52,7 +49,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        Dashboard body = new Dashboard(); // Dashboard | Dashboard request object
+        Dashboard body = new Dashboard(); // Dashboard | Dashboard request object.
         try {
             Dashboard result = api.createDashboard()
                 .body(body)
@@ -74,7 +71,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Dashboard**](Dashboard.md)| Dashboard request object |
+ **body** | [**Dashboard**](Dashboard.md)| Dashboard request object. |
 
 ### Return type
 
@@ -103,10 +100,7 @@ Name | Type | Description  | Notes
 
 Delete a Dashboard
 
-### Overview
-Delete a dashboard using the specified ID
-### Arguments
-* **`id`** [*required*] The Dashboard id to delete
+Delete a dashboard using the specified ID.
 
 ### Example
 
@@ -137,7 +131,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String dashboardId = "dashboardId_example"; // String | The id of the dashboard
+        String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
         try {
             DashboardDeleteResponse result = api.deleteDashboard(dashboardId)
                 .execute();
@@ -158,7 +152,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardId** | **String**| The id of the dashboard |
+ **dashboardId** | **String**| The ID of the dashboard. |
 
 ### Return type
 
@@ -187,10 +181,7 @@ Name | Type | Description  | Notes
 
 Get a Dashboard
 
-### Overview
-Get a dashboard using the specified ID
-### Arguments
-* **`id`** [*required*] The Dashboard id to Update
+Get a dashboard using the specified ID.
 
 ### Example
 
@@ -221,7 +212,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String dashboardId = "dashboardId_example"; // String | The id of the dashboard
+        String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
         try {
             Dashboard result = api.getDashboard(dashboardId)
                 .execute();
@@ -242,7 +233,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardId** | **String**| The id of the dashboard |
+ **dashboardId** | **String**| The ID of the dashboard. |
 
 ### Return type
 
@@ -271,8 +262,7 @@ Name | Type | Description  | Notes
 
 Get all Dashboards
 
-### Overview
-Get all dashboards
+Get all dashboards.
 
 ### Example
 
@@ -348,10 +338,7 @@ This endpoint does not need any parameter.
 
 Update a Dashboard
 
-### Overview
-Update a dashboard using the specified ID
-### Arguments
-* **`id`** [*required*] The Dashboard id to Update * **`dashboard`** [*required*] The dashboard payload
+Update a dashboard using the specified ID.
 
 ### Example
 
@@ -382,7 +369,7 @@ public class Example {
         //appKeyAuth.setApiKeyPrefix("Token");
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String dashboardId = "dashboardId_example"; // String | The id of the dashboard
+        String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
         Dashboard body = new Dashboard(); // Dashboard | Update Dashboard request body.
         try {
             Dashboard result = api.updateDashboard(dashboardId)
@@ -405,7 +392,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardId** | **String**| The id of the dashboard |
+ **dashboardId** | **String**| The ID of the dashboard. |
  **body** | [**Dashboard**](Dashboard.md)| Update Dashboard request body. |
 
 ### Return type

@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Time setting for the widget
+ * Time setting for the widget.
  */
-@ApiModel(description = "Time setting for the widget")
+@ApiModel(description = "Time setting for the widget.")
 @JsonPropertyOrder({
   WidgetTime.JSON_PROPERTY_LIVE_SPAN
 })

@@ -30,9 +30,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc
+ * The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
  */
-@ApiModel(description = "The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc")
+@ApiModel(description = "The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.")
 @JsonPropertyOrder({
   ToplistWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ToplistWidgetDefinition.JSON_PROPERTY_TIME,
@@ -173,11 +173,11 @@ public class ToplistWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,10 +192,10 @@ public class ToplistWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

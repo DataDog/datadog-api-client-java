@@ -52,11 +52,11 @@ public class DashboardTemplateVariables {
   }
 
    /**
-   * TODO.
+   * The default value for the template variable on dashboard load.
    * @return _default
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "my-host", value = "TODO.")
+  @ApiModelProperty(example = "my-host", value = "The default value for the template variable on dashboard load.")
   @JsonIgnore
 
   public String getDefault() {
@@ -87,10 +87,10 @@ public class DashboardTemplateVariables {
   }
 
    /**
-   * TODO.
+   * The name of the variable.
    * @return name
   **/
-  @ApiModelProperty(example = "host1", required = true, value = "TODO.")
+  @ApiModelProperty(example = "host1", required = true, value = "The name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -111,11 +111,11 @@ public class DashboardTemplateVariables {
   }
 
    /**
-   * TODO.
+   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
    * @return prefix
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host", value = "TODO.")
+  @ApiModelProperty(example = "host", value = "The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.")
   @JsonIgnore
 
   public String getPrefix() {

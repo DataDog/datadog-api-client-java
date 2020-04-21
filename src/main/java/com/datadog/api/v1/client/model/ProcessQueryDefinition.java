@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * The process query to use in the widget.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "The process query to use in the widget.")
 @JsonPropertyOrder({
   ProcessQueryDefinition.JSON_PROPERTY_FILTER_BY,
   ProcessQueryDefinition.JSON_PROPERTY_LIMIT,
@@ -114,10 +114,10 @@ public class ProcessQueryDefinition {
   }
 
    /**
-   * TODO.
+   * Your chosen metric.
    * @return metric
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Your chosen metric.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -101,11 +101,11 @@ public class TimeseriesWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * List of widget events.
    * @return events
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of widget events.")
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -159,11 +159,11 @@ public class TimeseriesWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * List of markers.
    * @return markers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of markers.")
   @JsonProperty(JSON_PROPERTY_MARKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -189,10 +189,10 @@ public class TimeseriesWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * List of timeseries widget requests.
    * @return requests
   **/
-  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "TODO.")
+  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "List of timeseries widget requests.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -213,11 +213,11 @@ public class TimeseriesWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * (screenboard only) Show the legend for this widget
+   * (screenboard only) Show the legend for this widget.
    * @return showLegend
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "(screenboard only) Show the legend for this widget")
+  @ApiModelProperty(value = "(screenboard only) Show the legend for this widget.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -313,11 +313,11 @@ public class TimeseriesWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -332,10 +332,10 @@ public class TimeseriesWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

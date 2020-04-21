@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * How to size the image on the widget. Available values are zoom, fit or center
+ * How to size the image on the widget.
  */
 public enum WidgetImageSizing {
   
