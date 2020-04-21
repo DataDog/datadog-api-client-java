@@ -6,25 +6,60 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
-import static org.junit.Assert.assertEquals;
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
+import static org.junit.Assert.*;
+import static org.junit.Assume.assumeTrue;
 
 /**
  * API tests for KeyManagementApi
  */
 public class KeyManagementApiTest extends V1ApiTest {
 
-    private final KeyManagementApi api = new KeyManagementApi(generalApiUnitTestClient);
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    private final KeyManagementApi api = new KeyManagementApi(generalApiClient);
+    private final KeyManagementApi unitApi = new KeyManagementApi(generalApiUnitTestClient);
+    private final KeyManagementApi fakeAuthApi = new KeyManagementApi(generalFakeAuthApiClient);
+
+    private ArrayList<ApplicationKeyResponse> deleteAppKeys = null;
+
     private final String apiUri = "/api/v1/api_key";
     private final String appUri = "/api/v1/application_key";
     private final String fixturePrefix = "v1/client/api/keys_fixtures";
+
+    @Before
+    public void resetTest() {
+        deleteAppKeys = new ArrayList<>();
+    }
+
+    @After
+    public void deleteAppAndApiKeys() {
+        if (deleteAppKeys != null) {
+            for (ApplicationKeyResponse apiKeyResponse : deleteAppKeys) {
+                try {
+                    api.deleteApplicationKey(apiKeyResponse.getApplicationKey().getHash()).execute();;
+                } catch (ApiException e) {
+                    // doesn't exist => continue
+                    continue;
+                }
+            }
+        }
+    }
 
     /**
      * Create an API key with a given name.
@@ -43,7 +78,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         stubFor(stub);
 
         ApiKey apiKey = new ApiKey().name(apiKeyName);
-        ApiKeyResponse response = api.createAPIKey().body(apiKey).execute();
+        ApiKeyResponse response = unitApi.createAPIKey().body(apiKey).execute();
 
         // Assert values match whats in create_api_key.json
         assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -69,7 +104,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         stubFor(stub);
 
         ApplicationKey applicationKey = new ApplicationKey().name(appKeyName);
-        ApplicationKeyResponse response = api.createApplicationKey().body(applicationKey).execute();
+        ApplicationKeyResponse response = unitApi.createApplicationKey().body(applicationKey).execute();
 
         // Assert values match whats in create_app_key.json
         assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -92,7 +127,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         String apiKeyName = "TestName";
         MappingBuilder stub = setupStub(apiUri + "/" + apiKeyName, fixturePrefix + "/delete_api_key.json", "delete");
         stubFor(stub);
-        ApiKeyResponse response = api.deleteAPIKey(apiKeyName).execute();
+        ApiKeyResponse response = unitApi.deleteAPIKey(apiKeyName).execute();
 
         // Assert values match whats in delete_api_key.json
         assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -117,7 +152,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         String appKeyName = "TestName";
         MappingBuilder stub = setupStub(appUri + "/" + appKeyName, fixturePrefix + "/delete_app_key.json", "delete");
         stubFor(stub);
-        ApplicationKeyResponse response = api.deleteApplicationKey(appKeyName).execute();
+        ApplicationKeyResponse response = unitApi.deleteApplicationKey(appKeyName).execute();
 
         // Assert values match whats in delete_api_key.json
         assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -144,7 +179,7 @@ public class KeyManagementApiTest extends V1ApiTest {
 
         // We're mocking the response so the query param we select can be anything
         ApiKey apiKey = new ApiKey().name("TestName");
-        ApiKeyResponse response = api.updateAPIKey(apiKeyName).body(apiKey).execute();
+        ApiKeyResponse response = unitApi.updateAPIKey(apiKeyName).body(apiKey).execute();
 
         // Assert values match whats in edit_api_key.json
         assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -172,7 +207,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         stubFor(stub);
 
         ApplicationKey applicationKey = new ApplicationKey().name("<NEW_APP_KEY_NAME>");
-        ApplicationKeyResponse response = api.updateApplicationKey(appKeyName).body(applicationKey).execute();
+        ApplicationKeyResponse response = unitApi.updateApplicationKey(appKeyName).body(applicationKey).execute();
 
         // Assert values match whats in edit_api_key.json
         assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -198,7 +233,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         MappingBuilder stub = setupStub(apiUri + "/" + key, fixturePrefix + "/get_api_key.json", "get");
         stubFor(stub);
 
-        ApiKeyResponse response = api.getAPIKey(key).execute();
+        ApiKeyResponse response = unitApi.getAPIKey(key).execute();
 
         // Assert values match whats in get_api_key.json
         assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -223,7 +258,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_all_api_keys.json", "get");
         stubFor(stub);
 
-        ApiKeyListResponse response = api.listAPIKeys().execute();
+        ApiKeyListResponse response = unitApi.listAPIKeys().execute();
 
         // Assert values match whats in get_all_api_keys.json
         assertEquals(response.getApiKeys().size(), 2);
@@ -255,7 +290,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         MappingBuilder stub = setupStub(appUri, fixturePrefix + "/get_all_app_keys.json", "get");
         stubFor(stub);
 
-        ApplicationKeyListResponse response = api.listApplicationKeys().execute();
+        ApplicationKeyListResponse response = unitApi.listApplicationKeys().execute();
 
         // Assert values match whats in get_app_key.json
         assertEquals(response.getApplicationKeys().size(), 2);
@@ -287,7 +322,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         MappingBuilder stub = setupStub(appUri + "/" + key, fixturePrefix + "/get_app_key.json", "get");
         stubFor(stub);
 
-        ApplicationKeyResponse response = api.getApplicationKey(key).execute();
+        ApplicationKeyResponse response = unitApi.getApplicationKey(key).execute();
 
         // Assert values match whats in get_app_key.json
         assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -295,4 +330,277 @@ public class KeyManagementApiTest extends V1ApiTest {
         assertEquals(response.getApplicationKey().getName(), "<APP_KEY_NAME>");
     }
 
+    @Test
+    public void aPIKeysMgmtListErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listAPIKeys().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPIKeysMgmtCreateErrorsTest() throws IOException {
+        try {
+            api.createAPIKey().body(new ApiKey()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createAPIKey().body(new ApiKey()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPIKeysMgmtGetErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getAPIKey("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getAPIKey("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPIKeysMgmtUpdateErrorsTest() throws IOException {
+        try {
+            api.updateAPIKey("whatever").body(new ApiKey()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updateAPIKey("whatever").body(new ApiKey()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updateAPIKey("whatever").body(new ApiKey().name("nonexistent key")).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPIKeysMgmtDelete400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/invalid_number_of_keys_400.json");
+        stubFor(delete(urlPathEqualTo(apiUri + "/whatever"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked because we need 0 API keys to trigger the 400
+        try {
+            unitApi.deleteAPIKey("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPIKeysMgmtDeleteErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.deleteAPIKey("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.deleteAPIKey("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPPKeysMgmtListErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listApplicationKeys().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPPKeysMgmtCreateErrorsTest() throws IOException {
+        try {
+            api.createApplicationKey().body(new ApplicationKey()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createApplicationKey().body(new ApplicationKey()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPPKeysMgmtCreate409ErrorsTest() throws ApiException, IOException {
+        // This test case does not support reply from recording
+        assumeTrue(TestUtils.isRecording());
+
+        long nowMillis = now.toInstant().toEpochMilli()/1000;
+        String testAppKeyName = String.format("%s:%d", name.getMethodName(), nowMillis);
+
+        //Create an APP key to trigger 409 conflict
+        ApplicationKeyResponse response = api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName)).execute();
+
+        try {
+            api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            api.deleteApplicationKey(response.getApplicationKey().getHash()).execute();
+            assertEquals(409, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPPKeysMgmtGetErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getApplicationKey("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getApplicationKey("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPPKeysMgmtUpdateErrorsTest() throws IOException {
+        try {
+            api.updateApplicationKey("whatever").body(new ApplicationKey()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updateApplicationKey("whatever").body(new ApplicationKey()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updateApplicationKey("whatever").body(new ApplicationKey().name("nonexistent key")).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPPKeysMgmtUpdate409ErrorsTest() throws ApiException, IOException {
+        // This test case does not support reply from recording
+        assumeTrue(TestUtils.isRecording());
+
+        // Create two app keys to trigger the 409 conflict
+        String testAppKeyName1 = String.format("%s:%d", name.getMethodName(), now.toInstant().toEpochMilli()/1000);
+        ApplicationKeyResponse testAppKeyresponse1 = api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName1)).execute();
+        deleteAppKeys.add(testAppKeyresponse1);
+
+        String testAppKeyName2 = String.format("%s:%d-two", name.getMethodName(), now.toInstant().toEpochMilli()/1000);
+        ApplicationKeyResponse testAppKeyresponse2 = api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName2)).execute();
+        deleteAppKeys.add(testAppKeyresponse2);
+
+        try {
+            api.updateApplicationKey(testAppKeyresponse1.getApplicationKey().getHash()).body(new ApplicationKey().name(testAppKeyName2)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(409, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPPKeysMgmtDeleteErrorsTest() throws IOException {
+        // This test case does not support reply from recording
+        try {
+            fakeAuthApi.deleteApplicationKey("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.deleteApplicationKey("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
 }

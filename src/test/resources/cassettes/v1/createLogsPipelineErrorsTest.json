@@ -1,0 +1,88 @@
+[ {
+  "id" : "fe5a34bd-abef-4819-b18f-ba30a466a0b4",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/logs/config/pipelines",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "createLogsPipeline" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "13" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"name\":null}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Mon, 20 Apr 2020 01:00:29 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "155" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "100" ],
+      "x-ratelimit-period" : [ "3600" ],
+      "x-ratelimit-reset" : [ "3571" ],
+      "x-ratelimit-remaining" : [ "99" ],
+      "x-dd-version" : [ "35.2405092" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "body" : "{\"error\":{\"code\":\"InvalidArgument\",\"message\":\"Invalid Pipeline\",\"details\":[{\"code\":\"InvalidArgument\",\"message\":\"Invalid Pipeline: name is not provided\"}]}}"
+  }
+}, {
+  "id" : "50a103b8-0ed7-4595-9d64-91d61a56b178",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/logs/config/pipelines",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "createLogsPipeline" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "13" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"name\":null}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 403,
+    "reasonPhrase" : "Forbidden",
+    "headers" : {
+      "Date" : [ "Mon, 20 Apr 2020 01:00:34 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "170" ],
+      "Connection" : [ "keep-alive" ],
+      "cache-control" : [ "no-cache" ],
+      "via" : [ "haproxy" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+} ]

@@ -9,6 +9,8 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
 import java.io.File;
@@ -23,7 +25,14 @@ import static org.junit.Assert.*;
  */
 public class SyntheticsApiTest extends V1ApiTest {
     private static SyntheticsApi api;
-    private static SyntheticsApi unitAPI;
+    private static SyntheticsApi fakeAuthApi;
+    private static SyntheticsApi unitApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    private final String apiUri = "/api/v1/synthetics";
+    private final String fixturePrefix = "v1/client/api/synthetics_fixtures";
     private ArrayList<String> deleteSyntheticsTests = null;
     private SyntheticsTestDetails apiTestConfig = new SyntheticsTestDetails()
             .config(new SyntheticsTestConfig()
@@ -94,7 +103,8 @@ public class SyntheticsApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new SyntheticsApi(generalApiClient);
-        unitAPI = new SyntheticsApi(generalApiUnitTestClient);
+        fakeAuthApi = new SyntheticsApi(generalFakeAuthApiClient);
+        unitApi = new SyntheticsApi(generalApiUnitTestClient);
     }
 
     @After
@@ -192,7 +202,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         stubFor(get(urlPathEqualTo("/api/v1/synthetics/tests/test-synthetics-id/results/test-result-id"))
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/synthetics_fixtures/api_test_single_result.json")))
         );
-        SyntheticsAPITestResultFull result = unitAPI.getAPITestResult("test-synthetics-id", "test-result-id").execute();
+        SyntheticsAPITestResultFull result = unitApi.getAPITestResult("test-synthetics-id", "test-result-id").execute();
 
         // Assert a few of the returned attributes unmarshall properly
         assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.TRIGGERED);
@@ -272,7 +282,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         stubFor(get(urlPathEqualTo("/api/v1/synthetics/tests/browser/test-synthetics-id/results/test-result-id"))
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/synthetics_fixtures/browser_test_single_result.json")))
         );
-        SyntheticsBrowserTestResultFull result = unitAPI.getBrowserTestResult("test-synthetics-id", "test-result-id").execute();
+        SyntheticsBrowserTestResultFull result = unitApi.getBrowserTestResult("test-synthetics-id", "test-result-id").execute();
         // Assert based on the data from the fixture file, test a few fields
         assertEquals(result.getResultId(), "5140738909114888212");
         assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.UNTRIGGERED);
@@ -306,5 +316,243 @@ public class SyntheticsApiTest extends V1ApiTest {
         }
 
         assertTrue(String.format("Test %s not found in list retrieved from API", publicId), false);
+    }
+
+    @Test
+    public void deleteSyntheticsErrorsTest() throws IOException {
+        try {
+            api.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void deleteSynthetics404ErrorsTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_404.json");
+        stubFor(post(urlPathEqualTo(apiUri + "/tests/delete"))
+                .willReturn(okJson(fixtureData).withStatus(404))
+        );
+
+        try {
+            unitApi.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void updateStatusSyntheticsErrorsTest() throws ApiException, IOException {
+        // Create API test
+        SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
+        String publicId = synt.getPublicId();
+        deleteSyntheticsTests.add(publicId);
+
+        try {
+            api.updateTestPauseStatus(publicId).body(new SyntheticsUpdateTestPauseStatusPayload()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updateTestPauseStatus(publicId).body(new SyntheticsUpdateTestPauseStatusPayload()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updateTestPauseStatus("aaa-aaa-aaa").body(new SyntheticsUpdateTestPauseStatusPayload()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void browserSpecificGetResultSyntheticsErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getBrowserTestResult("id", "resultid").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getBrowserTestResult("aaa-aaa-aaa", "resultid").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void aPISpecificGetResultSyntheticsErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getAPITestResult("id", "resultid").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getAPITestResult("aaa-aaa-aaa", "resultid").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getTestSyntheticsErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getTest( "id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getTest( "aaa-aaa-aaa").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void updateTestSyntheticsErrorsTest() throws ApiException, IOException {
+        // Create API test
+        SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
+        String publicId = synt.getPublicId();
+        deleteSyntheticsTests.add(publicId);
+
+        try {
+            api.updateTest(publicId).body(new SyntheticsTestDetails()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updateTest("id").body(new SyntheticsTestDetails()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updateTest("aaa-aaa-aaa").body(new SyntheticsTestDetails()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void listTestSyntheticsErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listTests().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void listTestSynthetics404ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_404.json");
+        stubFor(get(urlPathEqualTo(apiUri + "/tests"))
+                .willReturn(okJson(fixtureData).withStatus(404))
+        );
+
+        try {
+            unitApi.listTests().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void createTestSyntheticsErrorsTest() throws IOException {
+        try {
+            api.createTest().body(new SyntheticsTestDetails()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createTest().body(new SyntheticsTestDetails()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void createTestSynthetics402ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_402.json");
+        stubFor(post(urlPathEqualTo(apiUri + "/tests"))
+                .willReturn(okJson(fixtureData).withStatus(402))
+        );
+
+        try {
+            unitApi.createTest().body(new SyntheticsTestDetails()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(402, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
     }
 }

@@ -8,14 +8,16 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.model.AccessRole;
-import com.datadog.api.v1.client.model.User;
-import com.datadog.api.v1.client.model.UserListResponse;
-import com.datadog.api.v1.client.model.UserResponse;
+import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,6 +28,15 @@ import java.util.List;
 public class UsersApiTest extends V1ApiTest {
 
     private static UsersApi api;
+    private static UsersApi fakeAuthApi;
+    private static UsersApi unitApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    private final String apiUri = "/api/v1/user";
+    private final String fixturePrefix = "v1/client/api/user_fixtures";
+
     private final String testingUserHandle = "testinguser@datadoghq.com";
     private final String testingUserName = "Testing User";
     private final AccessRole testingUserAR = AccessRole.STANDARD;
@@ -39,6 +50,8 @@ public class UsersApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new UsersApi(generalApiClient);
+        fakeAuthApi = new UsersApi(generalFakeAuthApiClient);
+        unitApi = new UsersApi(generalApiUnitTestClient);
     }
 
     @After
@@ -117,6 +130,157 @@ public class UsersApiTest extends V1ApiTest {
                 }
             }
             assertTrue(String.format("User %s%s not found", prefix, testingUserHandle), found);
+        }
+    }
+
+    @Test
+    public void userCreateErrorsTest() throws IOException {
+        try {
+            api.createUser().body(new User()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createUser().body(new User()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void userCreate409ErrorsTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_409.json");
+        stubFor(post(urlPathEqualTo(apiUri))
+                .willReturn(okJson(fixtureData).withStatus(409))
+        );
+
+        try {
+            unitApi.createUser().body(new User()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(409, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void testUserListErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listUsers().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void userGetErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getUser("notahandle").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getUser("notahandle").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void userUpdateErrorsTest() throws ApiException, IOException {
+        // Test creating user
+        User user = new User();
+        user.setAccessRole(testingUserAR);
+        user.setHandle(testingUserHandle);
+        user.setName(testingUserName);
+        UserResponse response = api.createUser().body(user).execute();
+        // If something fails, make sure we disable the user
+        disableUsers.add(testingUserHandle);
+
+        User badUser = new User();
+        badUser.setEmail("notanemail");
+
+        try {
+            api.updateUser(user.getHandle()).body(badUser).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updateUser("notahandle").body(badUser).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updateUser("notahandle").body(badUser).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+    @Test
+    public void userDisableErrorsTest() throws ApiException, IOException {
+        // Test creating user
+        User user = new User();
+        user.setAccessRole(testingUserAR);
+        user.setHandle(testingUserHandle);
+        user.setName(testingUserName);
+        UserResponse response = api.createUser().body(user).execute();
+        // If something fails, make sure we disable the user
+        disableUsers.add(testingUserHandle);
+
+        try {
+            api.disableUser(user.getHandle()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.disableUser("notahandle").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.disableUser("notahandle").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

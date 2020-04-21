@@ -12,8 +12,12 @@ import com.datadog.api.v1.client.model.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -26,12 +30,21 @@ import java.util.List;
 public class LogsIndexesApiTest extends V1ApiTest {
 
     private static LogsIndexesApi api;
+    private static LogsIndexesApi fakeAuthApi;
     private static LogsIndexesApi unitApi;
     private final String INDEXNAME = "main";
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    private final String apiUri = "/api/v1/logs/config/indexes";
+    private final String fixturePrefix = "v1/client/api/logs_indexes_fixtures";
+
 
     @BeforeClass
     public static void initApi() {
         api = new LogsIndexesApi(generalApiClient);
+        fakeAuthApi = new LogsIndexesApi(generalFakeAuthApiClient);
         unitApi = new LogsIndexesApi(generalApiUnitTestClient);
     }
 
@@ -40,6 +53,9 @@ public class LogsIndexesApiTest extends V1ApiTest {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalApiClient.setUnstableOperationEnabled("listLogIndexes", true);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndex", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("listLogIndexes", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", true);
@@ -50,6 +66,9 @@ public class LogsIndexesApiTest extends V1ApiTest {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalApiClient.setUnstableOperationEnabled("listLogIndexes", false);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndex", false);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("listLogIndexes", false);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", false);
@@ -76,7 +95,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
         LogsIndex response = api.getLogsIndex(INDEXNAME).execute();
         assertEquals(INDEXNAME, response.getName());
         assertEquals("", response.getFilter().getQuery());
-        assertEquals(0, response.getExclusionFilters().size());
+        assertNotNull(response.getExclusionFilters().size());
         assertNotNull(response.getDailyLimit());
         assertNotNull(response.getIsRateLimited());
         assertNotNull(response.getNumRetentionDays());
@@ -157,4 +176,108 @@ public class LogsIndexesApiTest extends V1ApiTest {
         assertEquals(body.getIndexNames(), response.getIndexNames());
     }
 
+    @Test
+    public void logsIndexesListErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listLogIndexes().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void logsIndexesGetErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getLogsIndex("shrugs").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getLogsIndex("shrugs").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
+        }
+    }
+
+    @Test
+    public void logsIndexesUpdateErrorsTest() throws IOException {
+        try {
+            api.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
+        }
+
+        try {
+            fakeAuthApi.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void logsIndexesOrderUpdate429ErrorTest() throws IOException {
+        //mock 429 - Too many requests response
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_429.json");
+        stubFor(put(urlPathEqualTo(apiUri + "/shrugs"))
+                .willReturn(okJson(fixtureData).withStatus(429))
+        );
+        // Mock the 429 response
+        try {
+            unitApi.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(429, e.getCode());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
+        }
+    }
+
+    @Test
+    public void logsIndexesOrderGetErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getLogsIndexOrder().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void logsIndexesOrderUpdateErrorsTest() throws IOException {
+        try {
+            api.updateLogsIndexOrder().body(new LogsIndexesOrder().indexNames(null)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
+        }
+
+        try {
+            fakeAuthApi.updateLogsIndexOrder().body(new LogsIndexesOrder().indexNames(null)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
 }

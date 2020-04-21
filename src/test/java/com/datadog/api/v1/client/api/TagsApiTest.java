@@ -13,15 +13,16 @@ import com.datadog.api.v1.client.model.*;
 
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * API tests for TagsApi
@@ -29,12 +30,17 @@ import java.util.List;
 public class TagsApiTest extends V1ApiTest {
 
     private static TagsApi api;
+    private static TagsApi fakeAuthApi;
     private static MetricsApi metricsAPI;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
 
     @BeforeClass
     public static void initAPI() {
         api = new TagsApi(generalApiClient);
+        fakeAuthApi = new TagsApi(generalFakeAuthApiClient);
         metricsAPI = new MetricsApi(generalApiClient);
     }
 
@@ -111,5 +117,110 @@ public class TagsApiTest extends V1ApiTest {
 
         // Remove tags
         api.deleteHostTags(hostname).source("datadog").execute();
+    }
+
+    @Test
+    public void listTagsErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listHostTags().source("nosource").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.listHostTags().source("nosource").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getTagsErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getHostTags("notahostname1234").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getHostTags("notahostname1234").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void createTagsErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.createHostTags("notahostname1234").body(new HostTags()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.createHostTags("notahostname1234").body(new HostTags()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void updateTagsErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.updateHostTags("notahostname1234").body(new HostTags()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updateHostTags("notahostname1234").body(new HostTags()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void deleteTagsErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.deleteHostTags("notahostname1234").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.deleteHostTags("notahostname1234").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
     }
 }

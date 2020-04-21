@@ -11,18 +11,18 @@ import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.model.EventPriority;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-
-import java.util.Arrays;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
+
+import static org.junit.Assert.*;
 
 /**
  * API tests for EventsApi
@@ -30,10 +30,15 @@ import java.util.concurrent.atomic.AtomicReference;
 public class EventsApiTest extends V1ApiTest {
 
     private static EventsApi api;
+    private static EventsApi fakeAuthApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @BeforeClass
     public static void initApi() {
         api = new EventsApi(generalApiClient);
+        fakeAuthApi = new EventsApi(generalFakeAuthApiClient);
     }
 
     /**
@@ -64,7 +69,7 @@ public class EventsApiTest extends V1ApiTest {
         TestUtils.retry(10, 20, () -> {
             try {
                 eventGetResponse.set(api.getEvent(eventId).execute());
-            } catch(ApiException e) {
+            } catch (ApiException e) {
                 System.out.println(String.format("Error getting event: %s", e));
                 return false;
             }
@@ -97,10 +102,52 @@ public class EventsApiTest extends V1ApiTest {
                     System.out.printf("Error: Event %s not in event list: %s", fetchedEvent, eventListResponse);
                     return false;
                 }
-            } catch(ApiException e) {
+            } catch (ApiException e) {
                 System.out.println(String.format("Error getting list of events: %s", e));
                 return false;
             }
         });
+    }
+
+    @Test
+    public void eventListErrorTest() throws IOException {
+        try {
+            api.listEvents().start(new Long(345)).end(new Long(123)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.listEvents().start(new Long(345)).end(new Long(123)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void eventGetErrorTest() throws IOException {
+        try {
+            fakeAuthApi.getEvent(new Long((new Long(1234)))).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getEvent(new Long((new Long(1234)))).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
     }
 }

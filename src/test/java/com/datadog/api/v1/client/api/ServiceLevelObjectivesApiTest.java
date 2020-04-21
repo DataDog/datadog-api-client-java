@@ -6,12 +6,18 @@
 
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
+import java.io.IOException;
 import java.util.*;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.*;
 
 /**
@@ -19,7 +25,11 @@ import static org.junit.Assert.*;
  */
 public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     private static ServiceLevelObjectivesApi api;
+    private static ServiceLevelObjectivesApi unitApi;
+    private static ServiceLevelObjectivesApi fakeAuthApi;
     private static MonitorsApi mApi;
+    private final String apiUri = "/api/v1/slo";
+    private final String fixturePrefix = "v1/client/api/slo_fixtures";
     private ArrayList<String> deleteSLOs = null;
     private ArrayList<Long> deleteMonitors = null;
     private final ServiceLevelObjective monitorSLO = new ServiceLevelObjective()
@@ -50,6 +60,9 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
                  .denominator("default(sum:non_existant_metric{*}.as_count(), 2)")
             );
 
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
     @Before
     public void resetDeleteSLOsMonitors() {
         deleteSLOs = new ArrayList<String>();
@@ -59,6 +72,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new ServiceLevelObjectivesApi(generalApiClient);
+        unitApi = new ServiceLevelObjectivesApi(generalApiUnitTestClient);
+        fakeAuthApi = new ServiceLevelObjectivesApi(generalFakeAuthApiClient);
         mApi = new MonitorsApi(generalApiClient);
     }
 
@@ -223,5 +238,232 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             }
         }
         assertTrue(String.format("SLO %s not found in all retrieved SLOs", sloId), false);
+    }
+
+    @Test
+    public void createSLOErrorsTest() throws IOException {
+        try {
+            api.createSLO().body(new ServiceLevelObjective()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createSLO().body(new ServiceLevelObjective()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void listSLOErrorsTest() throws IOException {
+        try {
+            api.listSLOs().ids("id1,id1").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.listSLOs().ids("id1,id2").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.listSLOs().ids("id1,id2").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void updateSLOErrorsTest() throws IOException {
+        try {
+            api.updateSLO("id").body(new ServiceLevelObjective()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updateSLO("id").body(new ServiceLevelObjective()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updateSLO("id").body(monitorSLO).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getSLOErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getSLO("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getSLO("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void deleteSLOErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.deleteSLO("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.deleteSLO("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void deleteSLO409ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_409_delete.json");
+        stubFor(delete(urlPathEqualTo(apiUri + "/id"))
+                .willReturn(okJson(fixtureData).withStatus(409))
+        );
+
+        // FIXME: Make it an integration test when feature is fixed
+        //// Create SLO and reference it in a dashboard to trigger 409
+        try {
+            unitApi.deleteSLO("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(409, e.getCode());
+            SLODeleteResponse error = objectMapper.readValue(e.getResponseBody(), SLODeleteResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void historyGetSLOErrorsTest() throws ApiException, IOException {
+        // Create a monitor for testing the monitor SLO
+        Monitor m = new Monitor()
+                .name("For testing monitor SLO")
+                .type(MonitorType.METRIC_ALERT)
+                .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
+        m = mApi.createMonitor().body(m).execute();
+        deleteMonitors.add(m.getId());
+        monitorSLO.monitorIds(Arrays.asList(m.getId()));
+
+        // Create SLO
+        SLOListResponse sloResp = api.createSLO().body(monitorSLO).execute();
+        ServiceLevelObjective created = sloResp.getData().get(0);
+        deleteSLOs.add(created.getId());
+
+        try {
+            api.getSLOHistory(created.getId()).fromTs(new Long(123)).toTs(new Long(12)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getSLOHistory("id").fromTs(new Long(123)).toTs(new Long(12)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getSLOHistory("id").fromTs(new Long(123)).toTs(new Long(12)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void canDelete409SLOErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_409_can_delete.json");
+        stubFor(get(urlPathEqualTo(apiUri + "/can_delete"))
+                .willReturn(okJson(fixtureData).withStatus(409))
+        );
+        // Mocked as the feature is in a broken state right now
+        // FIXME: Make it an integration test when feature is fixed
+        try {
+            unitApi.checkCanDeleteSLO().ids("id").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(409, e.getCode());
+            CheckCanDeleteSLOResponse error = objectMapper.readValue(e.getResponseBody(), CheckCanDeleteSLOResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void bulkDeleteSLOErrorsTest() throws IOException {
+        Map<String, List<SLOTimeframe>> toDelete = new HashMap<String, List<SLOTimeframe>>();
+
+        try {
+            api.deleteSLOTimeframeInBulk().body(toDelete).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.deleteSLOTimeframeInBulk().body(toDelete).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
     }
 }

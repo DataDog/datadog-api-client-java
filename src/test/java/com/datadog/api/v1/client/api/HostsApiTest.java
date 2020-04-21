@@ -15,14 +15,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * API tests for HostsApi
@@ -30,13 +29,18 @@ import java.util.List;
 public class HostsApiTest extends V1ApiTest {
 
     private static HostsApi api;
+    private static HostsApi fakeAuthApi;
     private static HostsApi unitAPI;
     private static MetricsApi metricsAPI;
     private static TagsApi tagsAPI;
 
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
     @BeforeClass
     public static void initAPI() {
         api = new HostsApi(generalApiClient);
+        fakeAuthApi = new HostsApi(generalFakeAuthApiClient);
         unitAPI = new HostsApi(generalApiUnitTestClient);
         metricsAPI = new MetricsApi(generalApiClient);
         tagsAPI = new TagsApi(generalApiClient);
@@ -174,4 +178,98 @@ public class HostsApiTest extends V1ApiTest {
         assertEquals(expected, response);
     }
 
+    @Test
+    public void hostsListErrorsTest() throws IOException {
+        try {
+            api.listHosts().count(-1L).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.listHosts().count(-1L).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void hostsGetTotalsErrorsTest() throws IOException {
+        try {
+            api.getHostTotals().from(now.toEpochSecond() + 60).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getHostTotals().from(now.toEpochSecond() + 60).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void hostsMuteErrorsTest() throws ApiException, IOException {
+        long nowMillis = now.toInstant().toEpochMilli()/1000;
+        String hostname = String.format("java-client-test-host-%d", nowMillis);
+
+        //Mute host a first time in order to trigger a 400
+        HostMuteSettings muteSettings = new HostMuteSettings();
+        muteSettings.setOverride(true);
+        api.muteHost(hostname).body(muteSettings).execute();
+
+        try {
+            api.muteHost(hostname).body(new HostMuteSettings()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+             assertEquals(400, e.getCode());
+             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+             assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.muteHost(hostname).body(new HostMuteSettings()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void hostsUnmuteErrorsTest() throws IOException {
+        long nowMillis = now.toInstant().toEpochMilli()/1000;
+        String hostname = String.format("java-client-test-host-%d", nowMillis);
+
+        try {
+            api.unmuteHost(hostname).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.unmuteHost(hostname).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
 }

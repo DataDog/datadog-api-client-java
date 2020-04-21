@@ -7,14 +7,18 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.DashboardList;
 import com.datadog.api.v1.client.model.DashboardListDeleteResponse;
 
 import static org.junit.Assert.*;
 
 import com.datadog.api.v1.client.model.DashboardListListResponse;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +27,11 @@ import java.util.ArrayList;
 public class DashboardListsApiTest extends V1ApiTest {
 
     private static DashboardListsApi api;
+    private static DashboardListsApi fakeAuthApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
     private ArrayList<Long> dashboardListsToDelete;
 
     @Before
@@ -33,6 +42,22 @@ public class DashboardListsApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new DashboardListsApi(generalApiClient);
+        fakeAuthApi = new DashboardListsApi(generalFakeAuthApiClient);
+    }
+
+    @After
+    public void deleteDashboardListsTest() throws ApiException {
+        if (dashboardListsToDelete != null) {
+            for (Long id : dashboardListsToDelete) {
+                try {
+                    api.getDashboardList(id).execute();
+                } catch (ApiException e) {
+                    // doesn't exist => continue
+                    continue;
+                }
+                api.deleteDashboardList(id).execute();
+            }
+        }
     }
 
     @Test
@@ -72,18 +97,108 @@ public class DashboardListsApiTest extends V1ApiTest {
         assertEquals(res.getDeletedDashboardListId(), dashboardList.getId());
     }
 
-    @After
-    public void deleteDashboardLists() throws ApiException {
-        if (dashboardListsToDelete != null) {
-            for (Long id : dashboardListsToDelete) {
-                try {
-                    api.getDashboardList(id).execute();
-                } catch (ApiException e) {
-                    // doesn't exist => continue
-                    continue;
-                }
-                api.deleteDashboardList(id).execute();
-            }
+    @Test
+    public void dashboardListListErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listDashboardLists().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void dashboardListCreateErrorsTest() throws IOException {
+        try {
+            api.createDashboardList().body(new DashboardList()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createDashboardList().body(new DashboardList()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void dashboardListGetErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getDashboardList(new Long(1234)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getDashboardList(new Long(1234)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void dashboardListUpdateErrorsTest() throws IOException {
+        try {
+            api.updateDashboardList(new Long(1234)).body(new DashboardList()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updateDashboardList(new Long(1234)).body(new DashboardList()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updateDashboardList(new Long(1234)).body(new DashboardList().name("nonexistent")).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void dashboardListDeleteErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.deleteDashboardList(new Long(1234)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getDashboardList(new Long(1234)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

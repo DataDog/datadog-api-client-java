@@ -14,11 +14,17 @@ import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.junit.Assert.*;
 
 /**
  * API tests for PagerDutyIntegrationApi
@@ -26,10 +32,15 @@ import static org.junit.Assert.assertEquals;
 public class PagerDutyIntegrationApiTest extends V1ApiTest {
 
     private static PagerDutyIntegrationApi api;
+    private static PagerDutyIntegrationApi fakeAuthApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @BeforeClass
     public static void initAPI() {
         api = new PagerDutyIntegrationApi(generalApiClient);
+        fakeAuthApi = new PagerDutyIntegrationApi(generalFakeAuthApiClient);
     }
 
     @After
@@ -146,13 +157,197 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void getPagerDutyIntegrationTest() throws TestUtils.RetryException {
+    public void getPagerDutyIntegrationTest() throws TestUtils.RetryException, IOException {
         ensureNoPagerDuty();
 
         try {
+            fakeAuthApi.getPagerDutyIntegration().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
             api.getPagerDutyIntegration().execute();
+            fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void createPagerDutyIntegrationTest() throws IOException {
+        PagerDutyIntegration body = new PagerDutyIntegration()
+                .schedules(new ArrayList<String>(Arrays.asList("schedule")))
+                .services(new ArrayList<PagerDutyService>())
+                .subdomain("subdomain")
+                .apiToken("apitoken");
+
+        try {
+            api.createPagerDutyIntegration().body(body).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createPagerDutyIntegration().body(body).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void updatePagerDutyIntegrationTest() throws IOException {
+        PagerDutyServicesAndSchedules body = new PagerDutyServicesAndSchedules()
+                .schedules(Arrays.asList(new String[]{"schedule"}));
+
+        try {
+            api.updatePagerDutyIntegration().body(body).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updatePagerDutyIntegration().body(body).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void deletePagerDutyIntegrationTest() throws IOException {
+        try {
+            fakeAuthApi.deletePagerDutyIntegration().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void createPagerDutyIntegrationServicesTest() throws IOException {
+        PagerDutyService body = new PagerDutyService()
+                .serviceKey("lalaa")
+                .serviceName("lalasa");
+
+        try {
+            api.createPagerDutyIntegrationService().body(new PagerDutyService()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createPagerDutyIntegrationService().body(body).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.createPagerDutyIntegrationService().body(body).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getPagerDutyIntegrationServicesTest() throws IOException {
+        try {
+            fakeAuthApi.getPagerDutyIntegrationService("service").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getPagerDutyIntegrationService("service").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void updatePagerDutyIntegrationServicesTest() throws IOException {
+        PagerDutyServiceKey body = new PagerDutyServiceKey()
+                .serviceKey("lalaa");
+
+        try {
+            api.updatePagerDutyIntegrationService("qoisdfhanniq").body(new PagerDutyServiceKey()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updatePagerDutyIntegrationService("qoisdfhanniq").body(body).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.updatePagerDutyIntegrationService("qoisdfhanniq").body(body).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void deletePagerDutyIntegrationServicesTest() throws IOException {
+        try {
+            fakeAuthApi.deletePagerDutyIntegrationService("lqnioiuyzbefnkje").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.deletePagerDutyIntegrationService("lqnioiuyzbefnkje").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

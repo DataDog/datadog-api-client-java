@@ -7,9 +7,14 @@
 package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.GraphSnapshot;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -19,10 +24,15 @@ import static org.junit.Assert.*;
 public class SnapshotsApiTest extends V1ApiTest {
 
     private static SnapshotsApi api;
+    private static SnapshotsApi fakeAuthApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @BeforeClass
     public static void initAPI() {
         api = new SnapshotsApi(generalApiClient);
+        fakeAuthApi = new SnapshotsApi(generalFakeAuthApiClient);
     }
 
     @Test
@@ -68,6 +78,27 @@ public class SnapshotsApiTest extends V1ApiTest {
             api.getGraphSnapshot().start(start).metricQuery(metricQuery).execute();
         } catch (ApiException e) {
             assertTrue(e.getMessage().contains("Missing the required parameter 'end"));
+        }
+    }
+
+    @Test
+    public void getGraphErrors() throws IOException {
+        try {
+            api.getGraphSnapshot().start(new Long(345)).end(new Long(123)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getGraphSnapshot().start(new Long(345)).end(new Long(123)).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
         }
     }
 }

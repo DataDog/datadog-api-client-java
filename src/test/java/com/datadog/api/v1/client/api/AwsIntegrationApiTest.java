@@ -8,15 +8,20 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.AWSAccount;
 import com.datadog.api.v1.client.model.AWSAccountCreateResponse;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.*;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
 /**
@@ -25,13 +30,22 @@ import static org.junit.Assert.*;
 public class AwsIntegrationApiTest extends V1ApiTest {
 
     private static AwsIntegrationApi api;
+    private static AwsIntegrationApi fakeAuthApi;
+    private static AwsIntegrationApi unitApi;
     private static LinkedHashSet<AWSAccount> accountsToDelete;
     private static Random random = new Random();
 
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    private final String apiUri = "/api/v1/integration/aws";
+    private final String fixturePrefix = "v1/client/api/aws_fixtures";
 
     @BeforeClass
     public static void initApi() {
         api = new AwsIntegrationApi(generalApiClient);
+        fakeAuthApi = new AwsIntegrationApi(generalFakeAuthApiClient);
+        unitApi = new AwsIntegrationApi(generalApiUnitTestClient);
     }
 
     @Before
@@ -225,7 +239,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
                 AWSAccountCreateResponse createResponse = api.createAWSAccount().body(awsAccount).execute();
                 accountsToDelete.add(awsAccount);
                 assertNotNull(createResponse.getExternalId());
-            } catch(ApiException e) {
+            } catch (ApiException e) {
                 System.out.println(String.format("Error updating AWS Account: %s", e));
                 return false;
             }
@@ -248,4 +262,129 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         assertTrue(namespaces.contains("xray"));
     }
 
+    @Test
+    public void generateExternalIDAWSErrorsTest() throws IOException {
+        try {
+            api.createNewAWSExternalID().body(new AWSAccount()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createNewAWSExternalID().body(new AWSAccount()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void createErrorsAWSTest() throws IOException {
+        try {
+            api.createAWSAccount().body(new AWSAccount()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.createAWSAccount().body(new AWSAccount()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void deleteErrorsAWSTest() throws IOException {
+        try {
+            api.deleteAWSAccount().body(new AWSAccount()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.deleteAWSAccount().body(new AWSAccount()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getAll403ErrorAWSTest() throws IOException {
+        try {
+            fakeAuthApi.listAWSAccounts().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getAll400ErrorAWSTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo(apiUri))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked because it is only returned when the aws integration is not installed, which is not the case on test org
+        // and it can't be done through the API
+        try {
+            unitApi.listAWSAccounts().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void listNamespacesAWSErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.listAvailableAWSNamespaces().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void updateAWSErrorsTest() throws IOException {
+        try {
+            api.updateAWSAccount().body(new AWSAccount()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.updateAWSAccount().body(new AWSAccount()).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
 }

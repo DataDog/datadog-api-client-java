@@ -1,0 +1,147 @@
+[ {
+  "id" : "9668d409-967e-48ff-98d6-4a9b5fd62bfc",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/application_key",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "createApplicationKey" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "52" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"name\":\"aPPKeysMgmtCreate409ErrorsTest:1587154492\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 17 Apr 2020 20:14:58 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 20:14:58 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2405020" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "194" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"application_key\":{\"owner\":\"nicholas.muesch@datadoghq.com\",\"org_id\":321813,\"hash\":\"91ee469c36b509bab7a6a8cfe6f9284145903e08\",\"name\":\"aPPKeysMgmtCreate409ErrorsTest:1587154492\",\"revoked\":false}}"
+  }
+}, {
+  "id" : "369755c6-b7e1-4ed8-8508-20aaf8464d30",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/application_key",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "createApplicationKey" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "52" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"name\":\"aPPKeysMgmtCreate409ErrorsTest:1587154492\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 409,
+    "reasonPhrase" : "Conflict",
+    "headers" : {
+      "Date" : [ "Fri, 17 Apr 2020 20:15:03 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "105" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 20:15:03 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2405020" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"errors\": [\"An application key with the name aPPKeysMgmtCreate409ErrorsTest:1587154492 already exists\"]}"
+  }
+}, {
+  "id" : "a426e168-29cc-43d7-8427-410219dd0643",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/application_key/91ee469c36b509bab7a6a8cfe6f9284145903e08",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "DD-OPERATION-ID" : [ "deleteApplicationKey" ],
+      "User-Agent" : [ "DataDog/1.0.0/java" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Length" : [ "256" ]
+    },
+    "keepAlive" : true,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"entity\":\"\",\"variant\":{\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}},\"annotations\":[],\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 17 Apr 2020 20:15:03 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 20:15:03 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.2405020" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "193" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"application_key\":{\"owner\":\"nicholas.muesch@datadoghq.com\",\"org_id\":321813,\"hash\":\"91ee469c36b509bab7a6a8cfe6f9284145903e08\",\"name\":\"aPPKeysMgmtCreate409ErrorsTest:1587154492\",\"revoked\":true}}"
+  }
+} ]

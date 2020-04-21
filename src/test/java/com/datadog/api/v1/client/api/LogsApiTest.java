@@ -10,13 +10,17 @@ package com.datadog.api.v1.client.api;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
+import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 /**
  * API tests for LogsApi
@@ -24,10 +28,15 @@ import static org.junit.Assert.assertNotNull;
 public class LogsApiTest extends V1ApiTest {
 
     private static LogsApi api;
+    private static LogsApi fakeAuthApi;
+
+    // ObjectMapper instance configure to not fail when encountering unknown properties
+    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @BeforeClass
     public static void initAPI() {
         api = new LogsApi(generalApiClient);
+        fakeAuthApi = new LogsApi(generalFakeAuthApiClient);
     }
 
     @Test
@@ -110,5 +119,30 @@ public class LogsApiTest extends V1ApiTest {
                 return false;
             }
         });
+    }
+
+    @Test
+    public void logsListErrorsTest() throws IOException {
+        LogsListRequest logsListRequest = new LogsListRequest()
+                .startAt("notanid")
+                .time(new LogsListRequestTime().from(now.minusHours(1)).to(now));
+
+        try {
+            api.listLogs().body(logsListRequest).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            LogsAPIErrorResponse error = objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
+            assertNotNull(error.getError());
+        }
+
+        try {
+            fakeAuthApi.listLogs().body(logsListRequest).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
     }
 }
