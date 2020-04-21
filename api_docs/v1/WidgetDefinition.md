@@ -2,7 +2,7 @@
 
 # Interface WidgetDefinition
 
-Definition of the widget
+Definition of the widget.
 ## Implementing Classes
 
 * AlertGraphWidgetDefinition

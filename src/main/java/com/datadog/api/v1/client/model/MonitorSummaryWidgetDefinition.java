@@ -32,9 +32,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards
+ * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.
  */
-@ApiModel(description = "The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards")
+@ApiModel(description = "The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_COLOR_PREFERENCE,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_DISPLAY_FORMAT,
@@ -141,11 +141,11 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to show counts of 0 or not
+   * Whether to show counts of 0 or not.
    * @return hideZeroCounts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show counts of 0 or not")
+  @ApiModelProperty(value = "Whether to show counts of 0 or not.")
   @JsonProperty(JSON_PROPERTY_HIDE_ZERO_COUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -166,10 +166,10 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Query to filter the monitors with
+   * Query to filter the monitors with.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "Query to filter the monitors with")
+  @ApiModelProperty(required = true, value = "Query to filter the monitors with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -190,11 +190,11 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to show the time that has elapsed since the monitor/group triggered
+   * Whether to show the time that has elapsed since the monitor/group triggered.
    * @return showLastTriggered
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the time that has elapsed since the monitor/group triggered")
+  @ApiModelProperty(value = "Whether to show the time that has elapsed since the monitor/group triggered.")
   @JsonProperty(JSON_PROPERTY_SHOW_LAST_TRIGGERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -265,11 +265,11 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Title of the widget
+   * Title of the widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget")
+  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -315,11 +315,11 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -334,10 +334,10 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

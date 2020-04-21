@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **service** | **String** | The ID of the service you want to map. | 
 **title** | **String** | The title of your widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**titleSize** | **String** | Size of the title |  [optional]
-**type** | **String** | Type of the widget |  [readonly]
+**titleSize** | **String** | Size of the title. |  [optional]
+**type** | **String** | Type of the widget. |  [readonly]
 
 
 ## Implemented Interfaces

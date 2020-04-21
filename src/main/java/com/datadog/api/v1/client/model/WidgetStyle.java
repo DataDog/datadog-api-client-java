@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Widget style definition.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Widget style definition.")
 @JsonPropertyOrder({
   WidgetStyle.JSON_PROPERTY_PALETTE
 })

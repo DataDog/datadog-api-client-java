@@ -48,11 +48,11 @@ public class DashboardTemplateVariablePreset {
   }
 
    /**
-   * The name of the variable
+   * The name of the variable.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the variable")
+  @ApiModelProperty(value = "The name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

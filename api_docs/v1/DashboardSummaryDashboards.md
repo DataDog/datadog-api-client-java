@@ -2,20 +2,20 @@
 
 # DashboardSummaryDashboards
 
-TODO.
+Dashboard definition.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**authorHandle** | **String** | TODO. |  [optional]
-**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | TODO. |  [optional]
-**description** | **String** | TODO. |  [optional]
-**id** | **String** | TODO. |  [optional]
-**isReadOnly** | **Boolean** | TODO. |  [optional]
-**layoutType** | **String** | TODO. |  [optional]
-**modifiedAt** | [**OffsetDateTime**](OffsetDateTime.md) | TODO. |  [optional]
-**title** | **String** | TODO. |  [optional]
-**url** | **String** | TODO. |  [optional]
+**authorHandle** | **String** | Identifier of the dashboard author. |  [optional]
+**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | Creation date of the dashboard. |  [optional]
+**description** | **String** | Description of the dashboard. |  [optional]
+**id** | **String** | Dashboard identifier. |  [optional]
+**isReadOnly** | **Boolean** | Whether this dashboard is read-only. If True, only the author and admins can make changes to it. |  [optional]
+**layoutType** | [**DashboardLayoutType**](DashboardLayoutType.md) |  |  [optional]
+**modifiedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Modification date of the dashboard. |  [optional]
+**title** | **String** | Title of the dashboard. |  [optional]
+**url** | **String** | URL of the dashboard. |  [optional]
 
 
 

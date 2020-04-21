@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Which type of node to use in the map
+ * Which type of node to use in the map.
  */
 public enum WidgetNodeType {
   

@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **events** | [**List&lt;WidgetEvent&gt;**](WidgetEvent.md) | TODO. |  [optional]
 **legendSize** | [**WidgetLegendSize**](WidgetLegendSize.md) |  |  [optional]
 **requests** | [**List&lt;HeatMapWidgetRequest&gt;**](HeatMapWidgetRequest.md) | TODO. | 
-**showLegend** | **Boolean** | Whether or not to display the legend on this widget |  [optional]
+**showLegend** | **Boolean** | Whether or not to display the legend on this widget. |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
-**title** | **String** | Title of the widget |  [optional]
+**title** | **String** | Title of the widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**titleSize** | **String** | Size of the title |  [optional]
-**type** | **String** | Type of the widget |  [readonly]
+**titleSize** | **String** | Size of the title. |  [optional]
+**type** | **String** | Type of the widget. |  [readonly]
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 
 

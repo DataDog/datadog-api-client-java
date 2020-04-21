@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * the layout for a widget on a free dashboard
+ * The layout for a widget on a free dashboard.
  */
-@ApiModel(description = "the layout for a widget on a free dashboard")
+@ApiModel(description = "The layout for a widget on a free dashboard.")
 @JsonPropertyOrder({
   WidgetLayout.JSON_PROPERTY_HEIGHT,
   WidgetLayout.JSON_PROPERTY_WIDTH,
@@ -53,10 +53,11 @@ public class WidgetLayout {
   }
 
    /**
-   * The height of the widget
+   * The height of the widget. Should be a non-negative integer.
+   * minimum: 0
    * @return height
   **/
-  @ApiModelProperty(required = true, value = "The height of the widget")
+  @ApiModelProperty(required = true, value = "The height of the widget. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -77,10 +78,11 @@ public class WidgetLayout {
   }
 
    /**
-   * The width of the widget
+   * The width of the widget. Should be a non-negative integer.
+   * minimum: 0
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "The width of the widget")
+  @ApiModelProperty(required = true, value = "The width of the widget. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -101,10 +103,11 @@ public class WidgetLayout {
   }
 
    /**
-   * The position of the widget on the X axis
+   * The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
+   * minimum: 0
    * @return x
   **/
-  @ApiModelProperty(required = true, value = "The position of the widget on the X axis")
+  @ApiModelProperty(required = true, value = "The position of the widget on the x (horizontal) axis. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -125,10 +128,11 @@ public class WidgetLayout {
   }
 
    /**
-   * The position of the widget on the Y axis
+   * The position of the widget on the y (vertical) axis. Should be a non-negative integer.
+   * minimum: 0
    * @return y
   **/
-  @ApiModelProperty(required = true, value = "The position of the widget on the Y axis")
+  @ApiModelProperty(required = true, value = "The position of the widget on the y (vertical) axis. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

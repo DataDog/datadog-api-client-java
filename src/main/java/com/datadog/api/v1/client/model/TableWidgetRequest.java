@@ -118,11 +118,11 @@ public class TableWidgetRequest {
   }
 
    /**
-   * The column name (defaults to the metric name)
+   * The column name (defaults to the metric name).
    * @return alias
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The column name (defaults to the metric name)")
+  @ApiModelProperty(value = "The column name (defaults to the metric name).")
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -31,9 +31,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page
+ * The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.
  */
-@ApiModel(description = "The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page")
+@ApiModel(description = "The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.")
 @JsonPropertyOrder({
   HostMapWidgetDefinition.JSON_PROPERTY_GROUP,
   HostMapWidgetDefinition.JSON_PROPERTY_NO_GROUP_HOSTS,
@@ -309,11 +309,11 @@ public class HostMapWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Title of the widget
+   * Title of the widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget")
+  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -359,11 +359,11 @@ public class HostMapWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -378,10 +378,10 @@ public class HostMapWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

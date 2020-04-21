@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Axis controls for the widget
+ * Axis controls for the widget.
  */
-@ApiModel(description = "Axis controls for the widget")
+@ApiModel(description = "Axis controls for the widget.")
 @JsonPropertyOrder({
   WidgetAxis.JSON_PROPERTY_INCLUDE_ZERO,
   WidgetAxis.JSON_PROPERTY_LABEL,
@@ -157,11 +157,11 @@ public class WidgetAxis {
   }
 
    /**
-   * Specifies the scale type. Possible values are linear, log, sqrt, pow## (eg. pow2, pow0.5..)
+   * Specifies the scale type. Possible values are linear, log, sqrt, pow## (eg. pow2, pow0.5..).
    * @return scale
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the scale type. Possible values are linear, log, sqrt, pow## (eg. pow2, pow0.5..)")
+  @ApiModelProperty(value = "Specifies the scale type. Possible values are linear, log, sqrt, pow## (eg. pow2, pow0.5..).")
   @JsonProperty(JSON_PROPERTY_SCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -2,7 +2,7 @@
 
 # WidgetStyle
 
-TODO.
+Widget style definition.
 ## Properties
 
 Name | Type | Description | Notes

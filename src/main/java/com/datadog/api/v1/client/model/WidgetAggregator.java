@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Aggregator used for the request, available values are avg, last, max, min, or sum.
+ * Aggregator used for the request.
  */
 public enum WidgetAggregator {
   
