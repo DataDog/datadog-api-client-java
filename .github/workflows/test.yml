@@ -13,6 +13,7 @@ jobs:
        # of JDKs to run unit tests on
        java-version: ["adopt@1.8.0-242", "amazon-corretto@1.11.0-6.10.1", "1.14.0"]
    runs-on: ubuntu-18.04
+   if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
    steps:
    - name: Install Java
      # the setup-scala action is the only available action that allows us to access
