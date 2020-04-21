@@ -5,7 +5,6 @@
     "path" : "/",
     "headers" : {
       "Accept" : [ "application/json" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
