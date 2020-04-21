@@ -69,7 +69,7 @@
                             <value>conf/log4j.properties</value>
                         </property>
                     </systemProperties>
-                    <argLine>${argLine} -Xms512m -Xmx3000m</argLine>
+                    <argLine>${argLine} -Xms512m -Xmx3500m</argLine>
                 </configuration>
             </plugin>
             <plugin>
