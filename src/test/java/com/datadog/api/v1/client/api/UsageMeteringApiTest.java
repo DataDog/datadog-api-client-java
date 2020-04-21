@@ -161,9 +161,10 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getInfraHostTop99pSum().longValue(), 2L);
         assertEquals(usage.getContainerHwmSum().longValue(), 1L);
         assertEquals(usage.getCustomTsSum().longValue(), 4L);
+        assertEquals(usage.getRumSessionCountAggSum().longValue(), 5L);
 
         // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
-        OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 16, 34, 14, 14039000),
+        OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
                 ZoneOffset.ofHoursMinutes(0, 0));
         UsageSummaryDate usageItem = usage.getUsage().get(0);
         assertEquals(usageItem.getDate(), dateExpected);
@@ -174,6 +175,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageItem.getCustomTsAvg().longValue(), 6L);
         assertEquals(usageItem.getGcpHostTop99p().longValue(), 7L);
         assertEquals(usageItem.getInfraHostTop99p().longValue(), 8L);
+        assertEquals(usageItem.getRumSessionCountSum().longValue(), 9L);
 
         UsageSummaryDateOrg usageOrgItem = usageItem.getOrgs().get(0);
         assertEquals(usageOrgItem.getId(), "1b");
@@ -185,6 +187,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageOrgItem.getCustomTsAvg().longValue(), 6L);
         assertEquals(usageOrgItem.getGcpHostTop99p().longValue(), 7L);
         assertEquals(usageOrgItem.getInfraHostTop99p().longValue(), 8L);
+        assertEquals(usageOrgItem.getRumSessionCountSum().longValue(), 9L);
     }
 
     @Test
@@ -236,6 +239,15 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getUsageTraceTest() throws ApiException {
         UsageTraceResponse response = api.getUsageTrace()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageLambdaTest() throws ApiException {
+        UsageLambdaResponse response = api.getUsageLambda()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
