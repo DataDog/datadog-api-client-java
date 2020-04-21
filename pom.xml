@@ -22,6 +22,13 @@
         </license>
     </licenses>
 
+    <distributionManagement>
+        <repository>
+            <id>bintray-datadog-api-client</id>
+            <url>https://api.bintray.com/maven/${bintray.repo}/${bintray.package}/</url>
+        </repository>
+    </distributionManagement>
+
     <developers>
         <developer> <!-- Additions for tests and small generation changes -->
             <id>datadog</id>
@@ -328,5 +335,7 @@
         <jackson-databind-nullable-version>0.2.0</jackson-databind-nullable-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.12</junit-version>
+        <bintray.repo>datadog/datadog-maven</bintray.repo>
+        <bintray.package>datadog-api-client</bintray.package>
     </properties>
 </project>

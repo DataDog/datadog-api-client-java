@@ -20,14 +20,19 @@ Note that once the release process is started, nobody should be merging/pushing 
 
 - See changes ready for release by running `ddev release show changes .` at the root of this project. Add any missing labels to PRs if needed.
 - Run `ddev release changelog . <NEW_VERSION>` to update the `CHANGELOG.md` file at the root of this repository
-- TODO - SPECIFY mvn commands used to release
 - Commit the changes to the repository in a release branch and get it approved/merged after you:
     - Make sure that all CIs are passing, as this is the commit we will be releasing!
+
+- Pull the latest changes after merging the above PR.
+- Run `mvn release:prepare` and follow the prompts to update the version and tag the repository.
+- Run `mvn release:perform` to deploy the artifact to bintray. 
+- Find the artifact in bintray and publish.
+- Within bintray, sync to maven central.
 
 ## Release
 
 After merging the above PR, create a release on the [releases page](https://github.com/DataDog/datadog-api-client-java/releases).
-- Specify the version you want to release, following semver.
+- Choose the tag that was created by the `mvn release:prepare` step
 - Place the changelog contents into the description of the release.
 - Attach the built Jar file into the release
 - Create/Publish the release, which will automatically create a tag on the `HEAD` commit. 
