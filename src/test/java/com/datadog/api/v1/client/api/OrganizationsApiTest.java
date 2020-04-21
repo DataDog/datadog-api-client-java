@@ -24,6 +24,7 @@ import java.util.List;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeTrue;
 
 /**
  * API tests for OrgsApi
@@ -257,8 +258,10 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Ignore
     public void orgsUploadIdpErrorsTest() throws URISyntaxException, IOException {
+        //FIXME: boundary is uniquely generated at each request, so the test will fail when replaying
+        assumeTrue(TestUtils.isRecording());
+
         // Get random file.
         File idpFile = new File(OrganizationsApiTest.class.getResource("org_fixtures/error_415.json").toURI());
 
