@@ -50,10 +50,10 @@ public class LogQueryDefinitionGroupBy {
   }
 
    /**
-   * TODO.
+   * Facet name.
    * @return facet
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(example = "resource_name", required = true, value = "Facet name.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -78,7 +78,7 @@ public class LogQueryDefinitionGroupBy {
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(example = "50", value = "TODO.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

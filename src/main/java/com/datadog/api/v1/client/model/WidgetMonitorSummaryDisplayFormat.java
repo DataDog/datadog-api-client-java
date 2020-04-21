@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * What to display on the widget. Available values are counts, countsAndList or list
+ * What to display on the widget.
  */
 public enum WidgetMonitorSummaryDisplayFormat {
   

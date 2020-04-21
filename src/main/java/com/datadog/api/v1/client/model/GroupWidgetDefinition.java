@@ -29,9 +29,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible
+ * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
  */
-@ApiModel(description = "The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible")
+@ApiModel(description = "The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.")
 @JsonPropertyOrder({
   GroupWidgetDefinition.JSON_PROPERTY_LAYOUT_TYPE,
   GroupWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -84,11 +84,11 @@ public class GroupWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Title of the widget
+   * Title of the widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget")
+  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,10 +103,10 @@ public class GroupWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

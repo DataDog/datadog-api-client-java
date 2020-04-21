@@ -30,9 +30,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The Change graph shows you the change in a value over the time period chosen
+ * The Change graph shows you the change in a value over the time period chosen.
  */
-@ApiModel(description = "The Change graph shows you the change in a value over the time period chosen")
+@ApiModel(description = "The Change graph shows you the change in a value over the time period chosen.")
 @JsonPropertyOrder({
   ChangeWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ChangeWidgetDefinition.JSON_PROPERTY_TIME,
@@ -74,10 +74,10 @@ public class ChangeWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the &#x60;REQUEST_SCHEMA&#x60;.
    * @return requests
   **/
-  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "TODO.")
+  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -123,11 +123,11 @@ public class ChangeWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Title of the widget
+   * Title of the widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget")
+  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -173,11 +173,11 @@ public class ChangeWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,10 +192,10 @@ public class ChangeWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,9 +24,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Dashboard definition.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Dashboard definition.")
 @JsonPropertyOrder({
   DashboardSummaryDashboards.JSON_PROPERTY_AUTHOR_HANDLE,
   DashboardSummaryDashboards.JSON_PROPERTY_CREATED_AT,
@@ -55,7 +56,7 @@ public class DashboardSummaryDashboards {
   private Boolean isReadOnly;
 
   public static final String JSON_PROPERTY_LAYOUT_TYPE = "layout_type";
-  private String layoutType;
+  private DashboardLayoutType layoutType;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -74,11 +75,11 @@ public class DashboardSummaryDashboards {
   }
 
    /**
-   * TODO.
+   * Identifier of the dashboard author.
    * @return authorHandle
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Identifier of the dashboard author.")
   @JsonProperty(JSON_PROPERTY_AUTHOR_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,11 +100,11 @@ public class DashboardSummaryDashboards {
   }
 
    /**
-   * TODO.
+   * Creation date of the dashboard.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Creation date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -124,11 +125,11 @@ public class DashboardSummaryDashboards {
   }
 
    /**
-   * TODO.
+   * Description of the dashboard.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Description of the dashboard.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -149,11 +150,11 @@ public class DashboardSummaryDashboards {
   }
 
    /**
-   * TODO.
+   * Dashboard identifier.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Dashboard identifier.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -174,11 +175,11 @@ public class DashboardSummaryDashboards {
   }
 
    /**
-   * TODO.
+   * Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
    * @return isReadOnly
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Whether this dashboard is read-only. If True, only the author and admins can make changes to it.")
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,27 +193,27 @@ public class DashboardSummaryDashboards {
   }
 
 
-  public DashboardSummaryDashboards layoutType(String layoutType) {
+  public DashboardSummaryDashboards layoutType(DashboardLayoutType layoutType) {
     
     this.layoutType = layoutType;
     return this;
   }
 
    /**
-   * TODO.
+   * Get layoutType
    * @return layoutType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAYOUT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getLayoutType() {
+  public DashboardLayoutType getLayoutType() {
     return layoutType;
   }
 
 
-  public void setLayoutType(String layoutType) {
+  public void setLayoutType(DashboardLayoutType layoutType) {
     this.layoutType = layoutType;
   }
 
@@ -224,11 +225,11 @@ public class DashboardSummaryDashboards {
   }
 
    /**
-   * TODO.
+   * Modification date of the dashboard.
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Modification date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -249,11 +250,11 @@ public class DashboardSummaryDashboards {
   }
 
    /**
-   * TODO.
+   * Title of the dashboard.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Title of the dashboard.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -274,11 +275,11 @@ public class DashboardSummaryDashboards {
   }
 
    /**
-   * TODO.
+   * URL of the dashboard.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "URL of the dashboard.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

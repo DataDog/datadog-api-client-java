@@ -2,7 +2,7 @@
 
 # ToplistWidgetDefinition
 
-The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc
+The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**titleSize** | **String** | Size of the title |  [optional]
-**type** | **String** | Type of the widget |  [readonly]
+**titleSize** | **String** | Size of the title. |  [optional]
+**type** | **String** | Type of the widget. |  [readonly]
 
 
 ## Implemented Interfaces

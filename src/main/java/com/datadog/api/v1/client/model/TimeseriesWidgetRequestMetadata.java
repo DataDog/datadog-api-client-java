@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Define an expression alias.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Define an expression alias.")
 @JsonPropertyOrder({
   TimeseriesWidgetRequestMetadata.JSON_PROPERTY_ALIAS_NAME,
   TimeseriesWidgetRequestMetadata.JSON_PROPERTY_EXPRESSION
@@ -45,11 +45,11 @@ public class TimeseriesWidgetRequestMetadata {
   }
 
    /**
-   * TODO.
+   * Expression alias.
    * @return aliasName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Expression alias.")
   @JsonProperty(JSON_PROPERTY_ALIAS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -70,10 +70,10 @@ public class TimeseriesWidgetRequestMetadata {
   }
 
    /**
-   * TODO.
+   * Expression name.
    * @return expression
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Expression name.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

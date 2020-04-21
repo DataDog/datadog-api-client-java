@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Define a sorting method.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Define a sorting method.")
 @JsonPropertyOrder({
   LogQueryDefinitionSort.JSON_PROPERTY_AGGREGATION,
   LogQueryDefinitionSort.JSON_PROPERTY_FACET,
@@ -50,10 +50,10 @@ public class LogQueryDefinitionSort {
   }
 
    /**
-   * TODO.
+   * The aggregation method.
    * @return aggregation
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(example = "avg", required = true, value = "The aggregation method.")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -74,11 +74,11 @@ public class LogQueryDefinitionSort {
   }
 
    /**
-   * TODO.
+   * Facet name.
    * @return facet
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(example = "@string_query.interval", value = "Facet name.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

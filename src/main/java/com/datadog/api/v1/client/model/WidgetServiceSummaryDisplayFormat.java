@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Number of columns to display. Available values are one_column, two_column, or three_column
+ * Number of columns to display.
  */
 public enum WidgetServiceSummaryDisplayFormat {
   

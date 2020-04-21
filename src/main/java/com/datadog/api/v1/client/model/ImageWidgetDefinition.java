@@ -29,9 +29,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards
+ * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.
  */
-@ApiModel(description = "The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards")
+@ApiModel(description = "The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   ImageWidgetDefinition.JSON_PROPERTY_MARGIN,
   ImageWidgetDefinition.JSON_PROPERTY_SIZING,
@@ -104,10 +104,10 @@ public class ImageWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -125,10 +125,10 @@ public class ImageWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * URL of the image
+   * URL of the image.
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "URL of the image")
+  @ApiModelProperty(required = true, value = "URL of the image.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

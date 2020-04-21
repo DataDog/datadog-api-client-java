@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Define computation for a log query.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Define computation for a log query.")
 @JsonPropertyOrder({
   LogsQueryCompute.JSON_PROPERTY_AGGREGATION,
   LogsQueryCompute.JSON_PROPERTY_FACET,
@@ -49,10 +49,10 @@ public class LogsQueryCompute {
   }
 
    /**
-   * TODO.
+   * The aggregation method.
    * @return aggregation
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(example = "avg", required = true, value = "The aggregation method.")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -73,11 +73,11 @@ public class LogsQueryCompute {
   }
 
    /**
-   * TODO.
+   * Facet name.
    * @return facet
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(example = "@duration", value = "Facet name.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -98,11 +98,11 @@ public class LogsQueryCompute {
   }
 
    /**
-   * TODO.
+   * Define a time interval in seconds.
    * @return interval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(example = "5000", value = "Define a time interval in seconds.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

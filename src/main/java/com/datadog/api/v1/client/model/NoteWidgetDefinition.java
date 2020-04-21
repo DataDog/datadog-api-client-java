@@ -29,9 +29,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The notes and links widget is similar to free text widget, but allows for more formatting options
+ * The notes and links widget is similar to free text widget, but allows for more formatting options.
  */
-@ApiModel(description = "The notes and links widget is similar to free text widget, but allows for more formatting options")
+@ApiModel(description = "The notes and links widget is similar to free text widget, but allows for more formatting options.")
 @JsonPropertyOrder({
   NoteWidgetDefinition.JSON_PROPERTY_BACKGROUND_COLOR,
   NoteWidgetDefinition.JSON_PROPERTY_CONTENT,
@@ -76,11 +76,11 @@ public class NoteWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Background color of the note
+   * Background color of the note.
    * @return backgroundColor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Background color of the note")
+  @ApiModelProperty(value = "Background color of the note.")
   @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -101,10 +101,10 @@ public class NoteWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Content of the note
+   * Content of the note.
    * @return content
   **/
-  @ApiModelProperty(required = true, value = "Content of the note")
+  @ApiModelProperty(required = true, value = "Content of the note.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -125,11 +125,11 @@ public class NoteWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the text
+   * Size of the text.
    * @return fontSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the text")
+  @ApiModelProperty(value = "Size of the text.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,11 +150,11 @@ public class NoteWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to show a tick or not
+   * Whether to show a tick or not.
    * @return showTick
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show a tick or not")
+  @ApiModelProperty(value = "Whether to show a tick or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_TICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -225,11 +225,11 @@ public class NoteWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Where to position the tick on an edge
+   * Where to position the tick on an edge.
    * @return tickPos
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Where to position the tick on an edge")
+  @ApiModelProperty(value = "Where to position the tick on an edge.")
   @JsonProperty(JSON_PROPERTY_TICK_POS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -244,10 +244,10 @@ public class NoteWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

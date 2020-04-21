@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Width of line displayed. Available values are normal, thick, or thin.
+ * Width of line displayed.
  */
 public enum WidgetLineWidth {
   

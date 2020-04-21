@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Define widget style.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Define widget style.")
 @JsonPropertyOrder({
   TimeseriesWidgetRequestStyle.JSON_PROPERTY_LINE_TYPE,
   TimeseriesWidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH,

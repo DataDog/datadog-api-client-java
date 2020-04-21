@@ -1,5 +1,5 @@
 [ {
-  "id" : "9090145b-d95d-4a8a-872a-b26f3f4fa8d8",
+  "id" : "8b1280c2-ed65-4aaf-ab85-b9f02516d557",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
@@ -28,7 +28,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:52:14 GMT" ],
+      "Date" : [ "Tue, 21 Apr 2020 21:05:43 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "58" ],
       "Connection" : [ "keep-alive" ],
@@ -36,9 +36,9 @@
       "cache-control" : [ "no-cache" ],
       "x-ratelimit-limit" : [ "120" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "46" ],
+      "x-ratelimit-reset" : [ "17" ],
       "x-ratelimit-remaining" : [ "118" ],
-      "x-dd-version" : [ "35.2405092" ],
+      "x-dd-version" : [ "35.2417701" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
@@ -47,7 +47,7 @@
     "body" : "{\"errors\": [\"Required parameter 'public_ids' is missing\"]}"
   }
 }, {
-  "id" : "3866fafc-0d97-4200-9170-e5c3c9f8d93f",
+  "id" : "36a4bc15-e359-4a1d-8f27-277f5401ab78",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
@@ -76,7 +76,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:52:19 GMT" ],
+      "Date" : [ "Tue, 21 Apr 2020 21:05:44 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],

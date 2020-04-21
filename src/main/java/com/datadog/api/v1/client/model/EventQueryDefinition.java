@@ -69,10 +69,10 @@ public class EventQueryDefinition {
   }
 
    /**
-   * The execution method for multi-value filters. Can be either and or or
+   * The execution method for multi-value filters. Can be either and or or.
    * @return tagsExecution
   **/
-  @ApiModelProperty(required = true, value = "The execution method for multi-value filters. Can be either and or or")
+  @ApiModelProperty(required = true, value = "The execution method for multi-value filters. Can be either and or or.")
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Define a conditional format for the widget.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Define a conditional format for the widget.")
 @JsonPropertyOrder({
   WidgetConditionalFormat.JSON_PROPERTY_COMPARATOR,
   WidgetConditionalFormat.JSON_PROPERTY_CUSTOM_BG_COLOR,
@@ -199,11 +199,11 @@ public class WidgetConditionalFormat {
   }
 
    /**
-   * Metric from the request to correlate this conditional format with
+   * Metric from the request to correlate this conditional format with.
    * @return metric
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metric from the request to correlate this conditional format with")
+  @ApiModelProperty(value = "Metric from the request to correlate this conditional format with.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

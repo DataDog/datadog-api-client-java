@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Timeframe used for the change comparison; values available are hour_before, day_before, week_before, or month_before.
+ * Timeframe used for the change comparison.
  */
 public enum WidgetCompareTo {
   

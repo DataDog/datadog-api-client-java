@@ -31,9 +31,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards
+ * The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards.
  */
-@ApiModel(description = "The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards")
+@ApiModel(description = "The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_DISPLAY_FORMAT,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_ENV,
@@ -135,10 +135,10 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * APM environment
+   * APM environment.
    * @return env
   **/
-  @ApiModelProperty(required = true, value = "APM environment")
+  @ApiModelProperty(required = true, value = "APM environment.")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -159,10 +159,10 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * APM service
+   * APM service.
    * @return service
   **/
-  @ApiModelProperty(required = true, value = "APM service")
+  @ApiModelProperty(required = true, value = "APM service.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -183,11 +183,11 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to show the latency breakdown or not
+   * Whether to show the latency breakdown or not.
    * @return showBreakdown
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the latency breakdown or not")
+  @ApiModelProperty(value = "Whether to show the latency breakdown or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_BREAKDOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -208,11 +208,11 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to show the latency distribution or not
+   * Whether to show the latency distribution or not.
    * @return showDistribution
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the latency distribution or not")
+  @ApiModelProperty(value = "Whether to show the latency distribution or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_DISTRIBUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -233,11 +233,11 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to show the error metrics or not
+   * Whether to show the error metrics or not.
    * @return showErrors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the error metrics or not")
+  @ApiModelProperty(value = "Whether to show the error metrics or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -258,11 +258,11 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to show the hits metrics or not
+   * Whether to show the hits metrics or not.
    * @return showHits
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the hits metrics or not")
+  @ApiModelProperty(value = "Whether to show the hits metrics or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_HITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -283,11 +283,11 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to show the latency metrics or not
+   * Whether to show the latency metrics or not.
    * @return showLatency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the latency metrics or not")
+  @ApiModelProperty(value = "Whether to show the latency metrics or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_LATENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -308,11 +308,11 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to show the resource list or not
+   * Whether to show the resource list or not.
    * @return showResourceList
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the resource list or not")
+  @ApiModelProperty(value = "Whether to show the resource list or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_RESOURCE_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -358,10 +358,10 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * APM span name
+   * APM span name.
    * @return spanName
   **/
-  @ApiModelProperty(required = true, value = "APM span name")
+  @ApiModelProperty(required = true, value = "APM span name.")
   @JsonProperty(JSON_PROPERTY_SPAN_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -407,11 +407,11 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Title of the widget
+   * Title of the widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget")
+  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -457,11 +457,11 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -476,10 +476,10 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

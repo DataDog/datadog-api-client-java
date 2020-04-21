@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**titleSize** | **String** | Size of the title |  [optional]
-**type** | **String** | Type of the widget |  [readonly]
+**titleSize** | **String** | Size of the title. |  [optional]
+**type** | **String** | Type of the widget. |  [readonly]
 
 
 ## Implemented Interfaces

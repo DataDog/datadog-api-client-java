@@ -28,9 +28,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards
+ * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
  */
-@ApiModel(description = "Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards")
+@ApiModel(description = "Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   FreeTextWidgetDefinition.JSON_PROPERTY_COLOR,
   FreeTextWidgetDefinition.JSON_PROPERTY_FONT_SIZE,
@@ -63,11 +63,11 @@ public class FreeTextWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Color of the text
+   * Color of the text.
    * @return color
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Color of the text")
+  @ApiModelProperty(value = "Color of the text.")
   @JsonProperty(JSON_PROPERTY_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -88,11 +88,11 @@ public class FreeTextWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the text
+   * Size of the text.
    * @return fontSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the text")
+  @ApiModelProperty(value = "Size of the text.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -113,10 +113,10 @@ public class FreeTextWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Text to display
+   * Text to display.
    * @return text
   **/
-  @ApiModelProperty(required = true, value = "Text to display")
+  @ApiModelProperty(required = true, value = "Text to display.")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -156,10 +156,10 @@ public class FreeTextWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
