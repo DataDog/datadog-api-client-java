@@ -32,8 +32,8 @@ Client source code is generated using [apigentools](https://apigentools.readthed
 While you can create an issue to suggest a client enhancement, you won't be able to make a Pull Request for it.
 
 Changes can only be made to:
-- Improve tests
-- Improve dev tooling
+- Improve tests.
+- Improve dev tooling.
 - Improve documentation. 
 
 If that's the case, many thanks!
