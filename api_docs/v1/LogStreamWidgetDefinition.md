@@ -8,7 +8,7 @@ The Log Stream displays a log flow matching the defined query. Only available on
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **columns** | **List&lt;String&gt;** | Which columns to display on the widget. |  [optional]
-**indexes** | **List&lt;String&gt;** | An array of index names to query in the stream. |  [optional]
+**indexes** | **List&lt;String&gt;** | An array of index names to query in the stream. Use [] to query all indexes at once. |  [optional]
 **messageDisplay** | [**WidgetMessageDisplay**](WidgetMessageDisplay.md) |  |  [optional]
 **query** | **String** | Query to filter the log stream with. |  [optional]
 **showDateColumn** | **Boolean** | Whether to show the date column or not |  [optional]

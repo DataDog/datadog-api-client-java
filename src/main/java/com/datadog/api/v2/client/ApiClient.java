@@ -38,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.Properties;
 
 import java.net.URLEncoder;
 
@@ -130,7 +131,7 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("DataDog/1.0.0/java");
+    setUserAgent();
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -309,6 +310,30 @@ public class ApiClient {
    * @return API client
    */
   public ApiClient setUserAgent(String userAgent) {
+    addDefaultHeader("User-Agent", userAgent);
+    return this;
+  }
+
+  /**
+   * Set the default User-Agent header's value with telemetry information (by adding to the default header map).
+   * @return API client
+   */
+  public ApiClient setUserAgent() {
+    final Properties properties = new Properties();
+    try {
+      properties.load(getClass().getClassLoader().getResourceAsStream("project.properties"));
+    } catch (IOException e) {
+      logger.severe("Could not load client version: " + e.toString());
+    }
+
+    String userAgent = "datadog-api-client-java/" + properties.getProperty("version")
+        + " ("
+        + "java " + System.getProperty("java.version") + "; "
+        + "java_vendor " + System.getProperty("java.vendor") + "; "
+        + "os " + System.getProperty("os.name") + "; "
+        + "os_version " + System.getProperty("os.version") + "; "
+        + "arch " + System.getProperty("os.arch")
+        + ")";
     addDefaultHeader("User-Agent", userAgent);
     return this;
   }
