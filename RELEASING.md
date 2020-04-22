@@ -25,7 +25,7 @@ Note that once the release process is started, nobody should be merging/pushing 
     - Make sure that all CIs are passing, as this is the commit we will be releasing!
 
 - Pull the latest changes after merging the above PR.
-- Run `mvn --settings settings.xml release:prepare` and follow the prompts to update the version and tag the repository.
+- Run `mvn --settings settings.xml clean release:prepare` and follow the prompts to update the version and tag the repository.
 - Run `mvn --settings settings.xml release:perform` to deploy the artifact to Bintray. 
 - Find the artifact in Bintray and publish to make it visible to all.
 - TODO - Within Bintray, sync to maven central.
