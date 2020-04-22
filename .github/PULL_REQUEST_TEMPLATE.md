@@ -36,5 +36,5 @@ Please check relevant items below:
 
 - [ ] This PR does not rely on API client schema changes.
     - [ ] The CI should be fully passing.
-- [ ] Or, this PR relies on API schema changes and this is a Draft PR to include tests for that new functionality.
+- [ ] Or, this PR relies on API schema changes and this is a Draft PR that includes tests.
   - Note: CI shouldn't be run on this Draft PR, as its expected to fail without the corresponding schema changes. 
