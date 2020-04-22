@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Size of the widget. Available values are small, medium, or large
+ * Size of the widget.
  */
 public enum WidgetSizeFormat {
   

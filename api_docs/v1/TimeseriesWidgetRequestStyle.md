@@ -2,7 +2,7 @@
 
 # TimeseriesWidgetRequestStyle
 
-TODO.
+Define widget style.
 ## Properties
 
 Name | Type | Description | Notes

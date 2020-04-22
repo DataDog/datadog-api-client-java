@@ -268,11 +268,11 @@ public class TimeseriesWidgetRequest {
   }
 
    /**
-   * TODO.
+   * Widget query.
    * @return q
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Widget query.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

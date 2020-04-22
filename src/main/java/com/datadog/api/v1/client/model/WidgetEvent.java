@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Event overlay control options.  See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to learn how to build the &#x60;&lt;EVENTS_SCHEMA&gt;&#x60;.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Event overlay control options.  See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to learn how to build the `<EVENTS_SCHEMA>`.")
 @JsonPropertyOrder({
   WidgetEvent.JSON_PROPERTY_Q,
   WidgetEvent.JSON_PROPERTY_TAGS_EXECUTION
@@ -45,10 +45,10 @@ public class WidgetEvent {
   }
 
    /**
-   * TODO.
+   * Query definition.
    * @return q
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Query definition.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -69,11 +69,11 @@ public class WidgetEvent {
   }
 
    /**
-   * The execution method for multi-value filters. Can be either and or or
+   * The execution method for multi-value filters.
    * @return tagsExecution
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The execution method for multi-value filters. Can be either and or or")
+  @ApiModelProperty(value = "The execution method for multi-value filters.")
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Whether to display the Alert Graph as a timeseries or a top list. Available values are timeseries or toplist
+ * Whether to display the Alert Graph as a timeseries or a top list.
  */
 public enum WidgetVizType {
   

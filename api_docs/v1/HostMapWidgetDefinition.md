@@ -2,7 +2,7 @@
 
 # HostMapWidgetDefinition
 
-The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page
+The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 **requests** | [**HostMapWidgetDefinitionRequests**](HostMapWidgetDefinitionRequests.md) |  | 
 **scope** | **List&lt;String&gt;** | List of tags used to filter the map. |  [optional]
 **style** | [**HostMapWidgetDefinitionStyle**](HostMapWidgetDefinitionStyle.md) |  |  [optional]
-**title** | **String** | Title of the widget |  [optional]
+**title** | **String** | Title of the widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**titleSize** | **String** | Size of the title |  [optional]
-**type** | **String** | Type of the widget |  [readonly]
+**titleSize** | **String** | Size of the title. |  [optional]
+**type** | **String** | Type of the widget. |  [readonly]
 
 
 ## Implemented Interfaces

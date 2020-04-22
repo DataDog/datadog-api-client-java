@@ -2,7 +2,7 @@
 
 # ScatterPlotWidgetDefinition
 
-The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation
+The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**titleSize** | **String** | Size of the title |  [optional]
-**type** | **String** | Type of the widget |  [readonly]
+**titleSize** | **String** | Size of the title. |  [optional]
+**type** | **String** | Type of the widget. |  [readonly]
 **xaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Which color to use on the widget. Available values are background or text
+ * Which color to use on the widget.
  */
 public enum WidgetColorPreference {
   

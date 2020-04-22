@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **logQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **networkQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
-**q** | **String** | TODO. |  [optional]
+**q** | **String** | Widget query. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **style** | [**TimeseriesWidgetRequestStyle**](TimeseriesWidgetRequestStyle.md) |  |  [optional]
 

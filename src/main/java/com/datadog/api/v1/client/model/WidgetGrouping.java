@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The kind of grouping to use (single check vs. cluster of checks)
+ * The kind of grouping to use.
  */
 public enum WidgetGrouping {
   

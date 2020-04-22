@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Size to use to display an event (small or large). Available values are s or l
+ * Size to use to display an event.
  */
 public enum WidgetEventSize {
   

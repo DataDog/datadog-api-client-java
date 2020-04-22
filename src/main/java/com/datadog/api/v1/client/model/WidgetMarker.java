@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Markers allow you to add visual conditional formatting for your graphs
+ * Markers allow you to add visual conditional formatting for your graphs.
  */
-@ApiModel(description = "Markers allow you to add visual conditional formatting for your graphs")
+@ApiModel(description = "Markers allow you to add visual conditional formatting for your graphs.")
 @JsonPropertyOrder({
   WidgetMarker.JSON_PROPERTY_DISPLAY_TYPE,
   WidgetMarker.JSON_PROPERTY_LABEL,
@@ -128,10 +128,10 @@ public class WidgetMarker {
   }
 
    /**
-   * Value to apply. Can be a single value y &#x3D; 15 or a range of values 0 &lt; y &lt; 10
+   * Value to apply. Can be a single value y &#x3D; 15 or a range of values 0 &lt; y &lt; 10.
    * @return value
   **/
-  @ApiModelProperty(example = "y = 15", required = true, value = "Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10")
+  @ApiModelProperty(example = "y = 15", required = true, value = "Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

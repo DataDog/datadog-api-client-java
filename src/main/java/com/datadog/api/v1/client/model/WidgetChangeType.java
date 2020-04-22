@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Show the absolute or the relative change; values available are absolute or relative
+ * Show the absolute or the relative change.
  */
 public enum WidgetChangeType {
   

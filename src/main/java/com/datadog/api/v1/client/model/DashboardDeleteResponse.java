@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Response from the DeleteDashboard call
+ * Response from the DeleteDashboard call.
  */
-@ApiModel(description = "Response from the DeleteDashboard call")
+@ApiModel(description = "Response from the DeleteDashboard call.")
 @JsonPropertyOrder({
   DashboardDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_ID
 })
@@ -41,11 +41,11 @@ public class DashboardDeleteResponse {
   }
 
    /**
-   * ID of the deleted dashboard
+   * ID of the deleted dashboard.
    * @return deletedDashboardId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the deleted dashboard")
+  @ApiModelProperty(value = "ID of the deleted dashboard.")
   @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

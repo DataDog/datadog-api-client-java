@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **metadata** | [**List&lt;TimeseriesWidgetRequestMetadata&gt;**](TimeseriesWidgetRequestMetadata.md) | Used to define expression aliases. |  [optional]
 **networkQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
-**q** | **String** | TODO. |  [optional]
+**q** | **String** | Widget query. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **style** | [**TimeseriesWidgetRequestStyle**](TimeseriesWidgetRequestStyle.md) |  |  [optional]
 

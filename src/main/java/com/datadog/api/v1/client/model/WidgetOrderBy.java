@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * What to order by; values available are change, name, present, or past.
+ * What to order by.
  */
 public enum WidgetOrderBy {
   

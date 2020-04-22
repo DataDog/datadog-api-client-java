@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The available timeframes depend on the widget you are using
+ * The available timeframes depend on the widget you are using.
  */
 public enum WidgetLiveSpan {
   
