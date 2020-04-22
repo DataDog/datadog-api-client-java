@@ -135,11 +135,11 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * An array of index names to query in the stream.
+   * An array of index names to query in the stream. Use [] to query all indexes at once.
    * @return indexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of index names to query in the stream.")
+  @ApiModelProperty(example = "[\"days-3\",\"days-7\"]", value = "An array of index names to query in the stream. Use [] to query all indexes at once.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
