@@ -1,10 +1,5 @@
-# Changelog
+# CHANGELOG
 
-## 1.0.0 / 2019-11-18
+## 1.0.0-beta.1 / 2020-04-22
 
-Initial release of the Java client for Datadog API
-
-- [FEATURE] Add AWS integration endpoint
-- [FEATURE] Add Downtime endpoint
-- [FEATURE] Add Monitor endpoint
-- [FEATURE] Add User endpoint
+* [Added] Initial beta release of the Datadog API Client
