@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Comparator to apply from &gt;, &gt;&#x3D;, &lt;, or &lt;&#x3D;
+ * Comparator to apply.
  */
 public enum WidgetComparator {
   

@@ -1,5 +1,5 @@
 [ {
-  "id" : "2d3ce7b4-a485-4272-8614-42f2d360e5dd",
+  "id" : "134119e8-fa38-4062-8ace-4cf48f587ec0",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests/browser/id/results/resultid",
@@ -22,7 +22,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:53:57 GMT" ],
+      "Date" : [ "Tue, 21 Apr 2020 21:06:13 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
@@ -32,7 +32,7 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "d0408312-2bf1-4d39-98dc-b9881c59017a",
+  "id" : "cbbd7da4-a8d3-411f-89d5-adb6fa487773",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests/browser/aaa-aaa-aaa/results/resultid",
@@ -55,7 +55,7 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:54:02 GMT" ],
+      "Date" : [ "Tue, 21 Apr 2020 21:06:13 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "vary" : [ "Accept-Encoding" ],
@@ -63,9 +63,9 @@
       "cache-control" : [ "no-cache" ],
       "x-ratelimit-limit" : [ "120" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "58" ],
+      "x-ratelimit-reset" : [ "47" ],
       "x-ratelimit-remaining" : [ "119" ],
-      "x-dd-version" : [ "35.2405092" ],
+      "x-dd-version" : [ "35.2417701" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],

@@ -2,13 +2,13 @@
 
 # TimeseriesWidgetRequestMetadata
 
-TODO.
+Define an expression alias.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aliasName** | **String** | TODO. |  [optional]
-**expression** | **String** | TODO. | 
+**aliasName** | **String** | Expression alias. |  [optional]
+**expression** | **String** | Expression name. | 
 
 
 

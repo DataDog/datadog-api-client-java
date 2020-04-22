@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Which summary type should be used
+ * Which summary type should be used.
  */
 public enum WidgetSummaryType {
   

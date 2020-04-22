@@ -87,7 +87,7 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
 
     /**
      * Set body
-     * @param body Dashboard request object (required)
+     * @param body Dashboard request object. (required)
      * @return APIcreateDashboardRequest
      */
     public APIcreateDashboardRequest body(Dashboard body) {
@@ -135,7 +135,7 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
 
   /**
    * Create a new Dashboard
-   * ### Overview Create a dashboard using the specified options ### Arguments * **&#x60;Dashboard&#x60;** [*required*] The Dashboard Object to create
+   * Create a dashboard using the specified options.
    * @return createDashboardRequest
    * @throws ApiException if fails to make API call
    
@@ -234,8 +234,8 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
 
   /**
    * Delete a Dashboard
-   * ### Overview Delete a dashboard using the specified ID ### Arguments * **&#x60;id&#x60;** [*required*] The Dashboard id to delete
-   * @param dashboardId The id of the dashboard (required)
+   * Delete a dashboard using the specified ID.
+   * @param dashboardId The ID of the dashboard. (required)
    * @return deleteDashboardRequest
    * @throws ApiException if fails to make API call
    
@@ -334,8 +334,8 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
 
   /**
    * Get a Dashboard
-   * ### Overview Get a dashboard using the specified ID ### Arguments * **&#x60;id&#x60;** [*required*] The Dashboard id to Update
-   * @param dashboardId The id of the dashboard (required)
+   * Get a dashboard using the specified ID.
+   * @param dashboardId The ID of the dashboard. (required)
    * @return getDashboardRequest
    * @throws ApiException if fails to make API call
    
@@ -424,7 +424,7 @@ private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiExc
 
   /**
    * Get all Dashboards
-   * ### Overview Get all dashboards
+   * Get all dashboards.
    * @return listDashboardsRequest
    * @throws ApiException if fails to make API call
    
@@ -542,8 +542,8 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
 
   /**
    * Update a Dashboard
-   * ### Overview Update a dashboard using the specified ID ### Arguments * **&#x60;id&#x60;** [*required*] The Dashboard id to Update * **&#x60;dashboard&#x60;** [*required*] The dashboard payload
-   * @param dashboardId The id of the dashboard (required)
+   * Update a dashboard using the specified ID.
+   * @param dashboardId The ID of the dashboard. (required)
    * @return updateDashboardRequest
    * @throws ApiException if fails to make API call
    

@@ -28,9 +28,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Alert values are query values showing the current value of the metric in any monitor defined on your system
+ * Alert values are query values showing the current value of the metric in any monitor defined on your system.
  */
-@ApiModel(description = "Alert values are query values showing the current value of the metric in any monitor defined on your system")
+@ApiModel(description = "Alert values are query values showing the current value of the metric in any monitor defined on your system.")
 @JsonPropertyOrder({
   AlertValueWidgetDefinition.JSON_PROPERTY_ALERT_ID,
   AlertValueWidgetDefinition.JSON_PROPERTY_PRECISION,
@@ -75,10 +75,10 @@ public class AlertValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * ID of the alert to use in the widget
+   * ID of the alert to use in the widget.
    * @return alertId
   **/
-  @ApiModelProperty(required = true, value = "ID of the alert to use in the widget")
+  @ApiModelProperty(required = true, value = "ID of the alert to use in the widget.")
   @JsonProperty(JSON_PROPERTY_ALERT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -99,11 +99,11 @@ public class AlertValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Number of decimal to show. If not defined, will use the raw value
+   * Number of decimal to show. If not defined, will use the raw value.
    * @return precision
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of decimal to show. If not defined, will use the raw value")
+  @ApiModelProperty(value = "Number of decimal to show. If not defined, will use the raw value.")
   @JsonProperty(JSON_PROPERTY_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -149,11 +149,11 @@ public class AlertValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Title of the widget
+   * Title of the widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget")
+  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -199,11 +199,11 @@ public class AlertValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of value in the widget
+   * Size of value in the widget.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of value in the widget")
+  @ApiModelProperty(value = "Size of value in the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -218,10 +218,10 @@ public class AlertValueWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -239,11 +239,11 @@ public class AlertValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Unit to display with the value
+   * Unit to display with the value.
    * @return unit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unit to display with the value")
+  @ApiModelProperty(value = "Unit to display with the value.")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

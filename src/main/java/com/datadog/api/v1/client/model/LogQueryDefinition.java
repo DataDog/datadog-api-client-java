@@ -120,11 +120,11 @@ public class LogQueryDefinition {
   }
 
    /**
-   * TODO.
+   * A coma separated-list of index names. Use \&quot;*\&quot; query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
    * @return index
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(example = "days-3,days-7", value = "A coma separated-list of index names. Use \"*\" query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -153,11 +153,11 @@ public class LogQueryDefinition {
   }
 
    /**
-   * This field is mutually exclusive with &#x60;compute&#x60;
+   * This field is mutually exclusive with &#x60;compute&#x60;.
    * @return multiCompute
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "This field is mutually exclusive with `compute`")
+  @ApiModelProperty(value = "This field is mutually exclusive with `compute`.")
   @JsonProperty(JSON_PROPERTY_MULTI_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

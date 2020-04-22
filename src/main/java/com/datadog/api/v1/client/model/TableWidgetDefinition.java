@@ -30,9 +30,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key
+ * The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
  */
-@ApiModel(description = "The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key")
+@ApiModel(description = "The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.")
 @JsonPropertyOrder({
   TableWidgetDefinition.JSON_PROPERTY_REQUESTS,
   TableWidgetDefinition.JSON_PROPERTY_TIME,
@@ -123,11 +123,11 @@ public class TableWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Title of your widget
+   * Title of your widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of your widget")
+  @ApiModelProperty(value = "Title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -173,11 +173,11 @@ public class TableWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,10 +192,10 @@ public class TableWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Size of the margins around the image. Available values are small or large
+ * Size of the margins around the image.
  */
 public enum WidgetMargin {
   

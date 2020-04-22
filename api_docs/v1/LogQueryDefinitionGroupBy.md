@@ -7,7 +7,7 @@ TODO.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**facet** | **String** | TODO. | 
+**facet** | **String** | Facet name. | 
 **limit** | **Long** | TODO. |  [optional]
 **sort** | [**LogQueryDefinitionSort**](LogQueryDefinitionSort.md) |  |  [optional]
 

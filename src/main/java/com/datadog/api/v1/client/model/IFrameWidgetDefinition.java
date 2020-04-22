@@ -27,9 +27,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards
+ * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
  */
-@ApiModel(description = "The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards")
+@ApiModel(description = "The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   IFrameWidgetDefinition.JSON_PROPERTY_TYPE,
   IFrameWidgetDefinition.JSON_PROPERTY_URL
@@ -44,10 +44,10 @@ public class IFrameWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -65,10 +65,10 @@ public class IFrameWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * URL of the iframe
+   * URL of the iframe.
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "URL of the iframe")
+  @ApiModelProperty(required = true, value = "URL of the iframe.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

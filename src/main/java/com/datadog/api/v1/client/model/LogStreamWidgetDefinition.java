@@ -31,9 +31,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards
+ * The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
  */
-@ApiModel(description = "The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards")
+@ApiModel(description = "The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   LogStreamWidgetDefinition.JSON_PROPERTY_COLUMNS,
   LogStreamWidgetDefinition.JSON_PROPERTY_INDEXES,
@@ -102,11 +102,11 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Which columns to display on the widget
+   * Which columns to display on the widget.
    * @return columns
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Which columns to display on the widget")
+  @ApiModelProperty(value = "Which columns to display on the widget.")
   @JsonProperty(JSON_PROPERTY_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -135,11 +135,11 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * An array of index names to query in the stream.
+   * An array of index names to query in the stream. Use [] to query all indexes at once.
    * @return indexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of index names to query in the stream.")
+  @ApiModelProperty(example = "[\"days-3\",\"days-7\"]", value = "An array of index names to query in the stream. Use [] to query all indexes at once.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,11 +185,11 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Query to filter the log stream with
+   * Query to filter the log stream with.
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query to filter the log stream with")
+  @ApiModelProperty(value = "Query to filter the log stream with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -310,11 +310,11 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Title of the widget
+   * Title of the widget.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget")
+  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -360,11 +360,11 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Size of the title
+   * Size of the title.
    * @return titleSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title")
+  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -379,10 +379,10 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget
+   * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget")
+  @ApiModelProperty(required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

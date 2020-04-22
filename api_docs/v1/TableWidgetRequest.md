@@ -8,7 +8,7 @@ TODO.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aggregator** | [**WidgetAggregator**](WidgetAggregator.md) |  |  [optional]
-**alias** | **String** | The column name (defaults to the metric name) |  [optional]
+**alias** | **String** | The column name (defaults to the metric name). |  [optional]
 **apmQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **conditionalFormats** | [**List&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | TODO. |  [optional]
 **eventQuery** | [**EventQueryDefinition**](EventQueryDefinition.md) |  |  [optional]
