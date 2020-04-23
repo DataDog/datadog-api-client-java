@@ -28,7 +28,7 @@ Note that once the release process is started, nobody should be merging/pushing 
 - Run `mvn --settings settings.xml clean release:prepare` and follow the prompts to update the version and tag the repository.
 - Run `mvn --settings settings.xml release:perform` to deploy the artifact to Bintray. 
 - Find the artifact in Bintray and publish to make it visible to all.
-- TODO - Within Bintray, sync to maven central.
+- Within Bintray, sync the specified version to maven central.
 
 ## Release
 
