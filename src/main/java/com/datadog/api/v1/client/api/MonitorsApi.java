@@ -476,7 +476,7 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     return new APIgetMonitorRequest(monitorId);
   }
 
-private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, String name, String tags, String monitorTags, Boolean withDowntimes) throws ApiException {
+private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, String name, String tags, String monitorTags, Boolean withDowntimes, Long idOffset, Long page, Integer pageSize) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -493,6 +493,9 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "monitor_tags", monitorTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", withDowntimes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id_offset", idOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listMonitors");
@@ -522,6 +525,9 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
     private String tags;
     private String monitorTags;
     private Boolean withDowntimes;
+    private Long idOffset;
+    private Long page;
+    private Integer pageSize;
 
     private APIlistMonitorsRequest() {
     }
@@ -583,6 +589,39 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
     
 
     /**
+     * Set idOffset
+     * @param idOffset TODO. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest idOffset(Long idOffset) {
+      this.idOffset = idOffset;
+      return this;
+    }
+    
+
+    /**
+     * Set page
+     * @param page The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest page(Long page) {
+      this.page = page;
+      return this;
+    }
+    
+
+    /**
+     * Set pageSize
+     * @param pageSize The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+    
+
+    /**
      * Execute listMonitors request
      * @return List&lt;Monitor&gt;
      * @throws ApiException if fails to make API call
@@ -615,7 +654,7 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
      */
     
     public ApiResponse<List<Monitor>> executeWithHttpInfo() throws ApiException {
-      return listMonitorsWithHttpInfo(groupStates, name, tags, monitorTags, withDowntimes);
+      return listMonitorsWithHttpInfo(groupStates, name, tags, monitorTags, withDowntimes, idOffset, page, pageSize);
     }
   }
 

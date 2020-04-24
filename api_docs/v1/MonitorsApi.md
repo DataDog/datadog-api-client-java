@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ## listMonitors
 
-> List&lt;Monitor&gt; listMonitors().groupStates(groupStates).name(name).tags(tags).monitorTags(monitorTags).withDowntimes(withDowntimes).execute();
+> List&lt;Monitor&gt; listMonitors().groupStates(groupStates).name(name).tags(tags).monitorTags(monitorTags).withDowntimes(withDowntimes).idOffset(idOffset).page(page).pageSize(pageSize).execute();
 
 Get all monitor details
 
@@ -389,6 +389,9 @@ public class Example {
         String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, `host:host0`.
         String monitorTags = "monitorTags_example"; // String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
         Boolean withDowntimes = true; // Boolean | If this argument is set to true, then the returned data includes all current downtimes for each monitor.
+        Long idOffset = 56L; // Long | TODO.
+        Long page = 56L; // Long | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
+        Integer pageSize = 56; // Integer | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
         try {
             List<Monitor> result = api.listMonitors()
                 .groupStates(groupStates)
@@ -396,6 +399,9 @@ public class Example {
                 .tags(tags)
                 .monitorTags(monitorTags)
                 .withDowntimes(withDowntimes)
+                .idOffset(idOffset)
+                .page(page)
+                .pageSize(pageSize)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -419,6 +425,9 @@ Name | Type | Description  | Notes
  **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, &#x60;host:host0&#x60;. | [optional]
  **monitorTags** | **String**| A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. | [optional]
  **withDowntimes** | **Boolean**| If this argument is set to true, then the returned data includes all current downtimes for each monitor. | [optional]
+ **idOffset** | **Long**| TODO. | [optional]
+ **page** | **Long**| The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination. | [optional]
+ **pageSize** | **Integer**| The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100. | [optional]
 
 ### Return type
 

@@ -544,7 +544,7 @@ public class Example {
         String sort = "\"name\""; // String | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
         QuerySortOrder sortDir = new QuerySortOrder(); // QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
-        String filterStatus = "filterStatus_example"; // String | Filter on status attribute. Comma separated list: Active, Pending, and Disabled. Defaults to no filtering.
+        String filterStatus = "filterStatus_example"; // String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
         try {
             UsersResponse result = api.listUsers()
                 .pageSize(pageSize)
@@ -576,7 +576,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional] [default to &quot;name&quot;]
  **sortDir** | [**QuerySortOrder**](.md)| Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to desc] [enum: asc, desc]
  **filter** | **String**| Filter all users by the given string. Defaults to no filtering. | [optional]
- **filterStatus** | **String**| Filter on status attribute. Comma separated list: Active, Pending, and Disabled. Defaults to no filtering. | [optional]
+ **filterStatus** | **String**| Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering. | [optional]
 
 ### Return type
 
