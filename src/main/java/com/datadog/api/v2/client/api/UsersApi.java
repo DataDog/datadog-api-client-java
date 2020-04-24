@@ -757,7 +757,7 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
 
     /**
      * Set filterStatus
-     * @param filterStatus Filter on status attribute. Comma separated list: Active, Pending, and Disabled. Defaults to no filtering. (optional)
+     * @param filterStatus Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering. (optional)
      * @return APIlistUsersRequest
      */
     public APIlistUsersRequest filterStatus(String filterStatus) {
