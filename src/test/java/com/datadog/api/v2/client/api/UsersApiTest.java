@@ -11,6 +11,8 @@
 
 package com.datadog.api.v2.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.model.*;
 import org.junit.After;
@@ -60,6 +62,7 @@ public class UsersApiTest extends V2APITest {
     }
 
     @Test
+    @Trace
     public void userLifecycleTest() throws ApiException {
         // TODO: test roles, permissions when we can
         // first, test creating a user
@@ -114,6 +117,7 @@ public class UsersApiTest extends V2APITest {
     }
 
     @Test
+    @Trace
     public void userInvitationTest() throws ApiException {
         final String testingUserHandle = generateUserHandle();
         UserCreateAttributes uca = new UserCreateAttributes()

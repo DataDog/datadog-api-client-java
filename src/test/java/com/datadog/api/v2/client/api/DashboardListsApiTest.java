@@ -6,6 +6,8 @@
 
 package com.datadog.api.v2.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.DashboardList;
 import com.datadog.api.v2.client.ApiException;
@@ -61,6 +63,7 @@ public class DashboardListsApiTest extends V2APITest {
     }
 
     @Test
+    @Trace
     public void dashboardListItemCRUDTest() throws ApiException {
         DashboardListItem integrationTimeboard = new DashboardListItem().type(DashboardType.INTEGRATION_TIMEBOARD).id(INTEGRATION_TIMEBOARD_ID);
         DashboardListItem customTimeboard = new DashboardListItem().type(DashboardType.CUSTOM_TIMEBOARD).id(CUSTOM_TIMEBOARD_ID);

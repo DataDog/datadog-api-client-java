@@ -11,6 +11,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -97,6 +99,7 @@ public class DashboardsApiTest extends V1ApiTest{
      * @throws ApiException
      */
     @Test
+    @Trace
     public void dashboardLifecycleTest() throws ApiException {
         // Create a Dashboard with each available Widget type
 
@@ -664,6 +667,7 @@ public class DashboardsApiTest extends V1ApiTest{
      * @throws ApiException
      */
     @Test
+    @Trace
     public void getAllDashboardTest() throws ApiException {
         // Get all dashboards and confirm the first returned entry has all expected fields set to not null
         DashboardSummary getAllResponse = api.listDashboards().execute();
@@ -680,6 +684,7 @@ public class DashboardsApiTest extends V1ApiTest{
     }
 
     @Test
+    @Trace
     public void dashboardCreateErrorsTest() throws IOException {
         try {
             api.createDashboard().body(emptyDashboard).execute();
@@ -701,6 +706,7 @@ public class DashboardsApiTest extends V1ApiTest{
     }
 
     @Test
+    @Trace
     public void dashboardListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listDashboards().execute();
@@ -713,6 +719,7 @@ public class DashboardsApiTest extends V1ApiTest{
     }
 
     @Test
+    @Trace
     public void dashboardDeleteErrorsTest() throws IOException {
         try {
             fakeAuthApi.deleteDashboard("random").execute();
@@ -734,6 +741,7 @@ public class DashboardsApiTest extends V1ApiTest{
     }
 
     @Test
+    @Trace
     public void dashboardUpdateErrorsTest() throws IOException {
         Dashboard dashboard = new Dashboard()
                 .title("Java Client Test ORDERED Dashboard")

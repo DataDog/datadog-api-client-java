@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -81,6 +83,7 @@ public class MonitorsApiTest extends V1ApiTest {
      * Create, modify and delete monitor object, also test getting it
      */
     @Test
+    @Trace
     public void monitorCreateModifyDeleteTest() throws ApiException {
         MonitorOptions options = new MonitorOptions()
             .notifyNoData(testingMonitorOptionsNotifyNoData)
@@ -132,6 +135,7 @@ public class MonitorsApiTest extends V1ApiTest {
      * Get all monitors
      */
     @Test
+    @Trace
     public void listMonitorsTest() throws ApiException {
         ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
         for (String prefix: prefixes) {
@@ -186,6 +190,7 @@ public class MonitorsApiTest extends V1ApiTest {
      }
 
     @Test
+    @Trace
     public void monitorsCreateErrorsTest() throws IOException {
         try {
             api.createMonitor().body(new Monitor()).execute();
@@ -207,6 +212,7 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void monitorsListErrorsTest() throws IOException {
         try {
             api.listMonitors().groupStates("notagroupstate").execute();
@@ -228,6 +234,7 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void monitorUpdateErrorsTest() throws ApiException, IOException {
         Monitor monitor = new Monitor()
                 .name(testingMonitorName)
@@ -273,6 +280,7 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void monitorUpdate401ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_401.json");
         stubFor(put(urlPathEqualTo(apiUri + "/121"))
@@ -290,6 +298,7 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void monitorGetErrorsTest() throws ApiException, IOException {
         Monitor monitor = new Monitor()
                 .name(testingMonitorName)
@@ -335,6 +344,7 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void monitorDelete400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(delete(urlPathEqualTo(apiUri + "/121"))
@@ -352,6 +362,7 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void monitorDelete401ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_401.json");
         stubFor(delete(urlPathEqualTo(apiUri + "/121"))
@@ -369,6 +380,7 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void monitorCanDeleteErrorsTest() throws ApiException, IOException {
         // create metrics monitor
         Monitor monitor = new Monitor()
@@ -423,6 +435,7 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void monitorValidateErrorsTest() throws IOException {
         try {
             api.validateMonitor().body(new Monitor()).execute();

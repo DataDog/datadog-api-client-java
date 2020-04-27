@@ -11,6 +11,8 @@
 
 package com.datadog.api.v2.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.model.APIErrorResponse;
 import com.datadog.api.v2.client.model.*;
@@ -80,6 +82,7 @@ public class RolesApiTest extends V2APITest {
     }
 
     @Test
+    @Trace
     public void testRoleLifecycle() throws ApiException {
         final String testingRoleName = generateRoleName();
         RoleCreateAttributes rca = new RoleCreateAttributes()
@@ -126,6 +129,7 @@ public class RolesApiTest extends V2APITest {
     }
 
     @Test
+    @Trace
     public void testRolePermissionsLifecycle() throws ApiException {
         final String testingRoleName = generateRoleName();
         RoleCreateAttributes rca = new RoleCreateAttributes()
@@ -183,6 +187,7 @@ public class RolesApiTest extends V2APITest {
     }
 
     @Test
+    @Trace
     public void testRoleUsersLifecycle() throws ApiException {
         final String testingRoleName = generateRoleName();
         RoleCreateAttributes rca = new RoleCreateAttributes()
@@ -245,6 +250,7 @@ public class RolesApiTest extends V2APITest {
     }
 
     @Test
+    @Trace
     public void listPermissionsTest() throws ApiException {
         PermissionsResponse psr = api.listPermissions().execute();
         assertTrue(psr.getData().size() > 0);

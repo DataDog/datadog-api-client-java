@@ -7,6 +7,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -40,6 +42,7 @@ public class LogsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void listLogTest() throws ApiException, TestUtils.RetryException, InterruptedException {
         long nowNano = now.toEpochSecond() * 1000000 + now.getNano();
         String source = String.format("java-client-test-%d", nowNano);
@@ -122,6 +125,7 @@ public class LogsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void logsListErrorsTest() throws IOException {
         LogsListRequest logsListRequest = new LogsListRequest()
                 .startAt("notanid")

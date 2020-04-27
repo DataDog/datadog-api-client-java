@@ -1,9 +1,6 @@
-FROM fedora:30
+FROM maven:3-openjdk-8
 
 ENTRYPOINT ["/datadog-api-client-java/run-tests.sh"]
-
-RUN dnf install -y java-1.8.0-openjdk-headless maven && \
-    dnf clean all
 
 # Predownload the dependencies, so that execution of the image is fast.
 # Also, this will make us better use Docker build cache, as pom.xml won't

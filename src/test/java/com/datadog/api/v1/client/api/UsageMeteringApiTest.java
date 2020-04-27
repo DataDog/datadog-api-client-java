@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -68,6 +70,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageFargateTest() throws ApiException {
         UsageFargateResponse response = api.getUsageFargate()
                 .startHr(startHr)
@@ -77,6 +80,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageRumSessionsTest() throws ApiException {
         UsageRumSessionsResponse response = api.getUsageRumSessions()
                 .startHr(startHr)
@@ -86,6 +90,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageHostsTest() throws ApiException {
         UsageHostsResponse response = api.getUsageHosts()
                 .startHr(startHr)
@@ -95,6 +100,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageLogsTest() throws ApiException {
         UsageLogsResponse response = api.getUsageLogs()
                 .startHr(startHr)
@@ -104,6 +110,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageLogsByIndexTest() throws ApiException {
         UsageLogsByIndexResponse response = api.getUsageLogsByIndex()
                 .startHr(startHr)
@@ -114,6 +121,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageNetworkFlowsTest() throws ApiException {
         UsageNetworkFlowsResponse response = api.getUsageNetworkFlows()
                 .startHr(startHr)
@@ -123,6 +131,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageNetworkHostsTest() throws ApiException {
         UsageNetworkHostsResponse response = api.getUsageNetworkHosts()
                 .startHr(startHr)
@@ -132,6 +141,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageSummaryTest() throws ApiException, IOException {
         Boolean includeOrgDetails = true;
         OffsetDateTime startMonth = OffsetDateTime.now();
@@ -188,6 +198,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageSyntheticsTest() throws ApiException {
         UsageSyntheticsResponse response = api.getUsageSynthetics()
                 .startHr(startHr)
@@ -197,6 +208,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageSyntheticsAPITest() throws ApiException {
         UsageSyntheticsAPIResponse response = api.getUsageSyntheticsAPI()
                 .startHr(startHr)
@@ -206,6 +218,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageSyntheticsBrowserTest() throws ApiException {
         UsageSyntheticsBrowserResponse response = api.getUsageSyntheticsBrowser()
                 .startHr(startHr)
@@ -215,6 +228,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageTimeseriesTest() throws ApiException {
         UsageTimeseriesResponse response = api.getUsageTimeseries()
                 .startHr(startHr)
@@ -224,6 +238,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageTopAvgMetricsTest() throws ApiException {
         // List<String> names = null;
         UsageTopAvgMetricsResponse response = api.getUsageTopAvgMetrics()
@@ -234,6 +249,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageTraceTest() throws ApiException {
         UsageTraceResponse response = api.getUsageTrace()
                 .startHr(startHr)
@@ -243,6 +259,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageHostsErrorsTest() throws IOException {
         try {
             api.getUsageHosts().startHr(futureStartHr).execute();
@@ -264,6 +281,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageLogsErrorsTest() throws IOException {
         try {
             api.getUsageLogs().startHr(futureStartHr).execute();
@@ -285,6 +303,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageLogsByIndexErrorsTest() throws IOException {
         try {
             api.getUsageLogsByIndex().startHr(futureStartHr).execute();
@@ -306,6 +325,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageTimeSeriesErrorsTest() throws IOException {
         try {
             api.getUsageTimeseries().startHr(futureStartHr).execute();
@@ -327,6 +347,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageTopAvgMetricsErrorsTest() throws IOException {
         try {
             api.getUsageTopAvgMetrics().month(pastStartMonth).execute();
@@ -348,6 +369,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageTraceErrorsTest() throws IOException {
         try {
             api.getUsageTrace().startHr(futureStartHr).execute();
@@ -369,6 +391,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageSyntheticsErrorsTest() throws IOException {
         //This function is deprecated
         try {
@@ -391,6 +414,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageSyntheticsAPIErrorsTest() throws IOException {
         try {
             api.getUsageSyntheticsAPI().startHr(futureStartHr).execute();
@@ -412,6 +436,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageSyntheticsBrowserErrorsTest() throws IOException {
         try {
             api.getUsageSyntheticsBrowser().startHr(futureStartHr).execute();
@@ -433,6 +458,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageFargateErrorsTest() throws IOException {
         try {
             api.getUsageFargate().startHr(futureStartHr).execute();
@@ -454,6 +480,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageLambdaErrorsTest() throws IOException {
         try {
             api.getUsageLambda().startHr(futureStartHr).execute();
@@ -475,6 +502,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageRumSessionErrorsTest() throws IOException {
         try {
             api.getUsageRumSessions().startHr(futureStartHr).execute();
@@ -496,6 +524,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageNetworkHostsErrorsTest() throws IOException {
         try {
             api.getUsageNetworkHosts().startHr(futureStartHr).execute();
@@ -517,6 +546,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageNetworkFlowsErrorsTest()throws IOException  {
         try {
             api.getUsageNetworkFlows().startHr(futureStartHr).execute();
@@ -538,6 +568,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageSummaryErrorsTest() throws IOException {
         try {
             fakeAuthApi.getUsageSummary().startMonth(futureStartMonth).execute();
@@ -550,6 +581,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getUsageSummary400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo(apiUri + "/summary"))

@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiResponse;
@@ -58,6 +60,7 @@ public class HostsApiTest extends V1ApiTest {
      *          if the specified resource couldn't be retrieved in a set timeframe
      */
     @Test
+    @Trace
     public void hostsTest() throws ApiException, TestUtils.RetryException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
         String hostname = String.format("java-client-test-host-%d", nowMillis);
@@ -133,6 +136,7 @@ public class HostsApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
+    @Trace
     public void hostTotalsMockedTest() throws ApiException, IOException {
         stubFor(get(urlPathEqualTo("/api/v1/hosts/totals"))
                 .withQueryParam("from", equalTo("123"))
@@ -152,6 +156,7 @@ public class HostsApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
+    @Trace
     public void hostsSearchMockedTest() throws ApiException, IOException {
         String fixtureData = TestUtils.getFixture("v1/client/api/hosts_fixtures/host_search.json");
         stubFor(get(urlPathEqualTo("/api/v1/hosts"))
@@ -179,6 +184,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void hostsListErrorsTest() throws IOException {
         try {
             api.listHosts().count(-1L).execute();
@@ -200,6 +206,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void hostsGetTotalsErrorsTest() throws IOException {
         try {
             api.getHostTotals().from(now.toEpochSecond() + 60).execute();
@@ -221,6 +228,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void hostsMuteErrorsTest() throws ApiException, IOException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
         String hostname = String.format("java-client-test-host-%d", nowMillis);
@@ -250,6 +258,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void hostsUnmuteErrorsTest() throws IOException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
         String hostname = String.format("java-client-test-host-%d", nowMillis);

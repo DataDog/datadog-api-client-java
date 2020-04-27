@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.*;
@@ -80,6 +82,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @Trace
     public void listLogIndexesTest() throws ApiException {
         LogsIndexListResponse response = api.listLogIndexes().execute();
         assertTrue(0 < response.getIndexes().size());
@@ -91,6 +94,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @Trace
     public void getLogsIndexTest() throws ApiException {
         LogsIndex response = api.getLogsIndex(INDEXNAME).execute();
         assertEquals(INDEXNAME, response.getName());
@@ -107,6 +111,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @Trace
     public void getLogsIndexOrderTest() throws ApiException {
         LogsIndexesOrder response = api.getLogsIndexOrder().execute();
         assertTrue(0 < response.getIndexNames().size());
@@ -120,6 +125,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @Trace
     public void updateLogsIndexTest() throws ApiException, IOException {
         stubFor(get(urlPathEqualTo(String.format("/api/v1/logs/config/indexes/%s", INDEXNAME)))
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/logs_indexes_fixtures/get_index.json")))
@@ -153,6 +159,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @Trace
     public void updateLogsIndexOrderTest() throws ApiException, IOException {
         // Get current index order
         stubFor(get(urlPathEqualTo("/api/v1/logs/config/index-order"))
@@ -177,6 +184,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void logsIndexesListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listLogIndexes().execute();
@@ -189,6 +197,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void logsIndexesGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getLogsIndex("shrugs").execute();
@@ -210,6 +219,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void logsIndexesUpdateErrorsTest() throws IOException {
         try {
             api.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
@@ -231,6 +241,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void logsIndexesOrderUpdate429ErrorTest() throws IOException {
         //mock 429 - Too many requests response
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_429.json");
@@ -249,6 +260,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void logsIndexesOrderGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getLogsIndexOrder().execute();
@@ -261,6 +273,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void logsIndexesOrderUpdateErrorsTest() throws IOException {
         try {
             api.updateLogsIndexOrder().body(new LogsIndexesOrder().indexNames(null)).execute();

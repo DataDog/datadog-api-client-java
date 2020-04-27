@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.GraphSnapshot;
@@ -36,6 +38,7 @@ public class SnapshotsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getGraphSnapshotTest() throws ApiException {
         String metricQuery = "system.load.1{*}";
         String graphDef = "{\"requests\": [{\"q\": \"system.load.1{*}\"}]}";
@@ -58,6 +61,7 @@ public class SnapshotsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void testGetGraphSnapshotStartRequiredParam() {
         long end = 2L;
         String metricQuery = "query";
@@ -70,6 +74,7 @@ public class SnapshotsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void testGetGraphSnapshotEndRequiredParam() {
         long start = 1L;
         String metricQuery = "query";
@@ -82,6 +87,7 @@ public class SnapshotsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getGraphErrors() throws IOException {
         try {
             api.getGraphSnapshot().start(new Long(345)).end(new Long(123)).execute();

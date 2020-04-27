@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -126,6 +128,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void testSyntheticsAPILifecycle() throws ApiException, IOException {
         SyntheticsTestDetails synt;
         String publicId;
@@ -216,6 +219,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void testSyntheticsBrowserLifecycle() throws ApiException, IOException {
         SyntheticsTestDetails synt;
         String publicId;
@@ -294,6 +298,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void testSyntheticsMultipleTestsOperations() throws ApiException {
         SyntheticsTestDetails syntAPI, syntBrowser;
         SyntheticsListTestsResponse allTests;
@@ -319,6 +324,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void deleteSyntheticsErrorsTest() throws IOException {
         try {
             api.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
@@ -340,6 +346,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void deleteSynthetics404ErrorsTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_404.json");
         stubFor(post(urlPathEqualTo(apiUri + "/tests/delete"))
@@ -357,6 +364,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void updateStatusSyntheticsErrorsTest() throws ApiException, IOException {
         // Create API test
         SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
@@ -392,6 +400,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void browserSpecificGetResultSyntheticsErrorsTest() throws IOException {
         try {
             fakeAuthApi.getBrowserTestResult("id", "resultid").execute();
@@ -413,6 +422,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void aPISpecificGetResultSyntheticsErrorsTest() throws IOException {
         try {
             fakeAuthApi.getAPITestResult("id", "resultid").execute();
@@ -434,6 +444,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getTestSyntheticsErrorsTest() throws IOException {
         try {
             fakeAuthApi.getTest( "id").execute();
@@ -455,6 +466,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void updateTestSyntheticsErrorsTest() throws ApiException, IOException {
         // Create API test
         SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
@@ -490,6 +502,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void listTestSyntheticsErrorsTest() throws IOException {
         try {
             fakeAuthApi.listTests().execute();
@@ -502,6 +515,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void listTestSynthetics404ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_404.json");
         stubFor(get(urlPathEqualTo(apiUri + "/tests"))
@@ -519,6 +533,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void createTestSyntheticsErrorsTest() throws IOException {
         try {
             api.createTest().body(new SyntheticsTestDetails()).execute();
@@ -540,6 +555,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void createTestSynthetics402ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_402.json");
         stubFor(post(urlPathEqualTo(apiUri + "/tests"))

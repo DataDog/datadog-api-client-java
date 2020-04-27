@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.CancelDowntimesByScopeRequest;
@@ -77,6 +79,7 @@ public class DowntimesApiTest extends V1ApiTest {
      * Create, modify and cancel downtime object, also test getting it
      */
     @Test
+    @Trace
     public void createModifyCancelDowntimeTest() throws ApiException {
         DowntimeRecurrence recurrence = new DowntimeRecurrence()
             .type(testingDowntimeRecurrenceType)
@@ -133,6 +136,7 @@ public class DowntimesApiTest extends V1ApiTest {
      * Get all downtimes
      */
     @Test
+    @Trace
     public void listDowntimesTest() throws ApiException {
         ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
         for (String prefix: prefixes) {
@@ -158,6 +162,7 @@ public class DowntimesApiTest extends V1ApiTest {
      * Cancel downtimes by scope
      */
     @Test
+    @Trace
     public void cancelDowntimesByScopeTest() throws ApiException {
         List<String> prefixes = Arrays.asList("1", "2", "3");
         List<String> differentScope = Arrays.asList("env:stage");
@@ -196,6 +201,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void downtimeListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listDowntimes().execute();
@@ -208,6 +214,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void downtimeCreateErrorsTest() throws IOException {
         try {
             api.createDowntime().body(new Downtime()).execute();
@@ -229,6 +236,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void downtimeCancelByScopeErrorsTest() throws IOException {
         try {
             api.cancelDowntimesByScope().body(new CancelDowntimesByScopeRequest()).execute();
@@ -259,6 +267,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void downtimeCancelErrorsTest() throws IOException {
         try {
             fakeAuthApi.cancelDowntime(new Long(1234)).execute();
@@ -280,6 +289,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void downtimeGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getDowntime(new Long(1234)).execute();
@@ -301,6 +311,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void downtimeUpdateErrorsTest() throws IOException {
         try {
             api.updateDowntime(new Long(1234)).body(new Downtime().start(new Long(1234))).execute();
