@@ -1,4 +1,5 @@
 Component,Origin,License,Copyright
+import,com.datadoghq:dd-trace-api,Apache-2.0,2017 Datadog, Inc.
 import,com.fasterxml.jackson.core:jackson-annotations,Apache-2.0,2007- Tatu Saloranta tatu.saloranta@iki.fi
 import,com.fasterxml.jackson.core:jackson-core,Apache-2.0,
 import,com.fasterxml.jackson.core:jackson-databind,Apache-2.0,
@@ -11,8 +12,8 @@ import,com.github.fge:uri-template,Apache-2.0,2014 Francis Galiegue (fgaliegue@g
 import,com.github.java-json-tools:jackson-coreutils,Apache-2.0,2014 Francis Galiegue (fgaliegue@gmail.com)
 import,com.github.java-json-tools:json-schema-core,Apache-2.0,2014 Francis Galiegue (fgaliegue@gmail.com)
 import,com.github.java-json-tools:json-schema-validator,Apache-2.0,2014 Francis Galiegue (fgaliegue@gmail.com)
-import,com.github.jknack:handlebars,Apache-2.0,2012-2015 Edgar Espina
 import,com.github.jknack:handlebars-helpers,Apache-2.0,2012-2015 Edgar Espina
+import,com.github.jknack:handlebars,Apache-2.0,2012-2015 Edgar Espina
 import,com.github.tomakehurst:wiremock-jre8,Apache-2.0,2011 Thomas Akehurst
 import,com.google.code.findbugs:jsr305,BSD-3-Clause,
 import,com.google.errorprone:error_prone_annotations,Apache-2.0,2012 The Error Prone Authors
@@ -31,12 +32,12 @@ import,commons-fileupload:commons-fileupload,Apache-2.0,2002-2019 The Apache Sof
 import,commons-io:commons-io,Apache-2.0,2002-2019 The Apache Software Foundation
 import,commons-logging:commons-logging,Apache-2.0,2003-2016 The Apache Software Foundation
 import,io.netty:netty-buffer,Apache-2.0,2012 The Netty Project
-import,io.netty:netty-codec,Apache-2.0,2012 The Netty Project
 import,io.netty:netty-codec-http,Apache-2.0,2012 The Netty Project
 import,io.netty:netty-codec-socks,Apache-2.0,2012 The Netty Project
+import,io.netty:netty-codec,Apache-2.0,2012 The Netty Project
 import,io.netty:netty-common,Apache-2.0,2012 The Netty Project
-import,io.netty:netty-handler,Apache-2.0,2012 The Netty Project
 import,io.netty:netty-handler-proxy,Apache-2.0,2014 The Netty Project
+import,io.netty:netty-handler,Apache-2.0,2012 The Netty Project
 import,io.netty:netty-resolver,Apache-2.0,2014 The Netty Project
 import,io.netty:netty-transport,Apache-2.0,2012 The Netty Project
 import,io.swagger:swagger-annotations,Apache-2.0,2016 SmartBear Software
@@ -61,9 +62,6 @@ import,org.apache.velocity:velocity-engine-scripting,Apache-2.0,2000-2007 The Ap
 import,org.checkerframework:checker-qual,MIT,2004-present by the Checker Framework developers
 import,org.codehaus.mojo:animal-sniffer-annotations,MIT,2009 codehaus.org
 import,org.conscrypt:conscrypt-openjdk-uber,Apache-2.0,2016 The Android Open Source Project
-import,org.eclipse.jetty.http2:http2-common,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
-import,org.eclipse.jetty.http2:http2-hpack,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
-import,org.eclipse.jetty.http2:http2-server,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
 import,org.eclipse.jetty:jetty-alpn-client,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
 import,org.eclipse.jetty:jetty-alpn-conscrypt-client,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
 import,org.eclipse.jetty:jetty-alpn-conscrypt-server,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
@@ -78,12 +76,15 @@ import,org.eclipse.jetty:jetty-servlets,EPL-2.0,1995-2020 Mort Bay Consulting Pt
 import,org.eclipse.jetty:jetty-util,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
 import,org.eclipse.jetty:jetty-webapp,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
 import,org.eclipse.jetty:jetty-xml,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
-import,org.glassfish.hk2.external:aopalliance-repackaged,EPL-2.0,2013-2018 Oracle and/or its affiliates; 2019 Payara Services Ltd
-import,org.glassfish.hk2.external:javax.inject,EPL-2.0,2010-2018 Oracle and/or its affiliates
+import,org.eclipse.jetty.http2:http2-common,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
+import,org.eclipse.jetty.http2:http2-hpack,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
+import,org.eclipse.jetty.http2:http2-server,EPL-2.0,1995-2020 Mort Bay Consulting Pty Ltd and others
 import,org.glassfish.hk2:hk2-api,EPL-2.0,2010-2018 Oracle and/or its affiliates; 2019 Payara Services Ltd
 import,org.glassfish.hk2:hk2-locator,EPL-2.0,2010-2015 Oracle and/or its affiliates; 2019 Payara Services Ltd
 import,org.glassfish.hk2:hk2-utils,EPL-2.0,2010-2015 Oracle and/or its affiliates; 2019 Payara Services Ltd
 import,org.glassfish.hk2:osgi-resource-locator,EPL-2.0,2018-2019 Oracle and/or its affiliates
+import,org.glassfish.hk2.external:aopalliance-repackaged,EPL-2.0,2013-2018 Oracle and/or its affiliates; 2019 Payara Services Ltd
+import,org.glassfish.hk2.external:javax.inject,EPL-2.0,2010-2018 Oracle and/or its affiliates
 import,org.glassfish.jersey.connectors:jersey-apache-connector,EPL-2.0,2011-2018 Oracle and/or its affiliates
 import,org.glassfish.jersey.core:jersey-client,EPL-2.0,2011-2019 Oracle and/or its affiliates
 import,org.glassfish.jersey.core:jersey-common,EPL-2.0,2010-2020 Oracle and/or its affiliates
