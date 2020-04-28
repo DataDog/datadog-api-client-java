@@ -47,16 +47,16 @@ jobs:
     - script: ./run-tests.sh
       displayName: Run integration tests
       env:
-        DD_ENV: azp
-        DD_SERVICE: datadog-api-client-java
         DD_AGENT_HOST: datadog-agent
-        DD_TAGS: "team:integration-tools-and-libraries,build.requested_by:$(Build.RequestedForId),build.attempt:$(System.StageAttempt),pull_request.number:$(System.PullRequest.PullRequestNumber)"
+        DD_ENV: prod
         DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
-        DD_TRACE_HEADER_TAGS: "Dd-Operation-Id:dd.operation.id"
-        DD_TRACE_ANNOTATIONS: org.junit.Test
         DD_LOGS_INJECTION: "true"
+        DD_SERVICE: datadog-api-client-java
+        DD_TAGS: "team:integration-tools-and-libraries,build.requested_by:$(Build.RequestedForId),build.attempt:$(System.StageAttempt),pull_request.number:$(System.PullRequest.PullRequestNumber)"
         DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
+        DD_TRACE_ANNOTATIONS: org.junit.Test
+        DD_TRACE_HEADER_TAGS: "Dd-Operation-Id:dd.operation.id"
         RECORD: "true"
     - script: |
         bash <(curl -s https://codecov.io/bash) -F integration -v
