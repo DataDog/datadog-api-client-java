@@ -90,7 +90,6 @@ if(hasProperty('target') && target == 'android') {
 
     apply plugin: 'java'
     apply plugin: 'maven'
-
     {{#supportJava6}}
     sourceCompatibility = JavaVersion.VERSION_1_6
     targetCompatibility = JavaVersion.VERSION_1_6
@@ -119,26 +118,30 @@ if(hasProperty('target') && target == 'android') {
 }
 
 ext {
-    swagger_annotations_version = "1.5.24"
+    swagger_annotations_version = "1.5.22"
     jackson_version = "2.10.3"
     jackson_databind_version = "2.10.3"
     jackson_databind_nullable_version = "0.2.1"
-    {{#threetenbp}}
-    jackson_threetenbp_version = "2.9.10"
-    {{/threetenbp}}
-    feign_version = "{{#useFeign10}}11.0{{/useFeign10}}{{^useFeign10}}9.7.0{{/useFeign10}}"
-    feign_form_version = "{{#useFeign10}}3.8.0{{/useFeign10}}{{^useFeign10}}2.1.0{{/useFeign10}}"
+    {{#supportJava6}}
+    jersey_version = "2.6"
+    commons_io_version=2.5
+    commons_lang3_version=3.6
+    {{/supportJava6}}
+    {{^supportJava6}}
+    jersey_version = "2.27"
+    {{/supportJava6}}
     junit_version = "4.13"
-    oltu_version = "1.0.1"
+    {{#threetenbp}}
+    threetenbp_version = "2.9.10"
+    {{/threetenbp}}
 }
 
 dependencies {
     compile "io.swagger:swagger-annotations:$swagger_annotations_version"
     compile "com.google.code.findbugs:jsr305:3.0.2"
-    compile "io.github.openfeign:feign-core:$feign_version"
-    compile "io.github.openfeign:feign-jackson:$feign_version"
-    compile "io.github.openfeign:feign-slf4j:$feign_version"
-    compile "io.github.openfeign.form:feign-form:$feign_form_version"
+    compile "org.glassfish.jersey.core:jersey-client:$jersey_version"
+    compile "org.glassfish.jersey.media:jersey-media-multipart:$jersey_version"
+    compile "org.glassfish.jersey.media:jersey-media-json-jackson:$jersey_version"
     compile "com.fasterxml.jackson.core:jackson-core:$jackson_version"
     compile "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
     compile "com.fasterxml.jackson.core:jackson-databind:$jackson_databind_version"
@@ -149,10 +152,19 @@ dependencies {
     {{#java8}}
     compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version"
     {{/java8}}
+    {{#supportJava6}}
+    compile "commons-io:commons-io:$commons_io_version"
+    compile "org.apache.commons:commons-lang3:$commons_lang3_version"
+    {{/supportJava6}}
     {{#threetenbp}}
-    compile "com.github.joschi.jackson:jackson-datatype-threetenbp:$jackson_threetenbp_version"
+    compile "com.github.joschi.jackson:jackson-datatype-threetenbp:$threetenbp_version"
     {{/threetenbp}}
-    compile "org.apache.oltu.oauth2:org.apache.oltu.oauth2.client:$oltu_version"
+    {{^java8}}
     compile "com.brsanthu:migbase64:2.2"
+    {{/java8}}
     testCompile "junit:junit:$junit_version"
+}
+
+javadoc {
+    options.tags = [ "http.response.details:a:Http Response Details" ]
 }
