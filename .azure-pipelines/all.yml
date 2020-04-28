@@ -56,7 +56,6 @@ jobs:
         DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         DD_TRACE_ANNOTATIONS: org.junit.Test
-        DD_TRACE_HEADER_TAGS: "Dd-Operation-Id:dd.operation.id"
         RECORD: "true"
     - script: |
         bash <(curl -s https://codecov.io/bash) -F integration -v

@@ -18,7 +18,6 @@ services:
       DD_TEST_CLIENT_APP_KEY: ${DD_TEST_CLIENT_APP_KEY}
       DD_TRACE_AGENT_PORT: 8126
       DD_TRACE_ANNOTATIONS: org.junit.Test
-      DD_TRACE_HEADER_TAGS: "Dd-Operation-Id:dd.operation.id"
     labels:
       com.datadoghq.ad.logs: '[{"source": "docker-compose.yml", "service": "datadog-api-client-java"}]'
     working_dir: /datadog-api-client-java
