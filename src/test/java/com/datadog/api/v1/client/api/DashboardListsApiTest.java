@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.DashboardList;
@@ -61,6 +63,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void dashboardListCreateModifyDeleteTest() throws ApiException {
         long start = now.toInstant().toEpochMilli();
         DashboardList testDashboardList = new DashboardList().name(String.format("java dashboard list %d", start));
@@ -98,6 +101,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void dashboardListListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listDashboardLists().execute();
@@ -110,6 +114,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void dashboardListCreateErrorsTest() throws IOException {
         try {
             api.createDashboardList().body(new DashboardList()).execute();
@@ -131,6 +136,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void dashboardListGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getDashboardList(new Long(1234)).execute();
@@ -152,6 +158,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void dashboardListUpdateErrorsTest() throws IOException {
         try {
             api.updateDashboardList(new Long(1234)).body(new DashboardList()).execute();
@@ -182,6 +189,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void dashboardListDeleteErrorsTest() throws IOException {
         try {
             fakeAuthApi.deleteDashboardList(new Long(1234)).execute();

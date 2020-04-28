@@ -11,6 +11,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.LogsAPIErrorResponse;
@@ -46,6 +48,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
+    @Trace
     @Ignore
     public void createLogsPipelineTest() throws ApiException {
         LogsPipeline body = null;
@@ -64,6 +67,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
+    @Trace
     @Ignore
     public void deleteLogsPipelineTest() throws ApiException {
         String pipelineId = null;
@@ -81,6 +85,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
+    @Trace
     @Ignore
     public void listLogsPipelinesTest() throws ApiException {
         List<LogsPipeline> response = api.listLogsPipelines()
@@ -97,6 +102,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
+    @Trace
     @Ignore
     public void getLogsPipelineTest() throws ApiException {
         String pipelineId = null;
@@ -114,6 +120,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
+    @Trace
     @Ignore
     public void getLogsPipelineOrderTest() throws ApiException {
         LogsPipelinesOrder response = api.getLogsPipelineOrder()
@@ -130,6 +137,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
+    @Trace
     @Ignore
     public void updateLogsPipelineTest() throws ApiException {
         String pipelineId = null;
@@ -149,6 +157,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
+    @Trace
     @Ignore
     public void updateLogsPipelineOrderTest() throws ApiException {
         LogsPipelinesOrder body = null;
@@ -159,6 +168,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void orderGetLogsPipelineErrorsTest() throws IOException {
         try {
             fakeAuthApi.getLogsPipelineOrder().execute();
@@ -171,6 +181,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void orderUpdateLogsPipelineErrorsTest() throws IOException {
         try {
             api.updateLogsPipelineOrder().body(new LogsPipelinesOrder().pipelineIds(null)).execute();
@@ -201,6 +212,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void listLogsPipelineErrorsTest() throws IOException {
         try {
             fakeAuthApi.listLogsPipelines().execute();
@@ -213,6 +225,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void createLogsPipelineErrorsTest() throws IOException {
         try {
             api.createLogsPipeline().body(new LogsPipeline()).execute();
@@ -234,6 +247,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getLogsPipelineErrorsTest() throws IOException {
         try {
             api.getLogsPipeline("id").execute();
@@ -255,6 +269,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void deleteLogsPipelineErrorsTest() throws IOException {
         try {
             api.deleteLogsPipeline("id").execute();
@@ -276,6 +291,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void updateLogsPipelineErrorsTest() throws IOException {
         try {
             api.deleteLogsPipeline("id").execute();

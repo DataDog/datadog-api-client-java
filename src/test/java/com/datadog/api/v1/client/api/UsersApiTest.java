@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -70,6 +72,7 @@ public class UsersApiTest extends V1ApiTest {
      * Create, modify and disable user object, also test getting it
      */
     @Test
+    @Trace
     public void userCreateModifyDisableTest() throws ApiException {
         // Test creating user
         User user = new User();
@@ -109,6 +112,7 @@ public class UsersApiTest extends V1ApiTest {
      * Get all users
      */
     @Test
+    @Trace
     public void listUsersTest() throws ApiException {
         Assume.assumeTrue("This test does not support replay from recording", TestUtils.isRecording());
         ArrayList<String> prefixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
@@ -134,6 +138,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void userCreateErrorsTest() throws IOException {
         try {
             api.createUser().body(new User()).execute();
@@ -155,6 +160,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void userCreate409ErrorsTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_409.json");
         stubFor(post(urlPathEqualTo(apiUri))
@@ -172,6 +178,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void testUserListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listUsers().execute();
@@ -184,6 +191,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void userGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getUser("notahandle").execute();
@@ -205,6 +213,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void userUpdateErrorsTest() throws ApiException, IOException {
         // Test creating user
         User user = new User();
@@ -246,6 +255,7 @@ public class UsersApiTest extends V1ApiTest {
         }
     }
     @Test
+    @Trace
     public void userDisableErrorsTest() throws ApiException, IOException {
         // Test creating user
         User user = new User();

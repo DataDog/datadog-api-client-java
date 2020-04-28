@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiResponse;
@@ -47,6 +49,7 @@ public class EventsApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @Trace
     public void eventLifecycleTest() throws ApiException, TestUtils.RetryException {
         String eventTitle = "test event from java client";
         String eventText = "example text";
@@ -110,6 +113,7 @@ public class EventsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void eventListErrorTest() throws IOException {
         try {
             api.listEvents().start(new Long(345)).end(new Long(123)).execute();
@@ -131,6 +135,7 @@ public class EventsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void eventGetErrorTest() throws IOException {
         try {
             fakeAuthApi.getEvent(new Long((new Long(1234)))).execute();

@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;

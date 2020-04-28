@@ -6,6 +6,8 @@
 
 package com.datadog.api.v2.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
 import org.glassfish.jersey.client.ClientConfig;

@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.IPRanges;
@@ -27,6 +29,7 @@ public class IpRangesApiTest extends V1ApiTest {
     private static IpRangesApi api;
 
     @Test
+    @Trace
     public void getIPRangesTest() throws ApiException {
         api = new IpRangesApi(generalApiClient);
 
@@ -42,6 +45,7 @@ public class IpRangesApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void getIPRangesTestMocked() throws ApiException, IOException {
         api = new IpRangesApi(generalApiUnitTestClient);
 

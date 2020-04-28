@@ -82,7 +82,7 @@
                             <value>conf/log4j.properties</value>
                         </property>
                     </systemProperties>
-                    <argLine>${argLine} -Xms512m -Xmx3500m</argLine>
+                    <argLine>-javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -95,6 +95,23 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                            <artifactItem>
+                                <groupId>com.datadoghq</groupId>
+                                <artifactId>dd-java-agent</artifactId>
+                                <version>${dd-java-agent-version}</version>
+                                <outputDirectory>${project.build.directory}</outputDirectory>
+                            </artifactItem>
+                            </artifactItems>
                         </configuration>
                     </execution>
                 </executions>
@@ -314,6 +331,13 @@
              <groupId>org.mock-server</groupId>
              <artifactId>mockserver-netty</artifactId>
              <version>5.9.0</version>
+             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.datadoghq</groupId>
+            <artifactId>dd-trace-api</artifactId>
+            <version>${dd-java-agent-version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <properties>
@@ -325,6 +349,7 @@
         <jackson-databind-nullable-version>0.2.0</jackson-databind-nullable-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.12</junit-version>
+        <dd-java-agent-version>0.49.0</dd-java-agent-version>
         <bintray.repo>datadog/datadog-maven</bintray.repo>
         <bintray.package>datadog-api-client</bintray.package>
     </properties>

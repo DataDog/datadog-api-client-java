@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+import datadog.trace.api.Trace;
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiResponse;
@@ -48,6 +50,7 @@ public class MetricsApiTest extends V1ApiTest {
 
 
     @Test
+    @Trace
     public void metricsTests() throws ApiException, TestUtils.RetryException {
         long nowSeconds = now.toEpochSecond();
 
@@ -134,6 +137,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricListActiveTestMock() throws ApiException, IOException {
         String expectedJSON = TestUtils.getFixture("v1/client/api/metrics_fixtures/active_metrics.json");
         ObjectMapper objectMapper = new ObjectMapper();
@@ -150,6 +154,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricsListActive400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo(apiUri))
@@ -167,6 +172,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricsListActiveErrorsTest() throws IOException {
         try {
             fakeAuthApi.listActiveMetrics().from(new Long(-1)).execute();
@@ -179,6 +185,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricsMetadataGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getMetricMetadata("ametric").execute();
@@ -200,6 +207,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricsMetadataUpdate400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(put(urlPathEqualTo(apiUri + "/ametric"))
@@ -217,6 +225,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricsMetadataUpdateErrorsTest() throws IOException {
         try {
             fakeAuthApi.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
@@ -238,6 +247,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricsList400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo("/api/v1/search"))
@@ -255,6 +265,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricsListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listMetrics().q("somequery").execute();
@@ -267,6 +278,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricsQuery400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo("/api/v1/query"))
@@ -284,6 +296,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     @Test
+    @Trace
     public void metricsQueryErrorsTest() throws IOException {
         try {
             fakeAuthApi.queryMetrics().query("").from(new Long(9)).to(new Long(9)).execute();
