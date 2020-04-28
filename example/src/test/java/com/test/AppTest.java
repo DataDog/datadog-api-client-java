@@ -13,7 +13,6 @@ public class AppTest
      * Rigorous Test :-)
      */
     @Test
-    @Trace
     public void shouldAnswerWithTrue()
     {
         assertTrue( true );

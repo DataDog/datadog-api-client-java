@@ -1,6 +1,5 @@
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
@@ -21,7 +20,6 @@ public class TelemetryTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void telemetryHeaders() throws ApiException {
 
         // Mock a random endpoint and make sure we send the operation id header. Return an arbitrary success response code.

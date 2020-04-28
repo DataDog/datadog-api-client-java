@@ -6,7 +6,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
@@ -84,7 +83,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void createAWSAccountTest() throws TestUtils.RetryException {
         //Test Creating an AWS Account with just the account_id and role_name
         AWSAccount awsAccount = new AWSAccount();
@@ -134,7 +132,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test(expected = ApiException.class)
-    @Trace
     public void createAWSAccountMissingIDTest() throws ApiException {
         //Test an exception is thrown if you're missing the account_id field
         AWSAccount awsAccount = new AWSAccount();
@@ -143,7 +140,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test(expected = ApiException.class)
-    @Trace
     public void createAWSAccountMissingRoleNameTest() throws ApiException {
         //Test an exception is thrown if you're missing the role_name field
         AWSAccount awsAccount = new AWSAccount();
@@ -152,7 +148,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void listAWSAccountsTest() throws ApiException, TestUtils.RetryException {
         List<AWSAccount> awsAccounts = new ArrayList<AWSAccount>();
         Map<String, Boolean> accountSpecificNamespaceRules = new HashMap<String, Boolean>();
@@ -190,7 +185,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void updateAWSAccountTest() throws ApiException, TestUtils.RetryException {
         AWSAccount awsAccount = new AWSAccount();
         awsAccount.setAccountId(String.format("java_%07d", (now.toInstant().toEpochMilli()) % 10000000));
@@ -236,7 +230,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void generateNewExternalIdTest() throws ApiException, TestUtils.RetryException {
         AWSAccount awsAccount = new AWSAccount();
         awsAccount.setAccountId(String.format("java_%07d", (now.toInstant().toEpochMilli()) % 10000000));
@@ -259,7 +252,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void listNamespacesTest() throws ApiException {
         List<String> namespaces = api.listAvailableAWSNamespaces().execute();
 
@@ -272,7 +264,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void generateExternalIDAWSErrorsTest() throws IOException {
         try {
             api.createNewAWSExternalID().body(new AWSAccount()).execute();
@@ -294,7 +285,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void createErrorsAWSTest() throws IOException {
         try {
             api.createAWSAccount().body(new AWSAccount()).execute();
@@ -316,7 +306,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void deleteErrorsAWSTest() throws IOException {
         try {
             api.deleteAWSAccount().body(new AWSAccount()).execute();
@@ -338,7 +327,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void getAll403ErrorAWSTest() throws IOException {
         try {
             fakeAuthApi.listAWSAccounts().execute();
@@ -351,7 +339,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void getAll400ErrorAWSTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo(apiUri))
@@ -370,7 +357,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void listNamespacesAWSErrorsTest() throws IOException {
         try {
             fakeAuthApi.listAvailableAWSNamespaces().execute();
@@ -383,7 +369,6 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void updateAWSErrorsTest() throws IOException {
         try {
             api.updateAWSAccount().body(new AWSAccount()).execute();

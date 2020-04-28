@@ -49,6 +49,8 @@ jobs:
         DD_TAGS: "build.requested_by:$(Build.RequestedForId),build.attempt:$(System.StageAttempt),pull_request.number:$(System.PullRequest.PullRequestNumber)"
         DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
         DD_TRACE_HEADER_TAGS: "Dd-Operation-Id:span.name"
+        DD_TRACE_ANNOTATIONS: org.junit.Test;datadog.trace.api.Trace
+        DD_LOGS_INJECTION: "true"
         DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         RECORD: "true"

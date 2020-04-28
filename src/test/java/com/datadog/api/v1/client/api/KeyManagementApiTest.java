@@ -6,7 +6,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
@@ -74,7 +73,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void createAPIKeyTest() throws ApiException, IOException {
         String apiKeyName = "TestName";
         MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/create_api_key.json", "post");
@@ -101,7 +99,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void createApplicationKeyTest() throws ApiException, IOException {
         String appKeyName = "TestName";
         MappingBuilder stub = setupStub(appUri, fixturePrefix + "/create_app_key.json", "post");
@@ -127,7 +124,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void deleteAPIKeyTest() throws ApiException, IOException {
         String apiKeyName = "TestName";
         MappingBuilder stub = setupStub(apiUri + "/" + apiKeyName, fixturePrefix + "/delete_api_key.json", "delete");
@@ -153,7 +149,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void deleteApplicationKeyTest() throws ApiException, IOException {
         String appKeyName = "TestName";
         MappingBuilder stub = setupStub(appUri + "/" + appKeyName, fixturePrefix + "/delete_app_key.json", "delete");
@@ -178,7 +173,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void updateAPIKeyTest() throws ApiException, IOException {
         String apiKeyName = "TestName";
         MappingBuilder stub = setupStub(apiUri + "/" + apiKeyName, fixturePrefix + "/edit_api_key.json", "put");
@@ -207,7 +201,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void updateApplicationKeyTest() throws ApiException, IOException {
         // We're mocking the response so the query param we select can be anything
         String appKeyName = "TestName";
@@ -235,7 +228,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void getAPIKeyTest() throws ApiException, IOException {
         // We're mocking the response so the query param we select can be anything
         String key = "TestName";
@@ -263,7 +255,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void listAPIKeysTest() throws ApiException, IOException {
         MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_all_api_keys.json", "get");
         stubFor(stub);
@@ -296,7 +287,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void listApplicationKeysTest() throws ApiException, IOException {
         MappingBuilder stub = setupStub(appUri, fixturePrefix + "/get_all_app_keys.json", "get");
         stubFor(stub);
@@ -327,7 +317,6 @@ public class KeyManagementApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void getApplicationKeyTest() throws ApiException, IOException {
         // We're mocking the response so the query param we select can be anything
         String key = "TestName";
@@ -343,7 +332,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPIKeysMgmtListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listAPIKeys().execute();
@@ -356,7 +344,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPIKeysMgmtCreateErrorsTest() throws IOException {
         try {
             api.createAPIKey().body(new ApiKey()).execute();
@@ -378,7 +365,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPIKeysMgmtGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getAPIKey("whatever").execute();
@@ -400,7 +386,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPIKeysMgmtUpdateErrorsTest() throws IOException {
         try {
             api.updateAPIKey("whatever").body(new ApiKey()).execute();
@@ -431,7 +416,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPIKeysMgmtDelete400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/invalid_number_of_keys_400.json");
         stubFor(delete(urlPathEqualTo(apiUri + "/whatever"))
@@ -449,7 +433,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPIKeysMgmtDeleteErrorsTest() throws IOException {
         try {
             fakeAuthApi.deleteAPIKey("whatever").execute();
@@ -471,7 +454,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPPKeysMgmtListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listApplicationKeys().execute();
@@ -484,7 +466,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPPKeysMgmtCreateErrorsTest() throws IOException {
         try {
             api.createApplicationKey().body(new ApplicationKey()).execute();
@@ -506,7 +487,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPPKeysMgmtCreate409ErrorsTest() throws ApiException, IOException {
         // This test case does not support reply from recording
         assumeTrue(TestUtils.isRecording());
@@ -529,7 +509,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPPKeysMgmtGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getApplicationKey("whatever").execute();
@@ -551,7 +530,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPPKeysMgmtUpdateErrorsTest() throws IOException {
         try {
             api.updateApplicationKey("whatever").body(new ApplicationKey()).execute();
@@ -582,7 +560,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPPKeysMgmtUpdate409ErrorsTest() throws ApiException, IOException {
         // This test case does not support reply from recording
         assumeTrue(TestUtils.isRecording());
@@ -607,7 +584,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void aPPKeysMgmtDeleteErrorsTest() throws IOException {
         // This test case does not support reply from recording
         try {

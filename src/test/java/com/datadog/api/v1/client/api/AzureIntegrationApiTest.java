@@ -7,7 +7,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
@@ -97,7 +96,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
-    @Trace
     public void createAzureIntegrationTest() throws ApiException {
         Object response = api.createAzureIntegration().body(uniqueAzureAccount).execute();
         assertEquals(response, new java.util.LinkedHashMap<>());
@@ -112,7 +110,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
-    @Trace
     public void listAnddeleteAzureIntegrationTest() throws ApiException {
         // Setup Azure Account to List
         api.createAzureIntegration().body(uniqueAzureAccount).execute();
@@ -140,7 +137,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
      *          if the Api call fails
      */
     @Test
-    @Trace
     public void updateAzureIntegrationTest() throws ApiException {
         // Create and update an account
         api.createAzureIntegration().body(uniqueAzureAccount).execute();
@@ -172,7 +168,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void list400AzureIntegrationErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo(apiUri))
@@ -191,7 +186,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void list403AzureIntegrationErrorTest() throws IOException {
         try {
             fakeAuthApi.listAzureIntegration().execute();
@@ -204,7 +198,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void createAzureIntegrationErrorsTest() throws IOException {
         try {
             api.createAzureIntegration().body(new AzureAccount()).execute();
@@ -226,7 +219,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void deleteAzureIntegrationErrorsTest() throws IOException {
         try {
             api.deleteAzureIntegration().body(new AzureAccount()).execute();
@@ -248,7 +240,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void updateAzureIntegrationErrorsTest() throws IOException {
         try {
             api.updateAzureIntegration().body(new AzureAccount()).execute();
@@ -270,7 +261,6 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void updateHostFiltersAzureIntegrationErrorsTest() throws IOException {
         try {
             api.updateAzureHostFilters().body(new AzureAccount()).execute();

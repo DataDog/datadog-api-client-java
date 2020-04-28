@@ -6,7 +6,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
@@ -110,7 +109,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
      * Create, modify and delete Monitor SLO object, also test getting it
      */
     @Test
-    @Trace
     public void createModifyDeleteMonitorSLO() throws ApiException {
         // Create a monitor for testing the monitor SLO
         Monitor m = new Monitor()
@@ -150,7 +148,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
      * Create, modify and delete Event SLO object, also test getting it
      */
     @Test
-    @Trace
     public void createModifyDeleteEventSLO() throws ApiException {
         // Create SLO
         SLOListResponse sloResp = api.createSLO().body(eventSLO).execute();
@@ -200,7 +197,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
      * Get multiple instances, test the bulk deletion endpoint
      */
     @Test
-    @Trace
     public void testMultipleSLOInstances() throws ApiException {
         // Create a monitor for testing the monitor SLO
         Monitor m = new Monitor()
@@ -246,7 +242,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void createSLOErrorsTest() throws IOException {
         try {
             api.createSLO().body(new ServiceLevelObjective()).execute();
@@ -268,7 +263,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void listSLOErrorsTest() throws IOException {
         try {
             api.listSLOs().ids("id1,id1").execute();
@@ -299,7 +293,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void updateSLOErrorsTest() throws IOException {
         try {
             api.updateSLO("id").body(new ServiceLevelObjective()).execute();
@@ -330,7 +323,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void getSLOErrorsTest() throws IOException {
         try {
             fakeAuthApi.getSLO("id").execute();
@@ -352,7 +344,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void deleteSLOErrorsTest() throws IOException {
         try {
             fakeAuthApi.deleteSLO("id").execute();
@@ -374,7 +365,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void deleteSLO409ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_409_delete.json");
         stubFor(delete(urlPathEqualTo(apiUri + "/id"))
@@ -394,7 +384,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void historyGetSLOErrorsTest() throws ApiException, IOException {
         // Create a monitor for testing the monitor SLO
         Monitor m = new Monitor()
@@ -439,7 +428,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void canDelete409SLOErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_409_can_delete.json");
         stubFor(get(urlPathEqualTo(apiUri + "/can_delete"))
@@ -458,7 +446,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void bulkDeleteSLOErrorsTest() throws IOException {
         Map<String, List<SLOTimeframe>> toDelete = new HashMap<String, List<SLOTimeframe>>();
 

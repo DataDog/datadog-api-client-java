@@ -10,7 +10,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
@@ -78,7 +77,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @Trace
     public void lifecyclePagerDutyIntegrationTest() throws ApiException, TestUtils.RetryException {
         ensureNoPagerDuty();
 
@@ -160,7 +158,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @Trace
     public void getPagerDutyIntegrationTest() throws TestUtils.RetryException, IOException {
         ensureNoPagerDuty();
 
@@ -184,7 +181,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void createPagerDutyIntegrationTest() throws IOException {
         PagerDutyIntegration body = new PagerDutyIntegration()
                 .schedules(new ArrayList<String>(Arrays.asList("schedule")))
@@ -212,7 +208,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void updatePagerDutyIntegrationTest() throws IOException {
         PagerDutyServicesAndSchedules body = new PagerDutyServicesAndSchedules()
                 .schedules(Arrays.asList(new String[]{"schedule"}));
@@ -237,7 +232,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void deletePagerDutyIntegrationTest() throws IOException {
         try {
             fakeAuthApi.deletePagerDutyIntegration().execute();
@@ -250,7 +244,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void createPagerDutyIntegrationServicesTest() throws IOException {
         PagerDutyService body = new PagerDutyService()
                 .serviceKey("lalaa")
@@ -285,7 +278,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void getPagerDutyIntegrationServicesTest() throws IOException {
         try {
             fakeAuthApi.getPagerDutyIntegrationService("service").execute();
@@ -307,7 +299,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void updatePagerDutyIntegrationServicesTest() throws IOException {
         PagerDutyServiceKey body = new PagerDutyServiceKey()
                 .serviceKey("lalaa");
@@ -341,7 +332,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void deletePagerDutyIntegrationServicesTest() throws IOException {
         try {
             fakeAuthApi.deletePagerDutyIntegrationService("lqnioiuyzbefnkje").execute();
