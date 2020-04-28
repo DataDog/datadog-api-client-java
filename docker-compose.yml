@@ -1,11 +1,10 @@
 version: "3"
 services:
   test:
-    image: maven:3-openjdk-8
-    # image: datadog-java-integration-test
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile.test.v1
+    image: datadog-java-integration-test
+    build:
+      context: .
+      dockerfile: Dockerfile.test.v1
     depends_on:
       - datadog
     networks:
