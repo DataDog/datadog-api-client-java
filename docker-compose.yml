@@ -14,7 +14,8 @@ services:
       DD_TRACE_AGENT_PORT: 8126
       DD_SERVICE_NAME: datadog-api-client-java
       DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
-      DD_TRACE_HEADER_TAGS: "Dd-Operation-Id:span.name"
+      DD_TRACE_HEADER_TAGS: "Dd-Operation-Id:dd.operation.id"
+      DD_TRACE_ANNOTATIONS: org.junit.Test
       DD_TEST_CLIENT_API_KEY: ${DD_TEST_CLIENT_API_KEY}
       DD_TEST_CLIENT_APP_KEY: ${DD_TEST_CLIENT_APP_KEY}
     labels:
