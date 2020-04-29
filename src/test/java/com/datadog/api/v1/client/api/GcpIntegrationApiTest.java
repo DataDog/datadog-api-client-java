@@ -6,7 +6,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
@@ -96,7 +95,6 @@ public class GcpIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @Trace
     public void createGCPIntegrationTest() throws ApiException {
         Object response = api.createGCPIntegration().body(uniqueGCPAccount).execute();
         assertEquals(response, new java.util.LinkedHashMap<>());
@@ -110,7 +108,6 @@ public class GcpIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @Trace
     public void listAndDeleteGCPIntegrationTest() throws ApiException {
         // Setup Gcp Account to List
         api.createGCPIntegration().body(uniqueGCPAccount).execute();
@@ -138,7 +135,6 @@ public class GcpIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @Trace
     public void updateGCPIntegrationTest() throws ApiException {
         // Setup Gcp Account to Update
         api.createGCPIntegration().body(uniqueGCPAccount).execute();
@@ -161,7 +157,6 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void gCPList400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo(apiUri))
@@ -180,7 +175,6 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void gCPListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listGCPIntegration().execute();
@@ -193,7 +187,6 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void gCPCreateErrorsTest() throws IOException {
         try {
             api.createGCPIntegration().body(new GCPAccount()).execute();
@@ -215,7 +208,6 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void gCPDeleteErrorsTest() throws IOException {
         try {
             api.deleteGCPIntegration().body(new GCPAccount()).execute();
@@ -237,7 +229,6 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void gCPUpdateErrorsTest() throws IOException {
         try {
             api.updateGCPIntegration().body(new GCPAccount()).execute();

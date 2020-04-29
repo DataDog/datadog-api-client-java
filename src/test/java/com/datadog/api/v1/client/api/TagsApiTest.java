@@ -6,7 +6,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
@@ -47,7 +46,6 @@ public class TagsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void tagsTest() throws ApiException, TestUtils.RetryException {
         String commonHostTag = "test:client_java";
         long nowSeconds = now.toEpochSecond();
@@ -123,7 +121,6 @@ public class TagsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void listTagsErrorsTest() throws IOException {
         try {
             fakeAuthApi.listHostTags().source("nosource").execute();
@@ -145,7 +142,6 @@ public class TagsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void getTagsErrorsTest() throws IOException {
         try {
             fakeAuthApi.getHostTags("notahostname1234").execute();
@@ -167,7 +163,6 @@ public class TagsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void createTagsErrorsTest() throws IOException {
         try {
             fakeAuthApi.createHostTags("notahostname1234").body(new HostTags()).execute();
@@ -189,7 +184,6 @@ public class TagsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void updateTagsErrorsTest() throws IOException {
         try {
             fakeAuthApi.updateHostTags("notahostname1234").body(new HostTags()).execute();
@@ -211,7 +205,6 @@ public class TagsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void deleteTagsErrorsTest() throws IOException {
         try {
             fakeAuthApi.deleteHostTags("notahostname1234").execute();

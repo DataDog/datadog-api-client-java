@@ -29,6 +29,10 @@ resources:
       DD_LOGS_ENABLED: "true"
       DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL: "true"
       DD_AC_EXCLUDE: "name:datadog-agent"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
 jobs:
 - job: IntegrationTests
   pool:
@@ -43,14 +47,16 @@ jobs:
     - script: ./run-tests.sh
       displayName: Run integration tests
       env:
-        DD_ENV: azp
-        DD_SERVICE: datadog-api-client-java
         DD_AGENT_HOST: datadog-agent
-        DD_TAGS: "build.requested_by:$(Build.RequestedForId),build.attempt:$(System.StageAttempt),pull_request.number:$(System.PullRequest.PullRequestNumber)"
+        DD_ENV: prod
         DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
+        DD_LOGS_INJECTION: "true"
+        DD_SERVICE: datadog-api-client-java
+        DD_TAGS: "team:integration-tools-and-libraries,build.requested_by:$(Build.RequestedForId),build.attempt:$(System.StageAttempt),pull_request.number:$(System.PullRequest.PullRequestNumber)"
         DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         DD_TRACE_ANALYTICS_ENABLED: "true"
+        DD_TRACE_ANNOTATIONS: org.junit.Test
         RECORD: "true"
     - script: |
         bash <(curl -s https://codecov.io/bash) -F integration -v

@@ -6,7 +6,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
@@ -100,7 +99,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @Trace
     public void aWSLogsCheckLambdaAsyncTest() throws ApiException, TestUtils.RetryException {
         TestUtils.retry(random.nextInt(10), 20, () -> {
             try {
@@ -148,7 +146,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @Trace
     public void aWSLogsCheckServicesAsyncTest() throws ApiException, TestUtils.RetryException {
         TestUtils.retry(random.nextInt(10), 20, () -> {
             try {
@@ -172,7 +169,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @Trace
     public void aWSLogsAddListEnableAndDeleteTest() throws ApiException, TestUtils.RetryException {
         TestUtils.retry(random.nextInt(10), 20, () -> {
             try {
@@ -231,7 +227,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @Trace
     public void aWSLogsServicesListTest() throws ApiException {
         List<AWSLogsListServicesResponse> response = api.listAWSLogsServices().execute();
         // There are currently 6 supported AWS Logs services as noted in the docs
@@ -240,7 +235,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void logsList400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(get(urlPathEqualTo(apiUri))
@@ -259,7 +253,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void logsList403ErrorTest() throws IOException {
         try {
             fakeAuthApi.listAWSLogsIntegrations().execute();
@@ -272,7 +265,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void logsAdd400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(post(urlPathEqualTo(apiUri))
@@ -291,7 +283,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void logsAdd403ErrorTest() throws IOException {
         try {
             fakeAuthApi.createAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
@@ -303,7 +294,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
         }
     }
     @Test
-    @Trace
     public void logsDelete400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
         stubFor(delete(urlPathEqualTo(apiUri))
@@ -322,7 +312,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void logsDelete403ErrorTest() throws IOException {
         try {
             fakeAuthApi.deleteAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
@@ -335,7 +324,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void logsServicesListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listAWSLogsServices().execute();
@@ -348,7 +336,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void logsServicesEnableErrorsTest() throws IOException {
         try {
             api.enableAWSLogServices().body(new AWSLogsServicesRequest()).execute();
@@ -371,7 +358,6 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
 
     @Ignore //FIXME: APi responds with 502 instead of 400 or 403, so skipping until it is fixed
     @Test
-    @Trace
     public void logsLambdaCheckListErrorsTest() throws IOException {
         try {
             api.checkAWSLogsLambdaAsync().body(new AWSAccountAndLambdaRequest()).execute();

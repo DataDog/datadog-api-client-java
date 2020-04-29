@@ -6,7 +6,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
@@ -54,7 +53,6 @@ public class OrganizationsApiTest extends V1ApiTest {
      *          if the fixture data cannot be loaded
      */
     @Test
-    @Trace
     public void createChildOrgTest() throws ApiException, IOException {
         MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/create_child_org.json", "post");
         stubFor(stub);
@@ -92,7 +90,6 @@ public class OrganizationsApiTest extends V1ApiTest {
      *          if the fixture file cannot be loaded
      */
     @Test
-    @Trace
     public void getOrgTest() throws ApiException, IOException {
         MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_orgs.json", "get");
         stubFor(stub);
@@ -119,7 +116,6 @@ public class OrganizationsApiTest extends V1ApiTest {
      *          if the fixture file cannot be loaded
      */
     @Test
-    @Trace
     public void updateOrgTest() throws ApiException, IOException {
         String publicId = "12345";
         MappingBuilder stub = setupStub(apiUri + "/" + publicId, fixturePrefix + "/update_org.json", "put");
@@ -175,7 +171,6 @@ public class OrganizationsApiTest extends V1ApiTest {
      *          if the test fixture can't be accessed
      */
     @Test
-    @Trace
     public void uploadIdPForOrgTest() throws ApiException, IOException, URISyntaxException {
         MappingBuilder stub = setupStub(apiUri + "/123456/idp_metadata", fixturePrefix + "/update_idp_meta.json", "post");
         beginStub(stub);
@@ -189,7 +184,6 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void orgsCreateErrorsTest() throws IOException {
         try {
             api.createChildOrg().body(new OrganizationCreateBody()).execute();
@@ -211,7 +205,6 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void orgsListErrorsTest() throws IOException {
         try {
             fakeAuthApi.listOrgs().execute();
@@ -224,7 +217,6 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void orgsGetErrorsTest() throws IOException {
         try {
             api.getOrg("lsqdkjf").execute();
@@ -246,7 +238,6 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void orgsUpdateErrorsTest() throws IOException {
         try {
             api.updateOrg("lsqdkjf").body(new Organization()).execute();
@@ -268,7 +259,6 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void orgsUploadIdpErrorsTest() throws URISyntaxException, IOException {
         // Boundary is uniquely generated at each request, so the test will fail when replaying
         assumeTrue("This test does not support replay from recording", TestUtils.isRecording());
@@ -296,7 +286,6 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void orgsUploadIdp415ErrorTest() throws URISyntaxException, IOException {
         // Get file object. This fixture doesn't exist since we don't need it to.
         File idpFile = new File(OrganizationsApiTest.class.getResource("org_fixtures/error_415.json").toURI());
