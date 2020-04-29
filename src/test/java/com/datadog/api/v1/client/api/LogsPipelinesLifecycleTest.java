@@ -7,7 +7,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -41,7 +40,6 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void pipelineLifecycleTest() throws ApiException {
         long nowMillis = now.toInstant().toEpochMilli();
         api = new LogsPipelinesApi(generalApiClient);

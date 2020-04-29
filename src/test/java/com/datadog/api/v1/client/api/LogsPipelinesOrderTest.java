@@ -6,7 +6,6 @@
 
 package com.datadog.api.v1.client.api;
 
-import datadog.trace.api.Trace;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.LogsPipelinesOrder;
@@ -27,7 +26,6 @@ public class LogsPipelinesOrderTest extends V1ApiTest {
     }
 
     @Test
-    @Trace
     public void pipelineOrderTest() throws ApiException {
 
         // Get current pipelines order
