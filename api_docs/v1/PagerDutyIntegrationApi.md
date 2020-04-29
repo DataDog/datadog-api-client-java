@@ -41,7 +41,10 @@ public class Example {
         // Configure the Datadog site to send API calls to
         HashMap<String, String> serverVariables = new HashMap<String, String>();
         String site = System.getenv("DD_SITE");
-        if (site != null) { serverVariables.put("site", site); }
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
         // Configure API key authorization: 
         HashMap<String, String> secrets = new HashMap<String, String>();
         secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
@@ -118,7 +121,10 @@ public class Example {
         // Configure the Datadog site to send API calls to
         HashMap<String, String> serverVariables = new HashMap<String, String>();
         String site = System.getenv("DD_SITE");
-        if (site != null) { serverVariables.put("site", site); }
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
         // Configure API key authorization: 
         HashMap<String, String> secrets = new HashMap<String, String>();
         secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
@@ -197,7 +203,10 @@ public class Example {
         // Configure the Datadog site to send API calls to
         HashMap<String, String> serverVariables = new HashMap<String, String>();
         String site = System.getenv("DD_SITE");
-        if (site != null) { serverVariables.put("site", site); }
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
         // Configure API key authorization: 
         HashMap<String, String> secrets = new HashMap<String, String>();
         secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
@@ -269,7 +278,10 @@ public class Example {
         // Configure the Datadog site to send API calls to
         HashMap<String, String> serverVariables = new HashMap<String, String>();
         String site = System.getenv("DD_SITE");
-        if (site != null) { serverVariables.put("site", site); }
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
         // Configure API key authorization: 
         HashMap<String, String> secrets = new HashMap<String, String>();
         secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
@@ -345,7 +357,10 @@ public class Example {
         // Configure the Datadog site to send API calls to
         HashMap<String, String> serverVariables = new HashMap<String, String>();
         String site = System.getenv("DD_SITE");
-        if (site != null) { serverVariables.put("site", site); }
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
         // Configure API key authorization: 
         HashMap<String, String> secrets = new HashMap<String, String>();
         secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
@@ -418,7 +433,10 @@ public class Example {
         // Configure the Datadog site to send API calls to
         HashMap<String, String> serverVariables = new HashMap<String, String>();
         String site = System.getenv("DD_SITE");
-        if (site != null) { serverVariables.put("site", site); }
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
         // Configure API key authorization: 
         HashMap<String, String> secrets = new HashMap<String, String>();
         secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
@@ -495,7 +513,10 @@ public class Example {
         // Configure the Datadog site to send API calls to
         HashMap<String, String> serverVariables = new HashMap<String, String>();
         String site = System.getenv("DD_SITE");
-        if (site != null) { serverVariables.put("site", site); }
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
         // Configure API key authorization: 
         HashMap<String, String> secrets = new HashMap<String, String>();
         secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
@@ -572,7 +593,10 @@ public class Example {
         // Configure the Datadog site to send API calls to
         HashMap<String, String> serverVariables = new HashMap<String, String>();
         String site = System.getenv("DD_SITE");
-        if (site != null) { serverVariables.put("site", site); }
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
         // Configure API key authorization: 
         HashMap<String, String> secrets = new HashMap<String, String>();
         secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
