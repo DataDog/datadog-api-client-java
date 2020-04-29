@@ -1,17 +1,14 @@
 [ {
-  "id" : "dea9d9e2-7ea4-4e59-a594-c047f8b05b2b",
+  "id" : "2034cd87-2f72-4b60-aa48-e2f0578e78f3",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests/id",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getTest" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_212; java_vendor AdoptOpenJDK; os Mac OS X; os_version 10.15.3; arch x86_64)" ],
+      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Connection" : [ "keep-alive" ],
-      "content-length" : [ "0" ],
-      "x-datadog-trace-id" : [ "1353849326231740281" ],
-      "x-datadog-parent-id" : [ "7387822631823222328" ],
-      "x-datadog-sampling-priority" : [ "1" ]
+      "content-length" : [ "0" ]
     },
     "keepAlive" : true,
     "secure" : true
@@ -26,7 +23,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 15:48:44 GMT" ],
+      "Date" : [ "Wed, 29 Apr 2020 19:16:50 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -36,19 +33,16 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "da9acc29-258d-4903-b61f-82eedfe48a2a",
+  "id" : "7ffbb727-2f8c-4879-ab0d-978dce2c913c",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests/aaa-aaa-aaa",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getTest" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_212; java_vendor AdoptOpenJDK; os Mac OS X; os_version 10.15.3; arch x86_64)" ],
+      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Connection" : [ "keep-alive" ],
-      "content-length" : [ "0" ],
-      "x-datadog-trace-id" : [ "1108989104883654259" ],
-      "x-datadog-parent-id" : [ "2376393774279680290" ],
-      "x-datadog-sampling-priority" : [ "1" ]
+      "content-length" : [ "0" ]
     },
     "keepAlive" : true,
     "secure" : true
@@ -63,7 +57,7 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 15:48:45 GMT" ],
+      "Date" : [ "Wed, 29 Apr 2020 19:16:56 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
@@ -71,9 +65,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "1000" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "15" ],
+      "X-RateLimit-Reset" : [ "4" ],
       "X-RateLimit-Remaining" : [ "998" ],
-      "X-DD-VERSION" : [ "35.2448147" ],
+      "X-DD-VERSION" : [ "35.2448963" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

@@ -1,17 +1,14 @@
 [ {
-  "id" : "51516a57-446a-4a93-9506-9455054b1720",
+  "id" : "a3fba745-bafa-4cfc-a82e-ffc44567f307",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "listTests" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_212; java_vendor AdoptOpenJDK; os Mac OS X; os_version 10.15.3; arch x86_64)" ],
+      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Connection" : [ "keep-alive" ],
-      "content-length" : [ "0" ],
-      "x-datadog-trace-id" : [ "6953055740218016979" ],
-      "x-datadog-parent-id" : [ "5533198688068646572" ],
-      "x-datadog-sampling-priority" : [ "1" ]
+      "content-length" : [ "0" ]
     },
     "keepAlive" : true,
     "secure" : true
@@ -26,7 +23,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 15:48:49 GMT" ],
+      "Date" : [ "Wed, 29 Apr 2020 19:17:04 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

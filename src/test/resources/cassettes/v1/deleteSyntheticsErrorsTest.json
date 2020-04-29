@@ -1,18 +1,15 @@
 [ {
-  "id" : "ab0c9f09-8c6e-47a6-b329-f763931d573e",
+  "id" : "548150d2-5990-4699-b777-129dfb997e93",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "deleteTests" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_212; java_vendor AdoptOpenJDK; os Mac OS X; os_version 10.15.3; arch x86_64)" ],
+      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "2" ],
-      "x-datadog-trace-id" : [ "2562092054722223491" ],
-      "x-datadog-parent-id" : [ "8781432758698708972" ],
-      "x-datadog-sampling-priority" : [ "1" ]
+      "Content-Length" : [ "2" ]
     },
     "keepAlive" : true,
     "secure" : true,
@@ -31,7 +28,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 15:48:15 GMT" ],
+      "Date" : [ "Wed, 29 Apr 2020 19:15:20 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "58" ],
       "Connection" : [ "keep-alive" ],
@@ -39,9 +36,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "120" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "45" ],
+      "X-RateLimit-Reset" : [ "40" ],
       "X-RateLimit-Remaining" : [ "118" ],
-      "X-DD-VERSION" : [ "35.2448147" ],
+      "X-DD-VERSION" : [ "35.2448963" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -51,20 +48,17 @@
     "body" : "{\"errors\": [\"Required parameter 'public_ids' is missing\"]}"
   }
 }, {
-  "id" : "77612253-75aa-4bdd-b8a3-868ce461f4a2",
+  "id" : "f4d42594-b955-44b8-828d-7dac6f7a2fc4",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "deleteTests" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_212; java_vendor AdoptOpenJDK; os Mac OS X; os_version 10.15.3; arch x86_64)" ],
+      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "2" ],
-      "x-datadog-trace-id" : [ "2609529434579505501" ],
-      "x-datadog-parent-id" : [ "8902065559332213502" ],
-      "x-datadog-sampling-priority" : [ "1" ]
+      "Content-Length" : [ "2" ]
     },
     "keepAlive" : true,
     "secure" : true,
@@ -83,7 +77,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 15:48:16 GMT" ],
+      "Date" : [ "Wed, 29 Apr 2020 19:15:26 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
