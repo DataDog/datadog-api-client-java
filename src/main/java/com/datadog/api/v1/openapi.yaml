@@ -5654,9 +5654,6 @@ components:
         url:
           description: TODO.
           type: string
-      required:
-      - method
-      - url
       type: object
     SyntheticsTickInterval:
       description: TODO.
