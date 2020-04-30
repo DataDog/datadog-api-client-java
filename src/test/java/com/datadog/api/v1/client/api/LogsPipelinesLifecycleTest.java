@@ -10,10 +10,8 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +40,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     }
 
     @Test
-    public void pipelineLifecycleTest() throws ApiException, IOException {
+    public void pipelineLifecycleTest() throws ApiException {
         long nowMillis = now.toInstant().toEpochMilli();
         api = new LogsPipelinesApi(generalApiClient);
 
@@ -158,13 +156,10 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertEquals(pipelineProcessor, createdPipeline.getProcessors().get(14));
 
         // Nested Pipeline Assertions
-        ObjectMapper mapper = new ObjectMapper();
-        LogsProcessor nestedPipelineProcessor = createdPipeline.getProcessors().get(14);
-        String jsonString = mapper.writeValueAsString(nestedPipelineProcessor);
-        LogsPipeline nestedPipeline = mapper.readValue(jsonString, LogsPipeline.class);
-        assertEquals("query", nestedPipeline.getFilter().getQuery());
-        assertEquals(grokParser, nestedPipeline.getProcessors().get(0));
-        assertEquals(logDateRemapper, nestedPipeline.getProcessors().get(1));
+        LogsPipelineProcessor nestedPipelineProcessor = (LogsPipelineProcessor) createdPipeline.getProcessors().get(14);
+        assertEquals("query", nestedPipelineProcessor.getFilter().getQuery());
+        assertEquals(grokParser, nestedPipelineProcessor.getProcessors().get(0));
+        assertEquals(logDateRemapper, nestedPipelineProcessor.getProcessors().get(1));
 
         // Get all pipelines and assert our freshly created one is part of the result
         List<LogsPipeline> pipelines = api.listLogsPipelines().execute();
