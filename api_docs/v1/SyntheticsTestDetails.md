@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **message** | **String** | TODO. |  [optional]
 **modifiedAt** | **String** | TODO. |  [optional]
 **modifiedBy** | [**SyntheticsTestAuthor**](SyntheticsTestAuthor.md) |  |  [optional]
+**monitorId** | **Long** | TODO. |  [optional]
 **name** | **String** | TODO. |  [optional]
 **options** | [**SyntheticsTestOptions**](SyntheticsTestOptions.md) |  |  [optional]
 **publicId** | **String** | TODO. |  [optional]

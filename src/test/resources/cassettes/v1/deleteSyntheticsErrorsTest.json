@@ -1,5 +1,5 @@
 [ {
-  "id" : "8b1280c2-ed65-4aaf-ab85-b9f02516d557",
+  "id" : "ea7782be-f1c9-466d-8581-bb931e2f8bc4",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
@@ -27,26 +27,27 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 21 Apr 2020 21:05:43 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:14 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "58" ],
       "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-limit" : [ "120" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "17" ],
-      "x-ratelimit-remaining" : [ "118" ],
-      "x-dd-version" : [ "35.2417701" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-RateLimit-Limit" : [ "120" ],
+      "X-RateLimit-Period" : [ "60" ],
+      "X-RateLimit-Reset" : [ "46" ],
+      "X-RateLimit-Remaining" : [ "118" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
     },
     "body" : "{\"errors\": [\"Required parameter 'public_ids' is missing\"]}"
   }
 }, {
-  "id" : "36a4bc15-e359-4a1d-8f27-277f5401ab78",
+  "id" : "32a82035-333a-4da4-acf7-8a97e1b9d8a0",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
@@ -74,12 +75,12 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 21 Apr 2020 21:05:44 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:15 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }

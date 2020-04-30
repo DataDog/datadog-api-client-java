@@ -32,8 +32,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "TODO.")
 @JsonPropertyOrder({
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
+  SyntheticsTestOptions.JSON_PROPERTY_ALLOW_INSECURE,
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
+  SyntheticsTestOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
@@ -43,11 +45,17 @@ public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_ACCEPT_SELF_SIGNED = "accept_self_signed";
   private Boolean acceptSelfSigned;
 
+  public static final String JSON_PROPERTY_ALLOW_INSECURE = "allow_insecure";
+  private Boolean allowInsecure;
+
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
   private List<SyntheticsDeviceID> deviceIds = null;
 
   public static final String JSON_PROPERTY_FOLLOW_REDIRECTS = "follow_redirects";
   private Boolean followRedirects;
+
+  public static final String JSON_PROPERTY_MIN_FAILURE_DURATION = "min_failure_duration";
+  private Long minFailureDuration;
 
   public static final String JSON_PROPERTY_MIN_LOCATION_FAILED = "min_location_failed";
   private Long minLocationFailed;
@@ -81,6 +89,31 @@ public class SyntheticsTestOptions {
 
   public void setAcceptSelfSigned(Boolean acceptSelfSigned) {
     this.acceptSelfSigned = acceptSelfSigned;
+  }
+
+
+  public SyntheticsTestOptions allowInsecure(Boolean allowInsecure) {
+    
+    this.allowInsecure = allowInsecure;
+    return this;
+  }
+
+   /**
+   * TODO.
+   * @return allowInsecure
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TODO.")
+  @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowInsecure() {
+    return allowInsecure;
+  }
+
+
+  public void setAllowInsecure(Boolean allowInsecure) {
+    this.allowInsecure = allowInsecure;
   }
 
 
@@ -139,6 +172,31 @@ public class SyntheticsTestOptions {
 
   public void setFollowRedirects(Boolean followRedirects) {
     this.followRedirects = followRedirects;
+  }
+
+
+  public SyntheticsTestOptions minFailureDuration(Long minFailureDuration) {
+    
+    this.minFailureDuration = minFailureDuration;
+    return this;
+  }
+
+   /**
+   * TODO.
+   * @return minFailureDuration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TODO.")
+  @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMinFailureDuration() {
+    return minFailureDuration;
+  }
+
+
+  public void setMinFailureDuration(Long minFailureDuration) {
+    this.minFailureDuration = minFailureDuration;
   }
 
 
@@ -227,8 +285,10 @@ public class SyntheticsTestOptions {
     }
     SyntheticsTestOptions syntheticsTestOptions = (SyntheticsTestOptions) o;
     return Objects.equals(this.acceptSelfSigned, syntheticsTestOptions.acceptSelfSigned) &&
+        Objects.equals(this.allowInsecure, syntheticsTestOptions.allowInsecure) &&
         Objects.equals(this.deviceIds, syntheticsTestOptions.deviceIds) &&
         Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects) &&
+        Objects.equals(this.minFailureDuration, syntheticsTestOptions.minFailureDuration) &&
         Objects.equals(this.minLocationFailed, syntheticsTestOptions.minLocationFailed) &&
         Objects.equals(this.retry, syntheticsTestOptions.retry) &&
         Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery);
@@ -236,7 +296,7 @@ public class SyntheticsTestOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptSelfSigned, deviceIds, followRedirects, minLocationFailed, retry, tickEvery);
+    return Objects.hash(acceptSelfSigned, allowInsecure, deviceIds, followRedirects, minFailureDuration, minLocationFailed, retry, tickEvery);
   }
 
 
@@ -245,8 +305,10 @@ public class SyntheticsTestOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsTestOptions {\n");
     sb.append("    acceptSelfSigned: ").append(toIndentedString(acceptSelfSigned)).append("\n");
+    sb.append("    allowInsecure: ").append(toIndentedString(allowInsecure)).append("\n");
     sb.append("    deviceIds: ").append(toIndentedString(deviceIds)).append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
+    sb.append("    minFailureDuration: ").append(toIndentedString(minFailureDuration)).append("\n");
     sb.append("    minLocationFailed: ").append(toIndentedString(minLocationFailed)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    tickEvery: ").append(toIndentedString(tickEvery)).append("\n");
