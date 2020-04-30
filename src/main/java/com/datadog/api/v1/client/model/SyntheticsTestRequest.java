@@ -189,9 +189,10 @@ public class SyntheticsTestRequest {
    * Get method
    * @return method
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public HTTPMethod getMethod() {
     return method;
@@ -288,9 +289,10 @@ public class SyntheticsTestRequest {
    * TODO.
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getUrl() {
     return url;

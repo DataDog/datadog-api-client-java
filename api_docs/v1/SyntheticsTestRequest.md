@@ -11,11 +11,11 @@ Name | Type | Description | Notes
 **body** | **String** | TODO. |  [optional]
 **headers** | **Map&lt;String, String&gt;** | TODO. |  [optional]
 **host** | **String** | TODO. |  [optional]
-**method** | [**HTTPMethod**](HTTPMethod.md) |  | 
+**method** | [**HTTPMethod**](HTTPMethod.md) |  |  [optional]
 **port** | **Long** | TODO. |  [optional]
 **query** | [**Object**](.md) | TODO. |  [optional]
 **timeout** | **Double** | TODO. |  [optional]
-**url** | **String** | TODO. | 
+**url** | **String** | TODO. |  [optional]
 
 
 
