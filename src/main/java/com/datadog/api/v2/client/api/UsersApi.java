@@ -135,7 +135,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreatePayload body)
   }
 
   /**
-   * Create user
+   * Create a user
    * Create a user for your organization.
    * @return createUserRequest
    * @throws ApiException if fails to make API call
@@ -234,8 +234,8 @@ private ApiResponse<Void> disableUserWithHttpInfo(String userId) throws ApiExcep
   }
 
   /**
-   * Disable user
-   * Disable user. Can only be used with an application key belonging to an administrator user.
+   * Disable a user
+   * Disable a user. Can only be used with an application key belonging to an administrator user.
    * @param userId The ID of the user. (required)
    * @return disableUserRequest
    * @throws ApiException if fails to make API call

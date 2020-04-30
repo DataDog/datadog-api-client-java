@@ -364,7 +364,7 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
 
     /**
      * Set body
-     * @param body Mute a host. (optional)
+     * @param body Mute a host request body. (optional)
      * @return APImuteHostRequest
      */
     public APImuteHostRequest body(HostMuteSettings body) {

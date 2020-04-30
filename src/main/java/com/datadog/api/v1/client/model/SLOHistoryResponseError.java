@@ -41,11 +41,11 @@ public class SLOHistoryResponseError {
   }
 
    /**
-   * human readable error
+   * Human readable error.
    * @return error
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "human readable error")
+  @ApiModelProperty(value = "Human readable error.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -104,10 +104,10 @@ public class SLOHistoryMetricsSeries {
   }
 
    /**
-   * Total Sum of the query.
+   * Total sum of the query.
    * @return sum
   **/
-  @ApiModelProperty(required = true, value = "Total Sum of the query.")
+  @ApiModelProperty(required = true, value = "Total sum of the query.")
   @JsonProperty(JSON_PROPERTY_SUM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

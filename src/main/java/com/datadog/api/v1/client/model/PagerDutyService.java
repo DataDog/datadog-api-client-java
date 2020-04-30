@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Configure your Datadog-PagerDuty integration directly through the Datadog API. For more informations, see the [PagerDuty integration page](https://docs.datadoghq.com/integrations/pagerduty/).
+ * The PagerDuty service that is available for integration with Datadog.
  */
-@ApiModel(description = "Configure your Datadog-PagerDuty integration directly through the Datadog API. For more informations, see the [PagerDuty integration page](https://docs.datadoghq.com/integrations/pagerduty/).")
+@ApiModel(description = "The PagerDuty service that is available for integration with Datadog.")
 @JsonPropertyOrder({
   PagerDutyService.JSON_PROPERTY_SERVICE_KEY,
   PagerDutyService.JSON_PROPERTY_SERVICE_NAME
@@ -45,10 +45,10 @@ public class PagerDutyService {
   }
 
    /**
-   * Your Service key in PagerDuty.
+   * Your service key in PagerDuty.
    * @return serviceKey
   **/
-  @ApiModelProperty(required = true, value = "Your Service key in PagerDuty.")
+  @ApiModelProperty(required = true, value = "Your service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -69,10 +69,10 @@ public class PagerDutyService {
   }
 
    /**
-   * Your Service name associated service key in PagerDuty.
+   * Your service name associated with a service key in PagerDuty.
    * @return serviceName
   **/
-  @ApiModelProperty(required = true, value = "Your Service name associated service key in PagerDuty.")
+  @ApiModelProperty(required = true, value = "Your service name associated with a service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -47,7 +47,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
-        PagerDutyService body = new PagerDutyService(); // PagerDutyService | Create a new service object in the Datadog-PagerDuty integration.
+        PagerDutyService body = new PagerDutyService(); // PagerDutyService | Create a new service object request body.
         try {
             PagerDutyServiceName result = api.createPagerDutyIntegrationService()
                 .body(body)
@@ -69,7 +69,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**PagerDutyService**](PagerDutyService.md)| Create a new service object in the Datadog-PagerDuty integration. |
+ **body** | [**PagerDutyService**](PagerDutyService.md)| Create a new service object request body. |
 
 ### Return type
 
@@ -207,7 +207,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | The service name
+        String serviceName = "serviceName_example"; // String | The service name.
         try {
             PagerDutyServiceName result = api.getPagerDutyIntegrationService(serviceName)
                 .execute();
@@ -228,7 +228,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceName** | **String**| The service name |
+ **serviceName** | **String**| The service name. |
 
 ### Return type
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 Update a single service object
 
-Update a single service object in the Datadog-PagerDuty integration
+Update a single service object in the Datadog-PagerDuty integration.
 
 ### Example
 
@@ -288,7 +288,7 @@ public class Example {
 
         PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
         String serviceName = "serviceName_example"; // String | The service name
-        PagerDutyServiceKey body = new PagerDutyServiceKey(); // PagerDutyServiceKey | Update an existing service object in the Datadog-PagerDuty integration.
+        PagerDutyServiceKey body = new PagerDutyServiceKey(); // PagerDutyServiceKey | Update an existing service object request body.
         try {
             api.updatePagerDutyIntegrationService(serviceName)
                 .body(body)
@@ -310,7 +310,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serviceName** | **String**| The service name |
- **body** | [**PagerDutyServiceKey**](PagerDutyServiceKey.md)| Update an existing service object in the Datadog-PagerDuty integration. |
+ **body** | [**PagerDutyServiceKey**](PagerDutyServiceKey.md)| Update an existing service object request body. |
 
 ### Return type
 

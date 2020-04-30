@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Manage your Datadog API and application keys.  You need an API and applications key with Admin rights to interact with this endpoint. The full list of keys can be seen on your [Datadog API page](https://app.datadoghq.com/account/login?next&#x3D;%2Faccount%2Fsettings#api).
+ * Datadog API key.
  */
-@ApiModel(description = "Manage your Datadog API and application keys.  You need an API and applications key with Admin rights to interact with this endpoint. The full list of keys can be seen on your [Datadog API page](https://app.datadoghq.com/account/login?next=%2Faccount%2Fsettings#api).")
+@ApiModel(description = "Datadog API key.")
 @JsonPropertyOrder({
   ApiKey.JSON_PROPERTY_CREATED,
   ApiKey.JSON_PROPERTY_CREATED_BY,

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count** | **Long** | Count of submitted metrics. | 
 **metadata** | [**SLOHistoryMetricsSeriesMetadata**](SLOHistoryMetricsSeriesMetadata.md) |  | 
-**sum** | **Double** | Total Sum of the query. | 
+**sum** | **Double** | Total sum of the query. | 
 **values** | **List&lt;Double&gt;** | The query values. | 
 
 

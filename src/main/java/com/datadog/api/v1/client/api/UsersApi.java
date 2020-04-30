@@ -88,7 +88,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
 
     /**
      * Set body
-     * @param body User object that needs to be created (required)
+     * @param body User object that needs to be created. (required)
      * @return APIcreateUserRequest
      */
     public APIcreateUserRequest body(User body) {
@@ -137,8 +137,8 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
   }
 
   /**
-   * Create user
-   * Create a user for your organization.  **Note**: users can be created with admin access role only with application keys belonging to administrators.
+   * Create a user
+   * Create a user for your organization.  **Note**: Users can only be created with the admin access role if application keys belong to administrators.
    * @return createUserRequest
    * @throws ApiException if fails to make API call
    
@@ -238,9 +238,9 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
   }
 
   /**
-   * Disable user
+   * Disable a user
    * Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
-   * @param userHandle The handle of the user (required)
+   * @param userHandle The handle of the user. (required)
    * @return disableUserRequest
    * @throws ApiException if fails to make API call
    
@@ -338,8 +338,8 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
   }
 
   /**
-   * Get user
-   * Get a user details.
+   * Get user details
+   * Get a user&#39;s details.
    * @param userHandle The ID of the user. (required)
    * @return getUserRequest
    * @throws ApiException if fails to make API call
@@ -546,7 +546,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
   }
 
   /**
-   * Update user
+   * Update a user
    * Update a user informations.  **Note**: It can only be used with application keys belonging to administrators.
    * @param userHandle The ID of the user. (required)
    * @return updateUserRequest

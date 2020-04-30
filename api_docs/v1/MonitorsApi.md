@@ -4,7 +4,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checkCanDeleteMonitor**](MonitorsApi.md#checkCanDeleteMonitor) | **GET** /api/v1/monitor/can_delete | Check if the given monitors can be deleted
+[**checkCanDeleteMonitor**](MonitorsApi.md#checkCanDeleteMonitor) | **GET** /api/v1/monitor/can_delete | Check if a monitor can be deleted
 [**createMonitor**](MonitorsApi.md#createMonitor) | **POST** /api/v1/monitor | Create a monitor
 [**deleteMonitor**](MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor
 [**getMonitor**](MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get a monitor&#39;s details
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 > CheckCanDeleteMonitorResponse checkCanDeleteMonitor().monitorIds(monitorIds).execute();
 
-Check if the given monitors can be deleted
+Check if a monitor can be deleted
 
 Check if the given monitors can be deleted.
 
@@ -132,7 +132,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Monitor body = new Monitor(); // Monitor | Monitor request object.
+        Monitor body = new Monitor(); // Monitor | Create a monitor request body.
         try {
             Monitor result = api.createMonitor()
                 .body(body)
@@ -154,7 +154,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Monitor**](Monitor.md)| Monitor request object. |
+ **body** | [**Monitor**](Monitor.md)| Create a monitor request body. |
 
 ### Return type
 
@@ -295,7 +295,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Long monitorId = 56L; // Long | The id of the monitor
+        Long monitorId = 56L; // Long | The ID of the monitor
         String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
         try {
             Monitor result = api.getMonitor(monitorId)
@@ -318,7 +318,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitorId** | **Long**| The id of the monitor |
+ **monitorId** | **Long**| The ID of the monitor |
  **groupStates** | **String**| When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. | [optional]
 
 ### Return type
@@ -481,8 +481,8 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Long monitorId = 56L; // Long | The id of the monitor.
-        Monitor body = new Monitor(); // Monitor | Monitor request object.
+        Long monitorId = 56L; // Long | The ID of the monitor.
+        Monitor body = new Monitor(); // Monitor | Edit a monitor request body.
         try {
             Monitor result = api.updateMonitor(monitorId)
                 .body(body)
@@ -504,8 +504,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitorId** | **Long**| The id of the monitor. |
- **body** | [**Monitor**](Monitor.md)| Monitor request object. |
+ **monitorId** | **Long**| The ID of the monitor. |
+ **body** | [**Monitor**](Monitor.md)| Edit a monitor request body. |
 
 ### Return type
 
