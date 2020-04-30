@@ -2,12 +2,12 @@
 
 # PagerDutyServiceName
 
-PagerDuty service object Name.
+PagerDuty service object name.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**serviceName** | **String** | Your Service name associated service key in PagerDuty. | 
+**serviceName** | **String** | Your service name associated service key in PagerDuty. | 
 
 
 

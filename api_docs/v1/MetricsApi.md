@@ -128,7 +128,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
-        Long from = 56L; // Long | Seconds since the Unix epoch
+        Long from = 56L; // Long | Seconds since the Unix epoch.
         String host = "host_example"; // String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
         try {
             MetricsListResponse result = api.listActiveMetrics()
@@ -152,7 +152,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **Long**| Seconds since the Unix epoch |
+ **from** | **Long**| Seconds since the Unix epoch. |
  **host** | **String**| Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. | [optional]
 
 ### Return type
@@ -295,7 +295,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         Long from = 56L; // Long | Start of the queried time period, seconds since the Unix epoch.
         Long to = 56L; // Long | End of the queried time period, seconds since the Unix epoch.
-        String query = "query_example"; // String | Query string
+        String query = "query_example"; // String | Query string.
         try {
             MetricsQueryResponse result = api.queryMetrics()
                 .from(from)
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **from** | **Long**| Start of the queried time period, seconds since the Unix epoch. |
  **to** | **Long**| End of the queried time period, seconds since the Unix epoch. |
- **query** | **String**| Query string |
+ **query** | **String**| Query string. |
 
 ### Return type
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 Edit metric metadata
 
-Edit metadata of a specific metric.
+Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
 
 ### Example
 

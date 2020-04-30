@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **created** | **String** | Date of the organization creation. |  [optional] [readonly]
 **description** | **String** | Description of the organization. |  [optional]
 **name** | **String** | The name of the new child-organization, limited to 32 characters. |  [optional]
-**publicId** | **String** | The public_id of the org you are operating within. |  [optional]
+**publicId** | **String** | The &#x60;public_id&#x60; of the org you are operating within. |  [optional]
 **settings** | [**OrganizationSettings**](OrganizationSettings.md) |  |  [optional]
 **subscription** | [**OrganizationSubscription**](OrganizationSubscription.md) |  |  [optional]
 

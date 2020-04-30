@@ -48,7 +48,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        DashboardList body = new DashboardList(); // DashboardList | DashboardList request object
+        DashboardList body = new DashboardList(); // DashboardList | Create a dashboard list request body.
         try {
             DashboardList result = api.createDashboardList()
                 .body(body)
@@ -70,7 +70,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DashboardList**](DashboardList.md)| DashboardList request object |
+ **body** | [**DashboardList**](DashboardList.md)| Create a dashboard list request body. |
 
 ### Return type
 
@@ -129,7 +129,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        Long listId = 56L; // Long | ID of the dashboard list to delete
+        Long listId = 56L; // Long | ID of the dashboard list to delete.
         try {
             DashboardListDeleteResponse result = api.deleteDashboardList(listId)
                 .execute();
@@ -150,7 +150,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listId** | **Long**| ID of the dashboard list to delete |
+ **listId** | **Long**| ID of the dashboard list to delete. |
 
 ### Return type
 
@@ -209,7 +209,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        Long listId = 56L; // Long | ID of the dashboard list to fetch
+        Long listId = 56L; // Long | ID of the dashboard list to fetch.
         try {
             DashboardList result = api.getDashboardList(listId)
                 .execute();
@@ -230,7 +230,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listId** | **Long**| ID of the dashboard list to fetch |
+ **listId** | **Long**| ID of the dashboard list to fetch. |
 
 ### Return type
 
@@ -364,8 +364,8 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
-        Long listId = 56L; // Long | ID of the dashboard list to update
-        DashboardList body = new DashboardList(); // DashboardList | DashboardList request object
+        Long listId = 56L; // Long | ID of the dashboard list to update.
+        DashboardList body = new DashboardList(); // DashboardList | Update a dashboard list request body.
         try {
             DashboardList result = api.updateDashboardList(listId)
                 .body(body)
@@ -387,8 +387,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listId** | **Long**| ID of the dashboard list to update |
- **body** | [**DashboardList**](DashboardList.md)| DashboardList request object |
+ **listId** | **Long**| ID of the dashboard list to update. |
+ **body** | [**DashboardList**](DashboardList.md)| Update a dashboard list request body. |
 
 ### Return type
 

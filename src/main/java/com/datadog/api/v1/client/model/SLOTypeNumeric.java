@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * A numeric representation of the type of the service level objective (0 for monitor, 1 for metric).  Always included in service level objective responses. Ignored in create/update requests.
+ * A numeric representation of the type of the service level objective (&#x60;0&#x60; for monitor, &#x60;1&#x60; for metric). Always included in service level objective responses. Ignored in create/update requests.
  */
 public enum SLOTypeNumeric {
   

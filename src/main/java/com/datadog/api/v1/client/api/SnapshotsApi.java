@@ -204,7 +204,7 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
 
   /**
    * Take graph snapshots
-   * Take graph snapshots.
+   * Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is available.
    * @return getGraphSnapshotRequest
    * @throws ApiException if fails to make API call
    

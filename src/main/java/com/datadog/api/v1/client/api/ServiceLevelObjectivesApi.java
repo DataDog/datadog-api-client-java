@@ -93,7 +93,7 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
 
     /**
      * Set ids
-     * @param ids A comma separated list of the IDs of the service level objectives objects (e.g. \&quot;id1,id2,id3\&quot;). (required)
+     * @param ids A comma separated list of the IDs of the service level objectives objects. (required)
      * @return APIcheckCanDeleteSLORequest
      */
     public APIcheckCanDeleteSLORequest ids(String ids) {
@@ -143,7 +143,7 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
 
   /**
    * Check if SLOs can be safely deleted
-   * Check if an SLO can be safely deleted without disrupting dashboardsfor example.
+   * Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
    * @return checkCanDeleteSLORequest
    * @throws ApiException if fails to make API call
    
@@ -353,7 +353,7 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId) throw
   /**
    * Delete a SLO
    * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the &#x60;DELETE /v1/slo/&#x60; endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
-   * @param sloId The id of the service level objective. (required)
+   * @param sloId The ID of the service level objective. (required)
    * @return deleteSLORequest
    * @throws ApiException if fails to make API call
    
@@ -413,7 +413,7 @@ private ApiResponse<SLOBulkDeleteResponse> deleteSLOTimeframeInBulkWithHttpInfo(
 
     /**
      * Set body
-     * @param body Thresholds by service level objective object ID. (required)
+     * @param body Delete multiple service level objective objects request body. (required)
      * @return APIdeleteSLOTimeframeInBulkRequest
      */
     public APIdeleteSLOTimeframeInBulkRequest body(Map<String, List<SLOTimeframe>> body) {
@@ -760,7 +760,7 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
 
     /**
      * Set ids
-     * @param ids A comma separated list of the IDs of the service level objectives objects. For example, \&quot;id1,id2,id3\&quot;. (required)
+     * @param ids A comma separated list of the IDs of the service level objectives objects. (required)
      * @return APIlistSLOsRequest
      */
     public APIlistSLOsRequest ids(String ids) {

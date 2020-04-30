@@ -134,7 +134,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
   }
 
   /**
-   * Create an AWS Integration
+   * Create an AWS integration
    * Create a Datadog-Amazon Web Services integration. Using the &#x60;POST&#x60; method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.
    * @return createAWSAccountRequest
    * @throws ApiException if fails to make API call
@@ -242,7 +242,7 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
   }
 
   /**
-   * Generate New External ID
+   * Generate a new external ID
    * Generate a new AWS external ID for a given AWS account ID and role name pair.
    * @return createNewAWSExternalIDRequest
    * @throws ApiException if fails to make API call
@@ -350,8 +350,8 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
   }
 
   /**
-   * Delete an AWS Integration
-   * Delete a Datadog-AWS integration matching the specified account_id and role_name parameters.
+   * Delete an AWS integration
+   * Delete a Datadog-AWS integration matching the specified &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
    * @return deleteAWSAccountRequest
    * @throws ApiException if fails to make API call
    
@@ -411,7 +411,7 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
 
     /**
      * Set accountId
-     * @param accountId Only return AWS accounts that matches this account_id. (optional)
+     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;. (optional)
      * @return APIlistAWSAccountsRequest
      */
     public APIlistAWSAccountsRequest accountId(String accountId) {
@@ -433,7 +433,7 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
 
     /**
      * Set accessKeyId
-     * @param accessKeyId Only return AWS accounts that matches this access_key_id. (optional)
+     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;. (optional)
      * @return APIlistAWSAccountsRequest
      */
     public APIlistAWSAccountsRequest accessKeyId(String accessKeyId) {
@@ -480,7 +480,7 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
   }
 
   /**
-   * List all AWS Integrations
+   * List all AWS integrations
    * List all Datadog-AWS integrations available in your Datadog organization.
    * @return listAWSAccountsRequest
    * @throws ApiException if fails to make API call
@@ -647,7 +647,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
     /**
      * Set accountId
-     * @param accountId Only return AWS accounts that matches this account_id. (optional)
+     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;. (optional)
      * @return APIupdateAWSAccountRequest
      */
     public APIupdateAWSAccountRequest accountId(String accountId) {
@@ -658,7 +658,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
     /**
      * Set roleName
-     * @param roleName Only return AWS accounts that matches this role_name. *It is required if account_id is specified.* (optional)
+     * @param roleName Only return AWS accounts that match this &#x60;role_name&#x60;. Required if &#x60;account_id&#x60; is specified. (optional)
      * @return APIupdateAWSAccountRequest
      */
     public APIupdateAWSAccountRequest roleName(String roleName) {
@@ -669,7 +669,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
     /**
      * Set accessKeyId
-     * @param accessKeyId Only return AWS accounts that matches this access_key_id. *It is required if none of the other two options are specified.* (optional)
+     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified. (optional)
      * @return APIupdateAWSAccountRequest
      */
     public APIupdateAWSAccountRequest accessKeyId(String accessKeyId) {
@@ -716,7 +716,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
   }
 
   /**
-   * Update an AWS Integration
+   * Update an AWS integration
    * Update a Datadog-Amazon Web Services integration.
    * @return updateAWSAccountRequest
    * @throws ApiException if fails to make API call

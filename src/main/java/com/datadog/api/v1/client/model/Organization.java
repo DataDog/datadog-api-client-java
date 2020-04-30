@@ -159,11 +159,11 @@ public class Organization {
   }
 
    /**
-   * The public_id of the org you are operating within.
+   * The &#x60;public_id&#x60; of the org you are operating within.
    * @return publicId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "abcdef12345", value = "The public_id of the org you are operating within.")
+  @ApiModelProperty(example = "abcdef12345", value = "The `public_id` of the org you are operating within.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -8,7 +8,7 @@ Number of hosts/containers recorded for each hour for a given organization.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **agentHostCount** | **Long** | Contains the total number of infrastructure hosts reporting during a given hour that were running the Datadog Agent. |  [optional]
-**alibabaHostCount** | **Long** | Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog). |  [optional]
+**alibabaHostCount** | **Long** | Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog Agent). |  [optional]
 **apmHostCount** | **Long** | Shows the total number of hosts using APM during the hour, these are counted as billable (except during trial periods). |  [optional]
 **awsHostCount** | **Long** | Contains the total number of hosts that reported via the AWS integration (and were NOT running the Datadog Agent). |  [optional]
 **azureHostCount** | **Long** | Contains the total number of hosts that reported via Azure integration (and were NOT running the Datadog Agent). |  [optional]

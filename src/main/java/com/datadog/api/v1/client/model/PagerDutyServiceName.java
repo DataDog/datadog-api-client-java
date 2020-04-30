@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * PagerDuty service object Name.
+ * PagerDuty service object name.
  */
-@ApiModel(description = "PagerDuty service object Name.")
+@ApiModel(description = "PagerDuty service object name.")
 @JsonPropertyOrder({
   PagerDutyServiceName.JSON_PROPERTY_SERVICE_NAME
 })
@@ -41,10 +41,10 @@ public class PagerDutyServiceName {
   }
 
    /**
-   * Your Service name associated service key in PagerDuty.
+   * Your service name associated service key in PagerDuty.
    * @return serviceName
   **/
-  @ApiModelProperty(required = true, value = "Your Service name associated service key in PagerDuty.")
+  @ApiModelProperty(required = true, value = "Your service name associated service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

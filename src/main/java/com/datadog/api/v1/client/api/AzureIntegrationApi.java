@@ -85,7 +85,7 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
 
     /**
      * Set body
-     * @param body Create a Datadog-Azure integration for your Datadog account. (required)
+     * @param body Create a Datadog-Azure integration for your Datadog account request body. (required)
      * @return APIcreateAzureIntegrationRequest
      */
     public APIcreateAzureIntegrationRequest body(AzureAccount body) {
@@ -193,7 +193,7 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
 
     /**
      * Set body
-     * @param body Delete a given Datadog-Azure integration. (required)
+     * @param body Delete a given Datadog-Azure integration request body. (required)
      * @return APIdeleteAzureIntegrationRequest
      */
     public APIdeleteAzureIntegrationRequest body(AzureAccount body) {
@@ -392,7 +392,7 @@ private ApiResponse<Object> updateAzureHostFiltersWithHttpInfo(AzureAccount body
 
     /**
      * Set body
-     * @param body Update a Datadog-Azure integration&#39;s host filters. (required)
+     * @param body Update a Datadog-Azure integration&#39;s host filters request body. (required)
      * @return APIupdateAzureHostFiltersRequest
      */
     public APIupdateAzureHostFiltersRequest body(AzureAccount body) {
@@ -500,7 +500,7 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
 
     /**
      * Set body
-     * @param body Update a Datadog-Azure integration. (required)
+     * @param body Update a Datadog-Azure integration request body. (required)
      * @return APIupdateAzureIntegrationRequest
      */
     public APIupdateAzureIntegrationRequest body(AzureAccount body) {

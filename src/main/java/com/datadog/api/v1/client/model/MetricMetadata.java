@@ -156,11 +156,11 @@ public class MetricMetadata {
   }
 
    /**
-   * Statsd flush interval of the metric in seconds if applicable.
+   * StatsD flush interval of the metric in seconds if applicable.
    * @return statsdInterval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Statsd flush interval of the metric in seconds if applicable.")
+  @ApiModelProperty(value = "StatsD flush interval of the metric in seconds if applicable.")
   @JsonProperty(JSON_PROPERTY_STATSD_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

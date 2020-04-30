@@ -2,7 +2,7 @@
 
 # DeletedMonitor
 
-Response from the `DeleteMonitor` call.
+Response from the delete monitor call.
 ## Properties
 
 Name | Type | Description | Notes

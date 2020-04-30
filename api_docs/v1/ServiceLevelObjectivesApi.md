@@ -21,8 +21,8 @@ Method | HTTP request | Description
 
 Check if SLOs can be safely deleted
 
-Check if an SLO can be safely deleted without disrupting
-dashboardsfor example.
+Check if a SLO can be safely deleted. For example,
+assure an SLO can be deleted without disrupting a dashboard.
 
 ### Example
 
@@ -52,7 +52,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects (e.g. \"id1,id2,id3\").
+        String ids = id1, id2, id3; // String | A comma separated list of the IDs of the service level objectives objects.
         try {
             CheckCanDeleteSLOResponse result = api.checkCanDeleteSLO()
                 .ids(ids)
@@ -74,7 +74,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects (e.g. \&quot;id1,id2,id3\&quot;). |
+ **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. |
 
 ### Return type
 
@@ -218,7 +218,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        String sloId = "sloId_example"; // String | The id of the service level objective.
+        String sloId = "sloId_example"; // String | The ID of the service level objective.
         try {
             SLODeleteResponse result = api.deleteSLO(sloId)
                 .execute();
@@ -239,7 +239,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The id of the service level objective. |
+ **sloId** | **String**| The ID of the service level objective. |
 
 ### Return type
 
@@ -303,7 +303,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Thresholds by service level objective object ID.
+        Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Delete multiple service level objective objects request body.
         try {
             SLOBulkDeleteResponse result = api.deleteSLOTimeframeInBulk()
                 .body(body)
@@ -325,7 +325,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Map&lt;String, List&lt;SLOTimeframe&gt;&gt;**](List.md)| Thresholds by service level objective object ID. |
+ **body** | [**Map&lt;String, List&lt;SLOTimeframe&gt;&gt;**](List.md)| Delete multiple service level objective objects request body. |
 
 ### Return type
 
@@ -558,7 +558,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects. For example, \"id1,id2,id3\".
+        String ids = id1, id2, id3; // String | A comma separated list of the IDs of the service level objectives objects.
         try {
             SLOListResponse result = api.listSLOs()
                 .ids(ids)
@@ -580,7 +580,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. For example, \&quot;id1,id2,id3\&quot;. |
+ **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. |
 
 ### Return type
 

@@ -137,7 +137,7 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
   }
 
   /**
-   * Check if the given monitors can be deleted
+   * Check if a monitor can be deleted
    * Check if the given monitors can be deleted.
    * @return checkCanDeleteMonitorRequest
    * @throws ApiException if fails to make API call
@@ -198,7 +198,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
 
     /**
      * Set body
-     * @param body Monitor request object. (required)
+     * @param body Create a monitor request body. (required)
      * @return APIcreateMonitorRequest
      */
     public APIcreateMonitorRequest body(Monitor body) {
@@ -465,7 +465,7 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
   /**
    * Get a monitor&#39;s details
    * Get details about the specified monitor from your organization.
-   * @param monitorId The id of the monitor (required)
+   * @param monitorId The ID of the monitor (required)
    * @return getMonitorRequest
    * @throws ApiException if fails to make API call
    
@@ -728,7 +728,7 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor b
 
     /**
      * Set body
-     * @param body Monitor request object. (required)
+     * @param body Edit a monitor request body. (required)
      * @return APIupdateMonitorRequest
      */
     public APIupdateMonitorRequest body(Monitor body) {
@@ -781,7 +781,7 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor b
   /**
    * Edit a monitor
    * Edit the specified monitor.
-   * @param monitorId The id of the monitor. (required)
+   * @param monitorId The ID of the monitor. (required)
    * @return updateMonitorRequest
    * @throws ApiException if fails to make API call
    

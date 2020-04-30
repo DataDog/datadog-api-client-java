@@ -15,6 +15,7 @@ Method | HTTP request | Description
 Take graph snapshots
 
 Take graph snapshots.
+**Note**: When a snapshot is created, there is some delay before it is available.
 
 ### Example
 

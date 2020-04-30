@@ -210,7 +210,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
-        Downtime body = new Downtime(); // Downtime | Downtime request object
+        Downtime body = new Downtime(); // Downtime | Schedule a downtime request body.
         try {
             Downtime result = api.createDowntime()
                 .body(body)
@@ -232,7 +232,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Downtime**](Downtime.md)| Downtime request object |
+ **body** | [**Downtime**](Downtime.md)| Schedule a downtime request body. |
 
 ### Return type
 
@@ -452,7 +452,7 @@ public class Example {
 
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Long downtimeId = 123456; // Long | ID of the downtime to update.
-        Downtime body = new Downtime(); // Downtime | Downtime request object.
+        Downtime body = new Downtime(); // Downtime | Update a downtime request body.
         try {
             Downtime result = api.updateDowntime(downtimeId)
                 .body(body)
@@ -475,7 +475,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **downtimeId** | **Long**| ID of the downtime to update. |
- **body** | [**Downtime**](Downtime.md)| Downtime request object. |
+ **body** | [**Downtime**](Downtime.md)| Update a downtime request body. |
 
 ### Return type
 

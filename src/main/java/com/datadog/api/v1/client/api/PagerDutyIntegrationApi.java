@@ -87,7 +87,7 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
 
     /**
      * Set body
-     * @param body Create a new service object in the Datadog-PagerDuty integration. (required)
+     * @param body Create a new service object request body. (required)
      * @return APIcreatePagerDutyIntegrationServiceRequest
      */
     public APIcreatePagerDutyIntegrationServiceRequest body(PagerDutyService body) {
@@ -335,7 +335,7 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
   /**
    * Get a single service object
    * Get service name in the Datadog-PagerDuty integration.
-   * @param serviceName The service name (required)
+   * @param serviceName The service name. (required)
    * @return getPagerDutyIntegrationServiceRequest
    * @throws ApiException if fails to make API call
    
@@ -403,7 +403,7 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
 
     /**
      * Set body
-     * @param body Update an existing service object in the Datadog-PagerDuty integration. (required)
+     * @param body Update an existing service object request body. (required)
      * @return APIupdatePagerDutyIntegrationServiceRequest
      */
     public APIupdatePagerDutyIntegrationServiceRequest body(PagerDutyServiceKey body) {
@@ -453,7 +453,7 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
 
   /**
    * Update a single service object
-   * Update a single service object in the Datadog-PagerDuty integration
+   * Update a single service object in the Datadog-PagerDuty integration.
    * @param serviceName The service name (required)
    * @return updatePagerDutyIntegrationServiceRequest
    * @throws ApiException if fails to make API call

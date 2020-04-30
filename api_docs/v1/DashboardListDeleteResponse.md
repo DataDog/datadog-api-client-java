@@ -7,7 +7,7 @@ TODO.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deletedDashboardListId** | **Long** | ID of the deleted dashboard list |  [optional]
+**deletedDashboardListId** | **Long** | ID of the deleted dashboard list. |  [optional]
 
 
 

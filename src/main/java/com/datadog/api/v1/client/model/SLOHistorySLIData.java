@@ -210,11 +210,11 @@ public class SLOHistorySLIData {
   }
 
    /**
-   * The amount of decimal places the SLI value is accurate to for the given from and to timestamp.
+   * The amount of decimal places the SLI value is accurate to for the given from &#x60;&amp;&amp;&#x60; to timestamp.
    * @return spanPrecision
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The amount of decimal places the SLI value is accurate to for the given from and to timestamp.")
+  @ApiModelProperty(value = "The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.")
   @JsonProperty(JSON_PROPERTY_SPAN_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
