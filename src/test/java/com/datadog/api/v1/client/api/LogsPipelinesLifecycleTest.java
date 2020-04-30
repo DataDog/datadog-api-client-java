@@ -10,8 +10,11 @@ package com.datadog.api.v1.client.api;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +43,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     }
 
     @Test
-    public void pipelineLifecycleTest() throws ApiException {
+    public void pipelineLifecycleTest() throws ApiException, IOException {
         long nowMillis = now.toInstant().toEpochMilli();
         api = new LogsPipelinesApi(generalApiClient);
 
@@ -110,6 +113,11 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         LogsProcessor traceRemapper = new LogsTraceRemapper()
                 .addSourcesItem("source")
                 .name("trace remapper");
+        LogsProcessor pipelineProcessor = new LogsPipelineProcessor()
+                .name("pipeline processor")
+                .filter(new LogsFilter().query("query"))
+                .addProcessorsItem(grokParser)
+                .addProcessorsItem(logDateRemapper);
         LogsPipeline pipeline = new LogsPipeline()
                 .isEnabled(true)
                 .filter(new LogsFilter().query("query"))
@@ -127,6 +135,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .addProcessorsItem(geoIPParser)
                 .addProcessorsItem(lookupProcessor)
                 .addProcessorsItem(traceRemapper)
+                .addProcessorsItem(pipelineProcessor)
                 .name("java-client-test-pipeline-" + nowMillis);
         LogsPipeline createdPipeline = api.createLogsPipeline().body(pipeline).execute();
         pipelinesToDelete.add(createdPipeline.getId());
@@ -147,6 +156,16 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertEquals(geoIPParser, createdPipeline.getProcessors().get(11));
         assertEquals(lookupProcessor, createdPipeline.getProcessors().get(12));
         assertEquals(traceRemapper, createdPipeline.getProcessors().get(13));
+        assertEquals(pipelineProcessor, createdPipeline.getProcessors().get(14));
+
+        // Nested Pipeline Assertions
+        ObjectMapper mapper = new ObjectMapper();
+        LogsProcessor nestedPipelineProcessor = createdPipeline.getProcessors().get(14);
+        String jsonString = mapper.writeValueAsString(nestedPipelineProcessor);
+        LogsPipeline nestedPipeline = mapper.readValue(jsonString, LogsPipeline.class);
+        assertEquals("query", nestedPipeline.getFilter().getQuery());
+        assertEquals(grokParser, nestedPipeline.getProcessors().get(0));
+        assertEquals(logDateRemapper, nestedPipeline.getProcessors().get(1));
 
         // Get all pipelines and assert our freshly created one is part of the result
         List<LogsPipeline> pipelines = api.listLogsPipelines().execute();
@@ -173,7 +192,8 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertEquals("java-client-test-pipeline-" + nowMillis + "-updated", updatedPipeline.getName());
         assertFalse(updatedPipeline.getIsEnabled());
         assertEquals("updated query", updatedPipeline.getFilter().getQuery());
-        assertEquals(grokParser, updatedPipeline.getProcessors().get(13));
+        assertEquals(grokParser, updatedPipeline.getProcessors().get(14));
+        assertEquals(pipelineProcessor, updatedPipeline.getProcessors().get(13));
         assertEquals(logDateRemapper, updatedPipeline.getProcessors().get(0));
         assertEquals(logStatusRemapper, updatedPipeline.getProcessors().get(1));
         assertEquals(serviceRemapper, updatedPipeline.getProcessors().get(2));
