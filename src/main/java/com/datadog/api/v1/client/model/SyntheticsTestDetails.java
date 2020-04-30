@@ -41,6 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsTestDetails.JSON_PROPERTY_MESSAGE,
   SyntheticsTestDetails.JSON_PROPERTY_MODIFIED_AT,
   SyntheticsTestDetails.JSON_PROPERTY_MODIFIED_BY,
+  SyntheticsTestDetails.JSON_PROPERTY_MONITOR_ID,
   SyntheticsTestDetails.JSON_PROPERTY_NAME,
   SyntheticsTestDetails.JSON_PROPERTY_OPTIONS,
   SyntheticsTestDetails.JSON_PROPERTY_PUBLIC_ID,
@@ -71,6 +72,9 @@ public class SyntheticsTestDetails {
 
   public static final String JSON_PROPERTY_MODIFIED_BY = "modified_by";
   private SyntheticsTestAuthor modifiedBy;
+
+  public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
+  private Long monitorId;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -277,6 +281,31 @@ public class SyntheticsTestDetails {
   }
 
 
+  public SyntheticsTestDetails monitorId(Long monitorId) {
+    
+    this.monitorId = monitorId;
+    return this;
+  }
+
+   /**
+   * TODO.
+   * @return monitorId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TODO.")
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMonitorId() {
+    return monitorId;
+  }
+
+
+  public void setMonitorId(Long monitorId) {
+    this.monitorId = monitorId;
+  }
+
+
   public SyntheticsTestDetails name(String name) {
     
     this.name = name;
@@ -476,6 +505,7 @@ public class SyntheticsTestDetails {
         Objects.equals(this.message, syntheticsTestDetails.message) &&
         Objects.equals(this.modifiedAt, syntheticsTestDetails.modifiedAt) &&
         Objects.equals(this.modifiedBy, syntheticsTestDetails.modifiedBy) &&
+        Objects.equals(this.monitorId, syntheticsTestDetails.monitorId) &&
         Objects.equals(this.name, syntheticsTestDetails.name) &&
         Objects.equals(this.options, syntheticsTestDetails.options) &&
         Objects.equals(this.publicId, syntheticsTestDetails.publicId) &&
@@ -487,7 +517,7 @@ public class SyntheticsTestDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, createdAt, createdBy, locations, message, modifiedAt, modifiedBy, name, options, publicId, status, subtype, tags, type);
+    return Objects.hash(config, createdAt, createdBy, locations, message, modifiedAt, modifiedBy, monitorId, name, options, publicId, status, subtype, tags, type);
   }
 
 
@@ -502,6 +532,7 @@ public class SyntheticsTestDetails {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
