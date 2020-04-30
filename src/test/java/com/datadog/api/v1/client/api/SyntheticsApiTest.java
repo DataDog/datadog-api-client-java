@@ -60,7 +60,9 @@ public class SyntheticsApiTest extends V1ApiTest {
             .name("testing Synthetics API test")
             .options(new SyntheticsTestOptions()
                     .acceptSelfSigned(false)
+                    .allowInsecure(true)
                     .followRedirects(true)
+                    .minFailureDuration(10L)
                     .minLocationFailed(10L)
                     .retry(new SyntheticsTestOptionsRetry()
                             .count(3L)
@@ -84,8 +86,10 @@ public class SyntheticsApiTest extends V1ApiTest {
             .name("testing Synthetics Browser test")
             .options(new SyntheticsTestOptions()
                     .acceptSelfSigned(false)
+                    .allowInsecure(true)
                     .deviceIds(Arrays.asList(SyntheticsDeviceID.TABLET))
                     .followRedirects(true)
+                    .minFailureDuration(10L)
                     .minLocationFailed(10L)
                     .retry(new SyntheticsTestOptionsRetry()
                             .count(3L)
@@ -149,6 +153,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         // if we want to reuse the entity returned by the API, we must set these fields to null, as they can't be sent back
         synt.setCreatedAt(null);
         synt.setCreatedBy(null);
+        synt.setMonitorId(null);
         synt.setModifiedAt(null);
         synt.setPublicId(null);
         synt = api.updateTest(publicId).body(synt).execute();
@@ -238,6 +243,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         // if we want to reuse the entity returned by the API, we must set these fields to null, as they can't be sent back
         synt.setCreatedAt(null);
         synt.setCreatedBy(null);
+        synt.setMonitorId(null);
         synt.setModifiedAt(null);
         synt.setPublicId(null);
         synt = api.updateTest(publicId).body(synt).execute();
