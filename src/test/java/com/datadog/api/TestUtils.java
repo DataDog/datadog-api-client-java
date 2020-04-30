@@ -234,7 +234,8 @@ public class TestUtils {
                             !header.getName().equals("Host") &&
                             !header.getName().equals("x-datadog-trace-id") &&
                             !header.getName().equals("x-datadog-parent-id") &&
-                            !header.getName().equals("x-datadog-sampling-priority")
+                            !header.getName().equals("x-datadog-sampling-priority") &&
+                            !header.getName().equals("User-Agent")
                     )
                         cleanHeaders.add(header);
                 }
