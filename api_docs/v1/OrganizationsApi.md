@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create a child organization
 
-You can create, edit, and manage organizations.
+Create a child organization.
 
 This endpoint requires the
 [multi-org account](https://docs.datadoghq.com/account_management/multi_organization/)
@@ -27,7 +27,7 @@ feature and must be enabled by
 
 Once a new child organization is created, you can interact with it
 by using the `org.public_id`, `pi_key.key`, and
-**application_key.hash** provided in the response.
+`application_key.hash` provided in the response.
 
 ### Example
 
@@ -57,7 +57,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
-        OrganizationCreateBody body = new OrganizationCreateBody(); // OrganizationCreateBody | Org object that needs to be created
+        OrganizationCreateBody body = new OrganizationCreateBody(); // OrganizationCreateBody | Create child organization body request.
         try {
             OrganizationCreateResponse result = api.createChildOrg()
                 .body(body)
@@ -79,7 +79,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md)| Org object that needs to be created |
+ **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md)| Create child organization body request. |
 
 ### Return type
 
@@ -138,7 +138,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
-        String publicId = abc123; // String | The public_id of the org you are operating within.
+        String publicId = abc123; // String | The `public_id` of the org you are operating within.
         try {
             OrganizationResponse result = api.getOrg(publicId)
                 .execute();
@@ -159,7 +159,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public_id of the org you are operating within. |
+ **publicId** | **String**| The &#x60;public_id&#x60; of the org you are operating within. |
 
 ### Return type
 
@@ -293,7 +293,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
-        String publicId = abc123; // String | The public_id of the org you are operating within.
+        String publicId = abc123; // String | The `public_id` of the org you are operating within.
         Organization body = new Organization(); // Organization | 
         try {
             OrganizationResponse result = api.updateOrg(publicId)
@@ -316,7 +316,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public_id of the org you are operating within. |
+ **publicId** | **String**| The &#x60;public_id&#x60; of the org you are operating within. |
  **body** | [**Organization**](Organization.md)|  |
 
 ### Return type
@@ -381,7 +381,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
-        String publicId = abc123; // String | The public_id of the org you are operating with
+        String publicId = abc123; // String | The `public_id` of the org you are operating within.
         File idpFile = new File("/path/to/file"); // File | The path to the XML metadata file you wish to upload.
         try {
             IdpResponse result = api.uploadIdPForOrg(publicId)
@@ -404,7 +404,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public_id of the org you are operating with |
+ **publicId** | **String**| The &#x60;public_id&#x60; of the org you are operating within. |
  **idpFile** | **File**| The path to the XML metadata file you wish to upload. |
 
 ### Return type

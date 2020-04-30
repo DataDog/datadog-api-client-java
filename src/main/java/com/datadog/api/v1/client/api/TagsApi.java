@@ -96,7 +96,7 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
 
     /**
      * Set body
-     * @param body Add tags to host (required)
+     * @param body Update host tags request body. (required)
      * @return APIcreateHostTagsRequest
      */
     public APIcreateHostTagsRequest body(HostTags body) {
@@ -107,7 +107,7 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
 
     /**
      * Set source
-     * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) (optional)
+     * @param source The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). (optional)
      * @return APIcreateHostTagsRequest
      */
     public APIcreateHostTagsRequest source(String source) {
@@ -333,7 +333,7 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
 
     /**
      * Set source
-     * @param source Source to filter (optional)
+     * @param source Source to filter. (optional)
      * @return APIgetHostTagsRequest
      */
     public APIgetHostTagsRequest source(String source) {

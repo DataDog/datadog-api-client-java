@@ -74,10 +74,10 @@ public class SLOBulkDeleteResponseErrors {
   }
 
    /**
-   * The error message
+   * The error message.
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "The error message")
+  @ApiModelProperty(required = true, value = "The error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

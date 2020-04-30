@@ -197,7 +197,7 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
 
     /**
      * Set body
-     * @param body AWS Logs Async Services check request body. (required)
+     * @param body Check AWS Logs Async Services request body. (required)
      * @return APIcheckAWSLogsServicesAsyncRequest
      */
     public APIcheckAWSLogsServicesAsyncRequest body(AWSLogsServicesRequest body) {
@@ -244,8 +244,8 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
   }
 
   /**
-   * Check permissions for Log Services
-   * Test if permissions are present to add log-forwarding triggers for the given services + AWS account. Input is the same as for EnableAWSLogServices. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes. - Returns a status of &#39;created&#39; when it&#39;s checking if the permissions exists   in the AWS account.  - Returns a status of &#39;waiting&#39; while checking. - Returns a status of &#39;checked and ok&#39; if the Lambda exists. - Returns a status of &#39;error&#39; if the Lambda does not exist.
+   * Check permissions for log services
+   * Test if permissions are present to add log-forwarding triggers for the given services and AWS account. Input is the same as for &#x60;EnableAWSLogServices&#x60;. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.  - Returns a status of &#x60;created&#x60; when it&#39;s checking if the permissions exists   in the AWS account. - Returns a status of &#x60;waiting&#x60; while checking. - Returns a status of &#x60;checked and ok&#x60; if the Lambda exists. - Returns a status of &#x60;error&#x60; if the Lambda does not exist.
    * @return checkAWSLogsServicesAsyncRequest
    * @throws ApiException if fails to make API call
    
@@ -305,7 +305,7 @@ private ApiResponse<Object> createAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
 
     /**
      * Set body
-     * @param body Check AWS Log Lambda Async request body. (required)
+     * @param body AWS Log Lambda Async request body. (required)
      * @return APIcreateAWSLambdaARNRequest
      */
     public APIcreateAWSLambdaARNRequest body(AWSAccountAndLambdaRequest body) {
@@ -413,7 +413,7 @@ private ApiResponse<Object> deleteAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
 
     /**
      * Set body
-     * @param body Check AWS Log Lambda Async request body. (required)
+     * @param body Delete AWS Lambda ARN request body. (required)
      * @return APIdeleteAWSLambdaARNRequest
      */
     public APIdeleteAWSLambdaARNRequest body(AWSAccountAndLambdaRequest body) {
@@ -521,7 +521,7 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
 
     /**
      * Set body
-     * @param body Enable AWS Log Services request object (required)
+     * @param body Enable AWS Log Services request body. (required)
      * @return APIenableAWSLogServicesRequest
      */
     public APIenableAWSLogServicesRequest body(AWSLogsServicesRequest body) {
@@ -569,7 +569,7 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
 
   /**
    * Enable an AWS Logs integration
-   * Enable automatic log collection for a list of services. This should be run after running &#39;CreateAWSLambdaARN&#39; to save the config.
+   * Enable automatic log collection for a list of services. This should be run after running &#x60;CreateAWSLambdaARN&#x60; to save the config.
    * @return enableAWSLogServicesRequest
    * @throws ApiException if fails to make API call
    
@@ -659,7 +659,7 @@ private ApiResponse<List<AWSLogsListResponse>> listAWSLogsIntegrationsWithHttpIn
   }
 
   /**
-   * List all AWS Logs Integrations
+   * List all AWS Logs integrations
    * List all Datadog-AWS Logs integrations configured in your Datadog account.
    * @return listAWSLogsIntegrationsRequest
    * @throws ApiException if fails to make API call

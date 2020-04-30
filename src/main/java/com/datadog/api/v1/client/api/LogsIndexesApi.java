@@ -223,7 +223,7 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
 
   /**
    * Get indexes order
-   * Get the current order of your log indexes. This endpoint takes no JSON arguments.  **Note**: This endpoint is in public beta. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   * Get the current order of your log indexes. This endpoint takes no JSON arguments.  **Note: This endpoint is in public beta.** If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
    * @return getLogsIndexOrderRequest
    * @throws ApiException if fails to make API call
    
@@ -431,7 +431,7 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
 
   /**
    * Update an index
-   * It returns the Index object passed in the request body when the request is successful.  Using the &#x60;PUT&#x60; method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the &#x60;PUT&#x60; method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
    * @param name Name of the log index. (required)
    * @return updateLogsIndexRequest
    * @throws ApiException if fails to make API call
@@ -541,7 +541,7 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
 
   /**
    * Update indexes order
-   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.  **Note**: This endpoint is in public beta. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.  **Note: This endpoint is in public beta.** If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
    * @return updateLogsIndexOrderRequest
    * @throws ApiException if fails to make API call
    

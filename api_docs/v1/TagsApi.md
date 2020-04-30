@@ -50,8 +50,8 @@ public class Example {
 
         TagsApi apiInstance = new TagsApi(defaultClient);
         String hostName = "hostName_example"; // String | This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.
-        HostTags body = new HostTags(); // HostTags | Add tags to host
-        String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+        HostTags body = new HostTags(); // HostTags | Update host tags request body.
+        String source = chef; // String | The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
         try {
             HostTags result = api.createHostTags(hostName)
                 .body(body)
@@ -75,8 +75,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hostName** | **String**| This endpoint allows you to add new tags to a host, optionally specifying where the tags came from. |
- **body** | [**HostTags**](HostTags.md)| Add tags to host |
- **source** | **String**| The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | [optional]
+ **body** | [**HostTags**](HostTags.md)| Update host tags request body. |
+ **source** | **String**| The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional]
 
 ### Return type
 
@@ -219,7 +219,7 @@ public class Example {
 
         TagsApi apiInstance = new TagsApi(defaultClient);
         String hostName = "hostName_example"; // String | When specified, filters list of tags to those tags with the specified source.
-        String source = "source_example"; // String | Source to filter
+        String source = "source_example"; // String | Source to filter.
         try {
             HostTags result = api.getHostTags(hostName)
                 .source(source)
@@ -242,7 +242,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hostName** | **String**| When specified, filters list of tags to those tags with the specified source. |
- **source** | **String**| Source to filter | [optional]
+ **source** | **String**| Source to filter. | [optional]
 
 ### Return type
 

@@ -17,8 +17,8 @@ Get an event
 
 This endpoint allows you to query for event details.
 
-Note: if the event you’re querying contains markdown formatting of any kind,
-you may see characters such as %,\,n in your output.
+**Note**: If the event you’re querying contains markdown formatting of any kind,
+you may see characters such as `%`,`\`,`n` in your output.
 
 ### Example
 
@@ -48,7 +48,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         EventsApi apiInstance = new EventsApi(defaultClient);
-        Long eventId = 56L; // Long | The id of the event.
+        Long eventId = 56L; // Long | The ID of the event.
         try {
             EventResponse result = api.getEvent(eventId)
                 .execute();
@@ -69,7 +69,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventId** | **Long**| The id of the event. |
+ **eventId** | **Long**| The ID of the event. |
 
 ### Return type
 

@@ -191,7 +191,7 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
 
     /**
      * Set from
-     * @param from Seconds since the Unix epoch (required)
+     * @param from Seconds since the Unix epoch. (required)
      * @return APIlistActiveMetricsRequest
      */
     public APIlistActiveMetricsRequest from(Long from) {
@@ -456,7 +456,7 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
 
     /**
      * Set query
-     * @param query Query string (required)
+     * @param query Query string. (required)
      * @return APIqueryMetricsRequest
      */
     public APIqueryMetricsRequest query(String query) {
@@ -622,7 +622,7 @@ private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(String metr
 
   /**
    * Edit metric metadata
-   * Edit metadata of a specific metric.
+   * Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
    * @param metricName Name of the metric for which to edit metadata. (required)
    * @return updateMetricMetadataRequest
    * @throws ApiException if fails to make API call

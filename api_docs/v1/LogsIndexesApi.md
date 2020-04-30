@@ -100,7 +100,7 @@ Get indexes order
 
 Get the current order of your log indexes. This endpoint takes no JSON arguments.
 
-**Note**: This endpoint is in public beta.
+**Note: This endpoint is in public beta.**
 If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
 
 ### Example
@@ -252,7 +252,8 @@ This endpoint does not need any parameter.
 
 Update an index
 
-It returns the Index object passed in the request body when the request is successful.
+Update an index as identified by its name.
+Returns the Index object passed in the request body when the request is successful.
 
 Using the `PUT` method updates your index’s configuration by **replacing**
 your current configuration with the new one sent to your Datadog organization.
@@ -342,7 +343,7 @@ Update indexes order
 This endpoint updates the index order of your organization.
 It returns the index order object passed in the request body when the request is successful.
 
-**Note**: This endpoint is in public beta.
+**Note: This endpoint is in public beta.**
 If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
 
 ### Example

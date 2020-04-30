@@ -103,7 +103,7 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageFargateRequest
      */
     public APIgetUsageFargateRequest startHr(OffsetDateTime startHr) {
@@ -114,7 +114,7 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageFargateRequest
      */
     public APIgetUsageFargateRequest endHr(OffsetDateTime endHr) {
@@ -162,7 +162,7 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
 
   /**
    * Get hourly usage for Fargate
-   * Get hourly usage for [fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   * Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
    * @return getUsageFargateRequest
    * @throws ApiException if fails to make API call
    
@@ -225,7 +225,7 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageHostsRequest
      */
     public APIgetUsageHostsRequest startHr(OffsetDateTime startHr) {
@@ -236,7 +236,7 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageHostsRequest
      */
     public APIgetUsageHostsRequest endHr(OffsetDateTime endHr) {
@@ -347,7 +347,7 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageLambdaRequest
      */
     public APIgetUsageLambdaRequest startHr(OffsetDateTime startHr) {
@@ -358,7 +358,7 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageLambdaRequest
      */
     public APIgetUsageLambdaRequest endHr(OffsetDateTime endHr) {
@@ -469,7 +469,7 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageLogsRequest
      */
     public APIgetUsageLogsRequest startHr(OffsetDateTime startHr) {
@@ -480,7 +480,7 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageLogsRequest
      */
     public APIgetUsageLogsRequest endHr(OffsetDateTime endHr) {
@@ -593,7 +593,7 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageLogsByIndexRequest
      */
     public APIgetUsageLogsByIndexRequest startHr(OffsetDateTime startHr) {
@@ -604,7 +604,7 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageLogsByIndexRequest
      */
     public APIgetUsageLogsByIndexRequest endHr(OffsetDateTime endHr) {
@@ -726,7 +726,7 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. (required)
      * @return APIgetUsageNetworkFlowsRequest
      */
     public APIgetUsageNetworkFlowsRequest startHr(OffsetDateTime startHr) {
@@ -737,7 +737,7 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageNetworkFlowsRequest
      */
     public APIgetUsageNetworkFlowsRequest endHr(OffsetDateTime endHr) {
@@ -848,7 +848,7 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageNetworkHostsRequest
      */
     public APIgetUsageNetworkHostsRequest startHr(OffsetDateTime startHr) {
@@ -859,7 +859,7 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageNetworkHostsRequest
      */
     public APIgetUsageNetworkHostsRequest endHr(OffsetDateTime endHr) {
@@ -970,7 +970,7 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageRumSessionsRequest
      */
     public APIgetUsageRumSessionsRequest startHr(OffsetDateTime startHr) {
@@ -981,7 +981,7 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageRumSessionsRequest
      */
     public APIgetUsageRumSessionsRequest endHr(OffsetDateTime endHr) {
@@ -1094,7 +1094,7 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
 
     /**
      * Set startMonth
-     * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning in this month. Maximum of 15 months ago. (required)
+     * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. (required)
      * @return APIgetUsageSummaryRequest
      */
     public APIgetUsageSummaryRequest startMonth(OffsetDateTime startMonth) {
@@ -1105,7 +1105,7 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
 
     /**
      * Set endMonth
-     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage ending this month. (optional)
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. (optional)
      * @return APIgetUsageSummaryRequest
      */
     public APIgetUsageSummaryRequest endMonth(OffsetDateTime endMonth) {
@@ -1227,7 +1227,7 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageSyntheticsRequest
      */
     public APIgetUsageSyntheticsRequest startHr(OffsetDateTime startHr) {
@@ -1238,7 +1238,7 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageSyntheticsRequest
      */
     public APIgetUsageSyntheticsRequest endHr(OffsetDateTime endHr) {
@@ -1286,7 +1286,7 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
 
   /**
    * Get hourly usage for Synthetics API Checks
-   * Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for [Synthetics API checks](https://docs.datadoghq.com/synthetics/).
    * @return getUsageSyntheticsRequest
    * @throws ApiException if fails to make API call
    * @deprecated
@@ -1349,7 +1349,7 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageSyntheticsAPIRequest
      */
     public APIgetUsageSyntheticsAPIRequest startHr(OffsetDateTime startHr) {
@@ -1360,7 +1360,7 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageSyntheticsAPIRequest
      */
     public APIgetUsageSyntheticsAPIRequest endHr(OffsetDateTime endHr) {
@@ -1471,7 +1471,7 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageSyntheticsBrowserRequest
      */
     public APIgetUsageSyntheticsBrowserRequest startHr(OffsetDateTime startHr) {
@@ -1482,7 +1482,7 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageSyntheticsBrowserRequest
      */
     public APIgetUsageSyntheticsBrowserRequest endHr(OffsetDateTime endHr) {
@@ -1593,7 +1593,7 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageTimeseriesRequest
      */
     public APIgetUsageTimeseriesRequest startHr(OffsetDateTime startHr) {
@@ -1604,7 +1604,7 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageTimeseriesRequest
      */
     public APIgetUsageTimeseriesRequest endHr(OffsetDateTime endHr) {
@@ -1837,7 +1837,7 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
 
     /**
      * Set startHr
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour (required)
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. (required)
      * @return APIgetUsageTraceRequest
      */
     public APIgetUsageTraceRequest startHr(OffsetDateTime startHr) {
@@ -1848,7 +1848,7 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
      * @return APIgetUsageTraceRequest
      */
     public APIgetUsageTraceRequest endHr(OffsetDateTime endHr) {

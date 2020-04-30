@@ -7,10 +7,10 @@ Method | HTTP request | Description
 [**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline) | **POST** /api/v1/logs/config/pipelines | Create a pipeline
 [**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline
 [**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a pipeline
-[**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder) | **GET** /api/v1/logs/config/pipeline-order | Get Pipeline Order
-[**listLogsPipelines**](LogsPipelinesApi.md#listLogsPipelines) | **GET** /api/v1/logs/config/pipelines | Get all Pipeline
+[**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder) | **GET** /api/v1/logs/config/pipeline-order | Get pipeline order
+[**listLogsPipelines**](LogsPipelinesApi.md#listLogsPipelines) | **GET** /api/v1/logs/config/pipelines | Get all pipelines
 [**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline) | **PUT** /api/v1/logs/config/pipelines/{pipeline_id} | Update a pipeline
-[**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order | Update Pipeline Order
+[**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order | Update pipeline order
 
 
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Create a pipeline
 
-Create a Pipeline in your organization.
+Create a pipeline in your organization.
 
 ### Example
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 > LogsPipelinesOrder getLogsPipelineOrder().execute();
 
-Get Pipeline Order
+Get pipeline order
 
 Get the current order of your pipelines.
 This endpoint takes no JSON arguments.
@@ -336,7 +336,7 @@ This endpoint does not need any parameter.
 
 > List&lt;LogsPipeline&gt; listLogsPipelines().execute();
 
-Get all Pipeline
+Get all pipelines
 
 Get all pipelines from your organization.
 This endpoint takes no JSON arguments.
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 > LogsPipelinesOrder updateLogsPipelineOrder().body(body).execute();
 
-Update Pipeline Order
+Update pipeline order
 
 Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
 the structure and content of the data processed by other pipelines and their processors.

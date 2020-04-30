@@ -135,7 +135,7 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
 
   /**
    * Create a pipeline
-   * Create a Pipeline in your organization.
+   * Create a pipeline in your organization.
    * @return createLogsPipelineRequest
    * @throws ApiException if fails to make API call
    
@@ -423,7 +423,7 @@ private ApiResponse<LogsPipelinesOrder> getLogsPipelineOrderWithHttpInfo() throw
   }
 
   /**
-   * Get Pipeline Order
+   * Get pipeline order
    * Get the current order of your pipelines. This endpoint takes no JSON arguments.
    * @return getLogsPipelineOrderRequest
    * @throws ApiException if fails to make API call
@@ -512,7 +512,7 @@ private ApiResponse<List<LogsPipeline>> listLogsPipelinesWithHttpInfo() throws A
   }
 
   /**
-   * Get all Pipeline
+   * Get all pipelines
    * Get all pipelines from your organization. This endpoint takes no JSON arguments.
    * @return listLogsPipelinesRequest
    * @throws ApiException if fails to make API call
@@ -739,7 +739,7 @@ private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(Logs
   }
 
   /**
-   * Update Pipeline Order
+   * Update pipeline order
    * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the &#x60;PUT&#x60; method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
    * @return updateLogsPipelineOrderRequest
    * @throws ApiException if fails to make API call

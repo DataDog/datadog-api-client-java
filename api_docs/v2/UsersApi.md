@@ -4,8 +4,8 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create user
-[**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable user
+[**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create a user
+[**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable a user
 [**getInvitation**](UsersApi.md#getInvitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
 [**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{user_id} | Get a user
 [**listUserOrganizations**](UsersApi.md#listUserOrganizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 > UserResponse createUser().body(body).execute();
 
-Create user
+Create a user
 
 Create a user for your organization.
 
@@ -101,9 +101,9 @@ Name | Type | Description  | Notes
 
 > disableUser(userId).execute();
 
-Disable user
+Disable a user
 
-Disable user. Can only be used with an application key belonging to an administrator user.
+Disable a user. Can only be used with an application key belonging to an administrator user.
 
 ### Example
 

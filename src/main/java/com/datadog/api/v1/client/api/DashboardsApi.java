@@ -87,7 +87,7 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
 
     /**
      * Set body
-     * @param body Dashboard request object. (required)
+     * @param body Create a dashboard request body. (required)
      * @return APIcreateDashboardRequest
      */
     public APIcreateDashboardRequest body(Dashboard body) {
@@ -134,7 +134,7 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
   }
 
   /**
-   * Create a new Dashboard
+   * Create a new dashboard
    * Create a dashboard using the specified options.
    * @return createDashboardRequest
    * @throws ApiException if fails to make API call
@@ -204,7 +204,7 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> No dasbhoards found error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -222,7 +222,7 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> No dasbhoards found error </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -233,7 +233,7 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
   }
 
   /**
-   * Delete a Dashboard
+   * Delete a dashboard
    * Delete a dashboard using the specified ID.
    * @param dashboardId The ID of the dashboard. (required)
    * @return deleteDashboardRequest
@@ -333,7 +333,7 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
   }
 
   /**
-   * Get a Dashboard
+   * Get a dashboard
    * Get a dashboard using the specified ID.
    * @param dashboardId The ID of the dashboard. (required)
    * @return getDashboardRequest
@@ -423,7 +423,7 @@ private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiExc
   }
 
   /**
-   * Get all Dashboards
+   * Get all dashboards
    * Get all dashboards.
    * @return listDashboardsRequest
    * @throws ApiException if fails to make API call
@@ -541,7 +541,7 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
   }
 
   /**
-   * Update a Dashboard
+   * Update a dashboard
    * Update a dashboard using the specified ID.
    * @param dashboardId The ID of the dashboard. (required)
    * @return updateDashboardRequest

@@ -297,7 +297,7 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
 
     /**
      * Set body
-     * @param body Downtime request object (required)
+     * @param body Schedule a downtime request body. (required)
      * @return APIcreateDowntimeRequest
      */
     public APIcreateDowntimeRequest body(Downtime body) {
@@ -615,7 +615,7 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
 
     /**
      * Set body
-     * @param body Downtime request object. (required)
+     * @param body Update a downtime request body. (required)
      * @return APIupdateDowntimeRequest
      */
     public APIupdateDowntimeRequest body(Downtime body) {

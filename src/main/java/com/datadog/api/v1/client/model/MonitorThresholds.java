@@ -64,11 +64,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * The monitor CRITICAL threshold.
+   * The monitor &#x60;CRITICAL&#x60; threshold.
    * @return critical
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor CRITICAL threshold.")
+  @ApiModelProperty(value = "The monitor `CRITICAL` threshold.")
   @JsonProperty(JSON_PROPERTY_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -89,11 +89,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * The monitor CRITICAL recovery threshold.
+   * The monitor &#x60;CRITICAL&#x60; recovery threshold.
    * @return criticalRecovery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor CRITICAL recovery threshold.")
+  @ApiModelProperty(value = "The monitor `CRITICAL` recovery threshold.")
   @JsonIgnore
 
   public Double getCriticalRecovery() {
@@ -124,11 +124,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * The monitor OK threshold.
+   * The monitor &#x60;OK&#x60; threshold.
    * @return ok
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor OK threshold.")
+  @ApiModelProperty(value = "The monitor `OK` threshold.")
   @JsonIgnore
 
   public Double getOk() {
@@ -194,11 +194,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * The monitor WARNING threshold.
+   * The monitor &#x60;WARNING&#x60; threshold.
    * @return warning
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor WARNING threshold.")
+  @ApiModelProperty(value = "The monitor `WARNING` threshold.")
   @JsonIgnore
 
   public Double getWarning() {
@@ -229,11 +229,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * The monitor WARNING recovery threshold.
+   * The monitor &#x60;WARNING&#x60; recovery threshold.
    * @return warningRecovery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor WARNING recovery threshold.")
+  @ApiModelProperty(value = "The monitor `WARNING` recovery threshold.")
   @JsonIgnore
 
   public Double getWarningRecovery() {

@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A metric SLI query.  Required if type is \&quot;metric\&quot;.
+ * A metric SLI query. **Required if type is &#x60;metric&#x60;**.
  */
-@ApiModel(description = "A metric SLI query.  Required if type is \"metric\".")
+@ApiModel(description = "A metric SLI query. **Required if type is `metric`**.")
 @JsonPropertyOrder({
   ServiceLevelObjectiveQuery.JSON_PROPERTY_DENOMINATOR,
   ServiceLevelObjectiveQuery.JSON_PROPERTY_NUMERATOR

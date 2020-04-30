@@ -7,7 +7,7 @@ A service level objective response containing the requested history.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **String** | human readable error |  [optional]
+**error** | **String** | Human readable error. |  [optional]
 
 
 

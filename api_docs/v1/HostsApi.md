@@ -228,7 +228,7 @@ public class Example {
 
         HostsApi apiInstance = new HostsApi(defaultClient);
         String hostName = "hostName_example"; // String | Name of the host to mute.
-        HostMuteSettings body = new HostMuteSettings(); // HostMuteSettings | Mute a host.
+        HostMuteSettings body = new HostMuteSettings(); // HostMuteSettings | Mute a host request body.
         try {
             HostMuteResponse result = api.muteHost(hostName)
                 .body(body)
@@ -251,7 +251,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hostName** | **String**| Name of the host to mute. |
- **body** | [**HostMuteSettings**](HostMuteSettings.md)| Mute a host. | [optional]
+ **body** | [**HostMuteSettings**](HostMuteSettings.md)| Mute a host request body. | [optional]
 
 ### Return type
 

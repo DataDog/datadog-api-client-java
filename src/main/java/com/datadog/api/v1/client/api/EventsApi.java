@@ -126,8 +126,8 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
 
   /**
    * Get an event
-   * This endpoint allows you to query for event details.  Note: if the event you’re querying contains markdown formatting of any kind, you may see characters such as %,\\,n in your output.
-   * @param eventId The id of the event. (required)
+   * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
+   * @param eventId The ID of the event. (required)
    * @return getEventRequest
    * @throws ApiException if fails to make API call
    

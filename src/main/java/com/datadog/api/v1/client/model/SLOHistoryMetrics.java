@@ -169,10 +169,10 @@ public class SLOHistoryMetrics {
   }
 
    /**
-   * The combined numerator &amp;&amp; denominator query CSV.
+   * The combined numerator and denominator query CSV.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "The combined numerator && denominator query CSV.")
+  @ApiModelProperty(required = true, value = "The combined numerator and denominator query CSV.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -246,10 +246,10 @@ public class SLOHistoryMetrics {
   }
 
    /**
-   * The query timestamps in epoch milliseconds
+   * The query timestamps in epoch milliseconds.
    * @return times
   **/
-  @ApiModelProperty(required = true, value = "The query timestamps in epoch milliseconds")
+  @ApiModelProperty(required = true, value = "The query timestamps in epoch milliseconds.")
   @JsonProperty(JSON_PROPERTY_TIMES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
