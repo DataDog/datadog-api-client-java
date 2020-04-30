@@ -1,12 +1,11 @@
 [ {
-  "id" : "a3fba745-bafa-4cfc-a82e-ffc44567f307",
+  "id" : "d916dc8a-caa1-45b9-b85e-cd8762737cda",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "listTests" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -23,7 +22,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:17:04 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:46 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

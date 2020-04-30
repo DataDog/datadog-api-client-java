@@ -1,12 +1,11 @@
 [ {
-  "id" : "b9172093-9b39-4558-b5c4-dd1ff07cd4ad",
+  "id" : "e79a08d3-c4c2-4d83-88a0-58e8408441ad",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "createTest" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "645" ]
@@ -28,19 +27,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:05 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:25 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 06-May-2020 19:16:05 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 07-May-2020 07:50:24 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "X-RateLimit-Limit" : [ "120" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "55" ],
-      "X-RateLimit-Remaining" : [ "119" ],
-      "X-DD-Debug" : [ "lyzq/AwBoYy31tqkvQ8mzBugAZOys447o2yCYdRfm1oPuJTtZy0Uz+ukzrgaZfIT" ],
+      "X-RateLimit-Reset" : [ "36" ],
+      "X-RateLimit-Remaining" : [ "117" ],
+      "X-DD-Debug" : [ "FAXIqEyJyWWDyUDKgR+Td75IkfWeu40aSEpg9NtrH84gUkIxi84nk9RHrJt3rVD3" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -51,17 +50,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"status\":\"live\",\"public_id\":\"www-8ys-9zg\",\"tags\":[\"testing:api\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"testing Synthetics API test - this is message\",\"deleted_at\":null,\"name\":\"testing Synthetics API test\",\"monitor_id\":18109517,\"type\":\"api\",\"created_at\":\"2020-04-29T19:16:05.250316+00:00\",\"modified_at\":\"2020-04-29T19:16:05.250316+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://datadoghq.com\",\"headers\":{\"testingJavaClient\":\"true\"},\"method\":\"GET\",\"timeout\":10.0},\"assertions\":[{\"operator\":\"is\",\"property\":\"content-type\",\"type\":\"header\",\"target\":\"text/html\"},{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":2000}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10.0},\"min_location_failed\":10,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"tick_every\":60}}"
+    "body" : "{\"status\":\"live\",\"public_id\":\"q94-cef-2uk\",\"tags\":[\"testing:api\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"testing Synthetics API test - this is message\",\"deleted_at\":null,\"name\":\"testing Synthetics API test\",\"monitor_id\":18127220,\"type\":\"api\",\"created_at\":\"2020-04-30T07:50:25.002558+00:00\",\"modified_at\":\"2020-04-30T07:50:25.002558+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://datadoghq.com\",\"headers\":{\"testingJavaClient\":\"true\"},\"method\":\"GET\",\"timeout\":10.0},\"assertions\":[{\"operator\":\"is\",\"property\":\"content-type\",\"type\":\"header\",\"target\":\"text/html\"},{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":2000}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10.0},\"min_location_failed\":10,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"tick_every\":60}}"
   }
 }, {
-  "id" : "69f99505-b4d9-4f24-b660-8634a52c7514",
+  "id" : "5d5f2319-b76d-4c84-8c1f-80174db0ecd6",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/synthetics/tests/www-8ys-9zg",
+    "path" : "/api/v1/synthetics/tests/q94-cef-2uk",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updateTest" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "646" ]
@@ -83,19 +81,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:10 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:25 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 06-May-2020 19:16:10 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 07-May-2020 07:50:25 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "X-RateLimit-Limit" : [ "500" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "50" ],
-      "X-RateLimit-Remaining" : [ "499" ],
-      "X-DD-Debug" : [ "8jOW1djIgkdkj4STw+0pQ3G+kGKfu548DWINvnE6phacY0k9vgC3cU1LaI38XIYk" ],
+      "X-RateLimit-Reset" : [ "35" ],
+      "X-RateLimit-Remaining" : [ "497" ],
+      "X-DD-Debug" : [ "CFSDBBie5Okt4N1oWVJNTAqpt778eCo7VQZ0NhVFWw8MHYFUwuA7DURhpFRYY+Wy" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -106,17 +104,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"status\":\"live\",\"public_id\":\"www-8ys-9zg\",\"tags\":[\"testing:api\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"testing Synthetics API test - this is message\",\"deleted_at\":null,\"name\":\"updated name\",\"monitor_id\":18109517,\"type\":\"api\",\"created_at\":\"2020-04-29T19:16:05.250316+00:00\",\"modified_at\":\"2020-04-29T19:16:10.836408+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://datadoghq.com\",\"headers\":{\"testingJavaClient\":\"true\"},\"method\":\"GET\",\"timeout\":10.0},\"assertions\":[{\"operator\":\"is\",\"property\":\"content-type\",\"type\":\"header\",\"target\":\"text/html\"},{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":2000}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10.0},\"min_location_failed\":10,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"tick_every\":60}}"
+    "body" : "{\"status\":\"live\",\"public_id\":\"q94-cef-2uk\",\"tags\":[\"testing:api\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"testing Synthetics API test - this is message\",\"deleted_at\":null,\"name\":\"updated name\",\"monitor_id\":18127220,\"type\":\"api\",\"created_at\":\"2020-04-30T07:50:25.002558+00:00\",\"modified_at\":\"2020-04-30T07:50:25.825198+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://datadoghq.com\",\"headers\":{\"testingJavaClient\":\"true\"},\"method\":\"GET\",\"timeout\":10.0},\"assertions\":[{\"operator\":\"is\",\"property\":\"content-type\",\"type\":\"header\",\"target\":\"text/html\"},{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":2000}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10.0},\"min_location_failed\":10,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"tick_every\":60}}"
   }
 }, {
-  "id" : "e9a96423-b0b5-4800-aa20-b0942f1e3ae4",
+  "id" : "3eba8426-5473-4d27-9711-bf727ce7c97a",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/synthetics/tests/www-8ys-9zg",
+    "path" : "/api/v1/synthetics/tests/q94-cef-2uk",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getTest" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -133,40 +130,39 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:11 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:26 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 06-May-2020 19:16:11 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 07-May-2020 07:50:26 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "X-RateLimit-Limit" : [ "1000" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "49" ],
+      "X-RateLimit-Reset" : [ "34" ],
       "X-RateLimit-Remaining" : [ "999" ],
-      "X-DD-Debug" : [ "ty7T8eIeXOfZhM7KDN5nGo8JS7ZSIWAqBNFeZshTg3LLDJJa7mPU5wqGt0nOPCpy" ],
+      "X-DD-Debug" : [ "menB+JzZJZWnsBMzYDdvLqZLyJ1Z3XKvvLNUvAnnxCkhc359HSRPRWZhATTwUzcU" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "1138" ]
+      "content-length" : [ "1126" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"status\":\"live\",\"public_id\":\"www-8ys-9zg\",\"tags\":[\"testing:api\"],\"locations\":[\"aws:us-east-2\"],\"message\":\"testing Synthetics API test - this is message\",\"modified_by\":{\"email\":\"nicholas.muesch@datadoghq.com\",\"handle\":\"nicholas.muesch@datadoghq.com\",\"id\":1379811,\"name\":\"Nicholas Muesch\"},\"name\":\"updated name\",\"monitor_id\":18109517,\"type\":\"api\",\"created_at\":\"2020-04-29T19:16:05.250316+00:00\",\"modified_at\":\"2020-04-29T19:16:10.836408+00:00\",\"created_by\":{\"email\":\"nicholas.muesch@datadoghq.com\",\"handle\":\"nicholas.muesch@datadoghq.com\",\"id\":1379811,\"name\":\"Nicholas Muesch\"},\"subtype\":\"http\",\"overall_state_modified\":\"2020-04-29T19:16:11.144285+00:00\",\"overall_state\":2,\"config\":{\"request\":{\"url\":\"https://datadoghq.com\",\"headers\":{\"testingJavaClient\":\"true\"},\"method\":\"GET\",\"timeout\":10.0},\"assertions\":[{\"operator\":\"is\",\"property\":\"content-type\",\"type\":\"header\",\"target\":\"text/html\"},{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":2000}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10.0},\"min_location_failed\":10,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"tick_every\":60}}"
+    "body" : "{\"status\":\"live\",\"public_id\":\"q94-cef-2uk\",\"tags\":[\"testing:api\"],\"locations\":[\"aws:us-east-2\"],\"message\":\"testing Synthetics API test - this is message\",\"modified_by\":{\"email\":\"slavek.kabrda@datadoghq.com\",\"handle\":\"slavek.kabrda@datadoghq.com\",\"id\":1379826,\"name\":\"Slavek Kabrda\"},\"name\":\"updated name\",\"monitor_id\":18127220,\"type\":\"api\",\"created_at\":\"2020-04-30T07:50:25.002558+00:00\",\"modified_at\":\"2020-04-30T07:50:25.825198+00:00\",\"created_by\":{\"email\":\"slavek.kabrda@datadoghq.com\",\"handle\":\"slavek.kabrda@datadoghq.com\",\"id\":1379826,\"name\":\"Slavek Kabrda\"},\"subtype\":\"http\",\"overall_state_modified\":\"2020-04-30T07:50:26.519652+00:00\",\"overall_state\":2,\"config\":{\"request\":{\"url\":\"https://datadoghq.com\",\"headers\":{\"testingJavaClient\":\"true\"},\"method\":\"GET\",\"timeout\":10.0},\"assertions\":[{\"operator\":\"is\",\"property\":\"content-type\",\"type\":\"header\",\"target\":\"text/html\"},{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":2000}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10.0},\"min_location_failed\":10,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"tick_every\":60}}"
   }
 }, {
-  "id" : "a25a03e2-7fd1-469e-82bd-8fb9af00576f",
+  "id" : "b7cd930b-a2cb-40cc-9743-0a533f4d1e87",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/synthetics/tests/www-8ys-9zg/status",
+    "path" : "/api/v1/synthetics/tests/q94-cef-2uk/status",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updateTestPauseStatus" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "23" ]
@@ -188,19 +184,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:11 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:27 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "4" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 06-May-2020 19:16:11 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 07-May-2020 07:50:27 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "X-RateLimit-Limit" : [ "120" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "49" ],
-      "X-RateLimit-Remaining" : [ "118" ],
-      "X-DD-Debug" : [ "QgRGXxkxV9A4PZPYRoesCGgupw+m7xaD1r9nbJHgAaPeprYV0FnzI0EYYO7x6f4+" ],
+      "X-RateLimit-Reset" : [ "33" ],
+      "X-RateLimit-Remaining" : [ "116" ],
+      "X-DD-Debug" : [ "F11u7JCZTPrHz8VfzL5YeXThxcQSR6CdLGgk2tF52+EbYWhXciN8nv9vA8oQ9C9A" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -213,14 +209,13 @@
     "body" : "true"
   }
 }, {
-  "id" : "ac0d9e69-3eb1-4e48-8930-f20b527d4bab",
+  "id" : "6388c71c-3c57-48d0-8642-15bb18f459b2",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/synthetics/tests/www-8ys-9zg/status",
+    "path" : "/api/v1/synthetics/tests/q94-cef-2uk/status",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updateTestPauseStatus" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "21" ]
@@ -242,19 +237,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:11 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:27 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "4" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 06-May-2020 19:16:11 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 07-May-2020 07:50:27 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "X-RateLimit-Limit" : [ "120" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "49" ],
-      "X-RateLimit-Remaining" : [ "117" ],
-      "X-DD-Debug" : [ "rk3iIRyevtXsTLLTMsm8PoHrVjRY2UIgJwOnYxasATpPihgg0ps3VPSw7zz+6jrL" ],
+      "X-RateLimit-Reset" : [ "33" ],
+      "X-RateLimit-Remaining" : [ "115" ],
+      "X-DD-Debug" : [ "QiVuTM9TRDLiaWje4g847YvprBBDQ1GVAeq5tRykBN1C05YvP7tIRg0Fcue145Yp" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -267,19 +262,18 @@
     "body" : "true"
   }
 }, {
-  "id" : "9712a403-4b2c-434d-b582-bb0fa344bec4",
+  "id" : "6dad07f9-e17b-43d3-94b8-b5405a39d9f9",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/synthetics/tests/www-8ys-9zg/results",
+    "path" : "/api/v1/synthetics/tests/q94-cef-2uk/results",
     "queryStringParameters" : {
       "from_ts" : [ "0" ],
-      "to_ts" : [ "1588187758329" ],
+      "to_ts" : [ "1588233023532" ],
       "probe_dc" : [ "aws:us-east-2" ]
     },
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getAPITestLatestResults" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -296,19 +290,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:11 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:28 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 06-May-2020 19:16:11 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 07-May-2020 07:50:28 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "X-RateLimit-Limit" : [ "1000" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "49" ],
+      "X-RateLimit-Reset" : [ "32" ],
       "X-RateLimit-Remaining" : [ "999" ],
-      "X-DD-Debug" : [ "nRZqCODixwNZX0HLyT17WzYwenviVG0rmnZak57k5KsDWun3aWEsPedTsRpiFQxf" ],
+      "X-DD-Debug" : [ "aERr2Ftx8O/BR8oAhSymZ3bVROQEC+81YMSphOQK1me4DxXSbMIcFkB0Di4ggZ++" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -319,17 +313,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"last_timestamp_fetched\":1583003771000,\"results\":[]}"
+    "body" : "{\"last_timestamp_fetched\":1583049028000,\"results\":[]}"
   }
 }, {
-  "id" : "2d4958e2-e457-4a82-b418-2374249758bb",
+  "id" : "fb6ce871-83e2-4e36-84a3-f16563cd331c",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "deleteTests" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "30" ]
@@ -338,7 +331,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"public_ids\":[\"www-8ys-9zg\"]}"
+      "json" : "{\"public_ids\":[\"q94-cef-2uk\"]}"
     }
   },
   "times" : {
@@ -351,19 +344,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:12 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:29 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 06-May-2020 19:16:12 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 07-May-2020 07:50:29 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "X-RateLimit-Limit" : [ "120" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "48" ],
-      "X-RateLimit-Remaining" : [ "119" ],
-      "X-DD-Debug" : [ "f5hY0MW4w2fhZz0SAfv1+LF9me92dJz6mowUerU7gZ8k/CpuQLqOWzykixb5WZaX" ],
+      "X-RateLimit-Reset" : [ "31" ],
+      "X-RateLimit-Remaining" : [ "117" ],
+      "X-DD-Debug" : [ "mGJe6qmS66N9ddKWdHwHEzQK9VHuaMNr7+EsVTKliCkGq+ayJZmadUyCSwID4him" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -374,17 +367,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"deleted_tests\":[{\"deleted_at\":\"2020-04-29T19:16:12.349329+00:00\",\"public_id\":\"www-8ys-9zg\"}]}"
+    "body" : "{\"deleted_tests\":[{\"deleted_at\":\"2020-04-30T07:50:29.433530+00:00\",\"public_id\":\"q94-cef-2uk\"}]}"
   }
 }, {
-  "id" : "d17c06de-568e-488b-a371-f22d26b76158",
+  "id" : "367c6c10-d88c-42d3-aa29-77c39b07ba42",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "deleteTests" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "30" ]
@@ -393,7 +385,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"public_ids\":[\"www-8ys-9zg\"]}"
+      "json" : "{\"public_ids\":[\"q94-cef-2uk\"]}"
     }
   },
   "times" : {
@@ -406,7 +398,7 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:12 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:30 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
@@ -414,9 +406,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "120" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "48" ],
-      "X-RateLimit-Remaining" : [ "118" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "X-RateLimit-Reset" : [ "30" ],
+      "X-RateLimit-Remaining" : [ "116" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

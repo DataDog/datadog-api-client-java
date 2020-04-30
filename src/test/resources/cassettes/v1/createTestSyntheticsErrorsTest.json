@@ -1,12 +1,11 @@
 [ {
-  "id" : "c7727ae8-3526-4b55-bac2-b545b229c909",
+  "id" : "b4c4c52e-f8c7-4b6c-a7cb-11fe0d696d9a",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "createTest" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "2" ]
@@ -28,7 +27,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:15:34 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:19 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "52" ],
       "Connection" : [ "keep-alive" ],
@@ -36,9 +35,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "120" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "26" ],
+      "X-RateLimit-Reset" : [ "41" ],
       "X-RateLimit-Remaining" : [ "118" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,14 +47,13 @@
     "body" : "{\"errors\": [\"Required parameter 'type' is missing\"]}"
   }
 }, {
-  "id" : "401f30f6-21a7-4ca4-8921-77902678c63b",
+  "id" : "a9930017-ae2b-463b-a78f-dcfb2c3a1ee9",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "createTest" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "2" ]
@@ -77,7 +75,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:15:39 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:19 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

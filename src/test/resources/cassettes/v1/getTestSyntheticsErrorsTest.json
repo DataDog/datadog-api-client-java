@@ -1,12 +1,11 @@
 [ {
-  "id" : "2034cd87-2f72-4b60-aa48-e2f0578e78f3",
+  "id" : "91c15de4-f7df-4f59-919b-51bd7933e104",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests/id",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getTest" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -23,7 +22,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:50 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:42 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -33,14 +32,13 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "7ffbb727-2f8c-4879-ab0d-978dce2c913c",
+  "id" : "38a45663-4e8e-4aa7-b4a3-15b0f43ca8df",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests/aaa-aaa-aaa",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getTest" ],
-      "User-Agent" : [ "datadog-api-client-java/1.0.0-beta.2-SNAPSHOT (java 1.8.0_211; java_vendor Oracle Corporation; os Mac OS X; os_version 10.14.6; arch x86_64)" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -57,7 +55,7 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Wed, 29 Apr 2020 19:16:56 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:43 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
@@ -65,9 +63,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "1000" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "4" ],
+      "X-RateLimit-Reset" : [ "17" ],
       "X-RateLimit-Remaining" : [ "998" ],
-      "X-DD-VERSION" : [ "35.2448963" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
