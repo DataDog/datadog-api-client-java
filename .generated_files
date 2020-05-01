@@ -1,2 +1,2 @@
-api_docs/*
-src/main/java/com/datadog/api/*
+api_docs/.*
+src/main/java/com/datadog/api/.*
