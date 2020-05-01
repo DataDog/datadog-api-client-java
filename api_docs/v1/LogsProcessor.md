@@ -13,6 +13,7 @@ Definition of a logs processor.
 * LogsGrokParser
 * LogsLookupProcessor
 * LogsMessageRemapper
+* LogsPipelineProcessor
 * LogsServiceRemapper
 * LogsStatusRemapper
 * LogsStringBuilderProcessor
