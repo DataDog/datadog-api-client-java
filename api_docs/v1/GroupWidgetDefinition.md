@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **layoutType** | [**WidgetLayoutType**](WidgetLayoutType.md) |  | 
 **title** | **String** | Title of the widget. |  [optional]
 **type** | **String** | Type of the widget. |  [readonly]
-**widgets** | [**List&lt;Widget&gt;**](Widget.md) | TODO. | 
+**widgets** | [**List&lt;Widget&gt;**](Widget.md) | List of widget groups. | 
 
 
 ## Implemented Interfaces

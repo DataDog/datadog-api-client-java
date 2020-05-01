@@ -2,7 +2,7 @@
 
 # UsageLogsHour
 
-TODO.
+Hour useage for logs.
 ## Properties
 
 Name | Type | Description | Notes

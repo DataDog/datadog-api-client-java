@@ -57,11 +57,11 @@ public class WidgetAxis {
   }
 
    /**
-   * TODO.
+   * True includes zero.
    * @return includeZero
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "True includes zero.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_ZERO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

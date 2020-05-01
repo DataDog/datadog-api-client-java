@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * An application key response.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "An application key response.")
 @JsonPropertyOrder({
   ApplicationKeyResponse.JSON_PROPERTY_APPLICATION_KEY
 })

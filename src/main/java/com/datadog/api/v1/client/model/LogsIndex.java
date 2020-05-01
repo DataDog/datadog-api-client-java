@@ -26,9 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing a Datadog Log index.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing a Datadog Log index.")
 @JsonPropertyOrder({
   LogsIndex.JSON_PROPERTY_DAILY_LIMIT,
   LogsIndex.JSON_PROPERTY_EXCLUSION_FILTERS,

@@ -30,9 +30,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Updated timeseries widget.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Updated timeseries widget.")
 @JsonPropertyOrder({
   TimeseriesWidgetRequest.JSON_PROPERTY_APM_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_DISPLAY_TYPE,

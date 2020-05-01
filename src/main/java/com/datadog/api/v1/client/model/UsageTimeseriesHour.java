@@ -23,9 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * The hourly usage of timeseries.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "The hourly usage of timeseries.")
 @JsonPropertyOrder({
   UsageTimeseriesHour.JSON_PROPERTY_HOUR,
   UsageTimeseriesHour.JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES,

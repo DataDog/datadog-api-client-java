@@ -590,7 +590,7 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
 
     /**
      * Set idOffset
-     * @param idOffset TODO. (optional)
+     * @param idOffset The time (in seconds) to delay the monitor evaluation compared to the latest data timestamp received. (optional)
      * @return APIlistMonitorsRequest
      */
     public APIlistMonitorsRequest idOffset(Long idOffset) {

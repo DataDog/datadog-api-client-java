@@ -2,7 +2,7 @@
 
 # UsageSummaryDate
 
-TODO.
+Response with hourly report of all data billed by Datadog all organizations.
 ## Properties
 
 Name | Type | Description | Notes
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **ingestedEventsBytesSum** | **Long** | Shows the sum of all log bytes ingested over all hours in the current date for all orgs. |  [optional]
 **netflowIndexedEventsCountSum** | **Long** | Shows the sum of all Network flows indexed over all hours in the current date for all orgs. |  [optional]
 **npmHostTop99p** | **Long** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all orgs. |  [optional]
-**orgs** | [**List&lt;UsageSummaryDateOrg&gt;**](UsageSummaryDateOrg.md) | TODO. |  [optional]
+**orgs** | [**List&lt;UsageSummaryDateOrg&gt;**](UsageSummaryDateOrg.md) | Organizations associated with a user. |  [optional]
 **rumSessionCountSum** | **Long** | Shows the sum of all RUM Sessions over all hours in the current date for all orgs |  [optional]
 **syntheticsBrowserCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current date for all orgs. |  [optional]
 **syntheticsCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current date for all orgs. |  [optional]

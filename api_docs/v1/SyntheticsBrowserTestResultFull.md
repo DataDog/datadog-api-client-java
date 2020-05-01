@@ -2,17 +2,17 @@
 
 # SyntheticsBrowserTestResultFull
 
-TODO.
+Object returned describing a browser test result.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**check** | [**SyntheticsAPITestResultFullCheck**](SyntheticsAPITestResultFullCheck.md) |  |  [optional]
-**checkTime** | **Double** | TODO. |  [optional]
-**checkVersion** | **Long** | TODO. |  [optional]
-**probeDc** | **String** | TODO. |  [optional]
+**check** | [**SyntheticsBrowserTestResultFullCheck**](SyntheticsBrowserTestResultFullCheck.md) |  |  [optional]
+**checkTime** | **Double** | When the browser test was conducted. |  [optional]
+**checkVersion** | **Long** | Version of the browser test used. |  [optional]
+**probeDc** | **String** | Location from which the browser test was performed. |  [optional]
 **result** | [**SyntheticsBrowserTestResultData**](SyntheticsBrowserTestResultData.md) |  |  [optional]
-**resultId** | **String** | TODO. |  [optional]
+**resultId** | **String** | ID of the browser test result. |  [optional]
 **status** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  |  [optional]
 
 

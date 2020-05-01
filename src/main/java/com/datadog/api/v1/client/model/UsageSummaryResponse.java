@@ -26,9 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Response with hourly report of all data billed by Datadog all organizations.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Response with hourly report of all data billed by Datadog all organizations.")
 @JsonPropertyOrder({
   UsageSummaryResponse.JSON_PROPERTY_AGENT_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_HOST_TOP99P_SUM,
@@ -778,11 +778,11 @@ public class UsageSummaryResponse {
   }
 
    /**
-   * TODO.
+   * An array of objects regarding hourly useage.
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "An array of objects regarding hourly useage.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

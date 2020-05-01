@@ -7,10 +7,10 @@ Monitor state for a single group.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lastNodataTs** | **Long** | TODO. |  [optional]
-**lastNotifiedTs** | **Long** | Timestamp of the last notification sent for this monitor group. |  [optional]
+**lastNodataTs** | **Long** | Latest timestamp the monitor was in NO_DATA state. |  [optional]
+**lastNotifiedTs** | **Long** | Latest timestamp of the notification sent for this monitor group. |  [optional]
 **lastResolvedTs** | **Long** | Lastest timestamp the monitor group was resolved. |  [optional]
-**lastTriggeredTs** | **Long** | Last timestamp the monitor group triggered. |  [optional]
+**lastTriggeredTs** | **Long** | Latest timestamp the monitor group triggered. |  [optional]
 **name** | **String** | The name of the monitor. |  [optional]
 **status** | [**MonitorOverallStates**](MonitorOverallStates.md) |  |  [optional]
 

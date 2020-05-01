@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * The sub-type of the Synthetic API test, either &#x60;http&#x60; or &#x60;ssl&#x60;.
  */
 public enum SyntheticsTestDetailsSubType {
   

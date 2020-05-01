@@ -2,7 +2,7 @@
 
 # AWSAccountAndLambdaRequest
 
-TODO.
+AWS account ID and Lambda ARN.
 ## Properties
 
 Name | Type | Description | Notes

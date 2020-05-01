@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get test result (API)
 [**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get test latest results (as summaries)
 [**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get test result (browser)
-[**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get details of a test
+[**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get test
 [**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get a list of all tests
 [**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Update test
 [**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Change test pause/live status
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 Delete multiple tests
 
-Delete multiple Synthetics tests by ID.
+Delete multiple Synthetic tests by ID.
 
 ### Example
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | OK. |  -  |
 | **400** | - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget) - Some IDs are not owned by the user |  -  |
 | **403** | Forbidden |  -  |
 | **404** | - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user |  -  |
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 Get test latest results (as summaries)
 
-Get the latest results (as summaries) from a given API Synthetics test.
+Get the latest results (as summaries) from a given API Synthetic test.
 
 ### Example
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
-| **404** | - Synthetics is not activated for the user - Test is not owned by the user |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
 
 
 ## getAPITestResult
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 Get test result (API)
 
-Get a specific full result from a given (API) Synthetics test.
+Get a specific full result from a given (API) Synthetic test.
 
 ### Example
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
-| **404** | - Synthetics is not activated for the user - Test or result is not owned by the user |  -  |
+| **404** | - Synthetic is not activated for the user - Test or result is not owned by the user |  -  |
 
 
 ## getBrowserTestLatestResults
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 Get test latest results (as summaries)
 
-Get the latest results (as summaries) from a given browser Synthetics test.
+Get the latest results (as summaries) from a given browser Synthetic test.
 
 ### Example
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **403** | forbidden |  -  |
-| **404** | - Synthetics is not activated for the user - Test is not owned by the user |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
 
 
 ## getBrowserTestResult
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 
 Get test result (browser)
 
-Get a specific full result from a given (browser) Synthetics test.
+Get a specific full result from a given (browser) Synthetic test.
 
 ### Example
 
@@ -523,16 +523,16 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
-| **404** | - Synthetics is not activated for the user - Test or result is not owned by the user |  -  |
+| **404** | - Synthetic is not activated for the user - Test or result is not owned by the user |  -  |
 
 
 ## getTest
 
 > SyntheticsTestDetails getTest(publicId).execute();
 
-Get details of a test
+Get test
 
-Get the details of a specific Synthetics test.
+Get the details of a specific Synthetic test.
 
 ### Example
 
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
-| **404** | - Synthetics is not activated for the user - Test is not owned by the user |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
 
 
 ## listTests
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 Get a list of all tests
 
-Get the list of all Synthetics tests (can be filtered by type).
+Get the list of all Synthetic tests (can be filtered by type).
 
 ### Example
 
@@ -682,9 +682,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns the list of all Synthetics test (properly filtered by type). |  -  |
+| **200** | OK - Returns the list of all Synthetic test (properly filtered by type). |  -  |
 | **403** | Forbidden |  -  |
-| **404** | Synthetics is not activated for the user |  -  |
+| **404** | Synthetic is not activated for the user. |  -  |
 
 
 ## updateTest
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 
 Update test
 
-Update the details of a specific Synthetics test.
+Update the details of a specific Synthetic test.
 
 ### Example
 
@@ -768,7 +768,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | - JSON format is wrong - Updating subtype is forbidden |  -  |
 | **403** | Forbidden |  -  |
-| **404** | - Synthetics is not activated for the user - Test is not owned by the user - Test can&#39;t be found |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found |  -  |
 
 
 ## updateTestPauseStatus
@@ -777,7 +777,7 @@ Name | Type | Description  | Notes
 
 Change test pause/live status
 
-Change pause/live status of a given Synthetics test.
+Change pause/live status of a given Synthetic test.
 
 ### Example
 
@@ -807,8 +807,8 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public ID of the Synthetics test to update.
-        SyntheticsUpdateTestPauseStatusPayload body = new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload | Pause/live status to set the given Synthetics test to.
+        String publicId = "publicId_example"; // String | The public ID of the Synthetic test to update.
+        SyntheticsUpdateTestPauseStatusPayload body = new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload | Pause/live status to set the given Synthetic test to.
         try {
             Boolean result = api.updateTestPauseStatus(publicId)
                 .body(body)
@@ -830,8 +830,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public ID of the Synthetics test to update. |
- **body** | [**SyntheticsUpdateTestPauseStatusPayload**](SyntheticsUpdateTestPauseStatusPayload.md)| Pause/live status to set the given Synthetics test to. |
+ **publicId** | **String**| The public ID of the Synthetic test to update. |
+ **body** | [**SyntheticsUpdateTestPauseStatusPayload**](SyntheticsUpdateTestPauseStatusPayload.md)| Pause/live status to set the given Synthetic test to. |
 
 ### Return type
 
@@ -849,8 +849,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns a boolean indicating if the update was successful |  -  |
-| **400** | JSON format is wrong |  -  |
+| **200** | OK - Returns a boolean indicating if the update was successful. |  -  |
+| **400** | JSON format is wrong. |  -  |
 | **403** | Forbidden |  -  |
-| **404** | - Synthetics is not activated for the user - Test is not owned by the user |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
 

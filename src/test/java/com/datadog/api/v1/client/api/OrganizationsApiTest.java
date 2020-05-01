@@ -131,7 +131,7 @@ public class OrganizationsApiTest extends V1ApiTest {
                                 new OrganizationSettingsSamlIdpInitiatedLogin().enabled(true)
                         )
                         .samlStrictMode(
-                                new OrganizationSettingsSamlIdpInitiatedLogin().enabled(true)
+                                new OrganizationSettingsSamlStrictMode().enabled(true)
                         )
                         .samlAutocreateUsersDomains(
                                 new OrganizationSettingsSamlAutocreateUsersDomains().enabled(true).addDomainsItem("my-org.com").addDomainsItem("example.com")

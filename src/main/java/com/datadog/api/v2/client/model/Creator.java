@@ -49,11 +49,11 @@ public class Creator {
   }
 
    /**
-   * TODO.
+   * Email of the creator.
    * @return email
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Email of the creator.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -74,11 +74,11 @@ public class Creator {
   }
 
    /**
-   * TODO.
+   * Handle of the creator.
    * @return handle
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Handle of the creator.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,11 +99,11 @@ public class Creator {
   }
 
    /**
-   * TODO.
+   * Name of the creator.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Name of the creator.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

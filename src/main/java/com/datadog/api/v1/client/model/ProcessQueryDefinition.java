@@ -63,11 +63,11 @@ public class ProcessQueryDefinition {
   }
 
    /**
-   * TODO.
+   * List of processes.
    * @return filterBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of processes.")
   @JsonProperty(JSON_PROPERTY_FILTER_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -88,12 +88,12 @@ public class ProcessQueryDefinition {
   }
 
    /**
-   * TODO.
+   * Max number of items in the filter list.
    * minimum: 0
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Max number of items in the filter list.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -138,11 +138,11 @@ public class ProcessQueryDefinition {
   }
 
    /**
-   * TODO.
+   * Your chosen search term.
    * @return searchBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Your chosen search term.")
   @JsonProperty(JSON_PROPERTY_SEARCH_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

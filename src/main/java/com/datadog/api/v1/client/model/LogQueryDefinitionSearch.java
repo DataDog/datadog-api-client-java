@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * The query being made on the logs.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "The query being made on the logs.")
 @JsonPropertyOrder({
   LogQueryDefinitionSearch.JSON_PROPERTY_QUERY
 })
@@ -41,10 +41,10 @@ public class LogQueryDefinitionSearch {
   }
 
    /**
-   * TODO.
+   * Search value to apply.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Search value to apply.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -43,11 +43,11 @@ public class ApplicationKey {
 
 
    /**
-   * TODO.
+   * Hash of an application key.
    * @return hash
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1234512345123459cda4eb9ced49a3d84fd0138c", value = "TODO.")
+  @ApiModelProperty(example = "1234512345123459cda4eb9ced49a3d84fd0138c", value = "Hash of an application key.")
   @JsonProperty(JSON_PROPERTY_HASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -65,11 +65,11 @@ public class ApplicationKey {
   }
 
    /**
-   * Name of your application key.
+   * Name of an application key.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example user", value = "Name of your application key.")
+  @ApiModelProperty(example = "example user", value = "Name of an application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -84,11 +84,11 @@ public class ApplicationKey {
 
 
    /**
-   * TODO.
+   * Owner of an application key.
    * @return owner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example.com", value = "TODO.")
+  @ApiModelProperty(example = "example.com", value = "Owner of an application key.")
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

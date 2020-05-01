@@ -2,7 +2,7 @@
 
 # MetricSearchResponse
 
-TODO.
+Object containing the list of metrics matching the search query.
 ## Properties
 
 Name | Type | Description | Notes

@@ -159,11 +159,11 @@ public class MonitorThresholds {
   }
 
    /**
-   * TODO.
+   * The monitor UNKNOWN threshold.
    * @return unknown
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The monitor UNKNOWN threshold.")
   @JsonIgnore
 
   public Double getUnknown() {

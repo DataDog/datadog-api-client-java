@@ -165,10 +165,10 @@ public class QueryValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * Widget definition.
    * @return requests
   **/
-  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "TODO.")
+  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "Widget definition.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -308,10 +308,10 @@ public class QueryValueWidgetDefinition implements WidgetDefinition {
 
 
    /**
-   * Type of the widget.
+   * Type of widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "Type of widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -2,7 +2,7 @@
 
 # MetricMetadata
 
-TODO.
+Object with all metric related metadata.
 ## Properties
 
 Name | Type | Description | Notes

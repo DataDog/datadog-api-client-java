@@ -30,9 +30,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Updated table widget.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Updated table widget.")
 @JsonPropertyOrder({
   TableWidgetRequest.JSON_PROPERTY_AGGREGATOR,
   TableWidgetRequest.JSON_PROPERTY_ALIAS,
@@ -176,11 +176,11 @@ public class TableWidgetRequest {
   }
 
    /**
-   * TODO.
+   * List of conditional formats.
    * @return conditionalFormats
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of conditional formats.")
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -351,11 +351,11 @@ public class TableWidgetRequest {
   }
 
    /**
-   * TODO.
+   * Query definition.
    * @return q
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Query definition.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

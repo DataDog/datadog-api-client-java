@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing a log after being processed and stored by Datadog.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing a log after being processed and stored by Datadog.")
 @JsonPropertyOrder({
   Log.JSON_PROPERTY_CONTENT,
   Log.JSON_PROPERTY_ID
@@ -71,11 +71,11 @@ public class Log {
   }
 
    /**
-   * TODO.
+   * Unique ID of the Log.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "AAAAAWgN8Xwgr1vKDQAAAABBV2dOOFh3ZzZobm1mWXJFYTR0OA", value = "TODO.")
+  @ApiModelProperty(example = "AAAAAWgN8Xwgr1vKDQAAAABBV2dOOFh3ZzZobm1mWXJFYTR0OA", value = "Unique ID of the Log.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

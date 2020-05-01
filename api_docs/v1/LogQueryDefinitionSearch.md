@@ -2,12 +2,12 @@
 
 # LogQueryDefinitionSearch
 
-TODO.
+The query being made on the logs.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **String** | TODO. | 
+**query** | **String** | Search value to apply. | 
 
 
 

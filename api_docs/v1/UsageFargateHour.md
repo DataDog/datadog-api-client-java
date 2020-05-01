@@ -2,13 +2,13 @@
 
 # UsageFargateHour
 
-TODO.
+Number of Fargate tasks run and hourly useage.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hour** | [**OffsetDateTime**](OffsetDateTime.md) | The hour for the usage. |  [optional]
-**tasksCount** | **Long** | Contains the number of Fargate tasks run. |  [optional]
+**tasksCount** | **Long** | The number of Fargate tasks run. |  [optional]
 
 
 

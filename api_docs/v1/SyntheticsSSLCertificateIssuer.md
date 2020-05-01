@@ -2,17 +2,17 @@
 
 # SyntheticsSSLCertificateIssuer
 
-TODO.
+Object describing the issuer of a SSL certificate.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**C** | **String** | TODO. |  [optional]
-**CN** | **String** | TODO. |  [optional]
-**L** | **String** | TODO. |  [optional]
-**O** | **String** | TODO. |  [optional]
-**OU** | **String** | TODO. |  [optional]
-**ST** | **String** | TODO. |  [optional]
+**C** | **String** | Country Name that issued the certificate. |  [optional]
+**CN** | **String** | Common Name that issued certificate. |  [optional]
+**L** | **String** | Locality that issued the certificate. |  [optional]
+**O** | **String** | Organization that issued the certificate. |  [optional]
+**OU** | **String** | Organizational Unit that issued the certificate. |  [optional]
+**ST** | **String** | State Or Province Name that issued the certificate. |  [optional]
 
 
 

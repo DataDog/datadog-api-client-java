@@ -70,11 +70,11 @@ public class RelationshipToRoleData {
   }
 
    /**
-   * TODO
+   * Type of role.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO")
+  @ApiModelProperty(value = "Type of role.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

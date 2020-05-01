@@ -249,11 +249,11 @@ public class GCPAccount {
   }
 
    /**
-   * TODO.
+   * An array of errors.
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"*\"]", value = "TODO.")
+  @ApiModelProperty(example = "[\"*\"]", value = "An array of errors.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

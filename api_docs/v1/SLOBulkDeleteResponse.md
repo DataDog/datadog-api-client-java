@@ -8,7 +8,7 @@ The bulk partial delete service level objective object endpoint response.  This 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**SLOBulkDeleteResponseData**](SLOBulkDeleteResponseData.md) |  |  [optional]
-**errors** | [**List&lt;SLOBulkDeleteResponseErrors&gt;**](SLOBulkDeleteResponseErrors.md) | TODO. |  [optional]
+**errors** | [**List&lt;SLOBulkDeleteResponseErrors&gt;**](SLOBulkDeleteResponseErrors.md) | Array of errors object returned. |  [optional]
 
 
 

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * The status of your Synthetic monitor. * &#x60;O&#x60; for un-triggered * &#x60;1&#x60; for triggered * &#x60;2&#x60; for no data
  */
 public enum SyntheticsTestMonitorStatus {
   

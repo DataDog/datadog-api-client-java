@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object containing an array of Synthetic tests configuration.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object containing an array of Synthetic tests configuration.")
 @JsonPropertyOrder({
   SyntheticsListTestsResponse.JSON_PROPERTY_TESTS
 })
@@ -52,11 +52,11 @@ public class SyntheticsListTestsResponse {
   }
 
    /**
-   * TODO.
+   * Array of Synthetic tests configuration.
    * @return tests
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of Synthetic tests configuration.")
   @JsonProperty(JSON_PROPERTY_TESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

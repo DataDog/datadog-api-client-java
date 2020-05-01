@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object containing all metrics and their values collected for a Synthetic API test. Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object containing all metrics and their values collected for a Synthetic API test. Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).")
 @JsonPropertyOrder({
   SyntheticsTiming.JSON_PROPERTY_DNS,
   SyntheticsTiming.JSON_PROPERTY_DOWNLOAD,
@@ -73,11 +73,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * TODO.
+   * The duration in millisecond of the DNS lookup.
    * @return dns
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The duration in millisecond of the DNS lookup.")
   @JsonProperty(JSON_PROPERTY_DNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -98,11 +98,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * TODO.
+   * The time in millisecond to download the response.
    * @return download
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The time in millisecond to download the response.")
   @JsonProperty(JSON_PROPERTY_DOWNLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -123,11 +123,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * TODO.
+   * The time in millisecond to first byte.
    * @return firstByte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The time in millisecond to first byte.")
   @JsonProperty(JSON_PROPERTY_FIRST_BYTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,11 +148,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * TODO.
+   * The duration in millisecond of the TLS handshake.
    * @return handshake
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The duration in millisecond of the TLS handshake.")
   @JsonProperty(JSON_PROPERTY_HANDSHAKE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -173,11 +173,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * TODO.
+   * The time in millisecond spent during redirections.
    * @return redirect
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The time in millisecond spent during redirections.")
   @JsonProperty(JSON_PROPERTY_REDIRECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -198,11 +198,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * TODO.
+   * The duration in millisecond of the TLS handshake.
    * @return ssl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The duration in millisecond of the TLS handshake.")
   @JsonProperty(JSON_PROPERTY_SSL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -223,11 +223,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * TODO.
+   * Time in millisecond to establish the TCP connection.
    * @return tcp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Time in millisecond to establish the TCP connection.")
   @JsonProperty(JSON_PROPERTY_TCP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -248,11 +248,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * TODO.
+   * The overall time in millisecond the request took to be processed.
    * @return total
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The overall time in millisecond the request took to be processed.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -273,11 +273,11 @@ public class SyntheticsTiming {
   }
 
    /**
-   * TODO.
+   * Time spent in millisecond waiting for a response.
    * @return wait
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Time spent in millisecond waiting for a response.")
   @JsonProperty(JSON_PROPERTY_WAIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -2,12 +2,12 @@
 
 # AWSLogsListResponseLambdas
 
-TODO.
+Description of the Lambdas.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**arn** | **String** | TODO. |  [optional]
+**arn** | **String** | Available ARN IDs. |  [optional]
 
 
 

@@ -2,7 +2,7 @@
 
 # DistributionWidgetRequest
 
-TODO.
+Updated distribution widget.
 ## Properties
 
 Name | Type | Description | Notes

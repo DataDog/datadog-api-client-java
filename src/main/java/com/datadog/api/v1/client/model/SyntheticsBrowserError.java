@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Error response object for a browser test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Error response object for a browser test.")
 @JsonPropertyOrder({
   SyntheticsBrowserError.JSON_PROPERTY_DESCRIPTION,
   SyntheticsBrowserError.JSON_PROPERTY_NAME,
@@ -54,10 +54,10 @@ public class SyntheticsBrowserError {
   }
 
    /**
-   * TODO.
+   * Description of the error.
    * @return description
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Description of the error.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -78,10 +78,10 @@ public class SyntheticsBrowserError {
   }
 
    /**
-   * TODO.
+   * Name of the error.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Name of the error.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -102,11 +102,11 @@ public class SyntheticsBrowserError {
   }
 
    /**
-   * TODO.
+   * Status Code of the error.
    * @return statusCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Status Code of the error.")
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

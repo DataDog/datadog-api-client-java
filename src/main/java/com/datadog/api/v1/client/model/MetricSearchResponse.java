@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object containing the list of metrics matching the search query.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object containing the list of metrics matching the search query.")
 @JsonPropertyOrder({
   MetricSearchResponse.JSON_PROPERTY_RESULTS
 })

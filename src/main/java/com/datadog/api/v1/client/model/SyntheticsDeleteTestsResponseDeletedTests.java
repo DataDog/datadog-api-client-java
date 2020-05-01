@@ -23,9 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object containing a deleted Synthetic test ID with the associated deletion timestamp.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object containing a deleted Synthetic test ID with the associated deletion timestamp.")
 @JsonPropertyOrder({
   SyntheticsDeleteTestsResponseDeletedTests.JSON_PROPERTY_DELETED_AT,
   SyntheticsDeleteTestsResponseDeletedTests.JSON_PROPERTY_PUBLIC_ID
@@ -46,11 +46,11 @@ public class SyntheticsDeleteTestsResponseDeletedTests {
   }
 
    /**
-   * TODO.
+   * Deletion timestamp of the Synthetic test ID.
    * @return deletedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Deletion timestamp of the Synthetic test ID.")
   @JsonProperty(JSON_PROPERTY_DELETED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -71,11 +71,11 @@ public class SyntheticsDeleteTestsResponseDeletedTests {
   }
 
    /**
-   * TODO.
+   * The Synthetic test ID deleted.
    * @return publicId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The Synthetic test ID deleted.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -7,7 +7,7 @@ List of API and application keys available for a given organization.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**apiKeys** | [**List&lt;ApiKey&gt;**](ApiKey.md) | TODO. |  [optional]
+**apiKeys** | [**List&lt;ApiKey&gt;**](ApiKey.md) | Array of API keys. |  [optional]
 
 
 

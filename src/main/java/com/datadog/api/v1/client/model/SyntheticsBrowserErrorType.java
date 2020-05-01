@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * Error type returned by a browser test.
  */
 public enum SyntheticsBrowserErrorType {
   

@@ -2,7 +2,7 @@
 
 # IPRanges
 
-TODO.
+IP ranges.
 ## Properties
 
 Name | Type | Description | Notes

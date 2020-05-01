@@ -296,11 +296,11 @@ public class MonitorOptions {
   }
 
    /**
-   * TODO.
+   * Wether or not the monitor is locked (only editable by creator and admins).
    * @return locked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Wether or not the monitor is locked (only editable by creator and admins).")
   @JsonProperty(JSON_PROPERTY_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

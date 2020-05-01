@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Cancel downtimes according to scope.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Cancel downtimes according to scope.")
 @JsonPropertyOrder({
   CancelDowntimesByScopeRequest.JSON_PROPERTY_SCOPE
 })

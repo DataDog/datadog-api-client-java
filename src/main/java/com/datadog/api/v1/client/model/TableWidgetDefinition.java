@@ -74,10 +74,10 @@ public class TableWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * Widget definition.
    * @return requests
   **/
-  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "TODO.")
+  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "Widget definition.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * AWS account ID and Lambda ARN.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "AWS account ID and Lambda ARN.")
 @JsonPropertyOrder({
   AWSAccountAndLambdaRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSAccountAndLambdaRequest.JSON_PROPERTY_LAMBDA_ARN
