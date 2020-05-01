@@ -18,11 +18,13 @@ import com.datadog.api.v1.client.model.LogsAttributeRemapper;
 import com.datadog.api.v1.client.model.LogsCategoryProcessor;
 import com.datadog.api.v1.client.model.LogsCategoryProcessorCategories;
 import com.datadog.api.v1.client.model.LogsDateRemapper;
+import com.datadog.api.v1.client.model.LogsFilter;
 import com.datadog.api.v1.client.model.LogsGeoIPParser;
 import com.datadog.api.v1.client.model.LogsGrokParser;
 import com.datadog.api.v1.client.model.LogsGrokParserRules;
 import com.datadog.api.v1.client.model.LogsLookupProcessor;
 import com.datadog.api.v1.client.model.LogsMessageRemapper;
+import com.datadog.api.v1.client.model.LogsPipelineProcessor;
 import com.datadog.api.v1.client.model.LogsServiceRemapper;
 import com.datadog.api.v1.client.model.LogsStatusRemapper;
 import com.datadog.api.v1.client.model.LogsStringBuilderProcessor;
@@ -55,6 +57,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   @JsonSubTypes.Type(value = LogsGrokParser.class, name = "grok-parser"),
   @JsonSubTypes.Type(value = LogsLookupProcessor.class, name = "lookup-processor"),
   @JsonSubTypes.Type(value = LogsMessageRemapper.class, name = "message-remapper"),
+  @JsonSubTypes.Type(value = LogsPipelineProcessor.class, name = "pipeline"),
   @JsonSubTypes.Type(value = LogsServiceRemapper.class, name = "service-remapper"),
   @JsonSubTypes.Type(value = LogsStatusRemapper.class, name = "status-remapper"),
   @JsonSubTypes.Type(value = LogsStringBuilderProcessor.class, name = "string-builder-processor"),
