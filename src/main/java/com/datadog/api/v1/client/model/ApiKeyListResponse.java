@@ -52,11 +52,11 @@ public class ApiKeyListResponse {
   }
 
    /**
-   * TODO.
+   * Array of API keys.
    * @return apiKeys
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of API keys.")
   @JsonProperty(JSON_PROPERTY_API_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

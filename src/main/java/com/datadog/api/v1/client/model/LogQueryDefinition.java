@@ -27,9 +27,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * List of logs.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "List of logs.")
 @JsonPropertyOrder({
   LogQueryDefinition.JSON_PROPERTY_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_GROUP_BY,
@@ -95,11 +95,11 @@ public class LogQueryDefinition {
   }
 
    /**
-   * TODO.
+   * List of tag prefixes to group by in the case of a cluster check.
    * @return groupBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of tag prefixes to group by in the case of a cluster check.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

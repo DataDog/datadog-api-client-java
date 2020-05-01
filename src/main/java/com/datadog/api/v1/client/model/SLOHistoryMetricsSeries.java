@@ -133,10 +133,10 @@ public class SLOHistoryMetricsSeries {
   }
 
    /**
-   * The query values.
+   * The query values for each metric.
    * @return values
   **/
-  @ApiModelProperty(required = true, value = "The query values.")
+  @ApiModelProperty(required = true, value = "The query values for each metric.")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

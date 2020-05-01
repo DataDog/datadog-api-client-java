@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * Error code that can be returned by a Synthetic test.
  */
 public enum SyntheticsErrorCode {
   

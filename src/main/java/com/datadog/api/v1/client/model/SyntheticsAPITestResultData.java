@@ -29,9 +29,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object containing results for your Synthetic API test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object containing results for your Synthetic API test.")
 @JsonPropertyOrder({
   SyntheticsAPITestResultData.JSON_PROPERTY_CERT,
   SyntheticsAPITestResultData.JSON_PROPERTY_ERROR_CODE,
@@ -134,11 +134,11 @@ public class SyntheticsAPITestResultData {
   }
 
    /**
-   * TODO.
+   * The API test error message.
    * @return errorMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The API test error message.")
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -184,11 +184,11 @@ public class SyntheticsAPITestResultData {
   }
 
    /**
-   * TODO.
+   * The API test HTTP status code.
    * @return httpStatusCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The API test HTTP status code.")
   @JsonProperty(JSON_PROPERTY_HTTP_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -217,11 +217,11 @@ public class SyntheticsAPITestResultData {
   }
 
    /**
-   * TODO.
+   * Request header object used for the API test.
    * @return requestHeaders
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Request header object used for the API test.")
   @JsonProperty(JSON_PROPERTY_REQUEST_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -242,11 +242,11 @@ public class SyntheticsAPITestResultData {
   }
 
    /**
-   * TODO.
+   * Response body returned for the API test.
    * @return responseBody
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Response body returned for the API test.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -275,11 +275,11 @@ public class SyntheticsAPITestResultData {
   }
 
    /**
-   * TODO.
+   * Response headers returned for the API test.
    * @return responseHeaders
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Response headers returned for the API test.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -300,11 +300,11 @@ public class SyntheticsAPITestResultData {
   }
 
    /**
-   * TODO.
+   * Global size in byte of the API test response.
    * @return responseSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Global size in byte of the API test response.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * The IdP response object.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "The IdP response object.")
 @JsonPropertyOrder({
   IdpResponse.JSON_PROPERTY_MESSAGE
 })

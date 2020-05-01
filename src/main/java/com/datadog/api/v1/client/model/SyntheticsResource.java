@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing a resource which is the combination of requests (fetch, xhr) and Assets (HTML, CSS, JS, images).
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing a resource which is the combination of requests (fetch, xhr) and Assets (HTML, CSS, JS, images).")
 @JsonPropertyOrder({
   SyntheticsResource.JSON_PROPERTY_DURATION,
   SyntheticsResource.JSON_PROPERTY_METHOD,
@@ -70,11 +70,11 @@ public class SyntheticsResource {
   }
 
    /**
-   * TODO.
+   * Number of time the resource was collected.
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Number of time the resource was collected.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -95,11 +95,11 @@ public class SyntheticsResource {
   }
 
    /**
-   * TODO.
+   * HTTP methode associated to the resource.
    * @return method
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "HTTP methode associated to the resource.")
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -120,11 +120,11 @@ public class SyntheticsResource {
   }
 
    /**
-   * TODO.
+   * Size of the resource in bytes.
    * @return size
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Size of the resource in bytes.")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -145,11 +145,11 @@ public class SyntheticsResource {
   }
 
    /**
-   * TODO.
+   * Status Code of the resource.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Status Code of the resource.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -170,11 +170,11 @@ public class SyntheticsResource {
   }
 
    /**
-   * TODO.
+   * Timestamp of the resource collection.
    * @return timestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Timestamp of the resource collection.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -195,11 +195,11 @@ public class SyntheticsResource {
   }
 
    /**
-   * TODO.
+   * Trace ID associated with the resource if any.
    * @return traceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Trace ID associated with the resource if any.")
   @JsonProperty(JSON_PROPERTY_TRACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -245,11 +245,11 @@ public class SyntheticsResource {
   }
 
    /**
-   * TODO.
+   * URL of the resource.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "URL of the resource.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

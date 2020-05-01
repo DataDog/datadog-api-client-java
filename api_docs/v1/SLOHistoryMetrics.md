@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **query** | **String** | The combined numerator and denominator query CSV. | 
 **resType** | **String** | The series result type. This mimics &#x60;batch_query&#x60; response type. | 
 **respVersion** | **Long** | The series response version type. This mimics &#x60;batch_query&#x60; response type. | 
-**times** | **List&lt;Double&gt;** | The query timestamps in epoch milliseconds. | 
+**times** | **List&lt;Double&gt;** | An array of query timestamps in EPOCH milliseconds | 
 
 
 

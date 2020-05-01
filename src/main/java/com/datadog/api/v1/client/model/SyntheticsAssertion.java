@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the assertions type, their associated operator, which property they apply , and upon which target.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the assertions type, their associated operator, which property they apply , and upon which target.")
 @JsonPropertyOrder({
   SyntheticsAssertion.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertion.JSON_PROPERTY_PROPERTY,
@@ -79,11 +79,11 @@ public class SyntheticsAssertion {
   }
 
    /**
-   * TODO.
+   * The associated assertion property.
    * @return property
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The associated assertion property.")
   @JsonProperty(JSON_PROPERTY_PROPERTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -104,11 +104,11 @@ public class SyntheticsAssertion {
   }
 
    /**
-   * TODO.
+   * Target to apply the assertion to. It can be a string, a number, or a Date.
    * @return target
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Target to apply the assertion to. It can be a string, a number, or a Date.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

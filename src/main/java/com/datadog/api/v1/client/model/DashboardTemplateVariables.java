@@ -25,9 +25,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Template variable.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Template variable.")
 @JsonPropertyOrder({
   DashboardTemplateVariables.JSON_PROPERTY_DEFAULT,
   DashboardTemplateVariables.JSON_PROPERTY_NAME,

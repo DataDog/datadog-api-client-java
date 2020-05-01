@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the SSL certificate used for the test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the SSL certificate used for the test.")
 @JsonPropertyOrder({
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_C,
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_C_N,
@@ -65,11 +65,11 @@ public class SyntheticsSSLCertificateSubject {
   }
 
    /**
-   * TODO.
+   * Country Name associated with the certificate.
    * @return C
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Country Name associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -90,11 +90,11 @@ public class SyntheticsSSLCertificateSubject {
   }
 
    /**
-   * TODO.
+   * Common Name that associated with the certificate.
    * @return CN
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Common Name that associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_C_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -115,11 +115,11 @@ public class SyntheticsSSLCertificateSubject {
   }
 
    /**
-   * TODO.
+   * Locality associated with the certificate.
    * @return L
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Locality associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -140,11 +140,11 @@ public class SyntheticsSSLCertificateSubject {
   }
 
    /**
-   * TODO.
+   * Organization associated with the certificate.
    * @return O
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Organization associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_O)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -165,11 +165,11 @@ public class SyntheticsSSLCertificateSubject {
   }
 
    /**
-   * TODO.
+   * Organizational Unit associated with the certificate.
    * @return OU
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Organizational Unit associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_O_U)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -190,11 +190,11 @@ public class SyntheticsSSLCertificateSubject {
   }
 
    /**
-   * TODO.
+   * State Or Province Name associated with the certificate.
    * @return ST
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "State Or Province Name associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_S_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -215,11 +215,11 @@ public class SyntheticsSSLCertificateSubject {
   }
 
    /**
-   * TODO.
+   * Subject Alternative Name associated with the certificate.
    * @return altName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Subject Alternative Name associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_ALT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

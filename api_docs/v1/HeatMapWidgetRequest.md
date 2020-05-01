@@ -2,7 +2,7 @@
 
 # HeatMapWidgetRequest
 
-TODO.
+Updated heat map widget.
 ## Properties
 
 Name | Type | Description | Notes

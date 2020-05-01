@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * The list of current AWS services for which Datadog offers automatic log collection.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "The list of current AWS services for which Datadog offers automatic log collection.")
 @JsonPropertyOrder({
   AWSLogsListServicesResponse.JSON_PROPERTY_ID,
   AWSLogsListServicesResponse.JSON_PROPERTY_LABEL

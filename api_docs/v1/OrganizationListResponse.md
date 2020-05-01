@@ -7,7 +7,7 @@ Response with the list of organizations.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orgs** | [**List&lt;Organization&gt;**](Organization.md) | TODO. |  [optional]
+**orgs** | [**List&lt;Organization&gt;**](Organization.md) | Array of organization objects. |  [optional]
 
 
 

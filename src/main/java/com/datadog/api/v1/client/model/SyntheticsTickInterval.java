@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * The frequency at which to run the Synthetic test.
  */
 public enum SyntheticsTickInterval {
   

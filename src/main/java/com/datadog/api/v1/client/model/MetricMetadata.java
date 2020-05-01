@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object with all metric related metadata.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object with all metric related metadata.")
 @JsonPropertyOrder({
   MetricMetadata.JSON_PROPERTY_DESCRIPTION,
   MetricMetadata.JSON_PROPERTY_INTEGRATION,

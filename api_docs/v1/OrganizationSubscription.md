@@ -2,12 +2,12 @@
 
 # OrganizationSubscription
 
-A JSON array of subscription type. Types available are `trial`, `free`, and `pro`.
+A JSON array of subscription type.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | TODO. |  [optional]
+**type** | **String** | The subscription type. Types available are &#x60;trial&#x60;, &#x60;free&#x60;, and &#x60;pro&#x60;. |  [optional]
 
 
 

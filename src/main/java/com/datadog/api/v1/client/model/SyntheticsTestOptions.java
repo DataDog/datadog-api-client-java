@@ -27,9 +27,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the extra options for a Synthetic test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the extra options for a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
   SyntheticsTestOptions.JSON_PROPERTY_ALLOW_INSECURE,
@@ -74,11 +74,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * TODO.
+   * For browser test, whether or not the test should allow self signed certificate.
    * @return acceptSelfSigned
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "For browser test, whether or not the test should allow self signed certificate.")
   @JsonProperty(JSON_PROPERTY_ACCEPT_SELF_SIGNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -132,11 +132,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * TODO.
+   * Array with the different device IDs used to run the test.
    * @return deviceIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array with the different device IDs used to run the test.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,11 +157,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * TODO.
+   * For API SSL test, whether or not the test should follow redirects.
    * @return followRedirects
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "For API SSL test, whether or not the test should follow redirects.")
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -207,11 +207,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * TODO.
+   * Minimum amount of locations that are allowed to fail for the test.
    * @return minLocationFailed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Minimum amount of locations that are allowed to fail for the test.")
   @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

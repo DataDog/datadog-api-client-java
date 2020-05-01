@@ -91,7 +91,7 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
 
     /**
      * Set body
-     * @param body Create child organization body request. (required)
+     * @param body Organisation object that needs to be created (required)
      * @return APIcreateChildOrgRequest
      */
     public APIcreateChildOrgRequest body(OrganizationCreateBody body) {
@@ -139,7 +139,7 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
 
   /**
    * Create a child organization
-   * Create a child organization.  This endpoint requires the [multi-org account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the &#x60;org.public_id&#x60;, &#x60;pi_key.key&#x60;, and &#x60;application_key.hash&#x60; provided in the response.
+   * Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the &#x60;org.public_id&#x60;, &#x60;pi_key.key&#x60;, and &#x60;application_key.hash&#x60; provided in the response.
    * @return createChildOrgRequest
    * @throws ApiException if fails to make API call
    
@@ -239,7 +239,7 @@ private ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId) th
   /**
    * Get organization information
    * Get organization information.
-   * @param publicId The &#x60;public_id&#x60; of the org you are operating within. (required)
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within. (required)
    * @return getOrgRequest
    * @throws ApiException if fails to make API call
    
@@ -445,7 +445,7 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
   /**
    * Update your organization
    * Update your organization.
-   * @param publicId The &#x60;public_id&#x60; of the org you are operating within. (required)
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within. (required)
    * @return updateOrgRequest
    * @throws ApiException if fails to make API call
    
@@ -566,7 +566,7 @@ private ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, Fi
   /**
    * Upload IdP metadata
    * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
-   * @param publicId The &#x60;public_id&#x60; of the org you are operating within. (required)
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
    * @return uploadIdPForOrgRequest
    * @throws ApiException if fails to make API call
    

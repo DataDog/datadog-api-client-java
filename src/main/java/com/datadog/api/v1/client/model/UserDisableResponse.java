@@ -41,11 +41,11 @@ public class UserDisableResponse {
   }
 
    /**
-   * TODO.
+   * Information pertaining to a user disabled for a given organization.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Information pertaining to a user disabled for a given organization.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

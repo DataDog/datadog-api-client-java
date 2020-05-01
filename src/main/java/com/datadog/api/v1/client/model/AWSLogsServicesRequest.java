@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * A list of current AWS services for which Datadog offers automatic log collection.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "A list of current AWS services for which Datadog offers automatic log collection.")
 @JsonPropertyOrder({
   AWSLogsServicesRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSLogsServicesRequest.JSON_PROPERTY_SERVICES

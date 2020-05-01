@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the API test configuration.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the API test configuration.")
 @JsonPropertyOrder({
   SyntheticsAPITestResultFullCheck.JSON_PROPERTY_CONFIG
 })

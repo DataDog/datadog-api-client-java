@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the retry strategy to apply to a Synthetic test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
   SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
@@ -45,11 +45,11 @@ public class SyntheticsTestOptionsRetry {
   }
 
    /**
-   * TODO.
+   * The amount of location that needs to fail for the test to be retried.
    * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The amount of location that needs to fail for the test to be retried.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -70,11 +70,11 @@ public class SyntheticsTestOptionsRetry {
   }
 
    /**
-   * TODO.
+   * The interval over which the amount of location needed to fail for the test to be retried.
    * @return interval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The interval over which the amount of location needed to fail for the test to be retried.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

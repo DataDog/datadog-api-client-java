@@ -2,7 +2,7 @@
 
 # RoleCreateData
 
-TODO
+Data related to the creation of a role.
 ## Properties
 
 Name | Type | Description | Notes

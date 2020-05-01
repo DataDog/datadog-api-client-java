@@ -74,10 +74,10 @@ public class ToplistWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * List of toplist widget requests.
    * @return requests
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "List of toplist widget requests.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -2,7 +2,7 @@
 
 # AWSLogsListResponse
 
-TODO.
+A list of all Datadog-AWS logs integrations available in your Datadog organization.
 ## Properties
 
 Name | Type | Description | Notes

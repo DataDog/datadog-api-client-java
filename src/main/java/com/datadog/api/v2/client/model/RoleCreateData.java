@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO
+ * Data related to the creation of a role.
  */
-@ApiModel(description = "TODO")
+@ApiModel(description = "Data related to the creation of a role.")
 @JsonPropertyOrder({
   RoleCreateData.JSON_PROPERTY_ATTRIBUTES,
   RoleCreateData.JSON_PROPERTY_RELATIONSHIPS,

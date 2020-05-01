@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A JSON array of billing type. Note that only &#x60;parent_billing&#x60; is supported.
+ * A JSON array of billing type.
  */
-@ApiModel(description = "A JSON array of billing type. Note that only `parent_billing` is supported.")
+@ApiModel(description = "A JSON array of billing type.")
 @JsonPropertyOrder({
   OrganizationBilling.JSON_PROPERTY_TYPE
 })
@@ -41,11 +41,11 @@ public class OrganizationBilling {
   }
 
    /**
-   * TODO.
+   * The type of billing. Only &#x60;parent_billing&#x60; is supported.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The type of billing. Only `parent_billing` is supported.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

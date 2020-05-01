@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **clientEmail** | **String** | Your email found in your JSON service account key. |  [optional]
 **clientId** | **String** | Your ID found in your JSON service account key. |  [optional]
 **clientX509CertUrl** | **String** | Should be https://www.googleapis.com/robot/v1/metadata/x509/&lt;CLIENT_EMAIL&gt; where &lt;CLIENT_EMAIL&gt; is the email found in your JSON service account key. |  [optional]
-**errors** | **List&lt;String&gt;** | TODO. |  [optional]
+**errors** | **List&lt;String&gt;** | An array of errors. |  [optional]
 **hostFilters** | **String** | Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. |  [optional]
 **privateKey** | **String** | Your private key name found in your JSON service account key. |  [optional]
 **privateKeyId** | **String** | Your private key ID found in your JSON service account key. |  [optional]

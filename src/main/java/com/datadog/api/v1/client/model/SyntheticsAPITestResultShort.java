@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object with the results of a single Synthetic API test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object with the results of a single Synthetic API test.")
 @JsonPropertyOrder({
   SyntheticsAPITestResultShort.JSON_PROPERTY_CHECK_TIME,
   SyntheticsAPITestResultShort.JSON_PROPERTY_PROBE_DC,
@@ -59,11 +59,11 @@ public class SyntheticsAPITestResultShort {
   }
 
    /**
-   * TODO.
+   * Last time the API test was performed.
    * @return checkTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Last time the API test was performed.")
   @JsonProperty(JSON_PROPERTY_CHECK_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -84,11 +84,11 @@ public class SyntheticsAPITestResultShort {
   }
 
    /**
-   * TODO.
+   * Location from which the API test was performed.
    * @return probeDc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Location from which the API test was performed.")
   @JsonProperty(JSON_PROPERTY_PROBE_DC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,11 +134,11 @@ public class SyntheticsAPITestResultShort {
   }
 
    /**
-   * TODO.
+   * ID of the API test result.
    * @return resultId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "ID of the API test result.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

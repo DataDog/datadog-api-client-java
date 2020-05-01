@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object listing all metric names stored by Datadog since a given time.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object listing all metric names stored by Datadog since a given time.")
 @JsonPropertyOrder({
   MetricsListResponse.JSON_PROPERTY_FROM,
   MetricsListResponse.JSON_PROPERTY_METRICS

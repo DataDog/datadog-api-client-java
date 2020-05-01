@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the device used to perform the Synthetic test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the device used to perform the Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsDevice.JSON_PROPERTY_HEIGHT,
   SyntheticsDevice.JSON_PROPERTY_ID,
@@ -58,10 +58,10 @@ public class SyntheticsDevice {
   }
 
    /**
-   * TODO.
+   * Screen height of the device.
    * @return height
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Screen height of the device.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -106,11 +106,11 @@ public class SyntheticsDevice {
   }
 
    /**
-   * TODO.
+   * Wether or not the device is a mobile.
    * @return isMobile
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Wether or not the device is a mobile.")
   @JsonProperty(JSON_PROPERTY_IS_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -131,10 +131,10 @@ public class SyntheticsDevice {
   }
 
    /**
-   * TODO.
+   * The device name.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "The device name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -155,10 +155,10 @@ public class SyntheticsDevice {
   }
 
    /**
-   * TODO.
+   * Screen width of the device.
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Screen width of the device.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

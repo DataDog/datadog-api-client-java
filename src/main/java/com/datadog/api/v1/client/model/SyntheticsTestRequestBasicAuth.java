@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object to handle basic authentication when performing the test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object to handle basic authentication when performing the test.")
 @JsonPropertyOrder({
   SyntheticsTestRequestBasicAuth.JSON_PROPERTY_PASSWORD,
   SyntheticsTestRequestBasicAuth.JSON_PROPERTY_USERNAME
@@ -45,10 +45,10 @@ public class SyntheticsTestRequestBasicAuth {
   }
 
    /**
-   * TODO.
+   * Password to use for the basic authentication.
    * @return password
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Password to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -69,10 +69,10 @@ public class SyntheticsTestRequestBasicAuth {
   }
 
    /**
-   * TODO.
+   * Username to use for the basic authentication.
    * @return username
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Username to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

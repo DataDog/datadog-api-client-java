@@ -2,23 +2,23 @@
 
 # SyntheticsSSLCertificate
 
-TODO.
+Object describing the SSL certificate used for a Synthetic test.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cipher** | **String** | TODO. |  [optional]
-**exponent** | **Double** | TODO. |  [optional]
-**extKeyUsage** | **List&lt;String&gt;** | TODO. |  [optional]
-**fingerprint** | **String** | TODO. |  [optional]
-**fingerprint256** | **String** | TODO. |  [optional]
+**cipher** | **String** | Cipher used for the connection. |  [optional]
+**exponent** | **Double** | Exponent associated to the certificate. |  [optional]
+**extKeyUsage** | **List&lt;String&gt;** | Array of extensions and details used for the certificate. |  [optional]
+**fingerprint** | **String** | MD5 digest of the der-encoded Certificate informations. |  [optional]
+**fingerprint256** | **String** | SHA-1 digest of the der-encoded Certificate informations. |  [optional]
 **issuer** | [**SyntheticsSSLCertificateIssuer**](SyntheticsSSLCertificateIssuer.md) |  |  [optional]
-**modulus** | **String** | TODO. |  [optional]
-**protocol** | **String** | TODO. |  [optional]
-**serialNumber** | **String** | TODO. |  [optional]
+**modulus** | **String** | Modulus associated to the SSL certificate private key. |  [optional]
+**protocol** | **String** | TLS protocol used for the test. |  [optional]
+**serialNumber** | **String** | Serial Number assigned by Symantec to the SSL certificate. |  [optional]
 **subject** | [**SyntheticsSSLCertificateSubject**](SyntheticsSSLCertificateSubject.md) |  |  [optional]
-**validFrom** | [**OffsetDateTime**](OffsetDateTime.md) | TODO. |  [optional]
-**validTo** | [**OffsetDateTime**](OffsetDateTime.md) | TODO. |  [optional]
+**validFrom** | [**OffsetDateTime**](OffsetDateTime.md) | Date from which the SSL certificate is valid. |  [optional]
+**validTo** | [**OffsetDateTime**](OffsetDateTime.md) | Date until which the SSL certificate is valid. |  [optional]
 
 
 

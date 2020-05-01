@@ -52,11 +52,11 @@ public class UsageLogsByIndexResponse {
   }
 
    /**
-   * TODO.
+   * An array of objects regarding hourly useage of logs by index response.
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "An array of objects regarding hourly useage of logs by index response.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

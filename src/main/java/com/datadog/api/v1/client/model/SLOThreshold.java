@@ -131,11 +131,11 @@ public class SLOThreshold {
   }
 
    /**
-   * TODO.
+   * The warning value for the service level objective.
    * @return warning
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The warning value for the service level objective.")
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

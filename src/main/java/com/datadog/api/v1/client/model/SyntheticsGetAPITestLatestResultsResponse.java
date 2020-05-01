@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object with the latest Synthetic API test run.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object with the latest Synthetic API test run.")
 @JsonPropertyOrder({
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_RESULTS
@@ -48,11 +48,11 @@ public class SyntheticsGetAPITestLatestResultsResponse {
   }
 
    /**
-   * TODO.
+   * Timestamp of the latest API test run.
    * @return lastTimestampFetched
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Timestamp of the latest API test run.")
   @JsonProperty(JSON_PROPERTY_LAST_TIMESTAMP_FETCHED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -81,11 +81,11 @@ public class SyntheticsGetAPITestLatestResultsResponse {
   }
 
    /**
-   * TODO.
+   * Result of the latest API test run.
    * @return results
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Result of the latest API test run.")
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

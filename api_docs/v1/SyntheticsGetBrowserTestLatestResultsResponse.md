@@ -2,13 +2,13 @@
 
 # SyntheticsGetBrowserTestLatestResultsResponse
 
-TODO.
+Object with the latest Synthetic broser test run.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lastTimestampFetched** | **Long** | TODO. |  [optional]
-**results** | [**List&lt;SyntheticsBrowserTestResultShort&gt;**](SyntheticsBrowserTestResultShort.md) | TODO. |  [optional]
+**lastTimestampFetched** | **Long** | Timestamp of the latest browser test run. |  [optional]
+**results** | [**List&lt;SyntheticsBrowserTestResultShort&gt;**](SyntheticsBrowserTestResultShort.md) | Result of the latest browser test run. |  [optional]
 
 
 

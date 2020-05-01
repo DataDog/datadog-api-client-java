@@ -2,14 +2,14 @@
 
 # SyntheticsTestConfig
 
-TODO.
+Configuration object for a Synthetic test.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assertions** | [**List&lt;SyntheticsAssertion&gt;**](SyntheticsAssertion.md) | TODO. | 
+**assertions** | [**List&lt;SyntheticsAssertion&gt;**](SyntheticsAssertion.md) | Array of assertions used for the test. | 
 **request** | [**SyntheticsTestRequest**](SyntheticsTestRequest.md) |  | 
-**variables** | [**List&lt;SyntheticsBrowserVariable&gt;**](SyntheticsBrowserVariable.md) | TODO. |  [optional]
+**variables** | [**List&lt;SyntheticsBrowserVariable&gt;**](SyntheticsBrowserVariable.md) | Array of variables used for the test. |  [optional]
 
 
 

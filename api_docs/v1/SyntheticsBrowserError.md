@@ -2,14 +2,14 @@
 
 # SyntheticsBrowserError
 
-TODO.
+Error response object for a browser test.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **String** | TODO. | 
-**name** | **String** | TODO. | 
-**statusCode** | **Long** | TODO. |  [optional]
+**description** | **String** | Description of the error. | 
+**name** | **String** | Name of the error. | 
+**statusCode** | **Long** | Status Code of the error. |  [optional]
 **type** | [**SyntheticsBrowserErrorType**](SyntheticsBrowserErrorType.md) |  | 
 
 

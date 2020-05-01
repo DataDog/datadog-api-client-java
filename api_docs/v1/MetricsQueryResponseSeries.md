@@ -2,7 +2,7 @@
 
 # MetricsQueryResponseSeries
 
-TODO.
+Object containing all metric names returned and their associated metadata.
 ## Properties
 
 Name | Type | Description | Notes

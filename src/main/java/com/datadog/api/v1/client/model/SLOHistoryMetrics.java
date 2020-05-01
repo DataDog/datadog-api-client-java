@@ -246,10 +246,10 @@ public class SLOHistoryMetrics {
   }
 
    /**
-   * The query timestamps in epoch milliseconds.
+   * An array of query timestamps in EPOCH milliseconds
    * @return times
   **/
-  @ApiModelProperty(required = true, value = "The query timestamps in epoch milliseconds.")
+  @ApiModelProperty(required = true, value = "An array of query timestamps in EPOCH milliseconds")
   @JsonProperty(JSON_PROPERTY_TIMES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

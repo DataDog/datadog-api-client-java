@@ -2,19 +2,19 @@
 
 # SyntheticsResource
 
-TODO.
+Object describing a resource which is the combination of requests (fetch, xhr) and Assets (HTML, CSS, JS, images).
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**duration** | **Double** | TODO. |  [optional]
-**method** | **String** | TODO. |  [optional]
-**size** | **Long** | TODO. |  [optional]
-**status** | **Long** | TODO. |  [optional]
-**timestamp** | **Double** | TODO. |  [optional]
-**traceId** | **String** | TODO. |  [optional]
+**duration** | **Double** | Number of time the resource was collected. |  [optional]
+**method** | **String** | HTTP methode associated to the resource. |  [optional]
+**size** | **Long** | Size of the resource in bytes. |  [optional]
+**status** | **Long** | Status Code of the resource. |  [optional]
+**timestamp** | **Double** | Timestamp of the resource collection. |  [optional]
+**traceId** | **String** | Trace ID associated with the resource if any. |  [optional]
 **type** | [**SyntheticsResourceType**](SyntheticsResourceType.md) |  |  [optional]
-**url** | **String** | TODO. |  [optional]
+**url** | **String** | URL of the resource. |  [optional]
 
 
 
