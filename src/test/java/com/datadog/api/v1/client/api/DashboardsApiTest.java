@@ -250,6 +250,7 @@ public class DashboardsApiTest extends V1ApiTest{
         // LogStream ONLY AVAILABLE ON FREE LAYOUTS
         LogStreamWidgetDefinition logStreamWidgetDefinition = new LogStreamWidgetDefinition()
                 .addIndexesItem("main")
+                .logset("106")
                 .query("Route XYZ failed")
                 .addColumnsItem("Route")
                 .title("Test Logstream Widget")
@@ -279,7 +280,9 @@ public class DashboardsApiTest extends V1ApiTest{
                 .showLastTriggered(true)
                 .title("Test Monitor Summary Widget")
                 .titleSize("16")
-                .titleAlign(WidgetTextAlign.CENTER);
+                .titleAlign(WidgetTextAlign.CENTER)
+                .start(0L)
+                .count(5L);
         Widget monitorSummaryWidget = new Widget().definition(monitorSummaryWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(monitorSummaryWidget);
