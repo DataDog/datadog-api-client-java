@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * List of enabled AWS accounts.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "List of enabled AWS accounts.")
 @JsonPropertyOrder({
   AWSAccountListResponse.JSON_PROPERTY_ACCOUNTS
 })
@@ -52,11 +52,11 @@ public class AWSAccountListResponse {
   }
 
    /**
-   * TODO.
+   * List of enabled AWS accounts.
    * @return accounts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of enabled AWS accounts.")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

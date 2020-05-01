@@ -2,7 +2,7 @@
 
 # UsageSummaryResponse
 
-TODO.
+Response with hourly report of all data billed by Datadog all organizations.
 ## Properties
 
 Name | Type | Description | Notes
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **syntheticsBrowserCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current month(s) for all orgs. |  [optional]
 **syntheticsCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current month(s) for all orgs. |  [optional]
 **traceSearchIndexedEventsCountAggSum** | **Long** | Shows the sum of all analyzed spans indexed over all hours in the current month(s) for all orgs. |  [optional]
-**usage** | [**List&lt;UsageSummaryDate&gt;**](UsageSummaryDate.md) | TODO. |  [optional]
+**usage** | [**List&lt;UsageSummaryDate&gt;**](UsageSummaryDate.md) | An array of objects regarding hourly useage. |  [optional]
 
 
 

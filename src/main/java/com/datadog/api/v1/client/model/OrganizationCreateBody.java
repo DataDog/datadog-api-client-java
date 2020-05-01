@@ -24,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing an organization to create.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing an organization to create.")
 @JsonPropertyOrder({
   OrganizationCreateBody.JSON_PROPERTY_BILLING,
   OrganizationCreateBody.JSON_PROPERTY_NAME,
@@ -76,6 +76,7 @@ public class OrganizationCreateBody {
 
    /**
    * The name of the new child-organization, limited to 32 characters.
+   * maximum: 32
    * @return name
   **/
   @ApiModelProperty(example = "New child org", required = true, value = "The name of the new child-organization, limited to 32 characters.")

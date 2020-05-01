@@ -29,9 +29,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Updated query value widget.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Updated query value widget.")
 @JsonPropertyOrder({
   QueryValueWidgetRequest.JSON_PROPERTY_AGGREGATOR,
   QueryValueWidgetRequest.JSON_PROPERTY_APM_QUERY,

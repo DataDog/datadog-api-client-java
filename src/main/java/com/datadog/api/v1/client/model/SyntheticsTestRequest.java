@@ -27,9 +27,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the Synthetic test request.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the Synthetic test request.")
 @JsonPropertyOrder({
   SyntheticsTestRequest.JSON_PROPERTY_BASIC_AUTH,
   SyntheticsTestRequest.JSON_PROPERTY_BODY,
@@ -103,11 +103,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * TODO.
+   * Body to include in the test.
    * @return body
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Body to include in the test.")
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -136,11 +136,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * TODO.
+   * Headers to include when performing the test.
    * @return headers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Headers to include when performing the test.")
   @JsonProperty(JSON_PROPERTY_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -161,11 +161,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * TODO.
+   * Host name to perfrom the test with.
    * @return host
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Host name to perfrom the test with.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -211,11 +211,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * TODO.
+   * Port to use when performing the test.
    * @return port
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Port to use when performing the test.")
   @JsonProperty(JSON_PROPERTY_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -236,11 +236,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * TODO.
+   * Query to use for the test.
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Query to use for the test.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -261,11 +261,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * TODO.
+   * Timeout in millisecond for the test.
    * @return timeout
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Timeout in millisecond for the test.")
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -286,11 +286,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * TODO.
+   * URL to perform the test with.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "URL to perform the test with.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

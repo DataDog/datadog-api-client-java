@@ -2,7 +2,7 @@
 
 # LogContent
 
-TODO.
+JSON object containing all log attributes and their associated values.
 ## Properties
 
 Name | Type | Description | Notes

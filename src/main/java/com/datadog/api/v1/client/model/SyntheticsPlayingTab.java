@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * Navigate between different tabs for your browser test.
  */
 public enum SyntheticsPlayingTab {
   

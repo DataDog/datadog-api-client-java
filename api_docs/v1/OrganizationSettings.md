@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **samlIdpInitiatedLogin** | [**OrganizationSettingsSamlIdpInitiatedLogin**](OrganizationSettingsSamlIdpInitiatedLogin.md) |  |  [optional]
 **samlIdpMetadataUploaded** | **Boolean** | Whether or not a SAML identity provider metadata file was provided to the Datadog organization. |  [optional]
 **samlLoginUrl** | **String** | URL for SAML loging. |  [optional]
-**samlStrictMode** | [**OrganizationSettingsSamlIdpInitiatedLogin**](OrganizationSettingsSamlIdpInitiatedLogin.md) |  |  [optional]
+**samlStrictMode** | [**OrganizationSettingsSamlStrictMode**](OrganizationSettingsSamlStrictMode.md) |  |  [optional]
 
 
 

@@ -232,7 +232,7 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
@@ -251,7 +251,7 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
@@ -266,7 +266,7 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
 
   /**
    * Delete multiple tests
-   * Delete multiple Synthetics tests by ID.
+   * Delete multiple Synthetic tests by ID.
    * @return deleteTestsRequest
    * @throws ApiException if fails to make API call
    
@@ -374,7 +374,7 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -392,7 +392,7 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -404,7 +404,7 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
 
   /**
    * Get test latest results (as summaries)
-   * Get the latest results (as summaries) from a given API Synthetics test.
+   * Get the latest results (as summaries) from a given API Synthetic test.
    * @param publicId The public ID of the test for which to search results for. (required)
    * @return getAPITestLatestResultsRequest
    * @throws ApiException if fails to make API call
@@ -482,7 +482,7 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -500,7 +500,7 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -512,7 +512,7 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
 
   /**
    * Get test result (API)
-   * Get a specific full result from a given (API) Synthetics test.
+   * Get a specific full result from a given (API) Synthetic test.
    * @param publicId The public ID of the API test to which the target result belongs. (required)
    * @param resultId The ID of the result to get. (required)
    * @return getAPITestResultRequest
@@ -622,7 +622,7 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -640,7 +640,7 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -652,7 +652,7 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
 
   /**
    * Get test latest results (as summaries)
-   * Get the latest results (as summaries) from a given browser Synthetics test.
+   * Get the latest results (as summaries) from a given browser Synthetic test.
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @return getBrowserTestLatestResultsRequest
    * @throws ApiException if fails to make API call
@@ -730,7 +730,7 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -748,7 +748,7 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -760,7 +760,7 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
 
   /**
    * Get test result (browser)
-   * Get a specific full result from a given (browser) Synthetics test.
+   * Get a specific full result from a given (browser) Synthetic test.
    * @param publicId The public ID of the browser test to which the target result belongs. (required)
    * @param resultId The ID of the result to get. (required)
    * @return getBrowserTestResultRequest
@@ -831,7 +831,7 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -849,7 +849,7 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -860,8 +860,8 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
   }
 
   /**
-   * Get details of a test
-   * Get the details of a specific Synthetics test.
+   * Get test
+   * Get the details of a specific Synthetic test.
    * @param publicId The public ID of the test to get details from. (required)
    * @return getTestRequest
    * @throws ApiException if fails to make API call
@@ -934,9 +934,9 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the list of all Synthetics test (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic test (properly filtered by type). </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetics is not activated for the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Synthetic is not activated for the user. </td><td>  -  </td></tr>
        </table>
      
      */
@@ -952,9 +952,9 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the list of all Synthetics test (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic test (properly filtered by type). </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetics is not activated for the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Synthetic is not activated for the user. </td><td>  -  </td></tr>
        </table>
      
      */
@@ -966,7 +966,7 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
 
   /**
    * Get a list of all tests
-   * Get the list of all Synthetics tests (can be filtered by type).
+   * Get the list of all Synthetic tests (can be filtered by type).
    * @return listTestsRequest
    * @throws ApiException if fails to make API call
    
@@ -1053,7 +1053,7 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> - JSON format is wrong - Updating subtype is forbidden </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1072,7 +1072,7 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> - JSON format is wrong - Updating subtype is forbidden </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1084,7 +1084,7 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
 
   /**
    * Update test
-   * Update the details of a specific Synthetics test.
+   * Update the details of a specific Synthetic test.
    * @param publicId The public ID of the test to get details from. (required)
    * @return updateTestRequest
    * @throws ApiException if fails to make API call
@@ -1153,7 +1153,7 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
 
     /**
      * Set body
-     * @param body Pause/live status to set the given Synthetics test to. (required)
+     * @param body Pause/live status to set the given Synthetic test to. (required)
      * @return APIupdateTestPauseStatusRequest
      */
     public APIupdateTestPauseStatusRequest body(SyntheticsUpdateTestPauseStatusPayload body) {
@@ -1169,10 +1169,10 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful. </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> JSON format is wrong. </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1188,10 +1188,10 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful. </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> JSON format is wrong. </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> - Synthetics is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1203,8 +1203,8 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
 
   /**
    * Change test pause/live status
-   * Change pause/live status of a given Synthetics test.
-   * @param publicId The public ID of the Synthetics test to update. (required)
+   * Change pause/live status of a given Synthetic test.
+   * @param publicId The public ID of the Synthetic test to update. (required)
    * @return updateTestPauseStatusRequest
    * @throws ApiException if fails to make API call
    

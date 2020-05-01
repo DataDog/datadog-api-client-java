@@ -26,9 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Updated distribution widget.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Updated distribution widget.")
 @JsonPropertyOrder({
   DistributionWidgetRequest.JSON_PROPERTY_APM_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_EVENT_QUERY,

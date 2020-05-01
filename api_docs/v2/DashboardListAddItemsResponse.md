@@ -2,7 +2,7 @@
 
 # DashboardListAddItemsResponse
 
-TODO.
+Response containing a list of added dashboards.
 ## Properties
 
 Name | Type | Description | Notes

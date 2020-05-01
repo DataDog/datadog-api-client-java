@@ -70,10 +70,10 @@ public class LogsExclusionFilter {
   }
 
    /**
-   * TODO.
+   * Sample rate to apply to logs going through this exclusion filter, a value of 1 will exclude all logs matching the query.
    * @return sampleRate
   **/
-  @ApiModelProperty(example = "1", required = true, value = "TODO.")
+  @ApiModelProperty(example = "1", required = true, value = "Sample rate to apply to logs going through this exclusion filter, a value of 1 will exclude all logs matching the query.")
   @JsonProperty(JSON_PROPERTY_SAMPLE_RATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

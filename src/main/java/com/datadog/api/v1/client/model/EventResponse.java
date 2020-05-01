@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object containing an event response.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object containing an event response.")
 @JsonPropertyOrder({
   EventResponse.JSON_PROPERTY_EVENT,
   EventResponse.JSON_PROPERTY_STATUS
@@ -71,11 +71,11 @@ public class EventResponse {
   }
 
    /**
-   * TODO.
+   * A status.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "A status.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

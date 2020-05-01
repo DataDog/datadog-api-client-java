@@ -2,7 +2,7 @@
 
 # OrganizationCreateResponse
 
-TODO.
+Response object for an organization creation.
 ## Properties
 
 Name | Type | Description | Notes

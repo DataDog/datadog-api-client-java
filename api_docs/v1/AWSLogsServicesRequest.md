@@ -2,7 +2,7 @@
 
 # AWSLogsServicesRequest
 
-TODO.
+A list of current AWS services for which Datadog offers automatic log collection.
 ## Properties
 
 Name | Type | Description | Notes

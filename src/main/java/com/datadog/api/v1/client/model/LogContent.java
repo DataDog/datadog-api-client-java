@@ -27,9 +27,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * JSON object containing all log attributes and their associated values.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "JSON object containing all log attributes and their associated values.")
 @JsonPropertyOrder({
   LogContent.JSON_PROPERTY_ATTRIBUTES,
   LogContent.JSON_PROPERTY_HOST,

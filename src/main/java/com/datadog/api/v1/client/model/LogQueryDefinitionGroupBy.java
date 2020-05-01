@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Defined items in the group.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Defined items in the group.")
 @JsonPropertyOrder({
   LogQueryDefinitionGroupBy.JSON_PROPERTY_FACET,
   LogQueryDefinitionGroupBy.JSON_PROPERTY_LIMIT,
@@ -74,11 +74,11 @@ public class LogQueryDefinitionGroupBy {
   }
 
    /**
-   * TODO.
+   * Maximum number of items in the group.
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "50", value = "TODO.")
+  @ApiModelProperty(example = "50", value = "Maximum number of items in the group.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

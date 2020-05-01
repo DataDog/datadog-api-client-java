@@ -2,7 +2,7 @@
 
 # DashboardTemplateVariables
 
-TODO.
+Template variable.
 ## Properties
 
 Name | Type | Description | Notes

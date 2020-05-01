@@ -7,7 +7,7 @@ The Response returned by the AWS Create Account call.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**externalId** | **String** | TODO. |  [optional]
+**externalId** | **String** | AWS external_id. |  [optional]
 
 
 

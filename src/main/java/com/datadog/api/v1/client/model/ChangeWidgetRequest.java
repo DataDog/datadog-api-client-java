@@ -29,9 +29,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Updated change widget.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Updated change widget.")
 @JsonPropertyOrder({
   ChangeWidgetRequest.JSON_PROPERTY_APM_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_CHANGE_TYPE,
@@ -346,11 +346,11 @@ public class ChangeWidgetRequest {
   }
 
    /**
-   * TODO.
+   * Query definition.
    * @return q
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Query definition.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

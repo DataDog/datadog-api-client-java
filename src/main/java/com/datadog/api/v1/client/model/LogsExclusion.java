@@ -75,11 +75,11 @@ public class LogsExclusion {
   }
 
    /**
-   * TODO.
+   * Whether or not the exclusion filter is active.
    * @return isEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Whether or not the exclusion filter is active.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,10 +100,10 @@ public class LogsExclusion {
   }
 
    /**
-   * TODO.
+   * Name of the index exclusion filter.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Name of the index exclusion filter.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

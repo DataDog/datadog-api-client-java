@@ -7,7 +7,7 @@ Relationship to roles.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List&lt;RelationshipToRoleData&gt;**](RelationshipToRoleData.md) | TODO. |  [optional]
+**data** | [**List&lt;RelationshipToRoleData&gt;**](RelationshipToRoleData.md) | An array containing type and ID of a role. |  [optional]
 
 
 

@@ -62,11 +62,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * TODO.
+   * Latest timestamp the monitor was in NO_DATA state.
    * @return lastNodataTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Latest timestamp the monitor was in NO_DATA state.")
   @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -87,11 +87,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Timestamp of the last notification sent for this monitor group.
+   * Latest timestamp of the notification sent for this monitor group.
    * @return lastNotifiedTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of the last notification sent for this monitor group.")
+  @ApiModelProperty(value = "Latest timestamp of the notification sent for this monitor group.")
   @JsonProperty(JSON_PROPERTY_LAST_NOTIFIED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -137,11 +137,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Last timestamp the monitor group triggered.
+   * Latest timestamp the monitor group triggered.
    * @return lastTriggeredTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last timestamp the monitor group triggered.")
+  @ApiModelProperty(value = "Latest timestamp the monitor group triggered.")
   @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

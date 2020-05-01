@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **containerAvg** | **Long** | Shows the average of all distinct containers over all hours in the current date for the given org. |  [optional]
 **containerHwm** | **Long** | Shows the high watermark of all distinct containers over all hours in the current date for the given org. |  [optional]
 **customTsAvg** | **Long** | Shows the average number of distinct custom metrics over all hours in the current date for the given org. |  [optional]
-**fargateTasksCountAvg** | **Long** | TODO. |  [optional]
+**fargateTasksCountAvg** | **Long** | The average task count for Fargate. |  [optional]
 **fargateTasksCountHwm** | **Long** | Shows the high watermark of all Fargate tasks over all hours in the current date for the given org. |  [optional]
 **gcpHostTop99p** | **Long** | Shows the 99th percentile of all GCP hosts over all hours in the current date for the given org. |  [optional]
 **id** | **String** | The organization id. |  [optional]

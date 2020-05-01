@@ -52,11 +52,11 @@ public class RelationshipToRoles {
   }
 
    /**
-   * TODO.
+   * An array containing type and ID of a role.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "An array containing type and ID of a role.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

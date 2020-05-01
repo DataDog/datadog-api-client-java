@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Widget definition.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Widget definition.")
 @JsonPropertyOrder({
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_X,
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_Y

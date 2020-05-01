@@ -26,9 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Updated scatter plot.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Updated scatter plot.")
 @JsonPropertyOrder({
   ScatterPlotRequest.JSON_PROPERTY_AGGREGATOR,
   ScatterPlotRequest.JSON_PROPERTY_APM_QUERY,
@@ -223,11 +223,11 @@ public class ScatterPlotRequest {
   }
 
    /**
-   * TODO.
+   * Query definition.
    * @return q
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Query definition.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

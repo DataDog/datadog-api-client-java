@@ -7,15 +7,15 @@ Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**showErrorBudget** | **Boolean** | TODO. |  [optional]
-**sloId** | **String** | TODO. |  [optional]
-**timeWindows** | [**List&lt;WidgetTimeWindows&gt;**](WidgetTimeWindows.md) | TODO. |  [optional]
+**showErrorBudget** | **Boolean** | Defined error budget. |  [optional]
+**sloId** | **String** | ID of the SLO displayed. |  [optional]
+**timeWindows** | [**List&lt;WidgetTimeWindows&gt;**](WidgetTimeWindows.md) | Times being monitored. |  [optional]
 **title** | **String** | Title of the widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
 **type** | **String** | Type of the widget. |  [readonly]
 **viewMode** | [**WidgetViewMode**](WidgetViewMode.md) |  |  [optional]
-**viewType** | **String** | TODO. | 
+**viewType** | **String** | Type of view displayed by the widget. | 
 
 
 ## Implemented Interfaces

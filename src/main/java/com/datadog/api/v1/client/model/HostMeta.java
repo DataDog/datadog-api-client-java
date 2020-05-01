@@ -51,11 +51,11 @@ public class HostMeta {
   }
 
    /**
-   * TODO.
+   * Array of Unix versions.
    * @return nixV
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of Unix versions.")
   @JsonProperty(JSON_PROPERTY_NIX_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

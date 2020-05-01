@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Template variables saved views.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Template variables saved views.")
 @JsonPropertyOrder({
   DashboardTemplateVariablePresetValue.JSON_PROPERTY_NAME,
   DashboardTemplateVariablePresetValue.JSON_PROPERTY_VALUE

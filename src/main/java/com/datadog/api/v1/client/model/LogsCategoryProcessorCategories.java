@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the logs filter.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the logs filter.")
 @JsonPropertyOrder({
   LogsCategoryProcessorCategories.JSON_PROPERTY_FILTER,
   LogsCategoryProcessorCategories.JSON_PROPERTY_NAME

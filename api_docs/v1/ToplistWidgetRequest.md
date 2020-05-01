@@ -2,13 +2,13 @@
 
 # ToplistWidgetRequest
 
-TODO.
+Updated top list widget.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apmQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
-**conditionalFormats** | [**List&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | TODO. |  [optional]
+**conditionalFormats** | [**List&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | List of conditional formats. |  [optional]
 **eventQuery** | [**EventQueryDefinition**](EventQueryDefinition.md) |  |  [optional]
 **logQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **networkQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]

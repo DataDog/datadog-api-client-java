@@ -30,9 +30,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object containing details about your Synthetic test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object containing details about your Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestDetails.JSON_PROPERTY_CONFIG,
   SyntheticsTestDetails.JSON_PROPERTY_CREATED_AT,
@@ -130,11 +130,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * TODO.
+   * The test creation date.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The test creation date.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -188,11 +188,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * TODO.
+   * Array of locations used to run the test.
    * @return locations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -213,11 +213,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * TODO.
+   * Notification message associated with the test.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Notification message associated with the test.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -238,11 +238,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * TODO.
+   * Last timestamp the test was modified.
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Last timestamp the test was modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -313,11 +313,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * TODO.
+   * Name of the test.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -363,11 +363,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * TODO.
+   * The test public ID.
    * @return publicId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The test public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -446,11 +446,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * TODO.
+   * Array of tags attached to the test.
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of tags attached to the test.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

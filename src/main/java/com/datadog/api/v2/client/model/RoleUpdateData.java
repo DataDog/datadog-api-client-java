@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO
+ * Data related to the update of a role.
  */
-@ApiModel(description = "TODO")
+@ApiModel(description = "Data related to the update of a role.")
 @JsonPropertyOrder({
   RoleUpdateData.JSON_PROPERTY_ATTRIBUTES,
   RoleUpdateData.JSON_PROPERTY_ID,
@@ -100,11 +100,11 @@ public class RoleUpdateData {
   }
 
    /**
-   * TODO
+   * Type of role.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO")
+  @ApiModelProperty(value = "Type of role.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

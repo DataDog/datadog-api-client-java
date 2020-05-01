@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic test.
  */
 public enum SyntheticsTestPauseStatus {
   

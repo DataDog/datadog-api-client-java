@@ -23,9 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Timeframe to retrieve the log from.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Timeframe to retrieve the log from.")
 @JsonPropertyOrder({
   LogsListRequestTime.JSON_PROPERTY_FROM,
   LogsListRequestTime.JSON_PROPERTY_TIMEZONE,

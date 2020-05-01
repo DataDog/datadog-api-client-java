@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Response containing a list of deleted dashboards.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Response containing a list of deleted dashboards.")
 @JsonPropertyOrder({
   DashboardListDeleteItemsResponse.JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST
 })

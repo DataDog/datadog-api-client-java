@@ -41,11 +41,11 @@ public class AWSAccountCreateResponse {
   }
 
    /**
-   * TODO.
+   * AWS external_id.
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "AWS external_id.")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

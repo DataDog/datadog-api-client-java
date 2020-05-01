@@ -2,7 +2,7 @@
 
 # IdpFormData
 
-TODO.
+Object describing the IdP configuration.
 ## Properties
 
 Name | Type | Description | Notes
