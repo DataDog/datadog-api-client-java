@@ -36,6 +36,8 @@ public enum MonitorType {
   
   QUERY_ALERT("query alert"),
   
+  RUM_ALERT("rum alert"),
+  
   SERVICE_CHECK("service check"),
   
   SYNTHETICS_ALERT("synthetics alert"),
