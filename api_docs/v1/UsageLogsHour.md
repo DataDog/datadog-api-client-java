@@ -2,7 +2,7 @@
 
 # UsageLogsHour
 
-Hour useage for logs.
+Hour usage for logs.
 ## Properties
 
 Name | Type | Description | Notes

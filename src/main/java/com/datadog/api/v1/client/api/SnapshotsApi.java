@@ -145,7 +145,7 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
 
     /**
      * Set graphDef
-     * @param graphDef A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URLEncoded. (optional)
+     * @param graphDef A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded. (optional)
      * @return APIgetGraphSnapshotRequest
      */
     public APIgetGraphSnapshotRequest graphDef(String graphDef) {
@@ -156,7 +156,7 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
 
     /**
      * Set title
-     * @param title A title for the graph. If no title is specified, the graph doesn’t have a title. (optional)
+     * @param title A title for the graph. If no title is specified, the graph does not have a title. (optional)
      * @return APIgetGraphSnapshotRequest
      */
     public APIgetGraphSnapshotRequest title(String title) {

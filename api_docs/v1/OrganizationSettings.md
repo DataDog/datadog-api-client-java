@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **samlIdpEndpoint** | **String** | Identity provider endpoint for SAML authentication. |  [optional]
 **samlIdpInitiatedLogin** | [**OrganizationSettingsSamlIdpInitiatedLogin**](OrganizationSettingsSamlIdpInitiatedLogin.md) |  |  [optional]
 **samlIdpMetadataUploaded** | **Boolean** | Whether or not a SAML identity provider metadata file was provided to the Datadog organization. |  [optional]
-**samlLoginUrl** | **String** | URL for SAML loging. |  [optional]
+**samlLoginUrl** | **String** | URL for SAML logging. |  [optional]
 **samlStrictMode** | [**OrganizationSettingsSamlStrictMode**](OrganizationSettingsSamlStrictMode.md) |  |  [optional]
 
 

@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Object describing a resource which is the combination of requests (fetch, xhr) and Assets (HTML, CSS, JS, images).
+ * Object describing a resource which is the combination of requests (fetch, XHR) and Assets (HTML, CSS, JS, images).
  */
-@ApiModel(description = "Object describing a resource which is the combination of requests (fetch, xhr) and Assets (HTML, CSS, JS, images).")
+@ApiModel(description = "Object describing a resource which is the combination of requests (fetch, XHR) and Assets (HTML, CSS, JS, images).")
 @JsonPropertyOrder({
   SyntheticsResource.JSON_PROPERTY_DURATION,
   SyntheticsResource.JSON_PROPERTY_METHOD,
@@ -95,11 +95,11 @@ public class SyntheticsResource {
   }
 
    /**
-   * HTTP methode associated to the resource.
+   * HTTP method associated to the resource.
    * @return method
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "HTTP methode associated to the resource.")
+  @ApiModelProperty(value = "HTTP method associated to the resource.")
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

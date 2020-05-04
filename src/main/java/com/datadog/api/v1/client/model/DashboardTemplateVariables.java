@@ -111,11 +111,11 @@ public class DashboardTemplateVariables {
   }
 
    /**
-   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
    * @return prefix
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host", value = "The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.")
+  @ApiModelProperty(example = "host", value = "The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.")
   @JsonIgnore
 
   public String getPrefix() {

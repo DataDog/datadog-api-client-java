@@ -2,7 +2,7 @@
 
 # UsageHostsResponse
 
-Host useage response.
+Host usage response.
 ## Properties
 
 Name | Type | Description | Notes

@@ -287,7 +287,7 @@ public class Example {
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         String name = "name_example"; // String | Name of the log index.
-        LogsIndex body = new LogsIndex(); // LogsIndex | Object containing the new LogsIndex.
+        LogsIndex body = new LogsIndex(); // LogsIndex | Object containing the new `LogsIndex`.
         try {
             LogsIndex result = api.updateLogsIndex(name)
                 .body(body)
@@ -310,7 +310,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of the log index. |
- **body** | [**LogsIndex**](LogsIndex.md)| Object containing the new LogsIndex. | [optional]
+ **body** | [**LogsIndex**](LogsIndex.md)| Object containing the new &#x60;LogsIndex&#x60;. | [optional]
 
 ### Return type
 

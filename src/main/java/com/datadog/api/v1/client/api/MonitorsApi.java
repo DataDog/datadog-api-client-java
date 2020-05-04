@@ -557,7 +557,7 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
 
     /**
      * Set tags
-     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, &#x60;host:host0&#x60;. (optional)
+     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;. (optional)
      * @return APIlistMonitorsRequest
      */
     public APIlistMonitorsRequest tags(String tags) {

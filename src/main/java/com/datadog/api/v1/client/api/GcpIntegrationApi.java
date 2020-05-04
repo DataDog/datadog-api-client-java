@@ -440,7 +440,7 @@ private ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) th
 
   /**
    * Update a GCP integration
-   * Update a Datadog-GCP integrations host_filters and/or automute. Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;) endpoint. The unspecified fields will keep their original values.
+   * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;) endpoint. The unspecified fields will keep their original values.
    * @return updateGCPIntegrationRequest
    * @throws ApiException if fails to make API call
    

@@ -354,11 +354,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * Whether or not snapshots where colelcted by the test.
+   * Whether or not snapshots where collected by the test.
    * @return snapshotBucketKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not snapshots where colelcted by the test.")
+  @ApiModelProperty(value = "Whether or not snapshots where collected by the test.")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

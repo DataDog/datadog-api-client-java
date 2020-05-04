@@ -2,7 +2,7 @@
 
 # SyntheticsGetBrowserTestLatestResultsResponse
 
-Object with the latest Synthetic broser test run.
+Object with the latest Synthetic browser test run.
 ## Properties
 
 Name | Type | Description | Notes

@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Response containting the number of active NPM hosts for each hour for a given organization.
+ * Response containing the number of active NPM hosts for each hour for a given organization.
  */
-@ApiModel(description = "Response containting the number of active NPM hosts for each hour for a given organization.")
+@ApiModel(description = "Response containing the number of active NPM hosts for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageNetworkHostsResponse.JSON_PROPERTY_USAGE
 })

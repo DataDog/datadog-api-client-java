@@ -342,7 +342,7 @@ This endpoint does not need any parameter.
 
 Update a user
 
-Update a user informations.
+Update a user information.
 
 **Note**: It can only be used with application keys belonging to administrators.
 
