@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * A response containing trace usage.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "A response containing trace usage.")
 @JsonPropertyOrder({
   UsageTraceResponse.JSON_PROPERTY_USAGE
 })
