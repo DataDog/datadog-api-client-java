@@ -91,7 +91,7 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
 
     /**
      * Set body
-     * @param body Organisation object that needs to be created (required)
+     * @param body Organization object that needs to be created (required)
      * @return APIcreateChildOrgRequest
      */
     public APIcreateChildOrgRequest body(OrganizationCreateBody body) {

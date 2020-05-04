@@ -2,7 +2,7 @@
 
 # UsageNetworkHostsResponse
 
-Response containting the number of active NPM hosts for each hour for a given organization.
+Response containing the number of active NPM hosts for each hour for a given organization.
 ## Properties
 
 Name | Type | Description | Notes

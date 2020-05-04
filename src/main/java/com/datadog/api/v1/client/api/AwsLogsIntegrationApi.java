@@ -569,7 +569,7 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
 
   /**
    * Enable an AWS Logs integration
-   * Enable automatic log collection for a list of services. This should be run after running &#x60;CreateAWSLambdaARN&#x60; to save the config.
+   * Enable automatic log collection for a list of services. This should be run after running &#x60;CreateAWSLambdaARN&#x60; to save the configuration.
    * @return enableAWSLogServicesRequest
    * @throws ApiException if fails to make API call
    

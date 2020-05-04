@@ -8,7 +8,7 @@ A service level objective history response.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**SLOHistoryResponseData**](SLOHistoryResponseData.md) |  |  [optional]
-**errors** | [**List&lt;SLOHistoryResponseError&gt;**](SLOHistoryResponseError.md) | A list of errors while querying the history data for the service level obective. |  [optional]
+**errors** | [**List&lt;SLOHistoryResponseError&gt;**](SLOHistoryResponseError.md) | A list of errors while querying the history data for the service level objective. |  [optional]
 
 
 

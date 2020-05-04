@@ -7,7 +7,7 @@ The User-Agent parser takes a User-Agent attribute and extracts the OS, browser,
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**isEncoded** | **Boolean** | Define if the source attribute is url encoded or not. |  [optional]
+**isEncoded** | **Boolean** | Define if the source attribute is URL encoded or not. |  [optional]
 **sources** | **List&lt;String&gt;** | Array of source attributes. | 
 **target** | **String** | Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;. | 
 **type** | **String** | Type of processor. |  [optional] [readonly]

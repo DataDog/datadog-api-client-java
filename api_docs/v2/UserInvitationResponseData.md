@@ -8,7 +8,7 @@ Object of a user invitation returned by the API.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**UserInvitationDataAttributes**](UserInvitationDataAttributes.md) |  |  [optional]
-**id** | **String** | ID of the user invitiation. |  [optional]
+**id** | **String** | ID of the user invitation. |  [optional]
 **type** | **String** | User invitations type. |  [optional]
 
 

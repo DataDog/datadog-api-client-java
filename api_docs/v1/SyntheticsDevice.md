@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **height** | **Long** | Screen height of the device. | 
 **id** | [**SyntheticsDeviceID**](SyntheticsDeviceID.md) |  | 
-**isMobile** | **Boolean** | Wether or not the device is a mobile. |  [optional]
+**isMobile** | **Boolean** | Whether or not the device is a mobile. |  [optional]
 **name** | **String** | The device name. | 
 **width** | **Long** | Screen width of the device. | 
 

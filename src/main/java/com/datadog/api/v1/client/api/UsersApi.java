@@ -547,7 +547,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
 
   /**
    * Update a user
-   * Update a user informations.  **Note**: It can only be used with application keys belonging to administrators.
+   * Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
    * @param userHandle The ID of the user. (required)
    * @return updateUserRequest
    * @throws ApiException if fails to make API call

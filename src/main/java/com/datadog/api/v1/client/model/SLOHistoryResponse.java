@@ -82,11 +82,11 @@ public class SLOHistoryResponse {
   }
 
    /**
-   * A list of errors while querying the history data for the service level obective.
+   * A list of errors while querying the history data for the service level objective.
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of errors while querying the history data for the service level obective.")
+  @ApiModelProperty(value = "A list of errors while querying the history data for the service level objective.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

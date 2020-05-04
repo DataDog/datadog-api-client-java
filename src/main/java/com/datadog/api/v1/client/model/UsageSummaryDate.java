@@ -133,11 +133,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the 99th percentile of all agent hosts over all hours in the current date for all orgs.
+   * Shows the 99th percentile of all agent hosts over all hours in the current date for all organizations.
    * @return agentHostTop99p
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all agent hosts over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the 99th percentile of all agent hosts over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_AGENT_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -158,11 +158,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all orgs.
+   * Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all organizations.
    * @return apmHostTop99p
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_APM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -183,11 +183,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the 99th percentile of all AWS hosts over all hours in the current date for all orgs.
+   * Shows the 99th percentile of all AWS hosts over all hours in the current date for all organizations.
    * @return awsHostTop99p
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all AWS hosts over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the 99th percentile of all AWS hosts over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_AWS_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -208,11 +208,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the average of the number of functions that executed 1 or more times each hour in the current date for all orgs.
+   * Shows the average of the number of functions that executed 1 or more times each hour in the current date for all organizations.
    * @return awsLambdaFuncCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the average of the number of functions that executed 1 or more times each hour in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the average of the number of functions that executed 1 or more times each hour in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -233,11 +233,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all AWS Labmda invocations over all hours in the current date for all orgs.
+   * Shows the sum of all AWS Lambda invocations over all hours in the current date for all organizations.
    * @return awsLambdaInvocationsSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all AWS Labmda invocations over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the sum of all AWS Lambda invocations over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -258,11 +258,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all log bytes ingested over all hours in the current date for all orgs.
+   * Shows the sum of all log bytes ingested over all hours in the current date for all organizations.
    * @return billableIngestedBytesSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all log bytes ingested over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the sum of all log bytes ingested over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -283,11 +283,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the average of all distinct containers over all hours in the current date for all orgs.
+   * Shows the average of all distinct containers over all hours in the current date for all organizations.
    * @return containerAvg
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the average of all distinct containers over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the average of all distinct containers over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -308,11 +308,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the high watermark of all distinct containers over all hours in the current date for all orgs.
+   * Shows the high watermark of all distinct containers over all hours in the current date for all organizations.
    * @return containerHwm
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the high watermark of all distinct containers over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the high watermark of all distinct containers over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -333,11 +333,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the average number of distinct custom metrics over all hours in the current date for all orgs.
+   * Shows the average number of distinct custom metrics over all hours in the current date for all organizations.
    * @return customTsAvg
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the average number of distinct custom metrics over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the average number of distinct custom metrics over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_TS_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -383,11 +383,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the high watermark of all Fargate tasks over all hours in the current date for all orgs.
+   * Shows the high watermark of all Fargate tasks over all hours in the current date for all organizations.
    * @return fargateTasksCountAvg
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the high watermark of all Fargate tasks over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the high watermark of all Fargate tasks over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -408,11 +408,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the average of all Fargate tasks over all hours in the current date for all orgs.
+   * Shows the average of all Fargate tasks over all hours in the current date for all organizations.
    * @return fargateTasksCountHwm
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the average of all Fargate tasks over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the average of all Fargate tasks over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -433,11 +433,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the 99th percentile of all GCP hosts over all hours in the current date for all orgs.
+   * Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations.
    * @return gcpHostTop99p
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all GCP hosts over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_GCP_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -458,11 +458,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all log events indexed over all hours in the current date for all orgs.
+   * Shows the sum of all log events indexed over all hours in the current date for all organizations.
    * @return indexedEventsCountSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all log events indexed over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the sum of all log events indexed over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -483,11 +483,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all orgs.
+   * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations.
    * @return infraHostTop99p
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -508,11 +508,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all log bytes ingested over all hours in the current date for all orgs.
+   * Shows the sum of all log bytes ingested over all hours in the current date for all organizations.
    * @return ingestedEventsBytesSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all log bytes ingested over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the sum of all log bytes ingested over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -533,11 +533,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all Network flows indexed over all hours in the current date for all orgs.
+   * Shows the sum of all Network flows indexed over all hours in the current date for all organizations.
    * @return netflowIndexedEventsCountSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all Network flows indexed over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the sum of all Network flows indexed over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -558,11 +558,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all orgs.
+   * Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations.
    * @return npmHostTop99p
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_NPM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -616,11 +616,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all RUM Sessions over all hours in the current date for all orgs
+   * Shows the sum of all RUM Sessions over all hours in the current date for all organizations
    * @return rumSessionCountSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all RUM Sessions over all hours in the current date for all orgs")
+  @ApiModelProperty(value = "Shows the sum of all RUM Sessions over all hours in the current date for all organizations")
   @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -641,11 +641,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all Synthetic browser tests over all hours in the current date for all orgs.
+   * Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations.
    * @return syntheticsBrowserCheckCallsCountSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all Synthetic browser tests over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -666,11 +666,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all Synthetic API tests over all hours in the current date for all orgs.
+   * Shows the sum of all Synthetic API tests over all hours in the current date for all organizations.
    * @return syntheticsCheckCallsCountSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all Synthetic API tests over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the sum of all Synthetic API tests over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -691,11 +691,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all analyzed spans indexed over all hours in the current date for all orgs.
+   * Shows the sum of all analyzed spans indexed over all hours in the current date for all organizations.
    * @return traceSearchIndexedEventsCountSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all analyzed spans indexed over all hours in the current date for all orgs.")
+  @ApiModelProperty(value = "Shows the sum of all analyzed spans indexed over all hours in the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

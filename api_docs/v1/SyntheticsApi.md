@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK. |  -  |
-| **400** | - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget) - Some IDs are not owned by the user |  -  |
+| **400** | - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user |  -  |
 | **403** | Forbidden |  -  |
 | **404** | - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user |  -  |
 
@@ -766,7 +766,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | - JSON format is wrong - Updating subtype is forbidden |  -  |
+| **400** | - JSON format is wrong - Updating sub-type is forbidden |  -  |
 | **403** | Forbidden |  -  |
 | **404** | - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found |  -  |
 
