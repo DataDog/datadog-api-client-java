@@ -97,11 +97,11 @@ public class ServiceLevelObjective {
 
 
    /**
-   * Creation timestamp (unix time in seconds)  Always included in service level objective responses.
+   * Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation timestamp (unix time in seconds)  Always included in service level objective responses.")
+  @ApiModelProperty(value = "Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -222,11 +222,11 @@ public class ServiceLevelObjective {
 
 
    /**
-   * Modification timestamp (unix time in seconds)  Always included in service level objective responses.
+   * Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Modification timestamp (unix time in seconds)  Always included in service level objective responses.")
+  @ApiModelProperty(value = "Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 Enable an AWS Logs integration
 
-Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the config.
+Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
 
 ### Example
 

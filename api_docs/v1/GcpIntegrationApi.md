@@ -255,7 +255,7 @@ This endpoint does not need any parameter.
 
 Update a GCP integration
 
-Update a Datadog-GCP integrations host_filters and/or automute.
+Update a Datadog-GCP integrations host_filters and/or auto-mute.
 Requires a `project_id` and `client_email`, however these fields cannot be updated.
 If you need to update these fields, delete and use the create (`POST`) endpoint.
 The unspecified fields will keep their original values.

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **resources** | [**List&lt;SyntheticsResource&gt;**](SyntheticsResource.md) | Array of resources collected by the test. |  [optional]
 **screenshotBucketKey** | **Boolean** | Whether or not screenshots where collected by the test. |  [optional]
 **skipped** | **Boolean** | Whether or not to skip this step. |  [optional]
-**snapshotBucketKey** | **Boolean** | Whether or not snapshots where colelcted by the test. |  [optional]
+**snapshotBucketKey** | **Boolean** | Whether or not snapshots where collected by the test. |  [optional]
 **stepId** | **Long** | The step ID. |  [optional]
 **subTestStepDetails** | [**List&lt;SyntheticsStepDetail&gt;**](SyntheticsStepDetail.md) | If this steps include a sub-test. [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests). |  [optional]
 **timeToInteractive** | **Double** | Time before starting the step. |  [optional]

@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Host useage response.
+ * Host usage response.
  */
-@ApiModel(description = "Host useage response.")
+@ApiModel(description = "Host usage response.")
 @JsonPropertyOrder({
   UsageHostsResponse.JSON_PROPERTY_USAGE
 })

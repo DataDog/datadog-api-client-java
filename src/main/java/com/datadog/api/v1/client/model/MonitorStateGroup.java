@@ -112,11 +112,11 @@ public class MonitorStateGroup {
   }
 
    /**
-   * Lastest timestamp the monitor group was resolved.
+   * Latest timestamp the monitor group was resolved.
    * @return lastResolvedTs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Lastest timestamp the monitor group was resolved.")
+  @ApiModelProperty(value = "Latest timestamp the monitor group was resolved.")
   @JsonProperty(JSON_PROPERTY_LAST_RESOLVED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

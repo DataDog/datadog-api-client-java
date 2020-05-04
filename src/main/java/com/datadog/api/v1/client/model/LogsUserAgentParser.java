@@ -69,11 +69,11 @@ public class LogsUserAgentParser implements LogsProcessor {
   }
 
    /**
-   * Define if the source attribute is url encoded or not.
+   * Define if the source attribute is URL encoded or not.
    * @return isEncoded
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Define if the source attribute is url encoded or not.")
+  @ApiModelProperty(value = "Define if the source attribute is URL encoded or not.")
   @JsonProperty(JSON_PROPERTY_IS_ENCODED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

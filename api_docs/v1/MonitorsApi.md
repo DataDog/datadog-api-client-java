@@ -484,7 +484,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
         String name = "name_example"; // String | A string to filter monitors by name.
-        String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, `host:host0`.
+        String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
         String monitorTags = "monitorTags_example"; // String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
         Boolean withDowntimes = true; // Boolean | If this argument is set to true, then the returned data includes all current downtimes for each monitor.
         Long idOffset = 56L; // Long | The time (in seconds) to delay the monitor evaluation compared to the latest data timestamp received.
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupStates** | **String**| When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;. | [optional]
  **name** | **String**| A string to filter monitors by name. | [optional]
- **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, &#x60;host:host0&#x60;. | [optional]
+ **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;. | [optional]
  **monitorTags** | **String**| A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. | [optional]
  **withDowntimes** | **Boolean**| If this argument is set to true, then the returned data includes all current downtimes for each monitor. | [optional]
  **idOffset** | **Long**| The time (in seconds) to delay the monitor evaluation compared to the latest data timestamp received. | [optional]

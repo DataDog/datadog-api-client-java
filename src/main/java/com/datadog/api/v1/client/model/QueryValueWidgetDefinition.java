@@ -85,11 +85,11 @@ public class QueryValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to use autoscaling or not.
+   * Whether to use auto-scaling or not.
    * @return autoscale
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to use autoscaling or not.")
+  @ApiModelProperty(value = "Whether to use auto-scaling or not.")
   @JsonProperty(JSON_PROPERTY_AUTOSCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

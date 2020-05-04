@@ -106,11 +106,11 @@ public class SyntheticsDevice {
   }
 
    /**
-   * Wether or not the device is a mobile.
+   * Whether or not the device is a mobile.
    * @return isMobile
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Wether or not the device is a mobile.")
+  @ApiModelProperty(value = "Whether or not the device is a mobile.")
   @JsonProperty(JSON_PROPERTY_IS_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

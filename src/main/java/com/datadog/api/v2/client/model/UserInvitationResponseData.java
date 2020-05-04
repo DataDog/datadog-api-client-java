@@ -75,11 +75,11 @@ public class UserInvitationResponseData {
   }
 
    /**
-   * ID of the user invitiation.
+   * ID of the user invitation.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the user invitiation.")
+  @ApiModelProperty(value = "ID of the user invitation.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

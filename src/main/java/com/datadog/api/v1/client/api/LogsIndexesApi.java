@@ -381,7 +381,7 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
 
     /**
      * Set body
-     * @param body Object containing the new LogsIndex. (optional)
+     * @param body Object containing the new &#x60;LogsIndex&#x60;. (optional)
      * @return APIupdateLogsIndexRequest
      */
     public APIupdateLogsIndexRequest body(LogsIndex body) {

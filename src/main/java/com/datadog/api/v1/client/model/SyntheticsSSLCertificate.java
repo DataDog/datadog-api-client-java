@@ -173,11 +173,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * MD5 digest of the der-encoded Certificate informations.
+   * MD5 digest of the DER-encoded Certificate information.
    * @return fingerprint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "MD5 digest of the der-encoded Certificate informations.")
+  @ApiModelProperty(value = "MD5 digest of the DER-encoded Certificate information.")
   @JsonProperty(JSON_PROPERTY_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -198,11 +198,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * SHA-1 digest of the der-encoded Certificate informations.
+   * SHA-1 digest of the DER-encoded Certificate information.
    * @return fingerprint256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SHA-1 digest of the der-encoded Certificate informations.")
+  @ApiModelProperty(value = "SHA-1 digest of the DER-encoded Certificate information.")
   @JsonProperty(JSON_PROPERTY_FINGERPRINT256)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

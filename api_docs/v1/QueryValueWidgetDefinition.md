@@ -7,7 +7,7 @@ Query values display the current value of a given metric, APM, or log query.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**autoscale** | **Boolean** | Whether to use autoscaling or not. |  [optional]
+**autoscale** | **Boolean** | Whether to use auto-scaling or not. |  [optional]
 **customUnit** | **String** | Display a unit of your choice on the widget. |  [optional]
 **precision** | **Long** | Number of decimals to show. If not defined, the widget uses the raw value. |  [optional]
 **requests** | [**List&lt;QueryValueWidgetRequest&gt;**](QueryValueWidgetRequest.md) | Widget definition. | 
