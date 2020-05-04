@@ -3890,7 +3890,7 @@ components:
       - service_name
       type: object
     Point:
-      description: Array of timeserie points.
+      description: Array of timeseries points.
       example:
       - 1575317847
       - 0.5
@@ -10467,9 +10467,10 @@ paths:
 
         The type of monitor chosen from:
 
+
         - anomaly: `query alert`
 
-        - apm: `query alert`
+        - APM: `query alert`
 
         - composite: `composite`
 
@@ -10555,7 +10556,7 @@ paths:
         Example: `"check".over(tags).last(count).count_by_status()`
 
 
-        - **`check`** name of the check, e.g. datadog.agent.up
+        - **`check`** name of the check, e.g. `datadog.agent.up`
 
         - **`tags`** one or more quoted tags (comma-separated), or "*". e.g.: `.over("env:prod",
         "role:db")`
@@ -10589,9 +10590,9 @@ paths:
 
         - **`tags`** event tags (comma-separated).
 
-        - **`excluded_tags`** exluded event tags (comma-separated).
+        - **`excluded_tags`** excluded event tags (comma-separated).
 
-        - **`rollup`** the stats rollup method. `count` is the only supported method
+        - **`rollup`** the stats roll-up method. `count` is the only supported method
         now.
 
         - **`last`** the timeframe to roll up the counts. Examples: 60s, 4h. Supported
@@ -10632,7 +10633,7 @@ paths:
         - **`index_name`** For multi-index organizations, the log index in which the
         request is performed.
 
-        - **`rollup_method`** The stats rollup method - supports `count`, `avg` and
+        - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and
         `cardinality`.
 
         - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure
@@ -13144,7 +13145,7 @@ tags:
 
     end times, prevent all alerting related to specified Datadog tags.'
   name: Downtimes
-- description: 'The events service allows you to programatically post events to the
+- description: 'The events service allows you to programmatically post events to the
     event stream
 
     and fetch events from the event stream. Events are limited to 4000 characters.
