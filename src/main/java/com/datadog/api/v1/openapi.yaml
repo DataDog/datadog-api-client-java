@@ -5553,7 +5553,7 @@ components:
         modified_by:
           $ref: '#/components/schemas/SyntheticsTestAuthor'
         monitor_id:
-          description: TODO.
+          description: The associated monitor ID.
           format: int64
           type: integer
         name:
@@ -5621,7 +5621,7 @@ components:
             signed certificate.
           type: boolean
         allow_insecure:
-          description: TODO.
+          description: Allows loading insecure content for an HTTP request.
           type: boolean
         device_ids:
           description: Array with the different device IDs used to run the test.
@@ -5632,7 +5632,7 @@ components:
           description: For API SSL test, whether or not the test should follow redirects.
           type: boolean
         min_failure_duration:
-          description: TODO.
+          description: Minimum amount of time before declaring the test has failed.
           format: int64
           type: integer
         min_location_failed:
@@ -6807,7 +6807,7 @@ components:
           type: array
       type: object
     UsageTraceHour:
-      description: TODO.
+      description: The hours of trace usage.
       properties:
         hour:
           description: The hour for the usage.
@@ -6819,7 +6819,7 @@ components:
           type: integer
       type: object
     UsageTraceResponse:
-      description: TODO.
+      description: A response containing trace usage.
       properties:
         usage:
           description: Array with the number of hourly traces indexed for a given
@@ -7024,7 +7024,7 @@ components:
       - palette
       type: object
     WidgetDefinition:
-      description: Definition of the widget.
+      description: '[Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).'
       discriminator:
         mapping:
           alert_graph: '#/components/schemas/AlertGraphWidgetDefinition'
@@ -9170,13 +9170,9 @@ paths:
         above, so this endpoint can be polled intermittently instead of blocking.
 
         - Returns a status of ''created'' when it''s checking if the Lambda exists
-        in the account.
-
-        - Returns a status of ''waiting'' while checking.
-
-        - Returns a status of ''checked and ok'' if the Lambda exists.
-
-        - Returns a status of ''error'' if the Lambda does not exist.'
+        in the account. - Returns a status of ''waiting'' while checking. - Returns
+        a status of ''checked and ok'' if the Lambda exists. - Returns a status of
+        ''error'' if the Lambda does not exist.'
       operationId: CheckAWSLogsLambdaAsync
       requestBody:
         content:
