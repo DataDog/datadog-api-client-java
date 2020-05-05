@@ -2,7 +2,7 @@
 
 # UsageTraceHour
 
-TODO.
+The hours of trace usage.
 ## Properties
 
 Name | Type | Description | Notes

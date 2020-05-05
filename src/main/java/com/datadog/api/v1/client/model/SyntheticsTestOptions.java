@@ -99,11 +99,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * TODO.
+   * Allows loading insecure content for an HTTP request.
    * @return allowInsecure
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Allows loading insecure content for an HTTP request.")
   @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -182,11 +182,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * TODO.
+   * Minimum amount of time before declaring the test has failed.
    * @return minFailureDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Minimum amount of time before declaring the test has failed.")
   @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
