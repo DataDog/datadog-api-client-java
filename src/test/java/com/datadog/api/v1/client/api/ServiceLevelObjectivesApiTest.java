@@ -72,10 +72,13 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
 
     @BeforeClass
     public static void initApi() {
+        generalApiClient.setUnstableOperationEnabled("getSLOHistory", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("getSLOHistory", true);
         api = new ServiceLevelObjectivesApi(generalApiClient);
         unitApi = new ServiceLevelObjectivesApi(generalApiUnitTestClient);
         fakeAuthApi = new ServiceLevelObjectivesApi(generalFakeAuthApiClient);
         mApi = new MonitorsApi(generalApiClient);
+
     }
 
     @After

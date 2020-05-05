@@ -114,7 +114,7 @@ public class MonitorsApiTest extends V1ApiTest {
 
         // test updating monitor
         MonitorUpdateRequest updateMonitor = new MonitorUpdateRequest();
-        updateMonitor.setName("New Name");
+        updateMonitor.setName("New name");
         obtained = api.updateMonitor(monitorId).body(updateMonitor).execute();
 
         assertEquals("New name", obtained.getName());
