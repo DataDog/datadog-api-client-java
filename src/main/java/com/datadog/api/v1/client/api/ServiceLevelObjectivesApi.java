@@ -17,6 +17,7 @@ import com.datadog.api.v1.client.model.SLOListResponse;
 import com.datadog.api.v1.client.model.SLOResponse;
 import com.datadog.api.v1.client.model.SLOTimeframe;
 import com.datadog.api.v1.client.model.ServiceLevelObjective;
+import com.datadog.api.v1.client.model.ServiceLevelObjectiveRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -154,7 +155,7 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
     return new APIcheckCanDeleteSLORequest();
   }
 
-private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective body) throws ApiException {
+private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjectiveRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'body' is set
@@ -195,7 +196,7 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
   }
 
   public class APIcreateSLORequest {
-    private ServiceLevelObjective body;
+    private ServiceLevelObjectiveRequest body;
 
     private APIcreateSLORequest() {
     }
@@ -206,7 +207,7 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
      * @param body Service level objective request object. (required)
      * @return APIcreateSLORequest
      */
-    public APIcreateSLORequest body(ServiceLevelObjective body) {
+    public APIcreateSLORequest body(ServiceLevelObjectiveRequest body) {
       this.body = body;
       return this;
     }
@@ -262,7 +263,7 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
     return new APIcreateSLORequest();
   }
 
-private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId) throws ApiException {
+private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId, String force) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'sloId' is set
@@ -280,6 +281,7 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId) throw
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "force", force));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteSLO");
@@ -305,9 +307,21 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId) throw
 
   public class APIdeleteSLORequest {
     private String sloId;
+    private String force;
 
     private APIdeleteSLORequest(String sloId) {
       this.sloId = sloId;
+    }
+    
+
+    /**
+     * Set force
+     * @param force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). (optional)
+     * @return APIdeleteSLORequest
+     */
+    public APIdeleteSLORequest force(String force) {
+      this.force = force;
+      return this;
     }
     
 
@@ -346,7 +360,7 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId) throw
      */
     
     public ApiResponse<SLODeleteResponse> executeWithHttpInfo() throws ApiException {
-      return deleteSLOWithHttpInfo(sloId);
+      return deleteSLOWithHttpInfo(sloId, force);
     }
   }
 
@@ -707,6 +721,12 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
    */
   
   public APIgetSLOHistoryRequest getSLOHistory(String sloId) throws ApiException {
+    String operationId = "getSLOHistory";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIgetSLOHistoryRequest(sloId);
   }
 

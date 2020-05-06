@@ -167,6 +167,7 @@ public class ApiClient {
     put("getLogsIndex", false);
     put("listLogIndexes", false);
     put("updateLogsIndex", false);
+    put("getSLOHistory", false);
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
