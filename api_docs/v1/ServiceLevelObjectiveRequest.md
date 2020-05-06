@@ -1,6 +1,6 @@
 
 
-# ServiceLevelObjective
+# ServiceLevelObjectiveRequest
 
 A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
 ## Properties
@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **id** | **String** | A unique identifier for the service level objective object.  Always included in service level objective responses. |  [optional] [readonly]
 **modifiedAt** | **Long** | Modification timestamp (UNIX time in seconds)  Always included in service level objective responses. |  [optional] [readonly]
 **monitorIds** | **List&lt;Long&gt;** | A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is &#x60;monitor&#x60;**. |  [optional]
-**monitorTags** | **List&lt;String&gt;** | The union of monitor tags for all monitors referenced by the &#x60;monitor_ids&#x60; field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the &#x60;monitor_ids&#x60; field). |  [optional]
 **name** | **String** | The name of the service level objective object. | 
 **query** | [**ServiceLevelObjectiveQuery**](ServiceLevelObjectiveQuery.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** | A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests. |  [optional]

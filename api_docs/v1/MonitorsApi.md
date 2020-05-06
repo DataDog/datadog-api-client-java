@@ -172,7 +172,7 @@ Example: `events('sources:nagios status:error,warning priority:normal tags: "str
 - **`tags`** event tags (comma-separated).
 - **`excluded_tags`** excluded event tags (comma-separated).
 - **`rollup`** the stats roll-up method. `count` is the only supported method now.
-- **`last`** the timeframe to roll up the counts. Examples: 60s, 4h. Supported timeframes: s, m, h and d.
+- **`last`** the timeframe to roll up the counts. Examples: 60s, 4h. Supported timeframes: s, m, h and d. This value should not exceed 48 hours.
 
 **Process Alert Query**
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 ## deleteMonitor
 
-> DeletedMonitor deleteMonitor(monitorId).execute();
+> DeletedMonitor deleteMonitor(monitorId).force(force).execute();
 
 Delete a monitor
 
@@ -318,8 +318,10 @@ public class Example {
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Long monitorId = 56L; // Long | The ID of the monitor.
+        String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
             DeletedMonitor result = api.deleteMonitor(monitorId)
+                .force(force)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -339,6 +341,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **monitorId** | **Long**| The ID of the monitor. |
+ **force** | **String**| Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional]
 
 ### Return type
 
@@ -586,7 +589,7 @@ public class Example {
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Long monitorId = 56L; // Long | The ID of the monitor.
-        Monitor body = new Monitor(); // Monitor | Edit a monitor request body.
+        MonitorUpdateRequest body = new MonitorUpdateRequest(); // MonitorUpdateRequest | Edit a monitor request body.
         try {
             Monitor result = api.updateMonitor(monitorId)
                 .body(body)
@@ -609,7 +612,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **monitorId** | **Long**| The ID of the monitor. |
- **body** | [**Monitor**](Monitor.md)| Edit a monitor request body. |
+ **body** | [**MonitorUpdateRequest**](MonitorUpdateRequest.md)| Edit a monitor request body. |
 
 ### Return type
 

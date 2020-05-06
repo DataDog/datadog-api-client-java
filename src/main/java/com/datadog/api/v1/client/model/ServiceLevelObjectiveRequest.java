@@ -35,22 +35,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).")
 @JsonPropertyOrder({
-  ServiceLevelObjective.JSON_PROPERTY_CREATED_AT,
-  ServiceLevelObjective.JSON_PROPERTY_CREATOR,
-  ServiceLevelObjective.JSON_PROPERTY_DESCRIPTION,
-  ServiceLevelObjective.JSON_PROPERTY_GROUPS,
-  ServiceLevelObjective.JSON_PROPERTY_ID,
-  ServiceLevelObjective.JSON_PROPERTY_MODIFIED_AT,
-  ServiceLevelObjective.JSON_PROPERTY_MONITOR_IDS,
-  ServiceLevelObjective.JSON_PROPERTY_MONITOR_TAGS,
-  ServiceLevelObjective.JSON_PROPERTY_NAME,
-  ServiceLevelObjective.JSON_PROPERTY_QUERY,
-  ServiceLevelObjective.JSON_PROPERTY_TAGS,
-  ServiceLevelObjective.JSON_PROPERTY_THRESHOLDS,
-  ServiceLevelObjective.JSON_PROPERTY_TYPE
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_CREATED_AT,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_CREATOR,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_DESCRIPTION,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_GROUPS,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_ID,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_MODIFIED_AT,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_MONITOR_IDS,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_NAME,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_QUERY,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_TAGS,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_THRESHOLDS,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_TYPE
 })
 
-public class ServiceLevelObjective {
+public class ServiceLevelObjectiveRequest {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private Long createdAt;
 
@@ -71,9 +70,6 @@ public class ServiceLevelObjective {
 
   public static final String JSON_PROPERTY_MONITOR_IDS = "monitor_ids";
   private List<Long> monitorIds = null;
-
-  public static final String JSON_PROPERTY_MONITOR_TAGS = "monitor_tags";
-  private List<String> monitorTags = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -107,7 +103,7 @@ public class ServiceLevelObjective {
 
 
 
-  public ServiceLevelObjective creator(Creator creator) {
+  public ServiceLevelObjectiveRequest creator(Creator creator) {
     
     this.creator = creator;
     return this;
@@ -132,7 +128,7 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective description(String description) {
+  public ServiceLevelObjectiveRequest description(String description) {
     this.description = JsonNullable.<String>of(description);
     
     return this;
@@ -167,13 +163,13 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective groups(List<String> groups) {
+  public ServiceLevelObjectiveRequest groups(List<String> groups) {
     
     this.groups = groups;
     return this;
   }
 
-  public ServiceLevelObjective addGroupsItem(String groupsItem) {
+  public ServiceLevelObjectiveRequest addGroupsItem(String groupsItem) {
     if (this.groups == null) {
       this.groups = new ArrayList<>();
     }
@@ -232,13 +228,13 @@ public class ServiceLevelObjective {
 
 
 
-  public ServiceLevelObjective monitorIds(List<Long> monitorIds) {
+  public ServiceLevelObjectiveRequest monitorIds(List<Long> monitorIds) {
     
     this.monitorIds = monitorIds;
     return this;
   }
 
-  public ServiceLevelObjective addMonitorIdsItem(Long monitorIdsItem) {
+  public ServiceLevelObjectiveRequest addMonitorIdsItem(Long monitorIdsItem) {
     if (this.monitorIds == null) {
       this.monitorIds = new ArrayList<>();
     }
@@ -265,40 +261,7 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective monitorTags(List<String> monitorTags) {
-    
-    this.monitorTags = monitorTags;
-    return this;
-  }
-
-  public ServiceLevelObjective addMonitorTagsItem(String monitorTagsItem) {
-    if (this.monitorTags == null) {
-      this.monitorTags = new ArrayList<>();
-    }
-    this.monitorTags.add(monitorTagsItem);
-    return this;
-  }
-
-   /**
-   * The union of monitor tags for all monitors referenced by the &#x60;monitor_ids&#x60; field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the &#x60;monitor_ids&#x60; field).
-   * @return monitorTags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The union of monitor tags for all monitors referenced by the `monitor_ids` field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the `monitor_ids` field).")
-  @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getMonitorTags() {
-    return monitorTags;
-  }
-
-
-  public void setMonitorTags(List<String> monitorTags) {
-    this.monitorTags = monitorTags;
-  }
-
-
-  public ServiceLevelObjective name(String name) {
+  public ServiceLevelObjectiveRequest name(String name) {
     
     this.name = name;
     return this;
@@ -322,7 +285,7 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective query(ServiceLevelObjectiveQuery query) {
+  public ServiceLevelObjectiveRequest query(ServiceLevelObjectiveQuery query) {
     
     this.query = query;
     return this;
@@ -347,13 +310,13 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective tags(List<String> tags) {
+  public ServiceLevelObjectiveRequest tags(List<String> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public ServiceLevelObjective addTagsItem(String tagsItem) {
+  public ServiceLevelObjectiveRequest addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -380,13 +343,13 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective thresholds(List<SLOThreshold> thresholds) {
+  public ServiceLevelObjectiveRequest thresholds(List<SLOThreshold> thresholds) {
     
     this.thresholds = thresholds;
     return this;
   }
 
-  public ServiceLevelObjective addThresholdsItem(SLOThreshold thresholdsItem) {
+  public ServiceLevelObjectiveRequest addThresholdsItem(SLOThreshold thresholdsItem) {
     this.thresholds.add(thresholdsItem);
     return this;
   }
@@ -409,7 +372,7 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective type(SLOType type) {
+  public ServiceLevelObjectiveRequest type(SLOType type) {
     
     this.type = type;
     return this;
@@ -441,32 +404,31 @@ public class ServiceLevelObjective {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceLevelObjective serviceLevelObjective = (ServiceLevelObjective) o;
-    return Objects.equals(this.createdAt, serviceLevelObjective.createdAt) &&
-        Objects.equals(this.creator, serviceLevelObjective.creator) &&
-        Objects.equals(this.description, serviceLevelObjective.description) &&
-        Objects.equals(this.groups, serviceLevelObjective.groups) &&
-        Objects.equals(this.id, serviceLevelObjective.id) &&
-        Objects.equals(this.modifiedAt, serviceLevelObjective.modifiedAt) &&
-        Objects.equals(this.monitorIds, serviceLevelObjective.monitorIds) &&
-        Objects.equals(this.monitorTags, serviceLevelObjective.monitorTags) &&
-        Objects.equals(this.name, serviceLevelObjective.name) &&
-        Objects.equals(this.query, serviceLevelObjective.query) &&
-        Objects.equals(this.tags, serviceLevelObjective.tags) &&
-        Objects.equals(this.thresholds, serviceLevelObjective.thresholds) &&
-        Objects.equals(this.type, serviceLevelObjective.type);
+    ServiceLevelObjectiveRequest serviceLevelObjectiveRequest = (ServiceLevelObjectiveRequest) o;
+    return Objects.equals(this.createdAt, serviceLevelObjectiveRequest.createdAt) &&
+        Objects.equals(this.creator, serviceLevelObjectiveRequest.creator) &&
+        Objects.equals(this.description, serviceLevelObjectiveRequest.description) &&
+        Objects.equals(this.groups, serviceLevelObjectiveRequest.groups) &&
+        Objects.equals(this.id, serviceLevelObjectiveRequest.id) &&
+        Objects.equals(this.modifiedAt, serviceLevelObjectiveRequest.modifiedAt) &&
+        Objects.equals(this.monitorIds, serviceLevelObjectiveRequest.monitorIds) &&
+        Objects.equals(this.name, serviceLevelObjectiveRequest.name) &&
+        Objects.equals(this.query, serviceLevelObjectiveRequest.query) &&
+        Objects.equals(this.tags, serviceLevelObjectiveRequest.tags) &&
+        Objects.equals(this.thresholds, serviceLevelObjectiveRequest.thresholds) &&
+        Objects.equals(this.type, serviceLevelObjectiveRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, creator, description, groups, id, modifiedAt, monitorIds, monitorTags, name, query, tags, thresholds, type);
+    return Objects.hash(createdAt, creator, description, groups, id, modifiedAt, monitorIds, name, query, tags, thresholds, type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceLevelObjective {\n");
+    sb.append("class ServiceLevelObjectiveRequest {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -474,7 +436,6 @@ public class ServiceLevelObjective {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    monitorIds: ").append(toIndentedString(monitorIds)).append("\n");
-    sb.append("    monitorTags: ").append(toIndentedString(monitorTags)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
