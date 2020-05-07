@@ -8,7 +8,7 @@ Use this processor if you want to assign one or more attributes as the official 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sources** | **List&lt;String&gt;** | Array of source attributes. | 
-**type** | **String** | Type of processor. |  [optional] [readonly]
+**type** | **String** | Type of processor. |  [readonly]
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
 

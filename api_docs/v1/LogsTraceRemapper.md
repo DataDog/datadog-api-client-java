@@ -8,7 +8,7 @@ There are two ways to improve correlation between application traces and logs.  
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sources** | **List&lt;String&gt;** | Array of source attributes. |  [optional]
-**type** | **String** | Type of processor. |  [optional] [readonly]
+**type** | **String** | Type of processor. |  [readonly]
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
 

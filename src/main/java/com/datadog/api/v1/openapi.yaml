@@ -2255,6 +2255,7 @@ components:
       required:
       - target
       - expression
+      - type
       type: object
     LogsAttributeRemapper:
       description: 'The remapper processor remaps any source attribute(s) or tag to
@@ -2300,6 +2301,7 @@ components:
       required:
       - sources
       - target
+      - type
       type: object
     LogsCategoryProcessor:
       description: "Use the Category Processor to add a new attribute (without spaces\
@@ -2340,6 +2342,7 @@ components:
       required:
       - categories
       - target
+      - type
       type: object
     LogsDateRemapper:
       description: "As Datadog receives logs, it timestamps them using the value(s)\
@@ -2367,6 +2370,7 @@ components:
           type: string
       required:
       - sources
+      - type
       type: object
     LogsExclusion:
       description: Represents the index exclusion filter object from configuration
@@ -2441,6 +2445,7 @@ components:
       required:
       - sources
       - target
+      - type
       type: object
     LogsGrokParser:
       description: 'Create custom grok rules to parse the full message or [a specific
@@ -2470,6 +2475,7 @@ components:
       required:
       - source
       - grok
+      - type
       type: object
     LogsGrokParserRules:
       description: Set of rules for the grok parser.
@@ -2681,6 +2687,7 @@ components:
       - source
       - target
       - lookup_table
+      - type
       type: object
     LogsMessageRemapper:
       description: 'The message is a key attribute in Datadog.
@@ -2711,6 +2718,7 @@ components:
           type: string
       required:
       - sources
+      - type
       type: object
     LogsPipeline:
       description: 'Pipelines and processors operate on incoming logs,
@@ -2781,6 +2789,8 @@ components:
           description: Type of processor.
           readOnly: true
           type: string
+      required:
+      - type
       type: object
     LogsPipelinesOrder:
       description: Object containing the ordered list of pipeline IDs.
@@ -2884,6 +2894,7 @@ components:
           type: string
       required:
       - sources
+      - type
       type: object
     LogsSort:
       description: Time-ascending `asc` or time-descending `desc`results.
@@ -2924,6 +2935,7 @@ components:
           type: string
       required:
       - sources
+      - type
       type: object
     LogsStringBuilderProcessor:
       description: "Use the string builder processor to add a new attribute (without\
@@ -2959,6 +2971,7 @@ components:
       required:
       - target
       - template
+      - type
       type: object
     LogsTraceRemapper:
       description: "There are two ways to improve correlation between application\
@@ -2981,6 +2994,8 @@ components:
           description: Type of processor.
           readOnly: true
           type: string
+      required:
+      - type
       type: object
     LogsURLParser:
       description: This processor extracts query parameters and other important parameters
@@ -3012,6 +3027,7 @@ components:
       required:
       - sources
       - target
+      - type
       type: object
     LogsUserAgentParser:
       description: 'The User-Agent parser takes a User-Agent attribute and extracts
@@ -3044,6 +3060,7 @@ components:
       required:
       - sources
       - target
+      - type
       type: object
     MetricMetadata:
       description: Object with all metric related metadata.
