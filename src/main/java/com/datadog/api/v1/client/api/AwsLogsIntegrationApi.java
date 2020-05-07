@@ -137,7 +137,7 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(AW
 
   /**
    * Check that an AWS Lambda Function exists
-   * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking. - Returns a status of &#39;created&#39; when it&#39;s checking if the Lambda exists in the account. - Returns a status of &#39;waiting&#39; while checking. - Returns a status of &#39;checked and ok&#39; if the Lambda exists. - Returns a status of &#39;error&#39; if the Lambda does not exist.
+   * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.  - Returns a status of &#39;created&#39; when it&#39;s checking if the Lambda exists in the account. - Returns a status of &#39;waiting&#39; while checking. - Returns a status of &#39;checked and ok&#39; if the Lambda exists. - Returns a status of &#39;error&#39; if the Lambda does not exist.
    * @return checkAWSLogsLambdaAsyncRequest
    * @throws ApiException if fails to make API call
    
@@ -569,7 +569,7 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
 
   /**
    * Enable an AWS Logs integration
-   * Enable automatic log collection for a list of services. This should be run after running &#x60;CreateAWSLambdaARN&#x60; to save the config.
+   * Enable automatic log collection for a list of services. This should be run after running &#x60;CreateAWSLambdaARN&#x60; to save the configuration.
    * @return enableAWSLogServicesRequest
    * @throws ApiException if fails to make API call
    

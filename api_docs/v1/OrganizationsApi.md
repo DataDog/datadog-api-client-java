@@ -57,7 +57,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
-        OrganizationCreateBody body = new OrganizationCreateBody(); // OrganizationCreateBody | Organisation object that needs to be created
+        OrganizationCreateBody body = new OrganizationCreateBody(); // OrganizationCreateBody | Organization object that needs to be created
         try {
             OrganizationCreateResponse result = api.createChildOrg()
                 .body(body)
@@ -79,7 +79,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md)| Organisation object that needs to be created |
+ **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md)| Organization object that needs to be created |
 
 ### Return type
 

@@ -17,6 +17,8 @@
 
 * `QUERY_ALERT` (value: `"query alert"`)
 
+* `RUM_ALERT` (value: `"rum alert"`)
+
 * `SERVICE_CHECK` (value: `"service check"`)
 
 * `SYNTHETICS_ALERT` (value: `"synthetics alert"`)

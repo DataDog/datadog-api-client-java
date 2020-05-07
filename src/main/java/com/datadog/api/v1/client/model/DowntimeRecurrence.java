@@ -113,11 +113,11 @@ public class DowntimeRecurrence {
   }
 
    /**
-   * The date at which the recurrence should end as a POSIX timestmap. &#x60;until_occurences&#x60; and &#x60;until_date&#x60; are mutually exclusive.
+   * The date at which the recurrence should end as a POSIX timestamp. &#x60;until_occurences&#x60; and &#x60;until_date&#x60; are mutually exclusive.
    * @return untilDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1447786293", value = "The date at which the recurrence should end as a POSIX timestmap. `until_occurences` and `until_date` are mutually exclusive.")
+  @ApiModelProperty(example = "1447786293", value = "The date at which the recurrence should end as a POSIX timestamp. `until_occurences` and `until_date` are mutually exclusive.")
   @JsonIgnore
 
   public Long getUntilDate() {

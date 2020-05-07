@@ -288,11 +288,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * TODO.
+   * The associated monitor ID.
    * @return monitorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The associated monitor ID.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

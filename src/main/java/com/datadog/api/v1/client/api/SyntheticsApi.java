@@ -233,7 +233,7 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
        </table>
@@ -252,7 +252,7 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
        </table>
@@ -1051,7 +1051,7 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> - JSON format is wrong - Updating subtype is forbidden </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
        </table>
@@ -1070,7 +1070,7 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> - JSON format is wrong - Updating subtype is forbidden </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
        </table>

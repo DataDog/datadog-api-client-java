@@ -84,8 +84,13 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
             try {
                 AWSApi.deleteAWSAccount().body(uniqueAWSAccount).execute();
             } catch (ApiException e) {
-                System.out.println(String.format("Error deleting AWS Account: %s", e));
-                return false;
+                if(e.getCode() == 400) {
+                    System.out.println(String.format("Error deleting AWS Account: %s. The test was likely a unit test", e));
+                    return true;
+                } else {
+                    System.out.println(String.format("Error deleting AWS Account: %s", e));
+                    return false;
+                }
             }
             return true;
         });

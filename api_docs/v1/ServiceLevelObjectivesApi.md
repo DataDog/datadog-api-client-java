@@ -134,7 +134,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | Service level objective request object.
+        ServiceLevelObjectiveRequest body = new ServiceLevelObjectiveRequest(); // ServiceLevelObjectiveRequest | Service level objective request object.
         try {
             SLOListResponse result = api.createSLO()
                 .body(body)
@@ -156,7 +156,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ServiceLevelObjective**](ServiceLevelObjective.md)| Service level objective request object. |
+ **body** | [**ServiceLevelObjectiveRequest**](ServiceLevelObjectiveRequest.md)| Service level objective request object. |
 
 ### Return type
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ## deleteSLO
 
-> SLODeleteResponse deleteSLO(sloId).execute();
+> SLODeleteResponse deleteSLO(sloId).force(force).execute();
 
 Delete a SLO
 
@@ -219,8 +219,10 @@ public class Example {
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective.
+        String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
             SLODeleteResponse result = api.deleteSLO(sloId)
+                .force(force)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -240,6 +242,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sloId** | **String**| The ID of the service level objective. |
+ **force** | **String**| Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional]
 
 ### Return type
 

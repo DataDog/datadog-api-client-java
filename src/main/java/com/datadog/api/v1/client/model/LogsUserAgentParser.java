@@ -69,11 +69,11 @@ public class LogsUserAgentParser implements LogsProcessor {
   }
 
    /**
-   * Define if the source attribute is url encoded or not.
+   * Define if the source attribute is URL encoded or not.
    * @return isEncoded
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Define if the source attribute is url encoded or not.")
+  @ApiModelProperty(value = "Define if the source attribute is URL encoded or not.")
   @JsonProperty(JSON_PROPERTY_IS_ENCODED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -144,10 +144,9 @@ public class LogsUserAgentParser implements LogsProcessor {
    * Type of processor.
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor.")
+  @ApiModelProperty(required = true, value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
     return type;

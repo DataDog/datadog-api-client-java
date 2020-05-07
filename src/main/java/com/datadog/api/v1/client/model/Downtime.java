@@ -117,11 +117,11 @@ public class Downtime {
 
 
    /**
-   * If a scheduled downtime is cancelled.
+   * If a scheduled downtime is canceled.
    * @return canceled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1412799983", value = "If a scheduled downtime is cancelled.")
+  @ApiModelProperty(example = "1412799983", value = "If a scheduled downtime is canceled.")
   @JsonIgnore
 
   public Long getCanceled() {

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The type of the monitor.
+ * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
  */
 public enum MonitorType {
   
@@ -35,6 +35,8 @@ public enum MonitorType {
   PROCESS_ALERT("process alert"),
   
   QUERY_ALERT("query alert"),
+  
+  RUM_ALERT("rum alert"),
   
   SERVICE_CHECK("service check"),
   

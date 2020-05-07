@@ -20,7 +20,10 @@ Method | HTTP request | Description
 
 Check that an AWS Lambda Function exists
 
-Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.
+Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
+is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
+endpoint can be polled intermittently instead of blocking.
+
 - Returns a status of 'created' when it's checking if the Lambda exists in the account.
 - Returns a status of 'waiting' while checking.
 - Returns a status of 'checked and ok' if the Lambda exists.
@@ -357,7 +360,7 @@ Name | Type | Description  | Notes
 
 Enable an AWS Logs integration
 
-Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the config.
+Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
 
 ### Example
 

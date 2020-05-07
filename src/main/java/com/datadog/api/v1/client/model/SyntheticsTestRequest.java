@@ -161,11 +161,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * Host name to perfrom the test with.
+   * Host name to perform the test with.
    * @return host
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host name to perfrom the test with.")
+  @ApiModelProperty(value = "Host name to perform the test with.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
