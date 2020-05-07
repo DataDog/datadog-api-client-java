@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **sources** | **List&lt;String&gt;** | Array of source attributes. | 
 **target** | **String** | Final attribute or tag name to remap the sources to. | 
 **targetType** | **String** | Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;. |  [optional]
-**type** | **String** | Type of processor. |  [optional] [readonly]
+**type** | **String** | Type of processor. |  [readonly]
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
 
