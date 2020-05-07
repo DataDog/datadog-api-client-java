@@ -146,20 +146,6 @@ public class MonitorOptions {
   }
 
 
-  public MonitorOptions deviceIds(List<MonitorDeviceID> deviceIds) {
-    
-    this.deviceIds = deviceIds;
-    return this;
-  }
-
-  public MonitorOptions addDeviceIdsItem(MonitorDeviceID deviceIdsItem) {
-    if (this.deviceIds == null) {
-      this.deviceIds = new ArrayList<>();
-    }
-    this.deviceIds.add(deviceIdsItem);
-    return this;
-  }
-
    /**
    * IDs of the device the Synthetics monitor is running on.
    * @return deviceIds
@@ -174,9 +160,6 @@ public class MonitorOptions {
   }
 
 
-  public void setDeviceIds(List<MonitorDeviceID> deviceIds) {
-    this.deviceIds = deviceIds;
-  }
 
 
   public MonitorOptions enableLogsSample(Boolean enableLogsSample) {
@@ -296,11 +279,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Wether or not the monitor is locked (only editable by creator and admins).
+   * Whether or not the monitor is locked (only editable by creator and admins).
    * @return locked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Wether or not the monitor is locked (only editable by creator and admins).")
+  @ApiModelProperty(value = "Whether or not the monitor is locked (only editable by creator and admins).")
   @JsonProperty(JSON_PROPERTY_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

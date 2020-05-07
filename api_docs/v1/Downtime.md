@@ -8,7 +8,7 @@ Downtiming gives you greater control over monitor notifications by allowing you 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **Boolean** | If a scheduled downtime currently exists. |  [optional] [readonly]
-**canceled** | **Long** | If a scheduled downtime is cancelled. |  [optional] [readonly]
+**canceled** | **Long** | If a scheduled downtime is canceled. |  [optional] [readonly]
 **creatorId** | **Integer** | User ID of the downtime creator. |  [optional] [readonly]
 **disabled** | **Boolean** | If a downtime has been disabled. |  [optional]
 **downtimeType** | **Integer** | &#x60;0&#x60; for a downtime applied on &#x60;*&#x60; or all, &#x60;1&#x60; when the downtime is only scoped to hosts, or &#x60;2&#x60; when the downtime is scoped to anything but hosts. |  [optional] [readonly]

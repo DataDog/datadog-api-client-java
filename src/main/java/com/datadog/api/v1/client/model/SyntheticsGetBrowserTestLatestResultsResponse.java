@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Object with the latest Synthetic broser test run.
+ * Object with the latest Synthetic browser test run.
  */
-@ApiModel(description = "Object with the latest Synthetic broser test run.")
+@ApiModel(description = "Object with the latest Synthetic browser test run.")
 @JsonPropertyOrder({
   SyntheticsGetBrowserTestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
   SyntheticsGetBrowserTestLatestResultsResponse.JSON_PROPERTY_RESULTS

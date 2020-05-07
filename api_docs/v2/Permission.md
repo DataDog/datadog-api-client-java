@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**PermissionAttributes**](PermissionAttributes.md) |  |  [optional]
 **id** | **String** | ID of the permission. |  [optional]
-**type** | **String** | Permissions resource type. |  [optional] [readonly]
+**type** | **String** | Permissions resource type. |  [readonly]
 
 
 ## Implemented Interfaces

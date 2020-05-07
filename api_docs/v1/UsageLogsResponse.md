@@ -7,7 +7,7 @@ Response containing the number of logs for each hour.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usage** | [**List&lt;UsageLogsHour&gt;**](UsageLogsHour.md) | An array of objects regarding hourly useage of logs. |  [optional]
+**usage** | [**List&lt;UsageLogsHour&gt;**](UsageLogsHour.md) | An array of objects regarding hourly usage of logs. |  [optional]
 
 
 

@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Represents the index exclusion filter object from config API.
+ * Represents the index exclusion filter object from configuration API.
  */
-@ApiModel(description = "Represents the index exclusion filter object from config API.")
+@ApiModel(description = "Represents the index exclusion filter object from configuration API.")
 @JsonPropertyOrder({
   LogsExclusion.JSON_PROPERTY_FILTER,
   LogsExclusion.JSON_PROPERTY_IS_ENABLED,

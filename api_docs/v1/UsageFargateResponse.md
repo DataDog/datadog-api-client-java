@@ -2,7 +2,7 @@
 
 # UsageFargateResponse
 
-Response containing the number of Fargate tasks run and hourly useage.
+Response containing the number of Fargate tasks run and hourly usage.
 ## Properties
 
 Name | Type | Description | Notes

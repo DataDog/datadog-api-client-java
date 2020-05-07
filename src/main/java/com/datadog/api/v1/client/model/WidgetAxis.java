@@ -157,11 +157,11 @@ public class WidgetAxis {
   }
 
    /**
-   * Specifies the scale type. Possible values are linear, log, sqrt, pow## (eg. pow2, pow0.5..).
+   * Specifies the scale type. Possible values are &#x60;linear&#x60;, &#x60;log&#x60;, &#x60;sqrt&#x60;, &#x60;pow##&#x60; (e.g. &#x60;pow2&#x60;, &#x60;pow0.5&#x60; etc.).
    * @return scale
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the scale type. Possible values are linear, log, sqrt, pow## (eg. pow2, pow0.5..).")
+  @ApiModelProperty(value = "Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (e.g. `pow2`, `pow0.5` etc.).")
   @JsonProperty(JSON_PROPERTY_SCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

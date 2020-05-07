@@ -52,11 +52,11 @@ public class UsageLogsResponse {
   }
 
    /**
-   * An array of objects regarding hourly useage of logs.
+   * An array of objects regarding hourly usage of logs.
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of objects regarding hourly useage of logs.")
+  @ApiModelProperty(value = "An array of objects regarding hourly usage of logs.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

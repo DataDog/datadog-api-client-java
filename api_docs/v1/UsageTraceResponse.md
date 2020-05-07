@@ -2,7 +2,7 @@
 
 # UsageTraceResponse
 
-TODO.
+A response containing trace usage.
 ## Properties
 
 Name | Type | Description | Notes

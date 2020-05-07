@@ -130,10 +130,9 @@ public class Role implements UserResponseIncludedItem {
    * Roles type.
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Roles type.")
+  @ApiModelProperty(required = true, value = "Roles type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
     return type;

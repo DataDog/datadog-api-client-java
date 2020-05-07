@@ -282,11 +282,11 @@ public class OrganizationSettings {
   }
 
    /**
-   * URL for SAML loging.
+   * URL for SAML logging.
    * @return samlLoginUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://my.saml.login.url", value = "URL for SAML loging.")
+  @ApiModelProperty(example = "https://my.saml.login.url", value = "URL for SAML logging.")
   @JsonProperty(JSON_PROPERTY_SAML_LOGIN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

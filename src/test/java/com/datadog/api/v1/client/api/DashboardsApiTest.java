@@ -42,7 +42,7 @@ public class DashboardsApiTest extends V1ApiTest{
     private List<String> cleanupDashIDs = new ArrayList<>();
     private String deleteSLO = null;
     private final Dashboard emptyDashboard = new Dashboard();
-    private final ServiceLevelObjective eventSLO = new ServiceLevelObjective()
+    private final ServiceLevelObjectiveRequest eventSLO = new ServiceLevelObjectiveRequest()
             .type(SLOType.METRIC)
             .name("HTTP Return Codes")
             .description("Make sure we don't have too many failed HTTP responses")

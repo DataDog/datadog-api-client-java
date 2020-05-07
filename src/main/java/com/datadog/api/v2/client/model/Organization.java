@@ -100,10 +100,9 @@ public class Organization implements UserResponseIncludedItem {
    * Organizations resource type.
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Organizations resource type.")
+  @ApiModelProperty(required = true, value = "Organizations resource type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
     return type;
