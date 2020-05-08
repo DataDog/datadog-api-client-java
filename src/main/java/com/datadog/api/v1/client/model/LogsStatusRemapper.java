@@ -87,10 +87,9 @@ public class LogsStatusRemapper implements LogsProcessor {
    * Type of processor.
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor.")
+  @ApiModelProperty(required = true, value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
     return type;

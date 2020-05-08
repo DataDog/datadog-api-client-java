@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **expression** | **String** | Arithmetic operation between one or more log attributes. | 
 **isReplaceMissing** | **Boolean** | If &#x60;true&#x60;, it replaces all missing attributes of expression by &#x60;0&#x60;, &#x60;false&#x60; skip the operation if an attribute is missing. |  [optional]
 **target** | **String** | Name of the attribute that contains the result of the arithmetic operation. | 
-**type** | **String** | Type of processor |  [optional] [readonly]
+**type** | **String** | Type of processor |  [readonly]
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
 

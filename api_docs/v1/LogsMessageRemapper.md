@@ -8,7 +8,7 @@ The message is a key attribute in Datadog. It is displayed in the message column
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sources** | **List&lt;String&gt;** | Array of source attributes. | 
-**type** | **String** | Type of processor. |  [optional] [readonly]
+**type** | **String** | Type of processor. |  [readonly]
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
 
