@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Response object for deleting Synthetic test.
+ * Response object for deleting Synthetic tests.
  */
-@ApiModel(description = "Response object for deleting Synthetic test.")
+@ApiModel(description = "Response object for deleting Synthetic tests.")
 @JsonPropertyOrder({
   SyntheticsDeleteTestsResponse.JSON_PROPERTY_DELETED_TESTS
 })
