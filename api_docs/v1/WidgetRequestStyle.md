@@ -1,8 +1,8 @@
 
 
-# TimeseriesWidgetRequestStyle
+# WidgetRequestStyle
 
-Define widget style.
+Define request widget style.
 ## Properties
 
 Name | Type | Description | Notes

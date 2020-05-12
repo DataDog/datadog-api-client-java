@@ -23,9 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Number of Synthetics API tests run for each hour for a given organization.
+ * The number of synthetics tests run for each hour for a given organization.
  */
-@ApiModel(description = "Number of Synthetics API tests run for each hour for a given organization.")
+@ApiModel(description = "The number of synthetics tests run for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageSyntheticsHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
   UsageSyntheticsHour.JSON_PROPERTY_HOUR
