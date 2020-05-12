@@ -33,9 +33,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Object describing a monitor.
+ * Object describing a monitor update request.
  */
-@ApiModel(description = "Object describing a monitor.")
+@ApiModel(description = "Object describing a monitor update request.")
 @JsonPropertyOrder({
   MonitorUpdateRequest.JSON_PROPERTY_CREATED,
   MonitorUpdateRequest.JSON_PROPERTY_CREATOR,

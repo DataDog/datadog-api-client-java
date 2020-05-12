@@ -2,7 +2,7 @@
 
 # OrganizationSubscription
 
-A JSON array of subscription type.
+Subscription definition.
 ## Properties
 
 Name | Type | Description | Notes

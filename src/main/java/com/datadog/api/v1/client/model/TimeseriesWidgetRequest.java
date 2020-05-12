@@ -17,8 +17,8 @@ import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
 import com.datadog.api.v1.client.model.TimeseriesWidgetRequestMetadata;
-import com.datadog.api.v1.client.model.TimeseriesWidgetRequestStyle;
 import com.datadog.api.v1.client.model.WidgetDisplayType;
+import com.datadog.api.v1.client.model.WidgetRequestStyle;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -75,7 +75,7 @@ public class TimeseriesWidgetRequest {
   private LogQueryDefinition rumQuery;
 
   public static final String JSON_PROPERTY_STYLE = "style";
-  private TimeseriesWidgetRequestStyle style;
+  private WidgetRequestStyle style;
 
 
   public TimeseriesWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
@@ -311,7 +311,7 @@ public class TimeseriesWidgetRequest {
   }
 
 
-  public TimeseriesWidgetRequest style(TimeseriesWidgetRequestStyle style) {
+  public TimeseriesWidgetRequest style(WidgetRequestStyle style) {
     
     this.style = style;
     return this;
@@ -326,12 +326,12 @@ public class TimeseriesWidgetRequest {
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TimeseriesWidgetRequestStyle getStyle() {
+  public WidgetRequestStyle getStyle() {
     return style;
   }
 
 
-  public void setStyle(TimeseriesWidgetRequestStyle style) {
+  public void setStyle(WidgetRequestStyle style) {
     this.style = style;
   }
 

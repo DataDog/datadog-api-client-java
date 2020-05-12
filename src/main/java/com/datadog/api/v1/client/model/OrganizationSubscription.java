@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A JSON array of subscription type.
+ * Subscription definition.
  */
-@ApiModel(description = "A JSON array of subscription type.")
+@ApiModel(description = "Subscription definition.")
 @JsonPropertyOrder({
   OrganizationSubscription.JSON_PROPERTY_TYPE
 })
