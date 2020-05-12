@@ -4,16 +4,16 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createTest**](SyntheticsApi.md#createTest) | **POST** /api/v1/synthetics/tests | Create or clone a test
-[**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete multiple tests
-[**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get test latest results (as summaries)
-[**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get test result (API)
-[**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get test latest results (as summaries)
-[**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get test result (browser)
-[**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get test
-[**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get a list of all tests
-[**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Update test
-[**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Change test pause/live status
+[**createTest**](SyntheticsApi.md#createTest) | **POST** /api/v1/synthetics/tests | Create a test
+[**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
+[**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
+[**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
+[**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test&#39;s latest results summaries (browser)
+[**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
+[**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration
+[**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get a list of tests
+[**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
+[**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
 
 
 
@@ -21,9 +21,9 @@ Method | HTTP request | Description
 
 > SyntheticsTestDetails createTest().body(body).fromTestId(fromTestId).execute();
 
-Create or clone a test
+Create a test
 
-Create (or clone) a Synthetics test.
+Create a Synthetic test.
 
 ### Example
 
@@ -96,8 +96,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns the created/cloned test details. |  -  |
-| **400** | - JSON format is wrong - Creation/cloning failed |  -  |
+| **200** | OK - Returns the created test details. |  -  |
+| **400** | - JSON format is wrong - Creation failed |  -  |
 | **402** | Test quota is reached |  -  |
 | **403** | Forbidden |  -  |
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 > SyntheticsDeleteTestsResponse deleteTests().body(body).execute();
 
-Delete multiple tests
+Delete tests
 
 Delete multiple Synthetic tests by ID.
 
@@ -138,7 +138,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        SyntheticsDeleteTestsPayload body = new SyntheticsDeleteTestsPayload(); // SyntheticsDeleteTestsPayload | Public ID list of the Synthetics tests to be deleted.
+        SyntheticsDeleteTestsPayload body = new SyntheticsDeleteTestsPayload(); // SyntheticsDeleteTestsPayload | Public ID list of the Synthetic tests to be deleted.
         try {
             SyntheticsDeleteTestsResponse result = api.deleteTests()
                 .body(body)
@@ -160,7 +160,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SyntheticsDeleteTestsPayload**](SyntheticsDeleteTestsPayload.md)| Public ID list of the Synthetics tests to be deleted. |
+ **body** | [**SyntheticsDeleteTestsPayload**](SyntheticsDeleteTestsPayload.md)| Public ID list of the Synthetic tests to be deleted. |
 
 ### Return type
 
@@ -188,9 +188,9 @@ Name | Type | Description  | Notes
 
 > SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(publicId).fromTs(fromTs).toTs(toTs).probeDc(probeDc).execute();
 
-Get test latest results (as summaries)
+Get the test&#39;s latest results summaries (API)
 
-Get the latest results (as summaries) from a given API Synthetic test.
+Get the last 50 test results summaries for a given Synthetics API test.
 
 ### Example
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 > SyntheticsAPITestResultFull getAPITestResult(publicId, resultId).execute();
 
-Get test result (API)
+Get a test result (API)
 
 Get a specific full result from a given (API) Synthetic test.
 
@@ -359,9 +359,9 @@ Name | Type | Description  | Notes
 
 > SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(publicId).fromTs(fromTs).toTs(toTs).probeDc(probeDc).execute();
 
-Get test latest results (as summaries)
+Get the test&#39;s latest results summaries (browser)
 
-Get the latest results (as summaries) from a given browser Synthetic test.
+Get the last 50 test results summaries for a given Synthetics Browser test.
 
 ### Example
 
@@ -448,7 +448,7 @@ Name | Type | Description  | Notes
 
 > SyntheticsBrowserTestResultFull getBrowserTestResult(publicId, resultId).execute();
 
-Get test result (browser)
+Get a test result (browser)
 
 Get a specific full result from a given (browser) Synthetic test.
 
@@ -530,9 +530,9 @@ Name | Type | Description  | Notes
 
 > SyntheticsTestDetails getTest(publicId).execute();
 
-Get test
+Get a test configuration
 
-Get the details of a specific Synthetic test.
+Get the detailed configuration associated with a Synthetics test.
 
 ### Example
 
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 
 > SyntheticsListTestsResponse listTests().checkType(checkType).execute();
 
-Get a list of all tests
+Get a list of tests
 
 Get the list of all Synthetic tests (can be filtered by type).
 
@@ -642,7 +642,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String checkType = "checkType_example"; // String | API or browser to filter the list by type, undefined to get the unfiltered list.
+        String checkType = "checkType_example"; // String | API or browser to filter the list by test type, undefined to get the unfiltered list.
         try {
             SyntheticsListTestsResponse result = api.listTests()
                 .checkType(checkType)
@@ -664,7 +664,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **checkType** | **String**| API or browser to filter the list by type, undefined to get the unfiltered list. | [optional]
+ **checkType** | **String**| API or browser to filter the list by test type, undefined to get the unfiltered list. | [optional]
 
 ### Return type
 
@@ -682,18 +682,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns the list of all Synthetic test (properly filtered by type). |  -  |
+| **200** | OK - Returns the list of all Synthetic tests (properly filtered by type). |  -  |
 | **403** | Forbidden |  -  |
-| **404** | Synthetic is not activated for the user. |  -  |
+| **404** | Synthetics is not activated for the user. |  -  |
 
 
 ## updateTest
 
 > SyntheticsTestDetails updateTest(publicId).body(body).execute();
 
-Update test
+Edit a test
 
-Update the details of a specific Synthetic test.
+Edit the configuration of a Synthetic test.
 
 ### Example
 
@@ -775,9 +775,9 @@ Name | Type | Description  | Notes
 
 > Boolean updateTestPauseStatus(publicId).body(body).execute();
 
-Change test pause/live status
+Pause or start a test
 
-Change pause/live status of a given Synthetic test.
+Pause or start a Synthetics test by changing the status.
 
 ### Example
 
@@ -808,7 +808,7 @@ public class Example {
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public ID of the Synthetic test to update.
-        SyntheticsUpdateTestPauseStatusPayload body = new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload | Pause/live status to set the given Synthetic test to.
+        SyntheticsUpdateTestPauseStatusPayload body = new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload | Status to set the given Synthetic test to.
         try {
             Boolean result = api.updateTestPauseStatus(publicId)
                 .body(body)
@@ -831,7 +831,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **publicId** | **String**| The public ID of the Synthetic test to update. |
- **body** | [**SyntheticsUpdateTestPauseStatusPayload**](SyntheticsUpdateTestPauseStatusPayload.md)| Pause/live status to set the given Synthetic test to. |
+ **body** | [**SyntheticsUpdateTestPauseStatusPayload**](SyntheticsUpdateTestPauseStatusPayload.md)| Status to set the given Synthetic test to. |
 
 ### Return type
 

@@ -122,8 +122,8 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the created/cloned test details. </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> - JSON format is wrong - Creation/cloning failed </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
          <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
@@ -141,8 +141,8 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the created/cloned test details. </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> - JSON format is wrong - Creation/cloning failed </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
          <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
@@ -155,8 +155,8 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
   }
 
   /**
-   * Create or clone a test
-   * Create (or clone) a Synthetics test.
+   * Create a test
+   * Create a Synthetic test.
    * @return createTestRequest
    * @throws ApiException if fails to make API call
    
@@ -216,7 +216,7 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
 
     /**
      * Set body
-     * @param body Public ID list of the Synthetics tests to be deleted. (required)
+     * @param body Public ID list of the Synthetic tests to be deleted. (required)
      * @return APIdeleteTestsRequest
      */
     public APIdeleteTestsRequest body(SyntheticsDeleteTestsPayload body) {
@@ -265,7 +265,7 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
   }
 
   /**
-   * Delete multiple tests
+   * Delete tests
    * Delete multiple Synthetic tests by ID.
    * @return deleteTestsRequest
    * @throws ApiException if fails to make API call
@@ -403,8 +403,8 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
   }
 
   /**
-   * Get test latest results (as summaries)
-   * Get the latest results (as summaries) from a given API Synthetic test.
+   * Get the test&#39;s latest results summaries (API)
+   * Get the last 50 test results summaries for a given Synthetics API test.
    * @param publicId The public ID of the test for which to search results for. (required)
    * @return getAPITestLatestResultsRequest
    * @throws ApiException if fails to make API call
@@ -511,7 +511,7 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
   }
 
   /**
-   * Get test result (API)
+   * Get a test result (API)
    * Get a specific full result from a given (API) Synthetic test.
    * @param publicId The public ID of the API test to which the target result belongs. (required)
    * @param resultId The ID of the result to get. (required)
@@ -651,8 +651,8 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
   }
 
   /**
-   * Get test latest results (as summaries)
-   * Get the latest results (as summaries) from a given browser Synthetic test.
+   * Get the test&#39;s latest results summaries (browser)
+   * Get the last 50 test results summaries for a given Synthetics Browser test.
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @return getBrowserTestLatestResultsRequest
    * @throws ApiException if fails to make API call
@@ -759,7 +759,7 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
   }
 
   /**
-   * Get test result (browser)
+   * Get a test result (browser)
    * Get a specific full result from a given (browser) Synthetic test.
    * @param publicId The public ID of the browser test to which the target result belongs. (required)
    * @param resultId The ID of the result to get. (required)
@@ -860,8 +860,8 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
   }
 
   /**
-   * Get test
-   * Get the details of a specific Synthetic test.
+   * Get a test configuration
+   * Get the detailed configuration associated with a Synthetics test.
    * @param publicId The public ID of the test to get details from. (required)
    * @return getTestRequest
    * @throws ApiException if fails to make API call
@@ -918,7 +918,7 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
 
     /**
      * Set checkType
-     * @param checkType API or browser to filter the list by type, undefined to get the unfiltered list. (optional)
+     * @param checkType API or browser to filter the list by test type, undefined to get the unfiltered list. (optional)
      * @return APIlistTestsRequest
      */
     public APIlistTestsRequest checkType(String checkType) {
@@ -934,9 +934,9 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic test (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests (properly filtered by type). </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetic is not activated for the user. </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
        </table>
      
      */
@@ -952,9 +952,9 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic test (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests (properly filtered by type). </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Synthetic is not activated for the user. </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
        </table>
      
      */
@@ -965,7 +965,7 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
   }
 
   /**
-   * Get a list of all tests
+   * Get a list of tests
    * Get the list of all Synthetic tests (can be filtered by type).
    * @return listTestsRequest
    * @throws ApiException if fails to make API call
@@ -1083,8 +1083,8 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
   }
 
   /**
-   * Update test
-   * Update the details of a specific Synthetic test.
+   * Edit a test
+   * Edit the configuration of a Synthetic test.
    * @param publicId The public ID of the test to get details from. (required)
    * @return updateTestRequest
    * @throws ApiException if fails to make API call
@@ -1153,7 +1153,7 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
 
     /**
      * Set body
-     * @param body Pause/live status to set the given Synthetic test to. (required)
+     * @param body Status to set the given Synthetic test to. (required)
      * @return APIupdateTestPauseStatusRequest
      */
     public APIupdateTestPauseStatusRequest body(SyntheticsUpdateTestPauseStatusPayload body) {
@@ -1202,8 +1202,8 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
   }
 
   /**
-   * Change test pause/live status
-   * Change pause/live status of a given Synthetic test.
+   * Pause or start a test
+   * Pause or start a Synthetics test by changing the status.
    * @param publicId The public ID of the Synthetic test to update. (required)
    * @return updateTestPauseStatusRequest
    * @throws ApiException if fails to make API call
