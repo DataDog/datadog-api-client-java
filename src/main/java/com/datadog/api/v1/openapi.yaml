@@ -398,6 +398,15 @@ components:
         application_key:
           $ref: '#/components/schemas/ApplicationKey'
       type: object
+    AuthenticationValidationResponse:
+      description: Represent validation endpoint responses.
+      properties:
+        valid:
+          description: Return `true` if the authentication response is valid.
+          example: true
+          readOnly: true
+          type: boolean
+      type: object
     AzureAccount:
       description: Datadog-Azure integrations configured for your organization.
       properties:
@@ -2163,6 +2172,10 @@ components:
               Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
             type: string
           type: array
+        logset:
+          deprecated: true
+          description: ID of the log set to use.
+          type: string
         message_display:
           $ref: '#/components/schemas/WidgetMessageDisplay'
         query:
@@ -2255,6 +2268,7 @@ components:
       required:
       - target
       - expression
+      - type
       type: object
     LogsAttributeRemapper:
       description: 'The remapper processor remaps any source attribute(s) or tag to
@@ -2300,6 +2314,7 @@ components:
       required:
       - sources
       - target
+      - type
       type: object
     LogsCategoryProcessor:
       description: "Use the Category Processor to add a new attribute (without spaces\
@@ -2340,6 +2355,7 @@ components:
       required:
       - categories
       - target
+      - type
       type: object
     LogsDateRemapper:
       description: "As Datadog receives logs, it timestamps them using the value(s)\
@@ -2367,6 +2383,7 @@ components:
           type: string
       required:
       - sources
+      - type
       type: object
     LogsExclusion:
       description: Represents the index exclusion filter object from configuration
@@ -2441,6 +2458,7 @@ components:
       required:
       - sources
       - target
+      - type
       type: object
     LogsGrokParser:
       description: 'Create custom grok rules to parse the full message or [a specific
@@ -2470,6 +2488,7 @@ components:
       required:
       - source
       - grok
+      - type
       type: object
     LogsGrokParserRules:
       description: Set of rules for the grok parser.
@@ -2681,6 +2700,7 @@ components:
       - source
       - target
       - lookup_table
+      - type
       type: object
     LogsMessageRemapper:
       description: 'The message is a key attribute in Datadog.
@@ -2711,6 +2731,7 @@ components:
           type: string
       required:
       - sources
+      - type
       type: object
     LogsPipeline:
       description: 'Pipelines and processors operate on incoming logs,
@@ -2781,6 +2802,8 @@ components:
           description: Type of processor.
           readOnly: true
           type: string
+      required:
+      - type
       type: object
     LogsPipelinesOrder:
       description: Object containing the ordered list of pipeline IDs.
@@ -2884,6 +2907,7 @@ components:
           type: string
       required:
       - sources
+      - type
       type: object
     LogsSort:
       description: Time-ascending `asc` or time-descending `desc`results.
@@ -2924,6 +2948,7 @@ components:
           type: string
       required:
       - sources
+      - type
       type: object
     LogsStringBuilderProcessor:
       description: "Use the string builder processor to add a new attribute (without\
@@ -2959,6 +2984,7 @@ components:
       required:
       - target
       - template
+      - type
       type: object
     LogsTraceRemapper:
       description: "There are two ways to improve correlation between application\
@@ -2981,6 +3007,8 @@ components:
           description: Type of processor.
           readOnly: true
           type: string
+      required:
+      - type
       type: object
     LogsURLParser:
       description: This processor extracts query parameters and other important parameters
@@ -3012,6 +3040,7 @@ components:
       required:
       - sources
       - target
+      - type
       type: object
     LogsUserAgentParser:
       description: 'The User-Agent parser takes a User-Agent attribute and extracts
@@ -3044,6 +3073,7 @@ components:
       required:
       - sources
       - target
+      - type
       type: object
     MetricMetadata:
       description: Object with all metric related metadata.
@@ -3339,9 +3369,11 @@ components:
           readOnly: true
           type: object
         device_ids:
+          deprecated: true
           description: IDs of the device the Synthetics monitor is running on.
           items:
             $ref: '#/components/schemas/MonitorDeviceID'
+          readOnly: true
           type: array
         enable_logs_sample:
           description: Whether or not to send a log sample when the log monitor triggers.
@@ -3460,6 +3492,7 @@ components:
           description: Information about the downtime applied to the monitor.
           type: object
         synthetics_check_id:
+          deprecated: true
           description: ID of the corresponding Synthetic check.
           format: int64
           nullable: true
@@ -3542,6 +3575,11 @@ components:
       properties:
         color_preference:
           $ref: '#/components/schemas/WidgetColorPreference'
+        count:
+          deprecated: true
+          description: The number of monitors to display.
+          format: int64
+          type: integer
         display_format:
           $ref: '#/components/schemas/WidgetMonitorSummaryDisplayFormat'
         hide_zero_counts:
@@ -3556,6 +3594,11 @@ components:
           type: boolean
         sort:
           $ref: '#/components/schemas/WidgetSort'
+        start:
+          deprecated: true
+          description: The start of the list. Typically 0.
+          format: int64
+          type: integer
         summary_type:
           $ref: '#/components/schemas/WidgetSummaryType'
         title:
@@ -3623,7 +3666,9 @@ components:
           type: number
       type: object
     MonitorType:
-      description: The type of the monitor.
+      description: The type of the monitor. For more information about `type`, see
+        the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/)
+        docs.
       enum:
       - composite
       - event alert
@@ -3647,6 +3692,60 @@ components:
       - SERVICE_CHECK
       - SYNTHETICS_ALERT
       - TRACE_ANALYTICS_ALERT
+    MonitorUpdateRequest:
+      description: Object describing a monitor update request.
+      properties:
+        created:
+          description: Timestamp of the monitor creation.
+          format: date-time
+          readOnly: true
+          type: string
+        creator:
+          $ref: '#/components/schemas/Creator'
+        deleted:
+          description: Whether or not the monitor is deleted. (Always `null`)
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        id:
+          description: ID of this monitor.
+          format: int64
+          readOnly: true
+          type: integer
+        message:
+          description: A message to include with notifications for this monitor.
+          type: string
+        modified:
+          description: Last timestamp when the monitor was edited.
+          format: date-time
+          readOnly: true
+          type: string
+        multi:
+          description: Whether or not the monitor is broken down on different groups.
+          readOnly: true
+          type: boolean
+        name:
+          description: The monitor name.
+          type: string
+        options:
+          $ref: '#/components/schemas/MonitorOptions'
+        overall_state:
+          $ref: '#/components/schemas/MonitorOverallStates'
+        query:
+          description: The monitor query.
+          type: string
+        state:
+          $ref: '#/components/schemas/MonitorState'
+        tags:
+          description: Tags associated to your monitor.
+          items:
+            description: A Datadog tag.
+            type: string
+          type: array
+        type:
+          $ref: '#/components/schemas/MonitorType'
+      type: object
     NoteWidgetDefinition:
       description: The notes and links widget is similar to free text widget, but
         allows for more formatting options.
@@ -3683,14 +3782,7 @@ components:
       description: Create, edit, and manage organizations.
       properties:
         billing:
-          description: A JSON array of billing type.
-          example:
-            type: parent_billing
-          properties:
-            type:
-              description: The type of billing. Only `parent_billing` is supported.
-              type: string
-          type: object
+          $ref: '#/components/schemas/OrganizationBilling'
         created:
           description: Date of the organization creation.
           example: '2019-09-26 17:28:28'
@@ -3789,43 +3881,29 @@ components:
               type: object
           type: object
         subscription:
-          description: A JSON array of subscription type.
-          example:
-            type: pro
-          properties:
-            type:
-              description: The subscription type. Types available are `trial`, `free`,
-                and `pro`.
-              type: string
-          type: object
+          $ref: '#/components/schemas/OrganizationSubscription'
+      type: object
+    OrganizationBilling:
+      description: A JSON array of billing type.
+      example:
+        type: parent_billing
+      properties:
+        type:
+          description: The type of billing. Only `parent_billing` is supported.
+          type: string
       type: object
     OrganizationCreateBody:
       description: Object describing an organization to create.
       properties:
         billing:
-          description: A JSON array of billing type.
-          example:
-            type: parent_billing
-          properties:
-            type:
-              description: The type of billing. Only `parent_billing` is supported.
-              type: string
-          type: object
+          $ref: '#/components/schemas/OrganizationBilling'
         name:
           description: The name of the new child-organization, limited to 32 characters.
           example: New child org
           maximum: 32
           type: string
         subscription:
-          description: A JSON array of subscription type.
-          example:
-            type: pro
-          properties:
-            type:
-              description: The subscription type. Types available are `trial`, `free`,
-                and `pro`.
-              type: string
-          type: object
+          $ref: '#/components/schemas/OrganizationSubscription'
       required:
       - name
       - subscription
@@ -3857,6 +3935,16 @@ components:
       properties:
         org:
           $ref: '#/components/schemas/Organization'
+      type: object
+    OrganizationSubscription:
+      description: Subscription definition.
+      example:
+        type: pro
+      properties:
+        type:
+          description: The subscription type. Types available are `trial`, `free`,
+            and `pro`.
+          type: string
       type: object
     PagerDutyService:
       description: The PagerDuty service that is available for integration with Datadog.
@@ -4594,7 +4682,6 @@ components:
 
             field.
 
-
             Always included in service level objective responses for monitor service
             level
 
@@ -4613,18 +4700,7 @@ components:
           description: The name of the service level objective object.
           type: string
         query:
-          description: A metric SLI query. **Required if type is `metric`**.
-          properties:
-            denominator:
-              description: A Datadog metric query for total (valid) events.
-              type: string
-            numerator:
-              description: A Datadog metric query for good events.
-              type: string
-          required:
-          - numerator
-          - denominator
-          type: object
+          $ref: '#/components/schemas/ServiceLevelObjectiveQuery'
         tags:
           description: 'A list of tags associated with this service level objective.
 
@@ -4648,8 +4724,120 @@ components:
           type: array
         type:
           $ref: '#/components/schemas/SLOType'
-        type_id:
-          $ref: '#/components/schemas/SLOTypeNumeric'
+      required:
+      - name
+      - thresholds
+      - type
+    ServiceLevelObjectiveQuery:
+      description: A metric SLI query. **Required if type is `metric`**.
+      properties:
+        denominator:
+          description: A Datadog metric query for total (valid) events.
+          type: string
+        numerator:
+          description: A Datadog metric query for good events.
+          type: string
+      required:
+      - numerator
+      - denominator
+      type: object
+    ServiceLevelObjectiveRequest:
+      description: 'A service level objective object includes a service level indicator,
+        thresholds
+
+        for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).'
+      properties:
+        created_at:
+          description: 'Creation timestamp (UNIX time in seconds)
+
+
+            Always included in service level objective responses.'
+          format: int64
+          readOnly: true
+          type: integer
+        creator:
+          $ref: '#/components/schemas/Creator'
+        description:
+          description: 'A user-defined description of the service level objective.
+
+
+            Always included in service level objective responses (but may be `null`).
+
+            Optional in create/update requests.'
+          nullable: true
+          type: string
+        groups:
+          description: 'A list of (up to 20) monitor groups that narrow the scope
+            of a monitor service level objective.
+
+
+            Included in service level objective responses if it is not empty. Optional
+            in
+
+            create/update requests for monitor service level objectives, but may only
+            be
+
+            used when then length of the `monitor_ids` field is one.'
+          example:
+          - env:prod
+          - role:mysql
+          items:
+            description: A group name, for instance `env:prod`.
+            type: string
+          type: array
+        id:
+          description: 'A unique identifier for the service level objective object.
+
+
+            Always included in service level objective responses.'
+          readOnly: true
+          type: string
+        modified_at:
+          description: 'Modification timestamp (UNIX time in seconds)
+
+
+            Always included in service level objective responses.'
+          format: int64
+          readOnly: true
+          type: integer
+        monitor_ids:
+          description: 'A list of monitor ids that defines the scope of a monitor
+            service level
+
+            objective. **Required if type is `monitor`**.'
+          items:
+            description: A monitor ID.
+            format: int64
+            type: integer
+          type: array
+        name:
+          description: The name of the service level objective object.
+          type: string
+        query:
+          $ref: '#/components/schemas/ServiceLevelObjectiveQuery'
+        tags:
+          description: 'A list of tags associated with this service level objective.
+
+            Always included in service level objective responses (but may be empty).
+
+            Optional in create/update requests.'
+          example:
+          - env:prod
+          - app:core
+          items:
+            description: A tag to apply to your SLO.
+            type: string
+          type: array
+        thresholds:
+          description: 'The thresholds (timeframes and associated targets) for this
+            service level
+
+            objective object.'
+          items:
+            $ref: '#/components/schemas/SLOThreshold'
+          type: array
+        type:
+          $ref: '#/components/schemas/SLOType'
       required:
       - name
       - thresholds
@@ -5110,7 +5298,7 @@ components:
           type: array
       type: object
     SyntheticsDeleteTestsResponse:
-      description: Response object for deleting Synthetic test.
+      description: Response object for deleting Synthetic tests.
       properties:
         deleted_tests:
           description: Array of objects containing a deleted Synthetic test ID with
@@ -5553,7 +5741,7 @@ components:
         modified_by:
           $ref: '#/components/schemas/SyntheticsTestAuthor'
         monitor_id:
-          description: TODO.
+          description: The associated monitor ID.
           format: int64
           type: integer
         name:
@@ -5621,7 +5809,7 @@ components:
             signed certificate.
           type: boolean
         allow_insecure:
-          description: TODO.
+          description: Allows loading insecure content for an HTTP request.
           type: boolean
         device_ids:
           description: Array with the different device IDs used to run the test.
@@ -5632,7 +5820,7 @@ components:
           description: For API SSL test, whether or not the test should follow redirects.
           type: boolean
         min_failure_duration:
-          description: TODO.
+          description: Minimum amount of time before declaring the test has failed.
           format: int64
           type: integer
         min_location_failed:
@@ -5973,16 +6161,7 @@ components:
         rum_query:
           $ref: '#/components/schemas/LogQueryDefinition'
         style:
-          description: Define widget style.
-          properties:
-            line_type:
-              $ref: '#/components/schemas/WidgetLineType'
-            line_width:
-              $ref: '#/components/schemas/WidgetLineWidth'
-            palette:
-              description: Color palette to apply to the widget.
-              type: string
-          type: object
+          $ref: '#/components/schemas/WidgetRequestStyle'
       type: object
     ToplistWidgetDefinition:
       description: The top list visualization enables you to display a list of Tag
@@ -6038,16 +6217,7 @@ components:
         rum_query:
           $ref: '#/components/schemas/LogQueryDefinition'
         style:
-          description: Define widget style.
-          properties:
-            line_type:
-              $ref: '#/components/schemas/WidgetLineType'
-            line_width:
-              $ref: '#/components/schemas/WidgetLineWidth'
-            palette:
-              description: Color palette to apply to the widget.
-              type: string
-          type: object
+          $ref: '#/components/schemas/WidgetRequestStyle'
       type: object
     UsageFargateHour:
       description: Number of Fargate tasks run and hourly usage.
@@ -6726,7 +6896,7 @@ components:
           type: array
       type: object
     UsageSyntheticsHour:
-      description: Number of Synthetics API tests run for each hour for a given organization.
+      description: The number of synthetics tests run for each hour for a given organization.
       properties:
         check_calls_count:
           description: Contains the number of Synthetics API tests run.
@@ -6807,7 +6977,7 @@ components:
           type: array
       type: object
     UsageTraceHour:
-      description: TODO.
+      description: The hours of trace usage.
       properties:
         hour:
           description: The hour for the usage.
@@ -6819,7 +6989,7 @@ components:
           type: integer
       type: object
     UsageTraceResponse:
-      description: TODO.
+      description: A response containing trace usage.
       properties:
         usage:
           description: Array with the number of hourly traces indexed for a given
@@ -7024,7 +7194,7 @@ components:
       - palette
       type: object
     WidgetDefinition:
-      description: Definition of the widget.
+      description: '[Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).'
       discriminator:
         mapping:
           alert_graph: '#/components/schemas/AlertGraphWidgetDefinition'
@@ -7371,6 +7541,17 @@ components:
       - WHITE_ON_RED
       - WHITE_ON_YELLOW
       - YELLOW_ON_WHITE
+    WidgetRequestStyle:
+      description: Define request widget style.
+      properties:
+        line_type:
+          $ref: '#/components/schemas/WidgetLineType'
+        line_width:
+          $ref: '#/components/schemas/WidgetLineWidth'
+        palette:
+          description: Color palette to apply to the widget.
+          type: string
+      type: object
     WidgetServiceSummaryDisplayFormat:
       description: Number of columns to display.
       enum:
@@ -9165,9 +9346,13 @@ paths:
   /api/v1/integration/aws/logs/check_async:
     post:
       description: 'Test if permissions are present to add a log-forwarding triggers
-        for the given services and AWS account. The input is the same as for Enable
-        an AWS service log collection. Subsequent requests will always repeat the
-        above, so this endpoint can be polled intermittently instead of blocking.
+        for the given services and AWS account. The input
+
+        is the same as for Enable an AWS service log collection. Subsequent requests
+        will always repeat the above, so this
+
+        endpoint can be polled intermittently instead of blocking.
+
 
         - Returns a status of ''created'' when it''s checking if the Lambda exists
         in the account.
@@ -9827,13 +10012,8 @@ paths:
       x-codegen-request-body-name: body
   /api/v1/logs/config/index-order:
     get:
-      description: 'Get the current order of your log indexes. This endpoint takes
+      description: Get the current order of your log indexes. This endpoint takes
         no JSON arguments.
-
-
-        **Note: This endpoint is in public beta.**
-
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
       operationId: GetLogsIndexOrder
       responses:
         '200':
@@ -9851,16 +10031,14 @@ paths:
       summary: Get indexes order
       tags:
       - Logs Indexes
+      x-unstable: '**Note: This endpoint is in public beta.**
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
     put:
       description: 'This endpoint updates the index order of your organization.
 
         It returns the index order object passed in the request body when the request
-        is successful.
-
-
-        **Note: This endpoint is in public beta.**
-
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+        is successful.'
       operationId: UpdateLogsIndexOrder
       requestBody:
         content:
@@ -9891,6 +10069,9 @@ paths:
       tags:
       - Logs Indexes
       x-codegen-request-body-name: body
+      x-unstable: '**Note: This endpoint is in public beta.**
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v1/logs/config/indexes:
     get:
       description: 'The Index object describes the configuration of a log index.
@@ -10596,7 +10777,7 @@ paths:
         now.
 
         - **`last`** the timeframe to roll up the counts. Examples: 60s, 4h. Supported
-        timeframes: s, m, h and d.
+        timeframes: s, m, h and d. This value should not exceed 48 hours.
 
 
         **Process Alert Query**
@@ -10789,6 +10970,13 @@ paths:
         schema:
           format: int64
           type: integer
+      - description: Delete the monitor even if it's referenced by other resources
+          (e.g. SLO, composite monitor).
+        in: query
+        name: force
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           content:
@@ -10884,7 +11072,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Monitor'
+              $ref: '#/components/schemas/MonitorUpdateRequest'
         description: Edit a monitor request body.
         required: true
       responses:
@@ -11248,7 +11436,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ServiceLevelObjective'
+              $ref: '#/components/schemas/ServiceLevelObjectiveRequest'
         description: Service level objective request object.
         required: true
       responses:
@@ -11374,6 +11562,13 @@ paths:
         in: path
         name: slo_id
         required: true
+        schema:
+          type: string
+      - description: Delete the monitor even if it's referenced by other resources
+          (e.g. SLO, composite monitor).
+        in: query
+        name: force
+        required: false
         schema:
           type: string
       responses:
@@ -11540,13 +11735,16 @@ paths:
       summary: Get an SLO's history
       tags:
       - Service Level Objectives
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v1/synthetics/tests:
     get:
       description: Get the list of all Synthetic tests (can be filtered by type).
       operationId: ListTests
       parameters:
-      - description: API or browser to filter the list by type, undefined to get the
-          unfiltered list.
+      - description: API or browser to filter the list by test type, undefined to
+          get the unfiltered list.
         in: query
         name: check_type
         required: false
@@ -11558,7 +11756,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SyntheticsListTestsResponse'
-          description: OK - Returns the list of all Synthetic test (properly filtered
+          description: OK - Returns the list of all Synthetic tests (properly filtered
             by type).
         '403':
           content:
@@ -11571,12 +11769,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
-          description: Synthetic is not activated for the user.
-      summary: Get a list of all tests
+          description: Synthetics is not activated for the user.
+      summary: Get a list of tests
       tags:
       - Synthetics
     post:
-      description: Create (or clone) a Synthetics test.
+      description: Create a Synthetic test.
       operationId: CreateTest
       parameters:
       - description: Public ID of the test to clone, undefined if the test is newly
@@ -11599,7 +11797,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SyntheticsTestDetails'
-          description: OK - Returns the created/cloned test details.
+          description: OK - Returns the created test details.
         '400':
           content:
             application/json:
@@ -11607,7 +11805,7 @@ paths:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: '- JSON format is wrong
 
-            - Creation/cloning failed'
+            - Creation failed'
         '402':
           content:
             application/json:
@@ -11620,13 +11818,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Forbidden
-      summary: Create or clone a test
+      summary: Create a test
       tags:
       - Synthetics
       x-codegen-request-body-name: body
   /api/v1/synthetics/tests/browser/{public_id}/results:
     get:
-      description: Get the latest results (as summaries) from a given browser Synthetic
+      description: Get the last 50 test results summaries for a given Synthetics Browser
         test.
       operationId: GetBrowserTestLatestResults
       parameters:
@@ -11680,7 +11878,7 @@ paths:
           description: '- Synthetic is not activated for the user
 
             - Test is not owned by the user'
-      summary: Get test latest results (as summaries)
+      summary: Get the test's latest results summaries (browser)
       tags:
       - Synthetics
       x-codegen-request-body-name: body
@@ -11723,7 +11921,7 @@ paths:
           description: '- Synthetic is not activated for the user
 
             - Test or result is not owned by the user'
-      summary: Get test result (browser)
+      summary: Get a test result (browser)
       tags:
       - Synthetics
   /api/v1/synthetics/tests/delete:
@@ -11735,7 +11933,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SyntheticsDeleteTestsPayload'
-        description: Public ID list of the Synthetics tests to be deleted.
+        description: Public ID list of the Synthetic tests to be deleted.
         required: true
       responses:
         '200':
@@ -11769,13 +11967,13 @@ paths:
           description: '- Tests to be deleted can''t be found
 
             - Synthetics is not activated for the user'
-      summary: Delete multiple tests
+      summary: Delete tests
       tags:
       - Synthetics
       x-codegen-request-body-name: body
   /api/v1/synthetics/tests/{public_id}:
     get:
-      description: Get the details of a specific Synthetic test.
+      description: Get the detailed configuration associated with a Synthetics test.
       operationId: GetTest
       parameters:
       - description: The public ID of the test to get details from.
@@ -11805,11 +12003,11 @@ paths:
           description: '- Synthetic is not activated for the user
 
             - Test is not owned by the user'
-      summary: Get test
+      summary: Get a test configuration
       tags:
       - Synthetics
     put:
-      description: Update the details of a specific Synthetic test.
+      description: Edit the configuration of a Synthetic test.
       operationId: UpdateTest
       parameters:
       - description: The public ID of the test to get details from.
@@ -11856,13 +12054,13 @@ paths:
             - Test is not owned by the user
 
             - Test can''t be found'
-      summary: Update test
+      summary: Edit a test
       tags:
       - Synthetics
       x-codegen-request-body-name: body
   /api/v1/synthetics/tests/{public_id}/results:
     get:
-      description: Get the latest results (as summaries) from a given API Synthetic
+      description: Get the last 50 test results summaries for a given Synthetics API
         test.
       operationId: GetAPITestLatestResults
       parameters:
@@ -11915,7 +12113,7 @@ paths:
           description: '- Synthetic is not activated for the user
 
             - Test is not owned by the user'
-      summary: Get test latest results (as summaries)
+      summary: Get the test's latest results summaries (API)
       tags:
       - Synthetics
       x-codegen-request-body-name: body
@@ -11957,12 +12155,12 @@ paths:
           description: '- Synthetic is not activated for the user
 
             - Test or result is not owned by the user'
-      summary: Get test result (API)
+      summary: Get a test result (API)
       tags:
       - Synthetics
   /api/v1/synthetics/tests/{public_id}/status:
     put:
-      description: Change pause/live status of a given Synthetic test.
+      description: Pause or start a Synthetics test by changing the status.
       operationId: UpdateTestPauseStatus
       parameters:
       - description: The public ID of the Synthetic test to update.
@@ -11976,7 +12174,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SyntheticsUpdateTestPauseStatusPayload'
-        description: Pause/live status to set the given Synthetic test to.
+        description: Status to set the given Synthetic test to.
         required: true
       responses:
         '200':
@@ -12005,7 +12203,7 @@ paths:
           description: '- Synthetic is not activated for the user
 
             - Test is not owned by the user'
-      summary: Change test pause/live status
+      summary: Pause or start a test
       tags:
       - Synthetics
       x-codegen-request-body-name: body
@@ -13086,6 +13284,29 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+  /api/v1/validate:
+    get:
+      description: Check if the API key (not the APP key) is valid. If invalid, a
+        403 is returned.
+      operationId: Validate
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationValidationResponse'
+          description: OK
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Authentication error
+      security:
+      - apiKeyAuth: []
+      summary: Validate API key
+      tags:
+      - Authentication
 security:
 - apiKeyAuth: []
   appKeyAuth: []
@@ -13122,6 +13343,15 @@ tags:
   externalDocs:
     url: https://docs.datadoghq.com/api/?lang=bash#integration-aws-logs
   name: AWS Logs Integration
+- description: "All requests to Datadog\u2019s API must be authenticated.\nRequests\
+    \ that write data require reporting access and require an `API key`.\nRequests\
+    \ that read data require full access and also require an `application key`.\n\n\
+    **Note:** All Datadog API clients are configured by default to consume Datadog\
+    \ US site APIs.\nIf you are on the Datadog EU site, set the environment variable\
+    \ `DATADOG_HOST` to\n`https://api.datadoghq.eu` or override this value directly\
+    \ when creating your client.\n\n[Manage your account\u2019s API and application\
+    \ keys](https://app.datadoghq.com/account/settings#api)."
+  name: Authentication
 - description: 'Configure your Datadog-Azure integration directly through the Datadog
     API.
 
@@ -13261,13 +13491,10 @@ tags:
   name: Snapshots
 - description: "Datadog Synthetics uses simulated user requests and browser rendering\
     \ to help you ensure uptime,\nidentify regional issues, and track your application\
-    \ performance. You can use Datadog\u2019s API to\ncreate Synthetics API and browser\
-    \ tests programmatically. Synthetics tests are HTTP requests executed by Datadog\
-    \ to\nyour web properties or application endpoints at configurable periodic intervals\
-    \ from multiple\nlocations around the world. These tests verify that your applications\
-    \ are responding to requests,\nas well as that they meet any conditions you define\u2014\
-    such as response time, HTTP status code, and\nheader or body contents.\n\nFor\
-    \ more information about Synthetics, see the [Synthetics overview](https://docs.datadoghq.com/synthetics/)."
+    \ performance. Datadog Synthetics tests come in\ntwo different flavors, [API tests](https://docs.datadoghq.com/synthetics/api_tests/?tab=httptest)\n\
+    and [browser tests](https://docs.datadoghq.com/synthetics/browser_tests). You\
+    \ can use Datadog\u2019s API to\nmanage both test types programmatically.\n\n\
+    For more information about Synthetics, see the [Synthetics overview](https://docs.datadoghq.com/synthetics/)."
   name: Synthetics
 - description: 'The tag endpoint allows you to tag hosts with keywords
 

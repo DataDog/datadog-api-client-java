@@ -42,7 +42,7 @@ public class DashboardsApiTest extends V1ApiTest{
     private List<String> cleanupDashIDs = new ArrayList<>();
     private String deleteSLO = null;
     private final Dashboard emptyDashboard = new Dashboard();
-    private final ServiceLevelObjective eventSLO = new ServiceLevelObjective()
+    private final ServiceLevelObjectiveRequest eventSLO = new ServiceLevelObjectiveRequest()
             .type(SLOType.METRIC)
             .name("HTTP Return Codes")
             .description("Make sure we don't have too many failed HTTP responses")
@@ -250,6 +250,7 @@ public class DashboardsApiTest extends V1ApiTest{
         // LogStream ONLY AVAILABLE ON FREE LAYOUTS
         LogStreamWidgetDefinition logStreamWidgetDefinition = new LogStreamWidgetDefinition()
                 .addIndexesItem("main")
+                .logset("106")
                 .query("Route XYZ failed")
                 .addColumnsItem("Route")
                 .title("Test Logstream Widget")
@@ -279,7 +280,9 @@ public class DashboardsApiTest extends V1ApiTest{
                 .showLastTriggered(true)
                 .title("Test Monitor Summary Widget")
                 .titleSize("16")
-                .titleAlign(WidgetTextAlign.CENTER);
+                .titleAlign(WidgetTextAlign.CENTER)
+                .start(0L)
+                .count(5L);
         Widget monitorSummaryWidget = new Widget().definition(monitorSummaryWidgetDefinition)
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(monitorSummaryWidget);
@@ -394,7 +397,7 @@ public class DashboardsApiTest extends V1ApiTest{
         TimeseriesWidgetDefinition timeseriesWidgetDefinition = new TimeseriesWidgetDefinition()
                 .addRequestsItem(new TimeseriesWidgetRequest()
                         .q("avg:system.load.1{*}")
-                        .style(new TimeseriesWidgetRequestStyle()
+                        .style(new WidgetRequestStyle()
                                 .palette("dog_classic")
                                 .lineType(WidgetLineType.DASHED)
                                 .lineWidth(WidgetLineWidth.THICK)
@@ -423,7 +426,7 @@ public class DashboardsApiTest extends V1ApiTest{
                                         .limit(10L)
                                         .searchBy("editor")
                         )
-                        .style(new TimeseriesWidgetRequestStyle()
+                        .style(new WidgetRequestStyle()
                                 .palette("dog_classic")
                                 .lineType(WidgetLineType.DASHED)
                                 .lineWidth(WidgetLineWidth.THICK)
@@ -454,7 +457,7 @@ public class DashboardsApiTest extends V1ApiTest{
                                                 new LogQueryDefinitionSort().aggregation("count").order(WidgetSort.ASCENDING)
                                         ))
                         )
-                        .style(new TimeseriesWidgetRequestStyle()
+                        .style(new WidgetRequestStyle()
                                 .palette("dog_classic")
                                 .lineType(WidgetLineType.DASHED)
                                 .lineWidth(WidgetLineWidth.THICK)
@@ -479,7 +482,7 @@ public class DashboardsApiTest extends V1ApiTest{
                         .eventQuery(new EventQueryDefinition()
                                 .search("Build failure").tagsExecution("build")
                         )
-                        .style(new TimeseriesWidgetRequestStyle()
+                        .style(new WidgetRequestStyle()
                                 .palette("dog_classic")
                                 .lineType(WidgetLineType.DASHED)
                                 .lineWidth(WidgetLineWidth.THICK)

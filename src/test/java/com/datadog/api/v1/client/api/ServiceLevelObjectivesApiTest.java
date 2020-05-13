@@ -33,7 +33,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     private final String fixturePrefix = "v1/client/api/slo_fixtures";
     private ArrayList<String> deleteSLOs = null;
     private ArrayList<Long> deleteMonitors = null;
-    private final ServiceLevelObjective monitorSLO = new ServiceLevelObjective()
+    private final ServiceLevelObjectiveRequest monitorSLO = new ServiceLevelObjectiveRequest()
             .type(SLOType.MONITOR)
             .name("Critical Foo Host Uptime")
             .description("Track the uptime of host foo which is critical to us.")
@@ -43,7 +43,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
                 .target(95.0)
                 .warning(98.0)
             ));
-    private final ServiceLevelObjective eventSLO = new ServiceLevelObjective()
+    private final ServiceLevelObjectiveRequest eventSLO = new ServiceLevelObjectiveRequest()
             .type(SLOType.METRIC)
             .name("HTTP Return Codes")
             .description("Make sure we don't have too many failed HTTP responses")
@@ -72,10 +72,13 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
 
     @BeforeClass
     public static void initApi() {
+        generalApiClient.setUnstableOperationEnabled("getSLOHistory", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("getSLOHistory", true);
         api = new ServiceLevelObjectivesApi(generalApiClient);
         unitApi = new ServiceLevelObjectivesApi(generalApiUnitTestClient);
         fakeAuthApi = new ServiceLevelObjectivesApi(generalFakeAuthApiClient);
         mApi = new MonitorsApi(generalApiClient);
+
     }
 
     @After
@@ -244,7 +247,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     @Test
     public void createSLOErrorsTest() throws IOException {
         try {
-            api.createSLO().body(new ServiceLevelObjective()).execute();
+            api.createSLO().body(new ServiceLevelObjectiveRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
@@ -253,7 +256,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         }
 
         try {
-            fakeAuthApi.createSLO().body(new ServiceLevelObjective()).execute();
+            fakeAuthApi.createSLO().body(new ServiceLevelObjectiveRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
@@ -312,8 +315,18 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             assertNotNull(error.getErrors());
         }
 
+        ServiceLevelObjective updateMonitorSLO = new ServiceLevelObjective()
+                .type(SLOType.MONITOR)
+                .name("Critical Foo Host Uptime Updated")
+                .description("Updated - Track the uptime of host foo which is critical to us.")
+                .tags(Arrays.asList("app:core", "kpi"))
+                .thresholds(Arrays.asList(new SLOThreshold()
+                        .timeframe(SLOTimeframe.THIRTY_DAYS)
+                        .target(95.0)
+                        .warning(98.0)
+                ));
         try {
-            api.updateSLO("id").body(monitorSLO).execute();
+            api.updateSLO("id").body(updateMonitorSLO).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());

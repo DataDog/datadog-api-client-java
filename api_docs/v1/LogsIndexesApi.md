@@ -100,9 +100,6 @@ Get indexes order
 
 Get the current order of your log indexes. This endpoint takes no JSON arguments.
 
-**Note: This endpoint is in public beta.**
-If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
-
 ### Example
 
 ```java
@@ -342,9 +339,6 @@ Update indexes order
 
 This endpoint updates the index order of your organization.
 It returns the index order object passed in the request body when the request is successful.
-
-**Note: This endpoint is in public beta.**
-If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
 
 ### Example
 

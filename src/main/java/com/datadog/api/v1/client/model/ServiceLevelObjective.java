@@ -16,7 +16,6 @@ import java.util.Arrays;
 import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.SLOThreshold;
 import com.datadog.api.v1.client.model.SLOType;
-import com.datadog.api.v1.client.model.SLOTypeNumeric;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveQuery;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -48,8 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ServiceLevelObjective.JSON_PROPERTY_QUERY,
   ServiceLevelObjective.JSON_PROPERTY_TAGS,
   ServiceLevelObjective.JSON_PROPERTY_THRESHOLDS,
-  ServiceLevelObjective.JSON_PROPERTY_TYPE,
-  ServiceLevelObjective.JSON_PROPERTY_TYPE_ID
+  ServiceLevelObjective.JSON_PROPERTY_TYPE
 })
 
 public class ServiceLevelObjective {
@@ -91,9 +89,6 @@ public class ServiceLevelObjective {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOType type;
-
-  public static final String JSON_PROPERTY_TYPE_ID = "type_id";
-  private SLOTypeNumeric typeId;
 
 
    /**
@@ -285,11 +280,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * The union of monitor tags for all monitors referenced by the &#x60;monitor_ids&#x60; field.  Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the &#x60;monitor_ids&#x60; field).
+   * The union of monitor tags for all monitors referenced by the &#x60;monitor_ids&#x60; field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the &#x60;monitor_ids&#x60; field).
    * @return monitorTags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The union of monitor tags for all monitors referenced by the `monitor_ids` field.  Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the `monitor_ids` field).")
+  @ApiModelProperty(value = "The union of monitor tags for all monitors referenced by the `monitor_ids` field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the `monitor_ids` field).")
   @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -438,31 +433,6 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective typeId(SLOTypeNumeric typeId) {
-    
-    this.typeId = typeId;
-    return this;
-  }
-
-   /**
-   * Get typeId
-   * @return typeId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SLOTypeNumeric getTypeId() {
-    return typeId;
-  }
-
-
-  public void setTypeId(SLOTypeNumeric typeId) {
-    this.typeId = typeId;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -484,13 +454,12 @@ public class ServiceLevelObjective {
         Objects.equals(this.query, serviceLevelObjective.query) &&
         Objects.equals(this.tags, serviceLevelObjective.tags) &&
         Objects.equals(this.thresholds, serviceLevelObjective.thresholds) &&
-        Objects.equals(this.type, serviceLevelObjective.type) &&
-        Objects.equals(this.typeId, serviceLevelObjective.typeId);
+        Objects.equals(this.type, serviceLevelObjective.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, creator, description, groups, id, modifiedAt, monitorIds, monitorTags, name, query, tags, thresholds, type, typeId);
+    return Objects.hash(createdAt, creator, description, groups, id, modifiedAt, monitorIds, monitorTags, name, query, tags, thresholds, type);
   }
 
 
@@ -511,7 +480,6 @@ public class ServiceLevelObjective {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    typeId: ").append(toIndentedString(typeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

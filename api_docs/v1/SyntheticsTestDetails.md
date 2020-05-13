@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **message** | **String** | Notification message associated with the test. |  [optional]
 **modifiedAt** | **String** | Last timestamp the test was modified. |  [optional]
 **modifiedBy** | [**SyntheticsTestAuthor**](SyntheticsTestAuthor.md) |  |  [optional]
-**monitorId** | **Long** | TODO. |  [optional]
+**monitorId** | **Long** | The associated monitor ID. |  [optional]
 **name** | **String** | Name of the test. |  [optional]
 **options** | [**SyntheticsTestOptions**](SyntheticsTestOptions.md) |  |  [optional]
 **publicId** | **String** | The test public ID. |  [optional]

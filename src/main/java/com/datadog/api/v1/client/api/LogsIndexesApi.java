@@ -223,7 +223,7 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
 
   /**
    * Get indexes order
-   * Get the current order of your log indexes. This endpoint takes no JSON arguments.  **Note: This endpoint is in public beta.** If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   * Get the current order of your log indexes. This endpoint takes no JSON arguments.
    * @return getLogsIndexOrderRequest
    * @throws ApiException if fails to make API call
    
@@ -231,6 +231,12 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
    */
   
   public APIgetLogsIndexOrderRequest getLogsIndexOrder() throws ApiException {
+    String operationId = "getLogsIndexOrder";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIgetLogsIndexOrderRequest();
   }
 
@@ -541,7 +547,7 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
 
   /**
    * Update indexes order
-   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.  **Note: This endpoint is in public beta.** If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
    * @return updateLogsIndexOrderRequest
    * @throws ApiException if fails to make API call
    
@@ -549,6 +555,12 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
    */
   
   public APIupdateLogsIndexOrderRequest updateLogsIndexOrder() throws ApiException {
+    String operationId = "updateLogsIndexOrder";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIupdateLogsIndexOrderRequest();
   }
 }

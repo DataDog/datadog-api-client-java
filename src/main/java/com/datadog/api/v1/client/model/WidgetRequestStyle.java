@@ -24,16 +24,16 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Define widget style.
+ * Define request widget style.
  */
-@ApiModel(description = "Define widget style.")
+@ApiModel(description = "Define request widget style.")
 @JsonPropertyOrder({
-  TimeseriesWidgetRequestStyle.JSON_PROPERTY_LINE_TYPE,
-  TimeseriesWidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH,
-  TimeseriesWidgetRequestStyle.JSON_PROPERTY_PALETTE
+  WidgetRequestStyle.JSON_PROPERTY_LINE_TYPE,
+  WidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH,
+  WidgetRequestStyle.JSON_PROPERTY_PALETTE
 })
 
-public class TimeseriesWidgetRequestStyle {
+public class WidgetRequestStyle {
   public static final String JSON_PROPERTY_LINE_TYPE = "line_type";
   private WidgetLineType lineType;
 
@@ -44,7 +44,7 @@ public class TimeseriesWidgetRequestStyle {
   private String palette;
 
 
-  public TimeseriesWidgetRequestStyle lineType(WidgetLineType lineType) {
+  public WidgetRequestStyle lineType(WidgetLineType lineType) {
     
     this.lineType = lineType;
     return this;
@@ -69,7 +69,7 @@ public class TimeseriesWidgetRequestStyle {
   }
 
 
-  public TimeseriesWidgetRequestStyle lineWidth(WidgetLineWidth lineWidth) {
+  public WidgetRequestStyle lineWidth(WidgetLineWidth lineWidth) {
     
     this.lineWidth = lineWidth;
     return this;
@@ -94,7 +94,7 @@ public class TimeseriesWidgetRequestStyle {
   }
 
 
-  public TimeseriesWidgetRequestStyle palette(String palette) {
+  public WidgetRequestStyle palette(String palette) {
     
     this.palette = palette;
     return this;
@@ -127,10 +127,10 @@ public class TimeseriesWidgetRequestStyle {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TimeseriesWidgetRequestStyle timeseriesWidgetRequestStyle = (TimeseriesWidgetRequestStyle) o;
-    return Objects.equals(this.lineType, timeseriesWidgetRequestStyle.lineType) &&
-        Objects.equals(this.lineWidth, timeseriesWidgetRequestStyle.lineWidth) &&
-        Objects.equals(this.palette, timeseriesWidgetRequestStyle.palette);
+    WidgetRequestStyle widgetRequestStyle = (WidgetRequestStyle) o;
+    return Objects.equals(this.lineType, widgetRequestStyle.lineType) &&
+        Objects.equals(this.lineWidth, widgetRequestStyle.lineWidth) &&
+        Objects.equals(this.palette, widgetRequestStyle.palette);
   }
 
   @Override
@@ -142,7 +142,7 @@ public class TimeseriesWidgetRequestStyle {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TimeseriesWidgetRequestStyle {\n");
+    sb.append("class WidgetRequestStyle {\n");
     sb.append("    lineType: ").append(toIndentedString(lineType)).append("\n");
     sb.append("    lineWidth: ").append(toIndentedString(lineWidth)).append("\n");
     sb.append("    palette: ").append(toIndentedString(palette)).append("\n");
