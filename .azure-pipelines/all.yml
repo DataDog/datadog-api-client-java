@@ -20,7 +20,7 @@ resources:
   containers:
   - container: datadog-agent
     image: datadog/agent:7-jmx
-    options: --health-cmd="exit 0" --health-interval=1s
+    options: --health-cmd="pgrep trace-agent" --health-interval=1s
     ports:
     - 8125:8125
     - 8126:8126
