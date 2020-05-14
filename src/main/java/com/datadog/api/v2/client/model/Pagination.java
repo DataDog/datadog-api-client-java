@@ -45,11 +45,11 @@ public class Pagination {
   }
 
    /**
-   * Total count of pages.
+   * Total count.
    * @return totalCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total count of pages.")
+  @ApiModelProperty(value = "Total count.")
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -70,11 +70,11 @@ public class Pagination {
   }
 
    /**
-   * Total count of filtered pages.
+   * Total count of elements matched by the filter.
    * @return totalFilteredCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total count of filtered pages.")
+  @ApiModelProperty(value = "Total count of elements matched by the filter.")
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

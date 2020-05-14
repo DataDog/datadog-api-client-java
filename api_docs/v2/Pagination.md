@@ -7,8 +7,8 @@ Pagination object.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**totalCount** | **Long** | Total count of pages. |  [optional]
-**totalFilteredCount** | **Long** | Total count of filtered pages. |  [optional]
+**totalCount** | **Long** | Total count. |  [optional]
+**totalFilteredCount** | **Long** | Total count of elements matched by the filter. |  [optional]
 
 
 

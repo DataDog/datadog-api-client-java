@@ -14,7 +14,7 @@ components:
         format: int64
         type: integer
     PageSize:
-      description: Number of users to return for a given page.
+      description: Size for a given page.
       in: query
       name: page[size]
       required: false
@@ -37,7 +37,31 @@ components:
       schema:
         type: string
   requestBodies: {}
-  responses: {}
+  responses:
+    BadRequestResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Bad Request
+    ConcurrentModificationResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Concurrent Modification
+    NotAuthorizedResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Not Authorized
+    NotFoundResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Not Found
   schemas:
     APIErrorResponse:
       description: API error response.
@@ -218,11 +242,11 @@ components:
       description: Pagination object.
       properties:
         total_count:
-          description: Total count of pages.
+          description: Total count.
           format: int64
           type: integer
         total_filtered_count:
-          description: Total count of filtered pages.
+          description: Total count of elements matched by the filter.
           format: int64
           type: integer
       type: object
@@ -1164,6 +1188,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Not found
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Unprocessable Entity
       summary: Update a role
       tags:
       - Roles
@@ -1646,6 +1676,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Not found
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Unprocessable Entity
       summary: Update a user
       tags:
       - Users

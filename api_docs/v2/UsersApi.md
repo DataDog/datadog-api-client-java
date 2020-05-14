@@ -532,7 +532,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        Long pageSize = 10lL; // Long | Number of users to return for a given page.
+        Long pageSize = 10lL; // Long | Size for a given page.
         Long pageNumber = 0lL; // Long | Specific page number to return.
         String sort = "\"name\""; // String | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
         QuerySortOrder sortDir = new QuerySortOrder(); // QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
@@ -564,7 +564,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **Long**| Number of users to return for a given page. | [optional] [default to 10l]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
  **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0l]
  **sort** | **String**| User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional] [default to &quot;name&quot;]
  **sortDir** | [**QuerySortOrder**](.md)| Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to desc] [enum: asc, desc]
@@ -754,4 +754,5 @@ null (empty response body)
 | **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
 | **404** | Not found |  -  |
+| **422** | Unprocessable Entity |  -  |
 
