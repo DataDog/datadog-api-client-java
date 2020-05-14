@@ -702,7 +702,7 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
 
     /**
      * Set pageSize
-     * @param pageSize Number of users to return for a given page. (optional, default to 10l)
+     * @param pageSize Size for a given page. (optional, default to 10l)
      * @return APIlistUsersRequest
      */
     public APIlistUsersRequest pageSize(Long pageSize) {
@@ -991,6 +991,7 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayloa
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1010,6 +1011,7 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayloa
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
        </table>
      
      */
