@@ -123,6 +123,7 @@ components:
           type: string
         id:
           description: ID of the dashboard.
+          example: null
           type: string
         is_favorite:
           description: Whether or not the dashboard is in the favorites.
@@ -166,6 +167,7 @@ components:
       properties:
         dashboards:
           description: List of dashboards in the dashboard list.
+          example: null
           items:
             $ref: '#/components/schemas/DashboardListItem'
           type: array
@@ -203,6 +205,7 @@ components:
         type:
           default: orgs
           description: Organizations resource type.
+          example: orgs
           readOnly: true
           type: string
       required:
@@ -261,6 +264,7 @@ components:
         type:
           default: permissions
           description: Permissions resource type.
+          example: permissions
           readOnly: true
           type: string
       required:
@@ -370,10 +374,12 @@ components:
       properties:
         id:
           description: ID of the role.
+          example: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
           type: string
         type:
           default: roles
-          description: Type of role.
+          description: The type of the resource. The value should always be roles.
+          example: roles
           type: string
       type: object
     RelationshipToRoles:
@@ -431,6 +437,7 @@ components:
         type:
           default: roles
           description: Roles type.
+          example: roles
           readOnly: true
           type: string
       required:

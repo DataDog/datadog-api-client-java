@@ -103,7 +103,7 @@ public class LogsExclusion {
    * Name of the index exclusion filter.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name of the index exclusion filter.")
+  @ApiModelProperty(example = "payment", required = true, value = "Name of the index exclusion filter.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

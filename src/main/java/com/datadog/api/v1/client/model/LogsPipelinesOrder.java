@@ -51,7 +51,7 @@ public class LogsPipelinesOrder {
    * Ordered Array of &#x60;&lt;PIPELINE_ID&gt;&#x60; strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.
    * @return pipelineIds
   **/
-  @ApiModelProperty(required = true, value = "Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.")
+  @ApiModelProperty(example = "[\"tags\",\"org_ids\",\"products\"]", required = true, value = "Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.")
   @JsonProperty(JSON_PROPERTY_PIPELINE_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

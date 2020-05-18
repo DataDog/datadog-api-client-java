@@ -130,7 +130,7 @@ public class Role implements UserResponseIncludedItem {
    * Roles type.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Roles type.")
+  @ApiModelProperty(example = "roles", required = true, value = "Roles type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

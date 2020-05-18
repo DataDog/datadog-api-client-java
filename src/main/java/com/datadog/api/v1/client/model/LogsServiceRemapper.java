@@ -69,7 +69,7 @@ public class LogsServiceRemapper implements LogsProcessor {
    * Array of source attributes.
    * @return sources
   **/
-  @ApiModelProperty(required = true, value = "Array of source attributes.")
+  @ApiModelProperty(example = "[\"web\",\"gateway\"]", required = true, value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -87,7 +87,7 @@ public class LogsServiceRemapper implements LogsProcessor {
    * Type of processor.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of processor.")
+  @ApiModelProperty(example = "service-remapper", required = true, value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

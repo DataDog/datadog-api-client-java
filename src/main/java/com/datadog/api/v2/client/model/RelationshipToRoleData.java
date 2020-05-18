@@ -49,7 +49,7 @@ public class RelationshipToRoleData {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the role.")
+  @ApiModelProperty(example = "3653d3c6-0c75-11ea-ad28-fb5701eabc7d", value = "ID of the role.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -70,11 +70,11 @@ public class RelationshipToRoleData {
   }
 
    /**
-   * Type of role.
+   * The type of the resource. The value should always be roles.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of role.")
+  @ApiModelProperty(example = "roles", value = "The type of the resource. The value should always be roles.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

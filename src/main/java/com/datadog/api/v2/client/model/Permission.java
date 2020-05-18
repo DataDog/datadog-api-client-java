@@ -100,7 +100,7 @@ public class Permission implements UserResponseIncludedItem {
    * Permissions resource type.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Permissions resource type.")
+  @ApiModelProperty(example = "permissions", required = true, value = "Permissions resource type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
