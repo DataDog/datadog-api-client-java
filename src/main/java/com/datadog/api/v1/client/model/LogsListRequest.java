@@ -117,7 +117,7 @@ public class LogsListRequest {
    * The search query - following the log search syntax.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "The search query - following the log search syntax.")
+  @ApiModelProperty(example = "service:web* AND @http.status_code:[200 TO 299]", required = true, value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

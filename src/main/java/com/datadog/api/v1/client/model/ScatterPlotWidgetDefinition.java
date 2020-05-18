@@ -236,7 +236,7 @@ public class ScatterPlotWidgetDefinition implements WidgetDefinition {
    * Type of widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of widget.")
+  @ApiModelProperty(example = "scatterplot", required = true, value = "Type of widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
