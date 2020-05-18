@@ -130,7 +130,7 @@ public class LogsGrokParser implements LogsProcessor {
    * Name of the log attribute to parse.
    * @return source
   **/
-  @ApiModelProperty(required = true, value = "Name of the log attribute to parse.")
+  @ApiModelProperty(example = "message", required = true, value = "Name of the log attribute to parse.")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -148,7 +148,7 @@ public class LogsGrokParser implements LogsProcessor {
    * Type of processor.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of processor.")
+  @ApiModelProperty(example = "grok-parser", required = true, value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -91,7 +91,7 @@ public class LogsTraceRemapper implements LogsProcessor {
    * Type of processor.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of processor.")
+  @ApiModelProperty(example = "trace-id-remapper", required = true, value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -112,7 +112,7 @@ public class LogsURLParser implements LogsProcessor {
    * Array of source attributes.
    * @return sources
   **/
-  @ApiModelProperty(required = true, value = "Array of source attributes.")
+  @ApiModelProperty(example = "[\"http.url\"]", required = true, value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -136,7 +136,7 @@ public class LogsURLParser implements LogsProcessor {
    * Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;.
    * @return target
   **/
-  @ApiModelProperty(required = true, value = "Name of the parent attribute that contains all the extracted details from the `sources`.")
+  @ApiModelProperty(example = "http.url_details", required = true, value = "Name of the parent attribute that contains all the extracted details from the `sources`.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -154,7 +154,7 @@ public class LogsURLParser implements LogsProcessor {
    * Type of processor.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of processor.")
+  @ApiModelProperty(example = "url-parser", required = true, value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
