@@ -8,7 +8,7 @@ Relationship to permission object.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | ID of the permission. |  [optional]
-**type** | **String** | Permissions resource type. |  [optional] [readonly]
+**type** | [**PermissionsType**](PermissionsType.md) |  |  [optional]
 
 
 

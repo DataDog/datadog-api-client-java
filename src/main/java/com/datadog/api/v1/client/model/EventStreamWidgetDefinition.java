@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.EventStreamWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetEventSize;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -22,11 +23,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -44,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   EventStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class EventStreamWidgetDefinition implements WidgetDefinition {
+public class EventStreamWidgetDefinition {
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
   private WidgetEventSize eventSize;
 
@@ -67,7 +63,7 @@ public class EventStreamWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "event_stream";
+  private EventStreamWidgetDefinitionType type = EventStreamWidgetDefinitionType.EVENT_STREAM;
 
 
   public EventStreamWidgetDefinition eventSize(WidgetEventSize eventSize) {
@@ -244,19 +240,28 @@ public class EventStreamWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public EventStreamWidgetDefinition type(EventStreamWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "event_stream", required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public EventStreamWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(EventStreamWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

@@ -28,13 +28,24 @@ public class AuthenticationApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<AuthenticationValidationResponse> validateWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
@@ -68,14 +79,16 @@ private ApiResponse<AuthenticationValidationResponse> validateWithHttpInfo() thr
     String[] localVarAuthNames = new String[] { "apiKeyAuth" };
 
     GenericType<AuthenticationValidationResponse> localVarReturnType = new GenericType<AuthenticationValidationResponse>() {};
-    return apiClient.invokeAPI("AuthenticationApi.validate", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AuthenticationApi.validate", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIvalidateRequest {
 
     private APIvalidateRequest() {
     }
-    
 
     /**
      * Execute validate request
@@ -104,9 +117,8 @@ private ApiResponse<AuthenticationValidationResponse> validateWithHttpInfo() thr
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<AuthenticationValidationResponse> executeWithHttpInfo() throws ApiException {
       return validateWithHttpInfo();
     }
@@ -120,7 +132,6 @@ private ApiResponse<AuthenticationValidationResponse> validateWithHttpInfo() thr
    
    
    */
-  
   public APIvalidateRequest validate() throws ApiException {
     return new APIvalidateRequest();
   }

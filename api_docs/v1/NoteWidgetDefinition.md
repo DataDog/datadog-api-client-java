@@ -14,11 +14,7 @@ Name | Type | Description | Notes
 **textAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **tickEdge** | [**WidgetTickEdge**](WidgetTickEdge.md) |  |  [optional]
 **tickPos** | **String** | Where to position the tick on an edge. |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**NoteWidgetDefinitionType**](NoteWidgetDefinitionType.md) |  | 
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

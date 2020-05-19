@@ -13,12 +13,8 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **titleSize** | **String** | Size of value in the widget. |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**AlertValueWidgetDefinitionType**](AlertValueWidgetDefinitionType.md) |  | 
 **unit** | **String** | Unit to display with the value. |  [optional]
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.AlertGraphWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.datadog.api.v1.client.model.WidgetVizType;
@@ -22,11 +23,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -43,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AlertGraphWidgetDefinition.JSON_PROPERTY_VIZ_TYPE
 })
 
-public class AlertGraphWidgetDefinition implements WidgetDefinition {
+public class AlertGraphWidgetDefinition {
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
 
@@ -60,7 +56,7 @@ public class AlertGraphWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "alert_graph";
+  private AlertGraphWidgetDefinitionType type = AlertGraphWidgetDefinitionType.ALERT_GRAPH;
 
   public static final String JSON_PROPERTY_VIZ_TYPE = "viz_type";
   private WidgetVizType vizType;
@@ -190,19 +186,28 @@ public class AlertGraphWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public AlertGraphWidgetDefinition type(AlertGraphWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "alert_graph", required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public AlertGraphWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(AlertGraphWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   public AlertGraphWidgetDefinition vizType(WidgetVizType vizType) {

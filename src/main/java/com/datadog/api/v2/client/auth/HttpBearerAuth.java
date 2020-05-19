@@ -12,7 +12,9 @@
 package com.datadog.api.v2.client.auth;
 
 import com.datadog.api.v2.client.Pair;
+import com.datadog.api.v2.client.ApiException;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.List;
 
@@ -44,7 +46,7 @@ public class HttpBearerAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams) {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
     if(bearerToken == null) {
       return;
     }

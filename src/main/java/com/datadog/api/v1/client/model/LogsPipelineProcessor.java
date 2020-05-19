@@ -14,6 +14,7 @@ package com.datadog.api.v1.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.LogsFilter;
+import com.datadog.api.v1.client.model.LogsPipelineProcessorType;
 import com.datadog.api.v1.client.model.LogsProcessor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,12 +24,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -37,27 +32,27 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "Nested Pipelines are pipelines within a pipeline. Use Nested Pipelines to split the processing into two steps. For example, first use a high-level filtering such as team and then a second level of filtering based on the integration, service, or any other tag or attribute.  A pipeline can contain Nested Pipelines and Processors whereas a Nested Pipeline can only contain Processors.")
 @JsonPropertyOrder({
   LogsPipelineProcessor.JSON_PROPERTY_FILTER,
-  LogsPipelineProcessor.JSON_PROPERTY_PROCESSORS,
-  LogsPipelineProcessor.JSON_PROPERTY_TYPE,
   LogsPipelineProcessor.JSON_PROPERTY_IS_ENABLED,
-  LogsPipelineProcessor.JSON_PROPERTY_NAME
+  LogsPipelineProcessor.JSON_PROPERTY_NAME,
+  LogsPipelineProcessor.JSON_PROPERTY_PROCESSORS,
+  LogsPipelineProcessor.JSON_PROPERTY_TYPE
 })
 
-public class LogsPipelineProcessor implements LogsProcessor {
+public class LogsPipelineProcessor {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsFilter filter;
-
-  public static final String JSON_PROPERTY_PROCESSORS = "processors";
-  private List<LogsProcessor> processors = null;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "pipeline";
 
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_PROCESSORS = "processors";
+  private List<LogsProcessor> processors = null;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LogsPipelineProcessorType type = LogsPipelineProcessorType.PIPELINE;
 
 
   public LogsPipelineProcessor filter(LogsFilter filter) {
@@ -83,54 +78,6 @@ public class LogsPipelineProcessor implements LogsProcessor {
   public void setFilter(LogsFilter filter) {
     this.filter = filter;
   }
-
-
-  public LogsPipelineProcessor processors(List<LogsProcessor> processors) {
-    
-    this.processors = processors;
-    return this;
-  }
-
-  public LogsPipelineProcessor addProcessorsItem(LogsProcessor processorsItem) {
-    if (this.processors == null) {
-      this.processors = new ArrayList<>();
-    }
-    this.processors.add(processorsItem);
-    return this;
-  }
-
-   /**
-   * Ordered list of processors in this pipeline.
-   * @return processors
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ordered list of processors in this pipeline.")
-  @JsonProperty(JSON_PROPERTY_PROCESSORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<LogsProcessor> getProcessors() {
-    return processors;
-  }
-
-
-  public void setProcessors(List<LogsProcessor> processors) {
-    this.processors = processors;
-  }
-
-
-   /**
-   * Type of processor.
-   * @return type
-  **/
-  @ApiModelProperty(example = "pipeline", required = true, value = "Type of processor.")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getType() {
-    return type;
-  }
-
-
 
 
   public LogsPipelineProcessor isEnabled(Boolean isEnabled) {
@@ -183,6 +130,63 @@ public class LogsPipelineProcessor implements LogsProcessor {
   }
 
 
+  public LogsPipelineProcessor processors(List<LogsProcessor> processors) {
+    
+    this.processors = processors;
+    return this;
+  }
+
+  public LogsPipelineProcessor addProcessorsItem(LogsProcessor processorsItem) {
+    if (this.processors == null) {
+      this.processors = new ArrayList<>();
+    }
+    this.processors.add(processorsItem);
+    return this;
+  }
+
+   /**
+   * Ordered list of processors in this pipeline.
+   * @return processors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Ordered list of processors in this pipeline.")
+  @JsonProperty(JSON_PROPERTY_PROCESSORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<LogsProcessor> getProcessors() {
+    return processors;
+  }
+
+
+  public void setProcessors(List<LogsProcessor> processors) {
+    this.processors = processors;
+  }
+
+
+  public LogsPipelineProcessor type(LogsPipelineProcessorType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LogsPipelineProcessorType getType() {
+    return type;
+  }
+
+
+  public void setType(LogsPipelineProcessorType type) {
+    this.type = type;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -193,15 +197,15 @@ public class LogsPipelineProcessor implements LogsProcessor {
     }
     LogsPipelineProcessor logsPipelineProcessor = (LogsPipelineProcessor) o;
     return Objects.equals(this.filter, logsPipelineProcessor.filter) &&
-        Objects.equals(this.processors, logsPipelineProcessor.processors) &&
-        Objects.equals(this.type, logsPipelineProcessor.type) &&
         Objects.equals(this.isEnabled, logsPipelineProcessor.isEnabled) &&
-        Objects.equals(this.name, logsPipelineProcessor.name);
+        Objects.equals(this.name, logsPipelineProcessor.name) &&
+        Objects.equals(this.processors, logsPipelineProcessor.processors) &&
+        Objects.equals(this.type, logsPipelineProcessor.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, processors, type, isEnabled, name);
+    return Objects.hash(filter, isEnabled, name, processors, type);
   }
 
 
@@ -210,10 +214,10 @@ public class LogsPipelineProcessor implements LogsProcessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsPipelineProcessor {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

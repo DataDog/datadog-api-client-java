@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.NoteWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTickEdge;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,11 +22,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -43,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   NoteWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class NoteWidgetDefinition implements WidgetDefinition {
+public class NoteWidgetDefinition {
   public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
   private String backgroundColor;
 
@@ -66,7 +62,7 @@ public class NoteWidgetDefinition implements WidgetDefinition {
   private String tickPos;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "note";
+  private NoteWidgetDefinitionType type = NoteWidgetDefinitionType.NOTE;
 
 
   public NoteWidgetDefinition backgroundColor(String backgroundColor) {
@@ -243,19 +239,28 @@ public class NoteWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public NoteWidgetDefinition type(NoteWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "note", required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public NoteWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(NoteWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

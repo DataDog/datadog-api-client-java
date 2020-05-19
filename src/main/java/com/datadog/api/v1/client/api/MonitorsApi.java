@@ -31,13 +31,24 @@ public class MonitorsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttpInfo(List<Long> monitorIds) throws ApiException {
     Object localVarPostBody = null;
@@ -77,7 +88,10 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<CheckCanDeleteMonitorResponse> localVarReturnType = new GenericType<CheckCanDeleteMonitorResponse>() {};
-    return apiClient.invokeAPI("MonitorsApi.checkCanDeleteMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.checkCanDeleteMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcheckCanDeleteMonitorRequest {
@@ -85,7 +99,6 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
 
     private APIcheckCanDeleteMonitorRequest() {
     }
-    
 
     /**
      * Set monitorIds
@@ -96,7 +109,6 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
       this.monitorIds = monitorIds;
       return this;
     }
-    
 
     /**
      * Execute checkCanDeleteMonitor request
@@ -129,9 +141,8 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 409 </td><td> Deletion conflict error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<CheckCanDeleteMonitorResponse> executeWithHttpInfo() throws ApiException {
       return checkCanDeleteMonitorWithHttpInfo(monitorIds);
     }
@@ -145,7 +156,6 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
    
    
    */
-  
   public APIcheckCanDeleteMonitorRequest checkCanDeleteMonitor() throws ApiException {
     return new APIcheckCanDeleteMonitorRequest();
   }
@@ -187,7 +197,10 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.createMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.createMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateMonitorRequest {
@@ -195,7 +208,6 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
 
     private APIcreateMonitorRequest() {
     }
-    
 
     /**
      * Set body
@@ -206,7 +218,6 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createMonitor request
@@ -237,9 +248,8 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
       return createMonitorWithHttpInfo(body);
     }
@@ -253,7 +263,6 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
    
    
    */
-  
   public APIcreateMonitorRequest createMonitor() throws ApiException {
     return new APIcreateMonitorRequest();
   }
@@ -297,7 +306,10 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId, St
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DeletedMonitor> localVarReturnType = new GenericType<DeletedMonitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.deleteMonitor", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.deleteMonitor", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteMonitorRequest {
@@ -307,7 +319,6 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId, St
     private APIdeleteMonitorRequest(Long monitorId) {
       this.monitorId = monitorId;
     }
-    
 
     /**
      * Set force
@@ -318,7 +329,6 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId, St
       this.force = force;
       return this;
     }
-    
 
     /**
      * Execute deleteMonitor request
@@ -353,9 +363,8 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId, St
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DeletedMonitor> executeWithHttpInfo() throws ApiException {
       return deleteMonitorWithHttpInfo(monitorId, force);
     }
@@ -370,7 +379,6 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId, St
    
    
    */
-  
   public APIdeleteMonitorRequest deleteMonitor(Long monitorId) throws ApiException {
     return new APIdeleteMonitorRequest(monitorId);
   }
@@ -414,7 +422,10 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.getMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.getMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetMonitorRequest {
@@ -424,7 +435,6 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     private APIgetMonitorRequest(Long monitorId) {
       this.monitorId = monitorId;
     }
-    
 
     /**
      * Set groupStates
@@ -435,7 +445,6 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
       this.groupStates = groupStates;
       return this;
     }
-    
 
     /**
      * Execute getMonitor request
@@ -468,9 +477,8 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
       return getMonitorWithHttpInfo(monitorId, groupStates);
     }
@@ -485,7 +493,6 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
    
    
    */
-  
   public APIgetMonitorRequest getMonitor(Long monitorId) throws ApiException {
     return new APIgetMonitorRequest(monitorId);
   }
@@ -530,7 +537,10 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<Monitor>> localVarReturnType = new GenericType<List<Monitor>>() {};
-    return apiClient.invokeAPI("MonitorsApi.listMonitors", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.listMonitors", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistMonitorsRequest {
@@ -545,7 +555,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
 
     private APIlistMonitorsRequest() {
     }
-    
 
     /**
      * Set groupStates
@@ -556,7 +565,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.groupStates = groupStates;
       return this;
     }
-    
 
     /**
      * Set name
@@ -567,7 +575,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.name = name;
       return this;
     }
-    
 
     /**
      * Set tags
@@ -578,7 +585,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.tags = tags;
       return this;
     }
-    
 
     /**
      * Set monitorTags
@@ -589,7 +595,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.monitorTags = monitorTags;
       return this;
     }
-    
 
     /**
      * Set withDowntimes
@@ -600,7 +605,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.withDowntimes = withDowntimes;
       return this;
     }
-    
 
     /**
      * Set idOffset
@@ -611,7 +615,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.idOffset = idOffset;
       return this;
     }
-    
 
     /**
      * Set page
@@ -622,7 +625,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.page = page;
       return this;
     }
-    
 
     /**
      * Set pageSize
@@ -633,7 +635,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.pageSize = pageSize;
       return this;
     }
-    
 
     /**
      * Execute listMonitors request
@@ -664,9 +665,8 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<List<Monitor>> executeWithHttpInfo() throws ApiException {
       return listMonitorsWithHttpInfo(groupStates, name, tags, monitorTags, withDowntimes, idOffset, page, pageSize);
     }
@@ -680,7 +680,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
    
    
    */
-  
   public APIlistMonitorsRequest listMonitors() throws ApiException {
     return new APIlistMonitorsRequest();
   }
@@ -728,7 +727,10 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, MonitorUp
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.updateMonitor", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.updateMonitor", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateMonitorRequest {
@@ -738,7 +740,6 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, MonitorUp
     private APIupdateMonitorRequest(Long monitorId) {
       this.monitorId = monitorId;
     }
-    
 
     /**
      * Set body
@@ -749,7 +750,6 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, MonitorUp
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateMonitor request
@@ -784,9 +784,8 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, MonitorUp
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
       return updateMonitorWithHttpInfo(monitorId, body);
     }
@@ -801,7 +800,6 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, MonitorUp
    
    
    */
-  
   public APIupdateMonitorRequest updateMonitor(Long monitorId) throws ApiException {
     return new APIupdateMonitorRequest(monitorId);
   }
@@ -843,7 +841,10 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.validateMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.validateMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIvalidateMonitorRequest {
@@ -851,7 +852,6 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
 
     private APIvalidateMonitorRequest() {
     }
-    
 
     /**
      * Set body
@@ -862,7 +862,6 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute validateMonitor request
@@ -893,9 +892,8 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
          <tr><td> 400 </td><td> Invalid JSON </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
       return validateMonitorWithHttpInfo(body);
     }
@@ -909,7 +907,6 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
    
    
    */
-  
   public APIvalidateMonitorRequest validateMonitor() throws ApiException {
     return new APIvalidateMonitorRequest();
   }

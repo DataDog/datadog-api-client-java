@@ -45,76 +45,76 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         api = new LogsPipelinesApi(generalApiClient);
 
         // Create a pipeline
-        LogsProcessor grokParser = new LogsGrokParser()
+        LogsProcessor grokParser = new LogsProcessor(new LogsGrokParser()
                 .source("src")
                 .addSamplesItem("sample")
                 .grok(new LogsGrokParserRules().matchRules("rule1 foo\nrule2 bar").supportRules("support baz"))
-                .name("grok parser");
-        LogsProcessor logDateRemapper = new LogsDateRemapper()
+                .name("grok parser"));
+        LogsProcessor logDateRemapper = new LogsProcessor(new LogsDateRemapper()
                 .addSourcesItem("source")
-                .name("log date remapper");
-        LogsProcessor logStatusRemapper = new LogsStatusRemapper()
+                .name("log date remapper"));
+        LogsProcessor logStatusRemapper = new LogsProcessor(new LogsStatusRemapper()
                 .addSourcesItem("source")
-                .name("log status remapper");
-        LogsProcessor serviceRemapper = new LogsServiceRemapper()
+                .name("log status remapper"));
+        LogsProcessor serviceRemapper = new LogsProcessor(new LogsServiceRemapper()
                 .addSourcesItem("source")
-                .name("service remapper");
-        LogsProcessor logMessageRemapper = new LogsMessageRemapper()
+                .name("service remapper"));
+        LogsProcessor logMessageRemapper = new LogsProcessor(new LogsMessageRemapper()
                 .addSourcesItem("source")
-                .name("log message remapper");
-        LogsProcessor remapper = new LogsAttributeRemapper()
+                .name("log message remapper"));
+        LogsProcessor remapper = new LogsProcessor(new LogsAttributeRemapper()
                 .addSourcesItem("source")
                 .sourceType("tag")
                 .target("target")
                 .targetType("tag")
                 .preserveSource(true)
                 .overrideOnConflict(true)
-                .name("log message remapper");
-        LogsProcessor urlParser = new LogsURLParser()
+                .name("log message remapper"));
+        LogsProcessor urlParser = new LogsProcessor(new LogsURLParser()
                 .addSourcesItem("source")
                 .target("target")
-                .name("URL parser");
-        LogsProcessor userAgentParser = new LogsUserAgentParser()
+                .name("URL parser"));
+        LogsProcessor userAgentParser = new LogsProcessor(new LogsUserAgentParser()
                 .addSourcesItem("source")
                 .target("target")
                 .isEncoded(true)
-                .name("user agent parser");
-        LogsProcessor categoryProcessor = new LogsCategoryProcessor()
+                .name("user agent parser"));
+        LogsProcessor categoryProcessor = new LogsProcessor(new LogsCategoryProcessor()
                 .addCategoriesItem(
                         new LogsCategoryProcessorCategories()
                             .name("category")
                             .filter(new LogsFilter().query("query"))
                 )
                 .target("target")
-                .name("category processor");
-        LogsProcessor arithmeticProcessor = new LogsArithmeticProcessor()
+                .name("category processor"));
+        LogsProcessor arithmeticProcessor = new LogsProcessor(new LogsArithmeticProcessor()
                 .expression("foo + bar")
                 .target("target")
                 .isReplaceMissing(true)
-                .name("arithmetic processor");
-        LogsProcessor stringBuilderProcessor = new LogsStringBuilderProcessor()
+                .name("arithmetic processor"));
+        LogsProcessor stringBuilderProcessor = new LogsProcessor(new LogsStringBuilderProcessor()
                 .template("template")
                 .target("target")
                 .isReplaceMissing(true)
-                .name("string builder processor");
-        LogsProcessor geoIPParser = new LogsGeoIPParser()
+                .name("string builder processor"));
+        LogsProcessor geoIPParser = new LogsProcessor(new LogsGeoIPParser()
                 .addSourcesItem("source")
                 .target("target")
-                .name("geo IP parser");
-        LogsProcessor lookupProcessor = new LogsLookupProcessor()
+                .name("geo IP parser"));
+        LogsProcessor lookupProcessor = new LogsProcessor(new LogsLookupProcessor()
                 .source("source")
                 .target("target")
                 .addLookupTableItem("key,value")
                 .defaultLookup("default_lookup")
-                .name("lookup processor");
-        LogsProcessor traceRemapper = new LogsTraceRemapper()
+                .name("lookup processor"));
+        LogsProcessor traceRemapper = new LogsProcessor(new LogsTraceRemapper()
                 .addSourcesItem("source")
-                .name("trace remapper");
-        LogsProcessor pipelineProcessor = new LogsPipelineProcessor()
+                .name("trace remapper"));
+        LogsProcessor pipelineProcessor = new LogsProcessor(new LogsPipelineProcessor()
                 .name("pipeline processor")
                 .filter(new LogsFilter().query("query"))
                 .addProcessorsItem(grokParser)
-                .addProcessorsItem(logDateRemapper);
+                .addProcessorsItem(logDateRemapper));
         LogsPipeline pipeline = new LogsPipeline()
                 .isEnabled(true)
                 .filter(new LogsFilter().query("query"))
@@ -156,7 +156,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertEquals(pipelineProcessor, createdPipeline.getProcessors().get(14));
 
         // Nested Pipeline Assertions
-        LogsPipelineProcessor nestedPipelineProcessor = (LogsPipelineProcessor) createdPipeline.getProcessors().get(14);
+        LogsPipelineProcessor nestedPipelineProcessor = (LogsPipelineProcessor) createdPipeline.getProcessors().get(14).getActualInstance();
         assertEquals("query", nestedPipelineProcessor.getFilter().getQuery());
         assertEquals(grokParser, nestedPipelineProcessor.getProcessors().get(0));
         assertEquals(logDateRemapper, nestedPipelineProcessor.getProcessors().get(1));

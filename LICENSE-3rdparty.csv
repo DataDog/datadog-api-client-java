@@ -103,6 +103,7 @@ import,org.openapitools:jackson-databind-nullable,Apache-2.0,
 import,org.ow2.asm:asm,BSD-3-Clause,2000-2011 INRIA - France Telecom
 import,org.skyscreamer:jsonassert,Apache-2.0,
 import,org.slf4j:slf4j-api,MIT,2004-2007 QOS.ch
+import,org.tomitribe:tomitribe-http-signatures,Apache-2.0,
 import,org.xmlunit:xmlunit-core,Apache-2.0,
 import,org.xmlunit:xmlunit-legacy,BSD-3-Clause,2001-2015 - Jeff Martin and Tim Bacon
 import,org.xmlunit:xmlunit-placeholders,Apache-2.0,

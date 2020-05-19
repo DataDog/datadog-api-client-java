@@ -14,6 +14,7 @@ package com.datadog.api.v2.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v2.client.model.UserInvitationRelationships;
+import com.datadog.api.v2.client.model.UserInvitationsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,7 +37,7 @@ public class UserInvitationData {
   private UserInvitationRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "user_invitations";
+  private UserInvitationsType type = UserInvitationsType.USER_INVITATIONS;
 
 
   public UserInvitationData relationships(UserInvitationRelationships relationships) {
@@ -64,27 +65,27 @@ public class UserInvitationData {
   }
 
 
-  public UserInvitationData type(String type) {
+  public UserInvitationData type(UserInvitationsType type) {
     
     this.type = type;
     return this;
   }
 
    /**
-   * User invitations type.
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "User invitations type.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getType() {
+  public UserInvitationsType getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(UserInvitationsType type) {
     this.type = type;
   }
 

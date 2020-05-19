@@ -30,13 +30,24 @@ public class DowntimesApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws ApiException {
     Object localVarPostBody = null;
@@ -75,8 +86,9 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    
-    return apiClient.invokeAPI("DowntimesApi.cancelDowntime", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI("DowntimesApi.cancelDowntime", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, null, null);
   }
 
   public class APIcancelDowntimeRequest {
@@ -85,7 +97,6 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
     private APIcancelDowntimeRequest(Long downtimeId) {
       this.downtimeId = downtimeId;
     }
-    
 
     /**
      * Execute cancelDowntime request
@@ -116,9 +127,8 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
       return cancelDowntimeWithHttpInfo(downtimeId);
     }
@@ -133,7 +143,6 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
    
    
    */
-  
   public APIcancelDowntimeRequest cancelDowntime(Long downtimeId) throws ApiException {
     return new APIcancelDowntimeRequest(downtimeId);
   }
@@ -175,7 +184,10 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<CanceledDowntimesIds> localVarReturnType = new GenericType<CanceledDowntimesIds>() {};
-    return apiClient.invokeAPI("DowntimesApi.cancelDowntimesByScope", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DowntimesApi.cancelDowntimesByScope", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcancelDowntimesByScopeRequest {
@@ -183,7 +195,6 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
 
     private APIcancelDowntimesByScopeRequest() {
     }
-    
 
     /**
      * Set body
@@ -194,7 +205,6 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute cancelDowntimesByScope request
@@ -227,9 +237,8 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtimes not found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<CanceledDowntimesIds> executeWithHttpInfo() throws ApiException {
       return cancelDowntimesByScopeWithHttpInfo(body);
     }
@@ -243,7 +252,6 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
    
    
    */
-  
   public APIcancelDowntimesByScopeRequest cancelDowntimesByScope() throws ApiException {
     return new APIcancelDowntimesByScopeRequest();
   }
@@ -285,7 +293,10 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Downtime> localVarReturnType = new GenericType<Downtime>() {};
-    return apiClient.invokeAPI("DowntimesApi.createDowntime", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DowntimesApi.createDowntime", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateDowntimeRequest {
@@ -293,7 +304,6 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
 
     private APIcreateDowntimeRequest() {
     }
-    
 
     /**
      * Set body
@@ -304,7 +314,6 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createDowntime request
@@ -335,9 +344,8 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Downtime> executeWithHttpInfo() throws ApiException {
       return createDowntimeWithHttpInfo(body);
     }
@@ -351,7 +359,6 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
    
    
    */
-  
   public APIcreateDowntimeRequest createDowntime() throws ApiException {
     return new APIcreateDowntimeRequest();
   }
@@ -394,7 +401,10 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Downtime> localVarReturnType = new GenericType<Downtime>() {};
-    return apiClient.invokeAPI("DowntimesApi.getDowntime", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DowntimesApi.getDowntime", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetDowntimeRequest {
@@ -403,7 +413,6 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
     private APIgetDowntimeRequest(Long downtimeId) {
       this.downtimeId = downtimeId;
     }
-    
 
     /**
      * Execute getDowntime request
@@ -434,9 +443,8 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Downtime> executeWithHttpInfo() throws ApiException {
       return getDowntimeWithHttpInfo(downtimeId);
     }
@@ -451,7 +459,6 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
    
    
    */
-  
   public APIgetDowntimeRequest getDowntime(Long downtimeId) throws ApiException {
     return new APIgetDowntimeRequest(downtimeId);
   }
@@ -489,7 +496,10 @@ private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnl
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<Downtime>> localVarReturnType = new GenericType<List<Downtime>>() {};
-    return apiClient.invokeAPI("DowntimesApi.listDowntimes", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DowntimesApi.listDowntimes", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistDowntimesRequest {
@@ -497,7 +507,6 @@ private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnl
 
     private APIlistDowntimesRequest() {
     }
-    
 
     /**
      * Set currentOnly
@@ -508,7 +517,6 @@ private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnl
       this.currentOnly = currentOnly;
       return this;
     }
-    
 
     /**
      * Execute listDowntimes request
@@ -537,9 +545,8 @@ private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnl
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<List<Downtime>> executeWithHttpInfo() throws ApiException {
       return listDowntimesWithHttpInfo(currentOnly);
     }
@@ -553,7 +560,6 @@ private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnl
    
    
    */
-  
   public APIlistDowntimesRequest listDowntimes() throws ApiException {
     return new APIlistDowntimesRequest();
   }
@@ -601,7 +607,10 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Downtime> localVarReturnType = new GenericType<Downtime>() {};
-    return apiClient.invokeAPI("DowntimesApi.updateDowntime", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DowntimesApi.updateDowntime", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateDowntimeRequest {
@@ -611,7 +620,6 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
     private APIupdateDowntimeRequest(Long downtimeId) {
       this.downtimeId = downtimeId;
     }
-    
 
     /**
      * Set body
@@ -622,7 +630,6 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateDowntime request
@@ -655,9 +662,8 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Downtime> executeWithHttpInfo() throws ApiException {
       return updateDowntimeWithHttpInfo(downtimeId, body);
     }
@@ -672,7 +678,6 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
    
    
    */
-  
   public APIupdateDowntimeRequest updateDowntime(Long downtimeId) throws ApiException {
     return new APIupdateDowntimeRequest(downtimeId);
   }

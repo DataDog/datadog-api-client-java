@@ -9,11 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**OrganizationAttributes**](OrganizationAttributes.md) |  |  [optional]
 **id** | **String** | ID of the organization. |  [optional]
-**type** | **String** | Organizations resource type. |  [readonly]
+**type** | [**OrganizationsType**](OrganizationsType.md) |  | 
 
-
-## Implemented Interfaces
-
-* UserResponseIncludedItem
 
 

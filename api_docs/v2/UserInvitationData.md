@@ -8,7 +8,7 @@ Object to create a user invitation.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **relationships** | [**UserInvitationRelationships**](UserInvitationRelationships.md) |  |  [optional]
-**type** | **String** | User invitations type. |  [optional]
+**type** | [**UserInvitationsType**](UserInvitationsType.md) |  |  [optional]
 
 
 
