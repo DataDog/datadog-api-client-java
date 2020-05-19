@@ -31,13 +31,24 @@ public class UsersApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiException {
     Object localVarPostBody = body;
@@ -76,7 +87,10 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
-    return apiClient.invokeAPI("UsersApi.createUser", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsersApi.createUser", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateUserRequest {
@@ -84,7 +98,6 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
 
     private APIcreateUserRequest() {
     }
-    
 
     /**
      * Set body
@@ -95,7 +108,6 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createUser request
@@ -128,9 +140,8 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
       return createUserWithHttpInfo(body);
     }
@@ -144,7 +155,6 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(User body) throws ApiEx
    
    
    */
-  
   public APIcreateUserRequest createUser() throws ApiException {
     return new APIcreateUserRequest();
   }
@@ -187,7 +197,10 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserDisableResponse> localVarReturnType = new GenericType<UserDisableResponse>() {};
-    return apiClient.invokeAPI("UsersApi.disableUser", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsersApi.disableUser", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdisableUserRequest {
@@ -196,7 +209,6 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
     private APIdisableUserRequest(String userHandle) {
       this.userHandle = userHandle;
     }
-    
 
     /**
      * Execute disableUser request
@@ -229,9 +241,8 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UserDisableResponse> executeWithHttpInfo() throws ApiException {
       return disableUserWithHttpInfo(userHandle);
     }
@@ -246,7 +257,6 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
    
    
    */
-  
   public APIdisableUserRequest disableUser(String userHandle) throws ApiException {
     return new APIdisableUserRequest(userHandle);
   }
@@ -289,7 +299,10 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
-    return apiClient.invokeAPI("UsersApi.getUser", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsersApi.getUser", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUserRequest {
@@ -298,7 +311,6 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
     private APIgetUserRequest(String userHandle) {
       this.userHandle = userHandle;
     }
-    
 
     /**
      * Execute getUser request
@@ -329,9 +341,8 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
       return getUserWithHttpInfo(userHandle);
     }
@@ -346,7 +357,6 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userHandle) throws 
    
    
    */
-  
   public APIgetUserRequest getUser(String userHandle) throws ApiException {
     return new APIgetUserRequest(userHandle);
   }
@@ -383,14 +393,16 @@ private ApiResponse<UserListResponse> listUsersWithHttpInfo() throws ApiExceptio
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserListResponse> localVarReturnType = new GenericType<UserListResponse>() {};
-    return apiClient.invokeAPI("UsersApi.listUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsersApi.listUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistUsersRequest {
 
     private APIlistUsersRequest() {
     }
-    
 
     /**
      * Execute listUsers request
@@ -419,9 +431,8 @@ private ApiResponse<UserListResponse> listUsersWithHttpInfo() throws ApiExceptio
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UserListResponse> executeWithHttpInfo() throws ApiException {
       return listUsersWithHttpInfo();
     }
@@ -435,7 +446,6 @@ private ApiResponse<UserListResponse> listUsersWithHttpInfo() throws ApiExceptio
    
    
    */
-  
   public APIlistUsersRequest listUsers() throws ApiException {
     return new APIlistUsersRequest();
   }
@@ -483,7 +493,10 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
-    return apiClient.invokeAPI("UsersApi.updateUser", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsersApi.updateUser", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateUserRequest {
@@ -493,7 +506,6 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
     private APIupdateUserRequest(String userHandle) {
       this.userHandle = userHandle;
     }
-    
 
     /**
      * Set body
@@ -504,7 +516,6 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateUser request
@@ -537,9 +548,8 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
       return updateUserWithHttpInfo(userHandle, body);
     }
@@ -554,7 +564,6 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userHandle, User
    
    
    */
-  
   public APIupdateUserRequest updateUser(String userHandle) throws ApiException {
     return new APIupdateUserRequest(userHandle);
   }

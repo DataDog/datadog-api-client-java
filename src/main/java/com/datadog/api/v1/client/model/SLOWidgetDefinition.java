@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.SLOWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTimeWindows;
 import com.datadog.api.v1.client.model.WidgetViewMode;
@@ -24,9 +25,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -45,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SLOWidgetDefinition.JSON_PROPERTY_VIEW_TYPE
 })
 
-public class SLOWidgetDefinition implements WidgetDefinition {
+public class SLOWidgetDefinition {
   public static final String JSON_PROPERTY_SHOW_ERROR_BUDGET = "show_error_budget";
   private Boolean showErrorBudget;
 
@@ -65,7 +63,7 @@ public class SLOWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "slo";
+  private SLOWidgetDefinitionType type = SLOWidgetDefinitionType.SLO;
 
   public static final String JSON_PROPERTY_VIEW_MODE = "view_mode";
   private WidgetViewMode viewMode;
@@ -232,19 +230,28 @@ public class SLOWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public SLOWidgetDefinition type(SLOWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public SLOWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(SLOWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   public SLOWidgetDefinition viewMode(WidgetViewMode viewMode) {
@@ -282,7 +289,7 @@ public class SLOWidgetDefinition implements WidgetDefinition {
    * Type of view displayed by the widget.
    * @return viewType
   **/
-  @ApiModelProperty(required = true, value = "Type of view displayed by the widget.")
+  @ApiModelProperty(example = "detail", required = true, value = "Type of view displayed by the widget.")
   @JsonProperty(JSON_PROPERTY_VIEW_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

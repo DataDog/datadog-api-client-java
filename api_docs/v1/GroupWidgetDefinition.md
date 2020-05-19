@@ -9,12 +9,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **layoutType** | [**WidgetLayoutType**](WidgetLayoutType.md) |  | 
 **title** | **String** | Title of the widget. |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**GroupWidgetDefinitionType**](GroupWidgetDefinitionType.md) |  | 
 **widgets** | [**List&lt;Widget&gt;**](Widget.md) | List of widget groups. | 
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

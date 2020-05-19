@@ -7,14 +7,10 @@ As Datadog receives logs, it timestamps them using the value(s) from any of thes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sources** | **List&lt;String&gt;** | Array of source attributes. | 
-**type** | **String** | Type of processor. |  [readonly]
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
+**sources** | **List&lt;String&gt;** | Array of source attributes. | 
+**type** | [**LogsDateRemapperType**](LogsDateRemapperType.md) |  | 
 
-
-## Implemented Interfaces
-
-* LogsProcessor
 
 

@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogsUserAgentParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,12 +22,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -34,17 +29,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.")
 @JsonPropertyOrder({
+  LogsUserAgentParser.JSON_PROPERTY_IS_ENABLED,
   LogsUserAgentParser.JSON_PROPERTY_IS_ENCODED,
+  LogsUserAgentParser.JSON_PROPERTY_NAME,
   LogsUserAgentParser.JSON_PROPERTY_SOURCES,
   LogsUserAgentParser.JSON_PROPERTY_TARGET,
-  LogsUserAgentParser.JSON_PROPERTY_TYPE,
-  LogsUserAgentParser.JSON_PROPERTY_IS_ENABLED,
-  LogsUserAgentParser.JSON_PROPERTY_NAME
+  LogsUserAgentParser.JSON_PROPERTY_TYPE
 })
 
-public class LogsUserAgentParser implements LogsProcessor {
+public class LogsUserAgentParser {
+  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
+  private Boolean isEnabled = false;
+
   public static final String JSON_PROPERTY_IS_ENCODED = "is_encoded";
   private Boolean isEncoded = false;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<String> sources = new ArrayList<>();
@@ -53,106 +54,7 @@ public class LogsUserAgentParser implements LogsProcessor {
   private String target = "http.useragent_details";
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "user-agent-parser";
-
-  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-
-  public LogsUserAgentParser isEncoded(Boolean isEncoded) {
-    
-    this.isEncoded = isEncoded;
-    return this;
-  }
-
-   /**
-   * Define if the source attribute is URL encoded or not.
-   * @return isEncoded
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Define if the source attribute is URL encoded or not.")
-  @JsonProperty(JSON_PROPERTY_IS_ENCODED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsEncoded() {
-    return isEncoded;
-  }
-
-
-  public void setIsEncoded(Boolean isEncoded) {
-    this.isEncoded = isEncoded;
-  }
-
-
-  public LogsUserAgentParser sources(List<String> sources) {
-    
-    this.sources = sources;
-    return this;
-  }
-
-  public LogsUserAgentParser addSourcesItem(String sourcesItem) {
-    this.sources.add(sourcesItem);
-    return this;
-  }
-
-   /**
-   * Array of source attributes.
-   * @return sources
-  **/
-  @ApiModelProperty(required = true, value = "Array of source attributes.")
-  @JsonProperty(JSON_PROPERTY_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<String> getSources() {
-    return sources;
-  }
-
-
-  public void setSources(List<String> sources) {
-    this.sources = sources;
-  }
-
-
-  public LogsUserAgentParser target(String target) {
-    
-    this.target = target;
-    return this;
-  }
-
-   /**
-   * Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;.
-   * @return target
-  **/
-  @ApiModelProperty(required = true, value = "Name of the parent attribute that contains all the extracted details from the `sources`.")
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getTarget() {
-    return target;
-  }
-
-
-  public void setTarget(String target) {
-    this.target = target;
-  }
-
-
-   /**
-   * Type of processor.
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "Type of processor.")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getType() {
-    return type;
-  }
-
-
+  private LogsUserAgentParserType type = LogsUserAgentParserType.USER_AGENT_PARSER;
 
 
   public LogsUserAgentParser isEnabled(Boolean isEnabled) {
@@ -177,6 +79,31 @@ public class LogsUserAgentParser implements LogsProcessor {
 
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
+  }
+
+
+  public LogsUserAgentParser isEncoded(Boolean isEncoded) {
+    
+    this.isEncoded = isEncoded;
+    return this;
+  }
+
+   /**
+   * Define if the source attribute is URL encoded or not.
+   * @return isEncoded
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Define if the source attribute is URL encoded or not.")
+  @JsonProperty(JSON_PROPERTY_IS_ENCODED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsEncoded() {
+    return isEncoded;
+  }
+
+
+  public void setIsEncoded(Boolean isEncoded) {
+    this.isEncoded = isEncoded;
   }
 
 
@@ -205,6 +132,83 @@ public class LogsUserAgentParser implements LogsProcessor {
   }
 
 
+  public LogsUserAgentParser sources(List<String> sources) {
+    
+    this.sources = sources;
+    return this;
+  }
+
+  public LogsUserAgentParser addSourcesItem(String sourcesItem) {
+    this.sources.add(sourcesItem);
+    return this;
+  }
+
+   /**
+   * Array of source attributes.
+   * @return sources
+  **/
+  @ApiModelProperty(example = "[\"http.useragent\"]", required = true, value = "Array of source attributes.")
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getSources() {
+    return sources;
+  }
+
+
+  public void setSources(List<String> sources) {
+    this.sources = sources;
+  }
+
+
+  public LogsUserAgentParser target(String target) {
+    
+    this.target = target;
+    return this;
+  }
+
+   /**
+   * Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;.
+   * @return target
+  **/
+  @ApiModelProperty(example = "http.useragent_details", required = true, value = "Name of the parent attribute that contains all the extracted details from the `sources`.")
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTarget() {
+    return target;
+  }
+
+
+  public void setTarget(String target) {
+    this.target = target;
+  }
+
+
+  public LogsUserAgentParser type(LogsUserAgentParserType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LogsUserAgentParserType getType() {
+    return type;
+  }
+
+
+  public void setType(LogsUserAgentParserType type) {
+    this.type = type;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -214,17 +218,17 @@ public class LogsUserAgentParser implements LogsProcessor {
       return false;
     }
     LogsUserAgentParser logsUserAgentParser = (LogsUserAgentParser) o;
-    return Objects.equals(this.isEncoded, logsUserAgentParser.isEncoded) &&
+    return Objects.equals(this.isEnabled, logsUserAgentParser.isEnabled) &&
+        Objects.equals(this.isEncoded, logsUserAgentParser.isEncoded) &&
+        Objects.equals(this.name, logsUserAgentParser.name) &&
         Objects.equals(this.sources, logsUserAgentParser.sources) &&
         Objects.equals(this.target, logsUserAgentParser.target) &&
-        Objects.equals(this.type, logsUserAgentParser.type) &&
-        Objects.equals(this.isEnabled, logsUserAgentParser.isEnabled) &&
-        Objects.equals(this.name, logsUserAgentParser.name);
+        Objects.equals(this.type, logsUserAgentParser.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isEncoded, sources, target, type, isEnabled, name);
+    return Objects.hash(isEnabled, isEncoded, name, sources, target, type);
   }
 
 
@@ -232,12 +236,12 @@ public class LogsUserAgentParser implements LogsProcessor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsUserAgentParser {\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    isEncoded: ").append(toIndentedString(isEncoded)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

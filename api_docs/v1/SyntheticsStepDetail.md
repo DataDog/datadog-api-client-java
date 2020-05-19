@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **timeToInteractive** | **Double** | Time before starting the step. |  [optional]
 **type** | [**SyntheticsStepType**](SyntheticsStepType.md) |  |  [optional]
 **url** | **String** | URL to perform the step against. |  [optional]
-**value** | [**Object**](.md) | Value for the step. |  [optional]
+**value** | **Object** | Value for the step. |  [optional]
 **warnings** | [**List&lt;SyntheticsStepDetailWarnings&gt;**](SyntheticsStepDetailWarnings.md) | Warning collected that didn&#39;t failed the step. |  [optional]
 
 

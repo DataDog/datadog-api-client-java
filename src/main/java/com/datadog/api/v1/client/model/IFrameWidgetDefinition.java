@@ -13,17 +13,13 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.IFrameWidgetDefinitionType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -35,27 +31,36 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   IFrameWidgetDefinition.JSON_PROPERTY_URL
 })
 
-public class IFrameWidgetDefinition implements WidgetDefinition {
+public class IFrameWidgetDefinition {
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "iframe";
+  private IFrameWidgetDefinitionType type = IFrameWidgetDefinitionType.IFRAME;
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
 
+  public IFrameWidgetDefinition type(IFrameWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public IFrameWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(IFrameWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   public IFrameWidgetDefinition url(String url) {

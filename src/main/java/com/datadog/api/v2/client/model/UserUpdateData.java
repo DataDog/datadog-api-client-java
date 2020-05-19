@@ -14,6 +14,7 @@ package com.datadog.api.v2.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v2.client.model.UserUpdateAttributes;
+import com.datadog.api.v2.client.model.UsersType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,7 +41,7 @@ public class UserUpdateData {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "users";
+  private UsersType type = UsersType.USERS;
 
 
   public UserUpdateData attributes(UserUpdateAttributes attributes) {
@@ -93,20 +94,29 @@ public class UserUpdateData {
   }
 
 
+  public UserUpdateData type(UsersType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Users resource type.
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Users resource type.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getType() {
+  public UsersType getType() {
     return type;
   }
 
 
+  public void setType(UsersType type) {
+    this.type = type;
+  }
 
 
   @Override

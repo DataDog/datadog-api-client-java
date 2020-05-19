@@ -43,13 +43,24 @@ public class UsageMeteringApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
     Object localVarPostBody = null;
@@ -90,7 +101,10 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageFargateResponse> localVarReturnType = new GenericType<UsageFargateResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageFargate", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageFargate", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageFargateRequest {
@@ -99,7 +113,6 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
 
     private APIgetUsageFargateRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -110,7 +123,6 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -121,7 +133,6 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageFargate request
@@ -152,9 +163,8 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageFargateResponse> executeWithHttpInfo() throws ApiException {
       return getUsageFargateWithHttpInfo(startHr, endHr);
     }
@@ -168,7 +178,6 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
    
    
    */
-  
   public APIgetUsageFargateRequest getUsageFargate() throws ApiException {
     return new APIgetUsageFargateRequest();
   }
@@ -212,7 +221,10 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageHostsResponse> localVarReturnType = new GenericType<UsageHostsResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageHostsRequest {
@@ -221,7 +233,6 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
 
     private APIgetUsageHostsRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -232,7 +243,6 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -243,7 +253,6 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageHosts request
@@ -274,9 +283,8 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageHostsResponse> executeWithHttpInfo() throws ApiException {
       return getUsageHostsWithHttpInfo(startHr, endHr);
     }
@@ -290,7 +298,6 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
    
    
    */
-  
   public APIgetUsageHostsRequest getUsageHosts() throws ApiException {
     return new APIgetUsageHostsRequest();
   }
@@ -334,7 +341,10 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageLambdaResponse> localVarReturnType = new GenericType<UsageLambdaResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageLambda", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageLambda", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageLambdaRequest {
@@ -343,7 +353,6 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
 
     private APIgetUsageLambdaRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -354,7 +363,6 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -365,7 +373,6 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageLambda request
@@ -396,9 +403,8 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageLambdaResponse> executeWithHttpInfo() throws ApiException {
       return getUsageLambdaWithHttpInfo(startHr, endHr);
     }
@@ -412,7 +418,6 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
    
    
    */
-  
   public APIgetUsageLambdaRequest getUsageLambda() throws ApiException {
     return new APIgetUsageLambdaRequest();
   }
@@ -456,7 +461,10 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageLogsResponse> localVarReturnType = new GenericType<UsageLogsResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageLogs", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageLogs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageLogsRequest {
@@ -465,7 +473,6 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
 
     private APIgetUsageLogsRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -476,7 +483,6 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -487,7 +493,6 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageLogs request
@@ -518,9 +523,8 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageLogsResponse> executeWithHttpInfo() throws ApiException {
       return getUsageLogsWithHttpInfo(startHr, endHr);
     }
@@ -534,7 +538,6 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
    
    
    */
-  
   public APIgetUsageLogsRequest getUsageLogs() throws ApiException {
     return new APIgetUsageLogsRequest();
   }
@@ -579,7 +582,10 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageLogsByIndexResponse> localVarReturnType = new GenericType<UsageLogsByIndexResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageLogsByIndex", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageLogsByIndex", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageLogsByIndexRequest {
@@ -589,7 +595,6 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
 
     private APIgetUsageLogsByIndexRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -600,7 +605,6 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -611,7 +615,6 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Set indexName
@@ -622,7 +625,6 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
       this.indexName = indexName;
       return this;
     }
-    
 
     /**
      * Execute getUsageLogsByIndex request
@@ -653,9 +655,8 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageLogsByIndexResponse> executeWithHttpInfo() throws ApiException {
       return getUsageLogsByIndexWithHttpInfo(startHr, endHr, indexName);
     }
@@ -669,7 +670,6 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
    
    
    */
-  
   public APIgetUsageLogsByIndexRequest getUsageLogsByIndex() throws ApiException {
     return new APIgetUsageLogsByIndexRequest();
   }
@@ -713,7 +713,10 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageNetworkFlowsResponse> localVarReturnType = new GenericType<UsageNetworkFlowsResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageNetworkFlows", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageNetworkFlows", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageNetworkFlowsRequest {
@@ -722,7 +725,6 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
 
     private APIgetUsageNetworkFlowsRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -733,7 +735,6 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -744,7 +745,6 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageNetworkFlows request
@@ -775,9 +775,8 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageNetworkFlowsResponse> executeWithHttpInfo() throws ApiException {
       return getUsageNetworkFlowsWithHttpInfo(startHr, endHr);
     }
@@ -791,7 +790,6 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
    
    
    */
-  
   public APIgetUsageNetworkFlowsRequest getUsageNetworkFlows() throws ApiException {
     return new APIgetUsageNetworkFlowsRequest();
   }
@@ -835,7 +833,10 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageNetworkHostsResponse> localVarReturnType = new GenericType<UsageNetworkHostsResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageNetworkHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageNetworkHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageNetworkHostsRequest {
@@ -844,7 +845,6 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
 
     private APIgetUsageNetworkHostsRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -855,7 +855,6 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -866,7 +865,6 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageNetworkHosts request
@@ -897,9 +895,8 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageNetworkHostsResponse> executeWithHttpInfo() throws ApiException {
       return getUsageNetworkHostsWithHttpInfo(startHr, endHr);
     }
@@ -913,7 +910,6 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
    
    
    */
-  
   public APIgetUsageNetworkHostsRequest getUsageNetworkHosts() throws ApiException {
     return new APIgetUsageNetworkHostsRequest();
   }
@@ -957,7 +953,10 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageRumSessionsResponse> localVarReturnType = new GenericType<UsageRumSessionsResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageRumSessions", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageRumSessions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageRumSessionsRequest {
@@ -966,7 +965,6 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
 
     private APIgetUsageRumSessionsRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -977,7 +975,6 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -988,7 +985,6 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageRumSessions request
@@ -1019,9 +1015,8 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageRumSessionsResponse> executeWithHttpInfo() throws ApiException {
       return getUsageRumSessionsWithHttpInfo(startHr, endHr);
     }
@@ -1035,7 +1030,6 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
    
    
    */
-  
   public APIgetUsageRumSessionsRequest getUsageRumSessions() throws ApiException {
     return new APIgetUsageRumSessionsRequest();
   }
@@ -1080,7 +1074,10 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageSummaryResponse> localVarReturnType = new GenericType<UsageSummaryResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageSummaryRequest {
@@ -1090,7 +1087,6 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
 
     private APIgetUsageSummaryRequest() {
     }
-    
 
     /**
      * Set startMonth
@@ -1101,7 +1097,6 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
       this.startMonth = startMonth;
       return this;
     }
-    
 
     /**
      * Set endMonth
@@ -1112,7 +1107,6 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
       this.endMonth = endMonth;
       return this;
     }
-    
 
     /**
      * Set includeOrgDetails
@@ -1123,7 +1117,6 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
       this.includeOrgDetails = includeOrgDetails;
       return this;
     }
-    
 
     /**
      * Execute getUsageSummary request
@@ -1154,9 +1147,8 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageSummaryResponse> executeWithHttpInfo() throws ApiException {
       return getUsageSummaryWithHttpInfo(startMonth, endMonth, includeOrgDetails);
     }
@@ -1170,7 +1162,6 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
    
    
    */
-  
   public APIgetUsageSummaryRequest getUsageSummary() throws ApiException {
     return new APIgetUsageSummaryRequest();
   }
@@ -1214,7 +1205,10 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageSyntheticsResponse> localVarReturnType = new GenericType<UsageSyntheticsResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageSynthetics", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageSynthetics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageSyntheticsRequest {
@@ -1223,7 +1217,6 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
 
     private APIgetUsageSyntheticsRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -1234,7 +1227,6 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -1245,7 +1237,6 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageSynthetics request
@@ -1336,7 +1327,10 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageSyntheticsAPIResponse> localVarReturnType = new GenericType<UsageSyntheticsAPIResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageSyntheticsAPI", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageSyntheticsAPI", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageSyntheticsAPIRequest {
@@ -1345,7 +1339,6 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
 
     private APIgetUsageSyntheticsAPIRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -1356,7 +1349,6 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -1367,7 +1359,6 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageSyntheticsAPI request
@@ -1398,9 +1389,8 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageSyntheticsAPIResponse> executeWithHttpInfo() throws ApiException {
       return getUsageSyntheticsAPIWithHttpInfo(startHr, endHr);
     }
@@ -1414,7 +1404,6 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
    
    
    */
-  
   public APIgetUsageSyntheticsAPIRequest getUsageSyntheticsAPI() throws ApiException {
     return new APIgetUsageSyntheticsAPIRequest();
   }
@@ -1458,7 +1447,10 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageSyntheticsBrowserResponse> localVarReturnType = new GenericType<UsageSyntheticsBrowserResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageSyntheticsBrowser", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageSyntheticsBrowser", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageSyntheticsBrowserRequest {
@@ -1467,7 +1459,6 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
 
     private APIgetUsageSyntheticsBrowserRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -1478,7 +1469,6 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -1489,7 +1479,6 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageSyntheticsBrowser request
@@ -1520,9 +1509,8 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageSyntheticsBrowserResponse> executeWithHttpInfo() throws ApiException {
       return getUsageSyntheticsBrowserWithHttpInfo(startHr, endHr);
     }
@@ -1536,7 +1524,6 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
    
    
    */
-  
   public APIgetUsageSyntheticsBrowserRequest getUsageSyntheticsBrowser() throws ApiException {
     return new APIgetUsageSyntheticsBrowserRequest();
   }
@@ -1580,7 +1567,10 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageTimeseriesResponse> localVarReturnType = new GenericType<UsageTimeseriesResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageTimeseries", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageTimeseries", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageTimeseriesRequest {
@@ -1589,7 +1579,6 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
 
     private APIgetUsageTimeseriesRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -1600,7 +1589,6 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -1611,7 +1599,6 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageTimeseries request
@@ -1642,9 +1629,8 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageTimeseriesResponse> executeWithHttpInfo() throws ApiException {
       return getUsageTimeseriesWithHttpInfo(startHr, endHr);
     }
@@ -1658,7 +1644,6 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
    
    
    */
-  
   public APIgetUsageTimeseriesRequest getUsageTimeseries() throws ApiException {
     return new APIgetUsageTimeseriesRequest();
   }
@@ -1702,7 +1687,10 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageTopAvgMetricsResponse> localVarReturnType = new GenericType<UsageTopAvgMetricsResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageTopAvgMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageTopAvgMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageTopAvgMetricsRequest {
@@ -1711,7 +1699,6 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
 
     private APIgetUsageTopAvgMetricsRequest() {
     }
-    
 
     /**
      * Set month
@@ -1722,7 +1709,6 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
       this.month = month;
       return this;
     }
-    
 
     /**
      * Set names
@@ -1733,7 +1719,6 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
       this.names = names;
       return this;
     }
-    
 
     /**
      * Execute getUsageTopAvgMetrics request
@@ -1764,9 +1749,8 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageTopAvgMetricsResponse> executeWithHttpInfo() throws ApiException {
       return getUsageTopAvgMetricsWithHttpInfo(month, names);
     }
@@ -1780,7 +1764,6 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
    
    
    */
-  
   public APIgetUsageTopAvgMetricsRequest getUsageTopAvgMetrics() throws ApiException {
     return new APIgetUsageTopAvgMetricsRequest();
   }
@@ -1824,7 +1807,10 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<UsageTraceResponse> localVarReturnType = new GenericType<UsageTraceResponse>() {};
-    return apiClient.invokeAPI("UsageMeteringApi.getUsageTrace", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageTrace", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetUsageTraceRequest {
@@ -1833,7 +1819,6 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
 
     private APIgetUsageTraceRequest() {
     }
-    
 
     /**
      * Set startHr
@@ -1844,7 +1829,6 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
       this.startHr = startHr;
       return this;
     }
-    
 
     /**
      * Set endHr
@@ -1855,7 +1839,6 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
       this.endHr = endHr;
       return this;
     }
-    
 
     /**
      * Execute getUsageTrace request
@@ -1886,9 +1869,8 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<UsageTraceResponse> executeWithHttpInfo() throws ApiException {
       return getUsageTraceWithHttpInfo(startHr, endHr);
     }
@@ -1902,7 +1884,6 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
    
    
    */
-  
   public APIgetUsageTraceRequest getUsageTrace() throws ApiException {
     return new APIgetUsageTraceRequest();
   }

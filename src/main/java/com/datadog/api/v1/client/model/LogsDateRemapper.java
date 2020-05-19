@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogsDateRemapperType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,12 +22,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -34,68 +29,24 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.    - `timestamp`   - `date`   - `_timestamp`   - `Timestamp`   - `eventTime`   - `published_date`    If your logs put their dates in an attribute not in this list,   use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your logs don’t contain any of the default attributes   and you haven’t defined your own date attribute, Datadog timestamps   the logs with the date it received them.    If multiple log date remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.")
 @JsonPropertyOrder({
-  LogsDateRemapper.JSON_PROPERTY_SOURCES,
-  LogsDateRemapper.JSON_PROPERTY_TYPE,
   LogsDateRemapper.JSON_PROPERTY_IS_ENABLED,
-  LogsDateRemapper.JSON_PROPERTY_NAME
+  LogsDateRemapper.JSON_PROPERTY_NAME,
+  LogsDateRemapper.JSON_PROPERTY_SOURCES,
+  LogsDateRemapper.JSON_PROPERTY_TYPE
 })
 
-public class LogsDateRemapper implements LogsProcessor {
-  public static final String JSON_PROPERTY_SOURCES = "sources";
-  private List<String> sources = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "date-remapper";
-
+public class LogsDateRemapper {
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_SOURCES = "sources";
+  private List<String> sources = new ArrayList<>();
 
-  public LogsDateRemapper sources(List<String> sources) {
-    
-    this.sources = sources;
-    return this;
-  }
-
-  public LogsDateRemapper addSourcesItem(String sourcesItem) {
-    this.sources.add(sourcesItem);
-    return this;
-  }
-
-   /**
-   * Array of source attributes.
-   * @return sources
-  **/
-  @ApiModelProperty(required = true, value = "Array of source attributes.")
-  @JsonProperty(JSON_PROPERTY_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<String> getSources() {
-    return sources;
-  }
-
-
-  public void setSources(List<String> sources) {
-    this.sources = sources;
-  }
-
-
-   /**
-   * Type of processor.
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "Type of processor.")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getType() {
-    return type;
-  }
-
-
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LogsDateRemapperType type = LogsDateRemapperType.DATE_REMAPPER;
 
 
   public LogsDateRemapper isEnabled(Boolean isEnabled) {
@@ -148,6 +99,59 @@ public class LogsDateRemapper implements LogsProcessor {
   }
 
 
+  public LogsDateRemapper sources(List<String> sources) {
+    
+    this.sources = sources;
+    return this;
+  }
+
+  public LogsDateRemapper addSourcesItem(String sourcesItem) {
+    this.sources.add(sourcesItem);
+    return this;
+  }
+
+   /**
+   * Array of source attributes.
+   * @return sources
+  **/
+  @ApiModelProperty(example = "[\"web\",\"gateway\"]", required = true, value = "Array of source attributes.")
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getSources() {
+    return sources;
+  }
+
+
+  public void setSources(List<String> sources) {
+    this.sources = sources;
+  }
+
+
+  public LogsDateRemapper type(LogsDateRemapperType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LogsDateRemapperType getType() {
+    return type;
+  }
+
+
+  public void setType(LogsDateRemapperType type) {
+    this.type = type;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -157,15 +161,15 @@ public class LogsDateRemapper implements LogsProcessor {
       return false;
     }
     LogsDateRemapper logsDateRemapper = (LogsDateRemapper) o;
-    return Objects.equals(this.sources, logsDateRemapper.sources) &&
-        Objects.equals(this.type, logsDateRemapper.type) &&
-        Objects.equals(this.isEnabled, logsDateRemapper.isEnabled) &&
-        Objects.equals(this.name, logsDateRemapper.name);
+    return Objects.equals(this.isEnabled, logsDateRemapper.isEnabled) &&
+        Objects.equals(this.name, logsDateRemapper.name) &&
+        Objects.equals(this.sources, logsDateRemapper.sources) &&
+        Objects.equals(this.type, logsDateRemapper.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sources, type, isEnabled, name);
+    return Objects.hash(isEnabled, name, sources, type);
   }
 
 
@@ -173,10 +177,10 @@ public class LogsDateRemapper implements LogsProcessor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsDateRemapper {\n");
-    sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

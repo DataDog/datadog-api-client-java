@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**UserCreateAttributes**](UserCreateAttributes.md) |  |  [optional]
 **relationships** | [**UserRelationships**](UserRelationships.md) |  |  [optional]
-**type** | **String** | Users resource type. |  [optional] [readonly]
+**type** | [**UsersType**](UsersType.md) |  |  [optional]
 
 
 

@@ -62,7 +62,7 @@ public class SyntheticsTestConfig {
    * Array of assertions used for the test.
    * @return assertions
   **/
-  @ApiModelProperty(required = true, value = "Array of assertions used for the test.")
+  @ApiModelProperty(example = "[]", required = true, value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

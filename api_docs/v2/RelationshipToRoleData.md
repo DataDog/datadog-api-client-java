@@ -8,7 +8,7 @@ Relationship to role object.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | ID of the role. |  [optional]
-**type** | **String** | Type of role. |  [optional]
+**type** | [**RolesType**](RolesType.md) |  |  [optional]
 
 
 
