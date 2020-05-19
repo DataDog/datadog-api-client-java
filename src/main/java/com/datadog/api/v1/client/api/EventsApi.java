@@ -30,13 +30,24 @@ public class EventsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws ApiException {
     Object localVarPostBody = null;
@@ -76,7 +87,10 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<EventResponse> localVarReturnType = new GenericType<EventResponse>() {};
-    return apiClient.invokeAPI("EventsApi.getEvent", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("EventsApi.getEvent", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetEventRequest {
@@ -85,7 +99,6 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
     private APIgetEventRequest(Long eventId) {
       this.eventId = eventId;
     }
-    
 
     /**
      * Execute getEvent request
@@ -116,9 +129,8 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<EventResponse> executeWithHttpInfo() throws ApiException {
       return getEventWithHttpInfo(eventId);
     }
@@ -133,7 +145,6 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
    
    
    */
-  
   public APIgetEventRequest getEvent(Long eventId) throws ApiException {
     return new APIgetEventRequest(eventId);
   }
@@ -186,7 +197,10 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<EventListResponse> localVarReturnType = new GenericType<EventListResponse>() {};
-    return apiClient.invokeAPI("EventsApi.listEvents", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("EventsApi.listEvents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistEventsRequest {
@@ -199,7 +213,6 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
 
     private APIlistEventsRequest() {
     }
-    
 
     /**
      * Set start
@@ -210,7 +223,6 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
       this.start = start;
       return this;
     }
-    
 
     /**
      * Set end
@@ -221,7 +233,6 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
       this.end = end;
       return this;
     }
-    
 
     /**
      * Set priority
@@ -232,7 +243,6 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
       this.priority = priority;
       return this;
     }
-    
 
     /**
      * Set sources
@@ -243,7 +253,6 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
       this.sources = sources;
       return this;
     }
-    
 
     /**
      * Set tags
@@ -254,7 +263,6 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
       this.tags = tags;
       return this;
     }
-    
 
     /**
      * Set unaggregated
@@ -265,7 +273,6 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
       this.unaggregated = unaggregated;
       return this;
     }
-    
 
     /**
      * Execute listEvents request
@@ -296,9 +303,8 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<EventListResponse> executeWithHttpInfo() throws ApiException {
       return listEventsWithHttpInfo(start, end, priority, sources, tags, unaggregated);
     }
@@ -312,7 +318,6 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
    
    
    */
-  
   public APIlistEventsRequest listEvents() throws ApiException {
     return new APIlistEventsRequest();
   }

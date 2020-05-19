@@ -29,13 +29,12 @@ import com.datadog.api.v1.client.model.LogsServiceRemapper;
 import com.datadog.api.v1.client.model.LogsStatusRemapper;
 import com.datadog.api.v1.client.model.LogsStringBuilderProcessor;
 import com.datadog.api.v1.client.model.LogsTraceRemapper;
+import com.datadog.api.v1.client.model.LogsTraceRemapperType;
 import com.datadog.api.v1.client.model.LogsURLParser;
 import com.datadog.api.v1.client.model.LogsUserAgentParser;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -46,27 +45,324 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = LogsArithmeticProcessor.class, name = "arithmetic-processor"),
-  @JsonSubTypes.Type(value = LogsAttributeRemapper.class, name = "attribute-remapper"),
-  @JsonSubTypes.Type(value = LogsCategoryProcessor.class, name = "category-processor"),
-  @JsonSubTypes.Type(value = LogsDateRemapper.class, name = "date-remapper"),
-  @JsonSubTypes.Type(value = LogsGeoIPParser.class, name = "geo-ip-parser"),
-  @JsonSubTypes.Type(value = LogsGrokParser.class, name = "grok-parser"),
-  @JsonSubTypes.Type(value = LogsLookupProcessor.class, name = "lookup-processor"),
-  @JsonSubTypes.Type(value = LogsMessageRemapper.class, name = "message-remapper"),
-  @JsonSubTypes.Type(value = LogsPipelineProcessor.class, name = "pipeline"),
-  @JsonSubTypes.Type(value = LogsServiceRemapper.class, name = "service-remapper"),
-  @JsonSubTypes.Type(value = LogsStatusRemapper.class, name = "status-remapper"),
-  @JsonSubTypes.Type(value = LogsStringBuilderProcessor.class, name = "string-builder-processor"),
-  @JsonSubTypes.Type(value = LogsTraceRemapper.class, name = "trace-id-remapper"),
-  @JsonSubTypes.Type(value = LogsURLParser.class, name = "url-parser"),
-  @JsonSubTypes.Type(value = LogsUserAgentParser.class, name = "user-agent-parser"),
-})
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
-public interface LogsProcessor  {
-    public String getType();
+
+@JsonDeserialize(using=LogsProcessor.LogsProcessorDeserializer.class)
+public class LogsProcessor extends AbstractOpenApiSchema {
+    public static class LogsProcessorDeserializer extends StdDeserializer<LogsProcessor> {
+        public LogsProcessorDeserializer() {
+            this(LogsProcessor.class);
+        }
+
+        public LogsProcessorDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public LogsProcessor deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+
+            int match = 0;
+            Object deserialized = null;
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArithmeticProcessor.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsAttributeRemapper.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsCategoryProcessor.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsDateRemapper.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGeoIPParser.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGrokParser.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsLookupProcessor.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsMessageRemapper.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsPipelineProcessor.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsServiceRemapper.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStatusRemapper.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStringBuilderProcessor.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsTraceRemapper.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsURLParser.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsUserAgentParser.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+            if (match == 1) {
+                LogsProcessor ret = new LogsProcessor();
+                ret.setActualInstance(deserialized);
+                return ret;
+            }
+            throw new IOException(String.format("Failed deserialization for LogsProcessor: %d classes match result, expected 1", match));
+        }
+    }
+
+    // store a list of schema names defined in oneOf
+    public final static Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+    public LogsProcessor() {
+        super("oneOf", Boolean.FALSE);
+    }
+
+    public LogsProcessor(LogsArithmeticProcessor o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsAttributeRemapper o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsCategoryProcessor o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsDateRemapper o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsGeoIPParser o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsGrokParser o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsLookupProcessor o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsMessageRemapper o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsPipelineProcessor o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsServiceRemapper o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsStatusRemapper o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsStringBuilderProcessor o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsTraceRemapper o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsURLParser o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public LogsProcessor(LogsUserAgentParser o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("LogsArithmeticProcessor", new GenericType<LogsArithmeticProcessor>() {
+        });
+        schemas.put("LogsAttributeRemapper", new GenericType<LogsAttributeRemapper>() {
+        });
+        schemas.put("LogsCategoryProcessor", new GenericType<LogsCategoryProcessor>() {
+        });
+        schemas.put("LogsDateRemapper", new GenericType<LogsDateRemapper>() {
+        });
+        schemas.put("LogsGeoIPParser", new GenericType<LogsGeoIPParser>() {
+        });
+        schemas.put("LogsGrokParser", new GenericType<LogsGrokParser>() {
+        });
+        schemas.put("LogsLookupProcessor", new GenericType<LogsLookupProcessor>() {
+        });
+        schemas.put("LogsMessageRemapper", new GenericType<LogsMessageRemapper>() {
+        });
+        schemas.put("LogsPipelineProcessor", new GenericType<LogsPipelineProcessor>() {
+        });
+        schemas.put("LogsServiceRemapper", new GenericType<LogsServiceRemapper>() {
+        });
+        schemas.put("LogsStatusRemapper", new GenericType<LogsStatusRemapper>() {
+        });
+        schemas.put("LogsStringBuilderProcessor", new GenericType<LogsStringBuilderProcessor>() {
+        });
+        schemas.put("LogsTraceRemapper", new GenericType<LogsTraceRemapper>() {
+        });
+        schemas.put("LogsURLParser", new GenericType<LogsURLParser>() {
+        });
+        schemas.put("LogsUserAgentParser", new GenericType<LogsUserAgentParser>() {
+        });
+    }
+
+    @Override
+    public Map<String, GenericType> getSchemas() {
+        return LogsProcessor.schemas;
+    }
+
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof LogsArithmeticProcessor) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsAttributeRemapper) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsCategoryProcessor) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsDateRemapper) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsGeoIPParser) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsGrokParser) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsLookupProcessor) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsMessageRemapper) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsPipelineProcessor) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsServiceRemapper) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsStatusRemapper) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsStringBuilderProcessor) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsTraceRemapper) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsURLParser) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogsUserAgentParser) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be LogsArithmeticProcessor, LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser");
+    }
+
+
+
 }
 

@@ -80,7 +80,7 @@ public class LogContent {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "{\"customAttribute\":123,\"duration\":2345}", value = "JSON object of attributes from your log.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getAttributes() {
     return attributes;

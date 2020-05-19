@@ -16,12 +16,8 @@ Name | Type | Description | Notes
 **title** | **String** | Title of your widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**TimeseriesWidgetDefinitionType**](TimeseriesWidgetDefinitionType.md) |  | 
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

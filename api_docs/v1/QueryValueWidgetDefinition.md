@@ -16,11 +16,7 @@ Name | Type | Description | Notes
 **title** | **String** | Title of your widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | **String** | Type of widget. |  [readonly]
+**type** | [**QueryValueWidgetDefinitionType**](QueryValueWidgetDefinitionType.md) |  | 
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

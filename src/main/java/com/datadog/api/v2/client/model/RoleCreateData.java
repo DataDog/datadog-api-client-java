@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v2.client.model.RoleCreateAttributes;
 import com.datadog.api.v2.client.model.RoleRelationships;
+import com.datadog.api.v2.client.model.RolesType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,7 +42,7 @@ public class RoleCreateData {
   private RoleRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "roles";
+  private RolesType type = RolesType.ROLES;
 
 
   public RoleCreateData attributes(RoleCreateAttributes attributes) {
@@ -94,20 +95,29 @@ public class RoleCreateData {
   }
 
 
+  public RoleCreateData type(RolesType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Roles resource type.
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Roles resource type.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getType() {
+  public RolesType getType() {
     return type;
   }
 
 
+  public void setType(RolesType type) {
+    this.type = type;
+  }
 
 
   @Override

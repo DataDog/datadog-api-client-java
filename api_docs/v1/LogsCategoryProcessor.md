@@ -8,14 +8,10 @@ Use the Category Processor to add a new attribute (without spaces or special cha
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **categories** | [**List&lt;LogsCategoryProcessorCategories&gt;**](LogsCategoryProcessorCategories.md) | Array of filters to match or not a log and their corresponding &#x60;name&#x60;to assign a custom value to the log. | 
-**target** | **String** | Name of the target attribute which value is defined by the matching category. | 
-**type** | **String** | Type of processor. |  [readonly]
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
+**target** | **String** | Name of the target attribute which value is defined by the matching category. | 
+**type** | [**LogsCategoryProcessorType**](LogsCategoryProcessorType.md) |  | 
 
-
-## Implemented Interfaces
-
-* LogsProcessor
 
 

@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.AlertValueWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,11 +21,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -42,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AlertValueWidgetDefinition.JSON_PROPERTY_UNIT
 })
 
-public class AlertValueWidgetDefinition implements WidgetDefinition {
+public class AlertValueWidgetDefinition {
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
 
@@ -62,7 +58,7 @@ public class AlertValueWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "alert_value";
+  private AlertValueWidgetDefinitionType type = AlertValueWidgetDefinitionType.ALERT_VALUE;
 
   public static final String JSON_PROPERTY_UNIT = "unit";
   private String unit;
@@ -217,19 +213,28 @@ public class AlertValueWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public AlertValueWidgetDefinition type(AlertValueWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "alert_value", required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public AlertValueWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(AlertValueWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   public AlertValueWidgetDefinition unit(String unit) {

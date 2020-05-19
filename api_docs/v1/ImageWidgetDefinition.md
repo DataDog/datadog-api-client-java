@@ -9,12 +9,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **margin** | [**WidgetMargin**](WidgetMargin.md) |  |  [optional]
 **sizing** | [**WidgetImageSizing**](WidgetImageSizing.md) |  |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**ImageWidgetDefinitionType**](ImageWidgetDefinitionType.md) |  | 
 **url** | **String** | URL of the image. | 
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

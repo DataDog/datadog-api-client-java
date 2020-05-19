@@ -8,7 +8,7 @@ Relationship to role object.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | ID of the role. |  [optional]
-**type** | **String** | The type of the resource. The value should always be roles. |  [optional]
+**type** | [**RolesType**](RolesType.md) |  |  [optional]
 
 
 

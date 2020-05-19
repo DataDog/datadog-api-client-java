@@ -14,6 +14,7 @@ package com.datadog.api.v1.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.LogsGrokParserRules;
+import com.datadog.api.v1.client.model.LogsGrokParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,12 +23,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -36,16 +31,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "Create custom grok rules to parse the full message or [a specific attribute of your raw event](https://docs.datadoghq.com/logs/processing/parsing/#advanced-settings). For more information, see the [parsing section](https://docs.datadoghq.com/logs/processing/parsing).")
 @JsonPropertyOrder({
   LogsGrokParser.JSON_PROPERTY_GROK,
+  LogsGrokParser.JSON_PROPERTY_IS_ENABLED,
+  LogsGrokParser.JSON_PROPERTY_NAME,
   LogsGrokParser.JSON_PROPERTY_SAMPLES,
   LogsGrokParser.JSON_PROPERTY_SOURCE,
-  LogsGrokParser.JSON_PROPERTY_TYPE,
-  LogsGrokParser.JSON_PROPERTY_IS_ENABLED,
-  LogsGrokParser.JSON_PROPERTY_NAME
+  LogsGrokParser.JSON_PROPERTY_TYPE
 })
 
-public class LogsGrokParser implements LogsProcessor {
+public class LogsGrokParser {
   public static final String JSON_PROPERTY_GROK = "grok";
   private LogsGrokParserRules grok;
+
+  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
+  private Boolean isEnabled = false;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_SAMPLES = "samples";
   private List<String> samples = null;
@@ -54,13 +55,7 @@ public class LogsGrokParser implements LogsProcessor {
   private String source = "message";
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "grok-parser";
-
-  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private LogsGrokParserType type = LogsGrokParserType.GROK_PARSER;
 
 
   public LogsGrokParser grok(LogsGrokParserRules grok) {
@@ -84,6 +79,56 @@ public class LogsGrokParser implements LogsProcessor {
 
   public void setGrok(LogsGrokParserRules grok) {
     this.grok = grok;
+  }
+
+
+  public LogsGrokParser isEnabled(Boolean isEnabled) {
+    
+    this.isEnabled = isEnabled;
+    return this;
+  }
+
+   /**
+   * Whether or not the processor is enabled.
+   * @return isEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsEnabled() {
+    return isEnabled;
+  }
+
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+
+  public LogsGrokParser name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the processor.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the processor.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -144,68 +189,27 @@ public class LogsGrokParser implements LogsProcessor {
   }
 
 
+  public LogsGrokParser type(LogsGrokParserType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of processor.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "grok-parser", required = true, value = "Type of processor.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public LogsGrokParserType getType() {
     return type;
   }
 
 
-
-
-  public LogsGrokParser isEnabled(Boolean isEnabled) {
-    
-    this.isEnabled = isEnabled;
-    return this;
-  }
-
-   /**
-   * Whether or not the processor is enabled.
-   * @return isEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
-
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-  }
-
-
-  public LogsGrokParser name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the processor.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
+  public void setType(LogsGrokParserType type) {
+    this.type = type;
   }
 
 
@@ -219,16 +223,16 @@ public class LogsGrokParser implements LogsProcessor {
     }
     LogsGrokParser logsGrokParser = (LogsGrokParser) o;
     return Objects.equals(this.grok, logsGrokParser.grok) &&
+        Objects.equals(this.isEnabled, logsGrokParser.isEnabled) &&
+        Objects.equals(this.name, logsGrokParser.name) &&
         Objects.equals(this.samples, logsGrokParser.samples) &&
         Objects.equals(this.source, logsGrokParser.source) &&
-        Objects.equals(this.type, logsGrokParser.type) &&
-        Objects.equals(this.isEnabled, logsGrokParser.isEnabled) &&
-        Objects.equals(this.name, logsGrokParser.name);
+        Objects.equals(this.type, logsGrokParser.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(grok, samples, source, type, isEnabled, name);
+    return Objects.hash(grok, isEnabled, name, samples, source, type);
   }
 
 
@@ -237,11 +241,11 @@ public class LogsGrokParser implements LogsProcessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsGrokParser {\n");
     sb.append("    grok: ").append(toIndentedString(grok)).append("\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    samples: ").append(toIndentedString(samples)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
