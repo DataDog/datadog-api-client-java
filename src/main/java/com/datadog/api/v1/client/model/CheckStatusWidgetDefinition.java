@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.CheckStatusWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetGrouping;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -24,9 +25,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -46,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CheckStatusWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class CheckStatusWidgetDefinition implements WidgetDefinition {
+public class CheckStatusWidgetDefinition {
   public static final String JSON_PROPERTY_CHECK = "check";
   private String check;
 
@@ -75,7 +73,7 @@ public class CheckStatusWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "check_status";
+  private CheckStatusWidgetDefinitionType type = CheckStatusWidgetDefinitionType.CHECK_STATUS;
 
 
   public CheckStatusWidgetDefinition check(String check) {
@@ -317,19 +315,28 @@ public class CheckStatusWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public CheckStatusWidgetDefinition type(CheckStatusWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "check_status", required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public CheckStatusWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(CheckStatusWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

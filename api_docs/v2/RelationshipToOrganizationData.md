@@ -8,7 +8,7 @@ Relationship to organization object.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | ID of the organization. |  [optional]
-**type** | **String** | Organizations type. |  [optional] [readonly]
+**type** | [**OrganizationsType**](OrganizationsType.md) |  |  [optional]
 
 
 

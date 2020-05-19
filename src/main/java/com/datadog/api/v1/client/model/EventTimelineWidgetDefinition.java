@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.EventTimelineWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,11 +22,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -42,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   EventTimelineWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class EventTimelineWidgetDefinition implements WidgetDefinition {
+public class EventTimelineWidgetDefinition {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -62,7 +58,7 @@ public class EventTimelineWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "event_timeline";
+  private EventTimelineWidgetDefinitionType type = EventTimelineWidgetDefinitionType.EVENT_TIMELINE;
 
 
   public EventTimelineWidgetDefinition query(String query) {
@@ -214,19 +210,28 @@ public class EventTimelineWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public EventTimelineWidgetDefinition type(EventTimelineWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "event_timeline", required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public EventTimelineWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(EventTimelineWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

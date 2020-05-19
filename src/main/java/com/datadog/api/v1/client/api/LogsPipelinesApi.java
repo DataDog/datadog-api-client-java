@@ -30,13 +30,24 @@ public class LogsPipelinesApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline body) throws ApiException {
     Object localVarPostBody = body;
@@ -75,7 +86,10 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsPipeline> localVarReturnType = new GenericType<LogsPipeline>() {};
-    return apiClient.invokeAPI("LogsPipelinesApi.createLogsPipeline", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsPipelinesApi.createLogsPipeline", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateLogsPipelineRequest {
@@ -83,7 +97,6 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
 
     private APIcreateLogsPipelineRequest() {
     }
-    
 
     /**
      * Set body
@@ -94,7 +107,6 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createLogsPipeline request
@@ -125,9 +137,8 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsPipeline> executeWithHttpInfo() throws ApiException {
       return createLogsPipelineWithHttpInfo(body);
     }
@@ -141,7 +152,6 @@ private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline bo
    
    
    */
-  
   public APIcreateLogsPipelineRequest createLogsPipeline() throws ApiException {
     return new APIcreateLogsPipelineRequest();
   }
@@ -183,8 +193,9 @@ private ApiResponse<Void> deleteLogsPipelineWithHttpInfo(String pipelineId) thro
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    
-    return apiClient.invokeAPI("LogsPipelinesApi.deleteLogsPipeline", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI("LogsPipelinesApi.deleteLogsPipeline", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, null, null);
   }
 
   public class APIdeleteLogsPipelineRequest {
@@ -193,7 +204,6 @@ private ApiResponse<Void> deleteLogsPipelineWithHttpInfo(String pipelineId) thro
     private APIdeleteLogsPipelineRequest(String pipelineId) {
       this.pipelineId = pipelineId;
     }
-    
 
     /**
      * Execute deleteLogsPipeline request
@@ -224,9 +234,8 @@ private ApiResponse<Void> deleteLogsPipelineWithHttpInfo(String pipelineId) thro
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
       return deleteLogsPipelineWithHttpInfo(pipelineId);
     }
@@ -241,7 +250,6 @@ private ApiResponse<Void> deleteLogsPipelineWithHttpInfo(String pipelineId) thro
    
    
    */
-  
   public APIdeleteLogsPipelineRequest deleteLogsPipeline(String pipelineId) throws ApiException {
     return new APIdeleteLogsPipelineRequest(pipelineId);
   }
@@ -284,7 +292,10 @@ private ApiResponse<LogsPipeline> getLogsPipelineWithHttpInfo(String pipelineId)
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsPipeline> localVarReturnType = new GenericType<LogsPipeline>() {};
-    return apiClient.invokeAPI("LogsPipelinesApi.getLogsPipeline", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsPipelinesApi.getLogsPipeline", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetLogsPipelineRequest {
@@ -293,7 +304,6 @@ private ApiResponse<LogsPipeline> getLogsPipelineWithHttpInfo(String pipelineId)
     private APIgetLogsPipelineRequest(String pipelineId) {
       this.pipelineId = pipelineId;
     }
-    
 
     /**
      * Execute getLogsPipeline request
@@ -324,9 +334,8 @@ private ApiResponse<LogsPipeline> getLogsPipelineWithHttpInfo(String pipelineId)
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsPipeline> executeWithHttpInfo() throws ApiException {
       return getLogsPipelineWithHttpInfo(pipelineId);
     }
@@ -341,7 +350,6 @@ private ApiResponse<LogsPipeline> getLogsPipelineWithHttpInfo(String pipelineId)
    
    
    */
-  
   public APIgetLogsPipelineRequest getLogsPipeline(String pipelineId) throws ApiException {
     return new APIgetLogsPipelineRequest(pipelineId);
   }
@@ -378,14 +386,16 @@ private ApiResponse<LogsPipelinesOrder> getLogsPipelineOrderWithHttpInfo() throw
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsPipelinesOrder> localVarReturnType = new GenericType<LogsPipelinesOrder>() {};
-    return apiClient.invokeAPI("LogsPipelinesApi.getLogsPipelineOrder", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsPipelinesApi.getLogsPipelineOrder", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetLogsPipelineOrderRequest {
 
     private APIgetLogsPipelineOrderRequest() {
     }
-    
 
     /**
      * Execute getLogsPipelineOrder request
@@ -414,9 +424,8 @@ private ApiResponse<LogsPipelinesOrder> getLogsPipelineOrderWithHttpInfo() throw
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsPipelinesOrder> executeWithHttpInfo() throws ApiException {
       return getLogsPipelineOrderWithHttpInfo();
     }
@@ -430,7 +439,6 @@ private ApiResponse<LogsPipelinesOrder> getLogsPipelineOrderWithHttpInfo() throw
    
    
    */
-  
   public APIgetLogsPipelineOrderRequest getLogsPipelineOrder() throws ApiException {
     return new APIgetLogsPipelineOrderRequest();
   }
@@ -467,14 +475,16 @@ private ApiResponse<List<LogsPipeline>> listLogsPipelinesWithHttpInfo() throws A
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<LogsPipeline>> localVarReturnType = new GenericType<List<LogsPipeline>>() {};
-    return apiClient.invokeAPI("LogsPipelinesApi.listLogsPipelines", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsPipelinesApi.listLogsPipelines", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistLogsPipelinesRequest {
 
     private APIlistLogsPipelinesRequest() {
     }
-    
 
     /**
      * Execute listLogsPipelines request
@@ -503,9 +513,8 @@ private ApiResponse<List<LogsPipeline>> listLogsPipelinesWithHttpInfo() throws A
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<List<LogsPipeline>> executeWithHttpInfo() throws ApiException {
       return listLogsPipelinesWithHttpInfo();
     }
@@ -519,7 +528,6 @@ private ApiResponse<List<LogsPipeline>> listLogsPipelinesWithHttpInfo() throws A
    
    
    */
-  
   public APIlistLogsPipelinesRequest listLogsPipelines() throws ApiException {
     return new APIlistLogsPipelinesRequest();
   }
@@ -567,7 +575,10 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsPipeline> localVarReturnType = new GenericType<LogsPipeline>() {};
-    return apiClient.invokeAPI("LogsPipelinesApi.updateLogsPipeline", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsPipelinesApi.updateLogsPipeline", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateLogsPipelineRequest {
@@ -577,7 +588,6 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
     private APIupdateLogsPipelineRequest(String pipelineId) {
       this.pipelineId = pipelineId;
     }
-    
 
     /**
      * Set body
@@ -588,7 +598,6 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateLogsPipeline request
@@ -619,9 +628,8 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsPipeline> executeWithHttpInfo() throws ApiException {
       return updateLogsPipelineWithHttpInfo(pipelineId, body);
     }
@@ -636,7 +644,6 @@ private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(String pipeline
    
    
    */
-  
   public APIupdateLogsPipelineRequest updateLogsPipeline(String pipelineId) throws ApiException {
     return new APIupdateLogsPipelineRequest(pipelineId);
   }
@@ -678,7 +685,10 @@ private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(Logs
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsPipelinesOrder> localVarReturnType = new GenericType<LogsPipelinesOrder>() {};
-    return apiClient.invokeAPI("LogsPipelinesApi.updateLogsPipelineOrder", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsPipelinesApi.updateLogsPipelineOrder", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateLogsPipelineOrderRequest {
@@ -686,7 +696,6 @@ private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(Logs
 
     private APIupdateLogsPipelineOrderRequest() {
     }
-    
 
     /**
      * Set body
@@ -697,7 +706,6 @@ private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(Logs
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateLogsPipelineOrder request
@@ -730,9 +738,8 @@ private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(Logs
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsPipelinesOrder> executeWithHttpInfo() throws ApiException {
       return updateLogsPipelineOrderWithHttpInfo(body);
     }
@@ -746,7 +753,6 @@ private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(Logs
    
    
    */
-  
   public APIupdateLogsPipelineOrderRequest updateLogsPipelineOrder() throws ApiException {
     return new APIupdateLogsPipelineOrderRequest();
   }

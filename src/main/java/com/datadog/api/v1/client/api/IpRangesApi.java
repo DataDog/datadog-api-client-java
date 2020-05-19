@@ -27,13 +27,24 @@ public class IpRangesApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
@@ -67,14 +78,16 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<IPRanges> localVarReturnType = new GenericType<IPRanges>() {};
-    return apiClient.invokeAPI("IpRangesApi.getIPRanges", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("IpRangesApi.getIPRanges", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetIPRangesRequest {
 
     private APIgetIPRangesRequest() {
     }
-    
 
     /**
      * Execute getIPRanges request
@@ -101,9 +114,8 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> List of IP ranges. </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<IPRanges> executeWithHttpInfo() throws ApiException {
       return getIPRangesWithHttpInfo();
     }
@@ -117,7 +129,6 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
    
    
    */
-  
   public APIgetIPRangesRequest getIPRanges() throws ApiException {
     return new APIgetIPRangesRequest();
   }

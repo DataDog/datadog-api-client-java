@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.ChangeWidgetDefinitionType;
 import com.datadog.api.v1.client.model.ChangeWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -24,9 +25,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -42,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ChangeWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class ChangeWidgetDefinition implements WidgetDefinition {
+public class ChangeWidgetDefinition {
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<ChangeWidgetRequest> requests = new ArrayList<>();
 
@@ -59,7 +57,7 @@ public class ChangeWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "change";
+  private ChangeWidgetDefinitionType type = ChangeWidgetDefinitionType.CHANGE;
 
 
   public ChangeWidgetDefinition requests(List<ChangeWidgetRequest> requests) {
@@ -191,19 +189,28 @@ public class ChangeWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public ChangeWidgetDefinition type(ChangeWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "change", required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public ChangeWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(ChangeWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

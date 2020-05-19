@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogsAttributeRemapperType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,12 +22,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -34,18 +29,24 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "The remapper processor remaps any source attribute(s) or tag to another target attribute or tag. Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice). Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.")
 @JsonPropertyOrder({
+  LogsAttributeRemapper.JSON_PROPERTY_IS_ENABLED,
+  LogsAttributeRemapper.JSON_PROPERTY_NAME,
   LogsAttributeRemapper.JSON_PROPERTY_OVERRIDE_ON_CONFLICT,
   LogsAttributeRemapper.JSON_PROPERTY_PRESERVE_SOURCE,
   LogsAttributeRemapper.JSON_PROPERTY_SOURCE_TYPE,
   LogsAttributeRemapper.JSON_PROPERTY_SOURCES,
   LogsAttributeRemapper.JSON_PROPERTY_TARGET,
   LogsAttributeRemapper.JSON_PROPERTY_TARGET_TYPE,
-  LogsAttributeRemapper.JSON_PROPERTY_TYPE,
-  LogsAttributeRemapper.JSON_PROPERTY_IS_ENABLED,
-  LogsAttributeRemapper.JSON_PROPERTY_NAME
+  LogsAttributeRemapper.JSON_PROPERTY_TYPE
 })
 
-public class LogsAttributeRemapper implements LogsProcessor {
+public class LogsAttributeRemapper {
+  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
+  private Boolean isEnabled = false;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
   public static final String JSON_PROPERTY_OVERRIDE_ON_CONFLICT = "override_on_conflict";
   private Boolean overrideOnConflict = false;
 
@@ -65,13 +66,57 @@ public class LogsAttributeRemapper implements LogsProcessor {
   private String targetType = "attribute";
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "attribute-remapper";
+  private LogsAttributeRemapperType type = LogsAttributeRemapperType.ATTRIBUTE_REMAPPER;
 
-  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public LogsAttributeRemapper isEnabled(Boolean isEnabled) {
+    
+    this.isEnabled = isEnabled;
+    return this;
+  }
+
+   /**
+   * Whether or not the processor is enabled.
+   * @return isEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsEnabled() {
+    return isEnabled;
+  }
+
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+
+  public LogsAttributeRemapper name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the processor.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the processor.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
 
   public LogsAttributeRemapper overrideOnConflict(Boolean overrideOnConflict) {
@@ -227,68 +272,27 @@ public class LogsAttributeRemapper implements LogsProcessor {
   }
 
 
+  public LogsAttributeRemapper type(LogsAttributeRemapperType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of processor.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "attribute-remapper", required = true, value = "Type of processor.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public LogsAttributeRemapperType getType() {
     return type;
   }
 
 
-
-
-  public LogsAttributeRemapper isEnabled(Boolean isEnabled) {
-    
-    this.isEnabled = isEnabled;
-    return this;
-  }
-
-   /**
-   * Whether or not the processor is enabled.
-   * @return isEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
-
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-  }
-
-
-  public LogsAttributeRemapper name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the processor.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
+  public void setType(LogsAttributeRemapperType type) {
+    this.type = type;
   }
 
 
@@ -301,20 +305,20 @@ public class LogsAttributeRemapper implements LogsProcessor {
       return false;
     }
     LogsAttributeRemapper logsAttributeRemapper = (LogsAttributeRemapper) o;
-    return Objects.equals(this.overrideOnConflict, logsAttributeRemapper.overrideOnConflict) &&
+    return Objects.equals(this.isEnabled, logsAttributeRemapper.isEnabled) &&
+        Objects.equals(this.name, logsAttributeRemapper.name) &&
+        Objects.equals(this.overrideOnConflict, logsAttributeRemapper.overrideOnConflict) &&
         Objects.equals(this.preserveSource, logsAttributeRemapper.preserveSource) &&
         Objects.equals(this.sourceType, logsAttributeRemapper.sourceType) &&
         Objects.equals(this.sources, logsAttributeRemapper.sources) &&
         Objects.equals(this.target, logsAttributeRemapper.target) &&
         Objects.equals(this.targetType, logsAttributeRemapper.targetType) &&
-        Objects.equals(this.type, logsAttributeRemapper.type) &&
-        Objects.equals(this.isEnabled, logsAttributeRemapper.isEnabled) &&
-        Objects.equals(this.name, logsAttributeRemapper.name);
+        Objects.equals(this.type, logsAttributeRemapper.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(overrideOnConflict, preserveSource, sourceType, sources, target, targetType, type, isEnabled, name);
+    return Objects.hash(isEnabled, name, overrideOnConflict, preserveSource, sourceType, sources, target, targetType, type);
   }
 
 
@@ -322,6 +326,8 @@ public class LogsAttributeRemapper implements LogsProcessor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsAttributeRemapper {\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overrideOnConflict: ").append(toIndentedString(overrideOnConflict)).append("\n");
     sb.append("    preserveSource: ").append(toIndentedString(preserveSource)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
@@ -329,8 +335,6 @@ public class LogsAttributeRemapper implements LogsProcessor {
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

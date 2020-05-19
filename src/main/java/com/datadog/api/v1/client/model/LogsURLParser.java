@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogsURLParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,9 +25,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -34,15 +32,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "This processor extracts query parameters and other important parameters from a URL.")
 @JsonPropertyOrder({
+  LogsURLParser.JSON_PROPERTY_IS_ENABLED,
+  LogsURLParser.JSON_PROPERTY_NAME,
   LogsURLParser.JSON_PROPERTY_NORMALIZE_ENDING_SLASHES,
   LogsURLParser.JSON_PROPERTY_SOURCES,
   LogsURLParser.JSON_PROPERTY_TARGET,
-  LogsURLParser.JSON_PROPERTY_TYPE,
-  LogsURLParser.JSON_PROPERTY_IS_ENABLED,
-  LogsURLParser.JSON_PROPERTY_NAME
+  LogsURLParser.JSON_PROPERTY_TYPE
 })
 
-public class LogsURLParser implements LogsProcessor {
+public class LogsURLParser {
+  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
+  private Boolean isEnabled = false;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
   public static final String JSON_PROPERTY_NORMALIZE_ENDING_SLASHES = "normalize_ending_slashes";
   private JsonNullable<Boolean> normalizeEndingSlashes = JsonNullable.<Boolean>of(false);
 
@@ -53,13 +57,57 @@ public class LogsURLParser implements LogsProcessor {
   private String target = "http.url_details";
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "url-parser";
+  private LogsURLParserType type = LogsURLParserType.URL_PARSER;
 
-  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public LogsURLParser isEnabled(Boolean isEnabled) {
+    
+    this.isEnabled = isEnabled;
+    return this;
+  }
+
+   /**
+   * Whether or not the processor is enabled.
+   * @return isEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsEnabled() {
+    return isEnabled;
+  }
+
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+
+  public LogsURLParser name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the processor.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the processor.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
 
   public LogsURLParser normalizeEndingSlashes(Boolean normalizeEndingSlashes) {
@@ -150,68 +198,27 @@ public class LogsURLParser implements LogsProcessor {
   }
 
 
+  public LogsURLParser type(LogsURLParserType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of processor.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "url-parser", required = true, value = "Type of processor.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public LogsURLParserType getType() {
     return type;
   }
 
 
-
-
-  public LogsURLParser isEnabled(Boolean isEnabled) {
-    
-    this.isEnabled = isEnabled;
-    return this;
-  }
-
-   /**
-   * Whether or not the processor is enabled.
-   * @return isEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
-
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-  }
-
-
-  public LogsURLParser name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the processor.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
+  public void setType(LogsURLParserType type) {
+    this.type = type;
   }
 
 
@@ -224,17 +231,17 @@ public class LogsURLParser implements LogsProcessor {
       return false;
     }
     LogsURLParser logsURLParser = (LogsURLParser) o;
-    return Objects.equals(this.normalizeEndingSlashes, logsURLParser.normalizeEndingSlashes) &&
+    return Objects.equals(this.isEnabled, logsURLParser.isEnabled) &&
+        Objects.equals(this.name, logsURLParser.name) &&
+        Objects.equals(this.normalizeEndingSlashes, logsURLParser.normalizeEndingSlashes) &&
         Objects.equals(this.sources, logsURLParser.sources) &&
         Objects.equals(this.target, logsURLParser.target) &&
-        Objects.equals(this.type, logsURLParser.type) &&
-        Objects.equals(this.isEnabled, logsURLParser.isEnabled) &&
-        Objects.equals(this.name, logsURLParser.name);
+        Objects.equals(this.type, logsURLParser.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(normalizeEndingSlashes, sources, target, type, isEnabled, name);
+    return Objects.hash(isEnabled, name, normalizeEndingSlashes, sources, target, type);
   }
 
 
@@ -242,12 +249,12 @@ public class LogsURLParser implements LogsProcessor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsURLParser {\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    normalizeEndingSlashes: ").append(toIndentedString(normalizeEndingSlashes)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
