@@ -30,13 +30,24 @@ public class AwsIntegrationApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
     Object localVarPostBody = body;
@@ -75,7 +86,10 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<AWSAccountCreateResponse> localVarReturnType = new GenericType<AWSAccountCreateResponse>() {};
-    return apiClient.invokeAPI("AwsIntegrationApi.createAWSAccount", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsIntegrationApi.createAWSAccount", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateAWSAccountRequest {
@@ -83,7 +97,6 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
 
     private APIcreateAWSAccountRequest() {
     }
-    
 
     /**
      * Set body
@@ -94,7 +107,6 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createAWSAccount request
@@ -125,9 +137,8 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
       return createAWSAccountWithHttpInfo(body);
     }
@@ -141,7 +152,6 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
    
    
    */
-  
   public APIcreateAWSAccountRequest createAWSAccount() throws ApiException {
     return new APIcreateAWSAccountRequest();
   }
@@ -183,7 +193,10 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<AWSAccountCreateResponse> localVarReturnType = new GenericType<AWSAccountCreateResponse>() {};
-    return apiClient.invokeAPI("AwsIntegrationApi.createNewAWSExternalID", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsIntegrationApi.createNewAWSExternalID", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateNewAWSExternalIDRequest {
@@ -191,7 +204,6 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
 
     private APIcreateNewAWSExternalIDRequest() {
     }
-    
 
     /**
      * Set body
@@ -202,7 +214,6 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createNewAWSExternalID request
@@ -233,9 +244,8 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
       return createNewAWSExternalIDWithHttpInfo(body);
     }
@@ -249,7 +259,6 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
    
    
    */
-  
   public APIcreateNewAWSExternalIDRequest createNewAWSExternalID() throws ApiException {
     return new APIcreateNewAWSExternalIDRequest();
   }
@@ -291,7 +300,10 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AwsIntegrationApi.deleteAWSAccount", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsIntegrationApi.deleteAWSAccount", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteAWSAccountRequest {
@@ -299,7 +311,6 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
 
     private APIdeleteAWSAccountRequest() {
     }
-    
 
     /**
      * Set body
@@ -310,7 +321,6 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute deleteAWSAccount request
@@ -341,9 +351,8 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return deleteAWSAccountWithHttpInfo(body);
     }
@@ -357,7 +366,6 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
    
    
    */
-  
   public APIdeleteAWSAccountRequest deleteAWSAccount() throws ApiException {
     return new APIdeleteAWSAccountRequest();
   }
@@ -397,7 +405,10 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<AWSAccountListResponse> localVarReturnType = new GenericType<AWSAccountListResponse>() {};
-    return apiClient.invokeAPI("AwsIntegrationApi.listAWSAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsIntegrationApi.listAWSAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistAWSAccountsRequest {
@@ -407,7 +418,6 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
 
     private APIlistAWSAccountsRequest() {
     }
-    
 
     /**
      * Set accountId
@@ -418,7 +428,6 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
       this.accountId = accountId;
       return this;
     }
-    
 
     /**
      * Set roleName
@@ -429,7 +438,6 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
       this.roleName = roleName;
       return this;
     }
-    
 
     /**
      * Set accessKeyId
@@ -440,7 +448,6 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
       this.accessKeyId = accessKeyId;
       return this;
     }
-    
 
     /**
      * Execute listAWSAccounts request
@@ -471,9 +478,8 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<AWSAccountListResponse> executeWithHttpInfo() throws ApiException {
       return listAWSAccountsWithHttpInfo(accountId, roleName, accessKeyId);
     }
@@ -487,7 +493,6 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
    
    
    */
-  
   public APIlistAWSAccountsRequest listAWSAccounts() throws ApiException {
     return new APIlistAWSAccountsRequest();
   }
@@ -524,14 +529,16 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
-    return apiClient.invokeAPI("AwsIntegrationApi.listAvailableAWSNamespaces", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsIntegrationApi.listAvailableAWSNamespaces", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistAvailableAWSNamespacesRequest {
 
     private APIlistAvailableAWSNamespacesRequest() {
     }
-    
 
     /**
      * Execute listAvailableAWSNamespaces request
@@ -560,9 +567,8 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<List<String>> executeWithHttpInfo() throws ApiException {
       return listAvailableAWSNamespacesWithHttpInfo();
     }
@@ -576,7 +582,6 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
    
    
    */
-  
   public APIlistAvailableAWSNamespacesRequest listAvailableAWSNamespaces() throws ApiException {
     return new APIlistAvailableAWSNamespacesRequest();
   }
@@ -621,7 +626,10 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AwsIntegrationApi.updateAWSAccount", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsIntegrationApi.updateAWSAccount", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateAWSAccountRequest {
@@ -632,7 +640,6 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
     private APIupdateAWSAccountRequest() {
     }
-    
 
     /**
      * Set body
@@ -643,7 +650,6 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
       this.body = body;
       return this;
     }
-    
 
     /**
      * Set accountId
@@ -654,7 +660,6 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
       this.accountId = accountId;
       return this;
     }
-    
 
     /**
      * Set roleName
@@ -665,7 +670,6 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
       this.roleName = roleName;
       return this;
     }
-    
 
     /**
      * Set accessKeyId
@@ -676,7 +680,6 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
       this.accessKeyId = accessKeyId;
       return this;
     }
-    
 
     /**
      * Execute updateAWSAccount request
@@ -707,9 +710,8 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return updateAWSAccountWithHttpInfo(body, accountId, roleName, accessKeyId);
     }
@@ -723,7 +725,6 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
    
    
    */
-  
   public APIupdateAWSAccountRequest updateAWSAccount() throws ApiException {
     return new APIupdateAWSAccountRequest();
   }

@@ -13,6 +13,7 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v2.client.model.OrganizationsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,7 +36,7 @@ public class RelationshipToOrganizationData {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "orgs";
+  private OrganizationsType type = OrganizationsType.ORGS;
 
 
   public RelationshipToOrganizationData id(String id) {
@@ -63,20 +64,29 @@ public class RelationshipToOrganizationData {
   }
 
 
+  public RelationshipToOrganizationData type(OrganizationsType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Organizations type.
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Organizations type.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getType() {
+  public OrganizationsType getType() {
     return type;
   }
 
 
+  public void setType(OrganizationsType type) {
+    this.type = type;
+  }
 
 
   @Override

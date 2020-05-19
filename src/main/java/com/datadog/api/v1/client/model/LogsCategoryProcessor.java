@@ -14,6 +14,7 @@ package com.datadog.api.v1.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.LogsCategoryProcessorCategories;
+import com.datadog.api.v1.client.model.LogsCategoryProcessorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,12 +23,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -36,27 +31,27 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log matching a provided search query. Use categories to create groups for an analytical view. For example, URL groups, machine groups, environments, and response time buckets.  **Notes**:  - The syntax of the query is the one of Logs Explorer search bar.   The query can be done on any log attribute or tag, whether it is a facet or not.   Wildcards can also be used inside your query. - Once the log has matched one of the Processor queries, it stops.   Make sure they are properly ordered in case a log could match several queries. - The names of the categories must be unique. - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.")
 @JsonPropertyOrder({
   LogsCategoryProcessor.JSON_PROPERTY_CATEGORIES,
-  LogsCategoryProcessor.JSON_PROPERTY_TARGET,
-  LogsCategoryProcessor.JSON_PROPERTY_TYPE,
   LogsCategoryProcessor.JSON_PROPERTY_IS_ENABLED,
-  LogsCategoryProcessor.JSON_PROPERTY_NAME
+  LogsCategoryProcessor.JSON_PROPERTY_NAME,
+  LogsCategoryProcessor.JSON_PROPERTY_TARGET,
+  LogsCategoryProcessor.JSON_PROPERTY_TYPE
 })
 
-public class LogsCategoryProcessor implements LogsProcessor {
+public class LogsCategoryProcessor {
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private List<LogsCategoryProcessorCategories> categories = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_TARGET = "target";
-  private String target;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "category-processor";
 
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_TARGET = "target";
+  private String target;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LogsCategoryProcessorType type = LogsCategoryProcessorType.CATEGORY_PROCESSOR;
 
 
   public LogsCategoryProcessor categories(List<LogsCategoryProcessorCategories> categories) {
@@ -86,45 +81,6 @@ public class LogsCategoryProcessor implements LogsProcessor {
   public void setCategories(List<LogsCategoryProcessorCategories> categories) {
     this.categories = categories;
   }
-
-
-  public LogsCategoryProcessor target(String target) {
-    
-    this.target = target;
-    return this;
-  }
-
-   /**
-   * Name of the target attribute which value is defined by the matching category.
-   * @return target
-  **/
-  @ApiModelProperty(required = true, value = "Name of the target attribute which value is defined by the matching category.")
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getTarget() {
-    return target;
-  }
-
-
-  public void setTarget(String target) {
-    this.target = target;
-  }
-
-
-   /**
-   * Type of processor.
-   * @return type
-  **/
-  @ApiModelProperty(example = "category-processor", required = true, value = "Type of processor.")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getType() {
-    return type;
-  }
-
-
 
 
   public LogsCategoryProcessor isEnabled(Boolean isEnabled) {
@@ -177,6 +133,54 @@ public class LogsCategoryProcessor implements LogsProcessor {
   }
 
 
+  public LogsCategoryProcessor target(String target) {
+    
+    this.target = target;
+    return this;
+  }
+
+   /**
+   * Name of the target attribute which value is defined by the matching category.
+   * @return target
+  **/
+  @ApiModelProperty(required = true, value = "Name of the target attribute which value is defined by the matching category.")
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTarget() {
+    return target;
+  }
+
+
+  public void setTarget(String target) {
+    this.target = target;
+  }
+
+
+  public LogsCategoryProcessor type(LogsCategoryProcessorType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LogsCategoryProcessorType getType() {
+    return type;
+  }
+
+
+  public void setType(LogsCategoryProcessorType type) {
+    this.type = type;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -187,15 +191,15 @@ public class LogsCategoryProcessor implements LogsProcessor {
     }
     LogsCategoryProcessor logsCategoryProcessor = (LogsCategoryProcessor) o;
     return Objects.equals(this.categories, logsCategoryProcessor.categories) &&
-        Objects.equals(this.target, logsCategoryProcessor.target) &&
-        Objects.equals(this.type, logsCategoryProcessor.type) &&
         Objects.equals(this.isEnabled, logsCategoryProcessor.isEnabled) &&
-        Objects.equals(this.name, logsCategoryProcessor.name);
+        Objects.equals(this.name, logsCategoryProcessor.name) &&
+        Objects.equals(this.target, logsCategoryProcessor.target) &&
+        Objects.equals(this.type, logsCategoryProcessor.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(categories, target, type, isEnabled, name);
+    return Objects.hash(categories, isEnabled, name, target, type);
   }
 
 
@@ -204,10 +208,10 @@ public class LogsCategoryProcessor implements LogsProcessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsCategoryProcessor {\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
-    sb.append("    target: ").append(toIndentedString(target)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

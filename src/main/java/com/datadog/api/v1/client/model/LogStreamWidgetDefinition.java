@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogStreamWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetFieldSort;
 import com.datadog.api.v1.client.model.WidgetMessageDisplay;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -25,9 +26,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -50,7 +48,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class LogStreamWidgetDefinition implements WidgetDefinition {
+public class LogStreamWidgetDefinition {
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<String> columns = null;
 
@@ -88,7 +86,7 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "log_stream";
+  private LogStreamWidgetDefinitionType type = LogStreamWidgetDefinitionType.LOG_STREAM;
 
 
   public LogStreamWidgetDefinition columns(List<String> columns) {
@@ -407,19 +405,28 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public LogStreamWidgetDefinition type(LogStreamWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "log_stream", required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public LogStreamWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(LogStreamWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

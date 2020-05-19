@@ -33,13 +33,24 @@ public class KeyManagementApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws ApiException {
     Object localVarPostBody = body;
@@ -78,7 +89,10 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApiKeyResponse> localVarReturnType = new GenericType<ApiKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.createAPIKey", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.createAPIKey", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateAPIKeyRequest {
@@ -86,7 +100,6 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
 
     private APIcreateAPIKeyRequest() {
     }
-    
 
     /**
      * Set body
@@ -97,7 +110,6 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createAPIKey request
@@ -128,9 +140,8 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApiKeyResponse> executeWithHttpInfo() throws ApiException {
       return createAPIKeyWithHttpInfo(body);
     }
@@ -144,7 +155,6 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
    
    
    */
-  
   public APIcreateAPIKeyRequest createAPIKey() throws ApiException {
     return new APIcreateAPIKeyRequest();
   }
@@ -186,7 +196,10 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApplicationKeyResponse> localVarReturnType = new GenericType<ApplicationKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.createApplicationKey", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.createApplicationKey", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateApplicationKeyRequest {
@@ -194,7 +207,6 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
 
     private APIcreateApplicationKeyRequest() {
     }
-    
 
     /**
      * Set body
@@ -205,7 +217,6 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createApplicationKey request
@@ -238,9 +249,8 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApplicationKeyResponse> executeWithHttpInfo() throws ApiException {
       return createApplicationKeyWithHttpInfo(body);
     }
@@ -254,7 +264,6 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
    
    
    */
-  
   public APIcreateApplicationKeyRequest createApplicationKey() throws ApiException {
     return new APIcreateApplicationKeyRequest();
   }
@@ -297,7 +306,10 @@ private ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApiKeyResponse> localVarReturnType = new GenericType<ApiKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.deleteAPIKey", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.deleteAPIKey", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteAPIKeyRequest {
@@ -306,7 +318,6 @@ private ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws 
     private APIdeleteAPIKeyRequest(String key) {
       this.key = key;
     }
-    
 
     /**
      * Execute deleteAPIKey request
@@ -339,9 +350,8 @@ private ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws 
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApiKeyResponse> executeWithHttpInfo() throws ApiException {
       return deleteAPIKeyWithHttpInfo(key);
     }
@@ -356,7 +366,6 @@ private ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws 
    
    
    */
-  
   public APIdeleteAPIKeyRequest deleteAPIKey(String key) throws ApiException {
     return new APIdeleteAPIKeyRequest(key);
   }
@@ -399,7 +408,10 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApplicationKeyResponse> localVarReturnType = new GenericType<ApplicationKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.deleteApplicationKey", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.deleteApplicationKey", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteApplicationKeyRequest {
@@ -408,7 +420,6 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
     private APIdeleteApplicationKeyRequest(String key) {
       this.key = key;
     }
-    
 
     /**
      * Execute deleteApplicationKey request
@@ -439,9 +450,8 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApplicationKeyResponse> executeWithHttpInfo() throws ApiException {
       return deleteApplicationKeyWithHttpInfo(key);
     }
@@ -456,7 +466,6 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
    
    
    */
-  
   public APIdeleteApplicationKeyRequest deleteApplicationKey(String key) throws ApiException {
     return new APIdeleteApplicationKeyRequest(key);
   }
@@ -499,7 +508,10 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApiKeyResponse> localVarReturnType = new GenericType<ApiKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.getAPIKey", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.getAPIKey", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetAPIKeyRequest {
@@ -508,7 +520,6 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
     private APIgetAPIKeyRequest(String key) {
       this.key = key;
     }
-    
 
     /**
      * Execute getAPIKey request
@@ -539,9 +550,8 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApiKeyResponse> executeWithHttpInfo() throws ApiException {
       return getAPIKeyWithHttpInfo(key);
     }
@@ -556,7 +566,6 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
    
    
    */
-  
   public APIgetAPIKeyRequest getAPIKey(String key) throws ApiException {
     return new APIgetAPIKeyRequest(key);
   }
@@ -599,7 +608,10 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApplicationKeyResponse> localVarReturnType = new GenericType<ApplicationKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.getApplicationKey", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.getApplicationKey", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetApplicationKeyRequest {
@@ -608,7 +620,6 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
     private APIgetApplicationKeyRequest(String key) {
       this.key = key;
     }
-    
 
     /**
      * Execute getApplicationKey request
@@ -639,9 +650,8 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApplicationKeyResponse> executeWithHttpInfo() throws ApiException {
       return getApplicationKeyWithHttpInfo(key);
     }
@@ -656,7 +666,6 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
    
    
    */
-  
   public APIgetApplicationKeyRequest getApplicationKey(String key) throws ApiException {
     return new APIgetApplicationKeyRequest(key);
   }
@@ -693,14 +702,16 @@ private ApiResponse<ApiKeyListResponse> listAPIKeysWithHttpInfo() throws ApiExce
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApiKeyListResponse> localVarReturnType = new GenericType<ApiKeyListResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.listAPIKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.listAPIKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistAPIKeysRequest {
 
     private APIlistAPIKeysRequest() {
     }
-    
 
     /**
      * Execute listAPIKeys request
@@ -729,9 +740,8 @@ private ApiResponse<ApiKeyListResponse> listAPIKeysWithHttpInfo() throws ApiExce
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApiKeyListResponse> executeWithHttpInfo() throws ApiException {
       return listAPIKeysWithHttpInfo();
     }
@@ -745,7 +755,6 @@ private ApiResponse<ApiKeyListResponse> listAPIKeysWithHttpInfo() throws ApiExce
    
    
    */
-  
   public APIlistAPIKeysRequest listAPIKeys() throws ApiException {
     return new APIlistAPIKeysRequest();
   }
@@ -782,14 +791,16 @@ private ApiResponse<ApplicationKeyListResponse> listApplicationKeysWithHttpInfo(
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApplicationKeyListResponse> localVarReturnType = new GenericType<ApplicationKeyListResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.listApplicationKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.listApplicationKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistApplicationKeysRequest {
 
     private APIlistApplicationKeysRequest() {
     }
-    
 
     /**
      * Execute listApplicationKeys request
@@ -818,9 +829,8 @@ private ApiResponse<ApplicationKeyListResponse> listApplicationKeysWithHttpInfo(
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApplicationKeyListResponse> executeWithHttpInfo() throws ApiException {
       return listApplicationKeysWithHttpInfo();
     }
@@ -834,7 +844,6 @@ private ApiResponse<ApplicationKeyListResponse> listApplicationKeysWithHttpInfo(
    
    
    */
-  
   public APIlistApplicationKeysRequest listApplicationKeys() throws ApiException {
     return new APIlistApplicationKeysRequest();
   }
@@ -882,7 +891,10 @@ private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApiKeyResponse> localVarReturnType = new GenericType<ApiKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.updateAPIKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.updateAPIKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateAPIKeyRequest {
@@ -892,7 +904,6 @@ private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey 
     private APIupdateAPIKeyRequest(String key) {
       this.key = key;
     }
-    
 
     /**
      * Set body
@@ -903,7 +914,6 @@ private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey 
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateAPIKey request
@@ -936,9 +946,8 @@ private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey 
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApiKeyResponse> executeWithHttpInfo() throws ApiException {
       return updateAPIKeyWithHttpInfo(key, body);
     }
@@ -953,7 +962,6 @@ private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey 
    
    
    */
-  
   public APIupdateAPIKeyRequest updateAPIKey(String key) throws ApiException {
     return new APIupdateAPIKeyRequest(key);
   }
@@ -1001,7 +1009,10 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<ApplicationKeyResponse> localVarReturnType = new GenericType<ApplicationKeyResponse>() {};
-    return apiClient.invokeAPI("KeyManagementApi.updateApplicationKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("KeyManagementApi.updateApplicationKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateApplicationKeyRequest {
@@ -1011,7 +1022,6 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
     private APIupdateApplicationKeyRequest(String key) {
       this.key = key;
     }
-    
 
     /**
      * Set body
@@ -1022,7 +1032,6 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateApplicationKey request
@@ -1057,9 +1066,8 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
          <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<ApplicationKeyResponse> executeWithHttpInfo() throws ApiException {
       return updateApplicationKeyWithHttpInfo(key, body);
     }
@@ -1074,7 +1082,6 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
    
    
    */
-  
   public APIupdateApplicationKeyRequest updateApplicationKey(String key) throws ApiException {
     return new APIupdateApplicationKeyRequest(key);
   }

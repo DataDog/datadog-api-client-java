@@ -15,15 +15,13 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v2.client.model.RoleAttributes;
 import com.datadog.api.v2.client.model.RoleResponseRelationships;
+import com.datadog.api.v2.client.model.RolesType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v2.client.model.UserResponseIncludedItem;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -37,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Role.JSON_PROPERTY_TYPE
 })
 
-public class Role implements UserResponseIncludedItem {
+public class Role {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private RoleAttributes attributes;
 
@@ -48,7 +46,7 @@ public class Role implements UserResponseIncludedItem {
   private RoleResponseRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "roles";
+  private RolesType type = RolesType.ROLES;
 
 
   public Role attributes(RoleAttributes attributes) {
@@ -126,19 +124,28 @@ public class Role implements UserResponseIncludedItem {
   }
 
 
+  public Role type(RolesType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Roles type.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "roles", required = true, value = "Roles type.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public RolesType getType() {
     return type;
   }
 
 
+  public void setType(RolesType type) {
+    this.type = type;
+  }
 
 
   @Override

@@ -28,13 +28,24 @@ public class SnapshotsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long end, String metricQuery, String eventQuery, String graphDef, String title) throws ApiException {
     Object localVarPostBody = null;
@@ -84,7 +95,10 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<GraphSnapshot> localVarReturnType = new GenericType<GraphSnapshot>() {};
-    return apiClient.invokeAPI("SnapshotsApi.getGraphSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SnapshotsApi.getGraphSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetGraphSnapshotRequest {
@@ -97,7 +111,6 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
 
     private APIgetGraphSnapshotRequest() {
     }
-    
 
     /**
      * Set start
@@ -108,7 +121,6 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
       this.start = start;
       return this;
     }
-    
 
     /**
      * Set end
@@ -119,7 +131,6 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
       this.end = end;
       return this;
     }
-    
 
     /**
      * Set metricQuery
@@ -130,7 +141,6 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
       this.metricQuery = metricQuery;
       return this;
     }
-    
 
     /**
      * Set eventQuery
@@ -141,7 +151,6 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
       this.eventQuery = eventQuery;
       return this;
     }
-    
 
     /**
      * Set graphDef
@@ -152,7 +161,6 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
       this.graphDef = graphDef;
       return this;
     }
-    
 
     /**
      * Set title
@@ -163,7 +171,6 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
       this.title = title;
       return this;
     }
-    
 
     /**
      * Execute getGraphSnapshot request
@@ -194,9 +201,8 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<GraphSnapshot> executeWithHttpInfo() throws ApiException {
       return getGraphSnapshotWithHttpInfo(start, end, metricQuery, eventQuery, graphDef, title);
     }
@@ -210,7 +216,6 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
    
    
    */
-  
   public APIgetGraphSnapshotRequest getGraphSnapshot() throws ApiException {
     return new APIgetGraphSnapshotRequest();
   }

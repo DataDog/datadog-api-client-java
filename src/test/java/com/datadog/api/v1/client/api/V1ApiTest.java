@@ -147,11 +147,12 @@ public abstract class V1ApiTest extends TestUtils.APITest {
                     payload,
                     new HashMap<String, String>(),
                     new HashMap<String, String>(),
-                    null,
+                    new HashMap<String, Object>(),
                     "application/json",
                     "application/json",
                     new String[]{"apiKeyAuth", "appKeyAuth"},
-                    responseType
+                    responseType,
+                    null
             );
         } finally {
             generalApiClient.setBasePath(originalBasePath);

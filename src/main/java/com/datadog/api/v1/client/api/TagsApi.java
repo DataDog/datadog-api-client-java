@@ -29,13 +29,24 @@ public class TagsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTags body, String source) throws ApiException {
     Object localVarPostBody = body;
@@ -81,7 +92,10 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<HostTags> localVarReturnType = new GenericType<HostTags>() {};
-    return apiClient.invokeAPI("TagsApi.createHostTags", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("TagsApi.createHostTags", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateHostTagsRequest {
@@ -92,7 +106,6 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
     private APIcreateHostTagsRequest(String hostName) {
       this.hostName = hostName;
     }
-    
 
     /**
      * Set body
@@ -103,7 +116,6 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
       this.body = body;
       return this;
     }
-    
 
     /**
      * Set source
@@ -114,7 +126,6 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
       this.source = source;
       return this;
     }
-    
 
     /**
      * Execute createHostTags request
@@ -145,9 +156,8 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<HostTags> executeWithHttpInfo() throws ApiException {
       return createHostTagsWithHttpInfo(hostName, body, source);
     }
@@ -162,7 +172,6 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
    
    
    */
-  
   public APIcreateHostTagsRequest createHostTags(String hostName) throws ApiException {
     return new APIcreateHostTagsRequest(hostName);
   }
@@ -205,8 +214,9 @@ private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String sou
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    
-    return apiClient.invokeAPI("TagsApi.deleteHostTags", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI("TagsApi.deleteHostTags", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, null, null);
   }
 
   public class APIdeleteHostTagsRequest {
@@ -216,7 +226,6 @@ private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String sou
     private APIdeleteHostTagsRequest(String hostName) {
       this.hostName = hostName;
     }
-    
 
     /**
      * Set source
@@ -227,7 +236,6 @@ private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String sou
       this.source = source;
       return this;
     }
-    
 
     /**
      * Execute deleteHostTags request
@@ -258,9 +266,8 @@ private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String sou
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
       return deleteHostTagsWithHttpInfo(hostName, source);
     }
@@ -275,7 +282,6 @@ private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String sou
    
    
    */
-  
   public APIdeleteHostTagsRequest deleteHostTags(String hostName) throws ApiException {
     return new APIdeleteHostTagsRequest(hostName);
   }
@@ -319,7 +325,10 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<HostTags> localVarReturnType = new GenericType<HostTags>() {};
-    return apiClient.invokeAPI("TagsApi.getHostTags", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("TagsApi.getHostTags", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetHostTagsRequest {
@@ -329,7 +338,6 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
     private APIgetHostTagsRequest(String hostName) {
       this.hostName = hostName;
     }
-    
 
     /**
      * Set source
@@ -340,7 +348,6 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
       this.source = source;
       return this;
     }
-    
 
     /**
      * Execute getHostTags request
@@ -371,9 +378,8 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<HostTags> executeWithHttpInfo() throws ApiException {
       return getHostTagsWithHttpInfo(hostName, source);
     }
@@ -388,7 +394,6 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
    
    
    */
-  
   public APIgetHostTagsRequest getHostTags(String hostName) throws ApiException {
     return new APIgetHostTagsRequest(hostName);
   }
@@ -426,7 +431,10 @@ private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws A
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<TagToHosts> localVarReturnType = new GenericType<TagToHosts>() {};
-    return apiClient.invokeAPI("TagsApi.listHostTags", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("TagsApi.listHostTags", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistHostTagsRequest {
@@ -434,7 +442,6 @@ private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws A
 
     private APIlistHostTagsRequest() {
     }
-    
 
     /**
      * Set source
@@ -445,7 +452,6 @@ private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws A
       this.source = source;
       return this;
     }
-    
 
     /**
      * Execute listHostTags request
@@ -476,9 +482,8 @@ private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws A
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<TagToHosts> executeWithHttpInfo() throws ApiException {
       return listHostTagsWithHttpInfo(source);
     }
@@ -492,7 +497,6 @@ private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws A
    
    
    */
-  
   public APIlistHostTagsRequest listHostTags() throws ApiException {
     return new APIlistHostTagsRequest();
   }
@@ -541,7 +545,10 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<HostTags> localVarReturnType = new GenericType<HostTags>() {};
-    return apiClient.invokeAPI("TagsApi.updateHostTags", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("TagsApi.updateHostTags", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateHostTagsRequest {
@@ -552,7 +559,6 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
     private APIupdateHostTagsRequest(String hostName) {
       this.hostName = hostName;
     }
-    
 
     /**
      * Set body
@@ -563,7 +569,6 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
       this.body = body;
       return this;
     }
-    
 
     /**
      * Set source
@@ -574,7 +579,6 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
       this.source = source;
       return this;
     }
-    
 
     /**
      * Execute updateHostTags request
@@ -605,9 +609,8 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<HostTags> executeWithHttpInfo() throws ApiException {
       return updateHostTagsWithHttpInfo(hostName, body, source);
     }
@@ -622,7 +625,6 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
    
    
    */
-  
   public APIupdateHostTagsRequest updateHostTags(String hostName) throws ApiException {
     return new APIupdateHostTagsRequest(hostName);
   }

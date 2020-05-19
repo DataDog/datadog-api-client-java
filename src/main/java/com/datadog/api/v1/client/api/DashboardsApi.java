@@ -30,13 +30,24 @@ public class DashboardsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throws ApiException {
     Object localVarPostBody = body;
@@ -75,7 +86,10 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Dashboard> localVarReturnType = new GenericType<Dashboard>() {};
-    return apiClient.invokeAPI("DashboardsApi.createDashboard", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardsApi.createDashboard", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateDashboardRequest {
@@ -83,7 +97,6 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
 
     private APIcreateDashboardRequest() {
     }
-    
 
     /**
      * Set body
@@ -94,7 +107,6 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createDashboard request
@@ -125,9 +137,8 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
       return createDashboardWithHttpInfo(body);
     }
@@ -141,7 +152,6 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
    
    
    */
-  
   public APIcreateDashboardRequest createDashboard() throws ApiException {
     return new APIcreateDashboardRequest();
   }
@@ -184,7 +194,10 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardDeleteResponse> localVarReturnType = new GenericType<DashboardDeleteResponse>() {};
-    return apiClient.invokeAPI("DashboardsApi.deleteDashboard", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardsApi.deleteDashboard", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteDashboardRequest {
@@ -193,7 +206,6 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
     private APIdeleteDashboardRequest(String dashboardId) {
       this.dashboardId = dashboardId;
     }
-    
 
     /**
      * Execute deleteDashboard request
@@ -224,9 +236,8 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardDeleteResponse> executeWithHttpInfo() throws ApiException {
       return deleteDashboardWithHttpInfo(dashboardId);
     }
@@ -241,7 +252,6 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
    
    
    */
-  
   public APIdeleteDashboardRequest deleteDashboard(String dashboardId) throws ApiException {
     return new APIdeleteDashboardRequest(dashboardId);
   }
@@ -284,7 +294,10 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Dashboard> localVarReturnType = new GenericType<Dashboard>() {};
-    return apiClient.invokeAPI("DashboardsApi.getDashboard", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardsApi.getDashboard", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetDashboardRequest {
@@ -293,7 +306,6 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
     private APIgetDashboardRequest(String dashboardId) {
       this.dashboardId = dashboardId;
     }
-    
 
     /**
      * Execute getDashboard request
@@ -324,9 +336,8 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
       return getDashboardWithHttpInfo(dashboardId);
     }
@@ -341,7 +352,6 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
    
    
    */
-  
   public APIgetDashboardRequest getDashboard(String dashboardId) throws ApiException {
     return new APIgetDashboardRequest(dashboardId);
   }
@@ -378,14 +388,16 @@ private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiExc
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardSummary> localVarReturnType = new GenericType<DashboardSummary>() {};
-    return apiClient.invokeAPI("DashboardsApi.listDashboards", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardsApi.listDashboards", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistDashboardsRequest {
 
     private APIlistDashboardsRequest() {
     }
-    
 
     /**
      * Execute listDashboards request
@@ -414,9 +426,8 @@ private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiExc
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardSummary> executeWithHttpInfo() throws ApiException {
       return listDashboardsWithHttpInfo();
     }
@@ -430,7 +441,6 @@ private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiExc
    
    
    */
-  
   public APIlistDashboardsRequest listDashboards() throws ApiException {
     return new APIlistDashboardsRequest();
   }
@@ -478,7 +488,10 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Dashboard> localVarReturnType = new GenericType<Dashboard>() {};
-    return apiClient.invokeAPI("DashboardsApi.updateDashboard", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardsApi.updateDashboard", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateDashboardRequest {
@@ -488,7 +501,6 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
     private APIupdateDashboardRequest(String dashboardId) {
       this.dashboardId = dashboardId;
     }
-    
 
     /**
      * Set body
@@ -499,7 +511,6 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateDashboard request
@@ -532,9 +543,8 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
       return updateDashboardWithHttpInfo(dashboardId, body);
     }
@@ -549,7 +559,6 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
    
    
    */
-  
   public APIupdateDashboardRequest updateDashboard(String dashboardId) throws ApiException {
     return new APIupdateDashboardRequest(dashboardId);
   }

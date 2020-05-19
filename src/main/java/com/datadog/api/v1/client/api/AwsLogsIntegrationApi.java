@@ -32,13 +32,24 @@ public class AwsLogsIntegrationApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(AWSAccountAndLambdaRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -77,7 +88,10 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(AW
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<AWSLogsAsyncResponse> localVarReturnType = new GenericType<AWSLogsAsyncResponse>() {};
-    return apiClient.invokeAPI("AwsLogsIntegrationApi.checkAWSLogsLambdaAsync", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsLogsIntegrationApi.checkAWSLogsLambdaAsync", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcheckAWSLogsLambdaAsyncRequest {
@@ -85,7 +99,6 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(AW
 
     private APIcheckAWSLogsLambdaAsyncRequest() {
     }
-    
 
     /**
      * Set body
@@ -96,7 +109,6 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(AW
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute checkAWSLogsLambdaAsync request
@@ -127,9 +139,8 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(AW
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<AWSLogsAsyncResponse> executeWithHttpInfo() throws ApiException {
       return checkAWSLogsLambdaAsyncWithHttpInfo(body);
     }
@@ -143,7 +154,6 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(AW
    
    
    */
-  
   public APIcheckAWSLogsLambdaAsyncRequest checkAWSLogsLambdaAsync() throws ApiException {
     return new APIcheckAWSLogsLambdaAsyncRequest();
   }
@@ -185,7 +195,10 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<AWSLogsAsyncResponse> localVarReturnType = new GenericType<AWSLogsAsyncResponse>() {};
-    return apiClient.invokeAPI("AwsLogsIntegrationApi.checkAWSLogsServicesAsync", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsLogsIntegrationApi.checkAWSLogsServicesAsync", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcheckAWSLogsServicesAsyncRequest {
@@ -193,7 +206,6 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
 
     private APIcheckAWSLogsServicesAsyncRequest() {
     }
-    
 
     /**
      * Set body
@@ -204,7 +216,6 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute checkAWSLogsServicesAsync request
@@ -235,9 +246,8 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<AWSLogsAsyncResponse> executeWithHttpInfo() throws ApiException {
       return checkAWSLogsServicesAsyncWithHttpInfo(body);
     }
@@ -251,7 +261,6 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
    
    
    */
-  
   public APIcheckAWSLogsServicesAsyncRequest checkAWSLogsServicesAsync() throws ApiException {
     return new APIcheckAWSLogsServicesAsyncRequest();
   }
@@ -293,7 +302,10 @@ private ApiResponse<Object> createAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AwsLogsIntegrationApi.createAWSLambdaARN", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsLogsIntegrationApi.createAWSLambdaARN", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateAWSLambdaARNRequest {
@@ -301,7 +313,6 @@ private ApiResponse<Object> createAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
 
     private APIcreateAWSLambdaARNRequest() {
     }
-    
 
     /**
      * Set body
@@ -312,7 +323,6 @@ private ApiResponse<Object> createAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createAWSLambdaARN request
@@ -343,9 +353,8 @@ private ApiResponse<Object> createAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return createAWSLambdaARNWithHttpInfo(body);
     }
@@ -359,7 +368,6 @@ private ApiResponse<Object> createAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
    
    
    */
-  
   public APIcreateAWSLambdaARNRequest createAWSLambdaARN() throws ApiException {
     return new APIcreateAWSLambdaARNRequest();
   }
@@ -401,7 +409,10 @@ private ApiResponse<Object> deleteAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AwsLogsIntegrationApi.deleteAWSLambdaARN", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsLogsIntegrationApi.deleteAWSLambdaARN", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteAWSLambdaARNRequest {
@@ -409,7 +420,6 @@ private ApiResponse<Object> deleteAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
 
     private APIdeleteAWSLambdaARNRequest() {
     }
-    
 
     /**
      * Set body
@@ -420,7 +430,6 @@ private ApiResponse<Object> deleteAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute deleteAWSLambdaARN request
@@ -451,9 +460,8 @@ private ApiResponse<Object> deleteAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return deleteAWSLambdaARNWithHttpInfo(body);
     }
@@ -467,7 +475,6 @@ private ApiResponse<Object> deleteAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
    
    
    */
-  
   public APIdeleteAWSLambdaARNRequest deleteAWSLambdaARN() throws ApiException {
     return new APIdeleteAWSLambdaARNRequest();
   }
@@ -509,7 +516,10 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AwsLogsIntegrationApi.enableAWSLogServices", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsLogsIntegrationApi.enableAWSLogServices", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIenableAWSLogServicesRequest {
@@ -517,7 +527,6 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
 
     private APIenableAWSLogServicesRequest() {
     }
-    
 
     /**
      * Set body
@@ -528,7 +537,6 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute enableAWSLogServices request
@@ -559,9 +567,8 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return enableAWSLogServicesWithHttpInfo(body);
     }
@@ -575,7 +582,6 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
    
    
    */
-  
   public APIenableAWSLogServicesRequest enableAWSLogServices() throws ApiException {
     return new APIenableAWSLogServicesRequest();
   }
@@ -612,14 +618,16 @@ private ApiResponse<List<AWSLogsListResponse>> listAWSLogsIntegrationsWithHttpIn
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<AWSLogsListResponse>> localVarReturnType = new GenericType<List<AWSLogsListResponse>>() {};
-    return apiClient.invokeAPI("AwsLogsIntegrationApi.listAWSLogsIntegrations", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsLogsIntegrationApi.listAWSLogsIntegrations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistAWSLogsIntegrationsRequest {
 
     private APIlistAWSLogsIntegrationsRequest() {
     }
-    
 
     /**
      * Execute listAWSLogsIntegrations request
@@ -650,9 +658,8 @@ private ApiResponse<List<AWSLogsListResponse>> listAWSLogsIntegrationsWithHttpIn
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<List<AWSLogsListResponse>> executeWithHttpInfo() throws ApiException {
       return listAWSLogsIntegrationsWithHttpInfo();
     }
@@ -666,7 +673,6 @@ private ApiResponse<List<AWSLogsListResponse>> listAWSLogsIntegrationsWithHttpIn
    
    
    */
-  
   public APIlistAWSLogsIntegrationsRequest listAWSLogsIntegrations() throws ApiException {
     return new APIlistAWSLogsIntegrationsRequest();
   }
@@ -703,14 +709,16 @@ private ApiResponse<List<AWSLogsListServicesResponse>> listAWSLogsServicesWithHt
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<AWSLogsListServicesResponse>> localVarReturnType = new GenericType<List<AWSLogsListServicesResponse>>() {};
-    return apiClient.invokeAPI("AwsLogsIntegrationApi.listAWSLogsServices", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AwsLogsIntegrationApi.listAWSLogsServices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistAWSLogsServicesRequest {
 
     private APIlistAWSLogsServicesRequest() {
     }
-    
 
     /**
      * Execute listAWSLogsServices request
@@ -739,9 +747,8 @@ private ApiResponse<List<AWSLogsListServicesResponse>> listAWSLogsServicesWithHt
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<List<AWSLogsListServicesResponse>> executeWithHttpInfo() throws ApiException {
       return listAWSLogsServicesWithHttpInfo();
     }
@@ -755,7 +762,6 @@ private ApiResponse<List<AWSLogsListServicesResponse>> listAWSLogsServicesWithHt
    
    
    */
-  
   public APIlistAWSLogsServicesRequest listAWSLogsServices() throws ApiException {
     return new APIlistAWSLogsServicesRequest();
   }
