@@ -164,7 +164,7 @@ public class LogsAttributeRemapper implements LogsProcessor {
    * Array of source attributes.
    * @return sources
   **/
-  @ApiModelProperty(required = true, value = "Array of source attributes.")
+  @ApiModelProperty(example = "[\"web\",\"gateway\"]", required = true, value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -188,7 +188,7 @@ public class LogsAttributeRemapper implements LogsProcessor {
    * Final attribute or tag name to remap the sources to.
    * @return target
   **/
-  @ApiModelProperty(required = true, value = "Final attribute or tag name to remap the sources to.")
+  @ApiModelProperty(example = "operation_id", required = true, value = "Final attribute or tag name to remap the sources to.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -231,7 +231,7 @@ public class LogsAttributeRemapper implements LogsProcessor {
    * Type of processor.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of processor.")
+  @ApiModelProperty(example = "attribute-remapper", required = true, value = "Type of processor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

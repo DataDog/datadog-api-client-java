@@ -195,7 +195,7 @@ public class ToplistWidgetDefinition implements WidgetDefinition {
    * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(example = "toplist", required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

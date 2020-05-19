@@ -236,7 +236,7 @@ public class SLOWidgetDefinition implements WidgetDefinition {
    * Type of the widget.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(example = "slo", required = true, value = "Type of the widget.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -282,7 +282,7 @@ public class SLOWidgetDefinition implements WidgetDefinition {
    * Type of view displayed by the widget.
    * @return viewType
   **/
-  @ApiModelProperty(required = true, value = "Type of view displayed by the widget.")
+  @ApiModelProperty(example = "detail", required = true, value = "Type of view displayed by the widget.")
   @JsonProperty(JSON_PROPERTY_VIEW_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
