@@ -59,7 +59,7 @@ jobs:
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         DD_TRACE_ANALYTICS_ENABLED: "true"
         DD_TRACE_ANNOTATIONS: org.junit.Test
-        DD_PROPAGATION_STYLE_INJECT: "Datadog,B3"
+        DD_PROPAGATION_STYLE_INJECT: "Datadog"
         RECORD: "true"
     - script: |
         bash <(curl -s https://codecov.io/bash) -F integration -v
