@@ -19,7 +19,7 @@ Note that once the release process is started, nobody should be merging/pushing 
 
 ### Commands
 
-- See changes ready for release by running `ddev release show changes .` at the root of this project. Add any missing labels to PRs if needed.
+- See changes ready for release by running `ddev release show changes . --tag-prefix datadog-api-client-` at the root of this project. Add any missing labels to PRs if needed.
 - Run `ddev release changelog . <NEW_VERSION> --tag-prefix datadog-api-client-` to update the `CHANGELOG.md` file at the root of this repository
 - Commit the changes to the repository in a release branch and get it approved/merged after you:
     - Make sure that all CIs are passing, as this is the commit we will be releasing!
