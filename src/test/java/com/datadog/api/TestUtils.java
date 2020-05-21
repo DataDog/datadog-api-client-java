@@ -266,5 +266,25 @@ public class TestUtils {
         public void resetWiremock() {
             reset();
         }
+
+        /**
+         * Returns a unique string that can be used as a title/description/summary/... of an API entity.
+         * When used in Azure Pipelines and RECORD=true or RECORD=none, it will include BuildId to enable
+         * mapping resources that weren't deleted to builds.
+         *
+         * @return unique entity name to use in tests
+         */
+        public String getUniqueEntityName() {
+            String buildId = System.getenv("BUILD_BUILDID");
+            if (buildId == null || !System.getenv("CI").equals("true") || getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+                buildId = "local";
+            }
+
+            // NOTE: some endpoints have limits on certain fields (e.g. Roles V2 names can only be 55 chars long),
+            // so we need to keep this short
+            String result = String.format("java-%s-%s-%d", name.getMethodName(), buildId, now.toEpochSecond());
+            // In case this is used in URL, make sure we replace potential slash
+            return result;
+        }
     }
 }

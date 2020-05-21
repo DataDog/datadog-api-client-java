@@ -37,7 +37,6 @@ public class MonitorsApiTest extends V1ApiTest {
     private static MonitorsApi unitApi;
     private ArrayList<Long> deleteMonitors = null;
 
-    private final String testingMonitorName = "Bytes received on host0";
     private final MonitorType testingMonitorType = MonitorType.METRIC_ALERT;
     private final String testingMonitorQuery = "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100";
     private final String testingMonitorMessage = "We may need to add web hosts if this is consistently high.";
@@ -78,11 +77,12 @@ public class MonitorsApiTest extends V1ApiTest {
         }
     }
 
-   /**
+    /**
      * Create, modify and delete monitor object, also test getting it
      */
     @Test
     public void monitorCreateModifyDeleteTest() throws ApiException {
+        String testingMonitorName = getUniqueEntityName();
         MonitorOptions options = new MonitorOptions()
             .notifyNoData(testingMonitorOptionsNotifyNoData)
             .noDataTimeframe(testingMonitorOptionsNoDataTimeframe);
@@ -113,11 +113,12 @@ public class MonitorsApiTest extends V1ApiTest {
         assertTrue(obtained.getDeleted_JsonNullable().isPresent());
 
         // test updating monitor
+        String updatedName = testingMonitorName + "-updated";
         MonitorUpdateRequest updateMonitor = new MonitorUpdateRequest();
-        updateMonitor.setName("New name");
+        updateMonitor.setName(updatedName);
         obtained = api.updateMonitor(monitorId).body(updateMonitor).execute();
 
-        assertEquals("New name", obtained.getName());
+        assertEquals(updatedName, obtained.getName());
         assertEquals(testingMonitorType, obtained.getType());
         assertEquals(testingMonitorQuery, obtained.getQuery());
         assertEquals(testingMonitorMessage, obtained.getMessage());
@@ -130,38 +131,40 @@ public class MonitorsApiTest extends V1ApiTest {
         assertEquals(monitorId, deletedMonitor.getDeletedMonitorId());
     }
 
-   /**
+    /**
      * Get all monitors
      */
     @Test
     public void listMonitorsTest() throws ApiException {
-        ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
-        for (String prefix: prefixes) {
+        String testingMonitorName = getUniqueEntityName();
+        ArrayList<String> suffixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
+        for (String suffix: suffixes) {
             Monitor monitor = new Monitor()
-                .name(prefix + testingMonitorName)
+                .name(String.format("%s-%s", testingMonitorName, suffix))
                 .type(testingMonitorType)
                 .query(testingMonitorQuery);
             Monitor created = api.createMonitor().body(monitor).execute();
             deleteMonitors.add(created.getId());
         }
         List<Monitor> allMonitors = api.listMonitors().execute();
-        for (String prefix: prefixes) {
+        for (String suffix: suffixes) {
+            String name = String.format("%s-%s", testingMonitorName, suffix);
             boolean found = false;
             for (Monitor monitor: allMonitors) {
-                if (monitor.getName().equals(prefix + testingMonitorName)) {
+                if (monitor.getName().equals(name)) {
                     found = true;
                 }
             }
-            assertTrue(String.format("Monitor %s%s not found", prefix, testingMonitorName), found);
+            assertTrue(String.format("Monitor %s not found", name), found);
         }
     }
 
     /**
      * Validate monitor
      */
-
-     @Test
-     public void validateMonitorTest() throws ApiException {
+    @Test
+    public void validateMonitorTest() throws ApiException {
+        String testingMonitorName = getUniqueEntityName();
         MonitorOptions options = new MonitorOptions()
             .notifyNoData(testingMonitorOptionsNotifyNoData)
             .noDataTimeframe(testingMonitorOptionsNoDataTimeframe);
@@ -185,7 +188,7 @@ public class MonitorsApiTest extends V1ApiTest {
         } catch (ApiException e) {
             // noop
         }
-     }
+    }
 
     @Test
     public void monitorsCreateErrorsTest() throws IOException {
@@ -231,6 +234,7 @@ public class MonitorsApiTest extends V1ApiTest {
 
     @Test
     public void monitorUpdateErrorsTest() throws ApiException, IOException {
+        String testingMonitorName = getUniqueEntityName();
         Monitor monitor = new Monitor()
                 .name(testingMonitorName)
                 .type(testingMonitorType)
@@ -293,6 +297,7 @@ public class MonitorsApiTest extends V1ApiTest {
 
     @Test
     public void monitorGetErrorsTest() throws ApiException, IOException {
+        String testingMonitorName = getUniqueEntityName();
         Monitor monitor = new Monitor()
                 .name(testingMonitorName)
                 .type(testingMonitorType)
@@ -372,8 +377,10 @@ public class MonitorsApiTest extends V1ApiTest {
 
     @Test
     public void monitorCanDeleteErrorsTest() throws ApiException, IOException {
+        String name = getUniqueEntityName();
         // create metrics monitor
         Monitor monitor = new Monitor()
+                .name(name)
                 .type(MonitorType.QUERY_ALERT)
                 .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
 
@@ -383,6 +390,7 @@ public class MonitorsApiTest extends V1ApiTest {
 
         // create composite monitor
         Monitor composite = new Monitor()
+                .name(name + "-composite")
                 .type(MonitorType.COMPOSITE)
                 .query(Long.toString(monitorId));
 

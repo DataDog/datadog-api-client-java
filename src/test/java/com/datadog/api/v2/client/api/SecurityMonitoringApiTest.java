@@ -45,13 +45,13 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     @Test
     public void rulesCrudTest() throws ApiException {
-        System.out.println("toto");
+        String baseName = getUniqueEntityName();
 
         ruleCreateResponses = new ArrayList<>();
 
         // create rules
         for (int i = 0; i < 5; i++) {
-            String ruleName = "test-rule-datadog-api-client-java-" + i + "-" + now;
+            String ruleName = String.format("%s-%d", baseName, i);
             SecurityMonitoringRuleResponse response = createRule(ruleName);
             ruleCreateResponses.add(response);
 

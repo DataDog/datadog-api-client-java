@@ -44,7 +44,6 @@ public class DashboardsApiTest extends V1ApiTest{
     private final Dashboard emptyDashboard = new Dashboard();
     private final ServiceLevelObjectiveRequest eventSLO = new ServiceLevelObjectiveRequest()
             .type(SLOType.METRIC)
-            .name("HTTP Return Codes")
             .description("Make sure we don't have too many failed HTTP responses")
             .thresholds(Arrays.asList(new SLOThreshold()
                     .timeframe(SLOTimeframe.SEVEN_DAYS)
@@ -102,6 +101,7 @@ public class DashboardsApiTest extends V1ApiTest{
         // Create a Dashboard with each available Widget type
 
         // Create an SLO to reference in the SLO widget
+        eventSLO.setName(getUniqueEntityName());
         SLOListResponse sloResp = sloApi.createSLO().body(eventSLO).execute();
         ServiceLevelObjective slo = sloResp.getData().get(0);
         deleteSLO = slo.getId();
@@ -552,7 +552,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(timeseriesWidgetLogQuery)
                 .addWidgetsItem(timeseriesWidgetEventQuery)
                 .addWidgetsItem(toplistWidget)
-                .title("Java Client Test ORDERED Dashboard")
+                .title(getUniqueEntityName() + "-ordered")
                 .description("Test dashboard for Java client")
                 .isReadOnly(false)
                 .templateVariables(templateVariables)
@@ -579,7 +579,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(logStreamWidget)
                 .addWidgetsItem(monitorSummaryWidget)
                 .addWidgetsItem(serviceSummaryWidget)
-                .title("Java Client Test Free Dashboard")
+                .title(getUniqueEntityName() + "-free")
                 .description("Test Free layout dashboard for Java client")
                 .isReadOnly(false)
                 .templateVariables(templateVariables);
@@ -740,7 +740,7 @@ public class DashboardsApiTest extends V1ApiTest{
     @Test
     public void dashboardUpdateErrorsTest() throws IOException {
         Dashboard dashboard = new Dashboard()
-                .title("Java Client Test ORDERED Dashboard")
+                .title(getUniqueEntityName())
                 .description("Test dashboard for Java client")
                 .layoutType(DashboardLayoutType.FREE);
 

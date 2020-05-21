@@ -35,7 +35,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     private ArrayList<Long> deleteMonitors = null;
     private final ServiceLevelObjectiveRequest monitorSLO = new ServiceLevelObjectiveRequest()
             .type(SLOType.MONITOR)
-            .name("Critical Foo Host Uptime")
             .description("Track the uptime of host foo which is critical to us.")
             .tags(Arrays.asList("app:core", "kpi"))
             .thresholds(Arrays.asList(new SLOThreshold()
@@ -45,7 +44,6 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             ));
     private final ServiceLevelObjectiveRequest eventSLO = new ServiceLevelObjectiveRequest()
             .type(SLOType.METRIC)
-            .name("HTTP Return Codes")
             .description("Make sure we don't have too many failed HTTP responses")
             .tags(Arrays.asList("app:httpd"))
             .thresholds(Arrays.asList(new SLOThreshold()
@@ -115,12 +113,13 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     public void createModifyDeleteMonitorSLO() throws ApiException {
         // Create a monitor for testing the monitor SLO
         Monitor m = new Monitor()
-                .name("For testing monitor SLO")
+                .name(getUniqueEntityName())
                 .type(MonitorType.METRIC_ALERT)
                 .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
         m = mApi.createMonitor().body(m).execute();
         deleteMonitors.add(m.getId());
         monitorSLO.monitorIds(Arrays.asList(m.getId()));
+        monitorSLO.setName(getUniqueEntityName());
 
         // Create SLO
         SLOListResponse sloResp = api.createSLO().body(monitorSLO).execute();
@@ -153,6 +152,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     @Test
     public void createModifyDeleteEventSLO() throws ApiException {
         // Create SLO
+        eventSLO.setName(getUniqueEntityName());
         SLOListResponse sloResp = api.createSLO().body(eventSLO).execute();
         ServiceLevelObjective created = sloResp.getData().get(0);
         deleteSLOs.add(created.getId());
@@ -203,12 +203,13 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     public void testMultipleSLOInstances() throws ApiException {
         // Create a monitor for testing the monitor SLO
         Monitor m = new Monitor()
-                .name("For testing monitor SLO")
+                .name(getUniqueEntityName())
                 .type(MonitorType.METRIC_ALERT)
                 .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
         m = mApi.createMonitor().body(m).execute();
         deleteMonitors.add(m.getId());
         monitorSLO.monitorIds(Arrays.asList(m.getId()));
+        monitorSLO.setName(getUniqueEntityName());
 
         // Create Monitor SLO
         SLOListResponse sloResp = api.createSLO().body(monitorSLO).execute();
@@ -216,6 +217,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
         deleteSLOs.add(createdMonitorSLO.getId());
 
         // Create Event SLO
+        eventSLO.setName(getUniqueEntityName());
         sloResp = api.createSLO().body(eventSLO).execute();
         final ServiceLevelObjective createdEventSLO = sloResp.getData().get(0);
         deleteSLOs.add(createdEventSLO.getId());
@@ -317,7 +319,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
 
         ServiceLevelObjective updateMonitorSLO = new ServiceLevelObjective()
                 .type(SLOType.MONITOR)
-                .name("Critical Foo Host Uptime Updated")
+                .name(getUniqueEntityName())
                 .description("Updated - Track the uptime of host foo which is critical to us.")
                 .tags(Arrays.asList("app:core", "kpi"))
                 .thresholds(Arrays.asList(new SLOThreshold()
@@ -400,12 +402,13 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     public void historyGetSLOErrorsTest() throws ApiException, IOException {
         // Create a monitor for testing the monitor SLO
         Monitor m = new Monitor()
-                .name("For testing monitor SLO")
+                .name(getUniqueEntityName())
                 .type(MonitorType.METRIC_ALERT)
                 .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
         m = mApi.createMonitor().body(m).execute();
         deleteMonitors.add(m.getId());
         monitorSLO.monitorIds(Arrays.asList(m.getId()));
+        monitorSLO.setName(getUniqueEntityName());
 
         // Create SLO
         SLOListResponse sloResp = api.createSLO().body(monitorSLO).execute();

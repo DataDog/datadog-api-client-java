@@ -52,11 +52,12 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
 
     @Before
     public void setupAwsLogsAccounts() {
-        String accountId = String.format("java_%07d", (now.toInstant().toEpochMilli()) % 10000000);
+        String uniqueName = getUniqueEntityName();
+        String accountId = uniqueName.substring(0, 12);
 
         // Setup a unique AWS account to use to something unique
         uniqueAWSAccount.setAccountId(accountId);
-        uniqueAWSAccount.setRoleName("DatadogAWSIntegrationRole");
+        uniqueAWSAccount.setRoleName(uniqueName);
         Map<String, Boolean> accountSpecificNamespaceRules = new HashMap<String, Boolean>();
         accountSpecificNamespaceRules.put("api_gateway", true);
         uniqueAWSAccount.accountSpecificNamespaceRules(accountSpecificNamespaceRules);

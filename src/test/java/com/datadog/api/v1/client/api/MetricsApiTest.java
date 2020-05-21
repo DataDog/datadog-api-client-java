@@ -52,7 +52,7 @@ public class MetricsApiTest extends V1ApiTest {
     public void metricsTests() throws ApiException, TestUtils.RetryException {
         long nowSeconds = now.toEpochSecond();
 
-        String testMetric = String.format("java.client.test.%d", nowSeconds);
+        String testMetric = getUniqueEntityName();
         String testHost = "java-client-test-host";
         String testQuery = String.format("avg:%s{bar:baz}by{host}", testMetric);
 

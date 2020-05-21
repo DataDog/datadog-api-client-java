@@ -30,7 +30,6 @@ import static org.junit.Assert.*;
 public class UsersApiTest extends V2APITest {
 
     private static UsersApi api = new UsersApi();
-    private final String testingUserName = "Test Datadog Client Java";
     private final String testingUserTitle = "Big boss";
     private ArrayList<String> disableUsers = null;
 
@@ -56,15 +55,12 @@ public class UsersApiTest extends V2APITest {
         }
     }
 
-    public String generateUserHandle() {
-        return "test-datadog-client-java-" + now.toEpochSecond() + "@datadoghq.com";
-    }
-
     @Test
     public void userLifecycleTest() throws ApiException {
         // TODO: test roles, permissions when we can
         // first, test creating a user
-        final String testingUserHandle = generateUserHandle();
+        final String testingUserName = getUniqueEntityName();
+        final String testingUserHandle = testingUserName + "@datadoghq.com";
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
                 .name(testingUserName)
@@ -116,7 +112,8 @@ public class UsersApiTest extends V2APITest {
 
     @Test
     public void userInvitationTest() throws ApiException {
-        final String testingUserHandle = generateUserHandle();
+        final String testingUserName = getUniqueEntityName();
+        final String testingUserHandle = testingUserName + "@datadoghq.com";
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
                 .name(testingUserName)

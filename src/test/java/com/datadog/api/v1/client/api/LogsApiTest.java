@@ -47,7 +47,7 @@ public class LogsApiTest extends V1ApiTest {
         String source = String.format("java-client-test-%d", nowNano);
         String message = String.format("test-log-list-%d", nowNano);
         String secondMessage = "second-" + message;
-        String hostname = String.format("datadog-api-client-java-test-%d", nowNano);
+        String hostname = getUniqueEntityName();
 
         String intakeURL = "https://http-intake.logs.datadoghq.com/v1/input";
         if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {

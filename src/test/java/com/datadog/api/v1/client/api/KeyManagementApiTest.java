@@ -494,7 +494,7 @@ public class KeyManagementApiTest extends V1ApiTest {
         assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
 
         long nowMillis = now.toInstant().toEpochMilli()/1000;
-        String testAppKeyName = String.format("%s:%d", name.getMethodName(), nowMillis);
+        String testAppKeyName = getUniqueEntityName();
 
         //Create an APP key to trigger 409 conflict
         ApplicationKeyResponse response = api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName)).execute();
@@ -567,11 +567,11 @@ public class KeyManagementApiTest extends V1ApiTest {
         assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
 
         // Create two app keys to trigger the 409 conflict
-        String testAppKeyName1 = String.format("%s:%d", name.getMethodName(), now.toInstant().toEpochMilli()/1000);
+        String testAppKeyName1 = getUniqueEntityName();
         ApplicationKeyResponse testAppKeyresponse1 = api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName1)).execute();
         deleteAppKeys.add(testAppKeyresponse1);
 
-        String testAppKeyName2 = String.format("%s:%d-two", name.getMethodName(), now.toInstant().toEpochMilli()/1000);
+        String testAppKeyName2 = String.format("%s-two", testAppKeyName1);
         ApplicationKeyResponse testAppKeyresponse2 = api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName2)).execute();
         deleteAppKeys.add(testAppKeyresponse2);
 

@@ -72,17 +72,9 @@ public class RolesApiTest extends V2APITest {
         }
     }
 
-    public String generateRoleName() {
-        return "test-datadog-client-java-" + now.toEpochSecond();
-    }
-
-    public String generateUserHandle() {
-        return "test-datadog-client-java-" + now.toEpochSecond() + "@datadoghq.com";
-    }
-
     @Test
     public void testRoleLifecycle() throws ApiException {
-        final String testingRoleName = generateRoleName();
+        final String testingRoleName = getUniqueEntityName();
         RoleCreateAttributes rca = new RoleCreateAttributes()
                 .name(testingRoleName);
         RoleCreateData rcd = new RoleCreateData().attributes(rca);
@@ -96,7 +88,7 @@ public class RolesApiTest extends V2APITest {
         assertEquals(testingRoleName, rr.getData().getAttributes().getName());
 
         // now, test updating it
-        String updatedRoleName = "update-" + testingRoleName;
+        String updatedRoleName = testingRoleName + "-updated";
         RoleUpdateAttributes rua = new RoleUpdateAttributes()
                 .name(updatedRoleName);
         RoleUpdateData rud = new RoleUpdateData().attributes(rua).id(rid);
@@ -128,7 +120,7 @@ public class RolesApiTest extends V2APITest {
 
     @Test
     public void testRolePermissionsLifecycle() throws ApiException {
-        final String testingRoleName = generateRoleName();
+        final String testingRoleName = getUniqueEntityName();
         RoleCreateAttributes rca = new RoleCreateAttributes()
                 .name(testingRoleName);
         RoleCreateData rcd = new RoleCreateData().attributes(rca);
@@ -185,7 +177,7 @@ public class RolesApiTest extends V2APITest {
 
     @Test
     public void testRoleUsersLifecycle() throws ApiException {
-        final String testingRoleName = generateRoleName();
+        final String testingRoleName = getUniqueEntityName();
         RoleCreateAttributes rca = new RoleCreateAttributes()
                 .name(testingRoleName);
         RoleCreateData rcd = new RoleCreateData().attributes(rca);
@@ -197,7 +189,7 @@ public class RolesApiTest extends V2APITest {
         deleteRoles.add(rid);
 
         // create a user
-        final String testingUserHandle = generateUserHandle();
+        final String testingUserHandle = getUniqueEntityName() + "@datadoghq.com";
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
                 .name(testingUserName)
