@@ -7,6 +7,7 @@
 package com.datadog.api.v1.client.api;
 
 
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -25,6 +26,7 @@ import java.util.List;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeFalse;
 import static org.junit.Assume.assumeTrue;
 
 /**
@@ -261,7 +263,7 @@ public class OrganizationsApiTest extends V1ApiTest {
     @Test
     public void orgsUploadIdpErrorsTest() throws URISyntaxException, IOException {
         // Boundary is uniquely generated at each request, so the test will fail when replaying
-        assumeTrue("This test does not support replay from recording", TestUtils.isRecording());
+        assumeFalse("This test does not support replay from recording", TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
 
         // Get random file.
         File idpFile = new File(OrganizationsApiTest.class.getResource("org_fixtures/error_415.json").toURI());
