@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## datadog-api-client-1.0.0-beta.3 / 2020-05-20
+## datadog-api-client-1.0.0-beta.3 / 2020-05-21
 
 * [BREAKING] Update to openapi-generator 5.0.0. See [#305](https://github.com/DataDog/datadog-api-client-java/pull/305).
     * This change includes backwards incompatible changes when using classes generated from `oneOf` schemas.
