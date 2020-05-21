@@ -8,6 +8,7 @@
 package com.datadog.api.v1.client.api;
 
 
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -49,7 +50,7 @@ public class LogsApiTest extends V1ApiTest {
         String hostname = String.format("datadog-api-client-java-test-%d", nowNano);
 
         String intakeURL = "https://http-intake.logs.datadoghq.com/v1/input";
-        if (!TestUtils.isRecording()) {
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
             // when running from cassettes, we need to make sure that the default base URL
             // is used for mock server certificates to work properly
             intakeURL = "/v1/input";
