@@ -10,6 +10,7 @@ import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import java.time.OffsetDateTime;
+import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
 import com.datadog.api.v1.client.model.UsageFargateResponse;
 import com.datadog.api.v1.client.model.UsageHostsResponse;
 import com.datadog.api.v1.client.model.UsageLambdaResponse;
@@ -18,6 +19,7 @@ import com.datadog.api.v1.client.model.UsageLogsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkFlowsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkHostsResponse;
 import com.datadog.api.v1.client.model.UsageRumSessionsResponse;
+import com.datadog.api.v1.client.model.UsageSNMPResponse;
 import com.datadog.api.v1.client.model.UsageSummaryResponse;
 import com.datadog.api.v1.client.model.UsageSyntheticsAPIResponse;
 import com.datadog.api.v1.client.model.UsageSyntheticsBrowserResponse;
@@ -61,6 +63,126 @@ public class UsageMeteringApi {
     this.apiClient = apiClient;
   }
 
+
+private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(400, "Missing the required parameter 'startHr' when calling getUsageAnalyzedLogs");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/analyzed_logs";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAnalyzedLogs");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageAnalyzedLogsResponse> localVarReturnType = new GenericType<UsageAnalyzedLogsResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageAnalyzedLogs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
+  }
+
+  public class APIgetUsageAnalyzedLogsRequest {
+    private OffsetDateTime startHr;
+    private OffsetDateTime endHr;
+
+    private APIgetUsageAnalyzedLogsRequest() {
+    }
+
+    /**
+     * Set startHr
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. (required)
+     * @return APIgetUsageAnalyzedLogsRequest
+     */
+    public APIgetUsageAnalyzedLogsRequest startHr(OffsetDateTime startHr) {
+      this.startHr = startHr;
+      return this;
+    }
+
+    /**
+     * Set endHr
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. (optional)
+     * @return APIgetUsageAnalyzedLogsRequest
+     */
+    public APIgetUsageAnalyzedLogsRequest endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Execute getUsageAnalyzedLogs request
+     * @return UsageAnalyzedLogsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageAnalyzedLogsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getUsageAnalyzedLogs request with HTTP info returned
+     * @return ApiResponse&lt;UsageAnalyzedLogsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageAnalyzedLogsResponse> executeWithHttpInfo() throws ApiException {
+      return getUsageAnalyzedLogsWithHttpInfo(startHr, endHr);
+    }
+  }
+
+  /**
+   * Get hourly usage for analyzed logs
+   * Get hourly usage for analyzed logs (Security Monitoring).
+   * @return getUsageAnalyzedLogsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetUsageAnalyzedLogsRequest getUsageAnalyzedLogs() throws ApiException {
+    return new APIgetUsageAnalyzedLogsRequest();
+  }
 
 private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
     Object localVarPostBody = null;
@@ -126,7 +248,7 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageFargateRequest
      */
     public APIgetUsageFargateRequest endHr(OffsetDateTime endHr) {
@@ -246,7 +368,7 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageHostsRequest
      */
     public APIgetUsageHostsRequest endHr(OffsetDateTime endHr) {
@@ -366,7 +488,7 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageLambdaRequest
      */
     public APIgetUsageLambdaRequest endHr(OffsetDateTime endHr) {
@@ -486,7 +608,7 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageLogsRequest
      */
     public APIgetUsageLogsRequest endHr(OffsetDateTime endHr) {
@@ -608,7 +730,7 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageLogsByIndexRequest
      */
     public APIgetUsageLogsByIndexRequest endHr(OffsetDateTime endHr) {
@@ -738,7 +860,7 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. (optional)
      * @return APIgetUsageNetworkFlowsRequest
      */
     public APIgetUsageNetworkFlowsRequest endHr(OffsetDateTime endHr) {
@@ -858,7 +980,7 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageNetworkHostsRequest
      */
     public APIgetUsageNetworkHostsRequest endHr(OffsetDateTime endHr) {
@@ -978,7 +1100,7 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageRumSessionsRequest
      */
     public APIgetUsageRumSessionsRequest endHr(OffsetDateTime endHr) {
@@ -1032,6 +1154,126 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
    */
   public APIgetUsageRumSessionsRequest getUsageRumSessions() throws ApiException {
     return new APIgetUsageRumSessionsRequest();
+  }
+
+private ApiResponse<UsageSNMPResponse> getUsageSNMPWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(400, "Missing the required parameter 'startHr' when calling getUsageSNMP");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/snmp";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSNMP");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageSNMPResponse> localVarReturnType = new GenericType<UsageSNMPResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageSNMP", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
+  }
+
+  public class APIgetUsageSNMPRequest {
+    private OffsetDateTime startHr;
+    private OffsetDateTime endHr;
+
+    private APIgetUsageSNMPRequest() {
+    }
+
+    /**
+     * Set startHr
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. (required)
+     * @return APIgetUsageSNMPRequest
+     */
+    public APIgetUsageSNMPRequest startHr(OffsetDateTime startHr) {
+      this.startHr = startHr;
+      return this;
+    }
+
+    /**
+     * Set endHr
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. (optional)
+     * @return APIgetUsageSNMPRequest
+     */
+    public APIgetUsageSNMPRequest endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Execute getUsageSNMP request
+     * @return UsageSNMPResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageSNMPResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getUsageSNMP request with HTTP info returned
+     * @return ApiResponse&lt;UsageSNMPResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageSNMPResponse> executeWithHttpInfo() throws ApiException {
+      return getUsageSNMPWithHttpInfo(startHr, endHr);
+    }
+  }
+
+  /**
+   * Get hourly usage for SNMP devices
+   * Get hourly usage for SNMP devices.
+   * @return getUsageSNMPRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetUsageSNMPRequest getUsageSNMP() throws ApiException {
+    return new APIgetUsageSNMPRequest();
   }
 
 private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDateTime startMonth, OffsetDateTime endMonth, Boolean includeOrgDetails) throws ApiException {
@@ -1230,7 +1472,7 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageSyntheticsRequest
      */
     public APIgetUsageSyntheticsRequest endHr(OffsetDateTime endHr) {
@@ -1352,7 +1594,7 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageSyntheticsAPIRequest
      */
     public APIgetUsageSyntheticsAPIRequest endHr(OffsetDateTime endHr) {
@@ -1472,7 +1714,7 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageSyntheticsBrowserRequest
      */
     public APIgetUsageSyntheticsBrowserRequest endHr(OffsetDateTime endHr) {
@@ -1592,7 +1834,7 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageTimeseriesRequest
      */
     public APIgetUsageTimeseriesRequest endHr(OffsetDateTime endHr) {
@@ -1832,7 +2074,7 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
 
     /**
      * Set endHr
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending BEFORE this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
      * @return APIgetUsageTraceRequest
      */
     public APIgetUsageTraceRequest endHr(OffsetDateTime endHr) {
