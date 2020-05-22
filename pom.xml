@@ -350,6 +350,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.5.22</swagger-annotations-version>
         <jersey-version>2.27</jersey-version>
+        <!-- NOTE: for now, we need to ensure that we use the same Jackson minor version as https://github.com/aws-cloudformation/cloudformation-cli-java-plugin/blob/master/pom.xml -->
         <jackson-version>2.10.4</jackson-version>
         <jackson-databind-version>2.10.4</jackson-databind-version>
         <jackson-databind-nullable-version>0.2.0</jackson-databind-nullable-version>
