@@ -2,7 +2,7 @@
 
 # SyntheticsAPITestResultShortResult
 
-TODO.
+Result of the last API test run.
 ## Properties
 
 Name | Type | Description | Notes

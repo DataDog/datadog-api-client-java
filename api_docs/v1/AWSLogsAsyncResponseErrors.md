@@ -2,13 +2,13 @@
 
 # AWSLogsAsyncResponseErrors
 
-TODO.
+Description of errors.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **String** | TODO. |  [optional]
-**message** | **String** | TODO. |  [optional]
+**code** | **String** | Code properties |  [optional]
+**message** | **String** | Message content. |  [optional]
 
 
 

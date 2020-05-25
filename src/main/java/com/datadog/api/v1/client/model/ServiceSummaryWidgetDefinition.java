@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetServiceSummaryDisplayFormat;
 import com.datadog.api.v1.client.model.WidgetSizeFormat;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -23,11 +24,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -53,7 +49,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
+public class ServiceSummaryWidgetDefinition {
   public static final String JSON_PROPERTY_DISPLAY_FORMAT = "display_format";
   private WidgetServiceSummaryDisplayFormat displayFormat;
 
@@ -100,7 +96,7 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "trace_service";
+  private ServiceSummaryWidgetDefinitionType type = ServiceSummaryWidgetDefinitionType.TRACE_SERVICE;
 
 
   public ServiceSummaryWidgetDefinition displayFormat(WidgetServiceSummaryDisplayFormat displayFormat) {
@@ -475,19 +471,28 @@ public class ServiceSummaryWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public ServiceSummaryWidgetDefinition type(ServiceSummaryWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public ServiceSummaryWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(ServiceSummaryWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

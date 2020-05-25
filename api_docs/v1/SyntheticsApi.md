@@ -4,16 +4,16 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createTest**](SyntheticsApi.md#createTest) | **POST** /api/v1/synthetics/tests | Create or clone test
-[**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete multiple tests
-[**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get test latest results (as summaries)
-[**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get test result (API)
-[**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get test latest results (as summaries)
-[**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get test result (browser)
-[**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get test
-[**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get all test
-[**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Update test
-[**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Change test pause/live status
+[**createTest**](SyntheticsApi.md#createTest) | **POST** /api/v1/synthetics/tests | Create a test
+[**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
+[**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
+[**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
+[**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test&#39;s latest results summaries (browser)
+[**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
+[**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration
+[**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get a list of tests
+[**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
+[**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
 
 
 
@@ -21,9 +21,9 @@ Method | HTTP request | Description
 
 > SyntheticsTestDetails createTest().body(body).fromTestId(fromTestId).execute();
 
-Create or clone test
+Create a test
 
-Create (or clone) a Synthetics test.
+Create a Synthetic test.
 
 ### Example
 
@@ -39,23 +39,22 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | Details of the test to create.
-        String fromTestId = "fromTestId_example"; // String | Public id of the test to clone, undefined if the test is created ex nihilo.
+        String fromTestId = "fromTestId_example"; // String | Public ID of the test to clone, undefined if the test is newly created.
         try {
             SyntheticsTestDetails result = api.createTest()
                 .body(body)
@@ -79,7 +78,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| Details of the test to create. |
- **fromTestId** | **String**| Public id of the test to clone, undefined if the test is created ex nihilo. | [optional]
+ **fromTestId** | **String**| Public ID of the test to clone, undefined if the test is newly created. | [optional]
 
 ### Return type
 
@@ -97,19 +96,19 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns the created/cloned test details. |  -  |
-| **400** | JSON format is wrong, creation/cloning failed. |  -  |
-| **402** | Test quota is reached. |  -  |
-| **403** | forbidden |  -  |
+| **200** | OK - Returns the created test details. |  -  |
+| **400** | - JSON format is wrong - Creation failed |  -  |
+| **402** | Test quota is reached |  -  |
+| **403** | Forbidden |  -  |
 
 
 ## deleteTests
 
 > SyntheticsDeleteTestsResponse deleteTests().body(body).execute();
 
-Delete multiple tests
+Delete tests
 
-Delete multiple Synthetics tests by id
+Delete multiple Synthetic tests by ID.
 
 ### Example
 
@@ -125,22 +124,21 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        SyntheticsDeleteTestsPayload body = new SyntheticsDeleteTestsPayload(); // SyntheticsDeleteTestsPayload | Public id list of the Synthetics tests to be deleted
+        SyntheticsDeleteTestsPayload body = new SyntheticsDeleteTestsPayload(); // SyntheticsDeleteTestsPayload | Public ID list of the Synthetic tests to be deleted.
         try {
             SyntheticsDeleteTestsResponse result = api.deleteTests()
                 .body(body)
@@ -162,7 +160,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SyntheticsDeleteTestsPayload**](SyntheticsDeleteTestsPayload.md)| Public id list of the Synthetics tests to be deleted |
+ **body** | [**SyntheticsDeleteTestsPayload**](SyntheticsDeleteTestsPayload.md)| Public ID list of the Synthetic tests to be deleted. |
 
 ### Return type
 
@@ -180,19 +178,19 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | JSON format is wrong, test cannot be deleted as it&#39;s used elsewhere (as a subtest or in an uptime widget), some ids are not owned by the user |  -  |
-| **403** | forbidden |  -  |
-| **404** | tests to be deleted can&#39;t be found or Synthetics is not activated for the user |  -  |
+| **200** | OK. |  -  |
+| **400** | - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user |  -  |
+| **403** | Forbidden |  -  |
+| **404** | - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user |  -  |
 
 
 ## getAPITestLatestResults
 
 > SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(publicId).fromTs(fromTs).toTs(toTs).probeDc(probeDc).execute();
 
-Get test latest results (as summaries)
+Get the test&#39;s latest results summaries (API)
 
-Get the latest results (as summaries) from a given API Synthetics test.
+Get the last 50 test results summaries for a given Synthetics API test.
 
 ### Example
 
@@ -208,22 +206,21 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the test for which to search results for.
+        String publicId = "publicId_example"; // String | The public ID of the test for which to search results for.
         Long fromTs = 56L; // Long | Timestamp from which to start querying results.
         Long toTs = 56L; // Long | Timestamp up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
@@ -250,7 +247,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the test for which to search results for. |
+ **publicId** | **String**| The public ID of the test for which to search results for. |
  **fromTs** | **Long**| Timestamp from which to start querying results. | [optional]
  **toTs** | **Long**| Timestamp up to which to query results. | [optional]
  **probeDc** | [**List&lt;String&gt;**](String.md)| Locations for which to query results. | [optional]
@@ -272,17 +269,17 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | forbidden |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
 
 
 ## getAPITestResult
 
 > SyntheticsAPITestResultFull getAPITestResult(publicId, resultId).execute();
 
-Get test result (API)
+Get a test result (API)
 
-Get a specific full result from a given (API) Synthetics test.
+Get a specific full result from a given (API) Synthetic test.
 
 ### Example
 
@@ -298,23 +295,22 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the API test to which the target result belongs.
-        String resultId = "resultId_example"; // String | The id of the result to get.
+        String publicId = "publicId_example"; // String | The public ID of the API test to which the target result belongs.
+        String resultId = "resultId_example"; // String | The ID of the result to get.
         try {
             SyntheticsAPITestResultFull result = api.getAPITestResult(publicId, resultId)
                 .execute();
@@ -335,8 +331,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the API test to which the target result belongs. |
- **resultId** | **String**| The id of the result to get. |
+ **publicId** | **String**| The public ID of the API test to which the target result belongs. |
+ **resultId** | **String**| The ID of the result to get. |
 
 ### Return type
 
@@ -355,17 +351,17 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | forbidden |  -  |
-| **404** | Synthetics is not activated for the user, test or result is not owned by the user. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | - Synthetic is not activated for the user - Test or result is not owned by the user |  -  |
 
 
 ## getBrowserTestLatestResults
 
 > SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(publicId).fromTs(fromTs).toTs(toTs).probeDc(probeDc).execute();
 
-Get test latest results (as summaries)
+Get the test&#39;s latest results summaries (browser)
 
-Get the latest results (as summaries) from a given browser Synthetics test.
+Get the last 50 test results summaries for a given Synthetics Browser test.
 
 ### Example
 
@@ -381,22 +377,21 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the browser test for which to search results for.
+        String publicId = "publicId_example"; // String | The public ID of the browser test for which to search results for.
         Long fromTs = 56L; // Long | Timestamp from which to start querying results.
         Long toTs = 56L; // Long | Timestamp up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
@@ -423,7 +418,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the browser test for which to search results for. |
+ **publicId** | **String**| The public ID of the browser test for which to search results for. |
  **fromTs** | **Long**| Timestamp from which to start querying results. | [optional]
  **toTs** | **Long**| Timestamp up to which to query results. | [optional]
  **probeDc** | [**List&lt;String&gt;**](String.md)| Locations for which to query results. | [optional]
@@ -446,16 +441,16 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **403** | forbidden |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
 
 
 ## getBrowserTestResult
 
 > SyntheticsBrowserTestResultFull getBrowserTestResult(publicId, resultId).execute();
 
-Get test result (browser)
+Get a test result (browser)
 
-Get a specific full result from a given (browser) Synthetics test.
+Get a specific full result from a given (browser) Synthetic test.
 
 ### Example
 
@@ -471,23 +466,22 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the browser test to which the target result belongs.
-        String resultId = "resultId_example"; // String | The id of the result to get.
+        String publicId = "publicId_example"; // String | The public ID of the browser test to which the target result belongs.
+        String resultId = "resultId_example"; // String | The ID of the result to get.
         try {
             SyntheticsBrowserTestResultFull result = api.getBrowserTestResult(publicId, resultId)
                 .execute();
@@ -508,8 +502,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the browser test to which the target result belongs. |
- **resultId** | **String**| The id of the result to get. |
+ **publicId** | **String**| The public ID of the browser test to which the target result belongs. |
+ **resultId** | **String**| The ID of the result to get. |
 
 ### Return type
 
@@ -528,17 +522,17 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | forbidden |  -  |
-| **404** | Synthetics is not activated for the user, test or result is not owned by the user. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | - Synthetic is not activated for the user - Test or result is not owned by the user |  -  |
 
 
 ## getTest
 
 > SyntheticsTestDetails getTest(publicId).execute();
 
-Get test
+Get a test configuration
 
-Get the details of a specific Synthetics test.
+Get the detailed configuration associated with a Synthetics test.
 
 ### Example
 
@@ -554,22 +548,21 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the test to get details from.
+        String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         try {
             SyntheticsTestDetails result = api.getTest(publicId)
                 .execute();
@@ -590,7 +583,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the test to get details from. |
+ **publicId** | **String**| The public ID of the test to get details from. |
 
 ### Return type
 
@@ -609,17 +602,17 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | forbidden |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
 
 
 ## listTests
 
 > SyntheticsListTestsResponse listTests().checkType(checkType).execute();
 
-Get all test
+Get a list of tests
 
-Get the list of all Synthetics tests (can be filtered by type).
+Get the list of all Synthetic tests (can be filtered by type).
 
 ### Example
 
@@ -635,22 +628,21 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String checkType = "checkType_example"; // String | API or browser to filter the list by type, undefined to get the unfiltered list.
+        String checkType = "checkType_example"; // String | API or browser to filter the list by test type, undefined to get the unfiltered list.
         try {
             SyntheticsListTestsResponse result = api.listTests()
                 .checkType(checkType)
@@ -672,7 +664,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **checkType** | **String**| API or browser to filter the list by type, undefined to get the unfiltered list. | [optional]
+ **checkType** | **String**| API or browser to filter the list by test type, undefined to get the unfiltered list. | [optional]
 
 ### Return type
 
@@ -690,8 +682,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns the list of all Synthetics test (properly filtered by type). |  -  |
-| **403** | forbidden |  -  |
+| **200** | OK - Returns the list of all Synthetic tests (properly filtered by type). |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Synthetics is not activated for the user. |  -  |
 
 
@@ -699,9 +691,9 @@ Name | Type | Description  | Notes
 
 > SyntheticsTestDetails updateTest(publicId).body(body).execute();
 
-Update test
+Edit a test
 
-Update the details of a specific Synthetics test.
+Edit the configuration of a Synthetic test.
 
 ### Example
 
@@ -717,22 +709,21 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the test to get details from.
+        String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | New test details to be saved.
         try {
             SyntheticsTestDetails result = api.updateTest(publicId)
@@ -755,7 +746,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the test to get details from. |
+ **publicId** | **String**| The public ID of the test to get details from. |
  **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| New test details to be saved. |
 
 ### Return type
@@ -775,18 +766,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | JSON format is wrong, updating subtype is forbidden. |  -  |
-| **403** | forbidden |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user, test can&#39;t be found. |  -  |
+| **400** | - JSON format is wrong - Updating sub-type is forbidden |  -  |
+| **403** | Forbidden |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found |  -  |
 
 
 ## updateTestPauseStatus
 
 > Boolean updateTestPauseStatus(publicId).body(body).execute();
 
-Change test pause/live status
+Pause or start a test
 
-Change pause/live status of a given Synthetics test.
+Pause or start a Synthetics test by changing the status.
 
 ### Example
 
@@ -802,23 +793,22 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public id of the Synthetics test to update
-        SyntheticsUpdateTestPauseStatusPayload body = new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload | Pause/live status to set the given Synthetics test to
+        String publicId = "publicId_example"; // String | The public ID of the Synthetic test to update.
+        SyntheticsUpdateTestPauseStatusPayload body = new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload | Status to set the given Synthetic test to.
         try {
             Boolean result = api.updateTestPauseStatus(publicId)
                 .body(body)
@@ -840,8 +830,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public id of the Synthetics test to update |
- **body** | [**SyntheticsUpdateTestPauseStatusPayload**](SyntheticsUpdateTestPauseStatusPayload.md)| Pause/live status to set the given Synthetics test to |
+ **publicId** | **String**| The public ID of the Synthetic test to update. |
+ **body** | [**SyntheticsUpdateTestPauseStatusPayload**](SyntheticsUpdateTestPauseStatusPayload.md)| Status to set the given Synthetic test to. |
 
 ### Return type
 
@@ -859,8 +849,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns a boolean indicating if the update was successful |  -  |
-| **400** | JSON format is wrong |  -  |
-| **403** | forbidden |  -  |
-| **404** | Synthetics is not activated for the user, test is not owned by the user |  -  |
+| **200** | OK - Returns a boolean indicating if the update was successful. |  -  |
+| **400** | JSON format is wrong. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
 

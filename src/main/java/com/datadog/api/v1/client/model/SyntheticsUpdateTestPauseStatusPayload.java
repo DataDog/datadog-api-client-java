@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object to start or pause an existing Synthetic test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object to start or pause an existing Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsUpdateTestPauseStatusPayload.JSON_PROPERTY_NEW_STATUS
 })

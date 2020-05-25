@@ -4,8 +4,8 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create user
-[**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable user
+[**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create a user
+[**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable a user
 [**getInvitation**](UsersApi.md#getInvitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
 [**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{user_id} | Get a user
 [**listUserOrganizations**](UsersApi.md#listUserOrganizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 > UserResponse createUser().body(body).execute();
 
-Create user
+Create a user
 
 Create a user for your organization.
 
@@ -38,19 +38,18 @@ import com.datadog.api.v2.client.api.UsersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         UserCreatePayload body = new UserCreatePayload(); // UserCreatePayload | 
@@ -102,9 +101,9 @@ Name | Type | Description  | Notes
 
 > disableUser(userId).execute();
 
-Disable user
+Disable a user
 
-Disable user. Can only be used with an application key belonging to an administrator user.
+Disable a user. Can only be used with an application key belonging to an administrator user.
 
 ### Example
 
@@ -120,19 +119,18 @@ import com.datadog.api.v2.client.api.UsersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
@@ -200,19 +198,18 @@ import com.datadog.api.v2.client.api.UsersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userInvitationUuid = "userInvitationUuid_example"; // String | The UUID of the user invitation.
@@ -281,19 +278,18 @@ import com.datadog.api.v2.client.api.UsersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
@@ -362,19 +358,18 @@ import com.datadog.api.v2.client.api.UsersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
@@ -443,19 +438,18 @@ import com.datadog.api.v2.client.api.UsersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
@@ -524,27 +518,26 @@ import com.datadog.api.v2.client.api.UsersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        Long pageSize = 10lL; // Long | Number of users to return for a given page.
+        Long pageSize = 10lL; // Long | Size for a given page.
         Long pageNumber = 0lL; // Long | Specific page number to return.
         String sort = "\"name\""; // String | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
         QuerySortOrder sortDir = new QuerySortOrder(); // QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
-        String filterStatus = "filterStatus_example"; // String | Filter on status attribute. Comma separated list: Active, Pending, and Disabled. Defaults to no filtering.
+        String filterStatus = "filterStatus_example"; // String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
         try {
             UsersResponse result = api.listUsers()
                 .pageSize(pageSize)
@@ -571,12 +564,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **Long**| Number of users to return for a given page. | [optional] [default to 10l]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
  **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0l]
  **sort** | **String**| User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional] [default to &quot;name&quot;]
  **sortDir** | [**QuerySortOrder**](.md)| Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to desc] [enum: asc, desc]
  **filter** | **String**| Filter all users by the given string. Defaults to no filtering. | [optional]
- **filterStatus** | **String**| Filter on status attribute. Comma separated list: Active, Pending, and Disabled. Defaults to no filtering. | [optional]
+ **filterStatus** | **String**| Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering. | [optional]
 
 ### Return type
 
@@ -621,19 +614,18 @@ import com.datadog.api.v2.client.api.UsersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         UserInvitationPayload body = new UserInvitationPayload(); // UserInvitationPayload | 
@@ -703,19 +695,18 @@ import com.datadog.api.v2.client.api.UsersApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
@@ -763,4 +754,5 @@ null (empty response body)
 | **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
 | **404** | Not found |  -  |
+| **422** | Unprocessable Entity |  -  |
 

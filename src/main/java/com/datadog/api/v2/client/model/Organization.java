@@ -14,15 +14,13 @@ package com.datadog.api.v2.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v2.client.model.OrganizationAttributes;
+import com.datadog.api.v2.client.model.OrganizationsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v2.client.model.UserResponseIncludedItem;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -35,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Organization.JSON_PROPERTY_TYPE
 })
 
-public class Organization implements UserResponseIncludedItem {
+public class Organization {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private OrganizationAttributes attributes;
 
@@ -43,7 +41,7 @@ public class Organization implements UserResponseIncludedItem {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "orgs";
+  private OrganizationsType type = OrganizationsType.ORGS;
 
 
   public Organization attributes(OrganizationAttributes attributes) {
@@ -96,20 +94,28 @@ public class Organization implements UserResponseIncludedItem {
   }
 
 
+  public Organization type(OrganizationsType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Organizations resource type.
+   * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Organizations resource type.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public OrganizationsType getType() {
     return type;
   }
 
 
+  public void setType(OrganizationsType type) {
+    this.type = type;
+  }
 
 
   @Override

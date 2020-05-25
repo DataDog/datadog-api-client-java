@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Response containing the number of Fargate tasks run and hourly usage.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Response containing the number of Fargate tasks run and hourly usage.")
 @JsonPropertyOrder({
   UsageFargateResponse.JSON_PROPERTY_USAGE
 })

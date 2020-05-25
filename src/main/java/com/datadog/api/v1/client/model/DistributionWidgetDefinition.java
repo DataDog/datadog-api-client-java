@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.DistributionWidgetDefinitionType;
 import com.datadog.api.v1.client.model.DistributionWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -25,9 +26,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -45,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DistributionWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class DistributionWidgetDefinition implements WidgetDefinition {
+public class DistributionWidgetDefinition {
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private WidgetLegendSize legendSize;
 
@@ -68,7 +66,7 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "distribution";
+  private DistributionWidgetDefinitionType type = DistributionWidgetDefinitionType.DISTRIBUTION;
 
 
   public DistributionWidgetDefinition legendSize(WidgetLegendSize legendSize) {
@@ -250,19 +248,28 @@ public class DistributionWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public DistributionWidgetDefinition type(DistributionWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public DistributionWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(DistributionWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

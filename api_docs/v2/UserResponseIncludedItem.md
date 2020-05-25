@@ -1,12 +1,16 @@
 
 
-# Interface UserResponseIncludedItem
+# UserResponseIncludedItem
 
 An object related to a user.
-## Implementing Classes
+## Properties
 
-* Organization
-* Permission
-* Role
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**attributes** | [**RoleAttributes**](RoleAttributes.md) |  |  [optional]
+**id** | **String** | ID of the role. |  [optional]
+**type** | [**RolesType**](RolesType.md) |  | 
+**relationships** | [**RoleResponseRelationships**](RoleResponseRelationships.md) |  |  [optional]
+
 
 

@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A JSON array of subscription type. Types available are &#x60;trial&#x60;, &#x60;free&#x60;, and &#x60;pro&#x60;.
+ * Subscription definition.
  */
-@ApiModel(description = "A JSON array of subscription type. Types available are `trial`, `free`, and `pro`.")
+@ApiModel(description = "Subscription definition.")
 @JsonPropertyOrder({
   OrganizationSubscription.JSON_PROPERTY_TYPE
 })
@@ -41,11 +41,11 @@ public class OrganizationSubscription {
   }
 
    /**
-   * TODO.
+   * The subscription type. Types available are &#x60;trial&#x60;, &#x60;free&#x60;, and &#x60;pro&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The subscription type. Types available are `trial`, `free`, and `pro`.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

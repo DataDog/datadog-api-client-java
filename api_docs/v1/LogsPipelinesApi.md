@@ -7,10 +7,10 @@ Method | HTTP request | Description
 [**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline) | **POST** /api/v1/logs/config/pipelines | Create a pipeline
 [**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline
 [**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a pipeline
-[**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder) | **GET** /api/v1/logs/config/pipeline-order | Get Pipeline Order
-[**listLogsPipelines**](LogsPipelinesApi.md#listLogsPipelines) | **GET** /api/v1/logs/config/pipelines | Get all Pipeline
+[**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder) | **GET** /api/v1/logs/config/pipeline-order | Get pipeline order
+[**listLogsPipelines**](LogsPipelinesApi.md#listLogsPipelines) | **GET** /api/v1/logs/config/pipelines | Get all pipelines
 [**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline) | **PUT** /api/v1/logs/config/pipelines/{pipeline_id} | Update a pipeline
-[**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order | Update Pipeline Order
+[**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order | Update pipeline order
 
 
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Create a pipeline
 
-Create a Pipeline in your organization.
+Create a pipeline in your organization.
 
 ### Example
 
@@ -36,19 +36,18 @@ import com.datadog.api.v1.client.api.LogsPipelinesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         LogsPipeline body = new LogsPipeline(); // LogsPipeline | Definition of the new pipeline.
@@ -119,19 +118,18 @@ import com.datadog.api.v1.client.api.LogsPipelinesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
@@ -200,19 +198,18 @@ import com.datadog.api.v1.client.api.LogsPipelinesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         String pipelineId = "pipelineId_example"; // String | ID of the pipeline to get.
@@ -263,7 +260,7 @@ Name | Type | Description  | Notes
 
 > LogsPipelinesOrder getLogsPipelineOrder().execute();
 
-Get Pipeline Order
+Get pipeline order
 
 Get the current order of your pipelines.
 This endpoint takes no JSON arguments.
@@ -282,19 +279,18 @@ import com.datadog.api.v1.client.api.LogsPipelinesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         try {
@@ -340,7 +336,7 @@ This endpoint does not need any parameter.
 
 > List&lt;LogsPipeline&gt; listLogsPipelines().execute();
 
-Get all Pipeline
+Get all pipelines
 
 Get all pipelines from your organization.
 This endpoint takes no JSON arguments.
@@ -359,19 +355,18 @@ import com.datadog.api.v1.client.api.LogsPipelinesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         try {
@@ -438,19 +433,18 @@ import com.datadog.api.v1.client.api.LogsPipelinesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
@@ -504,7 +498,7 @@ Name | Type | Description  | Notes
 
 > LogsPipelinesOrder updateLogsPipelineOrder().body(body).execute();
 
-Update Pipeline Order
+Update pipeline order
 
 Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
 the structure and content of the data processed by other pipelines and their processors.
@@ -526,19 +520,18 @@ import com.datadog.api.v1.client.api.LogsPipelinesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         LogsPipelinesOrder body = new LogsPipelinesOrder(); // LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs.

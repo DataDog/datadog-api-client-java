@@ -99,11 +99,11 @@ public class UsageHostHour {
   }
 
    /**
-   * Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog).
+   * Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog Agent).
    * @return alibabaHostCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog).")
+  @ApiModelProperty(value = "Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_ALIBABA_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

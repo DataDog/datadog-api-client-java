@@ -12,10 +12,12 @@
 package com.datadog.api.v1.client.auth;
 
 import com.datadog.api.v1.client.Pair;
+import com.datadog.api.v1.client.ApiException;
 
 import java.util.Base64;
 import java.nio.charset.StandardCharsets;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.List;
 
@@ -42,7 +44,7 @@ public class HttpBasicAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams) {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
     if (username == null && password == null) {
       return;
     }

@@ -14,7 +14,7 @@ components:
         format: int64
         type: integer
     PageSize:
-      description: Number of users to return for a given page.
+      description: Size for a given page.
       in: query
       name: page[size]
       required: false
@@ -29,6 +29,13 @@ components:
       required: true
       schema:
         type: string
+    SecurityMonitoringRuleID:
+      description: The ID of the rule.
+      in: path
+      name: rule_id
+      required: true
+      schema:
+        type: string
     UserID:
       description: The ID of the user.
       in: path
@@ -37,15 +44,39 @@ components:
       schema:
         type: string
   requestBodies: {}
-  responses: {}
+  responses:
+    BadRequestResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Bad Request
+    ConcurrentModificationResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Concurrent Modification
+    NotAuthorizedResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Not Authorized
+    NotFoundResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Not Found
   schemas:
     APIErrorResponse:
-      description: TODO.
+      description: API error response.
       properties:
         errors:
-          description: TODO.
+          description: A list of errors.
           items:
-            description: TODO.
+            description: A list of items.
             example: Bad Request
             type: string
           type: array
@@ -53,20 +84,20 @@ components:
       - errors
       type: object
     Creator:
-      description: Creator of the object
+      description: Creator of the object.
       properties:
         email:
-          description: TODO.
+          description: Email of the creator.
           type: string
         handle:
-          description: TODO.
+          description: Handle of the creator.
           type: string
         name:
-          description: TODO.
+          description: Name of the creator.
           type: string
       type: object
     DashboardListAddItemsResponse:
-      description: TODO.
+      description: Response containing a list of added dashboards.
       properties:
         added_dashboards_to_list:
           description: List of dashboards added to the dashboard list.
@@ -75,7 +106,7 @@ components:
           type: array
       type: object
     DashboardListDeleteItemsResponse:
-      description: TODO.
+      description: Response containing a list of deleted dashboards.
       properties:
         deleted_dashboards_from_list:
           description: List of dashboards deleted from the dashboard list.
@@ -84,7 +115,7 @@ components:
           type: array
       type: object
     DashboardListItem:
-      description: TODO.
+      description: A dashboard within a list.
       properties:
         author:
           $ref: '#/components/schemas/Creator'
@@ -99,6 +130,7 @@ components:
           type: string
         id:
           description: ID of the dashboard.
+          example: null
           type: string
         is_favorite:
           description: Whether or not the dashboard is in the favorites.
@@ -138,10 +170,11 @@ components:
       - id
       type: object
     DashboardListItems:
-      description: TODO.
+      description: Dashboards within a list.
       properties:
         dashboards:
           description: List of dashboards in the dashboard list.
+          example: null
           items:
             $ref: '#/components/schemas/DashboardListItem'
           type: array
@@ -177,10 +210,9 @@ components:
           description: ID of the organization.
           type: string
         type:
-          default: orgs
-          description: Organizations resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/OrganizationsType'
+      required:
+      - type
       type: object
     OrganizationAttributes:
       description: Attributes of the organization.
@@ -212,15 +244,24 @@ components:
           description: URL of the site that this organization exists at.
           type: string
       type: object
+    OrganizationsType:
+      default: orgs
+      description: Organizations resource type.
+      enum:
+      - orgs
+      example: orgs
+      type: string
+      x-enum-varnames:
+      - ORGS
     Pagination:
       description: Pagination object.
       properties:
         total_count:
-          description: Total count of pages.
+          description: Total count.
           format: int64
           type: integer
         total_filtered_count:
-          description: Total count of filtered pages.
+          description: Total count of elements matched by the filter.
           format: int64
           type: integer
       type: object
@@ -233,10 +274,9 @@ components:
           description: ID of the permission.
           type: string
         type:
-          default: permissions
-          description: Permissions resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/PermissionsType'
+      required:
+      - type
       type: object
     PermissionAttributes:
       description: Attributes of a permission.
@@ -273,6 +313,15 @@ components:
             $ref: '#/components/schemas/Permission'
           type: array
       type: object
+    PermissionsType:
+      default: permissions
+      description: Permissions resource type.
+      enum:
+      - permissions
+      example: permissions
+      type: string
+      x-enum-varnames:
+      - PERMISSIONS
     QuerySortOrder:
       default: desc
       description: Direction of sort.
@@ -296,10 +345,7 @@ components:
           description: ID of the organization.
           type: string
         type:
-          default: orgs
-          description: Organizations type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/OrganizationsType'
       type: object
     RelationshipToOrganizations:
       description: Relationship to organizations.
@@ -323,10 +369,7 @@ components:
           description: ID of the permission.
           type: string
         type:
-          default: permissions
-          description: Permissions resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/PermissionsType'
       type: object
     RelationshipToPermissions:
       description: Relationship to multiple permissions objects.
@@ -342,17 +385,16 @@ components:
       properties:
         id:
           description: ID of the role.
+          example: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
           type: string
         type:
-          default: roles
-          description: TODO
-          type: string
+          $ref: '#/components/schemas/RolesType'
       type: object
     RelationshipToRoles:
       description: Relationship to roles.
       properties:
         data:
-          description: TODO.
+          description: An array containing type and ID of a role.
           items:
             $ref: '#/components/schemas/RelationshipToRoleData'
           type: array
@@ -401,10 +443,9 @@ components:
         relationships:
           $ref: '#/components/schemas/RoleResponseRelationships'
         type:
-          default: roles
-          description: Roles type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/RolesType'
+      required:
+      - type
       type: object
     RoleAttributes:
       description: Attributes of the role.
@@ -431,17 +472,14 @@ components:
           type: string
       type: object
     RoleCreateData:
-      description: TODO
+      description: Data related to the creation of a role.
       properties:
         attributes:
           $ref: '#/components/schemas/RoleCreateAttributes'
         relationships:
           $ref: '#/components/schemas/RoleRelationships'
         type:
-          default: roles
-          description: Roles resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/RolesType'
       type: object
     RoleCreatePayload:
       description: Create a role.
@@ -483,7 +521,7 @@ components:
           type: string
       type: object
     RoleUpdateData:
-      description: TODO
+      description: Data related to the update of a role.
       properties:
         attributes:
           $ref: '#/components/schemas/RoleUpdateAttributes'
@@ -491,9 +529,7 @@ components:
           description: ID of the role.
           type: string
         type:
-          default: roles
-          description: TODO
-          type: string
+          $ref: '#/components/schemas/RolesType'
       type: object
     RoleUpdatePayload:
       description: Update a role.
@@ -530,6 +566,297 @@ components:
       - MODIFIED_AT_DESCENDING
       - USER_COUNT_ASCENDING
       - USER_COUNT_DESCENDING
+    RolesType:
+      default: roles
+      description: Roles type.
+      enum:
+      - roles
+      example: roles
+      type: string
+      x-enum-varnames:
+      - ROLES
+    SecurityMonitoringListRulesResponse:
+      description: List of rules
+      properties:
+        data:
+          description: TODO.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleResponse'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMetaAttributes'
+      type: object
+    SecurityMonitoringRuleCase:
+      description: Case when signal is generated.
+      properties:
+        condition:
+          description: 'A rule case contains logical operations (>, >=, &&, ||) to
+            determine if a signal should be generated
+
+            based on the event counts in the previously defined queries.'
+          type: string
+        name:
+          description: Name of the case.
+          type: string
+        notifications:
+          description: Notification targets for each rule case
+          items:
+            description: Notification
+            type: string
+          type: array
+        status:
+          $ref: '#/components/schemas/SecurityMonitoringRuleSeverity'
+      type: object
+    SecurityMonitoringRuleCreatePayload:
+      description: Create a new rule.
+      properties:
+        cases:
+          description: Cases for generating signals.
+          example: null
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleCase'
+          type: array
+        enabled:
+          description: Whether the rule is enabled.
+          example: true
+          type: boolean
+        message:
+          description: Message for generated signals.
+          example: null
+          type: string
+        name:
+          description: The name of the rule
+          example: null
+          type: string
+        options:
+          $ref: '#/components/schemas/SecurityMonitoringRuleOptions'
+        queries:
+          description: Queries for selecting logs which are part of the rule.
+          example: null
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleQuery'
+          type: array
+        tags:
+          description: Tags for generated signals.
+          example:
+          - env:prod
+          - team:security
+          items:
+            description: Tag
+            type: string
+          type: array
+      required:
+      - name
+      - enabled
+      - queries
+      - options
+      - cases
+      - message
+      - tags
+      type: object
+    SecurityMonitoringRuleEvaluationWindow:
+      description: 'A time window is specified to match when at least one of the cases
+        matches true. This is a sliding window
+
+        and evaluates in real time.'
+      enum:
+      - 0
+      - 60
+      - 300
+      - 600
+      - 900
+      - 1800
+      - 3600
+      - 7200
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - ZERO_MINUTES
+      - ONE_MINUTE
+      - FIVE_MINUTES
+      - TEN_MINUTES
+      - FIFTEEN_MINUTES
+      - THIRTY_MINUTES
+      - ONE_HOUR
+      - TWO_HOURS
+    SecurityMonitoringRuleKeepAlive:
+      description: "Once a signal is generated, the signal will remain \u201Copen\u201D\
+        \ if a case is matched at least once within\nthis keep alive window."
+      enum:
+      - 0
+      - 60
+      - 300
+      - 600
+      - 900
+      - 1800
+      - 3600
+      - 7200
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - ZERO_MINUTES
+      - ONE_MINUTE
+      - FIVE_MINUTES
+      - TEN_MINUTES
+      - FIFTEEN_MINUTES
+      - THIRTY_MINUTES
+      - ONE_HOUR
+      - TWO_HOURS
+    SecurityMonitoringRuleMaxSignalDuration:
+      description: "A signal will \u201Cclose\u201D regardless of the query being\
+        \ matched once the time exceeds the maximum duration.\nThis time is calculated\
+        \ from the first seen timestamp."
+      enum:
+      - 0
+      - 60
+      - 300
+      - 600
+      - 900
+      - 1800
+      - 3600
+      - 7200
+      - 10800
+      - 21600
+      - 43200
+      - 86400
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - ZERO_MINUTES
+      - ONE_MINUTE
+      - FIVE_MINUTES
+      - TEN_MINUTES
+      - FIFTEEN_MINUTES
+      - THIRTY_MINUTES
+      - ONE_HOUR
+      - TWO_HOURS
+      - THREE_HOURS
+      - SIX_HOURS
+      - TWELVE_HOURS
+      - ONE_DAY
+    SecurityMonitoringRuleOptions:
+      description: Options on rules.
+      properties:
+        evaluationWindow:
+          $ref: '#/components/schemas/SecurityMonitoringRuleEvaluationWindow'
+        keepAlive:
+          $ref: '#/components/schemas/SecurityMonitoringRuleKeepAlive'
+        maxSignalDuration:
+          $ref: '#/components/schemas/SecurityMonitoringRuleMaxSignalDuration'
+      type: object
+    SecurityMonitoringRuleQuery:
+      description: Query for matching rule.
+      properties:
+        groupByFields:
+          description: Fields to group by.
+          items:
+            description: Field
+            type: string
+          type: array
+        name:
+          description: Name of the query
+          type: string
+        query:
+          description: Query to run on logs
+          type: string
+      type: object
+    SecurityMonitoringRuleResponse:
+      description: Detection rule
+      properties:
+        cases:
+          description: Cases for generating signals.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleCase'
+          type: array
+        createdAt:
+          description: When the rule was created, timestamp in milliseconds.
+          format: int64
+          type: integer
+        creationAuthorId:
+          description: User ID of the user who created the rule.
+          format: int64
+          type: integer
+        id:
+          description: The ID of the rule.
+          type: string
+        isDefault:
+          description: Whether the rule is included by default.
+          type: boolean
+        isDeleted:
+          description: Whether the rule has been deleted.
+          type: boolean
+        isEnabled:
+          description: Whether the rule is enabled.
+          type: boolean
+        message:
+          description: Message for generated signals.
+          type: string
+        name:
+          description: The name of the rule.
+          type: string
+        options:
+          $ref: '#/components/schemas/SecurityMonitoringRuleOptions'
+        queries:
+          description: Queries for selecting logs which are part of the rule.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleQuery'
+          type: array
+        tags:
+          description: Tags for generated signals.
+          items:
+            description: Tag
+            type: string
+          type: array
+        version:
+          description: The version of the rule.
+          format: int64
+          type: integer
+    SecurityMonitoringRuleSeverity:
+      description: Severity of the Security Signal.
+      enum:
+      - info
+      - low
+      - medium
+      - high
+      - critical
+      type: string
+      x-enum-varnames:
+      - INFO
+      - LOW
+      - MEDIUM
+      - HIGH
+      - CRITICAL
+    SecurityMonitoringRuleUpdatePayload:
+      description: Update an existing rule.
+      properties:
+        cases:
+          description: Cases for generating signals.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleCase'
+          type: array
+        enabled:
+          description: Whether the rule is enabled.
+          type: boolean
+        message:
+          description: Message for generated signals.
+          type: string
+        name:
+          description: Name of the rule.
+          type: string
+        options:
+          $ref: '#/components/schemas/SecurityMonitoringRuleOptions'
+        queries:
+          description: Queries for selecting logs which are part of the rule.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleQuery'
+          type: array
+        tags:
+          description: Tags for generated signals.
+          items:
+            description: Tag
+            type: string
+          type: array
+      type: object
     User:
       description: User object returned by the API.
       properties:
@@ -541,10 +868,7 @@ components:
         relationships:
           $ref: '#/components/schemas/UserResponseRelationships'
         type:
-          default: users
-          description: Users type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/UsersType'
       type: object
     UserAttributes:
       description: Attributes of user object returned by the API.
@@ -599,10 +923,7 @@ components:
         relationships:
           $ref: '#/components/schemas/UserRelationships'
         type:
-          default: users
-          description: Users resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/UsersType'
       type: object
     UserCreatePayload:
       description: Create a user.
@@ -616,9 +937,7 @@ components:
         relationships:
           $ref: '#/components/schemas/UserInvitationRelationships'
         type:
-          default: user_invitations
-          description: User invitations type.
-          type: string
+          $ref: '#/components/schemas/UserInvitationsType'
       type: object
     UserInvitationDataAttributes:
       description: Attributes of a user invitation.
@@ -665,12 +984,10 @@ components:
         attributes:
           $ref: '#/components/schemas/UserInvitationDataAttributes'
         id:
-          description: ID of the user invitiation.
+          description: ID of the user invitation.
           type: string
         type:
-          default: user_invitations
-          description: User invitations type.
-          type: string
+          $ref: '#/components/schemas/UserInvitationsType'
       type: object
     UserInvitationsResponse:
       description: User invitations as returned by the API.
@@ -681,6 +998,14 @@ components:
             $ref: '#/components/schemas/UserInvitationResponseData'
           type: array
       type: object
+    UserInvitationsType:
+      default: user_invitations
+      description: User invitations type.
+      enum:
+      - user_invitations
+      type: string
+      x-enum-varnames:
+      - USER_INVITATIONS
     UserRelationships:
       description: Relationships of the user object.
       properties:
@@ -700,12 +1025,6 @@ components:
       type: object
     UserResponseIncludedItem:
       description: An object related to a user.
-      discriminator:
-        mapping:
-          orgs: '#/components/schemas/Organization'
-          permissions: '#/components/schemas/Permission'
-          roles: '#/components/schemas/Role'
-        propertyName: type
       oneOf:
       - $ref: '#/components/schemas/Organization'
       - $ref: '#/components/schemas/Permission'
@@ -745,10 +1064,7 @@ components:
           description: ID of the user.
           type: string
         type:
-          default: users
-          description: Users resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/UsersType'
       type: object
     UserUpdatePayload:
       description: Update a user.
@@ -772,17 +1088,27 @@ components:
         meta:
           $ref: '#/components/schemas/ResponseMetaAttributes'
       type: object
+    UsersType:
+      default: users
+      description: Users resource type.
+      enum:
+      - users
+      type: string
+      x-enum-varnames:
+      - USERS
   securitySchemes:
     apiKeyAuth:
-      description: API Key
+      description: Your Datadog API Key.
       in: header
       name: DD-API-KEY
       type: apiKey
+      x-env-name: DD_CLIENT_API_KEY
     appKeyAuth:
-      description: APP Key
+      description: Your Datadog APP Key.
       in: header
       name: DD-APPLICATION-KEY
       type: apiKey
+      x-env-name: DD_CLIENT_APP_KEY
 info:
   contact:
     email: support@datadoghq.com
@@ -1027,12 +1353,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/RolesResponse'
           description: OK
-        '400':
-          content:
-            applcation/json:
-              schema:
-                $ref: '#/components/schemas/APIErrorResponse'
-          description: Bad Request
         '403':
           content:
             applcation/json:
@@ -1162,6 +1482,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Not found
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Unprocessable Entity
       summary: Update a role
       tags:
       - Roles
@@ -1184,6 +1510,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/PermissionsResponse'
           description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
         '403':
           content:
             application/json:
@@ -1285,6 +1617,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/UsersResponse'
           description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
         '403':
           content:
             application/json:
@@ -1387,6 +1725,116 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+  /api/v2/security_monitoring/rules:
+    get:
+      description: List rules.
+      operationId: ListSecurityMonitoringRules
+      parameters:
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityMonitoringListRulesResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+      summary: List rules
+      tags:
+      - Security Monitoring
+    post:
+      description: Create a detection rule.
+      operationId: CreateSecurityMonitoringRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityMonitoringRuleCreatePayload'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityMonitoringRuleResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '403':
+          $ref: '#/components/responses/NotAuthorizedResponse'
+      summary: Create a detection rule
+      tags:
+      - Security Monitoring
+      x-codegen-request-body-name: body
+  /api/v2/security_monitoring/rules/{rule_id}:
+    delete:
+      description: Delete an existing rule. Default rules cannot be deleted.
+      operationId: DeleteSecurityMonitoringRule
+      parameters:
+      - $ref: '#/components/parameters/SecurityMonitoringRuleID'
+      responses:
+        '204':
+          description: OK
+        '403':
+          $ref: '#/components/responses/NotAuthorizedResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+      summary: Delete an existing rule
+      tags:
+      - Security Monitoring
+    get:
+      description: Get a rule's details.
+      operationId: GetSecurityMonitoringRule
+      parameters:
+      - $ref: '#/components/parameters/SecurityMonitoringRuleID'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityMonitoringRuleResponse'
+          description: OK
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+      summary: Get a rule's details
+      tags:
+      - Security Monitoring
+    put:
+      description: 'Update an existing rule. When updating `cases`, `queries` or `options`,
+        the whole field
+
+        must be included. For example, when modifying a query all queries must be
+        included.
+
+        Default rules can only be updated to be enabled and to change notifications.'
+      operationId: UpdateSecurityMonitoringRule
+      parameters:
+      - $ref: '#/components/parameters/SecurityMonitoringRuleID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityMonitoringRuleUpdatePayload'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityMonitoringRuleResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '401':
+          $ref: '#/components/responses/ConcurrentModificationResponse'
+        '403':
+          $ref: '#/components/responses/NotAuthorizedResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+      summary: Update an existing rule
+      tags:
+      - Security Monitoring
+      x-codegen-request-body-name: body
   /api/v2/user_invitations:
     post:
       description: Sends emails to one or more users inviting them to join the organization.
@@ -1482,8 +1930,11 @@ paths:
         required: false
         schema:
           type: string
-      - description: 'Filter on status attribute. Comma separated list: Active, Pending,
-          and Disabled. Defaults to no filtering.'
+      - description: 'Filter on status attribute.
+
+          Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.
+
+          Defaults to no filtering.'
         in: query
         name: filter[status]
         required: false
@@ -1539,13 +1990,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Authentication error
-      summary: Create user
+      summary: Create a user
       tags:
       - Users
       x-codegen-request-body-name: body
   /api/v2/users/{user_id}:
     delete:
-      description: Disable user. Can only be used with an application key belonging
+      description: Disable a user. Can only be used with an application key belonging
         to an administrator user.
       operationId: DisableUser
       parameters:
@@ -1565,7 +2016,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Not found
-      summary: Disable user
+      summary: Disable a user
       tags:
       - Users
       x-codegen-request-body-name: body
@@ -1629,6 +2080,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Not found
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Unprocessable Entity
       summary: Update a user
       tags:
       - Users
@@ -1738,6 +2195,8 @@ tags:
 
     [Pipelines page](https://app.datadoghq.com/logs/pipelines).'
   name: Roles
+- description: Detection Rules for generating signals
+  name: Security Monitoring
 - description: Create, edit, and disable users.
   externalDocs:
     url: https://docs.datadoghq.com/account_management/users

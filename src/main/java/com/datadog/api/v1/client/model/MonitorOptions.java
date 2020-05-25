@@ -146,20 +146,6 @@ public class MonitorOptions {
   }
 
 
-  public MonitorOptions deviceIds(List<MonitorDeviceID> deviceIds) {
-    
-    this.deviceIds = deviceIds;
-    return this;
-  }
-
-  public MonitorOptions addDeviceIdsItem(MonitorDeviceID deviceIdsItem) {
-    if (this.deviceIds == null) {
-      this.deviceIds = new ArrayList<>();
-    }
-    this.deviceIds.add(deviceIdsItem);
-    return this;
-  }
-
    /**
    * IDs of the device the Synthetics monitor is running on.
    * @return deviceIds
@@ -174,9 +160,6 @@ public class MonitorOptions {
   }
 
 
-  public void setDeviceIds(List<MonitorDeviceID> deviceIds) {
-    this.deviceIds = deviceIds;
-  }
 
 
   public MonitorOptions enableLogsSample(Boolean enableLogsSample) {
@@ -211,11 +194,11 @@ public class MonitorOptions {
   }
 
    /**
-   * A message to include with a re-notification. Supports the ‘@username’ notification we allow elsewhere. Not applicable if &#x60;renotify_interval&#x60; is None.
+   * A message to include with a re-notification. Supports the &#x60;@username&#x60; notification we allow elsewhere. Not applicable if &#x60;renotify_interval&#x60; is &#x60;None&#x60;.
    * @return escalationMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A message to include with a re-notification. Supports the ‘@username’ notification we allow elsewhere. Not applicable if `renotify_interval` is None.")
+  @ApiModelProperty(value = "A message to include with a re-notification. Supports the `@username` notification we allow elsewhere. Not applicable if `renotify_interval` is `None`.")
   @JsonProperty(JSON_PROPERTY_ESCALATION_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -236,11 +219,11 @@ public class MonitorOptions {
   }
 
    /**
-   * Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
+   * Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to &#x60;300&#x60; (5min), the timeframe is set to &#x60;last_5m&#x60; and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
    * @return evaluationDelay
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.")
+  @ApiModelProperty(value = "Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to `300` (5min), the timeframe is set to `last_5m` and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.")
   @JsonIgnore
 
   public Long getEvaluationDelay() {
@@ -296,11 +279,11 @@ public class MonitorOptions {
   }
 
    /**
-   * TODO.
+   * Whether or not the monitor is locked (only editable by creator and admins).
    * @return locked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Whether or not the monitor is locked (only editable by creator and admins).")
   @JsonProperty(JSON_PROPERTY_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

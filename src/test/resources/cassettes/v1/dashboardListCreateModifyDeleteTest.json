@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "createDashboardList" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "44" ]
@@ -55,7 +54,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getDashboardList" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -99,7 +97,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updateDashboardList" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "52" ]
@@ -148,7 +145,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "listDashboardLists" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -192,7 +188,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "deleteDashboardList" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "256" ]
@@ -241,7 +236,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getDashboardList" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },

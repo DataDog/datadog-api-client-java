@@ -27,9 +27,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the SSL certificate used for a Synthetic test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the SSL certificate used for a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsSSLCertificate.JSON_PROPERTY_CIPHER,
   SyntheticsSSLCertificate.JSON_PROPERTY_EXPONENT,
@@ -90,11 +90,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * Cipher used for the connection.
    * @return cipher
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Cipher used for the connection.")
   @JsonProperty(JSON_PROPERTY_CIPHER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -115,11 +115,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * Exponent associated to the certificate.
    * @return exponent
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Exponent associated to the certificate.")
   @JsonProperty(JSON_PROPERTY_EXPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,11 +148,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * Array of extensions and details used for the certificate.
    * @return extKeyUsage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of extensions and details used for the certificate.")
   @JsonProperty(JSON_PROPERTY_EXT_KEY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -173,11 +173,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * MD5 digest of the DER-encoded Certificate information.
    * @return fingerprint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "MD5 digest of the DER-encoded Certificate information.")
   @JsonProperty(JSON_PROPERTY_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -198,11 +198,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * SHA-1 digest of the DER-encoded Certificate information.
    * @return fingerprint256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "SHA-1 digest of the DER-encoded Certificate information.")
   @JsonProperty(JSON_PROPERTY_FINGERPRINT256)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -248,11 +248,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * Modulus associated to the SSL certificate private key.
    * @return modulus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Modulus associated to the SSL certificate private key.")
   @JsonProperty(JSON_PROPERTY_MODULUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -273,11 +273,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * TLS protocol used for the test.
    * @return protocol
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "TLS protocol used for the test.")
   @JsonProperty(JSON_PROPERTY_PROTOCOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -298,11 +298,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * Serial Number assigned by Symantec to the SSL certificate.
    * @return serialNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Serial Number assigned by Symantec to the SSL certificate.")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -348,11 +348,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * Date from which the SSL certificate is valid.
    * @return validFrom
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Date from which the SSL certificate is valid.")
   @JsonProperty(JSON_PROPERTY_VALID_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -373,11 +373,11 @@ public class SyntheticsSSLCertificate {
   }
 
    /**
-   * TODO.
+   * Date until which the SSL certificate is valid.
    * @return validTo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Date until which the SSL certificate is valid.")
   @JsonProperty(JSON_PROPERTY_VALID_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

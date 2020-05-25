@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * The Response returned by the AWS Create Account call.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "The Response returned by the AWS Create Account call.")
 @JsonPropertyOrder({
   AWSAccountCreateResponse.JSON_PROPERTY_EXTERNAL_ID
 })
@@ -41,11 +41,11 @@ public class AWSAccountCreateResponse {
   }
 
    /**
-   * TODO.
+   * AWS external_id.
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "AWS external_id.")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

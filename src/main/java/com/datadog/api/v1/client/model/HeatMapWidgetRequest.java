@@ -26,9 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Updated heat map widget.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Updated heat map widget.")
 @JsonPropertyOrder({
   HeatMapWidgetRequest.JSON_PROPERTY_APM_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_EVENT_QUERY,

@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the error.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the error.")
 @JsonPropertyOrder({
   SLOBulkDeleteResponseErrors.JSON_PROPERTY_ID,
   SLOBulkDeleteResponseErrors.JSON_PROPERTY_MESSAGE,
@@ -74,10 +74,10 @@ public class SLOBulkDeleteResponseErrors {
   }
 
    /**
-   * The error message
+   * The error message.
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "The error message")
+  @ApiModelProperty(required = true, value = "The error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

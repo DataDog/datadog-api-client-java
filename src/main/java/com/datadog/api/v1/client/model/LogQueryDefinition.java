@@ -27,9 +27,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * List of logs.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "List of logs.")
 @JsonPropertyOrder({
   LogQueryDefinition.JSON_PROPERTY_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_GROUP_BY,
@@ -95,11 +95,11 @@ public class LogQueryDefinition {
   }
 
    /**
-   * TODO.
+   * List of tag prefixes to group by in the case of a cluster check.
    * @return groupBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of tag prefixes to group by in the case of a cluster check.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -120,11 +120,11 @@ public class LogQueryDefinition {
   }
 
    /**
-   * TODO.
+   * A coma separated-list of index names. Use \&quot;*\&quot; query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
    * @return index
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(example = "days-3,days-7", value = "A coma separated-list of index names. Use \"*\" query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

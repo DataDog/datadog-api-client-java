@@ -31,13 +31,24 @@ public class LogsIndexesApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiException {
     Object localVarPostBody = null;
@@ -77,7 +88,10 @@ private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiE
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsIndex> localVarReturnType = new GenericType<LogsIndex>() {};
-    return apiClient.invokeAPI("LogsIndexesApi.getLogsIndex", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsIndexesApi.getLogsIndex", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetLogsIndexRequest {
@@ -86,7 +100,6 @@ private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiE
     private APIgetLogsIndexRequest(String name) {
       this.name = name;
     }
-    
 
     /**
      * Execute getLogsIndex request
@@ -117,9 +130,8 @@ private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiE
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsIndex> executeWithHttpInfo() throws ApiException {
       return getLogsIndexWithHttpInfo(name);
     }
@@ -134,7 +146,6 @@ private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiE
    
    
    */
-  
   public APIgetLogsIndexRequest getLogsIndex(String name) throws ApiException {
     String operationId = "getLogsIndex";
     if (apiClient.isUnstableOperationEnabled(operationId)) {
@@ -177,14 +188,16 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsIndexesOrder> localVarReturnType = new GenericType<LogsIndexesOrder>() {};
-    return apiClient.invokeAPI("LogsIndexesApi.getLogsIndexOrder", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsIndexesApi.getLogsIndexOrder", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetLogsIndexOrderRequest {
 
     private APIgetLogsIndexOrderRequest() {
     }
-    
 
     /**
      * Execute getLogsIndexOrder request
@@ -213,9 +226,8 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsIndexesOrder> executeWithHttpInfo() throws ApiException {
       return getLogsIndexOrderWithHttpInfo();
     }
@@ -223,14 +235,19 @@ private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws Api
 
   /**
    * Get indexes order
-   * Get the current order of your log indexes. This endpoint takes no JSON arguments.  **Note**: This endpoint is in public beta. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   * Get the current order of your log indexes. This endpoint takes no JSON arguments.
    * @return getLogsIndexOrderRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIgetLogsIndexOrderRequest getLogsIndexOrder() throws ApiException {
+    String operationId = "getLogsIndexOrder";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIgetLogsIndexOrderRequest();
   }
 
@@ -266,14 +283,16 @@ private ApiResponse<LogsIndexListResponse> listLogIndexesWithHttpInfo() throws A
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsIndexListResponse> localVarReturnType = new GenericType<LogsIndexListResponse>() {};
-    return apiClient.invokeAPI("LogsIndexesApi.listLogIndexes", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsIndexesApi.listLogIndexes", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistLogIndexesRequest {
 
     private APIlistLogIndexesRequest() {
     }
-    
 
     /**
      * Execute listLogIndexes request
@@ -302,9 +321,8 @@ private ApiResponse<LogsIndexListResponse> listLogIndexesWithHttpInfo() throws A
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsIndexListResponse> executeWithHttpInfo() throws ApiException {
       return listLogIndexesWithHttpInfo();
     }
@@ -318,7 +336,6 @@ private ApiResponse<LogsIndexListResponse> listLogIndexesWithHttpInfo() throws A
    
    
    */
-  
   public APIlistLogIndexesRequest listLogIndexes() throws ApiException {
     String operationId = "listLogIndexes";
     if (apiClient.isUnstableOperationEnabled(operationId)) {
@@ -367,7 +384,10 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsIndex> localVarReturnType = new GenericType<LogsIndex>() {};
-    return apiClient.invokeAPI("LogsIndexesApi.updateLogsIndex", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsIndexesApi.updateLogsIndex", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateLogsIndexRequest {
@@ -377,18 +397,16 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
     private APIupdateLogsIndexRequest(String name) {
       this.name = name;
     }
-    
 
     /**
      * Set body
-     * @param body Object containing the new LogsIndex. (optional)
+     * @param body Object containing the new &#x60;LogsIndex&#x60;. (optional)
      * @return APIupdateLogsIndexRequest
      */
     public APIupdateLogsIndexRequest body(LogsIndex body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateLogsIndex request
@@ -421,9 +439,8 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsIndex> executeWithHttpInfo() throws ApiException {
       return updateLogsIndexWithHttpInfo(name, body);
     }
@@ -431,14 +448,13 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
 
   /**
    * Update an index
-   * It returns the Index object passed in the request body when the request is successful.  Using the &#x60;PUT&#x60; method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the &#x60;PUT&#x60; method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
    * @param name Name of the log index. (required)
    * @return updateLogsIndexRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIupdateLogsIndexRequest updateLogsIndex(String name) throws ApiException {
     String operationId = "updateLogsIndex";
     if (apiClient.isUnstableOperationEnabled(operationId)) {
@@ -481,7 +497,10 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsIndexesOrder> localVarReturnType = new GenericType<LogsIndexesOrder>() {};
-    return apiClient.invokeAPI("LogsIndexesApi.updateLogsIndexOrder", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsIndexesApi.updateLogsIndexOrder", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateLogsIndexOrderRequest {
@@ -489,7 +508,6 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
 
     private APIupdateLogsIndexOrderRequest() {
     }
-    
 
     /**
      * Set body
@@ -500,7 +518,6 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateLogsIndexOrder request
@@ -531,9 +548,8 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsIndexesOrder> executeWithHttpInfo() throws ApiException {
       return updateLogsIndexOrderWithHttpInfo(body);
     }
@@ -541,14 +557,19 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
 
   /**
    * Update indexes order
-   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.  **Note**: This endpoint is in public beta. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
    * @return updateLogsIndexOrderRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIupdateLogsIndexOrderRequest updateLogsIndexOrder() throws ApiException {
+    String operationId = "updateLogsIndexOrder";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIupdateLogsIndexOrderRequest();
   }
 }

@@ -2,7 +2,7 @@
 
 # TimeseriesWidgetRequest
 
-TODO.
+Updated timeseries widget.
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
 **q** | **String** | Widget query. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
-**style** | [**TimeseriesWidgetRequestStyle**](TimeseriesWidgetRequestStyle.md) |  |  [optional]
+**style** | [**WidgetRequestStyle**](WidgetRequestStyle.md) |  |  [optional]
 
 
 

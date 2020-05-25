@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object with the result of the last browser test run.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object with the result of the last browser test run.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_DEVICE,
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_DURATION,
@@ -83,11 +83,11 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
    /**
-   * TODO.
+   * Length in second of the browser test run.
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Length in second of the browser test run.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,11 +108,11 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
    /**
-   * TODO.
+   * Amount of errors collected for a single browser test run.
    * @return errorCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Amount of errors collected for a single browser test run.")
   @JsonProperty(JSON_PROPERTY_ERROR_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -133,11 +133,11 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
    /**
-   * TODO.
+   * Amount of browser test steps completed before failing.
    * @return stepCountCompleted
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Amount of browser test steps completed before failing.")
   @JsonProperty(JSON_PROPERTY_STEP_COUNT_COMPLETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -158,11 +158,11 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
    /**
-   * TODO.
+   * Total amount of browser test steps.
    * @return stepCountTotal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Total amount of browser test steps.")
   @JsonProperty(JSON_PROPERTY_STEP_COUNT_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

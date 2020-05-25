@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object returned describing a API test result.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object returned describing a API test result.")
 @JsonPropertyOrder({
   SyntheticsAPITestResultFull.JSON_PROPERTY_CHECK,
   SyntheticsAPITestResultFull.JSON_PROPERTY_CHECK_TIME,
@@ -93,11 +93,11 @@ public class SyntheticsAPITestResultFull {
   }
 
    /**
-   * TODO.
+   * When the API test was conducted.
    * @return checkTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "When the API test was conducted.")
   @JsonProperty(JSON_PROPERTY_CHECK_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -118,11 +118,11 @@ public class SyntheticsAPITestResultFull {
   }
 
    /**
-   * TODO.
+   * Version of the API test used.
    * @return checkVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Version of the API test used.")
   @JsonProperty(JSON_PROPERTY_CHECK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -143,11 +143,11 @@ public class SyntheticsAPITestResultFull {
   }
 
    /**
-   * TODO.
+   * Locations for which to query the API test results.
    * @return probeDc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Locations for which to query the API test results.")
   @JsonProperty(JSON_PROPERTY_PROBE_DC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -193,11 +193,11 @@ public class SyntheticsAPITestResultFull {
   }
 
    /**
-   * TODO.
+   * ID of the API test result.
    * @return resultId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "ID of the API test result.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

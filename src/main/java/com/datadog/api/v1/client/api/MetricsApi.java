@@ -31,13 +31,24 @@ public class MetricsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricName) throws ApiException {
     Object localVarPostBody = null;
@@ -77,7 +88,10 @@ private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricN
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<MetricMetadata> localVarReturnType = new GenericType<MetricMetadata>() {};
-    return apiClient.invokeAPI("MetricsApi.getMetricMetadata", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MetricsApi.getMetricMetadata", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetMetricMetadataRequest {
@@ -86,7 +100,6 @@ private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricN
     private APIgetMetricMetadataRequest(String metricName) {
       this.metricName = metricName;
     }
-    
 
     /**
      * Execute getMetricMetadata request
@@ -117,9 +130,8 @@ private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricN
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<MetricMetadata> executeWithHttpInfo() throws ApiException {
       return getMetricMetadataWithHttpInfo(metricName);
     }
@@ -134,7 +146,6 @@ private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricN
    
    
    */
-  
   public APIgetMetricMetadataRequest getMetricMetadata(String metricName) throws ApiException {
     return new APIgetMetricMetadataRequest(metricName);
   }
@@ -178,7 +189,10 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<MetricsListResponse> localVarReturnType = new GenericType<MetricsListResponse>() {};
-    return apiClient.invokeAPI("MetricsApi.listActiveMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MetricsApi.listActiveMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistActiveMetricsRequest {
@@ -187,18 +201,16 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
 
     private APIlistActiveMetricsRequest() {
     }
-    
 
     /**
      * Set from
-     * @param from Seconds since the Unix epoch (required)
+     * @param from Seconds since the Unix epoch. (required)
      * @return APIlistActiveMetricsRequest
      */
     public APIlistActiveMetricsRequest from(Long from) {
       this.from = from;
       return this;
     }
-    
 
     /**
      * Set host
@@ -209,7 +221,6 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
       this.host = host;
       return this;
     }
-    
 
     /**
      * Execute listActiveMetrics request
@@ -240,9 +251,8 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<MetricsListResponse> executeWithHttpInfo() throws ApiException {
       return listActiveMetricsWithHttpInfo(from, host);
     }
@@ -256,7 +266,6 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
    
    
    */
-  
   public APIlistActiveMetricsRequest listActiveMetrics() throws ApiException {
     return new APIlistActiveMetricsRequest();
   }
@@ -299,7 +308,10 @@ private ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) thro
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<MetricSearchResponse> localVarReturnType = new GenericType<MetricSearchResponse>() {};
-    return apiClient.invokeAPI("MetricsApi.listMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MetricsApi.listMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistMetricsRequest {
@@ -307,7 +319,6 @@ private ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) thro
 
     private APIlistMetricsRequest() {
     }
-    
 
     /**
      * Set q
@@ -318,7 +329,6 @@ private ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) thro
       this.q = q;
       return this;
     }
-    
 
     /**
      * Execute listMetrics request
@@ -349,9 +359,8 @@ private ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) thro
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<MetricSearchResponse> executeWithHttpInfo() throws ApiException {
       return listMetricsWithHttpInfo(q);
     }
@@ -365,7 +374,6 @@ private ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) thro
    
    
    */
-  
   public APIlistMetricsRequest listMetrics() throws ApiException {
     return new APIlistMetricsRequest();
   }
@@ -420,7 +428,10 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<MetricsQueryResponse> localVarReturnType = new GenericType<MetricsQueryResponse>() {};
-    return apiClient.invokeAPI("MetricsApi.queryMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MetricsApi.queryMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIqueryMetricsRequest {
@@ -430,7 +441,6 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
 
     private APIqueryMetricsRequest() {
     }
-    
 
     /**
      * Set from
@@ -441,7 +451,6 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
       this.from = from;
       return this;
     }
-    
 
     /**
      * Set to
@@ -452,18 +461,16 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
       this.to = to;
       return this;
     }
-    
 
     /**
      * Set query
-     * @param query Query string (required)
+     * @param query Query string. (required)
      * @return APIqueryMetricsRequest
      */
     public APIqueryMetricsRequest query(String query) {
       this.query = query;
       return this;
     }
-    
 
     /**
      * Execute queryMetrics request
@@ -494,9 +501,8 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<MetricsQueryResponse> executeWithHttpInfo() throws ApiException {
       return queryMetricsWithHttpInfo(from, to, query);
     }
@@ -510,7 +516,6 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
    
    
    */
-  
   public APIqueryMetricsRequest queryMetrics() throws ApiException {
     return new APIqueryMetricsRequest();
   }
@@ -558,7 +563,10 @@ private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(String metr
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<MetricMetadata> localVarReturnType = new GenericType<MetricMetadata>() {};
-    return apiClient.invokeAPI("MetricsApi.updateMetricMetadata", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MetricsApi.updateMetricMetadata", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateMetricMetadataRequest {
@@ -568,7 +576,6 @@ private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(String metr
     private APIupdateMetricMetadataRequest(String metricName) {
       this.metricName = metricName;
     }
-    
 
     /**
      * Set body
@@ -579,7 +586,6 @@ private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(String metr
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateMetricMetadata request
@@ -612,9 +618,8 @@ private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(String metr
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<MetricMetadata> executeWithHttpInfo() throws ApiException {
       return updateMetricMetadataWithHttpInfo(metricName, body);
     }
@@ -622,14 +627,13 @@ private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(String metr
 
   /**
    * Edit metric metadata
-   * Edit metadata of a specific metric.
+   * Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
    * @param metricName Name of the metric for which to edit metadata. (required)
    * @return updateMetricMetadataRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIupdateMetricMetadataRequest updateMetricMetadata(String metricName) throws ApiException {
     return new APIupdateMetricMetadataRequest(metricName);
   }

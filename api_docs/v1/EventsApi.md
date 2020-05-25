@@ -17,8 +17,8 @@ Get an event
 
 This endpoint allows you to query for event details.
 
-Note: if the event you’re querying contains markdown formatting of any kind,
-you may see characters such as %,\,n in your output.
+**Note**: If the event you’re querying contains markdown formatting of any kind,
+you may see characters such as `%`,`\`,`n` in your output.
 
 ### Example
 
@@ -34,22 +34,21 @@ import com.datadog.api.v1.client.api.EventsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         EventsApi apiInstance = new EventsApi(defaultClient);
-        Long eventId = 56L; // Long | The id of the event.
+        Long eventId = 56L; // Long | The ID of the event.
         try {
             EventResponse result = api.getEvent(eventId)
                 .execute();
@@ -70,7 +69,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventId** | **Long**| The id of the event. |
+ **eventId** | **Long**| The ID of the event. |
 
 ### Return type
 
@@ -117,19 +116,18 @@ import com.datadog.api.v1.client.api.EventsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         EventsApi apiInstance = new EventsApi(defaultClient);
         Long start = 56L; // Long | POSIX timestamp.

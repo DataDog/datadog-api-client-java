@@ -27,9 +27,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * JSON object containing all log attributes and their associated values.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "JSON object containing all log attributes and their associated values.")
 @JsonPropertyOrder({
   LogContent.JSON_PROPERTY_ATTRIBUTES,
   LogContent.JSON_PROPERTY_HOST,
@@ -80,7 +80,7 @@ public class LogContent {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "{\"customAttribute\":123,\"duration\":2345}", value = "JSON object of attributes from your log.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -128,7 +128,7 @@ public class LogContent {
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host connected to remote", value = "The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.")
+  @ApiModelProperty(example = "Host connected to remote", value = "The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

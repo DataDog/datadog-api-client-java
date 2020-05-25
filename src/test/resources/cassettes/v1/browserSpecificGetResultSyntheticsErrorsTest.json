@@ -1,12 +1,11 @@
 [ {
-  "id" : "134119e8-fa38-4062-8ace-4cf48f587ec0",
+  "id" : "e144cb2a-dced-492b-a238-caf2f554d68b",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests/browser/id/results/resultid",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getBrowserTestResult" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -23,24 +22,23 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 21 Apr 2020 21:06:13 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:47 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "cbbd7da4-a8d3-411f-89d5-adb6fa487773",
+  "id" : "b36e1db1-cdf1-41ca-a1da-c751fd33c498",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests/browser/aaa-aaa-aaa/results/resultid",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getBrowserTestResult" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -57,21 +55,22 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Tue, 21 Apr 2020 21:06:13 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:47 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-limit" : [ "120" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "47" ],
-      "x-ratelimit-remaining" : [ "119" ],
-      "x-dd-version" : [ "35.2417701" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-RateLimit-Limit" : [ "120" ],
+      "X-RateLimit-Period" : [ "60" ],
+      "X-RateLimit-Reset" : [ "13" ],
+      "X-RateLimit-Remaining" : [ "118" ],
+      "X-DD-VERSION" : [ "35.2450091" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
       "content-length" : [ "41" ]
     },
     "body" : "{\"errors\": [\"Synthetics test not found\"]}"

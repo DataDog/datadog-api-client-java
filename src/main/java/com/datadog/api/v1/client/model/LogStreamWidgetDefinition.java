@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogStreamWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetFieldSort;
 import com.datadog.api.v1.client.model.WidgetMessageDisplay;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -25,9 +26,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -37,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   LogStreamWidgetDefinition.JSON_PROPERTY_COLUMNS,
   LogStreamWidgetDefinition.JSON_PROPERTY_INDEXES,
+  LogStreamWidgetDefinition.JSON_PROPERTY_LOGSET,
   LogStreamWidgetDefinition.JSON_PROPERTY_MESSAGE_DISPLAY,
   LogStreamWidgetDefinition.JSON_PROPERTY_QUERY,
   LogStreamWidgetDefinition.JSON_PROPERTY_SHOW_DATE_COLUMN,
@@ -49,12 +48,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class LogStreamWidgetDefinition implements WidgetDefinition {
+public class LogStreamWidgetDefinition {
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<String> columns = null;
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
+
+  public static final String JSON_PROPERTY_LOGSET = "logset";
+  private String logset;
 
   public static final String JSON_PROPERTY_MESSAGE_DISPLAY = "message_display";
   private WidgetMessageDisplay messageDisplay;
@@ -84,7 +86,7 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "log_stream";
+  private LogStreamWidgetDefinitionType type = LogStreamWidgetDefinitionType.LOG_STREAM;
 
 
   public LogStreamWidgetDefinition columns(List<String> columns) {
@@ -135,11 +137,11 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * An array of index names to query in the stream.
+   * An array of index names to query in the stream. Use [] to query all indexes at once.
    * @return indexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of index names to query in the stream.")
+  @ApiModelProperty(example = "[\"days-3\",\"days-7\"]", value = "An array of index names to query in the stream. Use [] to query all indexes at once.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,6 +152,31 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
 
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
+  }
+
+
+  public LogStreamWidgetDefinition logset(String logset) {
+    
+    this.logset = logset;
+    return this;
+  }
+
+   /**
+   * ID of the log set to use.
+   * @return logset
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the log set to use.")
+  @JsonProperty(JSON_PROPERTY_LOGSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLogset() {
+    return logset;
+  }
+
+
+  public void setLogset(String logset) {
+    this.logset = logset;
   }
 
 
@@ -378,19 +405,28 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public LogStreamWidgetDefinition type(LogStreamWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public LogStreamWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(LogStreamWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override
@@ -404,6 +440,7 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
     LogStreamWidgetDefinition logStreamWidgetDefinition = (LogStreamWidgetDefinition) o;
     return Objects.equals(this.columns, logStreamWidgetDefinition.columns) &&
         Objects.equals(this.indexes, logStreamWidgetDefinition.indexes) &&
+        Objects.equals(this.logset, logStreamWidgetDefinition.logset) &&
         Objects.equals(this.messageDisplay, logStreamWidgetDefinition.messageDisplay) &&
         Objects.equals(this.query, logStreamWidgetDefinition.query) &&
         Objects.equals(this.showDateColumn, logStreamWidgetDefinition.showDateColumn) &&
@@ -418,7 +455,7 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, indexes, messageDisplay, query, showDateColumn, showMessageColumn, sort, time, title, titleAlign, titleSize, type);
+    return Objects.hash(columns, indexes, logset, messageDisplay, query, showDateColumn, showMessageColumn, sort, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -428,6 +465,7 @@ public class LogStreamWidgetDefinition implements WidgetDefinition {
     sb.append("class LogStreamWidgetDefinition {\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
+    sb.append("    logset: ").append(toIndentedString(logset)).append("\n");
     sb.append("    messageDisplay: ").append(toIndentedString(messageDisplay)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    showDateColumn: ").append(toIndentedString(showDateColumn)).append("\n");

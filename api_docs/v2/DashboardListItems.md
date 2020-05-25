@@ -2,7 +2,7 @@
 
 # DashboardListItems
 
-TODO.
+Dashboards within a list.
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,12 +1,11 @@
 [ {
-  "id" : "157c2175-83a4-43c6-a9ca-eff559d55e01",
+  "id" : "d916dc8a-caa1-45b9-b85e-cd8762737cda",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "listTests" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Connection" : [ "keep-alive" ],
       "content-length" : [ "0" ]
     },
@@ -23,12 +22,12 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 21 Apr 2020 21:06:12 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 07:50:46 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }

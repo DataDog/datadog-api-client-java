@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updateLogsIndex" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "15" ]
@@ -54,7 +53,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updateLogsIndex" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "15" ]

@@ -1,12 +1,11 @@
 [ {
-  "id" : "de5cfcf1-6e71-48ae-abff-74b727eb2701",
+  "id" : "f5c31056-9adc-42b8-be68-fbb28a3c5f57",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/slo/id",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updateSLO" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "41" ]
@@ -28,29 +27,29 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:34:19 GMT" ],
+      "Date" : [ "Tue, 05 May 2020 21:58:12 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "56" ],
       "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.2405092" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2469677" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
     },
     "body" : "{\"errors\": [\"Invalid payload: 'name' should be string\"]}"
   }
 }, {
-  "id" : "b5c0effa-b682-4e4f-a3ff-50adc8ef5bb6",
+  "id" : "697a8d83-de1e-40d9-8a54-e3016fc21e09",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/slo/id",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updateSLO" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "41" ]
@@ -72,33 +71,32 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:34:24 GMT" ],
+      "Date" : [ "Tue, 05 May 2020 21:58:13 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "74d8ab3c-3938-4429-99e9-9f93cfbd7f2a",
+  "id" : "dd07596b-0f27-4089-b3ad-4d33a352c236",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/slo/id",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updateSLO" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "212" ]
+      "Content-Length" : [ "230" ]
     },
     "keepAlive" : true,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"description\":\"Track the uptime of host foo which is critical to us.\",\"name\":\"Critical Foo Host Uptime\",\"tags\":[\"app:core\",\"kpi\"],\"thresholds\":[{\"target\":95.0,\"timeframe\":\"30d\",\"warning\":98.0}],\"type\":\"monitor\"}"
+      "json" : "{\"description\":\"Updated - Track the uptime of host foo which is critical to us.\",\"name\":\"Critical Foo Host Uptime Updated\",\"tags\":[\"app:core\",\"kpi\"],\"thresholds\":[{\"target\":95.0,\"timeframe\":\"30d\",\"warning\":98.0}],\"type\":\"monitor\"}"
     }
   },
   "times" : {
@@ -111,17 +109,18 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:34:24 GMT" ],
+      "Date" : [ "Tue, 05 May 2020 21:58:13 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.2405092" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2469677" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
       "content-length" : [ "43" ]
     },
     "body" : "{\"errors\": [\"SLO not found: id not found\"]}"

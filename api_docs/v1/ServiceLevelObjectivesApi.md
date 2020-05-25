@@ -21,8 +21,8 @@ Method | HTTP request | Description
 
 Check if SLOs can be safely deleted
 
-Check if an SLO can be safely deleted without disrupting
-dashboardsfor example.
+Check if a SLO can be safely deleted. For example,
+assure an SLO can be deleted without disrupting a dashboard.
 
 ### Example
 
@@ -38,22 +38,21 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects (e.g. \"id1,id2,id3\").
+        String ids = id1, id2, id3; // String | A comma separated list of the IDs of the service level objectives objects.
         try {
             CheckCanDeleteSLOResponse result = api.checkCanDeleteSLO()
                 .ids(ids)
@@ -75,7 +74,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects (e.g. \&quot;id1,id2,id3\&quot;). |
+ **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. |
 
 ### Return type
 
@@ -121,22 +120,21 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | Service level objective request object.
+        ServiceLevelObjectiveRequest body = new ServiceLevelObjectiveRequest(); // ServiceLevelObjectiveRequest | Service level objective request object.
         try {
             SLOListResponse result = api.createSLO()
                 .body(body)
@@ -158,7 +156,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ServiceLevelObjective**](ServiceLevelObjective.md)| Service level objective request object. |
+ **body** | [**ServiceLevelObjectiveRequest**](ServiceLevelObjectiveRequest.md)| Service level objective request object. |
 
 ### Return type
 
@@ -183,7 +181,7 @@ Name | Type | Description  | Notes
 
 ## deleteSLO
 
-> SLODeleteResponse deleteSLO(sloId).execute();
+> SLODeleteResponse deleteSLO(sloId).force(force).execute();
 
 Delete a SLO
 
@@ -206,24 +204,25 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        String sloId = "sloId_example"; // String | The id of the service level objective.
+        String sloId = "sloId_example"; // String | The ID of the service level objective.
+        String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
             SLODeleteResponse result = api.deleteSLO(sloId)
+                .force(force)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -242,7 +241,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The id of the service level objective. |
+ **sloId** | **String**| The ID of the service level objective. |
+ **force** | **String**| Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional]
 
 ### Return type
 
@@ -292,22 +292,21 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Thresholds by service level objective object ID.
+        Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Delete multiple service level objective objects request body.
         try {
             SLOBulkDeleteResponse result = api.deleteSLOTimeframeInBulk()
                 .body(body)
@@ -329,7 +328,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Map&lt;String, List&lt;SLOTimeframe&gt;&gt;**](List.md)| Thresholds by service level objective object ID. |
+ **body** | [**Map&lt;String, List&lt;SLOTimeframe&gt;&gt;**](List.md)| Delete multiple service level objective objects request body. |
 
 ### Return type
 
@@ -374,19 +373,18 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
@@ -462,19 +460,18 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
@@ -550,22 +547,21 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        String ids = "ids_example"; // String | A comma separated list of the IDs of the service level objectives objects. For example, \"id1,id2,id3\".
+        String ids = id1, id2, id3; // String | A comma separated list of the IDs of the service level objectives objects.
         try {
             SLOListResponse result = api.listSLOs()
                 .ids(ids)
@@ -587,7 +583,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. For example, \&quot;id1,id2,id3\&quot;. |
+ **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. |
 
 ### Return type
 
@@ -608,6 +604,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
 
 ## updateSLO
@@ -632,19 +629,18 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object.

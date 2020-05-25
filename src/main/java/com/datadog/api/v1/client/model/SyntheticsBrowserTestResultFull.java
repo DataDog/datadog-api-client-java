@@ -13,8 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v1.client.model.SyntheticsAPITestResultFullCheck;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultData;
+import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultFullCheck;
 import com.datadog.api.v1.client.model.SyntheticsTestMonitorStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object returned describing a browser test result.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object returned describing a browser test result.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_CHECK,
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_CHECK_TIME,
@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class SyntheticsBrowserTestResultFull {
   public static final String JSON_PROPERTY_CHECK = "check";
-  private SyntheticsAPITestResultFullCheck check;
+  private SyntheticsBrowserTestResultFullCheck check;
 
   public static final String JSON_PROPERTY_CHECK_TIME = "check_time";
   private Double checkTime;
@@ -61,7 +61,7 @@ public class SyntheticsBrowserTestResultFull {
   private SyntheticsTestMonitorStatus status;
 
 
-  public SyntheticsBrowserTestResultFull check(SyntheticsAPITestResultFullCheck check) {
+  public SyntheticsBrowserTestResultFull check(SyntheticsBrowserTestResultFullCheck check) {
     
     this.check = check;
     return this;
@@ -76,12 +76,12 @@ public class SyntheticsBrowserTestResultFull {
   @JsonProperty(JSON_PROPERTY_CHECK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SyntheticsAPITestResultFullCheck getCheck() {
+  public SyntheticsBrowserTestResultFullCheck getCheck() {
     return check;
   }
 
 
-  public void setCheck(SyntheticsAPITestResultFullCheck check) {
+  public void setCheck(SyntheticsBrowserTestResultFullCheck check) {
     this.check = check;
   }
 
@@ -93,11 +93,11 @@ public class SyntheticsBrowserTestResultFull {
   }
 
    /**
-   * TODO.
+   * When the browser test was conducted.
    * @return checkTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "When the browser test was conducted.")
   @JsonProperty(JSON_PROPERTY_CHECK_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -118,11 +118,11 @@ public class SyntheticsBrowserTestResultFull {
   }
 
    /**
-   * TODO.
+   * Version of the browser test used.
    * @return checkVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Version of the browser test used.")
   @JsonProperty(JSON_PROPERTY_CHECK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -143,11 +143,11 @@ public class SyntheticsBrowserTestResultFull {
   }
 
    /**
-   * TODO.
+   * Location from which the browser test was performed.
    * @return probeDc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Location from which the browser test was performed.")
   @JsonProperty(JSON_PROPERTY_PROBE_DC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -193,11 +193,11 @@ public class SyntheticsBrowserTestResultFull {
   }
 
    /**
-   * TODO.
+   * ID of the browser test result.
    * @return resultId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "ID of the browser test result.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

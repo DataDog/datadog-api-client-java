@@ -8,15 +8,11 @@ Use the Arithmetic Processor to add a new attribute (without spaces or special c
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **expression** | **String** | Arithmetic operation between one or more log attributes. | 
-**isReplaceMissing** | **Boolean** | If &#x60;true&#x60;, it replaces all missing attributes of expression by &#x60;0&#x60;, &#x60;false&#x60; skip the operation if an attribute is missing. |  [optional]
-**target** | **String** | Name of the attribute that contains the result of the arithmetic operation. | 
-**type** | **String** | Type of processor |  [optional] [readonly]
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
+**isReplaceMissing** | **Boolean** | If &#x60;true&#x60;, it replaces all missing attributes of expression by &#x60;0&#x60;, &#x60;false&#x60; skip the operation if an attribute is missing. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
+**target** | **String** | Name of the attribute that contains the result of the arithmetic operation. | 
+**type** | [**LogsArithmeticProcessorType**](LogsArithmeticProcessorType.md) |  | 
 
-
-## Implemented Interfaces
-
-* LogsProcessor
 
 

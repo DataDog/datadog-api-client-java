@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object collecting warnings for a given step.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object collecting warnings for a given step.")
 @JsonPropertyOrder({
   SyntheticsStepDetailWarnings.JSON_PROPERTY_MESSAGE,
   SyntheticsStepDetailWarnings.JSON_PROPERTY_TYPE
@@ -46,10 +46,10 @@ public class SyntheticsStepDetailWarnings {
   }
 
    /**
-   * TODO.
+   * Message for the warning.
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Message for the warning.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

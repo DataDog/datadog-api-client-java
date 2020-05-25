@@ -6,6 +6,8 @@
 
 package com.datadog.api.v2.client.api;
 
+
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
 import org.glassfish.jersey.client.ClientConfig;
@@ -32,8 +34,8 @@ public abstract class V2APITest extends TestUtils.APITest {
         generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
 
         // Set proxy to the mockServer for recording
-        if (TestUtils.isRecording()) {
-            if (!TestUtils.isIbmJdk()) {
+        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+            if (!(TestUtils.isIbmJdk() || TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE))) {
                 ClientConfig config = (ClientConfig) generalApiClient.getHttpClient().getConfiguration();
                 config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
             }

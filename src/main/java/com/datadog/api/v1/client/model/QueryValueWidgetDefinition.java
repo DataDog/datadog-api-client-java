@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.QueryValueWidgetDefinitionType;
 import com.datadog.api.v1.client.model.QueryValueWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -24,9 +25,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -46,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   QueryValueWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class QueryValueWidgetDefinition implements WidgetDefinition {
+public class QueryValueWidgetDefinition {
   public static final String JSON_PROPERTY_AUTOSCALE = "autoscale";
   private Boolean autoscale;
 
@@ -75,7 +73,7 @@ public class QueryValueWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "query_value";
+  private QueryValueWidgetDefinitionType type = QueryValueWidgetDefinitionType.QUERY_VALUE;
 
 
   public QueryValueWidgetDefinition autoscale(Boolean autoscale) {
@@ -85,11 +83,11 @@ public class QueryValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * Whether to use autoscaling or not.
+   * Whether to use auto-scaling or not.
    * @return autoscale
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to use autoscaling or not.")
+  @ApiModelProperty(value = "Whether to use auto-scaling or not.")
   @JsonProperty(JSON_PROPERTY_AUTOSCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -165,10 +163,10 @@ public class QueryValueWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * Widget definition.
    * @return requests
   **/
-  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "TODO.")
+  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "Widget definition.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -307,19 +305,28 @@ public class QueryValueWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public QueryValueWidgetDefinition type(QueryValueWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public QueryValueWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(QueryValueWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

@@ -1,12 +1,11 @@
 [ {
-  "id" : "1cbf4160-2179-4a21-859c-d255591ecab6",
+  "id" : "90d4a800-9101-40cf-b6d7-ddf52925395e",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/lqnioiuyzbefnkje",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/test-datadog-client-java-1588255064",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "deletePagerDutyIntegrationService" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "256" ]
@@ -28,24 +27,23 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:19:12 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 13:57:48 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "52443447-93ba-4a4c-a06b-e5a12a662ccc",
+  "id" : "3ca5b5e5-e49a-4e41-853e-43444731e243",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/lqnioiuyzbefnkje",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/test-datadog-client-java-1588255064",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "deletePagerDutyIntegrationService" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "256" ]
@@ -67,64 +65,20 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:19:17 GMT" ],
+      "Date" : [ "Thu, 30 Apr 2020 13:57:49 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.2405092" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "47" ]
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2452356" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "33" ]
     },
-    "body" : "{\"errors\": [\"Pagerduty Integration not found\"]}"
-  }
-}, {
-  "id" : "828ff20a-82bd-4aa0-bef2-f6339eba0368",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v1/integration/pagerduty",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "DD-OPERATION-ID" : [ "deletePagerDutyIntegration" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "256" ]
-    },
-    "keepAlive" : true,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"entity\":\"\",\"variant\":{\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}},\"annotations\":[],\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}}"
-    }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 204,
-    "reasonPhrase" : "No Content",
-    "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 23:19:17 GMT" ],
-      "Content-Type" : [ "text/plain" ],
-      "Connection" : [ "keep-alive" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 23:19:17 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2405092" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "0" ]
-    },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    }
+    "body" : "{\"errors\": [\"Service not found\"]}"
   }
 } ]

@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing the author or a Synthetic test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing the author or a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestAuthor.JSON_PROPERTY_EMAIL,
   SyntheticsTestAuthor.JSON_PROPERTY_HANDLE,
@@ -53,11 +53,11 @@ public class SyntheticsTestAuthor {
   }
 
    /**
-   * TODO.
+   * Email of the author.
    * @return email
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Email of the author.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -78,11 +78,11 @@ public class SyntheticsTestAuthor {
   }
 
    /**
-   * TODO.
+   * Handle of the author.
    * @return handle
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Handle of the author.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,11 +103,11 @@ public class SyntheticsTestAuthor {
   }
 
    /**
-   * TODO.
+   * Unique ID of the author.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Unique ID of the author.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -128,11 +128,11 @@ public class SyntheticsTestAuthor {
   }
 
    /**
-   * TODO.
+   * Name of the author.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Name of the author.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

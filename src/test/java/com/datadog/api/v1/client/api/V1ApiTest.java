@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
@@ -14,6 +16,7 @@ import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
@@ -40,8 +43,8 @@ public abstract class V1ApiTest extends TestUtils.APITest {
         generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
 
         // Set proxy to the mockServer for recording
-        if (TestUtils.isRecording()) {
-            if (!TestUtils.isIbmJdk()) {
+        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+            if (!(TestUtils.isIbmJdk() || TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE))) {
                 ClientConfig config = (ClientConfig) generalApiClient.getHttpClient().getConfiguration();
                 config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
             }
@@ -66,8 +69,8 @@ public abstract class V1ApiTest extends TestUtils.APITest {
         generalFakeAuthApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
 
         // Set proxy to the mockServer for recording
-        if (TestUtils.isRecording()) {
-            if (!TestUtils.isIbmJdk()) {
+        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+            if (!(TestUtils.isIbmJdk() || TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE))) {
                 ClientConfig config = (ClientConfig) generalFakeAuthApiClient.getHttpClient().getConfiguration();
                 config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
             }
@@ -146,11 +149,12 @@ public abstract class V1ApiTest extends TestUtils.APITest {
                     payload,
                     new HashMap<String, String>(),
                     new HashMap<String, String>(),
-                    null,
+                    new HashMap<String, Object>(),
                     "application/json",
                     "application/json",
                     new String[]{"apiKeyAuth", "appKeyAuth"},
-                    responseType
+                    responseType,
+                    null
             );
         } finally {
             generalApiClient.setBasePath(originalBasePath);

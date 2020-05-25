@@ -7,7 +7,7 @@ Set the boolean property enabled to enable or disable single sign on with SAML. 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enabled** | **Boolean** | TODO. |  [optional]
+**enabled** | **Boolean** | Whether or not SAML is enabled for this organization. |  [optional]
 
 
 

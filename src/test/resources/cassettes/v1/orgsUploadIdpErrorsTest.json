@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "uploadIdPForOrg" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "multipart/form-data;boundary=Boundary_1_214197589_1587176364454" ],
       "MIME-Version" : [ "1.0" ],
       "Connection" : [ "keep-alive" ],
@@ -52,7 +51,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "uploadIdPForOrg" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "multipart/form-data;boundary=Boundary_2_1107544839_1587176370970" ],
       "MIME-Version" : [ "1.0" ],
       "Connection" : [ "keep-alive" ],

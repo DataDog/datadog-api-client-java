@@ -4,11 +4,11 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createDashboard**](DashboardsApi.md#createDashboard) | **POST** /api/v1/dashboard | Create a new Dashboard
-[**deleteDashboard**](DashboardsApi.md#deleteDashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a Dashboard
-[**getDashboard**](DashboardsApi.md#getDashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a Dashboard
-[**listDashboards**](DashboardsApi.md#listDashboards) | **GET** /api/v1/dashboard | Get all Dashboards
-[**updateDashboard**](DashboardsApi.md#updateDashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a Dashboard
+[**createDashboard**](DashboardsApi.md#createDashboard) | **POST** /api/v1/dashboard | Create a new dashboard
+[**deleteDashboard**](DashboardsApi.md#deleteDashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard
+[**getDashboard**](DashboardsApi.md#getDashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a dashboard
+[**listDashboards**](DashboardsApi.md#listDashboards) | **GET** /api/v1/dashboard | Get all dashboards
+[**updateDashboard**](DashboardsApi.md#updateDashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a dashboard
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > Dashboard createDashboard().body(body).execute();
 
-Create a new Dashboard
+Create a new dashboard
 
 Create a dashboard using the specified options.
 
@@ -34,22 +34,21 @@ import com.datadog.api.v1.client.api.DashboardsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        Dashboard body = new Dashboard(); // Dashboard | Dashboard request object.
+        Dashboard body = new Dashboard(); // Dashboard | Create a dashboard request body.
         try {
             Dashboard result = api.createDashboard()
                 .body(body)
@@ -71,7 +70,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Dashboard**](Dashboard.md)| Dashboard request object. |
+ **body** | [**Dashboard**](Dashboard.md)| Create a dashboard request body. |
 
 ### Return type
 
@@ -98,7 +97,7 @@ Name | Type | Description  | Notes
 
 > DashboardDeleteResponse deleteDashboard(dashboardId).execute();
 
-Delete a Dashboard
+Delete a dashboard
 
 Delete a dashboard using the specified ID.
 
@@ -116,19 +115,18 @@ import com.datadog.api.v1.client.api.DashboardsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
@@ -172,14 +170,14 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **403** | Authentication Error |  -  |
-| **404** | No dasbhoards found error |  -  |
+| **404** | Dashboards Not Found |  -  |
 
 
 ## getDashboard
 
 > Dashboard getDashboard(dashboardId).execute();
 
-Get a Dashboard
+Get a dashboard
 
 Get a dashboard using the specified ID.
 
@@ -197,19 +195,18 @@ import com.datadog.api.v1.client.api.DashboardsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
@@ -260,7 +257,7 @@ Name | Type | Description  | Notes
 
 > DashboardSummary listDashboards().execute();
 
-Get all Dashboards
+Get all dashboards
 
 Get all dashboards.
 
@@ -278,19 +275,18 @@ import com.datadog.api.v1.client.api.DashboardsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         try {
@@ -336,7 +332,7 @@ This endpoint does not need any parameter.
 
 > Dashboard updateDashboard(dashboardId).body(body).execute();
 
-Update a Dashboard
+Update a dashboard
 
 Update a dashboard using the specified ID.
 
@@ -354,19 +350,18 @@ import com.datadog.api.v1.client.api.DashboardsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.

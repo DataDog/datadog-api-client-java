@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.HeatMapWidgetDefinitionType;
 import com.datadog.api.v1.client.model.HeatMapWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetAxis;
 import com.datadog.api.v1.client.model.WidgetEvent;
@@ -27,9 +28,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -49,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   HeatMapWidgetDefinition.JSON_PROPERTY_YAXIS
 })
 
-public class HeatMapWidgetDefinition implements WidgetDefinition {
+public class HeatMapWidgetDefinition {
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<WidgetEvent> events = null;
 
@@ -75,7 +73,7 @@ public class HeatMapWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "heatmap";
+  private HeatMapWidgetDefinitionType type = HeatMapWidgetDefinitionType.HEATMAP;
 
   public static final String JSON_PROPERTY_YAXIS = "yaxis";
   private WidgetAxis yaxis;
@@ -96,11 +94,11 @@ public class HeatMapWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * List of widget events.
    * @return events
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of widget events.")
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,10 +149,10 @@ public class HeatMapWidgetDefinition implements WidgetDefinition {
   }
 
    /**
-   * TODO.
+   * List of widget types.
    * @return requests
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "List of widget types.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -293,19 +291,28 @@ public class HeatMapWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public HeatMapWidgetDefinition type(HeatMapWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public HeatMapWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(HeatMapWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   public HeatMapWidgetDefinition yaxis(WidgetAxis yaxis) {

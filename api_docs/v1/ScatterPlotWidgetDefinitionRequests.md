@@ -2,7 +2,7 @@
 
 # ScatterPlotWidgetDefinitionRequests
 
-TODO.
+Widget definition.
 ## Properties
 
 Name | Type | Description | Notes

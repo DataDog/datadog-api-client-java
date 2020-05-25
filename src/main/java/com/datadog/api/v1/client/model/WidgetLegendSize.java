@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Available legent sizes for a widget.
+ * Available legend sizes for a widget.
  */
 public enum WidgetLegendSize {
   

@@ -16,7 +16,6 @@ import java.util.Arrays;
 import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.SLOThreshold;
 import com.datadog.api.v1.client.model.SLOType;
-import com.datadog.api.v1.client.model.SLOTypeNumeric;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveQuery;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -32,9 +31,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (name, description, tags, etc.).
+ * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (&#x60;name&#x60;, &#x60;description&#x60;, &#x60;tags&#x60;, etc.).
  */
-@ApiModel(description = "A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (name, description, tags, etc.).")
+@ApiModel(description = "A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).")
 @JsonPropertyOrder({
   ServiceLevelObjective.JSON_PROPERTY_CREATED_AT,
   ServiceLevelObjective.JSON_PROPERTY_CREATOR,
@@ -48,8 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ServiceLevelObjective.JSON_PROPERTY_QUERY,
   ServiceLevelObjective.JSON_PROPERTY_TAGS,
   ServiceLevelObjective.JSON_PROPERTY_THRESHOLDS,
-  ServiceLevelObjective.JSON_PROPERTY_TYPE,
-  ServiceLevelObjective.JSON_PROPERTY_TYPE_ID
+  ServiceLevelObjective.JSON_PROPERTY_TYPE
 })
 
 public class ServiceLevelObjective {
@@ -92,16 +90,13 @@ public class ServiceLevelObjective {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOType type;
 
-  public static final String JSON_PROPERTY_TYPE_ID = "type_id";
-  private SLOTypeNumeric typeId;
-
 
    /**
-   * Creation timestamp (unix time in seconds)  Always included in service level objective responses.
+   * Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation timestamp (unix time in seconds)  Always included in service level objective responses.")
+  @ApiModelProperty(value = "Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -144,11 +139,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * A user-defined description of the service level objective.  Always included in service level objective responses (but may be null). Optional in create/update requests.
+   * A user-defined description of the service level objective.  Always included in service level objective responses (but may be &#x60;null&#x60;). Optional in create/update requests.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A user-defined description of the service level objective.  Always included in service level objective responses (but may be null). Optional in create/update requests.")
+  @ApiModelProperty(value = "A user-defined description of the service level objective.  Always included in service level objective responses (but may be `null`). Optional in create/update requests.")
   @JsonIgnore
 
   public String getDescription() {
@@ -187,11 +182,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * A list of (up to 20) monitor groups (e.g. [\&quot;env:prod,role:mysql\&quot;]) that narrows the scope of a monitor service level objective.  Included in service level objective responses if it is nonempty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the \&quot;monitor_ids\&quot; field is one.
+   * A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the &#x60;monitor_ids&#x60; field is one.
    * @return groups
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of (up to 20) monitor groups (e.g. [\"env:prod,role:mysql\"]) that narrows the scope of a monitor service level objective.  Included in service level objective responses if it is nonempty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the \"monitor_ids\" field is one.")
+  @ApiModelProperty(example = "[\"env:prod\",\"role:mysql\"]", value = "A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the `monitor_ids` field is one.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -222,11 +217,11 @@ public class ServiceLevelObjective {
 
 
    /**
-   * Modification timestamp (unix time in seconds)  Always included in service level objective responses.
+   * Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Modification timestamp (unix time in seconds)  Always included in service level objective responses.")
+  @ApiModelProperty(value = "Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -252,11 +247,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * A list of monitor ids that defines the scope of a monitor service level objective.  Required if type is \&quot;monitor\&quot;.
+   * A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is &#x60;monitor&#x60;**.
    * @return monitorIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of monitor ids that defines the scope of a monitor service level objective.  Required if type is \"monitor\".")
+  @ApiModelProperty(value = "A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is `monitor`**.")
   @JsonProperty(JSON_PROPERTY_MONITOR_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -285,11 +280,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * The union of monitor tags for all monitors referenced by the \&quot;monitor_ids\&quot; field.  Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the monitor_ids field).
+   * The union of monitor tags for all monitors referenced by the &#x60;monitor_ids&#x60; field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the &#x60;monitor_ids&#x60; field).
    * @return monitorTags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The union of monitor tags for all monitors referenced by the \"monitor_ids\" field.  Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the monitor_ids field).")
+  @ApiModelProperty(value = "The union of monitor tags for all monitors referenced by the `monitor_ids` field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the `monitor_ids` field).")
   @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -367,11 +362,11 @@ public class ServiceLevelObjective {
   }
 
    /**
-   * A list of tags (e.g. \&quot;env:prod\&quot;) associated with this service level objective.  Always included in service level objective responses (but may be empty). Optional in create/update requests.
+   * A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of tags (e.g. \"env:prod\") associated with this service level objective.  Always included in service level objective responses (but may be empty). Optional in create/update requests.")
+  @ApiModelProperty(example = "[\"env:prod\",\"app:core\"]", value = "A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -438,31 +433,6 @@ public class ServiceLevelObjective {
   }
 
 
-  public ServiceLevelObjective typeId(SLOTypeNumeric typeId) {
-    
-    this.typeId = typeId;
-    return this;
-  }
-
-   /**
-   * Get typeId
-   * @return typeId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SLOTypeNumeric getTypeId() {
-    return typeId;
-  }
-
-
-  public void setTypeId(SLOTypeNumeric typeId) {
-    this.typeId = typeId;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -484,13 +454,12 @@ public class ServiceLevelObjective {
         Objects.equals(this.query, serviceLevelObjective.query) &&
         Objects.equals(this.tags, serviceLevelObjective.tags) &&
         Objects.equals(this.thresholds, serviceLevelObjective.thresholds) &&
-        Objects.equals(this.type, serviceLevelObjective.type) &&
-        Objects.equals(this.typeId, serviceLevelObjective.typeId);
+        Objects.equals(this.type, serviceLevelObjective.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, creator, description, groups, id, modifiedAt, monitorIds, monitorTags, name, query, tags, thresholds, type, typeId);
+    return Objects.hash(createdAt, creator, description, groups, id, modifiedAt, monitorIds, monitorTags, name, query, tags, thresholds, type);
   }
 
 
@@ -511,7 +480,6 @@ public class ServiceLevelObjective {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    typeId: ").append(toIndentedString(typeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

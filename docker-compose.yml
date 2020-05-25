@@ -1,0 +1,44 @@
+version: "3"
+services:
+  test:
+    image: datadog-java-integration-test
+    build:
+      context: .
+      dockerfile: Dockerfile.test.v1
+    depends_on:
+      - datadog
+    networks:
+      - test
+    environment:
+      DD_AGENT_HOST: datadog
+      DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
+      DD_LOGS_INJECTION: "true"
+      DD_SERVICE: datadog-api-client-java
+      DD_TEST_CLIENT_API_KEY: ${DD_TEST_CLIENT_API_KEY}
+      DD_TEST_CLIENT_APP_KEY: ${DD_TEST_CLIENT_APP_KEY}
+      DD_TRACE_AGENT_PORT: 8126
+      DD_TRACE_ANNOTATIONS: org.junit.Test
+    labels:
+      com.datadoghq.ad.logs: '[{"source": "docker-compose.yml", "service": "datadog-api-client-java"}]'
+    working_dir: /datadog-api-client-java
+    volumes:
+      - ./:/datadog-api-client-java
+  datadog:
+    image: datadog/agent:7-jmx
+    networks:
+      - test
+    environment:
+      DD_API_KEY: ${DD_TEST_CLIENT_API_KEY}
+      DD_APM_ENABLED: "true"
+      DD_APM_NON_LOCAL_TRAFFIC: "true"
+      # DD_LOG_LEVEL: debug
+      DD_LOGS_ENABLED: "true"
+      DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL: "true"
+      DD_AC_EXCLUDE: "name:datadog"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+
+networks:
+  test:

@@ -14,6 +14,7 @@ package com.datadog.api.v2.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v2.client.model.RoleUpdateAttributes;
+import com.datadog.api.v2.client.model.RolesType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,9 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO
+ * Data related to the update of a role.
  */
-@ApiModel(description = "TODO")
+@ApiModel(description = "Data related to the update of a role.")
 @JsonPropertyOrder({
   RoleUpdateData.JSON_PROPERTY_ATTRIBUTES,
   RoleUpdateData.JSON_PROPERTY_ID,
@@ -40,7 +41,7 @@ public class RoleUpdateData {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "roles";
+  private RolesType type = RolesType.ROLES;
 
 
   public RoleUpdateData attributes(RoleUpdateAttributes attributes) {
@@ -93,27 +94,27 @@ public class RoleUpdateData {
   }
 
 
-  public RoleUpdateData type(String type) {
+  public RoleUpdateData type(RolesType type) {
     
     this.type = type;
     return this;
   }
 
    /**
-   * TODO
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getType() {
+  public RolesType getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(RolesType type) {
     this.type = type;
   }
 

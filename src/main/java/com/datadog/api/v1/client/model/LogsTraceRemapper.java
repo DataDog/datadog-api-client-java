@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogsTraceRemapperType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,12 +22,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -34,73 +29,24 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "There are two ways to improve correlation between application traces and logs.    1. Follow the documentation on [how to inject a trace ID in the application logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces)   and by default log integrations take care of all the rest of the setup.    2. Use the Trace remapper processor to define a log attribute as its associated trace ID.")
 @JsonPropertyOrder({
-  LogsTraceRemapper.JSON_PROPERTY_SOURCES,
-  LogsTraceRemapper.JSON_PROPERTY_TYPE,
   LogsTraceRemapper.JSON_PROPERTY_IS_ENABLED,
-  LogsTraceRemapper.JSON_PROPERTY_NAME
+  LogsTraceRemapper.JSON_PROPERTY_NAME,
+  LogsTraceRemapper.JSON_PROPERTY_SOURCES,
+  LogsTraceRemapper.JSON_PROPERTY_TYPE
 })
 
-public class LogsTraceRemapper implements LogsProcessor {
-  public static final String JSON_PROPERTY_SOURCES = "sources";
-  private List<String> sources = null;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "trace-id-remapper";
-
+public class LogsTraceRemapper {
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_SOURCES = "sources";
+  private List<String> sources = null;
 
-  public LogsTraceRemapper sources(List<String> sources) {
-    
-    this.sources = sources;
-    return this;
-  }
-
-  public LogsTraceRemapper addSourcesItem(String sourcesItem) {
-    if (this.sources == null) {
-      this.sources = new ArrayList<>();
-    }
-    this.sources.add(sourcesItem);
-    return this;
-  }
-
-   /**
-   * Array of source attributes.
-   * @return sources
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of source attributes.")
-  @JsonProperty(JSON_PROPERTY_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getSources() {
-    return sources;
-  }
-
-
-  public void setSources(List<String> sources) {
-    this.sources = sources;
-  }
-
-
-   /**
-   * Type of processor.
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor.")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getType() {
-    return type;
-  }
-
-
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LogsTraceRemapperType type = LogsTraceRemapperType.TRACE_ID_REMAPPER;
 
 
   public LogsTraceRemapper isEnabled(Boolean isEnabled) {
@@ -153,6 +99,63 @@ public class LogsTraceRemapper implements LogsProcessor {
   }
 
 
+  public LogsTraceRemapper sources(List<String> sources) {
+    
+    this.sources = sources;
+    return this;
+  }
+
+  public LogsTraceRemapper addSourcesItem(String sourcesItem) {
+    if (this.sources == null) {
+      this.sources = new ArrayList<>();
+    }
+    this.sources.add(sourcesItem);
+    return this;
+  }
+
+   /**
+   * Array of source attributes.
+   * @return sources
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of source attributes.")
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getSources() {
+    return sources;
+  }
+
+
+  public void setSources(List<String> sources) {
+    this.sources = sources;
+  }
+
+
+  public LogsTraceRemapper type(LogsTraceRemapperType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LogsTraceRemapperType getType() {
+    return type;
+  }
+
+
+  public void setType(LogsTraceRemapperType type) {
+    this.type = type;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -162,15 +165,15 @@ public class LogsTraceRemapper implements LogsProcessor {
       return false;
     }
     LogsTraceRemapper logsTraceRemapper = (LogsTraceRemapper) o;
-    return Objects.equals(this.sources, logsTraceRemapper.sources) &&
-        Objects.equals(this.type, logsTraceRemapper.type) &&
-        Objects.equals(this.isEnabled, logsTraceRemapper.isEnabled) &&
-        Objects.equals(this.name, logsTraceRemapper.name);
+    return Objects.equals(this.isEnabled, logsTraceRemapper.isEnabled) &&
+        Objects.equals(this.name, logsTraceRemapper.name) &&
+        Objects.equals(this.sources, logsTraceRemapper.sources) &&
+        Objects.equals(this.type, logsTraceRemapper.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sources, type, isEnabled, name);
+    return Objects.hash(isEnabled, name, sources, type);
   }
 
 
@@ -178,10 +181,10 @@ public class LogsTraceRemapper implements LogsProcessor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsTraceRemapper {\n");
-    sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

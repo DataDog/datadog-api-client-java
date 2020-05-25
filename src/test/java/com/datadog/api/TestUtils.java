@@ -65,7 +65,7 @@ public class TestUtils {
                     throw e;
                 }
             }
-            if (isRecording()) {
+            if (!getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
                 try {
                     Thread.sleep(interval * 1000);
                 } catch (InterruptedException e) {
@@ -80,8 +80,17 @@ public class TestUtils {
         return IOUtils.toString(TestUtils.class.getResourceAsStream(path), "UTF-8");
     }
 
-    public static boolean isRecording() {
-        return Boolean.parseBoolean(System.getenv("RECORD"));
+    public static RecordingMode getRecordingMode() {
+        String envRecording = System.getenv("RECORD");
+        RecordingMode rm = RecordingMode.MODE_REPLAYING;
+        if (envRecording != null) {
+            if (envRecording.equals(RecordingMode.MODE_IGNORE.value)) {
+                rm = RecordingMode.MODE_IGNORE;
+            } else if (envRecording.equals(RecordingMode.MODE_RECORDING.value)) {
+                rm = RecordingMode.MODE_RECORDING;
+            }
+        }
+        return rm;
     }
 
     public static boolean isIbmJdk() {
@@ -92,7 +101,7 @@ public class TestUtils {
         if (!isIbmJdk()) {
             return false;
         }
-        if (!isRecording()) {
+        if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
             throw new RuntimeException("Can't run recorded tests on IBM JDK: https://github.com/mock-server/mockserver/issues/750");
         }
         System.err.println("NOTE: Running on IBM JDK can't record cassettes, will only run tests: https://github.com/mock-server/mockserver/issues/750");
@@ -133,7 +142,7 @@ public class TestUtils {
 
         @BeforeClass
         public static void trustProxyCerts() {
-            if (handleIbmJdk()) {
+            if (handleIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }
             // Needed otherwise the Trust store does not have the correct type for java > 8.
@@ -147,7 +156,7 @@ public class TestUtils {
 
         @BeforeClass
         public static void getSecretsFromEnv() {
-            if (!isRecording()) return;
+            if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) return;
 
             HashMap<String, String> secrets = new HashMap<String, String>();
 
@@ -168,10 +177,10 @@ public class TestUtils {
 
         @Before
         public void setupMockServer() {
-            if (isIbmJdk()) {
+            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }
-            if (TestUtils.isRecording()) {
+            if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
                 ConfigurationProperties.persistExpectations(true);
                 ConfigurationProperties.persistedExpectationsPath(
                         Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".json").toString()
@@ -186,12 +195,12 @@ public class TestUtils {
 
         @Before
         public void setupClock() throws IOException {
-            if (isIbmJdk()) {
+            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 now = OffsetDateTime.now();
                 return;
             }
             // Use a fixed time in tests to allow replaying from cassettes
-            if (TestUtils.isRecording()) {
+            if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
                 // When recording, set the clock to the current time and save it to a `freeze` file for replaying
                 clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
                 now = OffsetDateTime.ofInstant(Instant.now(clock), ZoneOffset.UTC);
@@ -217,7 +226,7 @@ public class TestUtils {
         public void cleanAndSendExpectations() {
             // Cleanup the recorded requests from sensitive information (API keys in headers and query params),
             // create the associated expectations and send them to mockserver to save them on disk in the `cassettes/**/*.json` files
-            if (isIbmJdk()) {
+            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }
             List<Expectation> expectations = new ArrayList<>();
@@ -231,7 +240,11 @@ public class TestUtils {
                 for (Header header : headers) {
                     if (!header.getName().equals("DD-API-KEY") &&
                             !header.getName().equals("DD-APPLICATION-KEY") &&
-                            !header.getName().equals("Host")
+                            !header.getName().equals("Host") &&
+                            !header.getName().equals("x-datadog-trace-id") &&
+                            !header.getName().equals("x-datadog-parent-id") &&
+                            !header.getName().equals("x-datadog-sampling-priority") &&
+                            !header.getName().equals("User-Agent")
                     )
                         cleanHeaders.add(header);
                 }

@@ -131,11 +131,11 @@ public class AWSAccount {
   }
 
    /**
-   * An object (in the form {\&quot;namespace1\&quot;:true/false, \&quot;namespace2\&quot;:true/false}) that enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the /v1/integration/aws/available_namespace_rules endpoint.
+   * An object, (in the form &#x60;{\&quot;namespace1\&quot;:true/false, \&quot;namespace2\&quot;:true/false}&#x60;), that enables or disables metric collection for specific AWS namespaces for this AWS account only.
    * @return accountSpecificNamespaceRules
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "An object (in the form {\"namespace1\":true/false, \"namespace2\":true/false}) that enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the /v1/integration/aws/available_namespace_rules endpoint.")
+  @ApiModelProperty(example = "{\"auto_scaling\":false,\"opswork\":false}", value = "An object, (in the form `{\"namespace1\":true/false, \"namespace2\":true/false}`), that enables or disables metric collection for specific AWS namespaces for this AWS account only.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -197,11 +197,11 @@ public class AWSAccount {
   }
 
    /**
-   * The array of EC2 tags (in the form key:value) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ? (for single characters) and * (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding ! before the tag. For example, &#x60;env:production,instance-type:c1.*,!region:us-east-1&#x60;
+   * The array of EC2 tags (in the form &#x60;key:value&#x60;) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as &#x60;?&#x60; (for single characters) and &#x60;*&#x60; (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding &#x60;!&#x60; before the tag. For example, &#x60;env:production,instance-type:c1.*,!region:us-east-1&#x60;
    * @return filterTags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"<KEY>:<VALUE>\"]", value = "The array of EC2 tags (in the form key:value) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as ? (for single characters) and * (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding ! before the tag. For example, `env:production,instance-type:c1.*,!region:us-east-1`")
+  @ApiModelProperty(example = "[\"<KEY>:<VALUE>\"]", value = "The array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. For example, `env:production,instance-type:c1.*,!region:us-east-1`")
   @JsonProperty(JSON_PROPERTY_FILTER_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -230,11 +230,11 @@ public class AWSAccount {
   }
 
    /**
-   * Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+   * Array of tags (in the form &#x60;key:value&#x60;) to add to all hosts and metrics reporting through this integration.
    * @return hostTags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"<KEY>:<VALUE>\"]", value = "Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.")
+  @ApiModelProperty(example = "[\"<KEY>:<VALUE>\"]", value = "Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.")
   @JsonProperty(JSON_PROPERTY_HOST_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

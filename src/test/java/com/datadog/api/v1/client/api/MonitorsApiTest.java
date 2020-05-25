@@ -6,6 +6,7 @@
 
 package com.datadog.api.v1.client.api;
 
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -112,8 +113,9 @@ public class MonitorsApiTest extends V1ApiTest {
         assertTrue(obtained.getDeleted_JsonNullable().isPresent());
 
         // test updating monitor
-        obtained.setName("New name");
-        obtained = api.updateMonitor(monitorId).body(obtained).execute();
+        MonitorUpdateRequest updateMonitor = new MonitorUpdateRequest();
+        updateMonitor.setName("New name");
+        obtained = api.updateMonitor(monitorId).body(updateMonitor).execute();
 
         assertEquals("New name", obtained.getName());
         assertEquals(testingMonitorType, obtained.getType());
@@ -241,7 +243,7 @@ public class MonitorsApiTest extends V1ApiTest {
         Long monitorId = obtained.getId();
         deleteMonitors.add(monitorId);
 
-        Monitor updateMonitor = new Monitor();
+        MonitorUpdateRequest updateMonitor = new MonitorUpdateRequest();
         updateMonitor.setType(MonitorType.COMPOSITE);
 
         try {
@@ -254,7 +256,7 @@ public class MonitorsApiTest extends V1ApiTest {
         }
 
         try {
-            fakeAuthApi.updateMonitor(new Long(1234)).body(new Monitor()).execute();
+            fakeAuthApi.updateMonitor(new Long(1234)).body(new MonitorUpdateRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
@@ -263,7 +265,7 @@ public class MonitorsApiTest extends V1ApiTest {
         }
 
         try {
-            api.updateMonitor(new Long(1234)).body(new Monitor()).execute();
+            api.updateMonitor(new Long(1234)).body(new MonitorUpdateRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
@@ -280,7 +282,7 @@ public class MonitorsApiTest extends V1ApiTest {
         );
         // Cannot trigger 401 for client. Need underrestricted creds. Mock it.
         try {
-            unitApi.updateMonitor(new Long(121)).body(new Monitor()).execute();
+            unitApi.updateMonitor(new Long(121)).body(new MonitorUpdateRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(401, e.getCode());
@@ -303,7 +305,7 @@ public class MonitorsApiTest extends V1ApiTest {
         Long monitorId = obtained.getId();
         deleteMonitors.add(monitorId);
 
-        Monitor updateMonitor = new Monitor();
+        MonitorUpdateRequest updateMonitor = new MonitorUpdateRequest();
         updateMonitor.setType(MonitorType.COMPOSITE);
 
         try {

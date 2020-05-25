@@ -2,7 +2,7 @@
 
 # QueryValueWidgetRequest
 
-TODO.
+Updated query value widget.
 ## Properties
 
 Name | Type | Description | Notes

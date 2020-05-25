@@ -82,11 +82,11 @@ public class SLOBulkDeleteResponse {
   }
 
    /**
-   * TODO.
+   * Array of errors object returned.
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of errors object returned.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

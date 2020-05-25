@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * User locator used.
  */
 public enum SyntheticsWarningType {
   

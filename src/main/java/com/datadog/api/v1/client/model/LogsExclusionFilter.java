@@ -45,11 +45,11 @@ public class LogsExclusionFilter {
   }
 
    /**
-   * Default query is &#39;*&#39;, meaning all logs flowing in the index would be excluded. Scope down exclusion filter to only a subset of logs with a log query.
+   * Default query is &#x60;*&#x60;, meaning all logs flowing in the index would be excluded. Scope down exclusion filter to only a subset of logs with a log query.
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "*", value = "Default query is '*', meaning all logs flowing in the index would be excluded. Scope down exclusion filter to only a subset of logs with a log query.")
+  @ApiModelProperty(example = "*", value = "Default query is `*`, meaning all logs flowing in the index would be excluded. Scope down exclusion filter to only a subset of logs with a log query.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -70,10 +70,10 @@ public class LogsExclusionFilter {
   }
 
    /**
-   * TODO.
+   * Sample rate to apply to logs going through this exclusion filter, a value of 1 will exclude all logs matching the query.
    * @return sampleRate
   **/
-  @ApiModelProperty(example = "1", required = true, value = "TODO.")
+  @ApiModelProperty(example = "1", required = true, value = "Sample rate to apply to logs going through this exclusion filter, a value of 1 will exclude all logs matching the query.")
   @JsonProperty(JSON_PROPERTY_SAMPLE_RATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

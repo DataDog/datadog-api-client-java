@@ -2,20 +2,20 @@
 
 # SyntheticsTestRequest
 
-TODO.
+Object describing the Synthetic test request.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **basicAuth** | [**SyntheticsTestRequestBasicAuth**](SyntheticsTestRequestBasicAuth.md) |  |  [optional]
-**body** | **String** | TODO. |  [optional]
-**headers** | **Map&lt;String, String&gt;** | TODO. |  [optional]
-**host** | **String** | TODO. |  [optional]
-**method** | [**HTTPMethod**](HTTPMethod.md) |  | 
-**port** | **Long** | TODO. |  [optional]
-**query** | [**Object**](.md) | TODO. |  [optional]
-**timeout** | **Double** | TODO. |  [optional]
-**url** | **String** | TODO. | 
+**body** | **String** | Body to include in the test. |  [optional]
+**headers** | **Map&lt;String, String&gt;** | Headers to include when performing the test. |  [optional]
+**host** | **String** | Host name to perform the test with. |  [optional]
+**method** | [**HTTPMethod**](HTTPMethod.md) |  |  [optional]
+**port** | **Long** | Port to use when performing the test. |  [optional]
+**query** | **Object** | Query to use for the test. |  [optional]
+**timeout** | **Double** | Timeout in millisecond for the test. |  [optional]
+**url** | **String** | URL to perform the test with. |  [optional]
 
 
 

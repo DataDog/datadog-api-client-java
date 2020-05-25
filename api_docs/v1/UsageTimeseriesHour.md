@@ -2,7 +2,7 @@
 
 # UsageTimeseriesHour
 
-TODO.
+The hourly usage of timeseries.
 ## Properties
 
 Name | Type | Description | Notes

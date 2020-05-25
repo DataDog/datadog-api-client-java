@@ -28,13 +28,24 @@ public class GcpIntegrationApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) throws ApiException {
     Object localVarPostBody = body;
@@ -73,7 +84,10 @@ private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) th
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("GcpIntegrationApi.createGCPIntegration", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("GcpIntegrationApi.createGCPIntegration", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateGCPIntegrationRequest {
@@ -81,7 +95,6 @@ private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) th
 
     private APIcreateGCPIntegrationRequest() {
     }
-    
 
     /**
      * Set body
@@ -92,7 +105,6 @@ private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) th
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createGCPIntegration request
@@ -123,9 +135,8 @@ private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) th
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return createGCPIntegrationWithHttpInfo(body);
     }
@@ -139,7 +150,6 @@ private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) th
    
    
    */
-  
   public APIcreateGCPIntegrationRequest createGCPIntegration() throws ApiException {
     return new APIcreateGCPIntegrationRequest();
   }
@@ -181,7 +191,10 @@ private ApiResponse<Object> deleteGCPIntegrationWithHttpInfo(GCPAccount body) th
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("GcpIntegrationApi.deleteGCPIntegration", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("GcpIntegrationApi.deleteGCPIntegration", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteGCPIntegrationRequest {
@@ -189,7 +202,6 @@ private ApiResponse<Object> deleteGCPIntegrationWithHttpInfo(GCPAccount body) th
 
     private APIdeleteGCPIntegrationRequest() {
     }
-    
 
     /**
      * Set body
@@ -200,7 +212,6 @@ private ApiResponse<Object> deleteGCPIntegrationWithHttpInfo(GCPAccount body) th
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute deleteGCPIntegration request
@@ -231,9 +242,8 @@ private ApiResponse<Object> deleteGCPIntegrationWithHttpInfo(GCPAccount body) th
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return deleteGCPIntegrationWithHttpInfo(body);
     }
@@ -247,7 +257,6 @@ private ApiResponse<Object> deleteGCPIntegrationWithHttpInfo(GCPAccount body) th
    
    
    */
-  
   public APIdeleteGCPIntegrationRequest deleteGCPIntegration() throws ApiException {
     return new APIdeleteGCPIntegrationRequest();
   }
@@ -284,14 +293,16 @@ private ApiResponse<List<GCPAccount>> listGCPIntegrationWithHttpInfo() throws Ap
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<GCPAccount>> localVarReturnType = new GenericType<List<GCPAccount>>() {};
-    return apiClient.invokeAPI("GcpIntegrationApi.listGCPIntegration", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("GcpIntegrationApi.listGCPIntegration", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistGCPIntegrationRequest {
 
     private APIlistGCPIntegrationRequest() {
     }
-    
 
     /**
      * Execute listGCPIntegration request
@@ -322,9 +333,8 @@ private ApiResponse<List<GCPAccount>> listGCPIntegrationWithHttpInfo() throws Ap
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<List<GCPAccount>> executeWithHttpInfo() throws ApiException {
       return listGCPIntegrationWithHttpInfo();
     }
@@ -338,7 +348,6 @@ private ApiResponse<List<GCPAccount>> listGCPIntegrationWithHttpInfo() throws Ap
    
    
    */
-  
   public APIlistGCPIntegrationRequest listGCPIntegration() throws ApiException {
     return new APIlistGCPIntegrationRequest();
   }
@@ -380,7 +389,10 @@ private ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) th
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("GcpIntegrationApi.updateGCPIntegration", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("GcpIntegrationApi.updateGCPIntegration", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateGCPIntegrationRequest {
@@ -388,7 +400,6 @@ private ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) th
 
     private APIupdateGCPIntegrationRequest() {
     }
-    
 
     /**
      * Set body
@@ -399,7 +410,6 @@ private ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) th
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateGCPIntegration request
@@ -430,9 +440,8 @@ private ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) th
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return updateGCPIntegrationWithHttpInfo(body);
     }
@@ -440,13 +449,12 @@ private ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) th
 
   /**
    * Update a GCP integration
-   * Update a Datadog-GCP integrations host_filters and/or automute. Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be updated. If you need to update these fields please delete and use the create (POST) endpoint. The unspecified fields will keep their original values.
+   * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;) endpoint. The unspecified fields will keep their original values.
    * @return updateGCPIntegrationRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIupdateGCPIntegrationRequest updateGCPIntegration() throws ApiException {
     return new APIupdateGCPIntegrationRequest();
   }

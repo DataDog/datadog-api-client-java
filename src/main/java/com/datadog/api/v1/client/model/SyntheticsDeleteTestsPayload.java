@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "A JSON list of the ID or IDs of the Synthetic tests that you want to delete.")
 @JsonPropertyOrder({
   SyntheticsDeleteTestsPayload.JSON_PROPERTY_PUBLIC_IDS
 })
@@ -51,11 +51,11 @@ public class SyntheticsDeleteTestsPayload {
   }
 
    /**
-   * TODO.
+   * An array of Synthetic test IDs you want to delete.
    * @return publicIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "An array of Synthetic test IDs you want to delete.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

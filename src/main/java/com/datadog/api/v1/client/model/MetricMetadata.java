@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object with all metric related metadata.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object with all metric related metadata.")
 @JsonPropertyOrder({
   MetricMetadata.JSON_PROPERTY_DESCRIPTION,
   MetricMetadata.JSON_PROPERTY_INTEGRATION,
@@ -156,11 +156,11 @@ public class MetricMetadata {
   }
 
    /**
-   * Statsd flush interval of the metric in seconds if applicable.
+   * StatsD flush interval of the metric in seconds if applicable.
    * @return statsdInterval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Statsd flush interval of the metric in seconds if applicable.")
+  @ApiModelProperty(value = "StatsD flush interval of the metric in seconds if applicable.")
   @JsonProperty(JSON_PROPERTY_STATSD_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

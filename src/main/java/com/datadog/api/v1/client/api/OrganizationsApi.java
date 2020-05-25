@@ -34,13 +34,24 @@ public class OrganizationsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(OrganizationCreateBody body) throws ApiException {
     Object localVarPostBody = body;
@@ -79,7 +90,10 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<OrganizationCreateResponse> localVarReturnType = new GenericType<OrganizationCreateResponse>() {};
-    return apiClient.invokeAPI("OrganizationsApi.createChildOrg", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("OrganizationsApi.createChildOrg", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateChildOrgRequest {
@@ -87,18 +101,16 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
 
     private APIcreateChildOrgRequest() {
     }
-    
 
     /**
      * Set body
-     * @param body Org object that needs to be created (required)
+     * @param body Organization object that needs to be created (required)
      * @return APIcreateChildOrgRequest
      */
     public APIcreateChildOrgRequest body(OrganizationCreateBody body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createChildOrg request
@@ -129,9 +141,8 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<OrganizationCreateResponse> executeWithHttpInfo() throws ApiException {
       return createChildOrgWithHttpInfo(body);
     }
@@ -139,13 +150,12 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
 
   /**
    * Create a child organization
-   * You can create, edit, and manage organizations.  This endpoint requires the [multi-org account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the &#x60;org.public_id&#x60;, &#x60;pi_key.key&#x60;, and **application_key.hash** provided in the response.
+   * Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the &#x60;org.public_id&#x60;, &#x60;pi_key.key&#x60;, and &#x60;application_key.hash&#x60; provided in the response.
    * @return createChildOrgRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIcreateChildOrgRequest createChildOrg() throws ApiException {
     return new APIcreateChildOrgRequest();
   }
@@ -188,7 +198,10 @@ private ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId) th
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<OrganizationResponse> localVarReturnType = new GenericType<OrganizationResponse>() {};
-    return apiClient.invokeAPI("OrganizationsApi.getOrg", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("OrganizationsApi.getOrg", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetOrgRequest {
@@ -197,7 +210,6 @@ private ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId) th
     private APIgetOrgRequest(String publicId) {
       this.publicId = publicId;
     }
-    
 
     /**
      * Execute getOrg request
@@ -228,9 +240,8 @@ private ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId) th
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<OrganizationResponse> executeWithHttpInfo() throws ApiException {
       return getOrgWithHttpInfo(publicId);
     }
@@ -239,13 +250,12 @@ private ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId) th
   /**
    * Get organization information
    * Get organization information.
-   * @param publicId The public_id of the org you are operating within. (required)
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within. (required)
    * @return getOrgRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIgetOrgRequest getOrg(String publicId) throws ApiException {
     return new APIgetOrgRequest(publicId);
   }
@@ -282,14 +292,16 @@ private ApiResponse<OrganizationListResponse> listOrgsWithHttpInfo() throws ApiE
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<OrganizationListResponse> localVarReturnType = new GenericType<OrganizationListResponse>() {};
-    return apiClient.invokeAPI("OrganizationsApi.listOrgs", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("OrganizationsApi.listOrgs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistOrgsRequest {
 
     private APIlistOrgsRequest() {
     }
-    
 
     /**
      * Execute listOrgs request
@@ -318,9 +330,8 @@ private ApiResponse<OrganizationListResponse> listOrgsWithHttpInfo() throws ApiE
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<OrganizationListResponse> executeWithHttpInfo() throws ApiException {
       return listOrgsWithHttpInfo();
     }
@@ -334,7 +345,6 @@ private ApiResponse<OrganizationListResponse> listOrgsWithHttpInfo() throws ApiE
    
    
    */
-  
   public APIlistOrgsRequest listOrgs() throws ApiException {
     return new APIlistOrgsRequest();
   }
@@ -382,7 +392,10 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<OrganizationResponse> localVarReturnType = new GenericType<OrganizationResponse>() {};
-    return apiClient.invokeAPI("OrganizationsApi.updateOrg", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("OrganizationsApi.updateOrg", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateOrgRequest {
@@ -392,7 +405,6 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
     private APIupdateOrgRequest(String publicId) {
       this.publicId = publicId;
     }
-    
 
     /**
      * Set body
@@ -403,7 +415,6 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateOrg request
@@ -434,9 +445,8 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<OrganizationResponse> executeWithHttpInfo() throws ApiException {
       return updateOrgWithHttpInfo(publicId, body);
     }
@@ -445,13 +455,12 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
   /**
    * Update your organization
    * Update your organization.
-   * @param publicId The public_id of the org you are operating within. (required)
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within. (required)
    * @return updateOrgRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIupdateOrgRequest updateOrg(String publicId) throws ApiException {
     return new APIupdateOrgRequest(publicId);
   }
@@ -501,7 +510,10 @@ private ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, Fi
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<IdpResponse> localVarReturnType = new GenericType<IdpResponse>() {};
-    return apiClient.invokeAPI("OrganizationsApi.uploadIdPForOrg", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("OrganizationsApi.uploadIdPForOrg", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIuploadIdPForOrgRequest {
@@ -511,7 +523,6 @@ private ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, Fi
     private APIuploadIdPForOrgRequest(String publicId) {
       this.publicId = publicId;
     }
-    
 
     /**
      * Set idpFile
@@ -522,7 +533,6 @@ private ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, Fi
       this.idpFile = idpFile;
       return this;
     }
-    
 
     /**
      * Execute uploadIdPForOrg request
@@ -555,9 +565,8 @@ private ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, Fi
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<IdpResponse> executeWithHttpInfo() throws ApiException {
       return uploadIdPForOrgWithHttpInfo(publicId, idpFile);
     }
@@ -566,13 +575,12 @@ private ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, Fi
   /**
    * Upload IdP metadata
    * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
-   * @param publicId The public_id of the org you are operating with (required)
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
    * @return uploadIdPForOrgRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIuploadIdPForOrgRequest uploadIdPForOrg(String publicId) throws ApiException {
     return new APIuploadIdPForOrgRequest(publicId);
   }

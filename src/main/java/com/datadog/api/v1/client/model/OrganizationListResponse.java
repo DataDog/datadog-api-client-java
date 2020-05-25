@@ -52,11 +52,11 @@ public class OrganizationListResponse {
   }
 
    /**
-   * TODO.
+   * Array of organization objects.
    * @return orgs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of organization objects.")
   @JsonProperty(JSON_PROPERTY_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

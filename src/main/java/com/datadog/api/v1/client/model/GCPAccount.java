@@ -91,11 +91,11 @@ public class GCPAccount {
   }
 
    /**
-   * Should be https://www.googleapis.com/oauth2/v1/certs.
+   * Should be &#x60;https://www.googleapis.com/oauth2/v1/certs&#x60;.
    * @return authProviderX509CertUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://www.googleapis.com/oauth2/v1/certs", value = "Should be https://www.googleapis.com/oauth2/v1/certs.")
+  @ApiModelProperty(example = "https://www.googleapis.com/oauth2/v1/certs", value = "Should be `https://www.googleapis.com/oauth2/v1/certs`.")
   @JsonProperty(JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -116,11 +116,11 @@ public class GCPAccount {
   }
 
    /**
-   * Should be https://accounts.google.com/o/oauth2/auth.
+   * Should be &#x60;https://accounts.google.com/o/oauth2/auth&#x60;.
    * @return authUri
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://accounts.google.com/o/oauth2/auth", value = "Should be https://accounts.google.com/o/oauth2/auth.")
+  @ApiModelProperty(example = "https://accounts.google.com/o/oauth2/auth", value = "Should be `https://accounts.google.com/o/oauth2/auth`.")
   @JsonProperty(JSON_PROPERTY_AUTH_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -216,11 +216,11 @@ public class GCPAccount {
   }
 
    /**
-   * Should be https://www.googleapis.com/robot/v1/metadata/x509/&lt;CLIENT_EMAIL&gt; where &lt;CLIENT_EMAIL&gt; is the email found in your JSON service account key.
+   * Should be &#x60;https://www.googleapis.com/robot/v1/metadata/x509/&lt;CLIENT_EMAIL&gt;&#x60; where &#x60;&lt;CLIENT_EMAIL&gt;&#x60; is the email found in your JSON service account key.
    * @return clientX509CertUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>", value = "Should be https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL> where <CLIENT_EMAIL> is the email found in your JSON service account key.")
+  @ApiModelProperty(example = "https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>", value = "Should be `https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>` where `<CLIENT_EMAIL>` is the email found in your JSON service account key.")
   @JsonProperty(JSON_PROPERTY_CLIENT_X509_CERT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -249,11 +249,11 @@ public class GCPAccount {
   }
 
    /**
-   * TODO.
+   * An array of errors.
    * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"*\"]", value = "TODO.")
+  @ApiModelProperty(example = "[\"*\"]", value = "An array of errors.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -374,11 +374,11 @@ public class GCPAccount {
   }
 
    /**
-   * Should be https://accounts.google.com/o/oauth2/token.
+   * Should be &#x60;https://accounts.google.com/o/oauth2/token&#x60;.
    * @return tokenUri
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://accounts.google.com/o/oauth2/token", value = "Should be https://accounts.google.com/o/oauth2/token.")
+  @ApiModelProperty(example = "https://accounts.google.com/o/oauth2/token", value = "Should be `https://accounts.google.com/o/oauth2/token`.")
   @JsonProperty(JSON_PROPERTY_TOKEN_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

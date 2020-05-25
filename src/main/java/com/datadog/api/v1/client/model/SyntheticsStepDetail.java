@@ -30,9 +30,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object describing a step for a Synthetic test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object describing a step for a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsStepDetail.JSON_PROPERTY_BROWSER_ERRORS,
   SyntheticsStepDetail.JSON_PROPERTY_CHECK_TYPE,
@@ -121,11 +121,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Array of errors collected for a browser test.
    * @return browserErrors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of errors collected for a browser test.")
   @JsonProperty(JSON_PROPERTY_BROWSER_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -171,11 +171,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Description of the test.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Description of the test.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -196,11 +196,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Total duration in millisecond of the test.
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Total duration in millisecond of the test.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -221,11 +221,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Error returned by the test.
    * @return error
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Error returned by the test.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -279,11 +279,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Array of resources collected by the test.
    * @return resources
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array of resources collected by the test.")
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -304,11 +304,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Whether or not screenshots where collected by the test.
    * @return screenshotBucketKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Whether or not screenshots where collected by the test.")
   @JsonProperty(JSON_PROPERTY_SCREENSHOT_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -329,11 +329,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Whether or not to skip this step.
    * @return skipped
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Whether or not to skip this step.")
   @JsonProperty(JSON_PROPERTY_SKIPPED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -354,11 +354,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Whether or not snapshots where collected by the test.
    * @return snapshotBucketKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Whether or not snapshots where collected by the test.")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -379,11 +379,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * The step ID.
    * @return stepId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The step ID.")
   @JsonProperty(JSON_PROPERTY_STEP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -412,11 +412,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * If this steps include a sub-test. [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
    * @return subTestStepDetails
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "If this steps include a sub-test. [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).")
   @JsonProperty(JSON_PROPERTY_SUB_TEST_STEP_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -437,11 +437,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Time before starting the step.
    * @return timeToInteractive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Time before starting the step.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -487,11 +487,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * URL to perform the step against.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "URL to perform the step against.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -512,11 +512,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Value for the step.
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Value for the step.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -545,11 +545,11 @@ public class SyntheticsStepDetail {
   }
 
    /**
-   * TODO.
+   * Warning collected that didn&#39;t failed the step.
    * @return warnings
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Warning collected that didn't failed the step.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

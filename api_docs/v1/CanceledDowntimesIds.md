@@ -2,7 +2,7 @@
 
 # CanceledDowntimesIds
 
-TODO.
+Object containing array of IDs of canceled downtimes.
 ## Properties
 
 Name | Type | Description | Notes

@@ -7,6 +7,7 @@
 
 package com.datadog.api.v1.client.api;
 
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.APIErrorResponse;
@@ -99,7 +100,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
         Object response = api.createAzureIntegration().body(uniqueAzureAccount).execute();
         assertEquals(response, new java.util.LinkedHashMap<>());
     }
-    
+
     /**
      * List and Delete an Azure Integration from your Datadog account.
      *
@@ -126,7 +127,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
         retrievedAccount = retrieveAccountInList(listAccounts, uniqueAzureAccount.getTenantName());
         assertEquals(new AzureAccount(), retrievedAccount);
     }
-    
+
     /**
      * Update an Azure integration to your Datadog account.
      *

@@ -16,8 +16,8 @@ import java.util.Arrays;
 import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
-import com.datadog.api.v1.client.model.TimeseriesWidgetRequestStyle;
 import com.datadog.api.v1.client.model.WidgetConditionalFormat;
+import com.datadog.api.v1.client.model.WidgetRequestStyle;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,9 +29,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Updated top list widget.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Updated top list widget.")
 @JsonPropertyOrder({
   ToplistWidgetRequest.JSON_PROPERTY_APM_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
@@ -70,7 +70,7 @@ public class ToplistWidgetRequest {
   private LogQueryDefinition rumQuery;
 
   public static final String JSON_PROPERTY_STYLE = "style";
-  private TimeseriesWidgetRequestStyle style;
+  private WidgetRequestStyle style;
 
 
   public ToplistWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
@@ -113,11 +113,11 @@ public class ToplistWidgetRequest {
   }
 
    /**
-   * TODO.
+   * List of conditional formats.
    * @return conditionalFormats
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "List of conditional formats.")
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -281,7 +281,7 @@ public class ToplistWidgetRequest {
   }
 
 
-  public ToplistWidgetRequest style(TimeseriesWidgetRequestStyle style) {
+  public ToplistWidgetRequest style(WidgetRequestStyle style) {
     
     this.style = style;
     return this;
@@ -296,12 +296,12 @@ public class ToplistWidgetRequest {
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TimeseriesWidgetRequestStyle getStyle() {
+  public WidgetRequestStyle getStyle() {
     return style;
   }
 
 
-  public void setStyle(TimeseriesWidgetRequestStyle style) {
+  public void setStyle(WidgetRequestStyle style) {
     this.style = style;
   }
 

@@ -117,11 +117,11 @@ public class Downtime {
 
 
    /**
-   * If a scheduled downtime is cancelled.
+   * If a scheduled downtime is canceled.
    * @return canceled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1412799983", value = "If a scheduled downtime is cancelled.")
+  @ApiModelProperty(example = "1412799983", value = "If a scheduled downtime is canceled.")
   @JsonIgnore
 
   public Long getCanceled() {
@@ -189,12 +189,12 @@ public class Downtime {
 
 
    /**
-   * 0 for a downtime applied on &#x60;*&#x60; or all; 1 when the downtime is only scoped to hosts; 2 when the downtime is scoped to anything but hosts.
+   * &#x60;0&#x60; for a downtime applied on &#x60;*&#x60; or all, &#x60;1&#x60; when the downtime is only scoped to hosts, or &#x60;2&#x60; when the downtime is scoped to anything but hosts.
    * maximum: 2147483647
    * @return downtimeType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2", value = "0 for a downtime applied on `*` or all; 1 when the downtime is only scoped to hosts; 2 when the downtime is scoped to anything but hosts.")
+  @ApiModelProperty(example = "2", value = "`0` for a downtime applied on `*` or all, `1` when the downtime is only scoped to hosts, or `2` when the downtime is scoped to anything but hosts.")
   @JsonProperty(JSON_PROPERTY_DOWNTIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -263,11 +263,11 @@ public class Downtime {
   }
 
    /**
-   * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same ‘@username’ notation as events.
+   * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same &#x60;@username&#x60; notation as events.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Message on the downtime", value = "A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same ‘@username’ notation as events.")
+  @ApiModelProperty(example = "Message on the downtime", value = "A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

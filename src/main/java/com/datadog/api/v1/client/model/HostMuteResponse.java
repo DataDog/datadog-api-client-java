@@ -128,11 +128,11 @@ public class HostMuteResponse {
   }
 
    /**
-   * Message associated with the Mute.
+   * Message associated with the mute.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Muting this host for a test!", value = "Message associated with the Mute.")
+  @ApiModelProperty(example = "Muting this host for a test!", value = "Message associated with the mute.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

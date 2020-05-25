@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).")
 @JsonPropertyOrder({
   SyntheticsBrowserVariable.JSON_PROPERTY_EXAMPLE,
   SyntheticsBrowserVariable.JSON_PROPERTY_ID,
@@ -58,11 +58,11 @@ public class SyntheticsBrowserVariable {
   }
 
    /**
-   * TODO.
+   * Example for the variable.
    * @return example
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Example for the variable.")
   @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -83,11 +83,11 @@ public class SyntheticsBrowserVariable {
   }
 
    /**
-   * TODO.
+   * ID for the variable.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "ID for the variable.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,10 +108,10 @@ public class SyntheticsBrowserVariable {
   }
 
    /**
-   * TODO.
+   * Name of the variable.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -132,11 +132,11 @@ public class SyntheticsBrowserVariable {
   }
 
    /**
-   * TODO.
+   * Pattern of the variable.
    * @return pattern
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Pattern of the variable.")
   @JsonProperty(JSON_PROPERTY_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

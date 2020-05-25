@@ -25,9 +25,9 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Template variable.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Template variable.")
 @JsonPropertyOrder({
   DashboardTemplateVariables.JSON_PROPERTY_DEFAULT,
   DashboardTemplateVariables.JSON_PROPERTY_NAME,
@@ -111,11 +111,11 @@ public class DashboardTemplateVariables {
   }
 
    /**
-   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
+   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
    * @return prefix
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host", value = "The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.")
+  @ApiModelProperty(example = "host", value = "The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.")
   @JsonIgnore
 
   public String getPrefix() {

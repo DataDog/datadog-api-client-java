@@ -2,7 +2,7 @@
 
 # LogsListRequestTime
 
-TODO.
+Timeframe to retrieve the log from.
 ## Properties
 
 Name | Type | Description | Notes

@@ -24,9 +24,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Your Datadog Dashboards.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Your Datadog Dashboards.")
 @JsonPropertyOrder({
   DashboardList.JSON_PROPERTY_AUTHOR,
   DashboardList.JSON_PROPERTY_CREATED,
@@ -90,11 +90,11 @@ public class DashboardList {
 
 
    /**
-   * Date of creation of the dashboard list
+   * Date of creation of the dashboard list.
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date of creation of the dashboard list")
+  @ApiModelProperty(value = "Date of creation of the dashboard list.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -106,11 +106,11 @@ public class DashboardList {
 
 
    /**
-   * The number of dashboards in the list
+   * The number of dashboards in the list.
    * @return dashboardCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of dashboards in the list")
+  @ApiModelProperty(value = "The number of dashboards in the list.")
   @JsonProperty(JSON_PROPERTY_DASHBOARD_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -122,11 +122,11 @@ public class DashboardList {
 
 
    /**
-   * The ID of the dashboard list
+   * The ID of the dashboard list.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the dashboard list")
+  @ApiModelProperty(value = "The ID of the dashboard list.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -138,11 +138,11 @@ public class DashboardList {
 
 
    /**
-   * Whether or not the list is in the favorites
+   * Whether or not the list is in the favorites.
    * @return isFavorite
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the list is in the favorites")
+  @ApiModelProperty(value = "Whether or not the list is in the favorites.")
   @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -154,11 +154,11 @@ public class DashboardList {
 
 
    /**
-   * Date of last edition of the dashboard list
+   * Date of last edition of the dashboard list.
    * @return modified
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date of last edition of the dashboard list")
+  @ApiModelProperty(value = "Date of last edition of the dashboard list.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -176,10 +176,10 @@ public class DashboardList {
   }
 
    /**
-   * The name of the dashboard list
+   * The name of the dashboard list.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "The name of the dashboard list")
+  @ApiModelProperty(example = "My Dashboard", required = true, value = "The name of the dashboard list.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -194,11 +194,11 @@ public class DashboardList {
 
 
    /**
-   * The type of dashboard list
+   * The type of dashboard list.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "manual_dashboard_list", value = "The type of dashboard list")
+  @ApiModelProperty(example = "manual_dashboard_list", value = "The type of dashboard list.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

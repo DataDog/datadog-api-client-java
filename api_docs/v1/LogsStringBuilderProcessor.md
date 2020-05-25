@@ -7,16 +7,12 @@ Use the string builder processor to add a new attribute (without spaces or speci
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **isReplaceMissing** | **Boolean** | If true, it replaces all missing attributes of &#x60;template&#x60; by an empty string. If &#x60;false&#x60; (default), skips the operation for missing attributes. |  [optional]
+**name** | **String** | Name of the processor. |  [optional]
 **target** | **String** | The name of the attribute that contains the result of the template. | 
 **template** | **String** | A formula with one or more attributes and raw text. | 
-**type** | **String** | Type of processor. |  [optional] [readonly]
-**isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
-**name** | **String** | Name of the processor. |  [optional]
+**type** | [**LogsStringBuilderProcessorType**](LogsStringBuilderProcessorType.md) |  | 
 
-
-## Implemented Interfaces
-
-* LogsProcessor
 
 

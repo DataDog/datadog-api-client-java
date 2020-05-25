@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "createAWSAccount" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "491" ]
@@ -55,7 +54,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "checkAWSLogsLambdaAsync" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "106" ]
@@ -104,7 +102,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "checkAWSLogsLambdaAsync" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "106" ]
@@ -153,7 +150,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "checkAWSLogsLambdaAsync" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "106" ]
@@ -202,7 +198,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "checkAWSLogsLambdaAsync" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "106" ]
@@ -251,7 +246,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "checkAWSLogsLambdaAsync" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "106" ]
@@ -300,7 +294,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
-      "User-Agent" : [ "DataDog/1.0.0/java" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Content-Length" : [ "491" ]

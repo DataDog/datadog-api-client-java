@@ -5,11 +5,11 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**checkAWSLogsLambdaAsync**](AwsLogsIntegrationApi.md#checkAWSLogsLambdaAsync) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists
-[**checkAWSLogsServicesAsync**](AwsLogsIntegrationApi.md#checkAWSLogsServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for Log Services
+[**checkAWSLogsServicesAsync**](AwsLogsIntegrationApi.md#checkAWSLogsServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for log services
 [**createAWSLambdaARN**](AwsLogsIntegrationApi.md#createAWSLambdaARN) | **POST** /api/v1/integration/aws/logs | Add AWS Log Lambda ARN
 [**deleteAWSLambdaARN**](AwsLogsIntegrationApi.md#deleteAWSLambdaARN) | **DELETE** /api/v1/integration/aws/logs | Delete an AWS Logs integration
 [**enableAWSLogServices**](AwsLogsIntegrationApi.md#enableAWSLogServices) | **POST** /api/v1/integration/aws/logs/services | Enable an AWS Logs integration
-[**listAWSLogsIntegrations**](AwsLogsIntegrationApi.md#listAWSLogsIntegrations) | **GET** /api/v1/integration/aws/logs | List all AWS Logs Integrations
+[**listAWSLogsIntegrations**](AwsLogsIntegrationApi.md#listAWSLogsIntegrations) | **GET** /api/v1/integration/aws/logs | List all AWS Logs integrations
 [**listAWSLogsServices**](AwsLogsIntegrationApi.md#listAWSLogsServices) | **GET** /api/v1/integration/aws/logs/services | Get list of AWS log ready services
 
 
@@ -20,7 +20,10 @@ Method | HTTP request | Description
 
 Check that an AWS Lambda Function exists
 
-Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.
+Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
+is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
+endpoint can be polled intermittently instead of blocking.
+
 - Returns a status of 'created' when it's checking if the Lambda exists in the account.
 - Returns a status of 'waiting' while checking.
 - Returns a status of 'checked and ok' if the Lambda exists.
@@ -40,19 +43,18 @@ import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
@@ -104,15 +106,18 @@ Name | Type | Description  | Notes
 
 > AWSLogsAsyncResponse checkAWSLogsServicesAsync().body(body).execute();
 
-Check permissions for Log Services
+Check permissions for log services
 
-Test if permissions are present to add log-forwarding triggers for the given services + AWS account. Input is the same as for EnableAWSLogServices. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.
-- Returns a status of 'created' when it's checking if the permissions exists
+Test if permissions are present to add log-forwarding triggers for the
+given services and AWS account. Input is the same as for `EnableAWSLogServices`.
+Done async, so can be repeatedly polled in a non-blocking fashion until
+the async request completes.
+
+- Returns a status of `created` when it's checking if the permissions exists
   in the AWS account.
-
-- Returns a status of 'waiting' while checking.
-- Returns a status of 'checked and ok' if the Lambda exists.
-- Returns a status of 'error' if the Lambda does not exist.
+- Returns a status of `waiting` while checking.
+- Returns a status of `checked and ok` if the Lambda exists.
+- Returns a status of `error` if the Lambda does not exist.
 
 ### Example
 
@@ -128,22 +133,21 @@ import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | AWS Logs Async Services check request body.
+        AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Check AWS Logs Async Services request body.
         try {
             AWSLogsAsyncResponse result = api.checkAWSLogsServicesAsync()
                 .body(body)
@@ -165,7 +169,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| AWS Logs Async Services check request body. |
+ **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| Check AWS Logs Async Services request body. |
 
 ### Return type
 
@@ -210,22 +214,21 @@ import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
+        AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
         try {
             Object result = api.createAWSLambdaARN()
                 .body(body)
@@ -247,7 +250,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Check AWS Log Lambda Async request body. |
+ **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| AWS Log Lambda Async request body. |
 
 ### Return type
 
@@ -292,22 +295,21 @@ import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
+        AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Delete AWS Lambda ARN request body.
         try {
             Object result = api.deleteAWSLambdaARN()
                 .body(body)
@@ -329,7 +331,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Check AWS Log Lambda Async request body. |
+ **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Delete AWS Lambda ARN request body. |
 
 ### Return type
 
@@ -358,7 +360,7 @@ Name | Type | Description  | Notes
 
 Enable an AWS Logs integration
 
-Enable automatic log collection for a list of services. This should be run after running 'CreateAWSLambdaARN' to save the config.
+Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
 
 ### Example
 
@@ -374,22 +376,21 @@ import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Enable AWS Log Services request object
+        AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Enable AWS Log Services request body.
         try {
             Object result = api.enableAWSLogServices()
                 .body(body)
@@ -411,7 +412,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| Enable AWS Log Services request object |
+ **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| Enable AWS Log Services request body. |
 
 ### Return type
 
@@ -438,7 +439,7 @@ Name | Type | Description  | Notes
 
 > List&lt;AWSLogsListResponse&gt; listAWSLogsIntegrations().execute();
 
-List all AWS Logs Integrations
+List all AWS Logs integrations
 
 List all Datadog-AWS Logs integrations configured in your Datadog account.
 
@@ -456,19 +457,18 @@ import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         try {
@@ -533,19 +533,18 @@ import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.datadoghq.com");
-        
-        // Configure API key authorization: apiKeyAuth
-        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
-        apiKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKeyAuth.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: appKeyAuth
-        ApiKeyAuth appKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("appKeyAuth");
-        appKeyAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //appKeyAuth.setApiKeyPrefix("Token");
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         try {

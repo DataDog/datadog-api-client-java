@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object containing all metric names returned and their associated metadata.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object containing all metric names returned and their associated metadata.")
 @JsonPropertyOrder({
   MetricsQueryResponseSeries.JSON_PROPERTY_AGGR,
   MetricsQueryResponseSeries.JSON_PROPERTY_DISPLAY_NAME,

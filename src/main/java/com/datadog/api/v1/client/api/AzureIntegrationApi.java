@@ -28,13 +28,24 @@ public class AzureIntegrationApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body) throws ApiException {
     Object localVarPostBody = body;
@@ -73,7 +84,10 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AzureIntegrationApi.createAzureIntegration", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AzureIntegrationApi.createAzureIntegration", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateAzureIntegrationRequest {
@@ -81,18 +95,16 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
 
     private APIcreateAzureIntegrationRequest() {
     }
-    
 
     /**
      * Set body
-     * @param body Create a Datadog-Azure integration for your Datadog account. (required)
+     * @param body Create a Datadog-Azure integration for your Datadog account request body. (required)
      * @return APIcreateAzureIntegrationRequest
      */
     public APIcreateAzureIntegrationRequest body(AzureAccount body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createAzureIntegration request
@@ -123,9 +135,8 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return createAzureIntegrationWithHttpInfo(body);
     }
@@ -139,7 +150,6 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
    
    
    */
-  
   public APIcreateAzureIntegrationRequest createAzureIntegration() throws ApiException {
     return new APIcreateAzureIntegrationRequest();
   }
@@ -181,7 +191,10 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AzureIntegrationApi.deleteAzureIntegration", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AzureIntegrationApi.deleteAzureIntegration", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteAzureIntegrationRequest {
@@ -189,18 +202,16 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
 
     private APIdeleteAzureIntegrationRequest() {
     }
-    
 
     /**
      * Set body
-     * @param body Delete a given Datadog-Azure integration. (required)
+     * @param body Delete a given Datadog-Azure integration request body. (required)
      * @return APIdeleteAzureIntegrationRequest
      */
     public APIdeleteAzureIntegrationRequest body(AzureAccount body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute deleteAzureIntegration request
@@ -231,9 +242,8 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return deleteAzureIntegrationWithHttpInfo(body);
     }
@@ -247,7 +257,6 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
    
    
    */
-  
   public APIdeleteAzureIntegrationRequest deleteAzureIntegration() throws ApiException {
     return new APIdeleteAzureIntegrationRequest();
   }
@@ -284,14 +293,16 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<AzureAccount>> localVarReturnType = new GenericType<List<AzureAccount>>() {};
-    return apiClient.invokeAPI("AzureIntegrationApi.listAzureIntegration", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AzureIntegrationApi.listAzureIntegration", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistAzureIntegrationRequest {
 
     private APIlistAzureIntegrationRequest() {
     }
-    
 
     /**
      * Execute listAzureIntegration request
@@ -322,9 +333,8 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<List<AzureAccount>> executeWithHttpInfo() throws ApiException {
       return listAzureIntegrationWithHttpInfo();
     }
@@ -338,7 +348,6 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
    
    
    */
-  
   public APIlistAzureIntegrationRequest listAzureIntegration() throws ApiException {
     return new APIlistAzureIntegrationRequest();
   }
@@ -380,7 +389,10 @@ private ApiResponse<Object> updateAzureHostFiltersWithHttpInfo(AzureAccount body
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AzureIntegrationApi.updateAzureHostFilters", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AzureIntegrationApi.updateAzureHostFilters", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateAzureHostFiltersRequest {
@@ -388,18 +400,16 @@ private ApiResponse<Object> updateAzureHostFiltersWithHttpInfo(AzureAccount body
 
     private APIupdateAzureHostFiltersRequest() {
     }
-    
 
     /**
      * Set body
-     * @param body Update a Datadog-Azure integration&#39;s host filters. (required)
+     * @param body Update a Datadog-Azure integration&#39;s host filters request body. (required)
      * @return APIupdateAzureHostFiltersRequest
      */
     public APIupdateAzureHostFiltersRequest body(AzureAccount body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateAzureHostFilters request
@@ -430,9 +440,8 @@ private ApiResponse<Object> updateAzureHostFiltersWithHttpInfo(AzureAccount body
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return updateAzureHostFiltersWithHttpInfo(body);
     }
@@ -446,7 +455,6 @@ private ApiResponse<Object> updateAzureHostFiltersWithHttpInfo(AzureAccount body
    
    
    */
-  
   public APIupdateAzureHostFiltersRequest updateAzureHostFilters() throws ApiException {
     return new APIupdateAzureHostFiltersRequest();
   }
@@ -488,7 +496,10 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-    return apiClient.invokeAPI("AzureIntegrationApi.updateAzureIntegration", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("AzureIntegrationApi.updateAzureIntegration", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateAzureIntegrationRequest {
@@ -496,18 +507,16 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
 
     private APIupdateAzureIntegrationRequest() {
     }
-    
 
     /**
      * Set body
-     * @param body Update a Datadog-Azure integration. (required)
+     * @param body Update a Datadog-Azure integration request body. (required)
      * @return APIupdateAzureIntegrationRequest
      */
     public APIupdateAzureIntegrationRequest body(AzureAccount body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateAzureIntegration request
@@ -538,9 +547,8 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return updateAzureIntegrationWithHttpInfo(body);
     }
@@ -554,7 +562,6 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
    
    
    */
-  
   public APIupdateAzureIntegrationRequest updateAzureIntegration() throws ApiException {
     return new APIupdateAzureIntegrationRequest();
   }

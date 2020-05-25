@@ -30,13 +30,24 @@ public class LogsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -75,7 +86,10 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<LogsListResponse> localVarReturnType = new GenericType<LogsListResponse>() {};
-    return apiClient.invokeAPI("LogsApi.listLogs", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("LogsApi.listLogs", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistLogsRequest {
@@ -83,7 +97,6 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
 
     private APIlistLogsRequest() {
     }
-    
 
     /**
      * Set body
@@ -94,7 +107,6 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute listLogs request
@@ -125,9 +137,8 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<LogsListResponse> executeWithHttpInfo() throws ApiException {
       return listLogsWithHttpInfo(body);
     }
@@ -135,13 +146,12 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
 
   /**
    * Get a list of logs
-   * List endpoint returns logs that match a log search query. [Results are paginated][1].  **If you are thinking about archiving logs for your organization, consider using Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+   * List endpoint returns logs that match a log search query. [Results are paginated][1].  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    * @return listLogsRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIlistLogsRequest listLogs() throws ApiException {
     return new APIlistLogsRequest();
   }

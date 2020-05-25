@@ -17,6 +17,7 @@ import com.datadog.api.v1.client.model.AccessRole;
 import com.datadog.api.v1.client.model.OrganizationSettingsSaml;
 import com.datadog.api.v1.client.model.OrganizationSettingsSamlAutocreateUsersDomains;
 import com.datadog.api.v1.client.model.OrganizationSettingsSamlIdpInitiatedLogin;
+import com.datadog.api.v1.client.model.OrganizationSettingsSamlStrictMode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -71,7 +72,7 @@ public class OrganizationSettings {
   private String samlLoginUrl;
 
   public static final String JSON_PROPERTY_SAML_STRICT_MODE = "saml_strict_mode";
-  private OrganizationSettingsSamlIdpInitiatedLogin samlStrictMode;
+  private OrganizationSettingsSamlStrictMode samlStrictMode;
 
 
   public OrganizationSettings privateWidgetShare(Boolean privateWidgetShare) {
@@ -281,11 +282,11 @@ public class OrganizationSettings {
   }
 
    /**
-   * URL for SAML loging.
+   * URL for SAML logging.
    * @return samlLoginUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://my.saml.login.url", value = "URL for SAML loging.")
+  @ApiModelProperty(example = "https://my.saml.login.url", value = "URL for SAML logging.")
   @JsonProperty(JSON_PROPERTY_SAML_LOGIN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -299,7 +300,7 @@ public class OrganizationSettings {
   }
 
 
-  public OrganizationSettings samlStrictMode(OrganizationSettingsSamlIdpInitiatedLogin samlStrictMode) {
+  public OrganizationSettings samlStrictMode(OrganizationSettingsSamlStrictMode samlStrictMode) {
     
     this.samlStrictMode = samlStrictMode;
     return this;
@@ -314,12 +315,12 @@ public class OrganizationSettings {
   @JsonProperty(JSON_PROPERTY_SAML_STRICT_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OrganizationSettingsSamlIdpInitiatedLogin getSamlStrictMode() {
+  public OrganizationSettingsSamlStrictMode getSamlStrictMode() {
     return samlStrictMode;
   }
 
 
-  public void setSamlStrictMode(OrganizationSettingsSamlIdpInitiatedLogin samlStrictMode) {
+  public void setSamlStrictMode(OrganizationSettingsSamlStrictMode samlStrictMode) {
     this.samlStrictMode = samlStrictMode;
   }
 

@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Response Object that includes your query and the list of metrics retrieved.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Response Object that includes your query and the list of metrics retrieved.")
 @JsonPropertyOrder({
   MetricsQueryResponse.JSON_PROPERTY_ERROR,
   MetricsQueryResponse.JSON_PROPERTY_FROM_DATE,

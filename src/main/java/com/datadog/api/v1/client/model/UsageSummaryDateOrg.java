@@ -208,11 +208,11 @@ public class UsageSummaryDateOrg {
   }
 
    /**
-   * Shows the sum of all AWS Labmda invocations over all hours in the current date for the given org.
+   * Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org.
    * @return awsLambdaFuncCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all AWS Labmda invocations over all hours in the current date for the given org.")
+  @ApiModelProperty(value = "Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -233,11 +233,11 @@ public class UsageSummaryDateOrg {
   }
 
    /**
-   * Shows the sum of all AWS Labmda invocations over all hours in the current date for the given org.
+   * Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org.
    * @return awsLambdaInvocationsSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all AWS Labmda invocations over all hours in the current date for the given org.")
+  @ApiModelProperty(value = "Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -358,11 +358,11 @@ public class UsageSummaryDateOrg {
   }
 
    /**
-   * TODO.
+   * The average task count for Fargate.
    * @return fargateTasksCountAvg
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The average task count for Fargate.")
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

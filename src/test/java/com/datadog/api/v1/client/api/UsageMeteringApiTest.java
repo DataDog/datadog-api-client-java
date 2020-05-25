@@ -6,6 +6,7 @@
 
 package com.datadog.api.v1.client.api;
 
+
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -68,6 +69,15 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageAnalyzedLogsTest() throws ApiException {
+        UsageAnalyzedLogsResponse response = api.getUsageAnalyzedLogs()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
     public void getUsageFargateTest() throws ApiException {
         UsageFargateResponse response = api.getUsageFargate()
                 .startHr(startHr)
@@ -125,6 +135,15 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getUsageNetworkHostsTest() throws ApiException {
         UsageNetworkHostsResponse response = api.getUsageNetworkHosts()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageSNMPTest() throws ApiException {
+        UsageSNMPResponse response = api.getUsageSNMP()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -252,6 +271,27 @@ public class UsageMeteringApiTest extends V1ApiTest {
                 .endHr(endHr)
                 .execute();
         assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageAnalyzedLogsErrorsTest() throws IOException {
+        try {
+            api.getUsageAnalyzedLogs().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getUsageAnalyzedLogs().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
     }
 
     @Test
@@ -541,6 +581,27 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
         try {
             fakeAuthApi.getUsageNetworkFlows().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getUsageSNMPErrorsTest()throws IOException  {
+        try {
+            api.getUsageSNMP().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getUsageSNMP().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());

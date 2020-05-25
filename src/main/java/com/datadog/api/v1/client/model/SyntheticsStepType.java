@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO.
+ * Step type used in your Synthetic test.
  */
 public enum SyntheticsStepType {
   

@@ -9,11 +9,9 @@ import com.datadog.api.v1.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v1.client.model.APIErrorResponse;
-import com.datadog.api.v1.client.model.PagerDutyIntegration;
 import com.datadog.api.v1.client.model.PagerDutyService;
 import com.datadog.api.v1.client.model.PagerDutyServiceKey;
 import com.datadog.api.v1.client.model.PagerDutyServiceName;
-import com.datadog.api.v1.client.model.PagerDutyServicesAndSchedules;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,121 +30,24 @@ public class PagerDutyIntegrationApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<Void> createPagerDutyIntegrationWithHttpInfo(PagerDutyIntegration body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createPagerDutyIntegration");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integration/pagerduty";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createPagerDutyIntegration");
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.createPagerDutyIntegration", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
-
-  public class APIcreatePagerDutyIntegrationRequest {
-    private PagerDutyIntegration body;
-
-    private APIcreatePagerDutyIntegrationRequest() {
-    }
-    
-
-    /**
-     * Set body
-     * @param body Create Datadog-PagerDuty integration. (required)
-     * @return APIcreatePagerDutyIntegrationRequest
-     */
-    public APIcreatePagerDutyIntegrationRequest body(PagerDutyIntegration body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute createPagerDutyIntegration request
-     
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createPagerDutyIntegration request with HTTP info returned
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return createPagerDutyIntegrationWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Create a PagerDuty integration
-   * Create a new Datadog-PagerDuty integration. **Note:** All arguments are required when creating (&#x60;PUT&#x60;) a new PagerDuty configuration.
-   * @return createPagerDutyIntegrationRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIcreatePagerDutyIntegrationRequest createPagerDutyIntegration() throws ApiException {
-    return new APIcreatePagerDutyIntegrationRequest();
-  }
 
 private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithHttpInfo(PagerDutyService body) throws ApiException {
     Object localVarPostBody = body;
@@ -185,7 +86,10 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<PagerDutyServiceName> localVarReturnType = new GenericType<PagerDutyServiceName>() {};
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.createPagerDutyIntegrationService", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("PagerDutyIntegrationApi.createPagerDutyIntegrationService", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreatePagerDutyIntegrationServiceRequest {
@@ -193,18 +97,16 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
 
     private APIcreatePagerDutyIntegrationServiceRequest() {
     }
-    
 
     /**
      * Set body
-     * @param body Create a new service object in the Datadog-PagerDuty integration. (required)
+     * @param body Create a new service object request body. (required)
      * @return APIcreatePagerDutyIntegrationServiceRequest
      */
     public APIcreatePagerDutyIntegrationServiceRequest body(PagerDutyService body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createPagerDutyIntegrationService request
@@ -216,7 +118,6 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
          <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
      
      */
@@ -235,11 +136,9 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
          <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<PagerDutyServiceName> executeWithHttpInfo() throws ApiException {
       return createPagerDutyIntegrationServiceWithHttpInfo(body);
     }
@@ -253,100 +152,8 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
    
    
    */
-  
   public APIcreatePagerDutyIntegrationServiceRequest createPagerDutyIntegrationService() throws ApiException {
     return new APIcreatePagerDutyIntegrationServiceRequest();
-  }
-
-private ApiResponse<Void> deletePagerDutyIntegrationWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integration/pagerduty";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deletePagerDutyIntegration");
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.deletePagerDutyIntegration", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
-
-  public class APIdeletePagerDutyIntegrationRequest {
-
-    private APIdeletePagerDutyIntegrationRequest() {
-    }
-    
-
-    /**
-     * Execute deletePagerDutyIntegration request
-     
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 204 </td><td> Integration does not exist </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deletePagerDutyIntegration request with HTTP info returned
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 204 </td><td> Integration does not exist </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return deletePagerDutyIntegrationWithHttpInfo();
-    }
-  }
-
-  /**
-   * Delete a PagerDuty integration
-   * Delete the Datadog-PagerDuty integration.
-   * @return deletePagerDutyIntegrationRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIdeletePagerDutyIntegrationRequest deletePagerDutyIntegration() throws ApiException {
-    return new APIdeletePagerDutyIntegrationRequest();
   }
 
 private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String serviceName) throws ApiException {
@@ -386,8 +193,9 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.deletePagerDutyIntegrationService", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI("PagerDutyIntegrationApi.deletePagerDutyIntegrationService", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, null, null);
   }
 
   public class APIdeletePagerDutyIntegrationServiceRequest {
@@ -396,7 +204,6 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
     private APIdeletePagerDutyIntegrationServiceRequest(String serviceName) {
       this.serviceName = serviceName;
     }
-    
 
     /**
      * Execute deletePagerDutyIntegrationService request
@@ -427,9 +234,8 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
       return deletePagerDutyIntegrationServiceWithHttpInfo(serviceName);
     }
@@ -444,100 +250,8 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
    
    
    */
-  
   public APIdeletePagerDutyIntegrationServiceRequest deletePagerDutyIntegrationService(String serviceName) throws ApiException {
     return new APIdeletePagerDutyIntegrationServiceRequest(serviceName);
-  }
-
-private ApiResponse<PagerDutyIntegration> getPagerDutyIntegrationWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integration/pagerduty";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getPagerDutyIntegration");
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    GenericType<PagerDutyIntegration> localVarReturnType = new GenericType<PagerDutyIntegration>() {};
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.getPagerDutyIntegration", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-
-  public class APIgetPagerDutyIntegrationRequest {
-
-    private APIgetPagerDutyIntegrationRequest() {
-    }
-    
-
-    /**
-     * Execute getPagerDutyIntegration request
-     * @return PagerDutyIntegration
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public PagerDutyIntegration execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getPagerDutyIntegration request with HTTP info returned
-     * @return ApiResponse&lt;PagerDutyIntegration&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<PagerDutyIntegration> executeWithHttpInfo() throws ApiException {
-      return getPagerDutyIntegrationWithHttpInfo();
-    }
-  }
-
-  /**
-   * Get a PagerDuty integration
-   * Get all information about your Datadog-PagerDuty integration.
-   * @return getPagerDutyIntegrationRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIgetPagerDutyIntegrationRequest getPagerDutyIntegration() throws ApiException {
-    return new APIgetPagerDutyIntegrationRequest();
   }
 
 private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttpInfo(String serviceName) throws ApiException {
@@ -578,7 +292,10 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<PagerDutyServiceName> localVarReturnType = new GenericType<PagerDutyServiceName>() {};
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.getPagerDutyIntegrationService", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("PagerDutyIntegrationApi.getPagerDutyIntegrationService", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetPagerDutyIntegrationServiceRequest {
@@ -587,7 +304,6 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
     private APIgetPagerDutyIntegrationServiceRequest(String serviceName) {
       this.serviceName = serviceName;
     }
-    
 
     /**
      * Execute getPagerDutyIntegrationService request
@@ -618,9 +334,8 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<PagerDutyServiceName> executeWithHttpInfo() throws ApiException {
       return getPagerDutyIntegrationServiceWithHttpInfo(serviceName);
     }
@@ -629,123 +344,14 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
   /**
    * Get a single service object
    * Get service name in the Datadog-PagerDuty integration.
-   * @param serviceName The service name (required)
+   * @param serviceName The service name. (required)
    * @return getPagerDutyIntegrationServiceRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIgetPagerDutyIntegrationServiceRequest getPagerDutyIntegrationService(String serviceName) throws ApiException {
     return new APIgetPagerDutyIntegrationServiceRequest(serviceName);
-  }
-
-private ApiResponse<Void> updatePagerDutyIntegrationWithHttpInfo(PagerDutyServicesAndSchedules body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updatePagerDutyIntegration");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integration/pagerduty";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updatePagerDutyIntegration");
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
-
-    
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.updatePagerDutyIntegration", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
-
-  public class APIupdatePagerDutyIntegrationRequest {
-    private PagerDutyServicesAndSchedules body;
-
-    private APIupdatePagerDutyIntegrationRequest() {
-    }
-    
-
-    /**
-     * Set body
-     * @param body Update an existing Datadog-PagerDuty integration. (required)
-     * @return APIupdatePagerDutyIntegrationRequest
-     */
-    public APIupdatePagerDutyIntegrationRequest body(PagerDutyServicesAndSchedules body) {
-      this.body = body;
-      return this;
-    }
-    
-
-    /**
-     * Execute updatePagerDutyIntegration request
-     
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updatePagerDutyIntegration request with HTTP info returned
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-       </table>
-     
-     */
-    
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return updatePagerDutyIntegrationWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Add new services and schedules
-   * Add new services and schedules to your Datadog-PagerDuty integration.
-   * @return updatePagerDutyIntegrationRequest
-   * @throws ApiException if fails to make API call
-   
-   
-   */
-  
-  public APIupdatePagerDutyIntegrationRequest updatePagerDutyIntegration() throws ApiException {
-    return new APIupdatePagerDutyIntegrationRequest();
   }
 
 private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String serviceName, PagerDutyServiceKey body) throws ApiException {
@@ -790,8 +396,9 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.updatePagerDutyIntegrationService", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI("PagerDutyIntegrationApi.updatePagerDutyIntegrationService", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, null, null);
   }
 
   public class APIupdatePagerDutyIntegrationServiceRequest {
@@ -801,18 +408,16 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
     private APIupdatePagerDutyIntegrationServiceRequest(String serviceName) {
       this.serviceName = serviceName;
     }
-    
 
     /**
      * Set body
-     * @param body Update an existing service object in the Datadog-PagerDuty integration. (required)
+     * @param body Update an existing service object request body. (required)
      * @return APIupdatePagerDutyIntegrationServiceRequest
      */
     public APIupdatePagerDutyIntegrationServiceRequest body(PagerDutyServiceKey body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updatePagerDutyIntegrationService request
@@ -845,9 +450,8 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
       return updatePagerDutyIntegrationServiceWithHttpInfo(serviceName, body);
     }
@@ -855,14 +459,13 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
 
   /**
    * Update a single service object
-   * Update a single service object in the Datadog-PagerDuty integration
+   * Update a single service object in the Datadog-PagerDuty integration.
    * @param serviceName The service name (required)
    * @return updatePagerDutyIntegrationServiceRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIupdatePagerDutyIntegrationServiceRequest updatePagerDutyIntegrationService(String serviceName) throws ApiException {
     return new APIupdatePagerDutyIntegrationServiceRequest(serviceName);
   }

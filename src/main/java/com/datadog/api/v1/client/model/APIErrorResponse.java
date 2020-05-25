@@ -24,9 +24,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Error response object.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Error response object.")
 @JsonPropertyOrder({
   APIErrorResponse.JSON_PROPERTY_ERRORS
 })
@@ -48,10 +48,10 @@ public class APIErrorResponse {
   }
 
    /**
-   * TODO.
+   * Array of errors returned by the API.
    * @return errors
   **/
-  @ApiModelProperty(required = true, value = "TODO.")
+  @ApiModelProperty(required = true, value = "Array of errors returned by the API.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -23,9 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Result of the last API test run.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Result of the last API test run.")
 @JsonPropertyOrder({
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_TIMINGS
 })

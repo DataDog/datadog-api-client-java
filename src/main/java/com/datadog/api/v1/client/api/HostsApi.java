@@ -31,13 +31,24 @@ public class HostsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiException {
     Object localVarPostBody = null;
@@ -72,7 +83,10 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<HostTotals> localVarReturnType = new GenericType<HostTotals>() {};
-    return apiClient.invokeAPI("HostsApi.getHostTotals", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("HostsApi.getHostTotals", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetHostTotalsRequest {
@@ -80,7 +94,6 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
 
     private APIgetHostTotalsRequest() {
     }
-    
 
     /**
      * Set from
@@ -91,7 +104,6 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
       this.from = from;
       return this;
     }
-    
 
     /**
      * Execute getHostTotals request
@@ -122,9 +134,8 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<HostTotals> executeWithHttpInfo() throws ApiException {
       return getHostTotalsWithHttpInfo(from);
     }
@@ -138,7 +149,6 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
    
    
    */
-  
   public APIgetHostTotalsRequest getHostTotals() throws ApiException {
     return new APIgetHostTotalsRequest();
   }
@@ -181,7 +191,10 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<HostListResponse> localVarReturnType = new GenericType<HostListResponse>() {};
-    return apiClient.invokeAPI("HostsApi.listHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("HostsApi.listHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistHostsRequest {
@@ -194,7 +207,6 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
 
     private APIlistHostsRequest() {
     }
-    
 
     /**
      * Set filter
@@ -205,7 +217,6 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
       this.filter = filter;
       return this;
     }
-    
 
     /**
      * Set sortField
@@ -216,7 +227,6 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
       this.sortField = sortField;
       return this;
     }
-    
 
     /**
      * Set sortDir
@@ -227,7 +237,6 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
       this.sortDir = sortDir;
       return this;
     }
-    
 
     /**
      * Set start
@@ -238,7 +247,6 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
       this.start = start;
       return this;
     }
-    
 
     /**
      * Set count
@@ -249,7 +257,6 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
       this.count = count;
       return this;
     }
-    
 
     /**
      * Set from
@@ -260,7 +267,6 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
       this.from = from;
       return this;
     }
-    
 
     /**
      * Execute listHosts request
@@ -291,9 +297,8 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<HostListResponse> executeWithHttpInfo() throws ApiException {
       return listHostsWithHttpInfo(filter, sortField, sortDir, start, count, from);
     }
@@ -307,7 +312,6 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
    
    
    */
-  
   public APIlistHostsRequest listHosts() throws ApiException {
     return new APIlistHostsRequest();
   }
@@ -350,7 +354,10 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<HostMuteResponse> localVarReturnType = new GenericType<HostMuteResponse>() {};
-    return apiClient.invokeAPI("HostsApi.muteHost", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("HostsApi.muteHost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APImuteHostRequest {
@@ -360,18 +367,16 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
     private APImuteHostRequest(String hostName) {
       this.hostName = hostName;
     }
-    
 
     /**
      * Set body
-     * @param body Mute a host. (optional)
+     * @param body Mute a host request body. (optional)
      * @return APImuteHostRequest
      */
     public APImuteHostRequest body(HostMuteSettings body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute muteHost request
@@ -402,9 +407,8 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<HostMuteResponse> executeWithHttpInfo() throws ApiException {
       return muteHostWithHttpInfo(hostName, body);
     }
@@ -419,7 +423,6 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
    
    
    */
-  
   public APImuteHostRequest muteHost(String hostName) throws ApiException {
     return new APImuteHostRequest(hostName);
   }
@@ -462,7 +465,10 @@ private ApiResponse<HostMuteResponse> unmuteHostWithHttpInfo(String hostName) th
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<HostMuteResponse> localVarReturnType = new GenericType<HostMuteResponse>() {};
-    return apiClient.invokeAPI("HostsApi.unmuteHost", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("HostsApi.unmuteHost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIunmuteHostRequest {
@@ -471,7 +477,6 @@ private ApiResponse<HostMuteResponse> unmuteHostWithHttpInfo(String hostName) th
     private APIunmuteHostRequest(String hostName) {
       this.hostName = hostName;
     }
-    
 
     /**
      * Execute unmuteHost request
@@ -502,9 +507,8 @@ private ApiResponse<HostMuteResponse> unmuteHostWithHttpInfo(String hostName) th
          <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<HostMuteResponse> executeWithHttpInfo() throws ApiException {
       return unmuteHostWithHttpInfo(hostName);
     }
@@ -519,7 +523,6 @@ private ApiResponse<HostMuteResponse> unmuteHostWithHttpInfo(String hostName) th
    
    
    */
-  
   public APIunmuteHostRequest unmuteHost(String hostName) throws ApiException {
     return new APIunmuteHostRequest(hostName);
   }

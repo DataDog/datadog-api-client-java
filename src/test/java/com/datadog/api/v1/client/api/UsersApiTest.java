@@ -6,6 +6,8 @@
 
 package com.datadog.api.v1.client.api;
 
+
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -110,7 +112,7 @@ public class UsersApiTest extends V1ApiTest {
      */
     @Test
     public void listUsersTest() throws ApiException {
-        Assume.assumeTrue("This test does not support replay from recording", TestUtils.isRecording());
+        Assume.assumeFalse("This test does not support replay from recording", TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
         ArrayList<String> prefixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
         for (String prefix: prefixes) {
             User user = new User();

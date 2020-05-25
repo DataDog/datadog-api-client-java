@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetAxis;
 import com.datadog.api.v1.client.model.WidgetEvent;
@@ -28,9 +29,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -51,7 +49,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TimeseriesWidgetDefinition.JSON_PROPERTY_YAXIS
 })
 
-public class TimeseriesWidgetDefinition implements WidgetDefinition {
+public class TimeseriesWidgetDefinition {
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<WidgetEvent> events = null;
 
@@ -80,7 +78,7 @@ public class TimeseriesWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "timeseries";
+  private TimeseriesWidgetDefinitionType type = TimeseriesWidgetDefinitionType.TIMESERIES;
 
   public static final String JSON_PROPERTY_YAXIS = "yaxis";
   private WidgetAxis yaxis;
@@ -331,19 +329,28 @@ public class TimeseriesWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public TimeseriesWidgetDefinition type(TimeseriesWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public TimeseriesWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(TimeseriesWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   public TimeseriesWidgetDefinition yaxis(WidgetAxis yaxis) {

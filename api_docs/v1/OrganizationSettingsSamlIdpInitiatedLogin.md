@@ -7,7 +7,7 @@ Has one property enabled (boolean).
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enabled** | **Boolean** | TODO. |  [optional]
+**enabled** | **Boolean** | Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login). |  [optional]
 
 
 

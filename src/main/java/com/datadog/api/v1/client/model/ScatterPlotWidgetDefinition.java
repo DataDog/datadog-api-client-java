@@ -14,6 +14,7 @@ package com.datadog.api.v1.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionRequests;
+import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetAxis;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -25,9 +26,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -46,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ScatterPlotWidgetDefinition.JSON_PROPERTY_YAXIS
 })
 
-public class ScatterPlotWidgetDefinition implements WidgetDefinition {
+public class ScatterPlotWidgetDefinition {
   public static final String JSON_PROPERTY_COLOR_BY_GROUPS = "color_by_groups";
   private List<String> colorByGroups = null;
 
@@ -66,7 +64,7 @@ public class ScatterPlotWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "scatterplot";
+  private ScatterPlotWidgetDefinitionType type = ScatterPlotWidgetDefinitionType.SCATTERPLOT;
 
   public static final String JSON_PROPERTY_XAXIS = "xaxis";
   private WidgetAxis xaxis;
@@ -232,19 +230,28 @@ public class ScatterPlotWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public ScatterPlotWidgetDefinition type(ScatterPlotWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public ScatterPlotWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(ScatterPlotWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   public ScatterPlotWidgetDefinition xaxis(WidgetAxis xaxis) {

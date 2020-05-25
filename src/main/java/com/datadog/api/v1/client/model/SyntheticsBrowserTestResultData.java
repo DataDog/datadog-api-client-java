@@ -26,9 +26,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Object containing results for your Synthetic browser test.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Object containing results for your Synthetic browser test.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultData.JSON_PROPERTY_BROWSER_TYPE,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_BROWSER_VERSION,
@@ -85,11 +85,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * Type of browser device used for the browser test.
    * @return browserType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Type of browser device used for the browser test.")
   @JsonProperty(JSON_PROPERTY_BROWSER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -110,11 +110,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * Browser version used for the browser test.
    * @return browserVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Browser version used for the browser test.")
   @JsonProperty(JSON_PROPERTY_BROWSER_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,11 +160,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * Global duration in second of the browser test.
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Global duration in second of the browser test.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,11 +185,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * Error returned for the browser test.
    * @return error
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Error returned for the browser test.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -210,11 +210,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * Whether or not the browser test was conducted.
    * @return passed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Whether or not the browser test was conducted.")
   @JsonProperty(JSON_PROPERTY_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -235,11 +235,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * The amount of email received during the browser test.
    * @return receivedEmailCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "The amount of email received during the browser test.")
   @JsonProperty(JSON_PROPERTY_RECEIVED_EMAIL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -260,11 +260,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * Starting URL for the browser test.
    * @return startUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Starting URL for the browser test.")
   @JsonProperty(JSON_PROPERTY_START_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -293,11 +293,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * Array containing the different browser test steps.
    * @return stepDetails
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array containing the different browser test steps.")
   @JsonProperty(JSON_PROPERTY_STEP_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -318,11 +318,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * Whether or not a thumbnail is associated with the browser test.
    * @return thumbnailsBucketKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Whether or not a thumbnail is associated with the browser test.")
   @JsonProperty(JSON_PROPERTY_THUMBNAILS_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -343,11 +343,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
    /**
-   * TODO.
+   * Time in second to wait before the browser test starts after reaching the start URL.
    * @return timeToInteractive
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Time in second to wait before the browser test starts after reaching the start URL.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

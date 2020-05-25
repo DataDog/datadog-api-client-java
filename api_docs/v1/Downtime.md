@@ -8,13 +8,13 @@ Downtiming gives you greater control over monitor notifications by allowing you 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **Boolean** | If a scheduled downtime currently exists. |  [optional] [readonly]
-**canceled** | **Long** | If a scheduled downtime is cancelled. |  [optional] [readonly]
+**canceled** | **Long** | If a scheduled downtime is canceled. |  [optional] [readonly]
 **creatorId** | **Integer** | User ID of the downtime creator. |  [optional] [readonly]
 **disabled** | **Boolean** | If a downtime has been disabled. |  [optional]
-**downtimeType** | **Integer** | 0 for a downtime applied on &#x60;*&#x60; or all; 1 when the downtime is only scoped to hosts; 2 when the downtime is scoped to anything but hosts. |  [optional] [readonly]
+**downtimeType** | **Integer** | &#x60;0&#x60; for a downtime applied on &#x60;*&#x60; or all, &#x60;1&#x60; when the downtime is only scoped to hosts, or &#x60;2&#x60; when the downtime is scoped to anything but hosts. |  [optional] [readonly]
 **end** | **Long** | POSIX timestamp to end the downtime. If not provided, the downtime is in effect indefinitely until you cancel it. |  [optional]
 **id** | **Long** | The downtime ID. |  [optional] [readonly]
-**message** | **String** | A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same ‘@username’ notation as events. |  [optional]
+**message** | **String** | A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same &#x60;@username&#x60; notation as events. |  [optional]
 **monitorId** | **Long** | A single monitor to which the downtime applies. If not provided, the downtime applies to all monitors. |  [optional]
 **monitorTags** | **List&lt;String&gt;** | A comma-separated list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match ALL provided monitor tags. For example, &#x60;service:postgres&#x60; **AND** &#x60;team:frontend&#x60;. |  [optional]
 **parentId** | **Long** | ID of the parent Downtime. |  [optional]

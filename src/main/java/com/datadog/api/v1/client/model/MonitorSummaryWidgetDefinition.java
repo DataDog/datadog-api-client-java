@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetColorPreference;
 import com.datadog.api.v1.client.model.WidgetMonitorSummaryDisplayFormat;
 import com.datadog.api.v1.client.model.WidgetSort;
@@ -24,11 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -37,11 +33,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_COLOR_PREFERENCE,
+  MonitorSummaryWidgetDefinition.JSON_PROPERTY_COUNT,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_DISPLAY_FORMAT,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_HIDE_ZERO_COUNTS,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_QUERY,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SHOW_LAST_TRIGGERED,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SORT,
+  MonitorSummaryWidgetDefinition.JSON_PROPERTY_START,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SUMMARY_TYPE,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_TITLE,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
@@ -49,9 +47,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
+public class MonitorSummaryWidgetDefinition {
   public static final String JSON_PROPERTY_COLOR_PREFERENCE = "color_preference";
   private WidgetColorPreference colorPreference;
+
+  public static final String JSON_PROPERTY_COUNT = "count";
+  private Long count;
 
   public static final String JSON_PROPERTY_DISPLAY_FORMAT = "display_format";
   private WidgetMonitorSummaryDisplayFormat displayFormat;
@@ -68,6 +69,9 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
   public static final String JSON_PROPERTY_SORT = "sort";
   private WidgetSort sort;
 
+  public static final String JSON_PROPERTY_START = "start";
+  private Long start;
+
   public static final String JSON_PROPERTY_SUMMARY_TYPE = "summary_type";
   private WidgetSummaryType summaryType;
 
@@ -81,7 +85,7 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "manage_status";
+  private MonitorSummaryWidgetDefinitionType type = MonitorSummaryWidgetDefinitionType.MANAGE_STATUS;
 
 
   public MonitorSummaryWidgetDefinition colorPreference(WidgetColorPreference colorPreference) {
@@ -106,6 +110,31 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
 
   public void setColorPreference(WidgetColorPreference colorPreference) {
     this.colorPreference = colorPreference;
+  }
+
+
+  public MonitorSummaryWidgetDefinition count(Long count) {
+    
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * The number of monitors to display.
+   * @return count
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of monitors to display.")
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getCount() {
+    return count;
+  }
+
+
+  public void setCount(Long count) {
+    this.count = count;
   }
 
 
@@ -233,6 +262,31 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public MonitorSummaryWidgetDefinition start(Long start) {
+    
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * The start of the list. Typically 0.
+   * @return start
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The start of the list. Typically 0.")
+  @JsonProperty(JSON_PROPERTY_START)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getStart() {
+    return start;
+  }
+
+
+  public void setStart(Long start) {
+    this.start = start;
+  }
+
+
   public MonitorSummaryWidgetDefinition summaryType(WidgetSummaryType summaryType) {
     
     this.summaryType = summaryType;
@@ -333,19 +387,28 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public MonitorSummaryWidgetDefinition type(MonitorSummaryWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public MonitorSummaryWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(MonitorSummaryWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override
@@ -358,11 +421,13 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
     }
     MonitorSummaryWidgetDefinition monitorSummaryWidgetDefinition = (MonitorSummaryWidgetDefinition) o;
     return Objects.equals(this.colorPreference, monitorSummaryWidgetDefinition.colorPreference) &&
+        Objects.equals(this.count, monitorSummaryWidgetDefinition.count) &&
         Objects.equals(this.displayFormat, monitorSummaryWidgetDefinition.displayFormat) &&
         Objects.equals(this.hideZeroCounts, monitorSummaryWidgetDefinition.hideZeroCounts) &&
         Objects.equals(this.query, monitorSummaryWidgetDefinition.query) &&
         Objects.equals(this.showLastTriggered, monitorSummaryWidgetDefinition.showLastTriggered) &&
         Objects.equals(this.sort, monitorSummaryWidgetDefinition.sort) &&
+        Objects.equals(this.start, monitorSummaryWidgetDefinition.start) &&
         Objects.equals(this.summaryType, monitorSummaryWidgetDefinition.summaryType) &&
         Objects.equals(this.title, monitorSummaryWidgetDefinition.title) &&
         Objects.equals(this.titleAlign, monitorSummaryWidgetDefinition.titleAlign) &&
@@ -372,7 +437,7 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorPreference, displayFormat, hideZeroCounts, query, showLastTriggered, sort, summaryType, title, titleAlign, titleSize, type);
+    return Objects.hash(colorPreference, count, displayFormat, hideZeroCounts, query, showLastTriggered, sort, start, summaryType, title, titleAlign, titleSize, type);
   }
 
 
@@ -381,11 +446,13 @@ public class MonitorSummaryWidgetDefinition implements WidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorSummaryWidgetDefinition {\n");
     sb.append("    colorPreference: ").append(toIndentedString(colorPreference)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    displayFormat: ").append(toIndentedString(displayFormat)).append("\n");
     sb.append("    hideZeroCounts: ").append(toIndentedString(hideZeroCounts)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    showLastTriggered: ").append(toIndentedString(showLastTriggered)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    summaryType: ").append(toIndentedString(summaryType)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");

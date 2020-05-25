@@ -2,7 +2,7 @@
 
 # SyntheticsAPITestResultFullCheck
 
-TODO.
+Object describing the API test configuration.
 ## Properties
 
 Name | Type | Description | Notes

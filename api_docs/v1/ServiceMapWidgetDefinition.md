@@ -7,16 +7,12 @@ This widget displays a map of a service to all of the services that call it, and
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filters** | **List&lt;String&gt;** | Your env and primary tag (or * if enabled for your account). | 
+**filters** | **List&lt;String&gt;** | Your environment and primary tag (or * if enabled for your account). | 
 **service** | **String** | The ID of the service you want to map. | 
 **title** | **String** | The title of your widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**ServiceMapWidgetDefinitionType**](ServiceMapWidgetDefinitionType.md) |  | 
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

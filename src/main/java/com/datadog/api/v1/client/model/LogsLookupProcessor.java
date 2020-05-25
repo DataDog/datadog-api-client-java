@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogsLookupProcessorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,12 +22,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -35,20 +30,26 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "Use the Lookup Processor to define a mapping between a log attribute and a human readable value saved in the processors mapping table. For example, you can use the Lookup Processor to map an internal service ID into a human readable service name. Alternatively, you could also use it to check if the MAC address that just attempted to connect to the production environment belongs to your list of stolen machines.")
 @JsonPropertyOrder({
   LogsLookupProcessor.JSON_PROPERTY_DEFAULT_LOOKUP,
+  LogsLookupProcessor.JSON_PROPERTY_IS_ENABLED,
   LogsLookupProcessor.JSON_PROPERTY_LOOKUP_TABLE,
+  LogsLookupProcessor.JSON_PROPERTY_NAME,
   LogsLookupProcessor.JSON_PROPERTY_SOURCE,
   LogsLookupProcessor.JSON_PROPERTY_TARGET,
-  LogsLookupProcessor.JSON_PROPERTY_TYPE,
-  LogsLookupProcessor.JSON_PROPERTY_IS_ENABLED,
-  LogsLookupProcessor.JSON_PROPERTY_NAME
+  LogsLookupProcessor.JSON_PROPERTY_TYPE
 })
 
-public class LogsLookupProcessor implements LogsProcessor {
+public class LogsLookupProcessor {
   public static final String JSON_PROPERTY_DEFAULT_LOOKUP = "default_lookup";
   private String defaultLookup;
 
+  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
+  private Boolean isEnabled = false;
+
   public static final String JSON_PROPERTY_LOOKUP_TABLE = "lookup_table";
   private List<String> lookupTable = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
   private String source;
@@ -57,13 +58,7 @@ public class LogsLookupProcessor implements LogsProcessor {
   private String target;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "lookup-processor";
-
-  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private LogsLookupProcessorType type = LogsLookupProcessorType.LOOKUP_PROCESSOR;
 
 
   public LogsLookupProcessor defaultLookup(String defaultLookup) {
@@ -88,6 +83,31 @@ public class LogsLookupProcessor implements LogsProcessor {
 
   public void setDefaultLookup(String defaultLookup) {
     this.defaultLookup = defaultLookup;
+  }
+
+
+  public LogsLookupProcessor isEnabled(Boolean isEnabled) {
+    
+    this.isEnabled = isEnabled;
+    return this;
+  }
+
+   /**
+   * Whether or not the processor is enabled.
+   * @return isEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsEnabled() {
+    return isEnabled;
+  }
+
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
   }
 
 
@@ -117,6 +137,31 @@ public class LogsLookupProcessor implements LogsProcessor {
 
   public void setLookupTable(List<String> lookupTable) {
     this.lookupTable = lookupTable;
+  }
+
+
+  public LogsLookupProcessor name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the processor.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the processor.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -168,69 +213,27 @@ public class LogsLookupProcessor implements LogsProcessor {
   }
 
 
+  public LogsLookupProcessor type(LogsLookupProcessorType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of processor.
+   * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public LogsLookupProcessorType getType() {
     return type;
   }
 
 
-
-
-  public LogsLookupProcessor isEnabled(Boolean isEnabled) {
-    
-    this.isEnabled = isEnabled;
-    return this;
-  }
-
-   /**
-   * Whether or not the processor is enabled.
-   * @return isEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
-
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-  }
-
-
-  public LogsLookupProcessor name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the processor.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
+  public void setType(LogsLookupProcessorType type) {
+    this.type = type;
   }
 
 
@@ -244,17 +247,17 @@ public class LogsLookupProcessor implements LogsProcessor {
     }
     LogsLookupProcessor logsLookupProcessor = (LogsLookupProcessor) o;
     return Objects.equals(this.defaultLookup, logsLookupProcessor.defaultLookup) &&
+        Objects.equals(this.isEnabled, logsLookupProcessor.isEnabled) &&
         Objects.equals(this.lookupTable, logsLookupProcessor.lookupTable) &&
+        Objects.equals(this.name, logsLookupProcessor.name) &&
         Objects.equals(this.source, logsLookupProcessor.source) &&
         Objects.equals(this.target, logsLookupProcessor.target) &&
-        Objects.equals(this.type, logsLookupProcessor.type) &&
-        Objects.equals(this.isEnabled, logsLookupProcessor.isEnabled) &&
-        Objects.equals(this.name, logsLookupProcessor.name);
+        Objects.equals(this.type, logsLookupProcessor.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultLookup, lookupTable, source, target, type, isEnabled, name);
+    return Objects.hash(defaultLookup, isEnabled, lookupTable, name, source, target, type);
   }
 
 
@@ -263,12 +266,12 @@ public class LogsLookupProcessor implements LogsProcessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsLookupProcessor {\n");
     sb.append("    defaultLookup: ").append(toIndentedString(defaultLookup)).append("\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    lookupTable: ").append(toIndentedString(lookupTable)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

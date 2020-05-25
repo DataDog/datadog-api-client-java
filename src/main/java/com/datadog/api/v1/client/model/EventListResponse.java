@@ -25,9 +25,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * An event list response.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "An event list response.")
 @JsonPropertyOrder({
   EventListResponse.JSON_PROPERTY_EVENTS,
   EventListResponse.JSON_PROPERTY_STATUS
@@ -56,11 +56,11 @@ public class EventListResponse {
   }
 
    /**
-   * TODO.
+   * An array of events.
    * @return events
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "An array of events.")
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -81,11 +81,11 @@ public class EventListResponse {
   }
 
    /**
-   * TODO.
+   * A status.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "A status.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

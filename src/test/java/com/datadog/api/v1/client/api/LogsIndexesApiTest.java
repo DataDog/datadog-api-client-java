@@ -6,6 +6,7 @@
 
 package com.datadog.api.v1.client.api;
 
+
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.*;
@@ -53,12 +54,18 @@ public class LogsIndexesApiTest extends V1ApiTest {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalApiClient.setUnstableOperationEnabled("listLogIndexes", true);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
+        generalApiClient.setUnstableOperationEnabled("getLogsIndexOrder", true);
+        generalApiClient.setUnstableOperationEnabled("updateLogsIndexOrder", true);
         generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalFakeAuthApiClient.setUnstableOperationEnabled("listLogIndexes", true);
         generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndexOrder", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndexOrder", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", true);
+        generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndexOrder", true);
+        generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndexOrder", true);
     }
 
     @AfterClass
@@ -66,12 +73,18 @@ public class LogsIndexesApiTest extends V1ApiTest {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalApiClient.setUnstableOperationEnabled("listLogIndexes", false);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
+        generalApiClient.setUnstableOperationEnabled("getLogsIndexOrder", false);
+        generalApiClient.setUnstableOperationEnabled("updateLogsIndexOrder", false);
         generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalFakeAuthApiClient.setUnstableOperationEnabled("listLogIndexes", false);
         generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndexOrder", false);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndexOrder", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", false);
+        generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndexOrder", false);
+        generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndexOrder", false);
     }
 
     /**

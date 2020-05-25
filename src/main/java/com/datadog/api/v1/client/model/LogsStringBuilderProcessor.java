@@ -13,20 +13,13 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogsStringBuilderProcessorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.util.ArrayList;
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -34,17 +27,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "Use the string builder processor to add a new attribute (without spaces or special characters) to a log with the result of the provided template. This enables aggregation of different attributes or raw strings into a single attribute.  The template is defined by both raw text and blocks with the syntax `%{attribute_path}`.  **Notes**:  - The processor only accepts attributes with values or an array of values in the blocks. - If an attribute cannot be used (object or array of object),   it is replaced by an empty string or the entire operation is skipped depending on your selection. - If the target attribute already exists, it is overwritten by the result of the template. - Results of the template cannot exceed 256 characters.")
 @JsonPropertyOrder({
+  LogsStringBuilderProcessor.JSON_PROPERTY_IS_ENABLED,
   LogsStringBuilderProcessor.JSON_PROPERTY_IS_REPLACE_MISSING,
+  LogsStringBuilderProcessor.JSON_PROPERTY_NAME,
   LogsStringBuilderProcessor.JSON_PROPERTY_TARGET,
   LogsStringBuilderProcessor.JSON_PROPERTY_TEMPLATE,
-  LogsStringBuilderProcessor.JSON_PROPERTY_TYPE,
-  LogsStringBuilderProcessor.JSON_PROPERTY_IS_ENABLED,
-  LogsStringBuilderProcessor.JSON_PROPERTY_NAME
+  LogsStringBuilderProcessor.JSON_PROPERTY_TYPE
 })
 
-public class LogsStringBuilderProcessor implements LogsProcessor {
+public class LogsStringBuilderProcessor {
+  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
+  private Boolean isEnabled = false;
+
   public static final String JSON_PROPERTY_IS_REPLACE_MISSING = "is_replace_missing";
   private Boolean isReplaceMissing = false;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_TARGET = "target";
   private String target;
@@ -53,13 +52,32 @@ public class LogsStringBuilderProcessor implements LogsProcessor {
   private String template;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "string-builder-processor";
+  private LogsStringBuilderProcessorType type = LogsStringBuilderProcessorType.STRING_BUILDER_PROCESSOR;
 
-  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public LogsStringBuilderProcessor isEnabled(Boolean isEnabled) {
+    
+    this.isEnabled = isEnabled;
+    return this;
+  }
+
+   /**
+   * Whether or not the processor is enabled.
+   * @return isEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsEnabled() {
+    return isEnabled;
+  }
+
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
 
 
   public LogsStringBuilderProcessor isReplaceMissing(Boolean isReplaceMissing) {
@@ -84,6 +102,31 @@ public class LogsStringBuilderProcessor implements LogsProcessor {
 
   public void setIsReplaceMissing(Boolean isReplaceMissing) {
     this.isReplaceMissing = isReplaceMissing;
+  }
+
+
+  public LogsStringBuilderProcessor name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the processor.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the processor.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -135,69 +178,27 @@ public class LogsStringBuilderProcessor implements LogsProcessor {
   }
 
 
+  public LogsStringBuilderProcessor type(LogsStringBuilderProcessorType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of processor.
+   * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of processor.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public LogsStringBuilderProcessorType getType() {
     return type;
   }
 
 
-
-
-  public LogsStringBuilderProcessor isEnabled(Boolean isEnabled) {
-    
-    this.isEnabled = isEnabled;
-    return this;
-  }
-
-   /**
-   * Whether or not the processor is enabled.
-   * @return isEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
-
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-  }
-
-
-  public LogsStringBuilderProcessor name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the processor.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
+  public void setType(LogsStringBuilderProcessorType type) {
+    this.type = type;
   }
 
 
@@ -210,17 +211,17 @@ public class LogsStringBuilderProcessor implements LogsProcessor {
       return false;
     }
     LogsStringBuilderProcessor logsStringBuilderProcessor = (LogsStringBuilderProcessor) o;
-    return Objects.equals(this.isReplaceMissing, logsStringBuilderProcessor.isReplaceMissing) &&
+    return Objects.equals(this.isEnabled, logsStringBuilderProcessor.isEnabled) &&
+        Objects.equals(this.isReplaceMissing, logsStringBuilderProcessor.isReplaceMissing) &&
+        Objects.equals(this.name, logsStringBuilderProcessor.name) &&
         Objects.equals(this.target, logsStringBuilderProcessor.target) &&
         Objects.equals(this.template, logsStringBuilderProcessor.template) &&
-        Objects.equals(this.type, logsStringBuilderProcessor.type) &&
-        Objects.equals(this.isEnabled, logsStringBuilderProcessor.isEnabled) &&
-        Objects.equals(this.name, logsStringBuilderProcessor.name);
+        Objects.equals(this.type, logsStringBuilderProcessor.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isReplaceMissing, target, template, type, isEnabled, name);
+    return Objects.hash(isEnabled, isReplaceMissing, name, target, template, type);
   }
 
 
@@ -228,12 +229,12 @@ public class LogsStringBuilderProcessor implements LogsProcessor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsStringBuilderProcessor {\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    isReplaceMissing: ").append(toIndentedString(isReplaceMissing)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

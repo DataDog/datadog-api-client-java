@@ -41,11 +41,11 @@ public class OrganizationSettingsSamlIdpInitiatedLogin {
   }
 
    /**
-   * TODO.
+   * Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "TODO.")
+  @ApiModelProperty(example = "false", value = "Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

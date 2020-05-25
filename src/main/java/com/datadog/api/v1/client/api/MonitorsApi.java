@@ -12,6 +12,7 @@ import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.CheckCanDeleteMonitorResponse;
 import com.datadog.api.v1.client.model.DeletedMonitor;
 import com.datadog.api.v1.client.model.Monitor;
+import com.datadog.api.v1.client.model.MonitorUpdateRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,13 +31,24 @@ public class MonitorsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttpInfo(List<Long> monitorIds) throws ApiException {
     Object localVarPostBody = null;
@@ -76,7 +88,10 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<CheckCanDeleteMonitorResponse> localVarReturnType = new GenericType<CheckCanDeleteMonitorResponse>() {};
-    return apiClient.invokeAPI("MonitorsApi.checkCanDeleteMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.checkCanDeleteMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcheckCanDeleteMonitorRequest {
@@ -84,7 +99,6 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
 
     private APIcheckCanDeleteMonitorRequest() {
     }
-    
 
     /**
      * Set monitorIds
@@ -95,7 +109,6 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
       this.monitorIds = monitorIds;
       return this;
     }
-    
 
     /**
      * Execute checkCanDeleteMonitor request
@@ -128,23 +141,21 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 409 </td><td> Deletion conflict error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<CheckCanDeleteMonitorResponse> executeWithHttpInfo() throws ApiException {
       return checkCanDeleteMonitorWithHttpInfo(monitorIds);
     }
   }
 
   /**
-   * Check if the given monitors can be deleted
+   * Check if a monitor can be deleted
    * Check if the given monitors can be deleted.
    * @return checkCanDeleteMonitorRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIcheckCanDeleteMonitorRequest checkCanDeleteMonitor() throws ApiException {
     return new APIcheckCanDeleteMonitorRequest();
   }
@@ -186,7 +197,10 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.createMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.createMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateMonitorRequest {
@@ -194,18 +208,16 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
 
     private APIcreateMonitorRequest() {
     }
-    
 
     /**
      * Set body
-     * @param body Monitor request object. (required)
+     * @param body Create a monitor request body. (required)
      * @return APIcreateMonitorRequest
      */
     public APIcreateMonitorRequest body(Monitor body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createMonitor request
@@ -236,9 +248,8 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
       return createMonitorWithHttpInfo(body);
     }
@@ -246,18 +257,17 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
 
   /**
    * Create a monitor
-   * Create a monitor using the specified options.
+   * Create a monitor using the specified options.  #### Monitor Types  The type of monitor chosen from:  - anomaly: &#x60;query alert&#x60; - APM: &#x60;query alert&#x60; - composite: &#x60;composite&#x60; - custom: &#x60;service check&#x60; - event: &#x60;event alert&#x60; - forecast: &#x60;query alert&#x60; - host: &#x60;service check&#x60; - integration: &#x60;query alert&#x60; or &#x60;service check&#x60; - live process: &#x60;process alert&#x60; - logs: &#x60;logs alert&#x60; - metric: &#x60;metric alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process: &#x60;service query&#x60; - rum: &#x60;alert&#x60; - watchdog: &#x60;event alert&#x60;  #### Query Types  **Metric Alert Query**  Example: &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #&#x60;  - &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change - &#x60;time_window&#x60;: &#x60;last_#m&#x60; (with &#x60;#&#x60; being 5, 10, 15, or 30) or &#x60;last_#h&#x60;(with &#x60;#&#x60; being 1, 2, or 4), or &#x60;last_1d&#x60; - &#x60;space_aggr&#x60;: avg, sum, min, or max - &#x60;tags&#x60;: one or more tags (comma-separated), or * - &#x60;key&#x60;: a &#39;key&#39; in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) - &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; - &#x60;#&#x60;: an integer or decimal number used to set the threshold  If you are using the &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time aggregator, instead use &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}] operator #&#x60; with:  - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60; avg, sum, max, min [Learn more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) - &#x60;time_window&#x60; last\\_#m (1, 5, 10, 15, or 30), last\\_#h (1, 2, or 4), or last_#d (1 or 2) - &#x60;timeshift&#x60; #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago  Use this to create an outlier monitor using the following query: &#x60;avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, &#39;dbscan&#39;, 7) &gt; 0&#x60;  **Service Check Query**  Example: &#x60;\&quot;check\&quot;.over(tags).last(count).count_by_status()&#x60;  - **&#x60;check&#x60;** name of the check, e.g. &#x60;datadog.agent.up&#x60; - **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. e.g.: &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60; - **&#x60;count&#x60;** must be at &gt;&#x3D; your max threshold (defined in the &#x60;options&#x60;). e.g. if you want to notify on 1 critical, 3 ok and 2 warn statuses count should be 3. It is limited to 100.  **Event Alert Query**  Example: &#x60;events(&#39;sources:nagios status:error,warning priority:normal tags: \&quot;string query\&quot;&#39;).rollup(\&quot;count\&quot;).last(\&quot;1h\&quot;)\&quot;&#x60;  - **&#x60;event&#x60;**, the event query string: - **&#x60;string_query&#x60;** free text query to match against event title and text. - **&#x60;sources&#x60;** event sources (comma-separated). - **&#x60;status&#x60;** event statuses (comma-separated). Valid options: error, warn, and info. - **&#x60;priority&#x60;** event priorities (comma-separated). Valid options: low, normal, all. - **&#x60;host&#x60;** event reporting host (comma-separated). - **&#x60;tags&#x60;** event tags (comma-separated). - **&#x60;excluded_tags&#x60;** excluded event tags (comma-separated). - **&#x60;rollup&#x60;** the stats roll-up method. &#x60;count&#x60; is the only supported method now. - **&#x60;last&#x60;** the timeframe to roll up the counts. Examples: 60s, 4h. Supported timeframes: s, m, h and d. This value should not exceed 48 hours.  **Process Alert Query**  Example: &#x60;processes(search).over(tags).rollup(&#39;count&#39;).last(timeframe) operator #&#x60;  - **&#x60;search&#x60;** free text search string for querying processes. Matching processes match results on the [Live Processes](https://docs.datadoghq.com/infrastructure/process/?tab&#x3D;linuxwindows) page. - **&#x60;tags&#x60;** one or more tags (comma-separated) - **&#x60;timeframe&#x60;** the timeframe to roll up the counts. Examples: 60s, 4h. Supported timeframes: s, m, h and d - **&#x60;operator&#x60;** &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; - **&#x60;#&#x60;** an integer or decimal number used to set the threshold  **Logs Alert Query**  Example: &#x60;logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #&#x60;  - **&#x60;query&#x60;** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;index_name&#x60;** For multi-index organizations, the log index in which the request is performed. - **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m (5, 10, 15, or 30), #h (1, 2, or 4, 24) - **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the threshold.  **Composite Query**  Example: &#x60;12345 &amp;&amp; 67890&#x60;, where &#x60;12345&#x60; and &#x60;67890&#x60; are the IDs of non-composite monitors  * **&#x60;name&#x60;** [*required*, *default* &#x3D; **dynamic, based on query**]: The name of the alert. * **&#x60;message&#x60;** [*required*, *default* &#x3D; **dynamic, based on query**]: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same &#39;@username&#39; notation as events. * **&#x60;tags&#x60;** [*optional*, *default* &#x3D; **empty list**]: A list of tags to associate with your monitor. When getting all monitor details via the API, use the &#x60;monitor_tags&#x60; argument to filter results by these tags. It is only available via the API and isn&#39;t visible or editable in the Datadog UI.
    * @return createMonitorRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIcreateMonitorRequest createMonitor() throws ApiException {
     return new APIcreateMonitorRequest();
   }
 
-private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) throws ApiException {
+private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId, String force) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'monitorId' is set
@@ -275,6 +285,7 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "force", force));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteMonitor");
@@ -295,16 +306,29 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DeletedMonitor> localVarReturnType = new GenericType<DeletedMonitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.deleteMonitor", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.deleteMonitor", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteMonitorRequest {
     private Long monitorId;
+    private String force;
 
     private APIdeleteMonitorRequest(Long monitorId) {
       this.monitorId = monitorId;
     }
-    
+
+    /**
+     * Set force
+     * @param force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). (optional)
+     * @return APIdeleteMonitorRequest
+     */
+    public APIdeleteMonitorRequest force(String force) {
+      this.force = force;
+      return this;
+    }
 
     /**
      * Execute deleteMonitor request
@@ -339,11 +363,10 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DeletedMonitor> executeWithHttpInfo() throws ApiException {
-      return deleteMonitorWithHttpInfo(monitorId);
+      return deleteMonitorWithHttpInfo(monitorId, force);
     }
   }
 
@@ -356,7 +379,6 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId) th
    
    
    */
-  
   public APIdeleteMonitorRequest deleteMonitor(Long monitorId) throws ApiException {
     return new APIdeleteMonitorRequest(monitorId);
   }
@@ -400,7 +422,10 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.getMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.getMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetMonitorRequest {
@@ -410,7 +435,6 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
     private APIgetMonitorRequest(Long monitorId) {
       this.monitorId = monitorId;
     }
-    
 
     /**
      * Set groupStates
@@ -421,7 +445,6 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
       this.groupStates = groupStates;
       return this;
     }
-    
 
     /**
      * Execute getMonitor request
@@ -454,9 +477,8 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
       return getMonitorWithHttpInfo(monitorId, groupStates);
     }
@@ -465,18 +487,17 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
   /**
    * Get a monitor&#39;s details
    * Get details about the specified monitor from your organization.
-   * @param monitorId The id of the monitor (required)
+   * @param monitorId The ID of the monitor (required)
    * @return getMonitorRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIgetMonitorRequest getMonitor(Long monitorId) throws ApiException {
     return new APIgetMonitorRequest(monitorId);
   }
 
-private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, String name, String tags, String monitorTags, Boolean withDowntimes) throws ApiException {
+private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, String name, String tags, String monitorTags, Boolean withDowntimes, Long idOffset, Long page, Integer pageSize) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -493,6 +514,9 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "monitor_tags", monitorTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", withDowntimes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id_offset", idOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listMonitors");
@@ -513,7 +537,10 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<List<Monitor>> localVarReturnType = new GenericType<List<Monitor>>() {};
-    return apiClient.invokeAPI("MonitorsApi.listMonitors", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.listMonitors", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistMonitorsRequest {
@@ -522,10 +549,12 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
     private String tags;
     private String monitorTags;
     private Boolean withDowntimes;
+    private Long idOffset;
+    private Long page;
+    private Integer pageSize;
 
     private APIlistMonitorsRequest() {
     }
-    
 
     /**
      * Set groupStates
@@ -536,7 +565,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.groupStates = groupStates;
       return this;
     }
-    
 
     /**
      * Set name
@@ -547,18 +575,16 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.name = name;
       return this;
     }
-    
 
     /**
      * Set tags
-     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitorsby scope. For example, &#x60;host:host0&#x60;. (optional)
+     * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;. (optional)
      * @return APIlistMonitorsRequest
      */
     public APIlistMonitorsRequest tags(String tags) {
       this.tags = tags;
       return this;
     }
-    
 
     /**
      * Set monitorTags
@@ -569,7 +595,6 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.monitorTags = monitorTags;
       return this;
     }
-    
 
     /**
      * Set withDowntimes
@@ -580,7 +605,36 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
       this.withDowntimes = withDowntimes;
       return this;
     }
-    
+
+    /**
+     * Set idOffset
+     * @param idOffset The time (in seconds) to delay the monitor evaluation compared to the latest data timestamp received. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest idOffset(Long idOffset) {
+      this.idOffset = idOffset;
+      return this;
+    }
+
+    /**
+     * Set page
+     * @param page The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest page(Long page) {
+      this.page = page;
+      return this;
+    }
+
+    /**
+     * Set pageSize
+     * @param pageSize The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100. (optional)
+     * @return APIlistMonitorsRequest
+     */
+    public APIlistMonitorsRequest pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
 
     /**
      * Execute listMonitors request
@@ -611,11 +665,10 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<List<Monitor>> executeWithHttpInfo() throws ApiException {
-      return listMonitorsWithHttpInfo(groupStates, name, tags, monitorTags, withDowntimes);
+      return listMonitorsWithHttpInfo(groupStates, name, tags, monitorTags, withDowntimes, idOffset, page, pageSize);
     }
   }
 
@@ -627,12 +680,11 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
    
    
    */
-  
   public APIlistMonitorsRequest listMonitors() throws ApiException {
     return new APIlistMonitorsRequest();
   }
 
-private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor body) throws ApiException {
+private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, MonitorUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'monitorId' is set
@@ -675,28 +727,29 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor b
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.updateMonitor", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.updateMonitor", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateMonitorRequest {
     private Long monitorId;
-    private Monitor body;
+    private MonitorUpdateRequest body;
 
     private APIupdateMonitorRequest(Long monitorId) {
       this.monitorId = monitorId;
     }
-    
 
     /**
      * Set body
-     * @param body Monitor request object. (required)
+     * @param body Edit a monitor request body. (required)
      * @return APIupdateMonitorRequest
      */
-    public APIupdateMonitorRequest body(Monitor body) {
+    public APIupdateMonitorRequest body(MonitorUpdateRequest body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateMonitor request
@@ -731,9 +784,8 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor b
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
       return updateMonitorWithHttpInfo(monitorId, body);
     }
@@ -742,13 +794,12 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, Monitor b
   /**
    * Edit a monitor
    * Edit the specified monitor.
-   * @param monitorId The id of the monitor. (required)
+   * @param monitorId The ID of the monitor. (required)
    * @return updateMonitorRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  
   public APIupdateMonitorRequest updateMonitor(Long monitorId) throws ApiException {
     return new APIupdateMonitorRequest(monitorId);
   }
@@ -790,7 +841,10 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
-    return apiClient.invokeAPI("MonitorsApi.validateMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("MonitorsApi.validateMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIvalidateMonitorRequest {
@@ -798,7 +852,6 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
 
     private APIvalidateMonitorRequest() {
     }
-    
 
     /**
      * Set body
@@ -809,7 +862,6 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute validateMonitor request
@@ -840,9 +892,8 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
          <tr><td> 400 </td><td> Invalid JSON </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Monitor> executeWithHttpInfo() throws ApiException {
       return validateMonitorWithHttpInfo(body);
     }
@@ -856,7 +907,6 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
    
    
    */
-  
   public APIvalidateMonitorRequest validateMonitor() throws ApiException {
     return new APIvalidateMonitorRequest();
   }

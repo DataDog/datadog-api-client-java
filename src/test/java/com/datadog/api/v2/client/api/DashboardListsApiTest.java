@@ -6,6 +6,8 @@
 
 package com.datadog.api.v2.client.api;
 
+
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.DashboardList;
 import com.datadog.api.v2.client.ApiException;
@@ -49,7 +51,7 @@ public class DashboardListsApiTest extends V2APITest {
         v1Client.configureApiKeys(secrets);
         v1Client.setDebugging("true".equals(System.getenv("DEBUG")));
         ClientConfig config = (ClientConfig) v1Client.getHttpClient().getConfiguration();
-        if (!TestUtils.isIbmJdk()) {
+        if (!(TestUtils.isIbmJdk() || TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE))) {
             config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
         }
 

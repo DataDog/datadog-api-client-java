@@ -149,11 +149,11 @@ public class WidgetConditionalFormat {
   }
 
    /**
-   * TODO.
+   * True hides values.
    * @return hideValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "True hides values.")
   @JsonProperty(JSON_PROPERTY_HIDE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -248,11 +248,11 @@ public class WidgetConditionalFormat {
   }
 
    /**
-   * TODO.
+   * Defines the displayed timeframe.
    * @return timeframe
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Defines the displayed timeframe.")
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -41,11 +41,11 @@ public class OrganizationSettingsSaml {
   }
 
    /**
-   * TODO.
+   * Whether or not SAML is enabled for this organization.
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "TODO.")
+  @ApiModelProperty(example = "false", value = "Whether or not SAML is enabled for this organization.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

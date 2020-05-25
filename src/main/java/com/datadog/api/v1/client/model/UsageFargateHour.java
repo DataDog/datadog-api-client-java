@@ -23,9 +23,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * TODO.
+ * Number of Fargate tasks run and hourly usage.
  */
-@ApiModel(description = "TODO.")
+@ApiModel(description = "Number of Fargate tasks run and hourly usage.")
 @JsonPropertyOrder({
   UsageFargateHour.JSON_PROPERTY_HOUR,
   UsageFargateHour.JSON_PROPERTY_TASKS_COUNT
@@ -71,11 +71,11 @@ public class UsageFargateHour {
   }
 
    /**
-   * Contains the number of Fargate tasks run.
+   * The number of Fargate tasks run.
    * @return tasksCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of Fargate tasks run.")
+  @ApiModelProperty(value = "The number of Fargate tasks run.")
   @JsonProperty(JSON_PROPERTY_TASKS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
