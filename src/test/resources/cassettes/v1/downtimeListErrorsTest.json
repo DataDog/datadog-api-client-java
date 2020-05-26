@@ -1,5 +1,5 @@
 [ {
-  "id" : "94e9709c-5f10-4295-b671-5b3ea234dd3e",
+  "id" : "aa903c17-090f-4ce0-bd8d-7018e58a3e78",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/downtime",
@@ -22,7 +22,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:55:01 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 12:01:49 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

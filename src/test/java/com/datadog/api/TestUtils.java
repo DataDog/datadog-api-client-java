@@ -304,5 +304,14 @@ public class TestUtils {
             }
             return result;
         }
+
+        /*
+         * Same as getUniqueEntityName, except it attaches the given suffix to the end of the unique string.
+         *
+         * @return unique entity name to use in tests with a given suffix attached
+         */
+        public String getUniqueEntityName(String suffix) {
+            return String.format("%s-%s", getUniqueEntityName(), suffix);
+        }
     }
 }

@@ -1,5 +1,5 @@
 [ {
-  "id" : "3867ce55-eb42-4312-94de-bcd7efb230e0",
+  "id" : "e2ad4fe3-6548-495d-92a3-48bdec50ef7d",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/downtime",
@@ -27,13 +27,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:54:43 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 12:01:27 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "38" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-VERSION" : [ "35.2544952" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -43,7 +43,7 @@
     "body" : "{\"errors\":[\"Invalid scope parameter\"]}"
   }
 }, {
-  "id" : "02307570-9f5b-47cb-b1b7-ae56dfda3465",
+  "id" : "2c90f713-02aa-406e-a681-e4a8a30a2db1",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/downtime",
@@ -71,7 +71,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:54:44 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 12:01:28 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

@@ -136,20 +136,21 @@ public class DowntimesApiTest extends V1ApiTest {
     @Test
     public void listDowntimesTest() throws ApiException {
         String testingDowntimeMessage = getUniqueEntityName();
-        ArrayList<String> suffixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
-        for (String suffix: suffixes) {
+        ArrayList<String> messages = new ArrayList<String>(
+                Arrays.asList(getUniqueEntityName("1"), getUniqueEntityName("2"), getUniqueEntityName("3"))
+        );
+        for (String message: messages) {
             Downtime downtime = new Downtime()
                 .scope(testingDowntimeScope)
-                .message(String.format("%s-%s", testingDowntimeMessage, suffix));
+                .message(message);
             Downtime created = api.createDowntime().body(downtime).execute();
             deleteDowntimes.add(created.getId());
         }
         List<Downtime> allDowntimes = api.listDowntimes().currentOnly(false).execute();
-        for (String suffix: suffixes) {
+        for (String message: messages) {
             boolean found = false;
-            String name = String.format("%s-%s", testingDowntimeMessage, suffix);
             for (Downtime downtime: allDowntimes) {
-                if (downtime.getMessage() != null && downtime.getMessage().equals(name)) {
+                if (downtime.getMessage() != null && downtime.getMessage().equals(message)) {
                     found = true;
                 }
             }
@@ -163,13 +164,15 @@ public class DowntimesApiTest extends V1ApiTest {
     @Test
     public void cancelDowntimesByScopeTest() throws ApiException {
         String testingDowntimeMessage = getUniqueEntityName();
-        List<String> suffixes = Arrays.asList("1", "2", "3");
+        ArrayList<String> messages = new ArrayList<String>(
+                Arrays.asList(getUniqueEntityName("1"), getUniqueEntityName("2"), getUniqueEntityName("3"))
+        );
         List<String> differentScope = Arrays.asList("env:stage");
-        for (String suffix: suffixes) {
+        for (String message: messages) {
             // number 3 is going to have a different scope
             Downtime downtime = new Downtime()
-                .scope(suffix == "3" ? differentScope : testingDowntimeScope)
-                .message(String.format("%s-%s", testingDowntimeMessage, suffix));
+                .scope(message.equals(messages.get(2)) ? differentScope : testingDowntimeScope)
+                .message(message);
             Downtime created = api.createDowntime().body(downtime).execute();
             deleteDowntimes.add(created.getId());
         }
@@ -179,20 +182,19 @@ public class DowntimesApiTest extends V1ApiTest {
 
         // verify that downtimes 1 and 2 are canceled
         List<Downtime> allDowntimes = api.listDowntimes().currentOnly(false).execute();
-        for (String suffix: suffixes) {
+        for (String message: messages) {
             boolean found = false;
-            String name = String.format("%s-%s", testingDowntimeMessage, suffix);
             for (Downtime downtime: allDowntimes) {
-                if (downtime.getMessage() != null && downtime.getMessage().equals(name)) {
+                if (downtime.getMessage() != null && downtime.getMessage().equals(message)) {
                     found = true;
-                    if (suffix == "3") {
+                    if (message.equals(messages.get(2))) {
                         assertNull(downtime.getCanceled());
                     } else {
                         assertNotNull(downtime.getCanceled());
                     }
                 }
             }
-            if (suffix == "3") {
+            if (message.equals(messages.get(2))) {
                 assertTrue(String.format("Downtime %s not found", name), found);
             } else {
                 assertFalse(String.format("Downtime %s found, but it should have been canceled", name), found);
