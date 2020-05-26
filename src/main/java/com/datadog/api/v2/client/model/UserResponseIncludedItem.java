@@ -59,24 +59,30 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
 
             int match = 0;
             Object deserialized = null;
+            // deserialize Organization
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(Organization.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize Permission
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(Permission.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize Role
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(Role.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
             if (match == 1) {
                 UserResponseIncludedItem ret = new UserResponseIncludedItem();
                 ret.setActualInstance(deserialized);
@@ -97,10 +103,12 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public UserResponseIncludedItem(Permission o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public UserResponseIncludedItem(Role o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
