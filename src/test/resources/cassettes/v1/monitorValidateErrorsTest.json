@@ -1,5 +1,5 @@
 [ {
-  "id" : "a225fefe-ff66-4be8-9434-39f01420ba81",
+  "id" : "8c675ef5-6ef4-4309-adf6-0f43addfc8f6",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/monitor/validate",
@@ -27,13 +27,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 09:00:34 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 12:04:32 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "47" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-VERSION" : [ "35.2544952" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -43,7 +43,7 @@
     "body" : "{\"errors\":[\"The parameter 'type' is required\"]}"
   }
 }, {
-  "id" : "56272f46-577a-462e-aee5-9a8ffdb8cba9",
+  "id" : "95977dd8-db6d-471e-89c8-94b26a42aee2",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/monitor/validate",
@@ -71,7 +71,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 09:00:34 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 12:04:33 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

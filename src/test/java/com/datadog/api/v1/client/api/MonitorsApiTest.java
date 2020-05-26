@@ -137,18 +137,19 @@ public class MonitorsApiTest extends V1ApiTest {
     @Test
     public void listMonitorsTest() throws ApiException {
         String testingMonitorName = getUniqueEntityName();
-        ArrayList<String> suffixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
-        for (String suffix: suffixes) {
+        ArrayList<String> names = new ArrayList<String>(
+                Arrays.asList(getUniqueEntityName("1"), getUniqueEntityName("2"), getUniqueEntityName("3"))
+        );
+        for (String name: names) {
             Monitor monitor = new Monitor()
-                .name(String.format("%s-%s", testingMonitorName, suffix))
+                .name(name)
                 .type(testingMonitorType)
                 .query(testingMonitorQuery);
             Monitor created = api.createMonitor().body(monitor).execute();
             deleteMonitors.add(created.getId());
         }
         List<Monitor> allMonitors = api.listMonitors().execute();
-        for (String suffix: suffixes) {
-            String name = String.format("%s-%s", testingMonitorName, suffix);
+        for (String name: names) {
             boolean found = false;
             for (Monitor monitor: allMonitors) {
                 if (monitor.getName().equals(name)) {
