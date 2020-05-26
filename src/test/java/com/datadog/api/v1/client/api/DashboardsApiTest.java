@@ -552,7 +552,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(timeseriesWidgetLogQuery)
                 .addWidgetsItem(timeseriesWidgetEventQuery)
                 .addWidgetsItem(toplistWidget)
-                .title(getUniqueEntityName() + "-ordered")
+                .title(getUniqueEntityName("ordered"))
                 .description("Test dashboard for Java client")
                 .isReadOnly(false)
                 .templateVariables(templateVariables)
@@ -579,7 +579,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(logStreamWidget)
                 .addWidgetsItem(monitorSummaryWidget)
                 .addWidgetsItem(serviceSummaryWidget)
-                .title(getUniqueEntityName() + "-free")
+                .title(getUniqueEntityName("free"))
                 .description("Test Free layout dashboard for Java client")
                 .isReadOnly(false)
                 .templateVariables(templateVariables);

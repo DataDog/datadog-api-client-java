@@ -307,10 +307,10 @@ public class SyntheticsApiTest extends V1ApiTest {
         SyntheticsTestDetails syntAPI, syntBrowser;
         SyntheticsListTestsResponse allTests;
 
-        apiTestConfig.setName(getUniqueEntityName() + "-api");
+        apiTestConfig.setName(getUniqueEntityName("api"));
         syntAPI = api.createTest().body(apiTestConfig).execute();
         deleteSyntheticsTests.add(syntAPI.getPublicId());
-        browserTestConfig.setName(getUniqueEntityName() + "-browser");
+        browserTestConfig.setName(getUniqueEntityName("browser"));
         syntBrowser = api.createTest().body(browserTestConfig).execute();
         deleteSyntheticsTests.add(syntBrowser.getPublicId());
         allTests = api.listTests().execute();
