@@ -267,6 +267,9 @@ public class UsersApiTest extends V1ApiTest {
         UserResponse response = api.createUser().body(user).execute();
         // If something fails, make sure we disable the user
         disableUsers.add(testingUserHandle);
+        user = response.getUser();
+        user.setDisabled(true);
+        api.updateUser(user.getHandle()).body(user).execute();
 
         try {
             api.disableUser(user.getHandle()).execute();
