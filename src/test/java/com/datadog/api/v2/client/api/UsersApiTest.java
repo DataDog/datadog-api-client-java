@@ -101,7 +101,7 @@ public class UsersApiTest extends V2APITest {
                 .sortDir(QuerySortOrder.ASC)
                 .execute();
         assertEquals(1, usrp.getData().size());
-        assertEquals(testingUserHandle, usrp.getData().get(0).getAttributes().getHandle());
+        assertEquals(testingUserHandle.toLowerCase(), usrp.getData().get(0).getAttributes().getHandle());
         assertTrue(usrp.getMeta().getPage().getTotalCount() >= 1L);
         assertTrue(usrp.getMeta().getPage().getTotalFilteredCount() >= 1L);
 

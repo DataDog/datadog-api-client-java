@@ -72,8 +72,9 @@ public class UsersApiTest extends V1ApiTest {
     @Test
     public void userCreateModifyDisableTest() throws ApiException {
         // Test creating user
-        String testingUserName = getUniqueEntityName();
-        String testingUserHandle = testingUserName + "@datadoghq.com";
+        // max name length is 55, so get 47 + add "-updated" below
+        String testingUserName = getUniqueEntityName(47);
+        String testingUserHandle = testingUserName.toLowerCase() + "@datadoghq.com";
         User user = new User();
         user.setAccessRole(testingUserAR);
         user.setHandle(testingUserHandle);
@@ -114,12 +115,13 @@ public class UsersApiTest extends V1ApiTest {
     public void listUsersTest() throws ApiException {
         Assume.assumeFalse("This test does not support replay from recording", TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
         ArrayList<String> suffixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
-        String testingUserName = getUniqueEntityName();
+        // max name length is 55, so get 53 + add "-X" below
+        String testingUserName = getUniqueEntityName(53);
         for (String suffix: suffixes) {
             User user = new User();
             user.setAccessRole(testingUserAR);
             user.setHandle(String.format("%s-%s@datadoghq.com", testingUserName, suffix));
-            user.setName(String.format("%s-%s", testingUserName + suffix));
+            user.setName(String.format("%s-%s", testingUserName, suffix));
             UserResponse response = api.createUser().body(user).execute();
             disableUsers.add(response.getUser().getHandle());
         }
@@ -127,7 +129,9 @@ public class UsersApiTest extends V1ApiTest {
         List<User> users = response.getUsers();
         for (String suffix: suffixes) {
             boolean found = false;
-            String handle = String.format("%s-%s@datadoghq.com", testingUserName, suffix);
+            // user names are stored in lowercase, so make sure the string is properly lowercased before
+            // we try to search for it
+            String handle = String.format("%s-%s@datadoghq.com", testingUserName, suffix).toLowerCase();
             for (User user: users) {
                 if (user.getHandle().equals(handle)) {
                     found = true;
@@ -211,7 +215,7 @@ public class UsersApiTest extends V1ApiTest {
     @Test
     public void userUpdateErrorsTest() throws ApiException, IOException {
         // Test creating user
-        String testingUserName = getUniqueEntityName();
+        String testingUserName = getUniqueEntityName(55);
         String testingUserHandle = testingUserName + "@datadoghq.com";
         User user = new User();
         user.setAccessRole(testingUserAR);
@@ -254,7 +258,7 @@ public class UsersApiTest extends V1ApiTest {
     @Test
     public void userDisableErrorsTest() throws ApiException, IOException {
         // Test creating user
-        String testingUserName = getUniqueEntityName();
+        String testingUserName = getUniqueEntityName(55);
         String testingUserHandle = testingUserName + "@datadoghq.com";
         User user = new User();
         user.setAccessRole(testingUserAR);

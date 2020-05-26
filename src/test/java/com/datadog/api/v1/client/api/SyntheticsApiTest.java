@@ -141,11 +141,12 @@ public class SyntheticsApiTest extends V1ApiTest {
                 .getResource("synthetics_fixtures/api_test_single_result.json").getFile());
 
         // Create API test
-        apiTestConfig.setName(getUniqueEntityName());
+        String apiTestName = getUniqueEntityName();
+        apiTestConfig.setName(apiTestName);
         synt = api.createTest().body(apiTestConfig).execute();
         publicId = synt.getPublicId();
         deleteSyntheticsTests.add(publicId);
-        assertEquals("testing Synthetics API test", synt.getName());
+        assertEquals(apiTestName, synt.getName());
 
         // Update API test
         synt.setName(apiTestConfig.getName() + "-updated");
@@ -232,11 +233,12 @@ public class SyntheticsApiTest extends V1ApiTest {
                 .getResource("synthetics_fixtures/browser_test_single_result.json").getFile());
 
         // Create Browser test
-        browserTestConfig.setName(getUniqueEntityName());
+        String browserTestName = getUniqueEntityName();
+        browserTestConfig.setName(browserTestName);
         synt = api.createTest().body(browserTestConfig).execute();
         publicId = synt.getPublicId();
         deleteSyntheticsTests.add(publicId);
-        assertEquals("testing Synthetics Browser test", synt.getName());
+        assertEquals(browserTestName, synt.getName());
 
         // Update Browser test
         synt.setName(browserTestConfig.getName() + "-updated");
@@ -368,6 +370,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     @Test
     public void updateStatusSyntheticsErrorsTest() throws ApiException, IOException {
         // Create API test
+        apiTestConfig.setName(getUniqueEntityName());
         SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
         String publicId = synt.getPublicId();
         deleteSyntheticsTests.add(publicId);

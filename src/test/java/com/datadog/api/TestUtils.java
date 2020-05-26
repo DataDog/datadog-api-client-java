@@ -291,5 +291,18 @@ public class TestUtils {
             // In case this is used in URL, make sure we replace potential slash
             return result;
         }
+
+        /**
+         * Same as getUniqueEntityName, except it crops the returned result to a given length if it's longer.
+         *
+         * @return unique entity name to use in tests with maximum `maxLen` characters
+         */
+        public String getUniqueEntityName(int maxLen) {
+            String result = getUniqueEntityName();
+            if (result.length() > maxLen) {
+                result = result.substring(0, maxLen);
+            }
+            return result;
+        }
     }
 }

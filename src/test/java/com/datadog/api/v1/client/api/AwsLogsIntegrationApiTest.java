@@ -53,7 +53,7 @@ public class AwsLogsIntegrationApiTest extends V1ApiTest {
     @Before
     public void setupAwsLogsAccounts() {
         String uniqueName = getUniqueEntityName();
-        String accountId = uniqueName.substring(0, 12);
+        String accountId = String.format("java_%07d", (now.toInstant().toEpochMilli()) % 10000000);
 
         // Setup a unique AWS account to use to something unique
         uniqueAWSAccount.setAccountId(accountId);
