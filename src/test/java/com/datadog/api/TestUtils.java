@@ -177,6 +177,11 @@ public class TestUtils {
 
         @Before
         public void setupMockServer() {
+            // Mockserver uses a connection pool with keepAlive connections to talk to the API.
+            // It seems that there are circumstances under which a reused connection freezes
+            // forever. We temporarily workaround this by making all connections closing
+            // instead of keepAlive, until we figure out where the problem really is.
+            System.setProperty("http.keepAlive", "false");
             if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }
