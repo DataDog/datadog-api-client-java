@@ -1,5 +1,5 @@
 [ {
-  "id" : "0aec4d1e-32f5-4cf7-943e-330f782a0650",
+  "id" : "0822b022-9b56-4dd0-bcdb-2a5e1efc4a5c",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws/available_namespace_rules",
@@ -22,7 +22,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:51:33 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 11:54:23 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

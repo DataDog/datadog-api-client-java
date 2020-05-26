@@ -82,13 +82,16 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         fail(String.format("Unable to find account %s in list %s", accountToAssert, accounts));
     }
 
+    public String generateAccountId() {
+        return String.format("java_%07d", (now.toInstant().toEpochMilli()) % 10000000);
+    }
+
     @Test
     public void createAWSAccountTest() throws TestUtils.RetryException {
         //Test Creating an AWS Account with just the account_id and role_name
         AWSAccount awsAccount = new AWSAccount();
-        String uniqueName = getUniqueEntityName();
-        awsAccount.setAccountId(uniqueName.substring(0, 12));
-        awsAccount.setRoleName(uniqueName);
+        awsAccount.setAccountId(generateAccountId());
+        awsAccount.setRoleName(getUniqueEntityName());
 
         TestUtils.retry(random.nextInt(10), 20, () -> {
             try {
@@ -144,7 +147,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     public void createAWSAccountMissingRoleNameTest() throws ApiException {
         //Test an exception is thrown if you're missing the role_name field
         AWSAccount awsAccount = new AWSAccount();
-        awsAccount.setAccountId(getUniqueEntityName().substring(0, 12));
+        awsAccount.setAccountId(generateAccountId());
         api.createAWSAccount().body(awsAccount).execute();
     }
 
@@ -159,7 +162,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
 
         for (int i = 0; i < 5; i++) {
             awsAccounts.add(new AWSAccount());
-            awsAccounts.get(i).setAccountId(getUniqueEntityName().substring(0, 10) + String.format("-%d", i));
+            awsAccounts.get(i).setAccountId(generateAccountId().substring(0, 10) + String.format("-%d", i));
             awsAccounts.get(i).setRoleName(String.format("Java Client Role Name_%s", i));
             awsAccounts.get(i).addFilterTagsItem("dontCollect:java");
             awsAccounts.get(i).setHostTags(hostTags);
@@ -188,9 +191,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     @Test
     public void updateAWSAccountTest() throws ApiException, TestUtils.RetryException {
         AWSAccount awsAccount = new AWSAccount();
-        String uniqueName = getUniqueEntityName();
-        awsAccount.setAccountId(uniqueName.substring(0, 12));
-        awsAccount.setRoleName(uniqueName);
+        awsAccount.setAccountId(generateAccountId());
+        awsAccount.setRoleName(getUniqueEntityName());
 
         TestUtils.retry(random.nextInt(10), 20, () -> {
             try {
@@ -234,9 +236,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     @Test
     public void generateNewExternalIdTest() throws ApiException, TestUtils.RetryException {
         AWSAccount awsAccount = new AWSAccount();
-        String uniqueName = getUniqueEntityName();
-        awsAccount.setAccountId(uniqueName.substring(0, 12));
-        awsAccount.setRoleName(uniqueName);
+        awsAccount.setAccountId(generateAccountId());
+        awsAccount.setRoleName(getUniqueEntityName());
 
         TestUtils.retry(random.nextInt(10), 20, () -> {
             try {
