@@ -1,5 +1,5 @@
 [ {
-  "id" : "2724055f-d53a-4868-970e-ff94a812283c",
+  "id" : "a7ac96f0-4f54-4af2-b044-4efecb9bb50f",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/slo",
@@ -7,10 +7,10 @@
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "createSLO" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "41" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
@@ -27,7 +27,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 05 May 2020 21:59:14 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:02:06 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "56" ],
       "Connection" : [ "keep-alive" ],
@@ -35,9 +35,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "500" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "46" ],
-      "X-RateLimit-Remaining" : [ "499" ],
-      "X-DD-VERSION" : [ "35.2469677" ],
+      "X-RateLimit-Reset" : [ "54" ],
+      "X-RateLimit-Remaining" : [ "498" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -47,7 +47,7 @@
     "body" : "{\"errors\": [\"Invalid payload: 'name' should be string\"]}"
   }
 }, {
-  "id" : "a9ae8785-32c5-43f2-a438-ace1f479cdc0",
+  "id" : "784c418c-29c6-4ce7-bc99-f99df37f51a4",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/slo",
@@ -55,10 +55,10 @@
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "createSLO" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "41" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
@@ -75,7 +75,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 05 May 2020 21:59:14 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:02:07 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

@@ -1,18 +1,18 @@
 [ {
-  "id" : "6a450a80-41ce-4667-aba2-b08dcf9cbd51",
+  "id" : "83723958-ab45-4051-bf25-2215fba97a10",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/snmp",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-05-19T23:10Z" ]
+      "start_hr" : [ "2020-05-26T14:05Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "DD-OPERATION-ID" : [ "getUsageSNMP" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -25,17 +25,17 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 19 May 2020 18:10:34 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:05:53 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "48" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-RateLimit-Limit" : [ "200" ],
+      "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2966" ],
-      "X-RateLimit-Remaining" : [ "175" ],
-      "X-DD-VERSION" : [ "35.2523221" ],
+      "X-RateLimit-Reset" : [ "3247" ],
+      "X-RateLimit-Remaining" : [ "386" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -45,20 +45,20 @@
     "body" : "{\"errors\": [\"start_hr cannot be in the future\"]}"
   }
 }, {
-  "id" : "f8e7f9c5-71bb-451d-a974-711596133d83",
+  "id" : "351f6397-42e9-405d-9655-ef6fb3187291",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/snmp",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-05-19T23:10Z" ]
+      "start_hr" : [ "2020-05-26T14:05Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "DD-OPERATION-ID" : [ "getUsageSNMP" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -71,7 +71,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 19 May 2020 18:10:34 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:05:53 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

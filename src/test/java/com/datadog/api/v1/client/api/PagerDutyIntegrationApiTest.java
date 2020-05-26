@@ -64,10 +64,6 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
         }
     }
 
-    public String generateServiceName() {
-        return "test-datadog-client-java-" + now.toEpochSecond();
-    }
-
     /**
      * Test a PagerDuty integration lifecycle
      *
@@ -75,7 +71,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
      */
     @Test
     public void lifecyclePagerDutyIntegrationTest() throws ApiException, TestUtils.RetryException {
-        String serviceName = generateServiceName();
+        String serviceName = getUniqueEntityName();
 
         // Add single service object to the PagerDuty Integration
         PagerDutyService serviceBody = new PagerDutyService().serviceName(serviceName) .serviceKey("deadbeef");
@@ -110,7 +106,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     public void createPagerDutyIntegrationServicesTest() throws IOException {
         PagerDutyService body = new PagerDutyService()
                 .serviceKey("lalaa")
-                .serviceName(generateServiceName());
+                .serviceName(getUniqueEntityName());
 
         try {
             PagerDutyServiceName service = api.createPagerDutyIntegrationService().body(new PagerDutyService()).execute();
@@ -135,7 +131,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     @Test
     public void getPagerDutyIntegrationServicesTest() throws IOException {
         try {
-            fakeAuthApi.getPagerDutyIntegrationService(generateServiceName()).execute();
+            fakeAuthApi.getPagerDutyIntegrationService(getUniqueEntityName()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
@@ -144,7 +140,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
         }
 
         try {
-            api.getPagerDutyIntegrationService(generateServiceName()).execute();
+            api.getPagerDutyIntegrationService(getUniqueEntityName()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
@@ -155,7 +151,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
 
     @Test
     public void updatePagerDutyIntegrationServicesTest() throws IOException {
-        String serviceName = generateServiceName();
+        String serviceName = getUniqueEntityName();
         PagerDutyServiceKey body = new PagerDutyServiceKey()
                 .serviceKey("lalaa");
 
@@ -189,7 +185,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
 
     @Test
     public void deletePagerDutyIntegrationServicesTest() throws IOException {
-        String serviceName = generateServiceName();
+        String serviceName = getUniqueEntityName();
 
         try {
             fakeAuthApi.deletePagerDutyIntegrationService(serviceName).execute();

@@ -39,8 +39,6 @@ public class UsersApiTest extends V1ApiTest {
     private final String apiUri = "/api/v1/user";
     private final String fixturePrefix = "v1/client/api/user_fixtures";
 
-    private final String testingUserHandle = "testinguser@datadoghq.com";
-    private final String testingUserName = "Testing User";
     private final AccessRole testingUserAR = AccessRole.STANDARD;
     private ArrayList<String> disableUsers = null;
 
@@ -74,6 +72,9 @@ public class UsersApiTest extends V1ApiTest {
     @Test
     public void userCreateModifyDisableTest() throws ApiException {
         // Test creating user
+        // max name length is 55, so get 47 + add "-updated" below
+        String testingUserName = getUniqueEntityName(47);
+        String testingUserHandle = testingUserName.toLowerCase() + "@datadoghq.com";
         User user = new User();
         user.setAccessRole(testingUserAR);
         user.setHandle(testingUserHandle);
@@ -88,16 +89,16 @@ public class UsersApiTest extends V1ApiTest {
         assertEquals(testingUserAR.toString(), user.getAccessRole().toString());
 
         // Now test updating user
-        user.setName("Updated Name");
+        user.setName(testingUserName + "-updated");
         user.setDisabled(false);
         response = api.updateUser(user.getHandle()).body(user).execute();
 
-        assertEquals("Updated Name", response.getUser().getName());
+        assertEquals(testingUserName + "-updated", response.getUser().getName());
 
         // Now test getting user
         response = api.getUser(user.getHandle()).execute();
         assertEquals(testingUserHandle, response.getUser().getHandle());
-        assertEquals("Updated Name", response.getUser().getName());
+        assertEquals(testingUserName + "-updated", response.getUser().getName());
         assertEquals(testingUserAR.toString(), response.getUser().getAccessRole().toString());
         assertEquals(false, response.getUser().getDisabled());
 
@@ -113,25 +114,30 @@ public class UsersApiTest extends V1ApiTest {
     @Test
     public void listUsersTest() throws ApiException {
         Assume.assumeFalse("This test does not support replay from recording", TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
-        ArrayList<String> prefixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
-        for (String prefix: prefixes) {
+        ArrayList<String> suffixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
+        // max name length is 55, so get 53 + add "-X" below
+        String testingUserName = getUniqueEntityName(53);
+        for (String suffix: suffixes) {
             User user = new User();
             user.setAccessRole(testingUserAR);
-            user.setHandle(prefix + testingUserHandle);
-            user.setName(prefix + testingUserName);
+            user.setHandle(String.format("%s-%s@datadoghq.com", testingUserName, suffix));
+            user.setName(String.format("%s-%s", testingUserName, suffix));
             UserResponse response = api.createUser().body(user).execute();
             disableUsers.add(response.getUser().getHandle());
         }
         UserListResponse response = api.listUsers().execute();
         List<User> users = response.getUsers();
-        for (String prefix: prefixes) {
+        for (String suffix: suffixes) {
             boolean found = false;
+            // user names are stored in lowercase, so make sure the string is properly lowercased before
+            // we try to search for it
+            String handle = String.format("%s-%s@datadoghq.com", testingUserName, suffix).toLowerCase();
             for (User user: users) {
-                if (user.getHandle().equals(prefix + testingUserHandle)) {
+                if (user.getHandle().equals(handle)) {
                     found = true;
                 }
             }
-            assertTrue(String.format("User %s%s not found", prefix, testingUserHandle), found);
+            assertTrue(String.format("User %s not found", handle), found);
         }
     }
 
@@ -209,6 +215,8 @@ public class UsersApiTest extends V1ApiTest {
     @Test
     public void userUpdateErrorsTest() throws ApiException, IOException {
         // Test creating user
+        String testingUserName = getUniqueEntityName(55);
+        String testingUserHandle = testingUserName + "@datadoghq.com";
         User user = new User();
         user.setAccessRole(testingUserAR);
         user.setHandle(testingUserHandle);
@@ -250,6 +258,8 @@ public class UsersApiTest extends V1ApiTest {
     @Test
     public void userDisableErrorsTest() throws ApiException, IOException {
         // Test creating user
+        String testingUserName = getUniqueEntityName(55);
+        String testingUserHandle = testingUserName + "@datadoghq.com";
         User user = new User();
         user.setAccessRole(testingUserAR);
         user.setHandle(testingUserHandle);
@@ -257,6 +267,9 @@ public class UsersApiTest extends V1ApiTest {
         UserResponse response = api.createUser().body(user).execute();
         // If something fails, make sure we disable the user
         disableUsers.add(testingUserHandle);
+        user = response.getUser();
+        user.setDisabled(true);
+        api.updateUser(user.getHandle()).body(user).execute();
 
         try {
             api.disableUser(user.getHandle()).execute();

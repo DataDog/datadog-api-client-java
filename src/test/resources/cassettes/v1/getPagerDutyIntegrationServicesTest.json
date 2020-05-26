@@ -1,15 +1,15 @@
 [ {
-  "id" : "181f78f8-af39-4250-b123-ef92f8417912",
+  "id" : "4021c069-4681-4002-bdfd-00fc4329de22",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/test-datadog-client-java-1588255081",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-getPagerDutyIntegrationServicesTest-local-1590483704",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getPagerDutyIntegrationService" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -22,7 +22,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Thu, 30 Apr 2020 13:58:02 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:01:45 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -32,17 +32,17 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "de9e6ac4-d12b-4dcd-aa1e-471d00c70d15",
+  "id" : "221697fc-e24d-49b5-ab20-e7bf6e1d697d",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/test-datadog-client-java-1588255081",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-getPagerDutyIntegrationServicesTest-local-1590483704",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getPagerDutyIntegrationService" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -55,13 +55,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Thu, 30 Apr 2020 13:58:02 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:01:46 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2452356" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

@@ -1,5 +1,5 @@
 [ {
-  "id" : "fb61a7f1-fe16-4d6e-893a-97849a198c2c",
+  "id" : "e475cfc5-5c82-4c56-86b0-f0662fd46ba6",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/analyzed_logs",
@@ -10,10 +10,10 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "DD-OPERATION-ID" : [ "getUsageAnalyzedLogs" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -26,29 +26,29 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 19 May 2020 18:08:02 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:06:13 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=99; Max-Age=604800; Path=/; expires=Tue, 26-May-2020 18:08:02 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2523221" ],
-      "X-RateLimit-Limit" : [ "200" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 09:06:13 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "3118" ],
-      "X-RateLimit-Remaining" : [ "188" ],
-      "X-DD-Debug" : [ "Wi4QF3nhe5s0sRyfZvyTHLc/3mQu/jJVn8BZnev44SXt+VBNA1+haKi5VcNZFpaP" ],
+      "X-RateLimit-Reset" : [ "3227" ],
+      "X-RateLimit-Remaining" : [ "379" ],
+      "X-DD-Debug" : [ "btzHvL7Rg/f/n1wMP2CFVXsuErrwOO9p2hvsBofLQbxzRkmZbfvXcB18pURNtIOI" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "78" ]
+      "content-length" : [ "66" ]
     },
     "cookies" : {
-      "DD-PSHARD" : "99"
+      "DD-PSHARD" : "233"
     },
-    "body" : "{\"usage\":[{\"hour\":\"2020-04-01T12:00:00+00:00\",\"analyzed_logs\":2188834257033}]}"
+    "body" : "{\"usage\":[{\"hour\":\"2020-04-01T12:00:00+00:00\",\"analyzed_logs\":0}]}"
   }
 } ]

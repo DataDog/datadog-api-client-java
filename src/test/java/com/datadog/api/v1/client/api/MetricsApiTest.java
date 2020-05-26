@@ -52,7 +52,9 @@ public class MetricsApiTest extends V1ApiTest {
     public void metricsTests() throws ApiException, TestUtils.RetryException {
         long nowSeconds = now.toEpochSecond();
 
-        String testMetric = String.format("java.client.test.%d", nowSeconds);
+        // dashes in metric names get converted to underscores, so do it here to be able
+        // to correctly search in the `retry` loop below
+        String testMetric = getUniqueEntityName().replace('-', '_');
         String testHost = "java-client-test-host";
         String testQuery = String.format("avg:%s{bar:baz}by{host}", testMetric);
 

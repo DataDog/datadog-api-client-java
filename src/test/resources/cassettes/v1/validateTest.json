@@ -1,15 +1,15 @@
 [ {
-  "id" : "eb4b7d6d-4153-44d1-81ed-6d1e85eb3365",
+  "id" : "0b85c0c6-0cc6-4492-b407-1c41b50e1d83",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/validate",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "validate" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -22,15 +22,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 11 May 2020 21:44:05 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:50:49 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "14" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 18-May-2020 21:44:05 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2490618" ],
-      "X-DD-Debug" : [ "EE74ncTR989SomsonUvABJWdGDkXBs7Emqj3HVDpp6NYddpvHp95kXsnHux1Es9E" ],
+      "Set-Cookie" : [ "DD-PSHARD=; Max-Age=0; Path=/; expires=Wed, 31-Dec-97 23:59:59 GMT" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-Debug" : [ "6qTaw+brNWWnKD6ULH8747/TVkPK0wedRsruOmMITJcYBkJ/Eac9bUO9jP1Btfl5" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -38,7 +38,7 @@
       "Strict-Transport-Security" : [ "max-age=15724800;" ]
     },
     "cookies" : {
-      "DD-PSHARD" : "233"
+      "DD-PSHARD" : ""
     },
     "body" : "{\"valid\":true}"
   }

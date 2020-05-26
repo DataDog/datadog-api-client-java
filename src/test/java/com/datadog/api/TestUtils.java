@@ -177,6 +177,11 @@ public class TestUtils {
 
         @Before
         public void setupMockServer() {
+            // Mockserver uses a connection pool with keepAlive connections to talk to the API.
+            // It seems that there are circumstances under which a reused connection freezes
+            // forever. We temporarily workaround this by making all connections closing
+            // instead of keepAlive, until we figure out where the problem really is.
+            System.setProperty("http.keepAlive", "false");
             if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }
@@ -265,6 +270,48 @@ public class TestUtils {
         @After
         public void resetWiremock() {
             reset();
+        }
+
+        /**
+         * Returns a unique string that can be used as a title/description/summary/... of an API entity.
+         * When used in Azure Pipelines and RECORD=true or RECORD=none, it will include BuildId to enable
+         * mapping resources that weren't deleted to builds.
+         *
+         * @return unique entity name to use in tests
+         */
+        public String getUniqueEntityName() {
+            String buildId = System.getenv("BUILD_BUILDID");
+            if (buildId == null || !System.getenv("CI").equals("true") || getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+                buildId = "local";
+            }
+
+            // NOTE: some endpoints have limits on certain fields (e.g. Roles V2 names can only be 55 chars long),
+            // so we need to keep this short
+            String result = String.format("java-%s-%s-%d", name.getMethodName(), buildId, now.toEpochSecond());
+            // In case this is used in URL, make sure we replace potential slash
+            return result;
+        }
+
+        /**
+         * Same as getUniqueEntityName, except it crops the returned result to a given length if it's longer.
+         *
+         * @return unique entity name to use in tests with maximum `maxLen` characters
+         */
+        public String getUniqueEntityName(int maxLen) {
+            String result = getUniqueEntityName();
+            if (result.length() > maxLen) {
+                result = result.substring(0, maxLen);
+            }
+            return result;
+        }
+
+        /*
+         * Same as getUniqueEntityName, except it attaches the given suffix to the end of the unique string.
+         *
+         * @return unique entity name to use in tests with a given suffix attached
+         */
+        public String getUniqueEntityName(String suffix) {
+            return String.format("%s-%s", getUniqueEntityName(), suffix);
         }
     }
 }

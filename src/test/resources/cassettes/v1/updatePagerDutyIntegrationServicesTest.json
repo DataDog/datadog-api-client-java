@@ -1,16 +1,16 @@
 [ {
-  "id" : "94265669-9582-4c9d-ac06-85bf3c1c647e",
+  "id" : "8898b3eb-ffaa-4135-a76e-da91340a11fc",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/test-datadog-client-java-1588255072",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-updatePagerDutyIntegrationServicesTest-local-1590483694",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updatePagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "20" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
@@ -27,13 +27,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Thu, 30 Apr 2020 13:57:53 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:01:35 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "46" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2452356" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -43,18 +43,18 @@
     "body" : "{\"errors\": [\"'service_key' should be string\"]}"
   }
 }, {
-  "id" : "0d0ba729-f1b0-415c-948e-286bc97428dc",
+  "id" : "3aa893a2-cc6b-4ab3-8b2f-df3ca2b3af1b",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/test-datadog-client-java-1588255072",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-updatePagerDutyIntegrationServicesTest-local-1590483694",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updatePagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "23" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
@@ -71,7 +71,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Thu, 30 Apr 2020 13:57:53 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:01:36 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -81,18 +81,18 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "388f7c5b-d43c-44ae-bcaf-5a99b014aaa1",
+  "id" : "89c4070a-dcc0-4316-8336-f24369bee3eb",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/test-datadog-client-java-1588255072",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-updatePagerDutyIntegrationServicesTest-local-1590483694",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "updatePagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "23" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
@@ -109,13 +109,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Thu, 30 Apr 2020 13:57:54 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:01:36 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2452356" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
