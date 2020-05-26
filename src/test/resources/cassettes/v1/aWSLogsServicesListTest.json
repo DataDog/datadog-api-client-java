@@ -1,15 +1,15 @@
 [ {
-  "id" : "b95a2b67-b303-43b4-878c-0ac4c5b448ca",
+  "id" : "c9fbc68d-c4c3-4934-857b-e8d9443aaa9a",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws/logs/services",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "listAWSLogsServices" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -22,18 +22,20 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 17:42:04 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:52:52 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:42:04 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2404330" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 08:52:52 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-Debug" : [ "EE74ncTR989SomsonUvABJWdGDkXBs7Emqj3HVDpp6NYddpvHp95kXsnHux1Es9E" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
       "content-length" : [ "282" ]
     },
     "cookies" : {
@@ -42,7 +44,7 @@
     "body" : "[{\"id\":\"s3\",\"label\":\"S3 Access Logs\"},{\"id\":\"elb\",\"label\":\"Classic ELB Access Logs\"},{\"id\":\"elbv2\",\"label\":\"Application ELB Access Logs\"},{\"id\":\"cloudfront\",\"label\":\"CloudFront Access Logs\"},{\"id\":\"redshift\",\"label\":\"Redshift Logs\"},{\"id\":\"lambda\",\"label\":\"Lambda Cloudwatch Logs\"}]"
   }
 }, {
-  "id" : "90fddc5a-6276-4878-9f77-3ade0df2e6ac",
+  "id" : "607714ef-01d5-4504-8120-3e30b9e7891d",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
@@ -50,14 +52,14 @@
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "683" ]
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "703" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_5319363\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"DatadogAWSIntegrationRole\"}"
+      "json" : "{\"account_id\":\"java_3171412\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"java-aWSLogsServicesListTest-local-1590483171\"}"
     }
   },
   "times" : {
@@ -67,25 +69,22 @@
     "unlimited" : true
   },
   "httpResponse" : {
-    "statusCode" : 200,
-    "reasonPhrase" : "OK",
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 17:42:05 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:52:52 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "2" ],
+      "Content-Length" : [ "70" ],
       "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 17:42:04 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2404330" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{}"
+    "body" : "{\"errors\": [\"AWS account java_3171412 does not exist in integration\"]}"
   }
 } ]

@@ -1,5 +1,5 @@
 [ {
-  "id" : "38936060-a684-4b21-91c4-3cb67706f851",
+  "id" : "132d2d01-78b2-49cc-b95a-9e53a4f0e07d",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/pagerduty/configuration/services",
@@ -7,10 +7,10 @@
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "createPagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "40" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
@@ -27,13 +27,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Thu, 30 Apr 2020 13:58:04 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:01:48 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "47" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2452356" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -43,7 +43,7 @@
     "body" : "{\"errors\": [\"'service_name' should be string\"]}"
   }
 }, {
-  "id" : "885308a4-d695-4210-b72e-49c19354e879",
+  "id" : "bf1fd51c-91c4-4e4e-bb68-f85aecbd208c",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/pagerduty/configuration/services",
@@ -51,14 +51,14 @@
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "createPagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "76" ]
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "101" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"service_key\":\"lalaa\",\"service_name\":\"test-datadog-client-java-1588255083\"}"
+      "json" : "{\"service_key\":\"lalaa\",\"service_name\":\"java-createPagerDutyIntegrationServicesTest-local-1590483708\"}"
     }
   },
   "times" : {
@@ -71,7 +71,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Thu, 30 Apr 2020 13:58:04 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:01:49 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

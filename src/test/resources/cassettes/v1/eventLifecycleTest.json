@@ -1,19 +1,19 @@
 [ {
-  "id" : "7a1a157e-2a89-481a-af07-fc7e1fa90fb3",
+  "id" : "1ec904c1-a2c9-4eec-a701-1ac7e2884cf1",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/events",
     "headers" : {
       "Accept" : [ "application/json" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "Content-Length" : [ "156" ]
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "169" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"priority\":\"normal\",\"source_type_name\":\"datadog-api-client-java\",\"tags\":[\"test\",\"client:java\"],\"text\":\"example text\",\"title\":\"test event from java client\"}"
+      "json" : "{\"priority\":\"normal\",\"source_type_name\":\"datadog-api-client-java\",\"tags\":[\"test\",\"client:java\"],\"text\":\"example text\",\"title\":\"java-eventLifecycleTest-local-1590483329\"}"
     }
   },
   "times" : {
@@ -26,29 +26,30 @@
     "statusCode" : 202,
     "reasonPhrase" : "Accepted",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 19:35:28 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:55:29 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "294" ],
+      "Content-Length" : [ "307" ],
       "Connection" : [ "keep-alive" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+      "DD-POOL" : [ "propjoe" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
     },
-    "body" : "{\"status\":\"ok\",\"event\":{\"id\":5417182907298992734,\"title\":\"test event from java client\",\"text\":\"example text\",\"date_happened\":1587152128,\"handle\":null,\"priority\":\"normal\",\"related_event_id\":null,\"tags\":[\"test\",\"client:java\"],\"url\":\"https://app.datadoghq.com/event/event?id=5417182907298992734\"}}"
+    "body" : "{\"status\":\"ok\",\"event\":{\"id\":5473071187474245774,\"title\":\"java-eventLifecycleTest-local-1590483329\",\"text\":\"example text\",\"date_happened\":1590483329,\"handle\":null,\"priority\":\"normal\",\"related_event_id\":null,\"tags\":[\"test\",\"client:java\"],\"url\":\"https://app.datadoghq.com/event/event?id=5473071187474245774\"}}"
   }
 }, {
-  "id" : "a6f4b451-1ad4-41e5-bb28-eee915ecc8a4",
+  "id" : "e4ca83f1-990a-4826-8711-f9a7755e7527",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/events/5417182907298992734",
+    "path" : "/api/v1/events/5473071187474245774",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getEvent" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -61,33 +62,34 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 19:35:35 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:55:31 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.2404330" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "DD-POOL" : [ "dogweb_events" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
       "content-length" : [ "47" ]
     },
     "body" : "{\"errors\": [\"No event matches that event_id.\"]}"
   }
 }, {
-  "id" : "13ad053a-d326-47c4-9bd0-f32b4caf98e6",
+  "id" : "f092b3ef-ef64-4688-b6bf-fec7e8635855",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/events/5417182907298992734",
+    "path" : "/api/v1/events/5473071187474245774",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getEvent" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -100,33 +102,34 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 19:35:46 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:55:43 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.2404330" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "DD-POOL" : [ "dogweb_events" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
       "content-length" : [ "47" ]
     },
     "body" : "{\"errors\": [\"No event matches that event_id.\"]}"
   }
 }, {
-  "id" : "152d2c15-12a1-46bd-9809-7ae82c6e0adf",
+  "id" : "995138c9-c6d4-4001-bbbd-4d0c14136ad8",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/events/5417182907298992734",
+    "path" : "/api/v1/events/5473071187474245774",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "getEvent" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -139,33 +142,35 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 19:35:56 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:55:54 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 19:35:56 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2404330" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "316" ]
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 08:55:54 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-Debug" : [ "8dI8aUSv3Fzq9LYH3wEHxmDECF/kuDIyQi68LDtl+z4qh8Ctb4ijNpflOPW/2exL" ],
+      "DD-POOL" : [ "dogweb_events" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "329" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"event\":{\"date_happened\":1587152128,\"alert_type\":\"info\",\"resource\":\"/api/v1/events/5417182907298992734\",\"title\":\"test event from java client\",\"url\":\"/event/event?id=5417182907298992734\",\"text\":\"example text\",\"tags\":[\"client:java\",\"test\"],\"device_name\":null,\"priority\":\"normal\",\"host\":null,\"id\":5417182907298992734}}"
+    "body" : "{\"event\":{\"date_happened\":1590483329,\"alert_type\":\"info\",\"resource\":\"/api/v1/events/5473071187474245774\",\"title\":\"java-eventLifecycleTest-local-1590483329\",\"url\":\"/event/event?id=5473071187474245774\",\"text\":\"example text\",\"tags\":[\"client:java\",\"test\"],\"device_name\":null,\"priority\":\"normal\",\"host\":null,\"id\":5473071187474245774}}"
   }
 }, {
-  "id" : "25cda56e-7357-4b58-aed2-bcad940bfe17",
+  "id" : "cf3814fe-92d1-48d4-8da3-177059b565b7",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/events",
     "queryStringParameters" : {
-      "start" : [ "1587152118" ],
-      "end" : [ "1587152138" ],
+      "start" : [ "1590483319" ],
+      "end" : [ "1590483339" ],
       "priority" : [ "normal" ],
       "tags" : [ "client:java,test" ],
       "unaggregated" : [ "true" ]
@@ -173,10 +178,10 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "listEvents" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -189,23 +194,25 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 17 Apr 2020 19:35:56 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:55:55 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 24-Apr-2020 19:35:56 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2404330" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "373" ]
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 08:55:55 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-Debug" : [ "IxwolBfkUDyUlBmmJW5LL5nADcdmnYQkEcHRVj7zszHJaN1uRcdfLGOUPjz0AX7/" ],
+      "DD-POOL" : [ "dogweb_events" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "386" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"events\":[{\"date_happened\":1587152128,\"alert_type\":\"info\",\"is_aggregate\":false,\"title\":\"test event from java client\",\"url\":\"/event/event?id=5417182907298992734\",\"text\":\"example text\",\"tags\":[\"client:java\",\"test\"],\"comments\":[],\"device_name\":null,\"priority\":\"normal\",\"source\":\"My Apps\",\"host\":null,\"resource\":\"/api/v1/events/5417182907298992734\",\"id\":5417182907298992734}]}"
+    "body" : "{\"events\":[{\"date_happened\":1590483329,\"alert_type\":\"info\",\"is_aggregate\":false,\"title\":\"java-eventLifecycleTest-local-1590483329\",\"url\":\"/event/event?id=5473071187474245774\",\"text\":\"example text\",\"tags\":[\"client:java\",\"test\"],\"comments\":[],\"device_name\":null,\"priority\":\"normal\",\"source\":\"My Apps\",\"host\":null,\"resource\":\"/api/v1/events/5473071187474245774\",\"id\":5473071187474245774}]}"
   }
 } ]

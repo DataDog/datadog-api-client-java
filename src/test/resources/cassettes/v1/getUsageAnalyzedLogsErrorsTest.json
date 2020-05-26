@@ -1,18 +1,18 @@
 [ {
-  "id" : "3c3cebd1-7c45-4df8-b5dd-a6e522477299",
+  "id" : "12306f78-403d-41a2-b49d-27fa2c7b2746",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/analyzed_logs",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-05-19T23:10Z" ]
+      "start_hr" : [ "2020-05-26T14:06Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "DD-OPERATION-ID" : [ "getUsageAnalyzedLogs" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -25,17 +25,17 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 19 May 2020 18:11:00 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:06:10 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "48" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-RateLimit-Limit" : [ "200" ],
+      "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2940" ],
-      "X-RateLimit-Remaining" : [ "174" ],
-      "X-DD-VERSION" : [ "35.2523221" ],
+      "X-RateLimit-Reset" : [ "3230" ],
+      "X-RateLimit-Remaining" : [ "380" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -45,20 +45,20 @@
     "body" : "{\"errors\": [\"start_hr cannot be in the future\"]}"
   }
 }, {
-  "id" : "3caec906-c2e3-4d1b-9522-8dcc421f220c",
+  "id" : "af2eb8c2-fb65-480c-81e3-da31779d1d06",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/analyzed_logs",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-05-19T23:10Z" ]
+      "start_hr" : [ "2020-05-26T14:06Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "DD-OPERATION-ID" : [ "getUsageAnalyzedLogs" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -71,7 +71,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 19 May 2020 18:11:01 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 09:06:10 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

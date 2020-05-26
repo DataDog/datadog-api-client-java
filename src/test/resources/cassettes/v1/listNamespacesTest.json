@@ -1,15 +1,15 @@
 [ {
-  "id" : "f7d0478d-e1c7-424d-aec7-7225502e17de",
+  "id" : "7c79d6ad-9df1-4afc-83f5-be415670aa3a",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws/available_namespace_rules",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "listAvailableAWSNamespaces" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -22,23 +22,25 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Sat, 18 Apr 2020 03:45:09 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:51:45 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sat, 25-Apr-2020 03:45:09 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2405092" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "888" ]
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 08:51:45 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-Debug" : [ "+UwwYRc+A5vkEib2s1YY/+OMx26FxXkDPMnhrpaIz/kTVseyL62lC12FdLJrU3nv" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "896" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "[\"api_gateway\",\"application_elb\",\"appstream\",\"appsync\",\"athena\",\"auto_scaling\",\"billing\",\"budgeting\",\"cloudfront\",\"cloudhsm\",\"cloudsearch\",\"cloudwatch_events\",\"cloudwatch_logs\",\"codebuild\",\"cognito\",\"collect_custom_metrics\",\"connect\",\"crawl_alarms\",\"directconnect\",\"dms\",\"documentdb\",\"dynamodb\",\"ebs\",\"ec2\",\"ec2api\",\"ec2spot\",\"ecs\",\"efs\",\"elasticache\",\"elasticbeanstalk\",\"elasticinference\",\"elastictranscoder\",\"elb\",\"emr\",\"es\",\"firehose\",\"gamelift\",\"glue\",\"inspector\",\"iot\",\"kinesis\",\"kinesis_analytics\",\"kms\",\"lambda\",\"lex\",\"mediaconnect\",\"mediaconvert\",\"mediapackage\",\"mediatailor\",\"ml\",\"mq\",\"msk\",\"nat_gateway\",\"neptune\",\"network_elb\",\"opsworks\",\"polly\",\"rds\",\"redshift\",\"rekognition\",\"route53\",\"route53resolver\",\"s3\",\"sagemaker\",\"ses\",\"shield\",\"sns\",\"sqs\",\"step_functions\",\"storage_gateway\",\"swf\",\"transitgateway\",\"translate\",\"trusted_advisor\",\"usage\",\"vpn\",\"waf\",\"workspaces\",\"xray\"]"
+    "body" : "[\"api_gateway\",\"application_elb\",\"appstream\",\"appsync\",\"athena\",\"auto_scaling\",\"billing\",\"budgeting\",\"cloudfront\",\"cloudhsm\",\"cloudsearch\",\"cloudwatch_events\",\"cloudwatch_logs\",\"codebuild\",\"cognito\",\"collect_custom_metrics\",\"connect\",\"crawl_alarms\",\"directconnect\",\"dms\",\"documentdb\",\"dynamodb\",\"ebs\",\"ec2\",\"ec2api\",\"ec2spot\",\"ecs\",\"efs\",\"elasticache\",\"elasticbeanstalk\",\"elasticinference\",\"elastictranscoder\",\"elb\",\"emr\",\"es\",\"firehose\",\"gamelift\",\"glue\",\"inspector\",\"iot\",\"kinesis\",\"kinesis_analytics\",\"kms\",\"lambda\",\"lex\",\"mediaconnect\",\"mediaconvert\",\"mediapackage\",\"mediatailor\",\"ml\",\"mq\",\"msk\",\"nat_gateway\",\"neptune\",\"network_elb\",\"opsworks\",\"polly\",\"rds\",\"redshift\",\"rekognition\",\"route53\",\"route53resolver\",\"s3\",\"sagemaker\",\"ses\",\"shield\",\"sns\",\"sqs\",\"step_functions\",\"storage_gateway\",\"swf\",\"transitgateway\",\"translate\",\"trusted_advisor\",\"usage\",\"vpn\",\"waf\",\"wafv2\",\"workspaces\",\"xray\"]"
   }
 } ]

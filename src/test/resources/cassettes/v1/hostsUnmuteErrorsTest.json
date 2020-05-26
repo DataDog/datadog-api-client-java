@@ -1,16 +1,16 @@
 [ {
-  "id" : "0c01a922-3b9b-4ccd-bfeb-a154866bd977",
+  "id" : "da58c080-8896-4e03-831d-831dada68ede",
   "httpRequest" : {
     "method" : "POST",
-    "path" : "/api/v1/host/java-client-test-host-1587339060/unmute",
+    "path" : "/api/v1/host/java-hostsUnmuteErrorsTest-local-1590483434/unmute",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "unmuteHost" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "256" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
@@ -27,33 +27,34 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Sun, 19 Apr 2020 23:31:06 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:57:15 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "67" ],
+      "Content-Length" : [ "78" ],
       "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.2405092" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2544313" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
     },
-    "body" : "{\"errors\": [\"host:java-client-test-host-1587339060 is not muted.\"]}"
+    "body" : "{\"errors\": [\"host:java-hostsUnmuteErrorsTest-local-1590483434 is not muted.\"]}"
   }
 }, {
-  "id" : "e5ef80f4-8f92-43bc-ab63-7996dec0a618",
+  "id" : "d5621e70-7df4-4b96-82d2-8f27eb917f54",
   "httpRequest" : {
     "method" : "POST",
-    "path" : "/api/v1/host/java-client-test-host-1587339060/unmute",
+    "path" : "/api/v1/host/java-hostsUnmuteErrorsTest-local-1590483434/unmute",
     "headers" : {
       "Accept" : [ "application/json" ],
       "DD-OPERATION-ID" : [ "unmuteHost" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "256" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
@@ -70,12 +71,12 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Sun, 19 Apr 2020 23:31:11 GMT" ],
+      "Date" : [ "Tue, 26 May 2020 08:57:16 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
