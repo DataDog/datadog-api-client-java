@@ -1,10 +1,11 @@
-[ {
-  "id" : "fd4e2569-1738-4368-9406-6166252e4621",
+[{
+  "id" : "fc4211d8-9975-49d7-a5c9-ddc51e634cba",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/downtime/cancel/by_scope",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "downtimeCancelByScopeErrorsTest" ],
       "DD-OPERATION-ID" : [ "cancelDowntimesByScope" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -27,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 12:01:46 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:21:54 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "29" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -43,12 +44,13 @@
     "body" : "{\"errors\":[\"Expected scope\"]}"
   }
 }, {
-  "id" : "8dd4c538-a00f-4802-b55d-8829f766f43a",
+  "id" : "cbf01cd7-36b6-4f77-b953-ccb7dca7c2eb",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/downtime/cancel/by_scope",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "downtimeCancelByScopeErrorsTest" ],
       "DD-OPERATION-ID" : [ "cancelDowntimesByScope" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -71,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 12:01:46 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:21:55 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -81,12 +83,13 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "1383f3ff-4771-4058-92d0-f0afd67cedbd",
+  "id" : "b1ebea05-23a3-4ef7-af3c-1de75fe062b8",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/downtime/cancel/by_scope",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "downtimeCancelByScopeErrorsTest" ],
       "DD-OPERATION-ID" : [ "cancelDowntimesByScope" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -109,13 +112,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 12:01:47 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:21:55 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -125,4 +128,4 @@
     },
     "body" : "{\"errors\":[\"No downtimes found\"]}"
   }
-} ]
+}]

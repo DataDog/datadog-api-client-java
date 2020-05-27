@@ -1,10 +1,11 @@
-[ {
-  "id" : "390c6d51-6289-4f2b-b7c3-f4fe7979f0ff",
+[{
+  "id" : "6f5d0635-6aa5-4824-bd3a-f0b0ddbddb75",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/dashboard/lists/manual",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "dashboardListListErrorsTest" ],
       "DD-OPERATION-ID" : [ "listDashboardLists" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
@@ -22,7 +23,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:54:08 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:21:22 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -31,4 +32,4 @@
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
-} ]
+}]

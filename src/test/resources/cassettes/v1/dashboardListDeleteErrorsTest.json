@@ -1,10 +1,11 @@
-[ {
-  "id" : "387c20b2-4f79-4229-b349-532ebe06649b",
+[{
+  "id" : "237499d7-a664-4204-8917-3f0d38a62a8f",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/dashboard/lists/manual/1234",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "dashboardListDeleteErrorsTest" ],
       "DD-OPERATION-ID" : [ "deleteDashboardList" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -27,7 +28,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:53:41 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:20:59 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -37,12 +38,13 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "5557d7c6-e64f-46ba-a1ed-09518a0f24b4",
+  "id" : "ced75a9c-410d-4b4b-b6f4-d997b63ffb96",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/dashboard/lists/manual/1234",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "dashboardListDeleteErrorsTest" ],
       "DD-OPERATION-ID" : [ "getDashboardList" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
@@ -60,13 +62,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:53:42 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:21:00 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -76,4 +78,4 @@
     },
     "body" : "{\"errors\": [\"Manual Dashboard List with id 1234 not found\"]}"
   }
-} ]
+}]

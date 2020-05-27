@@ -1,10 +1,11 @@
-[ {
-  "id" : "49ff9791-716f-4882-a3d9-7b492bcdfd1d",
+[{
+  "id" : "1e148147-fedb-48ef-be67-e9171f0ea3de",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/logs/config/indexes/main",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "getLogsIndexTest" ],
       "DD-OPERATION-ID" : [ "getLogsIndex" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
@@ -22,20 +23,20 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:58:34 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:24:14 GMT" ],
       "Content-Type" : [ "application/json;charset=utf-8" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 08:58:34 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544313" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:24:14 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
       "X-RateLimit-Limit" : [ "5000" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "86" ],
+      "X-RateLimit-Reset" : [ "2146" ],
       "X-RateLimit-Remaining" : [ "4999" ],
       "Content-Disposition" : [ "inline" ],
-      "X-DD-Debug" : [ "NueLa2zkdBcl9S7BHrRuWyjAeR9iWgPFe330KTY6Cp0/yUhjUktbxu5rG2fG6gBk" ],
+      "X-DD-Debug" : [ "AVsav2jjRGvwjNvJeRUS7kJsgTlhh9y9smyL3UJVQTMAUoPyejdL0bVSnanIQLK4" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,4 +49,4 @@
     },
     "body" : "{\"name\":\"main\",\"filter\":{\"query\":\"\"},\"num_retention_days\":15,\"daily_limit\":200000000,\"is_rate_limited\":false,\"exclusion_filters\":[]}"
   }
-} ]
+}]

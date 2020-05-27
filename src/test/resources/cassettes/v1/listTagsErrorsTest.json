@@ -1,5 +1,5 @@
-[ {
-  "id" : "910eb482-e116-4f3a-be58-13b7296c0052",
+[{
+  "id" : "399b656c-eaf4-4fc2-bc6b-26128f3bc577",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/tags/hosts",
@@ -8,6 +8,7 @@
     },
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listTagsErrorsTest" ],
       "DD-OPERATION-ID" : [ "listHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
@@ -25,7 +26,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 09:05:05 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:28:04 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -35,7 +36,7 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "9e0296a7-60e6-424f-b101-b1935de1f097",
+  "id" : "98123bdc-f296-4a92-a4af-0dbe98f98ad1",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/tags/hosts",
@@ -44,6 +45,7 @@
     },
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listTagsErrorsTest" ],
       "DD-OPERATION-ID" : [ "listHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
@@ -61,13 +63,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 09:05:06 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:28:04 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -77,4 +79,4 @@
     },
     "body" : "{\"errors\": [\"Provided source does not exist\"]}"
   }
-} ]
+}]
