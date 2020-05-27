@@ -41,7 +41,6 @@ public class DowntimesApiTest extends V1ApiTest {
     private Long testingDowntimeStart;
 
     private final List<String> testingDowntimeScope = Arrays.asList("env:prod");
-    private final String testingDowntimeMessage = "Prod downtime";
     private final String testingDowntimeRecurrenceType = "weeks";
     private final Integer testingDowntimeRecurrencePeriod = 1;
     private final List<String> testingDowntimeRecurrenceWeekDays = Arrays.asList("Mon", "Tue");
@@ -79,6 +78,7 @@ public class DowntimesApiTest extends V1ApiTest {
      */
     @Test
     public void createModifyCancelDowntimeTest() throws ApiException {
+        String testingDowntimeMessage = getUniqueEntityName();
         DowntimeRecurrence recurrence = new DowntimeRecurrence()
             .type(testingDowntimeRecurrenceType)
             .period(testingDowntimeRecurrencePeriod)
@@ -110,11 +110,11 @@ public class DowntimesApiTest extends V1ApiTest {
         assertTrue(obtained.getUpdaterId_JsonNullable().isPresent());
 
         // test updating downtime
-        downtime.setMessage("New message");
+        downtime.setMessage(testingDowntimeMessage + "-updated");
         obtained = api.updateDowntime(downtimeId).body(downtime).execute();
 
         assertEquals(testingDowntimeScope, obtained.getScope());
-        assertEquals("New message", obtained.getMessage());
+        assertEquals(testingDowntimeMessage + "-updated", obtained.getMessage());
         assertEquals(testingDowntimeStart, obtained.getStart());
         assertNull(obtained.getCanceled());
         assertEquals(testingDowntimeRecurrenceType, obtained.getRecurrence().getType());
@@ -135,23 +135,26 @@ public class DowntimesApiTest extends V1ApiTest {
      */
     @Test
     public void listDowntimesTest() throws ApiException {
-        ArrayList<String> prefixes = new ArrayList<String>(Arrays.asList("1", "2", "3"));
-        for (String prefix: prefixes) {
+        String testingDowntimeMessage = getUniqueEntityName();
+        ArrayList<String> messages = new ArrayList<String>(
+                Arrays.asList(getUniqueEntityName("1"), getUniqueEntityName("2"), getUniqueEntityName("3"))
+        );
+        for (String message: messages) {
             Downtime downtime = new Downtime()
                 .scope(testingDowntimeScope)
-                .message(prefix + testingDowntimeMessage);
+                .message(message);
             Downtime created = api.createDowntime().body(downtime).execute();
             deleteDowntimes.add(created.getId());
         }
         List<Downtime> allDowntimes = api.listDowntimes().currentOnly(false).execute();
-        for (String prefix: prefixes) {
+        for (String message: messages) {
             boolean found = false;
             for (Downtime downtime: allDowntimes) {
-                if (downtime.getMessage() != null && downtime.getMessage().equals(prefix + testingDowntimeMessage)) {
+                if (downtime.getMessage() != null && downtime.getMessage().equals(message)) {
                     found = true;
                 }
             }
-            assertTrue(String.format("Downtime %s%s not found", prefix, testingDowntimeMessage), found);
+            assertTrue(String.format("Downtime %s not found", name, testingDowntimeMessage), found);
         }
     }
 
@@ -160,13 +163,16 @@ public class DowntimesApiTest extends V1ApiTest {
      */
     @Test
     public void cancelDowntimesByScopeTest() throws ApiException {
-        List<String> prefixes = Arrays.asList("1", "2", "3");
+        String testingDowntimeMessage = getUniqueEntityName();
+        ArrayList<String> messages = new ArrayList<String>(
+                Arrays.asList(getUniqueEntityName("1"), getUniqueEntityName("2"), getUniqueEntityName("3"))
+        );
         List<String> differentScope = Arrays.asList("env:stage");
-        for (String prefix: prefixes) {
+        for (String message: messages) {
             // number 3 is going to have a different scope
             Downtime downtime = new Downtime()
-                .scope(prefix == "3" ? differentScope : testingDowntimeScope)
-                .message(prefix + testingDowntimeMessage);
+                .scope(message.equals(messages.get(2)) ? differentScope : testingDowntimeScope)
+                .message(message);
             Downtime created = api.createDowntime().body(downtime).execute();
             deleteDowntimes.add(created.getId());
         }
@@ -176,22 +182,22 @@ public class DowntimesApiTest extends V1ApiTest {
 
         // verify that downtimes 1 and 2 are canceled
         List<Downtime> allDowntimes = api.listDowntimes().currentOnly(false).execute();
-        for (String prefix: prefixes) {
+        for (String message: messages) {
             boolean found = false;
             for (Downtime downtime: allDowntimes) {
-                if (downtime.getMessage() != null && downtime.getMessage().equals(prefix + testingDowntimeMessage)) {
+                if (downtime.getMessage() != null && downtime.getMessage().equals(message)) {
                     found = true;
-                    if (prefix == "3") {
+                    if (message.equals(messages.get(2))) {
                         assertNull(downtime.getCanceled());
                     } else {
                         assertNotNull(downtime.getCanceled());
                     }
                 }
             }
-            if (prefix == "3") {
-                assertTrue(String.format("Downtime %s%s not found", prefix, testingDowntimeMessage), found);
+            if (message.equals(messages.get(2))) {
+                assertTrue(String.format("Downtime %s not found", name), found);
             } else {
-                assertFalse(String.format("Downtime %s%s found, but it should have been canceled", prefix, testingDowntimeMessage), found);
+                assertFalse(String.format("Downtime %s found, but it should have been canceled", name), found);
             }
         }
     }

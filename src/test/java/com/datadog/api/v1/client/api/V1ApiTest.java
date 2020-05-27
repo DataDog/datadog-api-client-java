@@ -15,6 +15,7 @@ import com.datadog.api.v1.client.ApiResponse;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -125,6 +126,13 @@ public abstract class V1ApiTest extends TestUtils.APITest {
                 .withHeader("Content-Type", "application/json")
                 .withBody(TestUtils.getFixture(fixturePath)));
         return stub;
+    }
+
+    @Before
+    public void setTestNameHeader() {
+        // these headers help mockserver properly identify the request in the huge all-in-one cassette
+        generalApiClient.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
+        generalFakeAuthApiClient.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
     }
 
     public void beginStub(MappingBuilder stub) {

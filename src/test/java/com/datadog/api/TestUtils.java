@@ -6,6 +6,10 @@
 
 package com.datadog.api;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
@@ -27,7 +31,7 @@ import org.mockserver.model.Parameter;
 import org.mockserver.socket.tls.KeyStoreFactory;
 
 import javax.net.ssl.HttpsURLConnection;
-import java.io.IOException;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -124,10 +128,10 @@ public class TestUtils {
     }
 
     public static class APITest {
-
         protected static final String TEST_API_KEY_NAME = "DD_TEST_CLIENT_API_KEY";
         protected static final String TEST_APP_KEY_NAME = "DD_TEST_CLIENT_APP_KEY";
 
+        protected static final String cassettesDir = "src/test/resources/cassettes";
         protected static String version = "v1";
 
         protected static String TEST_API_KEY;
@@ -136,9 +140,72 @@ public class TestUtils {
         public WireMockRule wireMockRule = new WireMockRule();
         @Rule
         public TestName name = new TestName();
-        public ClientAndServer mockServer;
+        public static ClientAndServer mockServer;
         protected Clock clock;
         protected OffsetDateTime now;
+
+        /**
+         * Combines all cassettes into a single huge one.
+         *
+         * Note that this is aided by the "JAVA-TEST-NAME" headers that help mockserver distinguish
+         * calls to the same endpoint from different methods.
+         *
+         * @return Path to the combined cassette
+         */
+        private static Path createCombinedCassette() throws IOException {
+            File cassettesDir = new File(APITest.cassettesDir);
+            File[] cassettesVersionsDirs = cassettesDir.listFiles();
+            List<File> allCassettes = new ArrayList<>();
+            FilenameFilter filter = (dir, name) -> name.endsWith(".json");
+            for (File d: cassettesVersionsDirs) {
+                if (d.isDirectory()) {
+                    for (File c: d.listFiles(filter)) {
+                        if (c.length() > 0) { // exclude empty cassettes
+                            allCassettes.add(c);
+                        }
+                    }
+                }
+            }
+            ObjectMapper om = new ObjectMapper();
+            om.enable(SerializationFeature.INDENT_OUTPUT);
+            List<Object> allRecords = new ArrayList<>();
+            for (File c: allCassettes) {
+                allRecords.addAll(om.readValue(c, List.class));
+            }
+            File humongousCassette = null;
+            humongousCassette = File.createTempFile("datadog-api-client-java-cassette-", ".json");
+            humongousCassette.deleteOnExit();
+            om.writeValue(humongousCassette, allRecords);
+            return humongousCassette.toPath();
+        }
+
+        private static void setupMockServer() {
+            // Mockserver uses a connection pool with keepAlive connections to talk to the API.
+            // It seems that there are circumstances under which a reused connection freezes
+            // forever. We temporarily workaround this by making all connections closing
+            // instead of keepAlive, until we figure out where the problem really is.
+            System.setProperty("http.keepAlive", "false");
+            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+                return;
+            }
+            if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+                try {
+                    ConfigurationProperties.initializationJsonPath(createCombinedCassette().toString());
+                } catch (IOException e) {
+                    System.err.println("Failed creating combined cassette:");
+                    System.err.println(e);
+                    System.exit(1);
+                }
+            }
+            mockServer = startClientAndServer(MOCKSERVER_PORT);
+        }
+
+        static {
+            // to have mockserver initialized only once before running all tests, we use
+            // a static block - we put all cassettes into one huge file and create mockserver
+            // instance using that file (when replaying)
+            setupMockServer();
+        }
 
         @BeforeClass
         public static void trustProxyCerts() {
@@ -176,24 +243,6 @@ public class TestUtils {
         }
 
         @Before
-        public void setupMockServer() {
-            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
-                return;
-            }
-            if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
-                ConfigurationProperties.persistExpectations(true);
-                ConfigurationProperties.persistedExpectationsPath(
-                        Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".json").toString()
-                );
-            } else {
-                ConfigurationProperties.initializationJsonPath(
-                        Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".json").toString()
-                );
-            }
-            mockServer = startClientAndServer(MOCKSERVER_PORT);
-        }
-
-        @Before
         public void setupClock() throws IOException {
             if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 now = OffsetDateTime.now();
@@ -223,10 +272,10 @@ public class TestUtils {
         }
 
         @After
-        public void cleanAndSendExpectations() {
+        public void cleanAndSendExpectations() throws IOException {
             // Cleanup the recorded requests from sensitive information (API keys in headers and query params),
-            // create the associated expectations and send them to mockserver to save them on disk in the `cassettes/**/*.json` files
-            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            // create the associated expectations and save them to disk in the `cassettes/**/*.json` files
+            if (isIbmJdk() || !getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
                 return;
             }
             List<Expectation> expectations = new ArrayList<>();
@@ -258,13 +307,64 @@ public class TestUtils {
                 req.withQueryStringParameters(cleanParams);
                 expectations.add(Expectation.when(req, Times.once(), TimeToLive.unlimited()).thenRespond(requestAndResponse.getHttpResponse()));
             }
-            mockServer.sendExpectation(expectations.toArray(new Expectation[0]));
-            mockServer.stop();
+
+            // write the cassette
+            File cassette = new File(Paths.get(APITest.cassettesDir, version, name.getMethodName() + ".json").toString());
+            cassette.mkdirs();
+            if (!cassette.exists()) {
+                cassette.createNewFile();
+            }
+            PrintWriter w = new PrintWriter(cassette.getPath());
+            w.print(expectations.toString());
+            w.close();
+            mockServer.reset();
         }
 
         @After
         public void resetWiremock() {
             reset();
+        }
+
+        /**
+         * Returns a unique string that can be used as a title/description/summary/... of an API entity.
+         * When used in Azure Pipelines and RECORD=true or RECORD=none, it will include BuildId to enable
+         * mapping resources that weren't deleted to builds.
+         *
+         * @return unique entity name to use in tests
+         */
+        public String getUniqueEntityName() {
+            String buildId = System.getenv("BUILD_BUILDID");
+            if (buildId == null || !System.getenv("CI").equals("true") || getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+                buildId = "local";
+            }
+
+            // NOTE: some endpoints have limits on certain fields (e.g. Roles V2 names can only be 55 chars long),
+            // so we need to keep this short
+            String result = String.format("java-%s-%s-%d", name.getMethodName(), buildId, now.toEpochSecond());
+            // In case this is used in URL, make sure we replace potential slash
+            return result;
+        }
+
+        /**
+         * Same as getUniqueEntityName, except it crops the returned result to a given length if it's longer.
+         *
+         * @return unique entity name to use in tests with maximum `maxLen` characters
+         */
+        public String getUniqueEntityName(int maxLen) {
+            String result = getUniqueEntityName();
+            if (result.length() > maxLen) {
+                result = result.substring(0, maxLen);
+            }
+            return result;
+        }
+
+        /*
+         * Same as getUniqueEntityName, except it attaches the given suffix to the end of the unique string.
+         *
+         * @return unique entity name to use in tests with a given suffix attached
+         */
+        public String getUniqueEntityName(String suffix) {
+            return String.format("%s-%s", getUniqueEntityName(), suffix);
         }
     }
 }

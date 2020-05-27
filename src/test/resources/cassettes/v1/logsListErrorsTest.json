@@ -1,20 +1,21 @@
-[ {
-  "id" : "eeadd7b5-00e5-47aa-b5de-113fee48c86f",
+[{
+  "id" : "186ffb22-c2f7-42da-8c8a-df3c12e0cb0c",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/logs-queries/list",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "logsListErrorsTest" ],
       "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "109" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"query\":null,\"startAt\":\"notanid\",\"time\":{\"from\":\"2020-04-20T14:48:13.239Z\",\"to\":\"2020-04-20T15:48:13.239Z\"}}"
+      "json" : "{\"query\":null,\"startAt\":\"notanid\",\"time\":{\"from\":\"2020-05-27T09:23:51.458Z\",\"to\":\"2020-05-27T10:23:51.458Z\"}}"
     }
   },
   "times" : {
@@ -27,41 +28,43 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 20 Apr 2020 15:48:24 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:23:52 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "75" ],
       "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-limit" : [ "300" ],
-      "x-ratelimit-period" : [ "3600" ],
-      "x-ratelimit-reset" : [ "696" ],
-      "x-ratelimit-remaining" : [ "279" ],
-      "x-dd-version" : [ "35.2411420" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-RateLimit-Limit" : [ "300" ],
+      "X-RateLimit-Period" : [ "3600" ],
+      "X-RateLimit-Reset" : [ "2169" ],
+      "X-RateLimit-Remaining" : [ "299" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "DD-POOL" : [ "dogweb_query" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
     },
     "body" : "{\"error\":{\"code\":\"InvalidArgument\",\"message\":\"Invalid event id 'notanid'\"}}"
   }
 }, {
-  "id" : "3d48ba8b-07f3-4af9-8e9b-45ed6022c0e7",
+  "id" : "dca3dfbe-a763-4753-a1ae-6bd3247bdbe4",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/logs-queries/list",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "logsListErrorsTest" ],
       "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "Content-Length" : [ "109" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"query\":null,\"startAt\":\"notanid\",\"time\":{\"from\":\"2020-04-20T14:48:13.239Z\",\"to\":\"2020-04-20T15:48:13.239Z\"}}"
+      "json" : "{\"query\":null,\"startAt\":\"notanid\",\"time\":{\"from\":\"2020-05-27T09:23:51.458Z\",\"to\":\"2020-05-27T10:23:51.458Z\"}}"
     }
   },
   "times" : {
@@ -74,13 +77,13 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 20 Apr 2020 15:48:30 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:23:52 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
-} ]
+}]

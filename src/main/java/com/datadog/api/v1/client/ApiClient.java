@@ -52,7 +52,6 @@ import java.util.regex.Pattern;
 import com.datadog.api.v1.client.auth.Authentication;
 import com.datadog.api.v1.client.auth.HttpBasicAuth;
 import com.datadog.api.v1.client.auth.HttpBearerAuth;
-import com.datadog.api.v1.client.auth.HttpSignatureAuth;
 import com.datadog.api.v1.client.auth.ApiKeyAuth;
 import com.datadog.api.v1.client.model.AbstractOpenApiSchema;
 
@@ -174,7 +173,19 @@ public class ApiClient {
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
+  /**
+   * Constructs a new ApiClient with default parameters.
+   */
   public ApiClient() {
+    this(null);
+  }
+
+  /**
+   * Constructs a new ApiClient with the specified authentication parameters.
+   *
+   * @param authMap A hash map containing authentication parameters.
+   */
+  public ApiClient(Map<String, Authentication> authMap) {
     json = new JSON();
     httpClient = buildHttpClient(debugging);
 
@@ -185,10 +196,39 @@ public class ApiClient {
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
-    authentications.put("apiKeyAuth", new ApiKeyAuth("header", "DD-API-KEY"));
-    authentications.put("apiKeyAuthQuery", new ApiKeyAuth("query", "api_key"));
-    authentications.put("appKeyAuth", new ApiKeyAuth("header", "DD-APPLICATION-KEY"));
-    authentications.put("appKeyAuthQuery", new ApiKeyAuth("query", "application_key"));
+    Authentication auth = null;
+    if (authMap != null) {
+      auth = authMap.get("apiKeyAuth");
+    }
+    if (auth instanceof ApiKeyAuth) {
+      authentications.put("apiKeyAuth", auth);
+    } else {
+      authentications.put("apiKeyAuth", new ApiKeyAuth("header", "DD-API-KEY"));
+    }
+    if (authMap != null) {
+      auth = authMap.get("apiKeyAuthQuery");
+    }
+    if (auth instanceof ApiKeyAuth) {
+      authentications.put("apiKeyAuthQuery", auth);
+    } else {
+      authentications.put("apiKeyAuthQuery", new ApiKeyAuth("query", "api_key"));
+    }
+    if (authMap != null) {
+      auth = authMap.get("appKeyAuth");
+    }
+    if (auth instanceof ApiKeyAuth) {
+      authentications.put("appKeyAuth", auth);
+    } else {
+      authentications.put("appKeyAuth", new ApiKeyAuth("header", "DD-APPLICATION-KEY"));
+    }
+    if (authMap != null) {
+      auth = authMap.get("appKeyAuthQuery");
+    }
+    if (auth instanceof ApiKeyAuth) {
+      authentications.put("appKeyAuthQuery", auth);
+    } else {
+      authentications.put("appKeyAuthQuery", new ApiKeyAuth("query", "application_key"));
+    }
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 

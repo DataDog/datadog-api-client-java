@@ -105,150 +105,198 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
 
             int match = 0;
             Object deserialized = null;
+            // deserialize AlertGraphWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertGraphWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize AlertValueWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertValueWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize ChangeWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ChangeWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize CheckStatusWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckStatusWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize DistributionWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(DistributionWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize EventStreamWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(EventStreamWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize EventTimelineWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(EventTimelineWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize FreeTextWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(FreeTextWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize GroupWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(GroupWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize HeatMapWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(HeatMapWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize HostMapWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(HostMapWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize IFrameWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(IFrameWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize ImageWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ImageWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogStreamWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogStreamWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize MonitorSummaryWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(MonitorSummaryWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize NoteWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(NoteWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize QueryValueWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(QueryValueWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize SLOWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(SLOWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize ScatterPlotWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ScatterPlotWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize ServiceMapWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceMapWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize ServiceSummaryWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceSummaryWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize TableWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(TableWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize TimeseriesWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeseriesWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize ToplistWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ToplistWidgetDefinition.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
             if (match == 1) {
                 WidgetDefinition ret = new WidgetDefinition();
                 ret.setActualInstance(deserialized);
@@ -269,94 +317,117 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(AlertValueWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(ChangeWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(CheckStatusWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(DistributionWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(EventStreamWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(EventTimelineWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(FreeTextWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(GroupWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(HeatMapWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(HostMapWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(IFrameWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(ImageWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(LogStreamWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(MonitorSummaryWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(NoteWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(QueryValueWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(SLOWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(ScatterPlotWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(ServiceMapWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(ServiceSummaryWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(TableWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(TimeseriesWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public WidgetDefinition(ToplistWidgetDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
