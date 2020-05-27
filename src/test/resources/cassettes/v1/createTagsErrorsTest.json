@@ -1,10 +1,11 @@
-[ {
-  "id" : "9d0fc259-2fdf-40d7-be1e-a581f95dfcfb",
+[{
+  "id" : "26ce5ee4-8277-4d4d-ba68-91d28d96c176",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/tags/hosts/notahostname1234",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "createTagsErrorsTest" ],
       "DD-OPERATION-ID" : [ "createHostTags" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -27,7 +28,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 09:04:59 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:28:01 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -37,12 +38,13 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "fd38955f-4c9e-4bf1-bbaa-65f94bc301a7",
+  "id" : "945d8e08-33a4-40f2-82f9-42f05968c820",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/tags/hosts/notahostname1234",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "createTagsErrorsTest" ],
       "DD-OPERATION-ID" : [ "createHostTags" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -65,13 +67,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 09:05:00 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:28:02 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -81,4 +83,4 @@
     },
     "body" : "{\"errors\": [\"No host matches that host_id\"]}"
   }
-} ]
+}]

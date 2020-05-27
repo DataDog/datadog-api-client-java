@@ -1,10 +1,11 @@
-[ {
-  "id" : "aa9952d9-c30e-4b7d-9886-8125a210efc3",
+[{
+  "id" : "03f51785-2829-432e-8496-dd9da623108f",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/azure",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "createAzureIntegrationErrorsTest" ],
       "DD-OPERATION-ID" : [ "createAzureIntegration" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -27,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:53:01 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:20:30 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "59" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2544313" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -43,12 +44,13 @@
     "body" : "{\"errors\": [\"Required parameter 'tenant_name' is missing\"]}"
   }
 }, {
-  "id" : "1ef14c9a-52c1-49d8-8cb8-d21a2cef6baa",
+  "id" : "032acdc5-c1dc-47a1-8dad-197094608e07",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/azure",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "createAzureIntegrationErrorsTest" ],
       "DD-OPERATION-ID" : [ "createAzureIntegration" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -71,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:53:01 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:20:31 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -81,12 +83,13 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "d093deb0-9d91-40c1-8df0-70d19e032cb2",
+  "id" : "b6b29b37-a2a0-4f52-b116-e5900e23a2b5",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/azure",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "createAzureIntegrationErrorsTest" ],
       "DD-OPERATION-ID" : [ "deleteAzureIntegration" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -96,7 +99,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"client_id\":\"javatest-1234-5678-9101-3fcbf464test\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"tenant_name\":\"java-createAzureIntegrationErrorsTest-local-1590483179\"}"
+      "json" : "{\"client_id\":\"javatest-1234-5678-9101-3fcbf464test\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"tenant_name\":\"java-createAzureIntegrationErrorsTest-local-1590574830\"}"
     }
   },
   "times" : {
@@ -109,15 +112,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:53:02 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:20:32 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 08:53:02 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544313" ],
-      "X-DD-Debug" : [ "4HTfT92VNwJOKM3+9Fghpi7RnKwXOMM9XiE8bZkwhVPDb5jbW4knJKZPCpE1XUb8" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:20:32 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "hlZGwPPL87Cire+2SDWJrcKtg5ChXKBaVFmtHdrZS+BoDfdo10256wfXrEDRUv8c" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -130,12 +133,13 @@
     "body" : "{}"
   }
 }, {
-  "id" : "66123934-9252-47ad-9070-34c4a14a00b8",
+  "id" : "c09f095f-ea0e-47c7-a4c6-4fca44dd4d20",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/azure",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "createAzureIntegrationErrorsTest" ],
       "DD-OPERATION-ID" : [ "deleteAzureIntegration" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -158,15 +162,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 08:53:02 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:20:32 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 08:53:02 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544313" ],
-      "X-DD-Debug" : [ "fGPsEOteKPqWrypJlOWIRpMZD2l0VjpTiFY5o5e56+jFb+ShdPzcenDH6s8Ah62s" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:20:32 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "KKdI9UAf8fC5q7osIllxNui0A1CUm45w7mZBz+tu6Vlp/ga+Q6ZXvY0JoJlUBVi+" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -178,4 +182,4 @@
     },
     "body" : "{}"
   }
-} ]
+}]

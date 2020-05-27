@@ -1,10 +1,11 @@
-[ {
-  "id" : "42adfd22-e0a8-4785-8321-73a6b84b2169",
+[{
+  "id" : "26418312-127b-4381-a435-d7f0f98259fe",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -14,7 +15,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-0\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_0\"}"
+      "json" : "{\"account_id\":\"java_47576-0\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_0\"}"
     }
   },
   "times" : {
@@ -27,15 +28,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:02 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:19 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:01 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "FiLv+OaMPfXL1uddbn+9yDPMV5awac1EEhAgzXF2ZG6GNVh7KFUCM+HhGv6IDSg0" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:18 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "cQFL4MaIw90DmTTH7z4Gqhr8PBtz47vyzddN9k7nXjUK2yrLiBjbdIgydUT8r1ut" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -46,15 +47,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"external_id\":\"6b7c1e20d50b4665956f4557e221ca53\"}"
+    "body" : "{\"external_id\":\"3dc2de607e02451ea95df22997560476\"}"
   }
 }, {
-  "id" : "7755fa50-b349-4d85-89ba-61bd5f52a156",
+  "id" : "bf5ccc83-950e-4806-ad3f-f45181c2d5cf",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -64,7 +66,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-1\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_1\"}"
+      "json" : "{\"account_id\":\"java_47576-1\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_1\"}"
     }
   },
   "times" : {
@@ -77,15 +79,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:04 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:20 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:03 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "EbXB0e7cF4uDRViRvI+w6qPg1YzykoJqZiw5SbqL/81VRQW4a286h09eTGyIVvXJ" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:19 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "bZxgHnChon9vZm5xdRa4NrQAYSVWc7iQc54D228L4geTT/U2FwMh0nkSo8j+6vpL" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -96,15 +98,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"external_id\":\"c3abdd82e0454ebc81ba7a78356fb92a\"}"
+    "body" : "{\"external_id\":\"ec887eb83b41480ea5f84564e6b3ff3a\"}"
   }
 }, {
-  "id" : "5d516fcb-4b52-45c5-952b-b0fc6cdf5dac",
+  "id" : "424f1ab9-4906-4da0-9f8c-0fa814c985fa",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -114,7 +117,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-2\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_2\"}"
+      "json" : "{\"account_id\":\"java_47576-2\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_2\"}"
     }
   },
   "times" : {
@@ -127,15 +130,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:06 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:23 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:05 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "rpB/2GMZHvzTHZxhwmnNa1XnSQuif7FV+gIndoDc8IvUeRNb65r4x+P7Djp1119C" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:21 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "gCSZ7BDMU1GjNFaR6hO6ZgwcgG3iOVugDLAlbR+YVBEuMFHhC330JIFkvjLveHm3" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -146,15 +149,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"external_id\":\"c8e2ded1eaae405ea82a8014f84bc055\"}"
+    "body" : "{\"external_id\":\"dffd2a16b63d43b0b80e81262f6b03d6\"}"
   }
 }, {
-  "id" : "b989a397-d20c-4072-9f98-320923bfef9f",
+  "id" : "e6e878e1-ff55-47ce-b8c6-0dca8cf06959",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -164,7 +168,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-3\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_3\"}"
+      "json" : "{\"account_id\":\"java_47576-3\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_3\"}"
     }
   },
   "times" : {
@@ -177,15 +181,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:07 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:24 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:06 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "yL2jMz/muX5URjcdpTHzlehf0qi0hyVxH7uShvIhWEeYrIRwdt0CU/7wzCTakK6N" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:23 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "QaEGvF++JqTbTiFomKhE21Fdnra2zinKOaCEqOgwcd7OtJatRLgvovBbCNyGqcpO" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -196,15 +200,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"external_id\":\"ba71f65ce43a40db817a9ef58ef79ca2\"}"
+    "body" : "{\"external_id\":\"ae920864f777408487363e6a76e81039\"}"
   }
 }, {
-  "id" : "3127d13c-fbd7-4aa0-9c3a-c5da6cf84f0c",
+  "id" : "7c550e6c-413d-4ff3-b758-6d89cd9002f3",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -214,7 +219,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-4\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_4\"}"
+      "json" : "{\"account_id\":\"java_47576-4\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_4\"}"
     }
   },
   "times" : {
@@ -227,15 +232,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:09 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:26 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:08 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "qA85Kiicwd/s93AfT3MSf+l6IYc5FQ6tEbp4Kft/ri41UOumJ967MPQKmz3gwejd" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:25 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "SxoanfhUZNcxsD3lnA3j+up2jAgZV05RpnWjR/qtgMkjy5UIlkbs0WqFT6yaBwwR" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -246,15 +251,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"external_id\":\"67faf201c2464d33b31ea532cfdba957\"}"
+    "body" : "{\"external_id\":\"c399913ea6034c72b227e637d65dd224\"}"
   }
 }, {
-  "id" : "9abad5a0-6a92-448f-9e01-b4339dfb6fdf",
+  "id" : "8e2e53a8-0e05-40a2-8a94-bf1cabc37be0",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "listAWSAccounts" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
@@ -272,34 +278,35 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:10 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:27 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:10 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "5gIeAyE850e1lqVwTAgwvudewR8EzuQd3qGaXsS2D0CKQVhFOIjBoeQYiH0qPohy" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:27 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "3OCRM/4FZbkllI4iloi1acHDABD1SJi2aj2fysEPLLsOVOk5Ki6mi6IOsVG7JIay" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "3165" ]
+      "content-length" : [ "3715" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"accounts\":[{\"role_name\":\"DatadogAWSIntegrationRole\",\"excluded_regions\":[\"us-east-1\",\"us-west-1\"],\"account_id\":\"go_010473761\",\"host_tags\":[\"filter:one\",\"filtertwo\"],\"account_specific_namespace_rules\":{\"opsworks\":true},\"errors\":[],\"filter_tags\":[\"testTag\",\"test:Tag2\"]},{\"role_name\":\"DatadogAWSIntegrationRole\",\"excluded_regions\":[],\"account_id\":\"java_6240306\",\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"account_specific_namespace_rules\":{\"api_gateway\":true},\"errors\":[],\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"]},{\"role_name\":\"java_testRoleName\",\"excluded_regions\":[],\"account_id\":\"java_4910345\",\"host_tags\":[],\"account_specific_namespace_rules\":{},\"errors\":[],\"filter_tags\":[]},{\"role_name\":\"Java Client Role Name_4\",\"excluded_regions\":[],\"account_id\":\"java_5121357\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_4\",\"excluded_regions\":[],\"account_id\":\"java_4525279\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"java_testRoleName\",\"excluded_regions\":[],\"account_id\":\"java_5775509\",\"host_tags\":[],\"account_specific_namespace_rules\":{},\"errors\":[],\"filter_tags\":[]},{\"role_name\":\"Java Client Role Name_0\",\"excluded_regions\":[],\"account_id\":\"java_7843201\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"java_testRoleName\",\"excluded_regions\":[],\"account_id\":\"java-updateAWSAccountTest-local-1590136585\",\"host_tags\":[],\"account_specific_namespace_rules\":{},\"errors\":[],\"filter_tags\":[]},{\"role_name\":\"Java Client Role Name_0\",\"excluded_regions\":[],\"account_id\":\"java_40410-0\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_1\",\"excluded_regions\":[],\"account_id\":\"java_40410-1\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_2\",\"excluded_regions\":[],\"account_id\":\"java_40410-2\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_3\",\"excluded_regions\":[],\"account_id\":\"java_40410-3\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_4\",\"excluded_regions\":[],\"account_id\":\"java_40410-4\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]}]}"
+    "body" : "{\"accounts\":[{\"role_name\":\"DatadogAWSIntegrationRole\",\"excluded_regions\":[\"us-east-1\",\"us-west-1\"],\"account_id\":\"go_010473761\",\"host_tags\":[\"filter:one\",\"filtertwo\"],\"account_specific_namespace_rules\":{\"opsworks\":true},\"errors\":[],\"filter_tags\":[\"testTag\",\"test:Tag2\"]},{\"role_name\":\"DatadogAWSIntegrationRole\",\"excluded_regions\":[],\"account_id\":\"java_6240306\",\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"account_specific_namespace_rules\":{\"api_gateway\":true},\"errors\":[],\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"]},{\"role_name\":\"java_testRoleName\",\"excluded_regions\":[],\"account_id\":\"java_4910345\",\"host_tags\":[],\"account_specific_namespace_rules\":{},\"errors\":[],\"filter_tags\":[]},{\"role_name\":\"Java Client Role Name_4\",\"excluded_regions\":[],\"account_id\":\"java_5121357\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_4\",\"excluded_regions\":[],\"account_id\":\"java_4525279\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"java_testRoleName\",\"excluded_regions\":[],\"account_id\":\"java_5775509\",\"host_tags\":[],\"account_specific_namespace_rules\":{},\"errors\":[],\"filter_tags\":[]},{\"role_name\":\"Java Client Role Name_0\",\"excluded_regions\":[],\"account_id\":\"java_7843201\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"java_testRoleName\",\"excluded_regions\":[],\"account_id\":\"java-updateAWSAccountTest-local-1590136585\",\"host_tags\":[],\"account_specific_namespace_rules\":{},\"errors\":[],\"filter_tags\":[]},{\"role_name\":\"java-aWSLogsCheckLambdaAsyncTest-16552-1590496004\",\"excluded_regions\":[],\"account_id\":\"java_6004548\",\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"account_specific_namespace_rules\":{\"api_gateway\":true},\"errors\":[],\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_0\",\"excluded_regions\":[],\"account_id\":\"java_47576-0\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_1\",\"excluded_regions\":[],\"account_id\":\"java_47576-1\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_2\",\"excluded_regions\":[],\"account_id\":\"java_47576-2\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_3\",\"excluded_regions\":[],\"account_id\":\"java_47576-3\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]},{\"role_name\":\"Java Client Role Name_4\",\"excluded_regions\":[],\"account_id\":\"java_47576-4\",\"host_tags\":[\"java_test_tag:value\"],\"account_specific_namespace_rules\":{\"api_gateway\":false},\"errors\":[],\"filter_tags\":[\"dontCollect:java\"]}]}"
   }
 }, {
-  "id" : "58aea069-3401-4342-9dcc-6108da0d1112",
+  "id" : "4ca280ad-2a17-478c-a28e-2e8f29d4dd86",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -309,7 +316,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-0\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_0\"}"
+      "json" : "{\"account_id\":\"java_47576-0\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_0\"}"
     }
   },
   "times" : {
@@ -322,15 +329,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:12 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:28 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:11 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "3GTZ6ImnvkiMOuKTP2ILv/2CbQJLb5wTjyX1KOTCD/aaxDS+HyYye1EH1uVK9Ajh" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:27 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "Wn01ZjXucAfzJfwvKAkpy0yFfNtHyWu4ZB2aA4ZDwwhXkyLHirYeUNsx208dZz9p" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -343,12 +350,13 @@
     "body" : "{}"
   }
 }, {
-  "id" : "d19763da-e1de-4d34-8fc3-37b7f982aedc",
+  "id" : "983e6e90-0bf9-465b-b4db-4db45454273a",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -358,7 +366,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-1\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_1\"}"
+      "json" : "{\"account_id\":\"java_47576-1\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_1\"}"
     }
   },
   "times" : {
@@ -371,15 +379,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:14 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:30 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:13 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "btzHvL7Rg/f/n1wMP2CFVXsuErrwOO9p2hvsBofLQbxzRkmZbfvXcB18pURNtIOI" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:29 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "Z91NUpPIZnIQ9h7lBFWBkEPGVUEsn4/i71imPPwrChu4RPI5uNM5HGuodISK1HBR" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -392,12 +400,13 @@
     "body" : "{}"
   }
 }, {
-  "id" : "ead5b9f2-3e51-4be5-a76e-e9a26c465e20",
+  "id" : "9e1dc4f4-f264-45b3-9bf3-0320e6053bd2",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -407,7 +416,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-2\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_2\"}"
+      "json" : "{\"account_id\":\"java_47576-2\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_2\"}"
     }
   },
   "times" : {
@@ -420,15 +429,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:15 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:32 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:14 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "5gIeAyE850e1lqVwTAgwvudewR8EzuQd3qGaXsS2D0CKQVhFOIjBoeQYiH0qPohy" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:31 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "Xj/PwLDKe3Ll1QwGP2SdQuyUcOtG0YD60hQDJ9tPEhK9OEMHkSCPXdZRvPX0YYGO" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -441,12 +450,13 @@
     "body" : "{}"
   }
 }, {
-  "id" : "238077d1-5b7f-48b1-92ca-cbc421bc4f8c",
+  "id" : "4d836944-ff23-494b-8ddc-fa49159047e9",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -456,7 +466,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-3\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_3\"}"
+      "json" : "{\"account_id\":\"java_47576-3\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_3\"}"
     }
   },
   "times" : {
@@ -469,15 +479,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:16 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:33 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:15 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "FAXIqEyJyWWDyUDKgR+Td75IkfWeu40aSEpg9NtrH84gUkIxi84nk9RHrJt3rVD3" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:32 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "9KqlMq3gTLpkJSVJyvAwXe8+x8jjzLiadKiJ+urXt2iPIG7RDD8GegNJYYpRqZOo" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -490,12 +500,13 @@
     "body" : "{}"
   }
 }, {
-  "id" : "bcb846d7-f3c7-445d-aa17-0526e33ab069",
+  "id" : "d4612b2e-bfc3-4bec-a945-ebace5bcc097",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listAWSAccountsTest" ],
       "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -505,7 +516,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_40410-4\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_4\"}"
+      "json" : "{\"account_id\":\"java_47576-4\",\"account_specific_namespace_rules\":{\"api_gateway\":false},\"filter_tags\":[\"dontCollect:java\"],\"host_tags\":[\"java_test_tag:value\"],\"role_name\":\"Java Client Role Name_4\"}"
     }
   },
   "times" : {
@@ -518,15 +529,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 26 May 2020 11:54:18 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:19:36 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 02-Jun-2020 11:54:17 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2544952" ],
-      "X-DD-Debug" : [ "+24qoGfe5Pp4qbS1m8KO9qioq2P4fxuj80XQhtr/9vInDLECmYZT0VSsbqISZgqC" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:34 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-Debug" : [ "l+fZq7vW9gg1qInAzXkJZdt8f8e/094RDnN9pOEIlkXbx1jb6kpjgt1+syYCZyFC" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -538,4 +549,4 @@
     },
     "body" : "{}"
   }
-} ]
+}]

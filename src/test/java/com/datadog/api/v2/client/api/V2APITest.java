@@ -12,6 +12,7 @@ import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+import org.junit.Before;
 import org.junit.BeforeClass;
 
 import java.util.HashMap;
@@ -66,5 +67,11 @@ public abstract class V2APITest extends TestUtils.APITest {
     @BeforeClass
     public static void setVersion() {
         version = "v2";
+    }
+
+    @Before
+    public void setTestNameHeader() {
+        // these headers help mockserver properly identify the request in the huge all-in-one cassette
+        generalApiClient.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
     }
 }
