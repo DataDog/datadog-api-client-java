@@ -55,7 +55,7 @@ public class SyntheticsApi {
   }
 
 
-private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTestDetails body, String fromTestId) throws ApiException {
+private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTestDetails body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'body' is set
@@ -72,7 +72,6 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_test_id", fromTestId));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createTest");
@@ -101,7 +100,6 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
 
   public class APIcreateTestRequest {
     private SyntheticsTestDetails body;
-    private String fromTestId;
 
     private APIcreateTestRequest() {
     }
@@ -113,16 +111,6 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
      */
     public APIcreateTestRequest body(SyntheticsTestDetails body) {
       this.body = body;
-      return this;
-    }
-
-    /**
-     * Set fromTestId
-     * @param fromTestId Public ID of the test to clone, undefined if the test is newly created. (optional)
-     * @return APIcreateTestRequest
-     */
-    public APIcreateTestRequest fromTestId(String fromTestId) {
-      this.fromTestId = fromTestId;
       return this;
     }
 
@@ -160,7 +148,7 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
 
      */
     public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
-      return createTestWithHttpInfo(body, fromTestId);
+      return createTestWithHttpInfo(body);
     }
   }
 
@@ -528,6 +516,106 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
    */
   public APIgetAPITestResultRequest getAPITestResult(String publicId, String resultId) throws ApiException {
     return new APIgetAPITestResultRequest(publicId, resultId);
+  }
+
+private ApiResponse<SyntheticsTestDetails> getBrowserTestWithHttpInfo(String publicId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(400, "Missing the required parameter 'publicId' when calling getBrowserTest");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/browser/{public_id}"
+      .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getBrowserTest");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsTestDetails> localVarReturnType = new GenericType<SyntheticsTestDetails>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.getBrowserTest", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
+  }
+
+  public class APIgetBrowserTestRequest {
+    private String publicId;
+
+    private APIgetBrowserTestRequest(String publicId) {
+      this.publicId = publicId;
+    }
+
+    /**
+     * Execute getBrowserTest request
+     * @return SyntheticsTestDetails
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsTestDetails execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getBrowserTest request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsTestDetails&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
+      return getBrowserTestWithHttpInfo(publicId);
+    }
+  }
+
+  /**
+   * Get a browser test configuration
+   * Get the detailed configuration (including steps) associated with a Synthetics browser test.
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return getBrowserTestRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetBrowserTestRequest getBrowserTest(String publicId) throws ApiException {
+    return new APIgetBrowserTestRequest(publicId);
   }
 
 private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTestLatestResultsWithHttpInfo(String publicId, Long fromTs, Long toTs, List<String> probeDc) throws ApiException {
