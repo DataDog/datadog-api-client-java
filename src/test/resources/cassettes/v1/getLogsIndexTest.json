@@ -1,15 +1,16 @@
-[ {
-  "id" : "ba7d5cc2-23e7-4bde-8637-0a77574b18d3",
+[{
+  "id" : "1e148147-fedb-48ef-be67-e9171f0ea3de",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/logs/config/indexes/main",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "getLogsIndexTest" ],
       "DD-OPERATION-ID" : [ "getLogsIndex" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -22,23 +23,25 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 20 Apr 2020 14:57:23 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:24:14 GMT" ],
       "Content-Type" : [ "application/json;charset=utf-8" ],
       "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 27-Apr-2020 14:57:23 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.2411151" ],
-      "x-ratelimit-limit" : [ "5000" ],
-      "x-ratelimit-period" : [ "3600" ],
-      "x-ratelimit-reset" : [ "157" ],
-      "x-ratelimit-remaining" : [ "4999" ],
-      "content-disposition" : [ "inline" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:24:14 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-RateLimit-Limit" : [ "5000" ],
+      "X-RateLimit-Period" : [ "3600" ],
+      "X-RateLimit-Reset" : [ "2146" ],
+      "X-RateLimit-Remaining" : [ "4999" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "AVsav2jjRGvwjNvJeRUS7kJsgTlhh9y9smyL3UJVQTMAUoPyejdL0bVSnanIQLK4" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
       "content-length" : [ "132" ]
     },
     "cookies" : {
@@ -46,4 +49,4 @@
     },
     "body" : "{\"name\":\"main\",\"filter\":{\"query\":\"\"},\"num_retention_days\":15,\"daily_limit\":200000000,\"is_rate_limited\":false,\"exclusion_filters\":[]}"
   }
-} ]
+}]

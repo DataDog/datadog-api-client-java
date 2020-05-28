@@ -49,7 +49,7 @@ public class EventsApiTest extends V1ApiTest {
      */
     @Test
     public void eventLifecycleTest() throws ApiException, TestUtils.RetryException {
-        String eventTitle = "test event from java client";
+        String eventTitle = getUniqueEntityName();
         String eventText = "example text";
 
         ApiResponse<EventResponse> response = sendRequest(

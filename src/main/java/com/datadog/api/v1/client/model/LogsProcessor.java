@@ -77,96 +77,126 @@ public class LogsProcessor extends AbstractOpenApiSchema {
 
             int match = 0;
             Object deserialized = null;
+            // deserialize LogsArithmeticProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArithmeticProcessor.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsAttributeRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsAttributeRemapper.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsCategoryProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsCategoryProcessor.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsDateRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsDateRemapper.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsGeoIPParser
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGeoIPParser.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsGrokParser
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGrokParser.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsLookupProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsLookupProcessor.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsMessageRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsMessageRemapper.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsPipelineProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsPipelineProcessor.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsServiceRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsServiceRemapper.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsStatusRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStatusRemapper.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsStringBuilderProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStringBuilderProcessor.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsTraceRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsTraceRemapper.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsURLParser
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsURLParser.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
+            // deserialize LogsUserAgentParser
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsUserAgentParser.class);
                 match++;
             } catch (Exception e) {
                 // deserialization failed, continue
             }
+
             if (match == 1) {
                 LogsProcessor ret = new LogsProcessor();
                 ret.setActualInstance(deserialized);
@@ -187,58 +217,72 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsAttributeRemapper o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsCategoryProcessor o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsDateRemapper o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsGeoIPParser o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsGrokParser o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsLookupProcessor o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsMessageRemapper o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsPipelineProcessor o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsServiceRemapper o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsStatusRemapper o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsStringBuilderProcessor o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsTraceRemapper o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsURLParser o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
+
     public LogsProcessor(LogsUserAgentParser o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);

@@ -57,7 +57,7 @@ public class DashboardListsApiTest extends V2APITest {
 
         dashboardListsApiV1 = new com.datadog.api.v1.client.api.DashboardListsApi(v1Client);
         DashboardList res = dashboardListsApiV1.createDashboardList().body(
-                new DashboardList().name("java-test-client-v2-" + now.toInstant().toEpochMilli())
+                new DashboardList().name(getUniqueEntityName())
         ).execute();
         dashboardListID = res.getId();
     }

@@ -52,7 +52,6 @@ import java.util.regex.Pattern;
 import com.datadog.api.v2.client.auth.Authentication;
 import com.datadog.api.v2.client.auth.HttpBasicAuth;
 import com.datadog.api.v2.client.auth.HttpBearerAuth;
-import com.datadog.api.v2.client.auth.HttpSignatureAuth;
 import com.datadog.api.v2.client.auth.ApiKeyAuth;
 import com.datadog.api.v2.client.model.AbstractOpenApiSchema;
 
@@ -125,7 +124,19 @@ public class ApiClient {
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
+  /**
+   * Constructs a new ApiClient with default parameters.
+   */
   public ApiClient() {
+    this(null);
+  }
+
+  /**
+   * Constructs a new ApiClient with the specified authentication parameters.
+   *
+   * @param authMap A hash map containing authentication parameters.
+   */
+  public ApiClient(Map<String, Authentication> authMap) {
     json = new JSON();
     httpClient = buildHttpClient(debugging);
 
@@ -136,8 +147,23 @@ public class ApiClient {
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
-    authentications.put("apiKeyAuth", new ApiKeyAuth("header", "DD-API-KEY"));
-    authentications.put("appKeyAuth", new ApiKeyAuth("header", "DD-APPLICATION-KEY"));
+    Authentication auth = null;
+    if (authMap != null) {
+      auth = authMap.get("apiKeyAuth");
+    }
+    if (auth instanceof ApiKeyAuth) {
+      authentications.put("apiKeyAuth", auth);
+    } else {
+      authentications.put("apiKeyAuth", new ApiKeyAuth("header", "DD-API-KEY"));
+    }
+    if (authMap != null) {
+      auth = authMap.get("appKeyAuth");
+    }
+    if (auth instanceof ApiKeyAuth) {
+      authentications.put("appKeyAuth", auth);
+    } else {
+      authentications.put("appKeyAuth", new ApiKeyAuth("header", "DD-APPLICATION-KEY"));
+    }
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 

@@ -1,15 +1,16 @@
-[ {
-  "id" : "d916dc8a-caa1-45b9-b85e-cd8762737cda",
+[{
+  "id" : "a179dbcc-a4dd-4a24-8fe1-44f83e635698",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests",
     "headers" : {
       "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listTestSyntheticsErrorsTest" ],
       "DD-OPERATION-ID" : [ "listTests" ],
-      "Connection" : [ "keep-alive" ],
+      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
-    "keepAlive" : true,
+    "keepAlive" : false,
     "secure" : true
   },
   "times" : {
@@ -22,7 +23,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Thu, 30 Apr 2020 07:50:46 GMT" ],
+      "Date" : [ "Wed, 27 May 2020 10:27:12 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -31,4 +32,4 @@
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
-} ]
+}]

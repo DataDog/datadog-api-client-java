@@ -64,7 +64,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     @Test
     public void dashboardListCreateModifyDeleteTest() throws ApiException {
         long start = now.toInstant().toEpochMilli();
-        DashboardList testDashboardList = new DashboardList().name(String.format("java dashboard list %d", start));
+        DashboardList testDashboardList = new DashboardList().name(getUniqueEntityName());
 
         // Create dashboard list
         DashboardList dashboardList = api.createDashboardList().body(testDashboardList).execute();
@@ -82,7 +82,7 @@ public class DashboardListsApiTest extends V1ApiTest {
         assertEquals(dashboardList.getName(), testDashboardList.getName());
 
         // Edit the dashboard list
-        DashboardList editedDashboardList = new DashboardList().name(String.format("java updated dashboard list %d", start));
+        DashboardList editedDashboardList = new DashboardList().name(getUniqueEntityName() + "-updated");
         dashboardList = api.updateDashboardList(dashboardList.getId()).body(editedDashboardList).execute();
         assertEquals(dashboardList.getName(), editedDashboardList.getName());
 

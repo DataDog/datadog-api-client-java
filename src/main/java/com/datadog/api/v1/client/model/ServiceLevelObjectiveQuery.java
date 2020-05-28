@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A metric SLI query. **Required if type is &#x60;metric&#x60;**.
+ * A metric SLI query. **Required if type is &#x60;metric&#x60;**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
  */
-@ApiModel(description = "A metric SLI query. **Required if type is `metric`**.")
+@ApiModel(description = "A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.")
 @JsonPropertyOrder({
   ServiceLevelObjectiveQuery.JSON_PROPERTY_DENOMINATOR,
   ServiceLevelObjectiveQuery.JSON_PROPERTY_NUMERATOR
