@@ -135,20 +135,30 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         });
     }
 
-    @Test(expected = ApiException.class)
-    public void createAWSAccountMissingIDTest() throws ApiException {
-        //Test an exception is thrown if you're missing the account_id field
-        AWSAccount awsAccount = new AWSAccount();
-        awsAccount.setRoleName("java_testRoleName");
-        api.createAWSAccount().body(awsAccount).execute();
+    @Test
+    public void createAWSAccountMissingIDTest() throws IOException {
+        try {
+            //Test an exception is thrown if you're missing the account_id field
+            AWSAccount awsAccount = new AWSAccount();
+            awsAccount.setRoleName("java_testRoleName");
+            api.createAWSAccount().body(awsAccount).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            // Currently, @Test(expected = ApiException.class) is wrongly reported as failed by APM.
+        }
     }
 
-    @Test(expected = ApiException.class)
-    public void createAWSAccountMissingRoleNameTest() throws ApiException {
-        //Test an exception is thrown if you're missing the role_name field
-        AWSAccount awsAccount = new AWSAccount();
-        awsAccount.setAccountId(generateAccountId());
-        api.createAWSAccount().body(awsAccount).execute();
+    @Test
+    public void createAWSAccountMissingRoleNameTest() throws IOException {
+        try {
+            //Test an exception is thrown if you're missing the role_name field
+            AWSAccount awsAccount = new AWSAccount();
+            awsAccount.setAccountId(generateAccountId());
+            api.createAWSAccount().body(awsAccount).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            // Currently, @Test(expected = ApiException.class) is wrongly reported as failed by APM.
+        }
     }
 
     @Test
