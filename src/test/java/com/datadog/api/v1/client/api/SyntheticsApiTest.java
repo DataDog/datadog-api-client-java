@@ -151,10 +151,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         // Update API test
         synt.setName(apiTestConfig.getName() + "-updated");
         // if we want to reuse the entity returned by the API, we must set these fields to null, as they can't be sent back
-        synt.setCreatedAt(null);
-        synt.setCreatedBy(null);
         synt.setMonitorId(null);
-        synt.setModifiedAt(null);
         synt.setPublicId(null);
         synt = api.updateTest(publicId).body(synt).execute();
         assertEquals(apiTestConfig.getName() + "-updated", synt.getName());
@@ -243,10 +240,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         // Update Browser test
         synt.setName(browserTestConfig.getName() + "-updated");
         // if we want to reuse the entity returned by the API, we must set these fields to null, as they can't be sent back
-        synt.setCreatedAt(null);
-        synt.setCreatedBy(null);
         synt.setMonitorId(null);
-        synt.setModifiedAt(null);
         synt.setPublicId(null);
         synt = api.updateTest(publicId).body(synt).execute();
         assertEquals(browserTestConfig.getName() + "-updated", synt.getName());
