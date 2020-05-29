@@ -50,13 +50,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static com.github.tomakehurst.wiremock.client.WireMock.reset;
 import static org.mockserver.integration.ClientAndServer.startClientAndServer;
 
 public class TestUtils {
 
+    public static int SUREFIRE_FORK = Integer.parseInt(System.getProperty("surefireForkNumber"));
     public static String MOCKSERVER_HOST = "localhost";
-    public static int MOCKSERVER_PORT = 8081;
+    public static int MOCKSERVER_PORT = 9090 + SUREFIRE_FORK;
 
     public static void retry(int interval, int count, BooleanSupplier call) throws RetryException {
         for (int i = 0; i <= count; i++) {
@@ -136,8 +138,9 @@ public class TestUtils {
 
         protected static String TEST_API_KEY;
         protected static String TEST_APP_KEY;
+        protected static int WIREMOCK_PORT = 8080 + SUREFIRE_FORK - 1;
         @Rule
-        public WireMockRule wireMockRule = new WireMockRule();
+        public WireMockRule wireMockRule = new WireMockRule(options().port(WIREMOCK_PORT));
         @Rule
         public TestName name = new TestName();
         public static ClientAndServer mockServer;

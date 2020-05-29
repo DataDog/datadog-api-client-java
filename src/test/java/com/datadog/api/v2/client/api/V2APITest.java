@@ -50,10 +50,7 @@ public abstract class V2APITest extends TestUtils.APITest {
     @BeforeClass
     public static void initGeneralApiUnitTestClient() {
         generalApiUnitTestClient = new ApiClient();
-
-        // WireMock defaults to listening on localhost port 8080
-        // http://wiremock.org/docs/configuration/
-        generalApiUnitTestClient.setBasePath("http://localhost:8080");
+        generalApiUnitTestClient.setBasePath(String.format("http://localhost:%d", WIREMOCK_PORT));
         // Disable templated servers
         generalApiUnitTestClient.setServerIndex(null);
 
