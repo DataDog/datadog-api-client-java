@@ -148,7 +148,7 @@ public class DashboardListItem {
    * ID of the dashboard.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "ID of the dashboard.")
+  @ApiModelProperty(example = "q5j-nti-fv6", required = true, value = "ID of the dashboard.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
