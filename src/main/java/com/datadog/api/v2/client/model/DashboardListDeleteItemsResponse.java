@@ -13,7 +13,7 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.DashboardListItem;
+import com.datadog.api.v2.client.model.DashboardListItemResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,16 +34,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class DashboardListDeleteItemsResponse {
   public static final String JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST = "deleted_dashboards_from_list";
-  private List<DashboardListItem> deletedDashboardsFromList = null;
+  private List<DashboardListItemResponse> deletedDashboardsFromList = null;
 
 
-  public DashboardListDeleteItemsResponse deletedDashboardsFromList(List<DashboardListItem> deletedDashboardsFromList) {
+  public DashboardListDeleteItemsResponse deletedDashboardsFromList(List<DashboardListItemResponse> deletedDashboardsFromList) {
     
     this.deletedDashboardsFromList = deletedDashboardsFromList;
     return this;
   }
 
-  public DashboardListDeleteItemsResponse addDeletedDashboardsFromListItem(DashboardListItem deletedDashboardsFromListItem) {
+  public DashboardListDeleteItemsResponse addDeletedDashboardsFromListItem(DashboardListItemResponse deletedDashboardsFromListItem) {
     if (this.deletedDashboardsFromList == null) {
       this.deletedDashboardsFromList = new ArrayList<>();
     }
@@ -60,12 +60,12 @@ public class DashboardListDeleteItemsResponse {
   @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DashboardListItem> getDeletedDashboardsFromList() {
+  public List<DashboardListItemResponse> getDeletedDashboardsFromList() {
     return deletedDashboardsFromList;
   }
 
 
-  public void setDeletedDashboardsFromList(List<DashboardListItem> deletedDashboardsFromList) {
+  public void setDeletedDashboardsFromList(List<DashboardListItemResponse> deletedDashboardsFromList) {
     this.deletedDashboardsFromList = deletedDashboardsFromList;
   }
 

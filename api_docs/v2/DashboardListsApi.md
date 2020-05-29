@@ -48,7 +48,7 @@ public class Example {
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long dashboardListId = 56L; // Long | ID of the dashboard list to add items to.
-        DashboardListItems body = new DashboardListItems(); // DashboardListItems | Dashboards to add to the dashboard list.
+        DashboardListAddItemsRequest body = new DashboardListAddItemsRequest(); // DashboardListAddItemsRequest | Dashboards to add to the dashboard list.
         try {
             DashboardListAddItemsResponse result = api.createDashboardListItems(dashboardListId)
                 .body(body)
@@ -71,7 +71,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dashboardListId** | **Long**| ID of the dashboard list to add items to. |
- **body** | [**DashboardListItems**](DashboardListItems.md)| Dashboards to add to the dashboard list. |
+ **body** | [**DashboardListAddItemsRequest**](DashboardListAddItemsRequest.md)| Dashboards to add to the dashboard list. |
 
 ### Return type
 
@@ -132,7 +132,7 @@ public class Example {
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long dashboardListId = 56L; // Long | ID of the dashboard list to delete items from.
-        DashboardListItems body = new DashboardListItems(); // DashboardListItems | Dashboards to delete from the dashboard list.
+        DashboardListDeleteItemsRequest body = new DashboardListDeleteItemsRequest(); // DashboardListDeleteItemsRequest | Dashboards to delete from the dashboard list.
         try {
             DashboardListDeleteItemsResponse result = api.deleteDashboardListItems(dashboardListId)
                 .body(body)
@@ -155,7 +155,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dashboardListId** | **Long**| ID of the dashboard list to delete items from. |
- **body** | [**DashboardListItems**](DashboardListItems.md)| Dashboards to delete from the dashboard list. |
+ **body** | [**DashboardListDeleteItemsRequest**](DashboardListDeleteItemsRequest.md)| Dashboards to delete from the dashboard list. |
 
 ### Return type
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ## updateDashboardListItems
 
-> DashboardListItems updateDashboardListItems(dashboardListId).body(body).execute();
+> DashboardListUpdateItemsResponse updateDashboardListItems(dashboardListId).body(body).execute();
 
 Update items of a dashboard list
 
@@ -296,9 +296,9 @@ public class Example {
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long dashboardListId = 56L; // Long | ID of the dashboard list to update items from.
-        DashboardListItems body = new DashboardListItems(); // DashboardListItems | New dashboards of the dashboard list.
+        DashboardListUpdateItemsRequest body = new DashboardListUpdateItemsRequest(); // DashboardListUpdateItemsRequest | New dashboards of the dashboard list.
         try {
-            DashboardListItems result = api.updateDashboardListItems(dashboardListId)
+            DashboardListUpdateItemsResponse result = api.updateDashboardListItems(dashboardListId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -319,11 +319,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dashboardListId** | **Long**| ID of the dashboard list to update items from. |
- **body** | [**DashboardListItems**](DashboardListItems.md)| New dashboards of the dashboard list. |
+ **body** | [**DashboardListUpdateItemsRequest**](DashboardListUpdateItemsRequest.md)| New dashboards of the dashboard list. |
 
 ### Return type
 
-[**DashboardListItems**](DashboardListItems.md)
+[**DashboardListUpdateItemsResponse**](DashboardListUpdateItemsResponse.md)
 
 ### Authorization
 

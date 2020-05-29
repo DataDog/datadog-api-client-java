@@ -25,48 +25,48 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Response containing a list of added dashboards.
+ * Response containing a list of updated dashboards.
  */
-@ApiModel(description = "Response containing a list of added dashboards.")
+@ApiModel(description = "Response containing a list of updated dashboards.")
 @JsonPropertyOrder({
-  DashboardListAddItemsResponse.JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST
+  DashboardListUpdateItemsResponse.JSON_PROPERTY_DASHBOARDS
 })
 
-public class DashboardListAddItemsResponse {
-  public static final String JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST = "added_dashboards_to_list";
-  private List<DashboardListItemResponse> addedDashboardsToList = null;
+public class DashboardListUpdateItemsResponse {
+  public static final String JSON_PROPERTY_DASHBOARDS = "dashboards";
+  private List<DashboardListItemResponse> dashboards = null;
 
 
-  public DashboardListAddItemsResponse addedDashboardsToList(List<DashboardListItemResponse> addedDashboardsToList) {
+  public DashboardListUpdateItemsResponse dashboards(List<DashboardListItemResponse> dashboards) {
     
-    this.addedDashboardsToList = addedDashboardsToList;
+    this.dashboards = dashboards;
     return this;
   }
 
-  public DashboardListAddItemsResponse addAddedDashboardsToListItem(DashboardListItemResponse addedDashboardsToListItem) {
-    if (this.addedDashboardsToList == null) {
-      this.addedDashboardsToList = new ArrayList<>();
+  public DashboardListUpdateItemsResponse addDashboardsItem(DashboardListItemResponse dashboardsItem) {
+    if (this.dashboards == null) {
+      this.dashboards = new ArrayList<>();
     }
-    this.addedDashboardsToList.add(addedDashboardsToListItem);
+    this.dashboards.add(dashboardsItem);
     return this;
   }
 
    /**
-   * List of dashboards added to the dashboard list.
-   * @return addedDashboardsToList
+   * List of dashboards in the dashboard list.
+   * @return dashboards
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of dashboards added to the dashboard list.")
-  @JsonProperty(JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST)
+  @ApiModelProperty(value = "List of dashboards in the dashboard list.")
+  @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DashboardListItemResponse> getAddedDashboardsToList() {
-    return addedDashboardsToList;
+  public List<DashboardListItemResponse> getDashboards() {
+    return dashboards;
   }
 
 
-  public void setAddedDashboardsToList(List<DashboardListItemResponse> addedDashboardsToList) {
-    this.addedDashboardsToList = addedDashboardsToList;
+  public void setDashboards(List<DashboardListItemResponse> dashboards) {
+    this.dashboards = dashboards;
   }
 
 
@@ -78,21 +78,21 @@ public class DashboardListAddItemsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DashboardListAddItemsResponse dashboardListAddItemsResponse = (DashboardListAddItemsResponse) o;
-    return Objects.equals(this.addedDashboardsToList, dashboardListAddItemsResponse.addedDashboardsToList);
+    DashboardListUpdateItemsResponse dashboardListUpdateItemsResponse = (DashboardListUpdateItemsResponse) o;
+    return Objects.equals(this.dashboards, dashboardListUpdateItemsResponse.dashboards);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addedDashboardsToList);
+    return Objects.hash(dashboards);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DashboardListAddItemsResponse {\n");
-    sb.append("    addedDashboardsToList: ").append(toIndentedString(addedDashboardsToList)).append("\n");
+    sb.append("class DashboardListUpdateItemsResponse {\n");
+    sb.append("    dashboards: ").append(toIndentedString(dashboards)).append("\n");
     sb.append("}");
     return sb.toString();
   }

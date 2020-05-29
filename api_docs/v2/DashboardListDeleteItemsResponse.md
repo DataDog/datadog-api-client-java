@@ -7,7 +7,7 @@ Response containing a list of deleted dashboards.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deletedDashboardsFromList** | [**List&lt;DashboardListItem&gt;**](DashboardListItem.md) | List of dashboards deleted from the dashboard list. |  [optional]
+**deletedDashboardsFromList** | [**List&lt;DashboardListItemResponse&gt;**](DashboardListItemResponse.md) | List of dashboards deleted from the dashboard list. |  [optional]
 
 
 
