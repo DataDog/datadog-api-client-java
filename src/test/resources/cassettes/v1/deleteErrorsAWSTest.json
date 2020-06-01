@@ -1,5 +1,5 @@
 [{
-  "id" : "165b9986-146d-45c9-82ae-d4adf90d51a8",
+  "id" : "ae0a8c6d-40be-4a8f-b4ee-4d1b0a597d0f",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:19:46 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:48:00 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "58" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,7 +44,7 @@
     "body" : "{\"errors\": [\"Required parameter 'account_id' is missing\"]}"
   }
 }, {
-  "id" : "c6acd44a-1b7b-416a-8ff0-8c84709c7060",
+  "id" : "e38a96a5-4c33-4a5f-823f-e062c2faf6bf",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:19:47 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:48:01 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

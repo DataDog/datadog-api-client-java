@@ -1,5 +1,5 @@
 [{
-  "id" : "3e7a811f-ea5a-4a2a-9047-83b252d67cef",
+  "id" : "6273429d-66b7-4ae6-949c-ba3df5f50ab3",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
@@ -9,13 +9,13 @@
       "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "373" ]
+      "Content-Length" : [ "517" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_4803522\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"java-aWSLogsCheckServicesAsyncTest-local-1590574803\"}"
+      "json" : "{\"account_id\":\"java_2Lpvk3L\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"java-aWSLogsCheckServicesAsyncTest-local-1591004830\"}"
     }
   },
   "times" : {
@@ -28,15 +28,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:20:05 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:12 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:20:04 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
-      "X-DD-Debug" : [ "j9H0Mt41m875GBjR2i9r831ZILGOU6+Jata5+JJkOQgIsO+SrMkmgWN80SCun0Sk" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 09:47:11 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "4HTfT92VNwJOKM3+9Fghpi7RnKwXOMM9XiE8bZkwhVPDb5jbW4knJKZPCpE1XUb8" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -47,10 +47,10 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"external_id\":\"e741e21321784cfdabda6b172c011da6\"}"
+    "body" : "{\"external_id\":\"9032a5de63324589ad8484b798a307d2\"}"
   }
 }, {
-  "id" : "cc2fa4fb-34d8-45ad-a0a7-cefcc30932e6",
+  "id" : "57096685-e2ed-427f-b184-3b8ebef0f294",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs/services_async",
@@ -60,13 +60,13 @@
       "DD-OPERATION-ID" : [ "checkAWSLogsServicesAsync" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "250" ]
+      "Content-Length" : [ "406" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_4803522\",\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]}"
+      "json" : "{\"account_id\":\"java_2Lpvk3L\",\"services\":[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\",\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]}"
     }
   },
   "times" : {
@@ -79,15 +79,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:20:06 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:12 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:20:05 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
-      "X-DD-Debug" : [ "dPTJBBDv5jeY1gnH1FisDpda5Hi0boOGbsHxIOi4qkMt+QLOH7F7P7MeSr40vXZ0" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 09:47:12 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "kg+/Cls6zaJcT2blJLlU62BwgGePGdpqSwWrJ0xEIvzmSMWHXxGNsiyEzBPJ1a96" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -98,10 +98,10 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"status\":\"error\",\"errors\":[{\"message\":\"AWS account java_4803522 has no lambda config to update\",\"code\":\"no_such_config\"}]}"
+    "body" : "{\"status\":\"error\",\"errors\":[{\"message\":\"AWS account java_2Lpvk3L has no lambda config to update\",\"code\":\"no_such_config\"}]}"
   }
 }, {
-  "id" : "08ccafbe-85d0-4b46-8b30-bdb12b457b21",
+  "id" : "06e88dbd-83db-42a6-b1d6-dc995f7f555e",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
@@ -111,13 +111,13 @@
       "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "373" ]
+      "Content-Length" : [ "517" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_4803522\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"java-aWSLogsCheckServicesAsyncTest-local-1590574803\"}"
+      "json" : "{\"account_id\":\"java_2Lpvk3L\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"java-aWSLogsCheckServicesAsyncTest-local-1591004830\"}"
     }
   },
   "times" : {
@@ -130,15 +130,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:20:07 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:14 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:20:06 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
-      "X-DD-Debug" : [ "ty7T8eIeXOfZhM7KDN5nGo8JS7ZSIWAqBNFeZshTg3LLDJJa7mPU5wqGt0nOPCpy" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 09:47:13 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "qQjtInIx1/QKXFlq6Yoz4D/caW/S2oJqgJl91CEEpXrlxRmYHcLgIFCRCvW61KAy" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

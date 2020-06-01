@@ -1,5 +1,5 @@
 [{
-  "id" : "8f41daad-117c-45fb-8da8-51e3aa7c18fc",
+  "id" : "81e33b42-61b4-417a-8488-6050e4c75bca",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs/services",
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:20:07 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:15 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "45" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,7 +44,7 @@
     "body" : "{\"errors\": [\"'account_id' should be string\"]}"
   }
 }, {
-  "id" : "b6b98155-ca30-43fc-90a7-ecf963f497bd",
+  "id" : "c92edd2b-0ed1-4006-86ce-c6ed934fef5f",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs/services",
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:20:08 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:15 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -81,50 +81,5 @@
       "content-length" : [ "170" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
-  }
-}, {
-  "id" : "f8bf3f63-c739-42c2-b751-25531d4e26f9",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v1/integration/aws",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "logsServicesEnableErrorsTest" ],
-      "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "420" ]
-    },
-    "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"account_id\":\"java_4807269\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"java-logsServicesEnableErrorsTest-local-1590574807\"}"
-    }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 400,
-    "reasonPhrase" : "Bad Request",
-    "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:20:09 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "70" ],
-      "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
-    },
-    "body" : "{\"errors\": [\"AWS account java_4807269 does not exist in integration\"]}"
   }
 }]
