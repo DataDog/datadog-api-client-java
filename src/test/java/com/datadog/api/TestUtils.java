@@ -210,6 +210,18 @@ public class TestUtils {
             setupMockServer();
         }
 
+        public String getQualifiedTestcaseName() {
+            return getClass().getSimpleName() + "." + name.getMethodName();
+        }
+
+        public String getCassetteName() {
+            return getQualifiedTestcaseName() + ".json";
+        }
+
+        public String getFreezefileName() {
+            return getQualifiedTestcaseName() + ".freeze";
+        }
+
         @BeforeClass
         public static void trustProxyCerts() {
             if (handleIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
@@ -257,12 +269,12 @@ public class TestUtils {
                 clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
                 now = OffsetDateTime.ofInstant(Instant.now(clock), ZoneOffset.UTC);
                 Files.write(
-                        Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".freeze"),
+                        Paths.get("src/test/resources/cassettes", version, getFreezefileName()),
                         now.toString().getBytes()
                 );
             } else {
                 // When replaying, read the time in the `freeze` file, and set the clock to that time, or current time if file not found
-                Path freezeFile = Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".freeze");
+                Path freezeFile = Paths.get("src/test/resources/cassettes", version, getFreezefileName());
                 try {
                     List<String> lines = Files.readAllLines(freezeFile);
                     clock = Clock.fixed(Instant.parse(lines.get(0)), ZoneOffset.UTC);
@@ -312,8 +324,8 @@ public class TestUtils {
             }
 
             // write the cassette
-            File cassette = new File(Paths.get(APITest.cassettesDir, version, name.getMethodName() + ".json").toString());
-            cassette.mkdirs();
+            File cassette = new File(Paths.get(APITest.cassettesDir, version, getCassetteName()).toString());
+            cassette.getParentFile().mkdirs();
             if (!cassette.exists()) {
                 cassette.createNewFile();
             }

@@ -1,0 +1,40 @@
+[{
+  "id" : "618d1061-3b2a-4e2b-afaf-4b79be500099",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/query",
+    "queryStringParameters" : {
+      "from" : [ "9" ],
+      "to" : [ "9" ],
+      "query" : [ "" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "metricsQueryErrorsTest" ],
+      "DD-OPERATION-ID" : [ "queryMetrics" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 403,
+    "reasonPhrase" : "Forbidden",
+    "headers" : {
+      "Date" : [ "Mon, 01 Jun 2020 11:15:07 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+}]

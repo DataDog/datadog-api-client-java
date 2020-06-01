@@ -1,0 +1,85 @@
+[{
+  "id" : "a54f1b63-da67-453e-8a5f-8b7fa851a1ac",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/downtime",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "downtimeCreateErrorsTest" ],
+      "DD-OPERATION-ID" : [ "createDowntime" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "2" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Mon, 01 Jun 2020 11:10:32 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "38" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "body" : "{\"errors\":[\"Invalid scope parameter\"]}"
+  }
+}, {
+  "id" : "9ec33d30-2305-4ad3-941f-d72623f040c6",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/downtime",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "downtimeCreateErrorsTest" ],
+      "DD-OPERATION-ID" : [ "createDowntime" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "2" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 403,
+    "reasonPhrase" : "Forbidden",
+    "headers" : {
+      "Date" : [ "Mon, 01 Jun 2020 11:10:33 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+}]

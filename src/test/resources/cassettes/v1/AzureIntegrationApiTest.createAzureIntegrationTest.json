@@ -1,0 +1,151 @@
+[{
+  "id" : "b5e6e35a-9631-4172-921d-a856373e4623",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/integration/azure",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "createAzureIntegrationTest" ],
+      "DD-OPERATION-ID" : [ "createAzureIntegration" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "168" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"client_id\":\"javatest-1234-5678-9101-3fcbf464test\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"tenant_name\":\"java-createAzureIntegrationTest-local-1591009968\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 01 Jun 2020 11:12:49 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 11:12:49 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "PcnVfOcEtqolY6fi98GEVSGXOZZkwQSBbl/twLr2TucYRfYyGCLXvKm6pTUNQt1l" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{}"
+  }
+}, {
+  "id" : "714e2e0a-c3eb-4bdf-8136-1e9eb76fc79f",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/integration/azure",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "createAzureIntegrationTest" ],
+      "DD-OPERATION-ID" : [ "deleteAzureIntegration" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "168" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"client_id\":\"javatest-1234-5678-9101-3fcbf464test\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"tenant_name\":\"java-createAzureIntegrationTest-local-1591009968\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 01 Jun 2020 11:12:50 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 11:12:50 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "NueLa2zkdBcl9S7BHrRuWyjAeR9iWgPFe330KTY6Cp0/yUhjUktbxu5rG2fG6gBk" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{}"
+  }
+}, {
+  "id" : "43f08bb4-1aa2-43a1-be0b-c2436e9e1b5e",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/integration/azure",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "createAzureIntegrationTest" ],
+      "DD-OPERATION-ID" : [ "deleteAzureIntegration" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "105" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"client_id\":\"javatest-1234-5678-9101-3fcbf4update\",\"tenant_name\":\"javatest-1234-5678-9101-cc0073update\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 01 Jun 2020 11:12:51 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 11:12:51 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "gH++OYwf8a2QZXnzDsHHnXqPhHbI48oqNvFjE/0p0ObpMBY4290QCI5SB0tU0MAF" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{}"
+  }
+}]

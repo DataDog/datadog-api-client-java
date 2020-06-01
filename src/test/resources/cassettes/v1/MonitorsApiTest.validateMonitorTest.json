@@ -1,0 +1,96 @@
+[{
+  "id" : "2aff6974-88cb-481e-a606-e45e492bfbd0",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/monitor/validate",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "validateMonitorTest" ],
+      "DD-OPERATION-ID" : [ "validateMonitor" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "471" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"java-validateMonitorTest-local-1591009889\",\"options\":{\"escalation_message\":\"none\",\"include_tags\":true,\"min_failure_duration\":0,\"min_location_failed\":1,\"new_host_delay\":300,\"no_data_timeframe\":20,\"notify_audit\":false,\"notify_no_data\":true,\"require_full_window\":true},\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 01 Jun 2020 11:11:30 GMT" ],
+      "Content-Type" : [ "application/json; charset=utf-8" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 11:11:30 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "BQaWiIhDCyK3JbvyPZudxtMuoedbvOKE6tb5GJMfo6GT4EOQ8qx9lqgA4UCxp88q" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{}"
+  }
+}, {
+  "id" : "87a687cc-1db1-4fe6-ab8e-b85103a60d37",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/monitor/validate",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "validateMonitorTest" ],
+      "DD-OPERATION-ID" : [ "validateMonitor" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "483" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"java-validateMonitorTest-local-1591009889\",\"options\":{\"escalation_message\":\"none\",\"include_tags\":true,\"min_failure_duration\":0,\"min_location_failed\":1,\"new_host_delay\":300,\"no_data_timeframe\":20,\"notify_audit\":false,\"notify_no_data\":true,\"require_full_window\":true},\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} ><><>< whaaaaaaa?\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Mon, 01 Jun 2020 11:11:31 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "66" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "body" : "{\"errors\":[\"The value provided for parameter 'query' is invalid\"]}"
+  }
+}]
