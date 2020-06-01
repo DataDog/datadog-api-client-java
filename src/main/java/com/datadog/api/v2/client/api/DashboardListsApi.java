@@ -9,9 +9,13 @@ import com.datadog.api.v2.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v2.client.model.APIErrorResponse;
+import com.datadog.api.v2.client.model.DashboardListAddItemsRequest;
 import com.datadog.api.v2.client.model.DashboardListAddItemsResponse;
+import com.datadog.api.v2.client.model.DashboardListDeleteItemsRequest;
 import com.datadog.api.v2.client.model.DashboardListDeleteItemsResponse;
 import com.datadog.api.v2.client.model.DashboardListItems;
+import com.datadog.api.v2.client.model.DashboardListUpdateItemsRequest;
+import com.datadog.api.v2.client.model.DashboardListUpdateItemsResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,7 +53,7 @@ public class DashboardListsApi {
   }
 
 
-private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListItems body) throws ApiException {
+private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListAddItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'dashboardListId' is set
@@ -100,7 +104,7 @@ private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithH
 
   public class APIcreateDashboardListItemsRequest {
     private Long dashboardListId;
-    private DashboardListItems body;
+    private DashboardListAddItemsRequest body;
 
     private APIcreateDashboardListItemsRequest(Long dashboardListId) {
       this.dashboardListId = dashboardListId;
@@ -111,7 +115,7 @@ private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithH
      * @param body Dashboards to add to the dashboard list. (required)
      * @return APIcreateDashboardListItemsRequest
      */
-    public APIcreateDashboardListItemsRequest body(DashboardListItems body) {
+    public APIcreateDashboardListItemsRequest body(DashboardListAddItemsRequest body) {
       this.body = body;
       return this;
     }
@@ -167,7 +171,7 @@ private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithH
     return new APIcreateDashboardListItemsRequest(dashboardListId);
   }
 
-private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListItems body) throws ApiException {
+private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListDeleteItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'dashboardListId' is set
@@ -218,7 +222,7 @@ private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWi
 
   public class APIdeleteDashboardListItemsRequest {
     private Long dashboardListId;
-    private DashboardListItems body;
+    private DashboardListDeleteItemsRequest body;
 
     private APIdeleteDashboardListItemsRequest(Long dashboardListId) {
       this.dashboardListId = dashboardListId;
@@ -229,7 +233,7 @@ private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWi
      * @param body Dashboards to delete from the dashboard list. (required)
      * @return APIdeleteDashboardListItemsRequest
      */
-    public APIdeleteDashboardListItemsRequest body(DashboardListItems body) {
+    public APIdeleteDashboardListItemsRequest body(DashboardListDeleteItemsRequest body) {
       this.body = body;
       return this;
     }
@@ -385,7 +389,7 @@ private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long d
     return new APIgetDashboardListItemsRequest(dashboardListId);
   }
 
-private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListItems body) throws ApiException {
+private ApiResponse<DashboardListUpdateItemsResponse> updateDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListUpdateItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'dashboardListId' is set
@@ -427,7 +431,7 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<DashboardListItems> localVarReturnType = new GenericType<DashboardListItems>() {};
+    GenericType<DashboardListUpdateItemsResponse> localVarReturnType = new GenericType<DashboardListUpdateItemsResponse>() {};
 
     return apiClient.invokeAPI("DashboardListsApi.updateDashboardListItems", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -436,7 +440,7 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
 
   public class APIupdateDashboardListItemsRequest {
     private Long dashboardListId;
-    private DashboardListItems body;
+    private DashboardListUpdateItemsRequest body;
 
     private APIupdateDashboardListItemsRequest(Long dashboardListId) {
       this.dashboardListId = dashboardListId;
@@ -447,14 +451,14 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
      * @param body New dashboards of the dashboard list. (required)
      * @return APIupdateDashboardListItemsRequest
      */
-    public APIupdateDashboardListItemsRequest body(DashboardListItems body) {
+    public APIupdateDashboardListItemsRequest body(DashboardListUpdateItemsRequest body) {
       this.body = body;
       return this;
     }
 
     /**
      * Execute updateDashboardListItems request
-     * @return DashboardListItems
+     * @return DashboardListUpdateItemsResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -467,13 +471,13 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
      
      */
     
-    public DashboardListItems execute() throws ApiException {
+    public DashboardListUpdateItemsResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute updateDashboardListItems request with HTTP info returned
-     * @return ApiResponse&lt;DashboardListItems&gt;
+     * @return ApiResponse&lt;DashboardListUpdateItemsResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -485,7 +489,7 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
        </table>
 
      */
-    public ApiResponse<DashboardListItems> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<DashboardListUpdateItemsResponse> executeWithHttpInfo() throws ApiException {
       return updateDashboardListItemsWithHttpInfo(dashboardListId, body);
     }
   }
