@@ -1,5 +1,5 @@
 [{
-  "id" : "32605b20-c672-4b5b-9a18-0f5bbbef7866",
+  "id" : "f196ec7a-e27c-470f-9ee1-6a8a94e886bc",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws/logs",
@@ -23,7 +23,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:20:25 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:51 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -31,50 +31,5 @@
       "content-length" : [ "170" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
-  }
-}, {
-  "id" : "2e2e705d-875a-4d4c-a7ec-a49f4f998e73",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v1/integration/aws",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "logsList403ErrorTest" ],
-      "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "652" ]
-    },
-    "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"account_id\":\"java_4824460\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"java-logsList403ErrorTest-local-1590574824\"}"
-    }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 400,
-    "reasonPhrase" : "Bad Request",
-    "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:20:25 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "70" ],
-      "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
-    },
-    "body" : "{\"errors\": [\"AWS account java_4824460 does not exist in integration\"]}"
   }
 }]

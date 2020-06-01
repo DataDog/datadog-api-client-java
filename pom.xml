@@ -77,13 +77,18 @@
                 <version>2.19.1</version>
                 <configuration>
                     <runOrder>random</runOrder>
+                    <!-- We don't use threads, as that would complicate cassette recording, plus keystore used by tests isn't thread safe. -->
+                    <forkCount>2</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <threadCount>1</threadCount>
+                    <parallel>classes</parallel>
                     <systemProperties>
                         <property>
                             <name>loggerPath</name>
                             <value>conf/log4j.properties</value>
                         </property>
                     </systemProperties>
-                    <argLine>-javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m</argLine>
+                    <argLine>-javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
                 </configuration>
             </plugin>
             <plugin>

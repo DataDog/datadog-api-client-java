@@ -1,5 +1,5 @@
 [{
-  "id" : "f31b34a8-9777-4768-8ef7-a924f6e77ddc",
+  "id" : "aa782366-de76-40a2-9425-ece247f42793",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
@@ -15,7 +15,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_4778121\",\"role_name\":\"java-updateAWSAccountTest-local-1590574778\"}"
+      "json" : "{\"account_id\":\"java_RLdScFA\",\"role_name\":\"java-updateAWSAccountTest-local-1591004872\"}"
     }
   },
   "times" : {
@@ -28,15 +28,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:19:40 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:54 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:38 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
-      "X-DD-Debug" : [ "B/LXPck0nGNX0RSV/Gw7cnZ0oe92FUOfg1ec7WcU0kSvw/UBT+IXTFTD87Snvz2v" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 09:47:53 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "pEDVi2191MvoIMwusdL+COAxndBmcRhJtxAtWxDDnECWDI8Z99hIoBZbpR57tJKz" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -47,16 +47,16 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"external_id\":\"a72f4c839f2844dbbc892b0416400ea0\"}"
+    "body" : "{\"external_id\":\"9f554bcd730a4240a5cf1ea79f57f232\"}"
   }
 }, {
-  "id" : "01c2151c-4b25-494d-829c-34b58080bd83",
+  "id" : "70d5af7c-0433-48be-b97c-9587e9cdbfab",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/integration/aws",
     "queryStringParameters" : {
-      "account_id" : [ "java_4778121" ],
-      "role_name" : [ "java-updateAWSAccountTest-local-1590574778" ]
+      "account_id" : [ "java_RLdScFA" ],
+      "role_name" : [ "java-updateAWSAccountTest-local-1591004872" ]
     },
     "headers" : {
       "Accept" : [ "application/json" ],
@@ -70,7 +70,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_4778121\",\"excluded_regions\":[\"us-east-1\",\"us-west-1\"],\"host_tags\":[\"javaTag:one\",\"java:success\"],\"role_name\":\"java-updateAWSAccountTest-local-1590574778\"}"
+      "json" : "{\"account_id\":\"java_RLdScFA\",\"excluded_regions\":[\"us-east-1\",\"us-west-1\"],\"host_tags\":[\"javaTag:one\",\"java:success\"],\"role_name\":\"java-updateAWSAccountTest-local-1591004872\"}"
     }
   },
   "times" : {
@@ -83,15 +83,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:19:42 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:56 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:40 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
-      "X-DD-Debug" : [ "wB7h0Rt2IYxDUBLtoJ4y0ZOq10ZaMdDZiRuFZ3d/FUUtC7gfBEZWTs0Y6dZhoLZS" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 09:47:55 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "u9VEJv4YNx+Fl9tRGJNbGm0+76jyym0t+mec2t84PhoJYEedil3ajyEhP7U3EneZ" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -104,13 +104,13 @@
     "body" : "{}"
   }
 }, {
-  "id" : "57f7b369-0415-412f-be10-3f14402f4431",
+  "id" : "e93663d7-623f-4ec8-9e22-b36e785499ef",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws",
     "queryStringParameters" : {
-      "account_id" : [ "java_4778121" ],
-      "role_name" : [ "java-updateAWSAccountTest-local-1590574778" ]
+      "account_id" : [ "java_RLdScFA" ],
+      "role_name" : [ "java-updateAWSAccountTest-local-1591004872" ]
     },
     "headers" : {
       "Accept" : [ "application/json" ],
@@ -132,15 +132,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:19:43 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:57 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:42 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
-      "X-DD-Debug" : [ "vlc9b/rJPByGsV/acj3ScS7B1lo9nEAbSgYCfkl0GH3egry4iXeiGBP0WX8DpJ/T" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 09:47:56 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "KKQq2SiaDLpychKSp47ffvU6SRxUV+VzBWr187ESkULBuGOI+kREfb/2NCy8DAWC" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -151,10 +151,10 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"accounts\":[{\"role_name\":\"java-updateAWSAccountTest-local-1590574778\",\"excluded_regions\":[\"us-east-1\",\"us-west-1\"],\"account_id\":\"java_4778121\",\"host_tags\":[\"javaTag:one\",\"java:success\"],\"account_specific_namespace_rules\":{},\"errors\":[],\"filter_tags\":[]}]}"
+    "body" : "{\"accounts\":[{\"role_name\":\"java-updateAWSAccountTest-local-1591004872\",\"excluded_regions\":[\"us-east-1\",\"us-west-1\"],\"account_id\":\"java_RLdScFA\",\"host_tags\":[\"javaTag:one\",\"java:success\"],\"account_specific_namespace_rules\":{},\"errors\":[],\"filter_tags\":[]}]}"
   }
 }, {
-  "id" : "a182570c-562d-4675-9709-73b400e98274",
+  "id" : "bcdb0096-34f3-4c60-8cef-14661312409d",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
@@ -170,7 +170,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_4778121\",\"account_specific_namespace_rules\":{},\"excluded_regions\":[\"us-east-1\",\"us-west-1\"],\"filter_tags\":[],\"host_tags\":[\"javaTag:one\",\"java:success\"],\"role_name\":\"java-updateAWSAccountTest-local-1590574778\"}"
+      "json" : "{\"account_id\":\"java_RLdScFA\",\"account_specific_namespace_rules\":{},\"excluded_regions\":[\"us-east-1\",\"us-west-1\"],\"filter_tags\":[],\"host_tags\":[\"javaTag:one\",\"java:success\"],\"role_name\":\"java-updateAWSAccountTest-local-1591004872\"}"
     }
   },
   "times" : {
@@ -183,15 +183,15 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:19:44 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:59 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 03-Jun-2020 10:19:43 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
-      "X-DD-Debug" : [ "AZX6w/8zD+VN3BjlP7mTxsWKLW39bs6QmKw7eyNlBdxzsMsZp5eTFn4umzElZK4n" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 09:47:58 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-Debug" : [ "aJ6GOq3zw1bWl+5n1TKdeAvWSB1g5Zer85qbkQ07UFNZhgfVh/zeqVhNb8FjtbN9" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

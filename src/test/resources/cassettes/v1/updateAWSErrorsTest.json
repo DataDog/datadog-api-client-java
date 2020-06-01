@@ -1,5 +1,5 @@
 [{
-  "id" : "c0a09eba-c506-42b5-bec2-d8c6d55ea31d",
+  "id" : "5b8a0776-4945-4132-a48d-70894a94b10f",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/integration/aws",
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:19:36 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:49 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "183" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2549518" ],
+      "X-DD-VERSION" : [ "35.2563169" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,7 +44,7 @@
     "body" : "{\"errors\": [\"At least one of the following parameters is required: account_id, role_name, access_key_id, secret_access_key, host_tags, filter_tags, account_specific_namespace_rules\"]}"
   }
 }, {
-  "id" : "18efe047-4da6-4ac7-b0b3-a25a407b18b4",
+  "id" : "d3657145-1c44-4c7e-886f-29a767e60d21",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/integration/aws",
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 27 May 2020 10:19:37 GMT" ],
+      "Date" : [ "Mon, 01 Jun 2020 09:47:50 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

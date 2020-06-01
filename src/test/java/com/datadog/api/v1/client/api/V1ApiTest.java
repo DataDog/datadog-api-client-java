@@ -21,6 +21,10 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.HashMap;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -85,10 +89,7 @@ public abstract class V1ApiTest extends TestUtils.APITest {
     @BeforeClass
     public static void initGeneralApiUnitTestClient() {
         generalApiUnitTestClient = new ApiClient();
-
-        // WireMock defaults to listening on localhost port 8080
-        // http://wiremock.org/docs/configuration/
-        generalApiUnitTestClient.setBasePath("http://localhost:8080");
+        generalApiUnitTestClient.setBasePath(String.format("http://localhost:%d", WIREMOCK_PORT));
         // Disable templated servers
         generalApiUnitTestClient.setServerIndex(null);
 
