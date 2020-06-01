@@ -138,7 +138,7 @@ public class TestUtils {
 
         protected static String TEST_API_KEY;
         protected static String TEST_APP_KEY;
-        protected static int WIREMOCK_PORT = 8080 + SUREFIRE_FORK - 1;
+        protected static int WIREMOCK_PORT = 8080 + SUREFIRE_FORK;
         @Rule
         public WireMockRule wireMockRule = new WireMockRule(options().port(WIREMOCK_PORT));
         @Rule
