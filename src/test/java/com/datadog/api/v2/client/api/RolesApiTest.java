@@ -78,10 +78,10 @@ public class RolesApiTest extends V2APITest {
         RoleCreateAttributes rca = new RoleCreateAttributes()
                 .name(testingRoleName);
         RoleCreateData rcd = new RoleCreateData().attributes(rca);
-        RoleCreatePayload rcp = new RoleCreatePayload().data(rcd);
+        RoleCreateRequest rcp = new RoleCreateRequest().data(rcd);
 
         // first, test creating a role
-        RoleResponse rr = api.createRole().body(rcp).execute();
+        RoleCreateResponse rr = api.createRole().body(rcp).execute();
         String rid = rr.getData().getId();
         deleteRoles.add(rid);
 
@@ -92,9 +92,9 @@ public class RolesApiTest extends V2APITest {
         RoleUpdateAttributes rua = new RoleUpdateAttributes()
                 .name(updatedRoleName);
         RoleUpdateData rud = new RoleUpdateData().attributes(rua).id(rid);
-        RoleUpdatePayload rup = new RoleUpdatePayload().data(rud);
+        RoleUpdateRequest rup = new RoleUpdateRequest().data(rud);
 
-        RoleResponse urr = api.updateRole(rid).body(rup).execute();
+        RoleUpdateResponse urr = api.updateRole(rid).body(rup).execute();
         assertEquals(updatedRoleName, urr.getData().getAttributes().getName());
 
         // now, test getting it
@@ -124,10 +124,10 @@ public class RolesApiTest extends V2APITest {
         RoleCreateAttributes rca = new RoleCreateAttributes()
                 .name(testingRoleName);
         RoleCreateData rcd = new RoleCreateData().attributes(rca);
-        RoleCreatePayload rcp = new RoleCreatePayload().data(rcd);
+        RoleCreateRequest rcp = new RoleCreateRequest().data(rcd);
 
         // first, create a role
-        RoleResponse rr = api.createRole().body(rcp).execute();
+        RoleCreateResponse rr = api.createRole().body(rcp).execute();
         String rid = rr.getData().getId();
         deleteRoles.add(rid);
 
@@ -181,10 +181,10 @@ public class RolesApiTest extends V2APITest {
         RoleCreateAttributes rca = new RoleCreateAttributes()
                 .name(testingRoleName);
         RoleCreateData rcd = new RoleCreateData().attributes(rca);
-        RoleCreatePayload rcp = new RoleCreatePayload().data(rcd);
+        RoleCreateRequest rcp = new RoleCreateRequest().data(rcd);
 
         // first, create a role
-        RoleResponse rr = api.createRole().body(rcp).execute();
+        RoleCreateResponse rr = api.createRole().body(rcp).execute();
         String rid = rr.getData().getId();
         deleteRoles.add(rid);
 
