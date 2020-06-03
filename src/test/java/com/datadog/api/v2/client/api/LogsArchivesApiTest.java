@@ -26,7 +26,6 @@ import com.datadog.api.v2.client.model.LogsArchiveCreateRequest;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequestAttributes;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDefinition;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDestination;
-import com.datadog.api.v2.client.model.LogsArchiveDefinition;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationAzure;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationAzureType;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationGCS;
@@ -167,7 +166,7 @@ public class LogsArchivesApiTest extends V2APITest {
                 .willReturn(okJson(fixtureData).withStatus(200))
         );
         LogsArchive response = api.getLogsArchive(ARCHIVE_ID).execute();
-        checkS3Archive(response.getData());
+        assertEquals(objectMapper.readValue(fixtureData, LogsArchive.class), response);
     }
     
     /**
@@ -187,8 +186,7 @@ public class LogsArchivesApiTest extends V2APITest {
                 .willReturn(okJson(fixtureData).withStatus(200))
         );
         LogsArchives response = api.listLogsArchives().execute();
-        assertEquals(1, response.getData().size());
-        checkS3Archive(response.getData().get(0));
+        assertEquals(objectMapper.readValue(fixtureData, LogsArchives.class), response);
     }
     
     /**
@@ -210,7 +208,7 @@ public class LogsArchivesApiTest extends V2APITest {
                 .willReturn(okJson(outputData).withStatus(200))
         );
         LogsArchive response = api.updateLogsArchive(ARCHIVE_ID).body(input).execute();
-        checkS3Archive(response.getData(), "/path/toto", "service:toto");
+        assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
     }
 
     private LogsArchiveCreateRequest getLogsArchiveCreateRequestS3() {
@@ -262,23 +260,6 @@ public class LogsArchivesApiTest extends V2APITest {
                 .name("datadog-api-client-go Tests Archive")
                 .query("service:toto");
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
-    }
-
-    private void checkS3Archive(LogsArchiveDefinition outputArchive) {
-        checkS3Archive(outputArchive, "/path/blou", "source:tata");
-    }
-
-    private void checkS3Archive(LogsArchiveDefinition outputArchive, String path, String query) {
-        assertEquals(outputArchive.getType(), "archives");
-        LogsArchiveDestinationS3 destination = (LogsArchiveDestinationS3) outputArchive.getAttributes().getDestination().getActualInstance();
-        assertEquals(destination.getType(), LogsArchiveDestinationS3Type.S3);
-        assertEquals(destination.getIntegration().getAccountId(), "711111111111");
-        assertEquals(destination.getIntegration().getRoleName(), "DatadogGoClientTestIntegrationRole");
-        assertEquals(destination.getPath(), path);
-        assertEquals(destination.getBucket(), "dd-logs-test-datadog-api-client-go");
-        assertEquals(outputArchive.getAttributes().getName(), "datadog-api-client-go Tests Archive");
-        assertEquals(outputArchive.getAttributes().getQuery(), query);
-        assertEquals(outputArchive.getId(), ARCHIVE_ID);
     }
     
 }
