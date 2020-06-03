@@ -9,5 +9,7 @@
 
 * `TWO_COLUMN` (value: `"two_column"`)
 
+* `THREE_COLUMN` (value: `"three_column"`)
+
 
 

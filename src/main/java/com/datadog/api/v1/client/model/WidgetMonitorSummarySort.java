@@ -20,19 +20,43 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Number of columns to display.
+ * Widget sorting methods.
  */
-public enum WidgetServiceSummaryDisplayFormat {
+public enum WidgetMonitorSummarySort {
   
-  ONE_COLUMN("one_column"),
+  NAME("name"),
   
-  TWO_COLUMN("two_column"),
+  GROUP("group"),
   
-  THREE_COLUMN("three_column");
+  STATUS("status"),
+  
+  TAGS("tags"),
+  
+  TRIGGERED("triggered"),
+  
+  GROUP_ASCENDING("group,asc"),
+  
+  GROUP_DESCENDING("group,desc"),
+  
+  NAME_ASCENDING("name,asc"),
+  
+  NAME_DESCENDING("name,desc"),
+  
+  STATUS_ASCENDING("status,asc"),
+  
+  STATUS_DESCENDING("status,desc"),
+  
+  TAGS_ASCENDING("tags,asc"),
+  
+  TAGS_DESCENDING("tags,desc"),
+  
+  TRIGGERED_ASCENDING("triggered,asc"),
+  
+  TRIGGERED_DESCENDING("triggered,desc");
 
   private String value;
 
-  WidgetServiceSummaryDisplayFormat(String value) {
+  WidgetMonitorSummarySort(String value) {
     this.value = value;
   }
 
@@ -47,8 +71,8 @@ public enum WidgetServiceSummaryDisplayFormat {
   }
 
   @JsonCreator
-  public static WidgetServiceSummaryDisplayFormat fromValue(String value) {
-    for (WidgetServiceSummaryDisplayFormat b : WidgetServiceSummaryDisplayFormat.values()) {
+  public static WidgetMonitorSummarySort fromValue(String value) {
+    for (WidgetMonitorSummarySort b : WidgetMonitorSummarySort.values()) {
       if (b.value.equals(value)) {
         return b;
       }

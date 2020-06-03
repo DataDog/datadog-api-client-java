@@ -50,7 +50,7 @@ Name | Type | Description | Notes
 **messageDisplay** | [**WidgetMessageDisplay**](WidgetMessageDisplay.md) |  |  [optional]
 **showDateColumn** | **Boolean** | Whether to show the date column or not |  [optional]
 **showMessageColumn** | **Boolean** | Whether to show the message column or not |  [optional]
-**sort** | [**WidgetSort**](WidgetSort.md) |  |  [optional]
+**sort** | [**WidgetMonitorSummarySort**](WidgetMonitorSummarySort.md) |  |  [optional]
 **colorPreference** | [**WidgetColorPreference**](WidgetColorPreference.md) |  |  [optional]
 **count** | **Long** | The number of monitors to display. |  [optional]
 **displayFormat** | [**WidgetServiceSummaryDisplayFormat**](WidgetServiceSummaryDisplayFormat.md) |  |  [optional]
