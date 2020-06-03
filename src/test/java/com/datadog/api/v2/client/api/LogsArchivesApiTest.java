@@ -20,9 +20,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.put;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assume.assumeTrue;
 
-import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
@@ -78,7 +76,6 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void createLogsArchiveTestS3() throws IOException, ApiException {
-        assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
         LogsArchiveCreateRequest archive = getLogsArchiveCreateRequestS3();
         String archiveType = "s3";
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
@@ -101,7 +98,6 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void createLogsArchiveTestAzure() throws IOException, ApiException {
-        assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
         LogsArchiveCreateRequest archive = getLogsArchiveCreateRequestAzure();
         String archiveType = "s3";
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
@@ -124,7 +120,6 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void createLogsArchiveTestGCS() throws IOException, ApiException {
-        assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
         LogsArchiveCreateRequest archive = getLogsArchiveCreateRequestGCS();
         String archiveType = "s3";
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
@@ -148,7 +143,6 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void deleteLogsArchiveTest() throws IOException, ApiException {
-        assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
         String archiveType = "s3";
         String fixtureData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "getbyid.json"));
         String archiveId = "XVlBzgbaiC";
@@ -170,7 +164,6 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void getLogsArchiveTest() throws IOException, ApiException {
-        assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
         String archiveType = "s3";
         String fixtureData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "getbyid.json"));
         String archiveId = "XVlBzgbaiC";
@@ -192,7 +185,6 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void listLogsArchivesTest() throws IOException, ApiException {
-        assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
         String archiveType = "s3";
         String fixtureData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "getall.json"));
         stubFor(get(urlPathEqualTo(apiUri))
@@ -214,7 +206,6 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void updateLogsArchiveTest() throws IOException, ApiException {
-        assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
         String archiveType = "s3";
         LogsArchiveCreateRequest input = getLogsArchiveCreateRequestS3();
         String inputData = TestUtils.getFixture(String.format("%s/%s/in/%s", fixturePrefix, archiveType, "update.json"));
