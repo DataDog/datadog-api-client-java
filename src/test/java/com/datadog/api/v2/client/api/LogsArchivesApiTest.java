@@ -48,6 +48,7 @@ import org.junit.Test;
  */
 public class LogsArchivesApiTest extends V2APITest {
 
+    public static final String ARCHIVE_ID = "FOObar";
     private static LogsArchivesApi api;
 
     // ObjectMapper instance configure to not fail when encountering unknown properties
@@ -142,11 +143,10 @@ public class LogsArchivesApiTest extends V2APITest {
     public void deleteLogsArchiveTest() throws IOException, ApiException {
         String archiveType = "s3";
         String fixtureData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "getbyid.json"));
-        String archiveId = "XVlBzgbaiC";
-        stubFor(delete(urlPathEqualTo(String.format("%s/%s", apiUri, archiveId)))
+        stubFor(delete(urlPathEqualTo(String.format("%s/%s", apiUri, ARCHIVE_ID)))
                 .willReturn(okJson(fixtureData).withStatus(204))
         );
-        ApiResponse<Void> response = api.deleteLogsArchive(archiveId).executeWithHttpInfo();
+        ApiResponse<Void> response = api.deleteLogsArchive(ARCHIVE_ID).executeWithHttpInfo();
         assertEquals(204, response.getStatusCode());
     }
     
@@ -163,11 +163,10 @@ public class LogsArchivesApiTest extends V2APITest {
     public void getLogsArchiveTest() throws IOException, ApiException {
         String archiveType = "s3";
         String fixtureData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "getbyid.json"));
-        String archiveId = "XVlBzgbaiC";
-        stubFor(get(urlPathEqualTo(String.format("%s/%s", apiUri, archiveId)))
+        stubFor(get(urlPathEqualTo(String.format("%s/%s", apiUri, ARCHIVE_ID)))
                 .willReturn(okJson(fixtureData).withStatus(200))
         );
-        LogsArchive response = api.getLogsArchive(archiveId).execute();
+        LogsArchive response = api.getLogsArchive(ARCHIVE_ID).execute();
         checkS3Archive(response.getData());
     }
     
@@ -206,12 +205,11 @@ public class LogsArchivesApiTest extends V2APITest {
         String archiveType = "s3";
         LogsArchiveCreateRequest input = getLogsArchiveCreateRequestS3();
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "update.json"));
-        String archiveId = "XVlBzgbaiC";
-        stubFor(put(urlPathEqualTo(String.format("%s/%s", apiUri, archiveId)))
+        stubFor(put(urlPathEqualTo(String.format("%s/%s", apiUri, ARCHIVE_ID)))
                 .withRequestBody(equalToJson(objectMapper.writeValueAsString(input)))
                 .willReturn(okJson(outputData).withStatus(200))
         );
-        LogsArchive response = api.updateLogsArchive(archiveId).body(input).execute();
+        LogsArchive response = api.updateLogsArchive(ARCHIVE_ID).body(input).execute();
         checkS3Archive(response.getData(), "/path/toto", "service:toto");
     }
 
@@ -280,7 +278,7 @@ public class LogsArchivesApiTest extends V2APITest {
         assertEquals(destination.getBucket(), "dd-logs-test-datadog-api-client-go");
         assertEquals(outputArchive.getAttributes().getName(), "datadog-api-client-go Tests Archive");
         assertEquals(outputArchive.getAttributes().getQuery(), query);
-        assertEquals(outputArchive.getId(), "XVlBzgbaiC");
+        assertEquals(outputArchive.getId(), ARCHIVE_ID);
     }
     
 }
