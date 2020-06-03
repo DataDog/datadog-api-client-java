@@ -24,18 +24,27 @@ import static org.junit.Assume.assumeTrue;
 
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
-import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.model.LogsArchive;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequest;
+import com.datadog.api.v2.client.model.LogsArchiveCreateRequestAttributes;
+import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDefinition;
+import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDestination;
 import com.datadog.api.v2.client.model.LogsArchiveDefinition;
+import com.datadog.api.v2.client.model.LogsArchiveDestinationAzure;
+import com.datadog.api.v2.client.model.LogsArchiveDestinationAzureType;
+import com.datadog.api.v2.client.model.LogsArchiveDestinationGCS;
+import com.datadog.api.v2.client.model.LogsArchiveDestinationGCSType;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationS3;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationS3Type;
+import com.datadog.api.v2.client.model.LogsArchiveIntegrationAzure;
+import com.datadog.api.v2.client.model.LogsArchiveIntegrationGCS;
+import com.datadog.api.v2.client.model.LogsArchiveIntegrationS3;
 import com.datadog.api.v2.client.model.LogsArchives;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -59,7 +68,7 @@ public class LogsArchivesApiTest extends V2APITest {
     }
 
     /**
-     * Create an archive
+     * Create an archive S3
      *
      * Create an archive in your organization.
      *
@@ -68,21 +77,66 @@ public class LogsArchivesApiTest extends V2APITest {
      *          if the Api call fails
      */
     @Test
-    public void createLogsArchiveTest() throws IOException, ApiException {
+    public void createLogsArchiveTestS3() throws IOException, ApiException {
         assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
-        final String[] cases = {"s3", "gcs", "azure"};
-        for(String archiveType: cases) {
-            String inputData = TestUtils.getFixture(String.format("%s/%s/in/%s", fixturePrefix, archiveType, "create.json"));
-            String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
-            stubFor(post(urlPathEqualTo(apiUri))
-                    .withRequestBody(equalToJson(inputData))
-                    .willReturn(okJson(outputData).withStatus(200))
-            );
-            LogsArchive response = api.createLogsArchive().body(objectMapper.readValue(inputData, LogsArchiveCreateRequest.class)).execute();
-            assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
-        }
+        LogsArchiveCreateRequest archive = getLogsArchiveCreateRequestS3();
+        String archiveType = "s3";
+        String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
+        stubFor(post(urlPathEqualTo(apiUri))
+                .withRequestBody(equalToJson(objectMapper.writeValueAsString(archive)))
+                .willReturn(okJson(outputData).withStatus(200))
+        );
+        LogsArchive response = api.createLogsArchive().body(archive).execute();
+        assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
     }
-    
+
+    /**
+     * Create an archive Azure
+     *
+     * Create an archive in your organization.
+     *
+     * @throws IOException
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createLogsArchiveTestAzure() throws IOException, ApiException {
+        assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
+        LogsArchiveCreateRequest archive = getLogsArchiveCreateRequestAzure();
+        String archiveType = "s3";
+        String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
+        stubFor(post(urlPathEqualTo(apiUri))
+                .withRequestBody(equalToJson(objectMapper.writeValueAsString(archive)))
+                .willReturn(okJson(outputData).withStatus(200))
+        );
+        LogsArchive response = api.createLogsArchive().body(archive).execute();
+        assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
+    }
+
+    /**
+     * Create an archive GCS
+     *
+     * Create an archive in your organization.
+     *
+     * @throws IOException
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createLogsArchiveTestGCS() throws IOException, ApiException {
+        assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
+        LogsArchiveCreateRequest archive = getLogsArchiveCreateRequestGCS();
+        String archiveType = "s3";
+        String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
+        stubFor(post(urlPathEqualTo(apiUri))
+                .withRequestBody(equalToJson(objectMapper.writeValueAsString(archive)))
+                .willReturn(okJson(outputData).withStatus(200))
+        );
+        LogsArchive response = api.createLogsArchive().body(archive).execute();
+        assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
+    }
+
+
     /**
      * Delete an archive
      *
@@ -162,15 +216,67 @@ public class LogsArchivesApiTest extends V2APITest {
     public void updateLogsArchiveTest() throws IOException, ApiException {
         assumeTrue(TestUtils.getRecordingMode() == RecordingMode.MODE_REPLAYING) ;
         String archiveType = "s3";
+        LogsArchiveCreateRequest input = getLogsArchiveCreateRequestS3();
         String inputData = TestUtils.getFixture(String.format("%s/%s/in/%s", fixturePrefix, archiveType, "update.json"));
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "update.json"));
         String archiveId = "XVlBzgbaiC";
         stubFor(put(urlPathEqualTo(String.format("%s/%s", apiUri, archiveId)))
-                .withRequestBody(equalToJson(inputData))
+                .withRequestBody(equalToJson(objectMapper.writeValueAsString(input)))
                 .willReturn(okJson(outputData).withStatus(200))
         );
         LogsArchive response = api.updateLogsArchive(archiveId).body(objectMapper.readValue(inputData, LogsArchiveCreateRequest.class)).execute();
         checkS3Archive(response.getData(), "/path/toto", "service:toto");
+    }
+
+    private LogsArchiveCreateRequest getLogsArchiveCreateRequestS3() {
+        LogsArchiveIntegrationS3 integration = new LogsArchiveIntegrationS3()
+                .accountId("711111111111")
+                .roleName("DatadogGoClientTestIntegrationRole");
+        LogsArchiveDestinationS3 destination = new LogsArchiveDestinationS3()
+                .integration(integration)
+                .bucket("dd-logs-test-datadog-api-client-go")
+                .path("/path/toto")
+                .type(LogsArchiveDestinationS3Type.S3);
+        LogsArchiveCreateRequestAttributes attributes = new LogsArchiveCreateRequestAttributes()
+                .destination(new LogsArchiveCreateRequestDestination(destination))
+                .name("datadog-api-client-go Tests Archive")
+                .query("service:toto");
+        return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
+    }
+
+    private LogsArchiveCreateRequest getLogsArchiveCreateRequestAzure() {
+        LogsArchiveIntegrationAzure integration = new LogsArchiveIntegrationAzure()
+                .clientId("aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa")
+                .tenantId("aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa");
+        LogsArchiveDestinationAzure destination = new LogsArchiveDestinationAzure()
+                .integration(integration)
+                .path("/path/blou")
+                .region("my-region")
+                .storageAccount("storageAccount")
+                .path("/path/blou")
+                .container("my-container")
+                .type(LogsArchiveDestinationAzureType.AZURE);
+        LogsArchiveCreateRequestAttributes attributes = new LogsArchiveCreateRequestAttributes()
+                .destination(new LogsArchiveCreateRequestDestination(destination))
+                .name("datadog-api-client-go Tests Archive")
+                .query("service:toto");
+        return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
+    }
+
+    private LogsArchiveCreateRequest getLogsArchiveCreateRequestGCS() {
+        LogsArchiveIntegrationGCS integration = new LogsArchiveIntegrationGCS()
+                .clientEmail("email@email.com")
+                .projectId("aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa");
+        LogsArchiveDestinationGCS destination = new LogsArchiveDestinationGCS()
+                .integration(integration)
+                .bucket("dd-logs-test-datadog-api-client-go")
+                .path("/path/blou")
+                .type(LogsArchiveDestinationGCSType.GCS);
+        LogsArchiveCreateRequestAttributes attributes = new LogsArchiveCreateRequestAttributes()
+                .destination(new LogsArchiveCreateRequestDestination(destination))
+                .name("datadog-api-client-go Tests Archive")
+                .query("service:toto");
+        return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
     private void checkS3Archive(LogsArchiveDefinition outputArchive) {
