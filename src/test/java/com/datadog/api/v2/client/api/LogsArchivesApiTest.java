@@ -73,7 +73,7 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void createLogsArchiveTestS3() throws IOException, ApiException {
-        LogsArchiveCreateRequest archive = getLogsArchiveCreateRequestS3();
+        LogsArchiveCreateRequest archive = createLogsArchiveCreateRequestS3();
         String archiveType = "s3";
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
         stubFor(post(urlPathEqualTo(apiUri))
@@ -95,7 +95,7 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void createLogsArchiveTestAzure() throws IOException, ApiException {
-        LogsArchiveCreateRequest archive = getLogsArchiveCreateRequestAzure();
+        LogsArchiveCreateRequest archive = createLogsArchiveCreateRequestAzure();
         String archiveType = "azure";
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
         stubFor(post(urlPathEqualTo(apiUri))
@@ -117,7 +117,7 @@ public class LogsArchivesApiTest extends V2APITest {
      */
     @Test
     public void createLogsArchiveTestGCS() throws IOException, ApiException {
-        LogsArchiveCreateRequest archive = getLogsArchiveCreateRequestGCS();
+        LogsArchiveCreateRequest archive = createLogsArchiveCreateRequestGCS();
         String archiveType = "gcs";
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
         stubFor(post(urlPathEqualTo(apiUri))
@@ -201,7 +201,7 @@ public class LogsArchivesApiTest extends V2APITest {
     @Test
     public void updateLogsArchiveTest() throws IOException, ApiException {
         String archiveType = "s3";
-        LogsArchiveCreateRequest input = getLogsArchiveCreateRequestS3();
+        LogsArchiveCreateRequest input = createLogsArchiveCreateRequestS3();
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "update.json"));
         stubFor(put(urlPathEqualTo(String.format("%s/%s", apiUri, ARCHIVE_ID)))
                 .withRequestBody(equalToJson(objectMapper.writeValueAsString(input)))
@@ -211,7 +211,7 @@ public class LogsArchivesApiTest extends V2APITest {
         assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
     }
 
-    private LogsArchiveCreateRequest getLogsArchiveCreateRequestS3() {
+    private LogsArchiveCreateRequest createLogsArchiveCreateRequestS3() {
         LogsArchiveIntegrationS3 integration = new LogsArchiveIntegrationS3()
                 .accountId("711111111111")
                 .roleName("DatadogGoClientTestIntegrationRole");
@@ -227,7 +227,7 @@ public class LogsArchivesApiTest extends V2APITest {
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
-    private LogsArchiveCreateRequest getLogsArchiveCreateRequestAzure() {
+    private LogsArchiveCreateRequest createLogsArchiveCreateRequestAzure() {
         LogsArchiveIntegrationAzure integration = new LogsArchiveIntegrationAzure()
                 .clientId("aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa")
                 .tenantId("aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa");
@@ -246,7 +246,7 @@ public class LogsArchivesApiTest extends V2APITest {
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
-    private LogsArchiveCreateRequest getLogsArchiveCreateRequestGCS() {
+    private LogsArchiveCreateRequest createLogsArchiveCreateRequestGCS() {
         LogsArchiveIntegrationGCS integration = new LogsArchiveIntegrationGCS()
                 .clientEmail("email@email.com")
                 .projectId("aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa");
