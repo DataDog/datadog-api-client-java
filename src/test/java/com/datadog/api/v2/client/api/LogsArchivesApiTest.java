@@ -208,14 +208,13 @@ public class LogsArchivesApiTest extends V2APITest {
     public void updateLogsArchiveTest() throws IOException, ApiException {
         String archiveType = "s3";
         LogsArchiveCreateRequest input = getLogsArchiveCreateRequestS3();
-        String inputData = TestUtils.getFixture(String.format("%s/%s/in/%s", fixturePrefix, archiveType, "update.json"));
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "update.json"));
         String archiveId = "XVlBzgbaiC";
         stubFor(put(urlPathEqualTo(String.format("%s/%s", apiUri, archiveId)))
                 .withRequestBody(equalToJson(objectMapper.writeValueAsString(input)))
                 .willReturn(okJson(outputData).withStatus(200))
         );
-        LogsArchive response = api.updateLogsArchive(archiveId).body(objectMapper.readValue(inputData, LogsArchiveCreateRequest.class)).execute();
+        LogsArchive response = api.updateLogsArchive(archiveId).body(input).execute();
         checkS3Archive(response.getData(), "/path/toto", "service:toto");
     }
 
