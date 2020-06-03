@@ -306,7 +306,7 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
 
   /**
    * Get all hosts for your organization
-   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included. Results are paginated with a max of 1000 results at a time.
+   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
    * @return listHostsRequest
    * @throws ApiException if fails to make API call
    

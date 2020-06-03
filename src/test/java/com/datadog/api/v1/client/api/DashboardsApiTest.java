@@ -273,7 +273,7 @@ public class DashboardsApiTest extends V1ApiTest{
         MonitorSummaryWidgetDefinition monitorSummaryWidgetDefinition = new MonitorSummaryWidgetDefinition()
                 .query("Errors are increasing")
                 .summaryType(WidgetSummaryType.COMBINED)
-                .sort(WidgetSort.ASCENDING)
+                .sort(WidgetMonitorSummarySort.NAME_ASCENDING)
                 .displayFormat(WidgetMonitorSummaryDisplayFormat.COUNTS)
                 .colorPreference(WidgetColorPreference.BACKGROUND)
                 .hideZeroCounts(false)

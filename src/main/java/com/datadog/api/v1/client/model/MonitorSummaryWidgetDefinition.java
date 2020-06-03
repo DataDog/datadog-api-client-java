@@ -16,7 +16,7 @@ import java.util.Arrays;
 import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetColorPreference;
 import com.datadog.api.v1.client.model.WidgetMonitorSummaryDisplayFormat;
-import com.datadog.api.v1.client.model.WidgetSort;
+import com.datadog.api.v1.client.model.WidgetMonitorSummarySort;
 import com.datadog.api.v1.client.model.WidgetSummaryType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -67,7 +67,7 @@ public class MonitorSummaryWidgetDefinition {
   private Boolean showLastTriggered;
 
   public static final String JSON_PROPERTY_SORT = "sort";
-  private WidgetSort sort;
+  private WidgetMonitorSummarySort sort;
 
   public static final String JSON_PROPERTY_START = "start";
   private Long start;
@@ -237,7 +237,7 @@ public class MonitorSummaryWidgetDefinition {
   }
 
 
-  public MonitorSummaryWidgetDefinition sort(WidgetSort sort) {
+  public MonitorSummaryWidgetDefinition sort(WidgetMonitorSummarySort sort) {
     
     this.sort = sort;
     return this;
@@ -252,12 +252,12 @@ public class MonitorSummaryWidgetDefinition {
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public WidgetSort getSort() {
+  public WidgetMonitorSummarySort getSort() {
     return sort;
   }
 
 
-  public void setSort(WidgetSort sort) {
+  public void setSort(WidgetMonitorSummarySort sort) {
     this.sort = sort;
   }
 
