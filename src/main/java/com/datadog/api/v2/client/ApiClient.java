@@ -121,6 +121,9 @@ public class ApiClient {
 
   protected DateFormat dateFormat;
   protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {{
+    put("addReadRoleToArchive", false);
+    put("listArchiveReadRoles", false);
+    put("removeRoleFromArchive", false);
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
