@@ -131,6 +131,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
             assertEquals(new AzureAccount(), retrievedAccount);
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            System.out.printf("Listing Azure accounts returned 400, this is ok when no other accounts exist at this moment");
         }
     }
 
