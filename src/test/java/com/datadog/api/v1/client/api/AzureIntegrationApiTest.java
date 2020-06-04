@@ -123,9 +123,15 @@ public class AzureIntegrationApiTest extends V1ApiTest {
 
         // Test account deletion as well
         api.deleteAzureIntegration().body(uniqueAzureAccount).execute();
-        listAccounts = api.listAzureIntegration().execute();
-        retrievedAccount = retrieveAccountInList(listAccounts, uniqueAzureAccount.getTenantName());
-        assertEquals(new AzureAccount(), retrievedAccount);
+        try {
+            // the API returns 400 if there are no accounts at all, but because of potential other tests
+            // running, we can never be sure if there are currently other accounts, so we handle both cases
+            listAccounts = api.listAzureIntegration().execute();
+            retrievedAccount = retrieveAccountInList(listAccounts, uniqueAzureAccount.getTenantName());
+            assertEquals(new AzureAccount(), retrievedAccount);
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
     }
 
     /**
