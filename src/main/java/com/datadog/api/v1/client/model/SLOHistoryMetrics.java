@@ -99,7 +99,7 @@ public class SLOHistoryMetrics {
    * The aggregated query interval for the series data. It&#39;s implicit based on the query time window.
    * @return interval
   **/
-  @ApiModelProperty(required = true, value = "The aggregated query interval for the series data. It's implicit based on the query time window.")
+  @ApiModelProperty(example = "0", required = true, value = "The aggregated query interval for the series data. It's implicit based on the query time window.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -220,7 +220,7 @@ public class SLOHistoryMetrics {
    * The series response version type. This mimics &#x60;batch_query&#x60; response type.
    * @return respVersion
   **/
-  @ApiModelProperty(required = true, value = "The series response version type. This mimics `batch_query` response type.")
+  @ApiModelProperty(example = "0", required = true, value = "The series response version type. This mimics `batch_query` response type.")
   @JsonProperty(JSON_PROPERTY_RESP_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -249,7 +249,7 @@ public class SLOHistoryMetrics {
    * An array of query timestamps in EPOCH milliseconds
    * @return times
   **/
-  @ApiModelProperty(required = true, value = "An array of query timestamps in EPOCH milliseconds")
+  @ApiModelProperty(example = "[]", required = true, value = "An array of query timestamps in EPOCH milliseconds")
   @JsonProperty(JSON_PROPERTY_TIMES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

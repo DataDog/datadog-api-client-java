@@ -56,7 +56,7 @@ public class DashboardListItems {
    * List of dashboards in the dashboard list.
    * @return dashboards
   **/
-  @ApiModelProperty(required = true, value = "List of dashboards in the dashboard list.")
+  @ApiModelProperty(example = "[]", required = true, value = "List of dashboards in the dashboard list.")
   @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

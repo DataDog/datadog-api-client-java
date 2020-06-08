@@ -61,7 +61,7 @@ public class SyntheticsDevice {
    * Screen height of the device.
    * @return height
   **/
-  @ApiModelProperty(required = true, value = "Screen height of the device.")
+  @ApiModelProperty(example = "0", required = true, value = "Screen height of the device.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -158,7 +158,7 @@ public class SyntheticsDevice {
    * Screen width of the device.
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "Screen width of the device.")
+  @ApiModelProperty(example = "0", required = true, value = "Screen width of the device.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

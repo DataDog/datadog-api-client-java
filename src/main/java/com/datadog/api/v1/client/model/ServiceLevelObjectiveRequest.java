@@ -358,7 +358,7 @@ public class ServiceLevelObjectiveRequest {
    * The thresholds (timeframes and associated targets) for this service level objective object.
    * @return thresholds
   **/
-  @ApiModelProperty(required = true, value = "The thresholds (timeframes and associated targets) for this service level objective object.")
+  @ApiModelProperty(example = "[]", required = true, value = "The thresholds (timeframes and associated targets) for this service level objective object.")
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

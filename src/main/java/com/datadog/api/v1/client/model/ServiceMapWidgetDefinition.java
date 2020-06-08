@@ -73,7 +73,7 @@ public class ServiceMapWidgetDefinition {
    * Your environment and primary tag (or * if enabled for your account).
    * @return filters
   **/
-  @ApiModelProperty(required = true, value = "Your environment and primary tag (or * if enabled for your account).")
+  @ApiModelProperty(example = "[\"*\"]", required = true, value = "Your environment and primary tag (or * if enabled for your account).")
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

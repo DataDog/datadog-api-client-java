@@ -276,7 +276,7 @@ public class WidgetConditionalFormat {
    * Value for the comparator.
    * @return value
   **/
-  @ApiModelProperty(required = true, value = "Value for the comparator.")
+  @ApiModelProperty(example = "0.0", required = true, value = "Value for the comparator.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

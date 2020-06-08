@@ -117,7 +117,7 @@ public class ToplistWidgetRequest {
    * @return conditionalFormats
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of conditional formats.")
+  @ApiModelProperty(example = "[{\"comparator\":\">=\",\"palette\":\"blue\",\"value\":1.0}]", value = "List of conditional formats.")
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

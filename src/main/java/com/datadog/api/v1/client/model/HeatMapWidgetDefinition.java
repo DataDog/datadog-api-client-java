@@ -152,7 +152,7 @@ public class HeatMapWidgetDefinition {
    * List of widget types.
    * @return requests
   **/
-  @ApiModelProperty(required = true, value = "List of widget types.")
+  @ApiModelProperty(example = "[{\"q\":\"jvm.heap.memory\"}]", required = true, value = "List of widget types.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -78,7 +78,7 @@ public class SecurityMonitoringRuleCreatePayload {
    * Cases for generating signals.
    * @return cases
   **/
-  @ApiModelProperty(required = true, value = "Cases for generating signals.")
+  @ApiModelProperty(example = "[]", required = true, value = "Cases for generating signals.")
   @JsonProperty(JSON_PROPERTY_CASES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -203,7 +203,7 @@ public class SecurityMonitoringRuleCreatePayload {
    * Queries for selecting logs which are part of the rule.
    * @return queries
   **/
-  @ApiModelProperty(required = true, value = "Queries for selecting logs which are part of the rule.")
+  @ApiModelProperty(example = "[]", required = true, value = "Queries for selecting logs which are part of the rule.")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

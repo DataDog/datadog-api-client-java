@@ -436,7 +436,7 @@ public class Dashboard {
    * List of widgets to display on the dashboard.
    * @return widgets
   **/
-  @ApiModelProperty(required = true, value = "List of widgets to display on the dashboard.")
+  @ApiModelProperty(example = "[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"system.cpu.user\"}},\"type\":\"hostmap\"}}]", required = true, value = "List of widgets to display on the dashboard.")
   @JsonProperty(JSON_PROPERTY_WIDGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
