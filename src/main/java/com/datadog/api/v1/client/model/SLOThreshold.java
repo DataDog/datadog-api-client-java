@@ -61,7 +61,7 @@ public class SLOThreshold {
    * The target value for the service level indicator within the corresponding timeframe.
    * @return target
   **/
-  @ApiModelProperty(required = true, value = "The target value for the service level indicator within the corresponding timeframe.")
+  @ApiModelProperty(example = "0.0", required = true, value = "The target value for the service level indicator within the corresponding timeframe.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
