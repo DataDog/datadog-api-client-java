@@ -26,4 +26,5 @@ else
     echo "LICENSE-3rdparty.csv is up to date"
 fi
 
-mvn --show-version --batch-mode test
+RERUN_COUNT=$([ "$CI" == "true" ] && echo "1" || echo "0")
+mvn --show-version --batch-mode -Dsurefire.rerunFailingTestsCount=${RERUN_COUNT} test
