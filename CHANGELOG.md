@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## datadog-api-client-1.0.0-beta.4 / 2020-06-09
+
+* [BREAKING] Add missing values to enums. See [#327](https://github.com/DataDog/datadog-api-client-java/pull/327).
+    * This change includes backwards incompatible changes when using the `MonitorSummary` widget.
+* [BREAKING] Split schemas from DashboardList v2. See [#323](https://github.com/DataDog/datadog-api-client-java/pull/323).
+    * This change includes backwards incompatible changes when using corresponding endpoints methods.
+* [BREAKING] Clean synthetics test CRUD endpoints. See [#322](https://github.com/DataDog/datadog-api-client-java/pull/322).
+    * This change includes backwards incompatible changes when using corresponding endpoints methods.
+* [Added] Add Logs Archives endpoints. See [#333](https://github.com/DataDog/datadog-api-client-java/pull/333).    
+    
 ## datadog-api-client-1.0.0-beta.3 / 2020-05-21
 
 * [BREAKING] Update to openapi-generator 5.0.0. See [#305](https://github.com/DataDog/datadog-api-client-java/pull/305).
