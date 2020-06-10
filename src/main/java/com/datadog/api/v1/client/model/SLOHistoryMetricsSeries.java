@@ -59,7 +59,7 @@ public class SLOHistoryMetricsSeries {
    * Count of submitted metrics.
    * @return count
   **/
-  @ApiModelProperty(required = true, value = "Count of submitted metrics.")
+  @ApiModelProperty(example = "0", required = true, value = "Count of submitted metrics.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -107,7 +107,7 @@ public class SLOHistoryMetricsSeries {
    * Total sum of the query.
    * @return sum
   **/
-  @ApiModelProperty(required = true, value = "Total sum of the query.")
+  @ApiModelProperty(example = "0.0", required = true, value = "Total sum of the query.")
   @JsonProperty(JSON_PROPERTY_SUM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -136,7 +136,7 @@ public class SLOHistoryMetricsSeries {
    * The query values for each metric.
    * @return values
   **/
-  @ApiModelProperty(required = true, value = "The query values for each metric.")
+  @ApiModelProperty(example = "[]", required = true, value = "The query values for each metric.")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

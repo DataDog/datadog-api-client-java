@@ -211,7 +211,7 @@ public class LogContent {
    * @return timestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "Timestamp of your log.")
+  @ApiModelProperty(example = "2020-05-26T13:36:14Z", value = "Timestamp of your log.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -139,7 +139,7 @@ public class GroupWidgetDefinition {
    * List of widget groups.
    * @return widgets
   **/
-  @ApiModelProperty(required = true, value = "List of widget groups.")
+  @ApiModelProperty(example = "[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"system.cpu.user\"}},\"type\":\"hostmap\"}}]", required = true, value = "List of widget groups.")
   @JsonProperty(JSON_PROPERTY_WIDGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

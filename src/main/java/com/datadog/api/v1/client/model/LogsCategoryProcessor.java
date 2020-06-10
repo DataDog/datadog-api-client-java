@@ -69,7 +69,7 @@ public class LogsCategoryProcessor {
    * Array of filters to match or not a log and their corresponding &#x60;name&#x60;to assign a custom value to the log.
    * @return categories
   **/
-  @ApiModelProperty(required = true, value = "Array of filters to match or not a log and their corresponding `name`to assign a custom value to the log.")
+  @ApiModelProperty(example = "[]", required = true, value = "Array of filters to match or not a log and their corresponding `name`to assign a custom value to the log.")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

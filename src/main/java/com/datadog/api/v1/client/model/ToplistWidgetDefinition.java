@@ -75,7 +75,7 @@ public class ToplistWidgetDefinition {
    * List of top list widget requests.
    * @return requests
   **/
-  @ApiModelProperty(required = true, value = "List of top list widget requests.")
+  @ApiModelProperty(example = "[{\"q\":\"system.load.1\"}]", required = true, value = "List of top list widget requests.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

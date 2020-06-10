@@ -114,7 +114,7 @@ public class LogsStatusRemapper {
    * Array of source attributes.
    * @return sources
   **/
-  @ApiModelProperty(required = true, value = "Array of source attributes.")
+  @ApiModelProperty(example = "[]", required = true, value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

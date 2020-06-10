@@ -57,7 +57,7 @@ public class WidgetLayout {
    * minimum: 0
    * @return height
   **/
-  @ApiModelProperty(required = true, value = "The height of the widget. Should be a non-negative integer.")
+  @ApiModelProperty(example = "0", required = true, value = "The height of the widget. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -82,7 +82,7 @@ public class WidgetLayout {
    * minimum: 0
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "The width of the widget. Should be a non-negative integer.")
+  @ApiModelProperty(example = "0", required = true, value = "The width of the widget. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -107,7 +107,7 @@ public class WidgetLayout {
    * minimum: 0
    * @return x
   **/
-  @ApiModelProperty(required = true, value = "The position of the widget on the x (horizontal) axis. Should be a non-negative integer.")
+  @ApiModelProperty(example = "0", required = true, value = "The position of the widget on the x (horizontal) axis. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -132,7 +132,7 @@ public class WidgetLayout {
    * minimum: 0
    * @return y
   **/
-  @ApiModelProperty(required = true, value = "The position of the widget on the y (vertical) axis. Should be a non-negative integer.")
+  @ApiModelProperty(example = "0", required = true, value = "The position of the widget on the y (vertical) axis. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
