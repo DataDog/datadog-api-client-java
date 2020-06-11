@@ -12,9 +12,11 @@ import com.datadog.api.v2.client.model.APIErrorResponse;
 import com.datadog.api.v2.client.model.PermissionsResponse;
 import com.datadog.api.v2.client.model.RelationshipToPermission;
 import com.datadog.api.v2.client.model.RelationshipToUser;
-import com.datadog.api.v2.client.model.RoleCreatePayload;
+import com.datadog.api.v2.client.model.RoleCreateRequest;
+import com.datadog.api.v2.client.model.RoleCreateResponse;
 import com.datadog.api.v2.client.model.RoleResponse;
-import com.datadog.api.v2.client.model.RoleUpdatePayload;
+import com.datadog.api.v2.client.model.RoleUpdateRequest;
+import com.datadog.api.v2.client.model.RoleUpdateResponse;
 import com.datadog.api.v2.client.model.RolesResponse;
 import com.datadog.api.v2.client.model.RolesSort;
 import com.datadog.api.v2.client.model.UsersResponse;
@@ -281,7 +283,7 @@ private ApiResponse<UsersResponse> addUserToRoleWithHttpInfo(String roleId, Rela
     return new APIaddUserToRoleRequest(roleId);
   }
 
-private ApiResponse<RoleResponse> createRoleWithHttpInfo(RoleCreatePayload body) throws ApiException {
+private ApiResponse<RoleCreateResponse> createRoleWithHttpInfo(RoleCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // create path and map variables
@@ -312,7 +314,7 @@ private ApiResponse<RoleResponse> createRoleWithHttpInfo(RoleCreatePayload body)
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<RoleResponse> localVarReturnType = new GenericType<RoleResponse>() {};
+    GenericType<RoleCreateResponse> localVarReturnType = new GenericType<RoleCreateResponse>() {};
 
     return apiClient.invokeAPI("RolesApi.createRole", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -320,7 +322,7 @@ private ApiResponse<RoleResponse> createRoleWithHttpInfo(RoleCreatePayload body)
   }
 
   public class APIcreateRoleRequest {
-    private RoleCreatePayload body;
+    private RoleCreateRequest body;
 
     private APIcreateRoleRequest() {
     }
@@ -330,14 +332,14 @@ private ApiResponse<RoleResponse> createRoleWithHttpInfo(RoleCreatePayload body)
      * @param body  (optional)
      * @return APIcreateRoleRequest
      */
-    public APIcreateRoleRequest body(RoleCreatePayload body) {
+    public APIcreateRoleRequest body(RoleCreateRequest body) {
       this.body = body;
       return this;
     }
 
     /**
      * Execute createRole request
-     * @return RoleResponse
+     * @return RoleCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -349,13 +351,13 @@ private ApiResponse<RoleResponse> createRoleWithHttpInfo(RoleCreatePayload body)
      
      */
     
-    public RoleResponse execute() throws ApiException {
+    public RoleCreateResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute createRole request with HTTP info returned
-     * @return ApiResponse&lt;RoleResponse&gt;
+     * @return ApiResponse&lt;RoleCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -366,7 +368,7 @@ private ApiResponse<RoleResponse> createRoleWithHttpInfo(RoleCreatePayload body)
        </table>
 
      */
-    public ApiResponse<RoleResponse> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<RoleCreateResponse> executeWithHttpInfo() throws ApiException {
       return createRoleWithHttpInfo(body);
     }
   }
@@ -1283,7 +1285,7 @@ private ApiResponse<UsersResponse> removeUserFromRoleWithHttpInfo(String roleId,
     return new APIremoveUserFromRoleRequest(roleId);
   }
 
-private ApiResponse<RoleResponse> updateRoleWithHttpInfo(String roleId, RoleUpdatePayload body) throws ApiException {
+private ApiResponse<RoleUpdateResponse> updateRoleWithHttpInfo(String roleId, RoleUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'roleId' is set
@@ -1320,7 +1322,7 @@ private ApiResponse<RoleResponse> updateRoleWithHttpInfo(String roleId, RoleUpda
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<RoleResponse> localVarReturnType = new GenericType<RoleResponse>() {};
+    GenericType<RoleUpdateResponse> localVarReturnType = new GenericType<RoleUpdateResponse>() {};
 
     return apiClient.invokeAPI("RolesApi.updateRole", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -1329,7 +1331,7 @@ private ApiResponse<RoleResponse> updateRoleWithHttpInfo(String roleId, RoleUpda
 
   public class APIupdateRoleRequest {
     private String roleId;
-    private RoleUpdatePayload body;
+    private RoleUpdateRequest body;
 
     private APIupdateRoleRequest(String roleId) {
       this.roleId = roleId;
@@ -1340,14 +1342,14 @@ private ApiResponse<RoleResponse> updateRoleWithHttpInfo(String roleId, RoleUpda
      * @param body  (optional)
      * @return APIupdateRoleRequest
      */
-    public APIupdateRoleRequest body(RoleUpdatePayload body) {
+    public APIupdateRoleRequest body(RoleUpdateRequest body) {
       this.body = body;
       return this;
     }
 
     /**
      * Execute updateRole request
-     * @return RoleResponse
+     * @return RoleUpdateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -1361,13 +1363,13 @@ private ApiResponse<RoleResponse> updateRoleWithHttpInfo(String roleId, RoleUpda
      
      */
     
-    public RoleResponse execute() throws ApiException {
+    public RoleUpdateResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute updateRole request with HTTP info returned
-     * @return ApiResponse&lt;RoleResponse&gt;
+     * @return ApiResponse&lt;RoleUpdateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -1380,7 +1382,7 @@ private ApiResponse<RoleResponse> updateRoleWithHttpInfo(String roleId, RoleUpda
        </table>
 
      */
-    public ApiResponse<RoleResponse> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<RoleUpdateResponse> executeWithHttpInfo() throws ApiException {
       return updateRoleWithHttpInfo(roleId, body);
     }
   }

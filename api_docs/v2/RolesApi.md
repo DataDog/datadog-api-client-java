@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ## createRole
 
-> RoleResponse createRole().body(body).execute();
+> RoleCreateResponse createRole().body(body).execute();
 
 Create role
 
@@ -223,9 +223,9 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        RoleCreatePayload body = new RoleCreatePayload(); // RoleCreatePayload | 
+        RoleCreateRequest body = new RoleCreateRequest(); // RoleCreateRequest | 
         try {
-            RoleResponse result = api.createRole()
+            RoleCreateResponse result = api.createRole()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -245,11 +245,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**RoleCreatePayload**](RoleCreatePayload.md)|  | [optional]
+ **body** | [**RoleCreateRequest**](RoleCreateRequest.md)|  | [optional]
 
 ### Return type
 
-[**RoleResponse**](RoleResponse.md)
+[**RoleCreateResponse**](RoleCreateResponse.md)
 
 ### Authorization
 
@@ -934,7 +934,7 @@ Name | Type | Description  | Notes
 
 ## updateRole
 
-> RoleResponse updateRole(roleId).body(body).execute();
+> RoleUpdateResponse updateRole(roleId).body(body).execute();
 
 Update a role
 
@@ -969,9 +969,9 @@ public class Example {
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String roleId = "roleId_example"; // String | The ID of the role.
-        RoleUpdatePayload body = new RoleUpdatePayload(); // RoleUpdatePayload | 
+        RoleUpdateRequest body = new RoleUpdateRequest(); // RoleUpdateRequest | 
         try {
-            RoleResponse result = api.updateRole(roleId)
+            RoleUpdateResponse result = api.updateRole(roleId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -992,11 +992,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleId** | **String**| The ID of the role. |
- **body** | [**RoleUpdatePayload**](RoleUpdatePayload.md)|  | [optional]
+ **body** | [**RoleUpdateRequest**](RoleUpdateRequest.md)|  | [optional]
 
 ### Return type
 
-[**RoleResponse**](RoleResponse.md)
+[**RoleUpdateResponse**](RoleUpdateResponse.md)
 
 ### Authorization
 
