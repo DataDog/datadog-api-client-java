@@ -7,7 +7,7 @@ Object to send with the request to retrieve a list of logs from your Organizatio
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**index** | **String** | For multi-index organizations, the log index in which the request is performed. |  [optional]
+**index** | **String** | For multi-index organizations, the log index in which the request is performed. Default to &#39;*&#39; (all indexes). |  [optional]
 **limit** | **Integer** | Number of logs return in the response. |  [optional]
 **query** | **String** | The search query - following the log search syntax. | 
 **sort** | [**LogsSort**](LogsSort.md) |  |  [optional]
