@@ -7,7 +7,9 @@ Attributes of the created role.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | The name of the role. |  [optional]
+**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | Creation time of the role. |  [optional] [readonly]
+**modifiedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Time of last role modification. |  [optional] [readonly]
+**name** | **String** | Name of the role. |  [optional]
 
 
 

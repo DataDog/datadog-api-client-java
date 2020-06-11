@@ -19,19 +19,60 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Attributes of the edited role.
+ * Attributes of the role.
  */
-@ApiModel(description = "Attributes of the edited role.")
+@ApiModel(description = "Attributes of the role.")
 @JsonPropertyOrder({
+  RoleUpdateAttributes.JSON_PROPERTY_CREATED_AT,
+  RoleUpdateAttributes.JSON_PROPERTY_MODIFIED_AT,
   RoleUpdateAttributes.JSON_PROPERTY_NAME
 })
 
 public class RoleUpdateAttributes {
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+  private OffsetDateTime modifiedAt;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+
+   /**
+   * Creation time of the role.
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Creation time of the role.")
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+
+
+   /**
+   * Time of last role modification.
+   * @return modifiedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Time of last role modification.")
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
+
 
 
   public RoleUpdateAttributes name(String name) {
@@ -41,11 +82,11 @@ public class RoleUpdateAttributes {
   }
 
    /**
-   * The name of the role.
+   * Name of the role.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the role.")
+  @ApiModelProperty(value = "Name of the role.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -68,12 +109,14 @@ public class RoleUpdateAttributes {
       return false;
     }
     RoleUpdateAttributes roleUpdateAttributes = (RoleUpdateAttributes) o;
-    return Objects.equals(this.name, roleUpdateAttributes.name);
+    return Objects.equals(this.createdAt, roleUpdateAttributes.createdAt) &&
+        Objects.equals(this.modifiedAt, roleUpdateAttributes.modifiedAt) &&
+        Objects.equals(this.name, roleUpdateAttributes.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(createdAt, modifiedAt, name);
   }
 
 
@@ -81,6 +124,8 @@ public class RoleUpdateAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RoleUpdateAttributes {\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();

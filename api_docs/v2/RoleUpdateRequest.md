@@ -1,6 +1,6 @@
 
 
-# RoleUpdatePayload
+# RoleUpdateRequest
 
 Update a role.
 ## Properties
