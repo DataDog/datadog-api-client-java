@@ -15,12 +15,8 @@ Name | Type | Description | Notes
 **title** | **String** | Title of the widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**HeatMapWidgetDefinitionType**](HeatMapWidgetDefinitionType.md) |  | 
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

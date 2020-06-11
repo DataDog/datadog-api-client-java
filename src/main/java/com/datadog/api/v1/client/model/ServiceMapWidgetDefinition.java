@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.ServiceMapWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -40,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ServiceMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class ServiceMapWidgetDefinition implements WidgetDefinition {
+public class ServiceMapWidgetDefinition {
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<String> filters = new ArrayList<>();
 
@@ -57,7 +55,7 @@ public class ServiceMapWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "servicemap";
+  private ServiceMapWidgetDefinitionType type = ServiceMapWidgetDefinitionType.SERVICEMAP;
 
 
   public ServiceMapWidgetDefinition filters(List<String> filters) {
@@ -75,7 +73,7 @@ public class ServiceMapWidgetDefinition implements WidgetDefinition {
    * Your environment and primary tag (or * if enabled for your account).
    * @return filters
   **/
-  @ApiModelProperty(required = true, value = "Your environment and primary tag (or * if enabled for your account).")
+  @ApiModelProperty(example = "[\"*\"]", required = true, value = "Your environment and primary tag (or * if enabled for your account).")
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -188,19 +186,28 @@ public class ServiceMapWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public ServiceMapWidgetDefinition type(ServiceMapWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public ServiceMapWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(ServiceMapWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.ToplistWidgetDefinitionType;
 import com.datadog.api.v1.client.model.ToplistWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -24,9 +25,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -42,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ToplistWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class ToplistWidgetDefinition implements WidgetDefinition {
+public class ToplistWidgetDefinition {
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<ToplistWidgetRequest> requests = new ArrayList<>();
 
@@ -59,7 +57,7 @@ public class ToplistWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "toplist";
+  private ToplistWidgetDefinitionType type = ToplistWidgetDefinitionType.TOPLIST;
 
 
   public ToplistWidgetDefinition requests(List<ToplistWidgetRequest> requests) {
@@ -77,7 +75,7 @@ public class ToplistWidgetDefinition implements WidgetDefinition {
    * List of top list widget requests.
    * @return requests
   **/
-  @ApiModelProperty(required = true, value = "List of top list widget requests.")
+  @ApiModelProperty(example = "[{\"q\":\"system.load.1\"}]", required = true, value = "List of top list widget requests.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -191,19 +189,28 @@ public class ToplistWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public ToplistWidgetDefinition type(ToplistWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public ToplistWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(ToplistWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

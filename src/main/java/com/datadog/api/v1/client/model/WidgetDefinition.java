@@ -38,6 +38,7 @@ import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinition;
 import com.datadog.api.v1.client.model.TableWidgetDefinition;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
 import com.datadog.api.v1.client.model.ToplistWidgetDefinition;
+import com.datadog.api.v1.client.model.ToplistWidgetDefinitionType;
 import com.datadog.api.v1.client.model.ToplistWidgetRequest;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetAxis;
@@ -51,10 +52,10 @@ import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetMargin;
 import com.datadog.api.v1.client.model.WidgetMarker;
 import com.datadog.api.v1.client.model.WidgetMessageDisplay;
+import com.datadog.api.v1.client.model.WidgetMonitorSummarySort;
 import com.datadog.api.v1.client.model.WidgetNodeType;
 import com.datadog.api.v1.client.model.WidgetServiceSummaryDisplayFormat;
 import com.datadog.api.v1.client.model.WidgetSizeFormat;
-import com.datadog.api.v1.client.model.WidgetSort;
 import com.datadog.api.v1.client.model.WidgetSummaryType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTickEdge;
@@ -65,8 +66,6 @@ import com.datadog.api.v1.client.model.WidgetVizType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -74,36 +73,548 @@ import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = AlertGraphWidgetDefinition.class, name = "alert_graph"),
-  @JsonSubTypes.Type(value = AlertValueWidgetDefinition.class, name = "alert_value"),
-  @JsonSubTypes.Type(value = ChangeWidgetDefinition.class, name = "change"),
-  @JsonSubTypes.Type(value = CheckStatusWidgetDefinition.class, name = "check_status"),
-  @JsonSubTypes.Type(value = DistributionWidgetDefinition.class, name = "distribution"),
-  @JsonSubTypes.Type(value = EventStreamWidgetDefinition.class, name = "event_stream"),
-  @JsonSubTypes.Type(value = EventTimelineWidgetDefinition.class, name = "event_timeline"),
-  @JsonSubTypes.Type(value = FreeTextWidgetDefinition.class, name = "free_text"),
-  @JsonSubTypes.Type(value = GroupWidgetDefinition.class, name = "group"),
-  @JsonSubTypes.Type(value = HeatMapWidgetDefinition.class, name = "heatmap"),
-  @JsonSubTypes.Type(value = HostMapWidgetDefinition.class, name = "hostmap"),
-  @JsonSubTypes.Type(value = IFrameWidgetDefinition.class, name = "iframe"),
-  @JsonSubTypes.Type(value = ImageWidgetDefinition.class, name = "image"),
-  @JsonSubTypes.Type(value = LogStreamWidgetDefinition.class, name = "log_stream"),
-  @JsonSubTypes.Type(value = MonitorSummaryWidgetDefinition.class, name = "manage_status"),
-  @JsonSubTypes.Type(value = NoteWidgetDefinition.class, name = "note"),
-  @JsonSubTypes.Type(value = TableWidgetDefinition.class, name = "query_table"),
-  @JsonSubTypes.Type(value = QueryValueWidgetDefinition.class, name = "query_value"),
-  @JsonSubTypes.Type(value = ScatterPlotWidgetDefinition.class, name = "scatterplot"),
-  @JsonSubTypes.Type(value = ServiceMapWidgetDefinition.class, name = "servicemap"),
-  @JsonSubTypes.Type(value = SLOWidgetDefinition.class, name = "slo"),
-  @JsonSubTypes.Type(value = TimeseriesWidgetDefinition.class, name = "timeseries"),
-  @JsonSubTypes.Type(value = ToplistWidgetDefinition.class, name = "toplist"),
-  @JsonSubTypes.Type(value = ServiceSummaryWidgetDefinition.class, name = "trace_service"),
-})
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
-public interface WidgetDefinition  {
-    public String getType();
+
+@JsonDeserialize(using=WidgetDefinition.WidgetDefinitionDeserializer.class)
+public class WidgetDefinition extends AbstractOpenApiSchema {
+    public static class WidgetDefinitionDeserializer extends StdDeserializer<WidgetDefinition> {
+        public WidgetDefinitionDeserializer() {
+            this(WidgetDefinition.class);
+        }
+
+        public WidgetDefinitionDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public WidgetDefinition deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+
+            int match = 0;
+            Object deserialized = null;
+            // deserialize AlertGraphWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertGraphWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize AlertValueWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertValueWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize ChangeWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(ChangeWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize CheckStatusWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckStatusWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize DistributionWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(DistributionWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize EventStreamWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(EventStreamWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize EventTimelineWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(EventTimelineWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize FreeTextWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(FreeTextWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize GroupWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(GroupWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize HeatMapWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(HeatMapWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize HostMapWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(HostMapWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize IFrameWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(IFrameWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize ImageWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(ImageWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize LogStreamWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogStreamWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize MonitorSummaryWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(MonitorSummaryWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize NoteWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(NoteWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize QueryValueWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(QueryValueWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize SLOWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(SLOWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize ScatterPlotWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(ScatterPlotWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize ServiceMapWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceMapWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize ServiceSummaryWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceSummaryWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize TableWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(TableWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize TimeseriesWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeseriesWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize ToplistWidgetDefinition
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(ToplistWidgetDefinition.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            if (match == 1) {
+                WidgetDefinition ret = new WidgetDefinition();
+                ret.setActualInstance(deserialized);
+                return ret;
+            }
+            throw new IOException(String.format("Failed deserialization for WidgetDefinition: %d classes match result, expected 1", match));
+        }
+    }
+
+    // store a list of schema names defined in oneOf
+    public final static Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+    public WidgetDefinition() {
+        super("oneOf", Boolean.FALSE);
+    }
+
+    public WidgetDefinition(AlertGraphWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(AlertValueWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(ChangeWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(CheckStatusWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(DistributionWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(EventStreamWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(EventTimelineWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(FreeTextWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(GroupWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(HeatMapWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(HostMapWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(IFrameWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(ImageWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(LogStreamWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(MonitorSummaryWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(NoteWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(QueryValueWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(SLOWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(ScatterPlotWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(ServiceMapWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(ServiceSummaryWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(TableWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(TimeseriesWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WidgetDefinition(ToplistWidgetDefinition o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("AlertGraphWidgetDefinition", new GenericType<AlertGraphWidgetDefinition>() {
+        });
+        schemas.put("AlertValueWidgetDefinition", new GenericType<AlertValueWidgetDefinition>() {
+        });
+        schemas.put("ChangeWidgetDefinition", new GenericType<ChangeWidgetDefinition>() {
+        });
+        schemas.put("CheckStatusWidgetDefinition", new GenericType<CheckStatusWidgetDefinition>() {
+        });
+        schemas.put("DistributionWidgetDefinition", new GenericType<DistributionWidgetDefinition>() {
+        });
+        schemas.put("EventStreamWidgetDefinition", new GenericType<EventStreamWidgetDefinition>() {
+        });
+        schemas.put("EventTimelineWidgetDefinition", new GenericType<EventTimelineWidgetDefinition>() {
+        });
+        schemas.put("FreeTextWidgetDefinition", new GenericType<FreeTextWidgetDefinition>() {
+        });
+        schemas.put("GroupWidgetDefinition", new GenericType<GroupWidgetDefinition>() {
+        });
+        schemas.put("HeatMapWidgetDefinition", new GenericType<HeatMapWidgetDefinition>() {
+        });
+        schemas.put("HostMapWidgetDefinition", new GenericType<HostMapWidgetDefinition>() {
+        });
+        schemas.put("IFrameWidgetDefinition", new GenericType<IFrameWidgetDefinition>() {
+        });
+        schemas.put("ImageWidgetDefinition", new GenericType<ImageWidgetDefinition>() {
+        });
+        schemas.put("LogStreamWidgetDefinition", new GenericType<LogStreamWidgetDefinition>() {
+        });
+        schemas.put("MonitorSummaryWidgetDefinition", new GenericType<MonitorSummaryWidgetDefinition>() {
+        });
+        schemas.put("NoteWidgetDefinition", new GenericType<NoteWidgetDefinition>() {
+        });
+        schemas.put("QueryValueWidgetDefinition", new GenericType<QueryValueWidgetDefinition>() {
+        });
+        schemas.put("SLOWidgetDefinition", new GenericType<SLOWidgetDefinition>() {
+        });
+        schemas.put("ScatterPlotWidgetDefinition", new GenericType<ScatterPlotWidgetDefinition>() {
+        });
+        schemas.put("ServiceMapWidgetDefinition", new GenericType<ServiceMapWidgetDefinition>() {
+        });
+        schemas.put("ServiceSummaryWidgetDefinition", new GenericType<ServiceSummaryWidgetDefinition>() {
+        });
+        schemas.put("TableWidgetDefinition", new GenericType<TableWidgetDefinition>() {
+        });
+        schemas.put("TimeseriesWidgetDefinition", new GenericType<TimeseriesWidgetDefinition>() {
+        });
+        schemas.put("ToplistWidgetDefinition", new GenericType<ToplistWidgetDefinition>() {
+        });
+    }
+
+    @Override
+    public Map<String, GenericType> getSchemas() {
+        return WidgetDefinition.schemas;
+    }
+
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof AlertGraphWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof AlertValueWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ChangeWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CheckStatusWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof DistributionWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EventStreamWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EventTimelineWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof FreeTextWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof GroupWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof HeatMapWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof HostMapWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof IFrameWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ImageWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LogStreamWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof MonitorSummaryWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof NoteWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof QueryValueWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof SLOWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ScatterPlotWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ServiceMapWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ServiceSummaryWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof TableWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof TimeseriesWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ToplistWidgetDefinition) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be AlertGraphWidgetDefinition, AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition");
+    }
+
+
+
 }
 

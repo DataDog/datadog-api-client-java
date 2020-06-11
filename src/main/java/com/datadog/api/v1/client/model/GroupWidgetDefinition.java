@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.GroupWidgetDefinitionType;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetLayoutType;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,9 +24,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GroupWidgetDefinition.JSON_PROPERTY_WIDGETS
 })
 
-public class GroupWidgetDefinition implements WidgetDefinition {
+public class GroupWidgetDefinition {
   public static final String JSON_PROPERTY_LAYOUT_TYPE = "layout_type";
   private WidgetLayoutType layoutType;
 
@@ -47,7 +45,7 @@ public class GroupWidgetDefinition implements WidgetDefinition {
   private String title;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "group";
+  private GroupWidgetDefinitionType type = GroupWidgetDefinitionType.GROUP;
 
   public static final String JSON_PROPERTY_WIDGETS = "widgets";
   private List<Widget> widgets = new ArrayList<>();
@@ -102,19 +100,28 @@ public class GroupWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public GroupWidgetDefinition type(GroupWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public GroupWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(GroupWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   public GroupWidgetDefinition widgets(List<Widget> widgets) {
@@ -132,7 +139,7 @@ public class GroupWidgetDefinition implements WidgetDefinition {
    * List of widget groups.
    * @return widgets
   **/
-  @ApiModelProperty(required = true, value = "List of widget groups.")
+  @ApiModelProperty(example = "[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"system.cpu.user\"}},\"type\":\"hostmap\"}}]", required = true, value = "List of widget groups.")
   @JsonProperty(JSON_PROPERTY_WIDGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

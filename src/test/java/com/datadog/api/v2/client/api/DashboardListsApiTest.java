@@ -7,6 +7,7 @@
 package com.datadog.api.v2.client.api;
 
 
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.model.DashboardList;
 import com.datadog.api.v2.client.ApiException;
@@ -19,7 +20,11 @@ import org.junit.Test;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 import static org.junit.Assume.assumeFalse;
@@ -50,57 +55,61 @@ public class DashboardListsApiTest extends V2APITest {
         v1Client.configureApiKeys(secrets);
         v1Client.setDebugging("true".equals(System.getenv("DEBUG")));
         ClientConfig config = (ClientConfig) v1Client.getHttpClient().getConfiguration();
-        if (!TestUtils.isIbmJdk()) {
+        if (!(TestUtils.isIbmJdk() || TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE))) {
             config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
         }
 
         dashboardListsApiV1 = new com.datadog.api.v1.client.api.DashboardListsApi(v1Client);
         DashboardList res = dashboardListsApiV1.createDashboardList().body(
-                new DashboardList().name("java-test-client-v2-" + now.toInstant().toEpochMilli())
+                new DashboardList().name(getUniqueEntityName())
         ).execute();
         dashboardListID = res.getId();
     }
 
     @Test
     public void dashboardListItemCRUDTest() throws ApiException {
-        DashboardListItem integrationTimeboard = new DashboardListItem().type(DashboardType.INTEGRATION_TIMEBOARD).id(INTEGRATION_TIMEBOARD_ID);
-        DashboardListItem customTimeboard = new DashboardListItem().type(DashboardType.CUSTOM_TIMEBOARD).id(CUSTOM_TIMEBOARD_ID);
-        DashboardListItem customScreenboard = new DashboardListItem().type(DashboardType.CUSTOM_SCREENBOARD).id(CUSTOM_SCREENBOARD_ID);
-        ArrayList<DashboardListItem> dashboards = new ArrayList<>();
-        dashboards.add(integrationTimeboard);
-        dashboards.add(customTimeboard);
-        dashboards.add(customScreenboard);
-        DashboardListItems body = new DashboardListItems().dashboards(dashboards);
+	Set<String> expectedIds = new HashSet<String>();
+	expectedIds.addAll(Arrays.asList(new String[] {INTEGRATION_TIMEBOARD_ID, CUSTOM_TIMEBOARD_ID, CUSTOM_SCREENBOARD_ID}));
 
-        DashboardListAddItemsResponse addResponse = api.createDashboardListItems(dashboardListID).body(body).execute();
+        DashboardListItemRequest integrationTimeboardRequest = new DashboardListItemRequest().type(DashboardType.INTEGRATION_TIMEBOARD).id(INTEGRATION_TIMEBOARD_ID);
+        DashboardListItemRequest customTimeboardRequest = new DashboardListItemRequest().type(DashboardType.CUSTOM_TIMEBOARD).id(CUSTOM_TIMEBOARD_ID);
+        DashboardListItemRequest customScreenboardRequest = new DashboardListItemRequest().type(DashboardType.CUSTOM_SCREENBOARD).id(CUSTOM_SCREENBOARD_ID);
+        ArrayList<DashboardListItemRequest> dashboardsRequest = new ArrayList<>();
+        dashboardsRequest.add(integrationTimeboardRequest);
+        dashboardsRequest.add(customTimeboardRequest);
+        dashboardsRequest.add(customScreenboardRequest);
+
+	DashboardListAddItemsRequest addRequest = new DashboardListAddItemsRequest().dashboards(dashboardsRequest);
+        DashboardListAddItemsResponse addResponse = api.createDashboardListItems(dashboardListID).body(addRequest).execute();
         assertNotNull(addResponse.getAddedDashboardsToList());
         assertEquals(3, addResponse.getAddedDashboardsToList().size());
-        assertTrue(addResponse.getAddedDashboardsToList().contains(integrationTimeboard));
-        assertTrue(addResponse.getAddedDashboardsToList().contains(customTimeboard));
-        assertTrue(addResponse.getAddedDashboardsToList().contains(customScreenboard));
+	Set<String> ids = addResponse.getAddedDashboardsToList().stream().map(DashboardListItemResponse::getId).collect(Collectors.toSet());
+	assertEquals(ids, expectedIds);
 
-        DashboardListDeleteItemsResponse deleteResponse = api.deleteDashboardListItems(dashboardListID).body(body).execute();
+	DashboardListDeleteItemsRequest deleteRequest = new DashboardListDeleteItemsRequest().dashboards(dashboardsRequest);
+        DashboardListDeleteItemsResponse deleteResponse = api.deleteDashboardListItems(dashboardListID).body(deleteRequest).execute();
         assertNotNull(deleteResponse.getDeletedDashboardsFromList());
         assertEquals(3, deleteResponse.getDeletedDashboardsFromList().size());
-        assertTrue(deleteResponse.getDeletedDashboardsFromList().contains(integrationTimeboard));
-        assertTrue(deleteResponse.getDeletedDashboardsFromList().contains(customTimeboard));
-        assertTrue(deleteResponse.getDeletedDashboardsFromList().contains(customScreenboard));
+
+	ids = deleteResponse.getDeletedDashboardsFromList().stream().map(DashboardListItemResponse::getId).collect(Collectors.toSet());
+	assertEquals(ids, expectedIds);
 
         DashboardListItems getResponse = api.getDashboardListItems(dashboardListID).execute();
         assertNotNull(getResponse.getTotal());
         assertEquals(0, (long) getResponse.getTotal());
         assertEquals(0, getResponse.getDashboards().size());
 
-        DashboardListItems updateResponse = api.updateDashboardListItems(dashboardListID).body(body).execute();
+	DashboardListUpdateItemsRequest updateRequest = new DashboardListUpdateItemsRequest().dashboards(dashboardsRequest);
+        DashboardListUpdateItemsResponse updateResponse = api.updateDashboardListItems(dashboardListID).body(updateRequest).execute();
         assertNotNull(updateResponse.getDashboards());
         assertEquals(3, updateResponse.getDashboards().size());
-        assertTrue(updateResponse.getDashboards().contains(integrationTimeboard));
-        assertTrue(updateResponse.getDashboards().contains(customTimeboard));
-        assertTrue(updateResponse.getDashboards().contains(customScreenboard));
+
+	ids = updateResponse.getDashboards().stream().map(DashboardListItemResponse::getId).collect(Collectors.toSet());
+	assertEquals(ids, expectedIds);
 
         // Leave only one dash in the list for easier assertion
-        dashboards.remove(2);
-        deleteResponse = api.deleteDashboardListItems(dashboardListID).body(body).execute();
+        dashboardsRequest.remove(2);
+        deleteResponse = api.deleteDashboardListItems(dashboardListID).body(deleteRequest).execute();
         assertNotNull(deleteResponse.getDeletedDashboardsFromList());
         assertEquals(2, deleteResponse.getDeletedDashboardsFromList().size());
         getResponse = api.getDashboardListItems(dashboardListID).execute();

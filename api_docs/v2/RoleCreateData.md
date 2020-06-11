@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**RoleCreateAttributes**](RoleCreateAttributes.md) |  |  [optional]
 **relationships** | [**RoleRelationships**](RoleRelationships.md) |  |  [optional]
-**type** | **String** | Roles resource type. |  [optional] [readonly]
+**type** | [**RolesType**](RolesType.md) |  |  [optional]
 
 
 

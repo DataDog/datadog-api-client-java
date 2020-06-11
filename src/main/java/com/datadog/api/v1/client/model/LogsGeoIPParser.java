@@ -13,6 +13,7 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v1.client.model.LogsGeoIPParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,12 +22,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.LogsProcessor;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -34,14 +29,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country, Subdivision, and City information in the target attribute path.")
 @JsonPropertyOrder({
+  LogsGeoIPParser.JSON_PROPERTY_IS_ENABLED,
+  LogsGeoIPParser.JSON_PROPERTY_NAME,
   LogsGeoIPParser.JSON_PROPERTY_SOURCES,
   LogsGeoIPParser.JSON_PROPERTY_TARGET,
-  LogsGeoIPParser.JSON_PROPERTY_TYPE,
-  LogsGeoIPParser.JSON_PROPERTY_IS_ENABLED,
-  LogsGeoIPParser.JSON_PROPERTY_NAME
+  LogsGeoIPParser.JSON_PROPERTY_TYPE
 })
 
-public class LogsGeoIPParser implements LogsProcessor {
+public class LogsGeoIPParser {
+  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
+  private Boolean isEnabled = false;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<String> sources = new ArrayList<>();
 
@@ -49,81 +50,7 @@ public class LogsGeoIPParser implements LogsProcessor {
   private String target = "network.client.geoip";
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "geo-ip-parser";
-
-  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-
-  public LogsGeoIPParser sources(List<String> sources) {
-    
-    this.sources = sources;
-    return this;
-  }
-
-  public LogsGeoIPParser addSourcesItem(String sourcesItem) {
-    this.sources.add(sourcesItem);
-    return this;
-  }
-
-   /**
-   * Array of source attributes.
-   * @return sources
-  **/
-  @ApiModelProperty(required = true, value = "Array of source attributes.")
-  @JsonProperty(JSON_PROPERTY_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<String> getSources() {
-    return sources;
-  }
-
-
-  public void setSources(List<String> sources) {
-    this.sources = sources;
-  }
-
-
-  public LogsGeoIPParser target(String target) {
-    
-    this.target = target;
-    return this;
-  }
-
-   /**
-   * Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;.
-   * @return target
-  **/
-  @ApiModelProperty(required = true, value = "Name of the parent attribute that contains all the extracted details from the `sources`.")
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getTarget() {
-    return target;
-  }
-
-
-  public void setTarget(String target) {
-    this.target = target;
-  }
-
-
-   /**
-   * Type of processor.
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "Type of processor.")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getType() {
-    return type;
-  }
-
-
+  private LogsGeoIPParserType type = LogsGeoIPParserType.GEO_IP_PARSER;
 
 
   public LogsGeoIPParser isEnabled(Boolean isEnabled) {
@@ -176,6 +103,83 @@ public class LogsGeoIPParser implements LogsProcessor {
   }
 
 
+  public LogsGeoIPParser sources(List<String> sources) {
+    
+    this.sources = sources;
+    return this;
+  }
+
+  public LogsGeoIPParser addSourcesItem(String sourcesItem) {
+    this.sources.add(sourcesItem);
+    return this;
+  }
+
+   /**
+   * Array of source attributes.
+   * @return sources
+  **/
+  @ApiModelProperty(example = "[\"network.client.ip\"]", required = true, value = "Array of source attributes.")
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getSources() {
+    return sources;
+  }
+
+
+  public void setSources(List<String> sources) {
+    this.sources = sources;
+  }
+
+
+  public LogsGeoIPParser target(String target) {
+    
+    this.target = target;
+    return this;
+  }
+
+   /**
+   * Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;.
+   * @return target
+  **/
+  @ApiModelProperty(example = "network.client.geoip", required = true, value = "Name of the parent attribute that contains all the extracted details from the `sources`.")
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTarget() {
+    return target;
+  }
+
+
+  public void setTarget(String target) {
+    this.target = target;
+  }
+
+
+  public LogsGeoIPParser type(LogsGeoIPParserType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LogsGeoIPParserType getType() {
+    return type;
+  }
+
+
+  public void setType(LogsGeoIPParserType type) {
+    this.type = type;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -185,16 +189,16 @@ public class LogsGeoIPParser implements LogsProcessor {
       return false;
     }
     LogsGeoIPParser logsGeoIPParser = (LogsGeoIPParser) o;
-    return Objects.equals(this.sources, logsGeoIPParser.sources) &&
+    return Objects.equals(this.isEnabled, logsGeoIPParser.isEnabled) &&
+        Objects.equals(this.name, logsGeoIPParser.name) &&
+        Objects.equals(this.sources, logsGeoIPParser.sources) &&
         Objects.equals(this.target, logsGeoIPParser.target) &&
-        Objects.equals(this.type, logsGeoIPParser.type) &&
-        Objects.equals(this.isEnabled, logsGeoIPParser.isEnabled) &&
-        Objects.equals(this.name, logsGeoIPParser.name);
+        Objects.equals(this.type, logsGeoIPParser.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sources, target, type, isEnabled, name);
+    return Objects.hash(isEnabled, name, sources, target, type);
   }
 
 
@@ -202,11 +206,11 @@ public class LogsGeoIPParser implements LogsProcessor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsGeoIPParser {\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

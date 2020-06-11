@@ -30,13 +30,24 @@ public class PagerDutyIntegrationApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithHttpInfo(PagerDutyService body) throws ApiException {
     Object localVarPostBody = body;
@@ -75,7 +86,10 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<PagerDutyServiceName> localVarReturnType = new GenericType<PagerDutyServiceName>() {};
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.createPagerDutyIntegrationService", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("PagerDutyIntegrationApi.createPagerDutyIntegrationService", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreatePagerDutyIntegrationServiceRequest {
@@ -83,7 +97,6 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
 
     private APIcreatePagerDutyIntegrationServiceRequest() {
     }
-    
 
     /**
      * Set body
@@ -94,7 +107,6 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createPagerDutyIntegrationService request
@@ -125,9 +137,8 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<PagerDutyServiceName> executeWithHttpInfo() throws ApiException {
       return createPagerDutyIntegrationServiceWithHttpInfo(body);
     }
@@ -141,7 +152,6 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
    
    
    */
-  
   public APIcreatePagerDutyIntegrationServiceRequest createPagerDutyIntegrationService() throws ApiException {
     return new APIcreatePagerDutyIntegrationServiceRequest();
   }
@@ -183,8 +193,9 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.deletePagerDutyIntegrationService", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI("PagerDutyIntegrationApi.deletePagerDutyIntegrationService", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, null, null);
   }
 
   public class APIdeletePagerDutyIntegrationServiceRequest {
@@ -193,7 +204,6 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
     private APIdeletePagerDutyIntegrationServiceRequest(String serviceName) {
       this.serviceName = serviceName;
     }
-    
 
     /**
      * Execute deletePagerDutyIntegrationService request
@@ -224,9 +234,8 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
       return deletePagerDutyIntegrationServiceWithHttpInfo(serviceName);
     }
@@ -241,7 +250,6 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
    
    
    */
-  
   public APIdeletePagerDutyIntegrationServiceRequest deletePagerDutyIntegrationService(String serviceName) throws ApiException {
     return new APIdeletePagerDutyIntegrationServiceRequest(serviceName);
   }
@@ -284,7 +292,10 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<PagerDutyServiceName> localVarReturnType = new GenericType<PagerDutyServiceName>() {};
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.getPagerDutyIntegrationService", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("PagerDutyIntegrationApi.getPagerDutyIntegrationService", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetPagerDutyIntegrationServiceRequest {
@@ -293,7 +304,6 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
     private APIgetPagerDutyIntegrationServiceRequest(String serviceName) {
       this.serviceName = serviceName;
     }
-    
 
     /**
      * Execute getPagerDutyIntegrationService request
@@ -324,9 +334,8 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<PagerDutyServiceName> executeWithHttpInfo() throws ApiException {
       return getPagerDutyIntegrationServiceWithHttpInfo(serviceName);
     }
@@ -341,7 +350,6 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
    
    
    */
-  
   public APIgetPagerDutyIntegrationServiceRequest getPagerDutyIntegrationService(String serviceName) throws ApiException {
     return new APIgetPagerDutyIntegrationServiceRequest(serviceName);
   }
@@ -388,8 +396,9 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    
-    return apiClient.invokeAPI("PagerDutyIntegrationApi.updatePagerDutyIntegrationService", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    return apiClient.invokeAPI("PagerDutyIntegrationApi.updatePagerDutyIntegrationService", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, null, null);
   }
 
   public class APIupdatePagerDutyIntegrationServiceRequest {
@@ -399,7 +408,6 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
     private APIupdatePagerDutyIntegrationServiceRequest(String serviceName) {
       this.serviceName = serviceName;
     }
-    
 
     /**
      * Set body
@@ -410,7 +418,6 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updatePagerDutyIntegrationService request
@@ -443,9 +450,8 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
       return updatePagerDutyIntegrationServiceWithHttpInfo(serviceName, body);
     }
@@ -460,7 +466,6 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
    
    
    */
-  
   public APIupdatePagerDutyIntegrationServiceRequest updatePagerDutyIntegrationService(String serviceName) throws ApiException {
     return new APIupdatePagerDutyIntegrationServiceRequest(serviceName);
   }

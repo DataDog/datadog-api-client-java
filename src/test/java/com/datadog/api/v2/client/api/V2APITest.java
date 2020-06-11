@@ -7,10 +7,12 @@
 package com.datadog.api.v2.client.api;
 
 
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+import org.junit.Before;
 import org.junit.BeforeClass;
 
 import java.util.HashMap;
@@ -33,8 +35,8 @@ public abstract class V2APITest extends TestUtils.APITest {
         generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
 
         // Set proxy to the mockServer for recording
-        if (TestUtils.isRecording()) {
-            if (!TestUtils.isIbmJdk()) {
+        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+            if (!(TestUtils.isIbmJdk() || TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE))) {
                 ClientConfig config = (ClientConfig) generalApiClient.getHttpClient().getConfiguration();
                 config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
             }
@@ -48,10 +50,7 @@ public abstract class V2APITest extends TestUtils.APITest {
     @BeforeClass
     public static void initGeneralApiUnitTestClient() {
         generalApiUnitTestClient = new ApiClient();
-
-        // WireMock defaults to listening on localhost port 8080
-        // http://wiremock.org/docs/configuration/
-        generalApiUnitTestClient.setBasePath("http://localhost:8080");
+        generalApiUnitTestClient.setBasePath(String.format("http://localhost:%d", WIREMOCK_PORT));
         // Disable templated servers
         generalApiUnitTestClient.setServerIndex(null);
 
@@ -65,5 +64,11 @@ public abstract class V2APITest extends TestUtils.APITest {
     @BeforeClass
     public static void setVersion() {
         version = "v2";
+    }
+
+    @Before
+    public void setTestNameHeader() {
+        // these headers help mockserver properly identify the request in the huge all-in-one cassette
+        generalApiClient.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
     }
 }

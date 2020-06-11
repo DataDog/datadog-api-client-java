@@ -26,7 +26,9 @@ public enum WidgetServiceSummaryDisplayFormat {
   
   ONE_COLUMN("one_column"),
   
-  TWO_COLUMN("two_column");
+  TWO_COLUMN("two_column"),
+  
+  THREE_COLUMN("three_column");
 
   private String value;
 

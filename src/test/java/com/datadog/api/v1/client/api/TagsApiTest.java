@@ -49,7 +49,7 @@ public class TagsApiTest extends V1ApiTest {
     public void tagsTest() throws ApiException, TestUtils.RetryException {
         String commonHostTag = "test:client_java";
         long nowSeconds = now.toEpochSecond();
-        String hostname = String.format("java-client-test-host-%d", nowSeconds);
+        String hostname = getUniqueEntityName();
 
         // create host by sending a metric
         ApiResponse<String> response = sendRequest(

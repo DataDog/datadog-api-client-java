@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**UserUpdateAttributes**](UserUpdateAttributes.md) |  |  [optional]
 **id** | **String** | ID of the user. |  [optional]
-**type** | **String** | Users resource type. |  [optional] [readonly]
+**type** | [**UsersType**](UsersType.md) |  |  [optional]
 
 
 

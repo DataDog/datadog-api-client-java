@@ -36,13 +36,17 @@ A single test method can be executed via:
 mvn test -Dtest=TEST_CLASS_NAME#TEST_METHOD_NAME
 ```
 
-By default integration tests use recorded API responses stored in cassettes. To record new API responses run the tests with `RECORD=true`.
+By default integration tests use recorded API responses stored in cassettes. To record new API responses run the tests with `RECORD=true`. To run integration tests against API without recording cassettes, run the tests with `RECORD=none`.
 
 **IMPORTANT**: 
 When creating a PR that adds or updates a test, __never__ commit 
 generated code, only commit test files being updated and any updated cassettes. 
 
 Run test with `DEBUG=true` to display api server calls being made during test execution. This can be useful during debug time.
+
+### Writing Tests
+
+When creating new entities/objects through the API as part of tests, make sure to assign result of `getUniqueEntityName()` to at least one field of this object (e.g. title or name). This ensures uniqueness as well as trackability - in other words, if a CI run fails to clean up resources, we're able to track the entity to the CI run, as the unique name will contain CI run ID.
 
 ### CI Setup
 

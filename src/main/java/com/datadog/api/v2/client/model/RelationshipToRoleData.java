@@ -13,6 +13,7 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v2.client.model.RolesType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,7 +36,7 @@ public class RelationshipToRoleData {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "roles";
+  private RolesType type = RolesType.ROLES;
 
 
   public RelationshipToRoleData id(String id) {
@@ -49,7 +50,7 @@ public class RelationshipToRoleData {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the role.")
+  @ApiModelProperty(example = "3653d3c6-0c75-11ea-ad28-fb5701eabc7d", value = "ID of the role.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -63,27 +64,27 @@ public class RelationshipToRoleData {
   }
 
 
-  public RelationshipToRoleData type(String type) {
+  public RelationshipToRoleData type(RolesType type) {
     
     this.type = type;
     return this;
   }
 
    /**
-   * Type of role.
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of role.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getType() {
+  public RolesType getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(RolesType type) {
     this.type = type;
   }
 

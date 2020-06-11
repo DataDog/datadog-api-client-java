@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.datadog.api.v1.client.model.HostMapWidgetDefinitionRequests;
 import com.datadog.api.v1.client.model.HostMapWidgetDefinitionStyle;
+import com.datadog.api.v1.client.model.HostMapWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetNodeType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,9 +26,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
@@ -49,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   HostMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
 
-public class HostMapWidgetDefinition implements WidgetDefinition {
+public class HostMapWidgetDefinition {
   public static final String JSON_PROPERTY_GROUP = "group";
   private List<String> group = null;
 
@@ -84,7 +82,7 @@ public class HostMapWidgetDefinition implements WidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "hostmap";
+  private HostMapWidgetDefinitionType type = HostMapWidgetDefinitionType.HOSTMAP;
 
 
   public HostMapWidgetDefinition group(List<String> group) {
@@ -377,19 +375,28 @@ public class HostMapWidgetDefinition implements WidgetDefinition {
   }
 
 
+  public HostMapWidgetDefinition type(HostMapWidgetDefinitionType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Type of the widget.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Type of the widget.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public HostMapWidgetDefinitionType getType() {
     return type;
   }
 
 
+  public void setType(HostMapWidgetDefinitionType type) {
+    this.type = type;
+  }
 
 
   @Override

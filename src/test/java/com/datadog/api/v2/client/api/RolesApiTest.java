@@ -72,37 +72,29 @@ public class RolesApiTest extends V2APITest {
         }
     }
 
-    public String generateRoleName() {
-        return "test-datadog-client-java-" + now.toEpochSecond();
-    }
-
-    public String generateUserHandle() {
-        return "test-datadog-client-java-" + now.toEpochSecond() + "@datadoghq.com";
-    }
-
     @Test
     public void testRoleLifecycle() throws ApiException {
-        final String testingRoleName = generateRoleName();
+        final String testingRoleName = getUniqueEntityName();
         RoleCreateAttributes rca = new RoleCreateAttributes()
                 .name(testingRoleName);
         RoleCreateData rcd = new RoleCreateData().attributes(rca);
-        RoleCreatePayload rcp = new RoleCreatePayload().data(rcd);
+        RoleCreateRequest rcr = new RoleCreateRequest().data(rcd);
 
         // first, test creating a role
-        RoleResponse rr = api.createRole().body(rcp).execute();
+        RoleCreateResponse rr = api.createRole().body(rcr).execute();
         String rid = rr.getData().getId();
         deleteRoles.add(rid);
 
         assertEquals(testingRoleName, rr.getData().getAttributes().getName());
 
         // now, test updating it
-        String updatedRoleName = "update-" + testingRoleName;
+        String updatedRoleName = testingRoleName + "-updated";
         RoleUpdateAttributes rua = new RoleUpdateAttributes()
                 .name(updatedRoleName);
         RoleUpdateData rud = new RoleUpdateData().attributes(rua).id(rid);
-        RoleUpdatePayload rup = new RoleUpdatePayload().data(rud);
+        RoleUpdateRequest rur = new RoleUpdateRequest().data(rud);
 
-        RoleResponse urr = api.updateRole(rid).body(rup).execute();
+        RoleUpdateResponse urr = api.updateRole(rid).body(rur).execute();
         assertEquals(updatedRoleName, urr.getData().getAttributes().getName());
 
         // now, test getting it
@@ -128,14 +120,14 @@ public class RolesApiTest extends V2APITest {
 
     @Test
     public void testRolePermissionsLifecycle() throws ApiException {
-        final String testingRoleName = generateRoleName();
+        final String testingRoleName = getUniqueEntityName();
         RoleCreateAttributes rca = new RoleCreateAttributes()
                 .name(testingRoleName);
         RoleCreateData rcd = new RoleCreateData().attributes(rca);
-        RoleCreatePayload rcp = new RoleCreatePayload().data(rcd);
+        RoleCreateRequest rcr = new RoleCreateRequest().data(rcd);
 
         // first, create a role
-        RoleResponse rr = api.createRole().body(rcp).execute();
+        RoleCreateResponse rr = api.createRole().body(rcr).execute();
         String rid = rr.getData().getId();
         deleteRoles.add(rid);
 
@@ -185,19 +177,19 @@ public class RolesApiTest extends V2APITest {
 
     @Test
     public void testRoleUsersLifecycle() throws ApiException {
-        final String testingRoleName = generateRoleName();
+        final String testingRoleName = getUniqueEntityName();
         RoleCreateAttributes rca = new RoleCreateAttributes()
                 .name(testingRoleName);
         RoleCreateData rcd = new RoleCreateData().attributes(rca);
-        RoleCreatePayload rcp = new RoleCreatePayload().data(rcd);
+        RoleCreateRequest rcp = new RoleCreateRequest().data(rcd);
 
         // first, create a role
-        RoleResponse rr = api.createRole().body(rcp).execute();
+        RoleCreateResponse rr = api.createRole().body(rcp).execute();
         String rid = rr.getData().getId();
         deleteRoles.add(rid);
 
         // create a user
-        final String testingUserHandle = generateUserHandle();
+        final String testingUserHandle = getUniqueEntityName() + "@datadoghq.com";
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
                 .name(testingUserName)

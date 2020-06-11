@@ -16,6 +16,7 @@ import com.datadog.api.v1.client.model.SyntheticsDeleteTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetAPITestLatestResultsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetBrowserTestLatestResultsResponse;
 import com.datadog.api.v1.client.model.SyntheticsListTestsResponse;
+import com.datadog.api.v1.client.model.SyntheticsLocations;
 import com.datadog.api.v1.client.model.SyntheticsTestDetails;
 import com.datadog.api.v1.client.model.SyntheticsUpdateTestPauseStatusPayload;
 
@@ -36,15 +37,26 @@ public class SyntheticsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTestDetails body, String fromTestId) throws ApiException {
+
+private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTestDetails body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'body' is set
@@ -61,7 +73,6 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_test_id", fromTestId));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createTest");
@@ -82,16 +93,17 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SyntheticsTestDetails> localVarReturnType = new GenericType<SyntheticsTestDetails>() {};
-    return apiClient.invokeAPI("SyntheticsApi.createTest", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.createTest", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateTestRequest {
     private SyntheticsTestDetails body;
-    private String fromTestId;
 
     private APIcreateTestRequest() {
     }
-    
 
     /**
      * Set body
@@ -102,18 +114,6 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
       this.body = body;
       return this;
     }
-    
-
-    /**
-     * Set fromTestId
-     * @param fromTestId Public ID of the test to clone, undefined if the test is newly created. (optional)
-     * @return APIcreateTestRequest
-     */
-    public APIcreateTestRequest fromTestId(String fromTestId) {
-      this.fromTestId = fromTestId;
-      return this;
-    }
-    
 
     /**
      * Execute createTest request
@@ -146,11 +146,10 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
          <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
-      return createTestWithHttpInfo(body, fromTestId);
+      return createTestWithHttpInfo(body);
     }
   }
 
@@ -162,7 +161,6 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
    
    
    */
-  
   public APIcreateTestRequest createTest() throws ApiException {
     return new APIcreateTestRequest();
   }
@@ -204,7 +202,10 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SyntheticsDeleteTestsResponse> localVarReturnType = new GenericType<SyntheticsDeleteTestsResponse>() {};
-    return apiClient.invokeAPI("SyntheticsApi.deleteTests", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.deleteTests", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteTestsRequest {
@@ -212,7 +213,6 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
 
     private APIdeleteTestsRequest() {
     }
-    
 
     /**
      * Set body
@@ -223,7 +223,6 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute deleteTests request
@@ -256,9 +255,8 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SyntheticsDeleteTestsResponse> executeWithHttpInfo() throws ApiException {
       return deleteTestsWithHttpInfo(body);
     }
@@ -272,7 +270,6 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
    
    
    */
-  
   public APIdeleteTestsRequest deleteTests() throws ApiException {
     return new APIdeleteTestsRequest();
   }
@@ -318,7 +315,10 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SyntheticsGetAPITestLatestResultsResponse> localVarReturnType = new GenericType<SyntheticsGetAPITestLatestResultsResponse>() {};
-    return apiClient.invokeAPI("SyntheticsApi.getAPITestLatestResults", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.getAPITestLatestResults", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetAPITestLatestResultsRequest {
@@ -330,7 +330,6 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
     private APIgetAPITestLatestResultsRequest(String publicId) {
       this.publicId = publicId;
     }
-    
 
     /**
      * Set fromTs
@@ -341,7 +340,6 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
       this.fromTs = fromTs;
       return this;
     }
-    
 
     /**
      * Set toTs
@@ -352,7 +350,6 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
       this.toTs = toTs;
       return this;
     }
-    
 
     /**
      * Set probeDc
@@ -363,7 +360,6 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
       this.probeDc = probeDc;
       return this;
     }
-    
 
     /**
      * Execute getAPITestLatestResults request
@@ -394,9 +390,8 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SyntheticsGetAPITestLatestResultsResponse> executeWithHttpInfo() throws ApiException {
       return getAPITestLatestResultsWithHttpInfo(publicId, fromTs, toTs, probeDc);
     }
@@ -411,7 +406,6 @@ private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestR
    
    
    */
-  
   public APIgetAPITestLatestResultsRequest getAPITestLatestResults(String publicId) throws ApiException {
     return new APIgetAPITestLatestResultsRequest(publicId);
   }
@@ -460,7 +454,10 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SyntheticsAPITestResultFull> localVarReturnType = new GenericType<SyntheticsAPITestResultFull>() {};
-    return apiClient.invokeAPI("SyntheticsApi.getAPITestResult", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.getAPITestResult", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetAPITestResultRequest {
@@ -471,7 +468,6 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
       this.publicId = publicId;
       this.resultId = resultId;
     }
-    
 
     /**
      * Execute getAPITestResult request
@@ -502,9 +498,8 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SyntheticsAPITestResultFull> executeWithHttpInfo() throws ApiException {
       return getAPITestResultWithHttpInfo(publicId, resultId);
     }
@@ -520,9 +515,108 @@ private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(St
    
    
    */
-  
   public APIgetAPITestResultRequest getAPITestResult(String publicId, String resultId) throws ApiException {
     return new APIgetAPITestResultRequest(publicId, resultId);
+  }
+
+private ApiResponse<SyntheticsTestDetails> getBrowserTestWithHttpInfo(String publicId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(400, "Missing the required parameter 'publicId' when calling getBrowserTest");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/browser/{public_id}"
+      .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getBrowserTest");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsTestDetails> localVarReturnType = new GenericType<SyntheticsTestDetails>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.getBrowserTest", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
+  }
+
+  public class APIgetBrowserTestRequest {
+    private String publicId;
+
+    private APIgetBrowserTestRequest(String publicId) {
+      this.publicId = publicId;
+    }
+
+    /**
+     * Execute getBrowserTest request
+     * @return SyntheticsTestDetails
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsTestDetails execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getBrowserTest request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsTestDetails&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
+      return getBrowserTestWithHttpInfo(publicId);
+    }
+  }
+
+  /**
+   * Get a test configuration (browser)
+   * Get the detailed configuration (including steps) associated with a Synthetics browser test.
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return getBrowserTestRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetBrowserTestRequest getBrowserTest(String publicId) throws ApiException {
+    return new APIgetBrowserTestRequest(publicId);
   }
 
 private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTestLatestResultsWithHttpInfo(String publicId, Long fromTs, Long toTs, List<String> probeDc) throws ApiException {
@@ -566,7 +660,10 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SyntheticsGetBrowserTestLatestResultsResponse> localVarReturnType = new GenericType<SyntheticsGetBrowserTestLatestResultsResponse>() {};
-    return apiClient.invokeAPI("SyntheticsApi.getBrowserTestLatestResults", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.getBrowserTestLatestResults", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetBrowserTestLatestResultsRequest {
@@ -578,7 +675,6 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
     private APIgetBrowserTestLatestResultsRequest(String publicId) {
       this.publicId = publicId;
     }
-    
 
     /**
      * Set fromTs
@@ -589,7 +685,6 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
       this.fromTs = fromTs;
       return this;
     }
-    
 
     /**
      * Set toTs
@@ -600,7 +695,6 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
       this.toTs = toTs;
       return this;
     }
-    
 
     /**
      * Set probeDc
@@ -611,7 +705,6 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
       this.probeDc = probeDc;
       return this;
     }
-    
 
     /**
      * Execute getBrowserTestLatestResults request
@@ -642,9 +735,8 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
          <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> executeWithHttpInfo() throws ApiException {
       return getBrowserTestLatestResultsWithHttpInfo(publicId, fromTs, toTs, probeDc);
     }
@@ -659,7 +751,6 @@ private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> getBrowserTes
    
    
    */
-  
   public APIgetBrowserTestLatestResultsRequest getBrowserTestLatestResults(String publicId) throws ApiException {
     return new APIgetBrowserTestLatestResultsRequest(publicId);
   }
@@ -708,7 +799,10 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SyntheticsBrowserTestResultFull> localVarReturnType = new GenericType<SyntheticsBrowserTestResultFull>() {};
-    return apiClient.invokeAPI("SyntheticsApi.getBrowserTestResult", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.getBrowserTestResult", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetBrowserTestResultRequest {
@@ -719,7 +813,6 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
       this.publicId = publicId;
       this.resultId = resultId;
     }
-    
 
     /**
      * Execute getBrowserTestResult request
@@ -750,9 +843,8 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SyntheticsBrowserTestResultFull> executeWithHttpInfo() throws ApiException {
       return getBrowserTestResultWithHttpInfo(publicId, resultId);
     }
@@ -768,7 +860,6 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
    
    
    */
-  
   public APIgetBrowserTestResultRequest getBrowserTestResult(String publicId, String resultId) throws ApiException {
     return new APIgetBrowserTestResultRequest(publicId, resultId);
   }
@@ -811,7 +902,10 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SyntheticsTestDetails> localVarReturnType = new GenericType<SyntheticsTestDetails>() {};
-    return apiClient.invokeAPI("SyntheticsApi.getTest", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.getTest", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetTestRequest {
@@ -820,7 +914,6 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
     private APIgetTestRequest(String publicId) {
       this.publicId = publicId;
     }
-    
 
     /**
      * Execute getTest request
@@ -851,16 +944,15 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
       return getTestWithHttpInfo(publicId);
     }
   }
 
   /**
-   * Get a test configuration
+   * Get a test configuration (API)
    * Get the detailed configuration associated with a Synthetics test.
    * @param publicId The public ID of the test to get details from. (required)
    * @return getTestRequest
@@ -868,9 +960,95 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
    
    
    */
-  
   public APIgetTestRequest getTest(String publicId) throws ApiException {
     return new APIgetTestRequest(publicId);
+  }
+
+private ApiResponse<SyntheticsLocations> listLocationsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/locations";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listLocations");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsLocations> localVarReturnType = new GenericType<SyntheticsLocations>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.listLocations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
+  }
+
+  public class APIlistLocationsRequest {
+
+    private APIlistLocationsRequest() {
+    }
+
+    /**
+     * Execute listLocations request
+     * @return SyntheticsLocations
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsLocations execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listLocations request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsLocations&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsLocations> executeWithHttpInfo() throws ApiException {
+      return listLocationsWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all locations (public and private)
+   * Get the list of public and private locations available for Synthetics tests. No arguments required.
+   * @return listLocationsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIlistLocationsRequest listLocations() throws ApiException {
+    return new APIlistLocationsRequest();
   }
 
 private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String checkType) throws ApiException {
@@ -906,7 +1084,10 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SyntheticsListTestsResponse> localVarReturnType = new GenericType<SyntheticsListTestsResponse>() {};
-    return apiClient.invokeAPI("SyntheticsApi.listTests", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.listTests", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistTestsRequest {
@@ -914,7 +1095,6 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
 
     private APIlistTestsRequest() {
     }
-    
 
     /**
      * Set checkType
@@ -925,7 +1105,6 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
       this.checkType = checkType;
       return this;
     }
-    
 
     /**
      * Execute listTests request
@@ -956,9 +1135,8 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SyntheticsListTestsResponse> executeWithHttpInfo() throws ApiException {
       return listTestsWithHttpInfo(checkType);
     }
@@ -972,7 +1150,6 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
    
    
    */
-  
   public APIlistTestsRequest listTests() throws ApiException {
     return new APIlistTestsRequest();
   }
@@ -1020,7 +1197,10 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SyntheticsTestDetails> localVarReturnType = new GenericType<SyntheticsTestDetails>() {};
-    return apiClient.invokeAPI("SyntheticsApi.updateTest", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.updateTest", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateTestRequest {
@@ -1030,7 +1210,6 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
     private APIupdateTestRequest(String publicId) {
       this.publicId = publicId;
     }
-    
 
     /**
      * Set body
@@ -1041,7 +1220,6 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateTest request
@@ -1074,9 +1252,8 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
       return updateTestWithHttpInfo(publicId, body);
     }
@@ -1091,7 +1268,6 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
    
    
    */
-  
   public APIupdateTestRequest updateTest(String publicId) throws ApiException {
     return new APIupdateTestRequest(publicId);
   }
@@ -1139,7 +1315,10 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<Boolean> localVarReturnType = new GenericType<Boolean>() {};
-    return apiClient.invokeAPI("SyntheticsApi.updateTestPauseStatus", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("SyntheticsApi.updateTestPauseStatus", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateTestPauseStatusRequest {
@@ -1149,7 +1328,6 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
     private APIupdateTestPauseStatusRequest(String publicId) {
       this.publicId = publicId;
     }
-    
 
     /**
      * Set body
@@ -1160,7 +1338,6 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateTestPauseStatus request
@@ -1193,9 +1370,8 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<Boolean> executeWithHttpInfo() throws ApiException {
       return updateTestPauseStatusWithHttpInfo(publicId, body);
     }
@@ -1210,7 +1386,6 @@ private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(String publicId, 
    
    
    */
-  
   public APIupdateTestPauseStatusRequest updateTestPauseStatus(String publicId) throws ApiException {
     return new APIupdateTestPauseStatusRequest(publicId);
   }

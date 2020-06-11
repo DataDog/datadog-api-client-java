@@ -53,7 +53,7 @@ public class LogsListRequestTime {
    * Minimum timestamp for requested logs.
    * @return from
   **/
-  @ApiModelProperty(required = true, value = "Minimum timestamp for requested logs.")
+  @ApiModelProperty(example = "2020-02-02T02:02:02Z", required = true, value = "Minimum timestamp for requested logs.")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -102,7 +102,7 @@ public class LogsListRequestTime {
    * Maximum timestamp for requested logs.
    * @return to
   **/
-  @ApiModelProperty(required = true, value = "Maximum timestamp for requested logs.")
+  @ApiModelProperty(example = "2020-02-02T20:20:20Z", required = true, value = "Maximum timestamp for requested logs.")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

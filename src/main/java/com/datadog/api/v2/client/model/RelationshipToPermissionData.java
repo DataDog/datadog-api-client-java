@@ -13,6 +13,7 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.datadog.api.v2.client.model.PermissionsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,7 +36,7 @@ public class RelationshipToPermissionData {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "permissions";
+  private PermissionsType type = PermissionsType.PERMISSIONS;
 
 
   public RelationshipToPermissionData id(String id) {
@@ -63,20 +64,29 @@ public class RelationshipToPermissionData {
   }
 
 
+  public RelationshipToPermissionData type(PermissionsType type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Permissions resource type.
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Permissions resource type.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getType() {
+  public PermissionsType getType() {
     return type;
   }
 
 
+  public void setType(PermissionsType type) {
+    this.type = type;
+  }
 
 
   @Override

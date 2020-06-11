@@ -80,7 +80,7 @@ public class LogContent {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "{\"customAttribute\":123,\"duration\":2345}", value = "JSON object of attributes from your log.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getAttributes() {
     return attributes;
@@ -211,7 +211,7 @@ public class LogContent {
    * @return timestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "Timestamp of your log.")
+  @ApiModelProperty(example = "2020-05-26T13:36:14Z", value = "Timestamp of your log.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

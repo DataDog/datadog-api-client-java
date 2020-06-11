@@ -40,7 +40,7 @@ public class SnapshotsApiTest extends V1ApiTest {
     public void getGraphSnapshotTest() throws ApiException {
         String metricQuery = "system.load.1{*}";
         String graphDef = "{\"requests\": [{\"q\": \"system.load.1{*}\"}]}";
-        String title = "Example Snapshot";
+        String title = getUniqueEntityName();
         String eventQuery = "successful builds";
 
         long start = now.toEpochSecond();

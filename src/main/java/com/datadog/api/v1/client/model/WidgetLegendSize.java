@@ -24,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum WidgetLegendSize {
   
+  ZERO("0"),
+  
   TWO("2"),
   
   FOUR("4"),

@@ -13,17 +13,13 @@ Name | Type | Description | Notes
 **hideZeroCounts** | **Boolean** | Whether to show counts of 0 or not. |  [optional]
 **query** | **String** | Query to filter the monitors with. | 
 **showLastTriggered** | **Boolean** | Whether to show the time that has elapsed since the monitor/group triggered. |  [optional]
-**sort** | [**WidgetSort**](WidgetSort.md) |  |  [optional]
+**sort** | [**WidgetMonitorSummarySort**](WidgetMonitorSummarySort.md) |  |  [optional]
 **start** | **Long** | The start of the list. Typically 0. |  [optional]
 **summaryType** | [**WidgetSummaryType**](WidgetSummaryType.md) |  |  [optional]
 **title** | **String** | Title of the widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**MonitorSummaryWidgetDefinitionType**](MonitorSummaryWidgetDefinitionType.md) |  | 
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

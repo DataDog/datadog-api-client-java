@@ -32,10 +32,19 @@ security:
   appKeyAuth: []
 tags:
 - description: |-
-    [Interact with your dashboard lists](https://docs.datadoghq.com/monitors/downtimes)
-    through the API to make it easier to organize, find, and share all of your dashboards
-    with your team and organization.
+    Interact with your dashboard lists through the API to make it easier to
+    organize, find, and share all of your dashboards with your team and
+    organization.
   name: Dashboard Lists
+- description: |-
+    Archives forward all the logs ingested to a cloud storage system.
+
+    See the [Archives Page](https://app.datadoghq.com/logs/pipelines/archives)
+    for a list of the archives currently configured in our UI.
+  externalDocs:
+    description: Find out more at
+    url: https://docs.datadoghq.com/logs/archives/
+  name: Logs Archives
 - description: |-
     The Roles API is used to create and manage Datadog roles, what
     [global permissions](https://docs.datadoghq.com/account_management/rbac/)
@@ -46,6 +55,8 @@ tags:
     read access on a specific log index to a role can be done in Datadog from the
     [Pipelines page](https://app.datadoghq.com/logs/pipelines).
   name: Roles
+- description: Detection Rules for generating signals
+  name: Security Monitoring
 - description: Create, edit, and disable users.
   externalDocs:
     url: https://docs.datadoghq.com/account_management/users
@@ -69,7 +80,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DashboardListItems'
+              $ref: '#/components/schemas/DashboardListDeleteItemsRequest'
         description: Dashboards to delete from the dashboard list.
         required: true
       responses:
@@ -156,7 +167,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DashboardListItems'
+              $ref: '#/components/schemas/DashboardListAddItemsRequest'
         description: Dashboards to add to the dashboard list.
         required: true
       responses:
@@ -207,7 +218,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DashboardListItems'
+              $ref: '#/components/schemas/DashboardListUpdateItemsRequest'
         description: New dashboards of the dashboard list.
         required: true
       responses:
@@ -215,7 +226,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DashboardListItems'
+                $ref: '#/components/schemas/DashboardListUpdateItemsResponse'
           description: OK
         "400":
           content:
@@ -239,6 +250,335 @@ paths:
       tags:
       - Dashboard Lists
       x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v2/logs/config/archives:
+    get:
+      description: Get the list of configured logs archives with their definitions.
+      operationId: ListLogsArchives
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogsArchives'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+      summary: Get all archives
+      tags:
+      - Logs Archives
+      x-accepts: application/json
+    post:
+      description: Create an archive in your organization.
+      operationId: CreateLogsArchive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogsArchiveCreateRequest'
+        description: The definition of the new archive.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogsArchive'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+      summary: Create an archive
+      tags:
+      - Logs Archives
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v2/logs/config/archives/{archive_id}:
+    delete:
+      description: Delete a given archive from your organization.
+      operationId: DeleteLogsArchive
+      parameters:
+      - description: The ID of the archive.
+        explode: false
+        in: path
+        name: archive_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not found
+      summary: Delete an archive
+      tags:
+      - Logs Archives
+      x-accepts: application/json
+    get:
+      description: Get a specific archive from your organization.
+      operationId: GetLogsArchive
+      parameters:
+      - description: The ID of the archive.
+        explode: false
+        in: path
+        name: archive_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogsArchive'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not found
+      summary: Get an archive
+      tags:
+      - Logs Archives
+      x-accepts: application/json
+    put:
+      description: |-
+        Update a given archive configuration.
+
+        **Note**: Using this method updates your archive configuration by **replacing**
+        your current configuration with the new one sent to your Datadog organization.
+      operationId: UpdateLogsArchive
+      parameters:
+      - description: The ID of the archive.
+        explode: false
+        in: path
+        name: archive_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogsArchiveCreateRequest'
+        description: New definition of the archive.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogsArchive'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not found
+      summary: Update an archive
+      tags:
+      - Logs Archives
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v2/logs/config/archives/{archive_id}/readers:
+    delete:
+      description: Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
+      operationId: RemoveRoleFromArchive
+      parameters:
+      - description: The ID of the archive.
+        explode: false
+        in: path
+        name: archive_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipToRole'
+      responses:
+        "204":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not found
+      summary: Revoke role from an archive
+      tags:
+      - Logs Archives
+      x-codegen-request-body-name: body
+      x-unstable: |-
+        **Note**: This endpoint is in public beta.
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+      x-contentType: application/json
+      x-accepts: application/json
+    get:
+      description: Returns all read roles a given archive is restricted to.
+      operationId: ListArchiveReadRoles
+      parameters:
+      - description: The ID of the archive.
+        explode: false
+        in: path
+        name: archive_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RolesResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not found
+      summary: List read roles for an archive
+      tags:
+      - Logs Archives
+      x-codegen-request-body-name: body
+      x-unstable: |-
+        **Note**: This endpoint is in public beta.
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+      x-accepts: application/json
+    post:
+      description: Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
+      operationId: AddReadRoleToArchive
+      parameters:
+      - description: The ID of the archive.
+        explode: false
+        in: path
+        name: archive_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipToRole'
+      responses:
+        "204":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not found
+      summary: Grant role to an archive
+      tags:
+      - Logs Archives
+      x-codegen-request-body-name: body
+      x-unstable: |-
+        **Note**: This endpoint is in public beta.
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
       x-contentType: application/json
       x-accepts: application/json
   /api/v2/permissions:
@@ -337,13 +677,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RoleCreatePayload'
+              $ref: '#/components/schemas/RoleCreateRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RoleResponse'
+                $ref: '#/components/schemas/RoleCreateResponse'
           description: OK
         "400":
           content:
@@ -449,13 +789,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RoleUpdatePayload'
+              $ref: '#/components/schemas/RoleUpdateRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RoleResponse'
+                $ref: '#/components/schemas/RoleUpdateResponse'
           description: OK
         "400":
           content:
@@ -789,6 +1129,199 @@ paths:
       summary: Add a user to a role
       tags:
       - Roles
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v2/security_monitoring/rules:
+    get:
+      description: List rules.
+      operationId: ListSecurityMonitoringRules
+      parameters:
+      - description: Size for a given page.
+        explode: true
+        in: query
+        name: page[size]
+        required: false
+        schema:
+          default: 10
+          format: int64
+          type: integer
+        style: form
+      - description: Specific page number to return.
+        explode: true
+        in: query
+        name: page[number]
+        required: false
+        schema:
+          default: 0
+          format: int64
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityMonitoringListRulesResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+      summary: List rules
+      tags:
+      - Security Monitoring
+      x-accepts: application/json
+    post:
+      description: Create a detection rule.
+      operationId: CreateSecurityMonitoringRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityMonitoringRuleCreatePayload'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityMonitoringRuleResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Authorized
+      summary: Create a detection rule
+      tags:
+      - Security Monitoring
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v2/security_monitoring/rules/{rule_id}:
+    delete:
+      description: Delete an existing rule. Default rules cannot be deleted.
+      operationId: DeleteSecurityMonitoringRule
+      parameters:
+      - description: The ID of the rule.
+        explode: false
+        in: path
+        name: rule_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Authorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Delete an existing rule
+      tags:
+      - Security Monitoring
+      x-accepts: application/json
+    get:
+      description: Get a rule's details.
+      operationId: GetSecurityMonitoringRule
+      parameters:
+      - description: The ID of the rule.
+        explode: false
+        in: path
+        name: rule_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityMonitoringRuleResponse'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Get a rule's details
+      tags:
+      - Security Monitoring
+      x-accepts: application/json
+    put:
+      description: |-
+        Update an existing rule. When updating `cases`, `queries` or `options`, the whole field
+        must be included. For example, when modifying a query all queries must be included.
+        Default rules can only be updated to be enabled and to change notifications.
+      operationId: UpdateSecurityMonitoringRule
+      parameters:
+      - description: The ID of the rule.
+        explode: false
+        in: path
+        name: rule_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityMonitoringRuleUpdatePayload'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityMonitoringRuleResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Concurrent Modification
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Authorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+      summary: Update an existing rule
+      tags:
+      - Security Monitoring
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
@@ -1187,6 +1720,15 @@ components:
   headers: {}
   links: {}
   parameters:
+    ArchiveID:
+      description: The ID of the archive.
+      explode: false
+      in: path
+      name: archive_id
+      required: true
+      schema:
+        type: string
+      style: simple
     PageNumber:
       description: Specific page number to return.
       explode: true
@@ -1214,6 +1756,15 @@ components:
       explode: false
       in: path
       name: role_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    SecurityMonitoringRuleID:
+      description: The ID of the rule.
+      explode: false
+      in: path
+      name: rule_id
       required: true
       schema:
         type: string
@@ -1269,10 +1820,6 @@ components:
       type: object
     Creator:
       description: Creator of the object.
-      example:
-        name: name
-        handle: handle
-        email: email
       properties:
         email:
           description: Email of the creator.
@@ -1284,101 +1831,60 @@ components:
           description: Name of the creator.
           type: string
       type: object
+    DashboardListAddItemsRequest:
+      description: Request containing a list of dashboards to add.
+      example:
+        dashboards:
+        - id: q5j-nti-fv6
+        - id: q5j-nti-fv6
+      properties:
+        dashboards:
+          description: List of dashboards to add the dashboard list.
+          items:
+            $ref: '#/components/schemas/DashboardListItemRequest'
+          type: array
+      type: object
     DashboardListAddItemsResponse:
       description: Response containing a list of added dashboards.
       example:
         added_dashboards_to_list:
-        - is_favorite: true
-          author:
-            name: name
-            handle: handle
-            email: email
-          created: 2000-01-23T04:56:07.000+00:00
-          is_shared: true
-          popularity: 0
-          icon: icon
-          modified: 2000-01-23T04:56:07.000+00:00
-          is_read_only: true
-          id: id
-          title: title
-          url: url
-        - is_favorite: true
-          author:
-            name: name
-            handle: handle
-            email: email
-          created: 2000-01-23T04:56:07.000+00:00
-          is_shared: true
-          popularity: 0
-          icon: icon
-          modified: 2000-01-23T04:56:07.000+00:00
-          is_read_only: true
-          id: id
-          title: title
-          url: url
+        - id: q5j-nti-fv6
+        - id: q5j-nti-fv6
       properties:
         added_dashboards_to_list:
           description: List of dashboards added to the dashboard list.
           items:
-            $ref: '#/components/schemas/DashboardListItem'
+            $ref: '#/components/schemas/DashboardListItemResponse'
+          type: array
+      type: object
+    DashboardListDeleteItemsRequest:
+      description: Request containing a list of dashboards to delete.
+      example:
+        dashboards:
+        - id: q5j-nti-fv6
+        - id: q5j-nti-fv6
+      properties:
+        dashboards:
+          description: List of dashboards to delete from the dashboard list.
+          items:
+            $ref: '#/components/schemas/DashboardListItemRequest'
           type: array
       type: object
     DashboardListDeleteItemsResponse:
       description: Response containing a list of deleted dashboards.
       example:
         deleted_dashboards_from_list:
-        - is_favorite: true
-          author:
-            name: name
-            handle: handle
-            email: email
-          created: 2000-01-23T04:56:07.000+00:00
-          is_shared: true
-          popularity: 0
-          icon: icon
-          modified: 2000-01-23T04:56:07.000+00:00
-          is_read_only: true
-          id: id
-          title: title
-          url: url
-        - is_favorite: true
-          author:
-            name: name
-            handle: handle
-            email: email
-          created: 2000-01-23T04:56:07.000+00:00
-          is_shared: true
-          popularity: 0
-          icon: icon
-          modified: 2000-01-23T04:56:07.000+00:00
-          is_read_only: true
-          id: id
-          title: title
-          url: url
+        - id: q5j-nti-fv6
+        - id: q5j-nti-fv6
       properties:
         deleted_dashboards_from_list:
           description: List of dashboards deleted from the dashboard list.
           items:
-            $ref: '#/components/schemas/DashboardListItem'
+            $ref: '#/components/schemas/DashboardListItemResponse'
           type: array
       type: object
     DashboardListItem:
       description: A dashboard within a list.
-      example:
-        is_favorite: true
-        author:
-          name: name
-          handle: handle
-          email: email
-        created: 2000-01-23T04:56:07.000+00:00
-        is_shared: true
-        popularity: 0
-        icon: icon
-        modified: 2000-01-23T04:56:07.000+00:00
-        is_read_only: true
-        id: id
-        title: title
-        url: url
       properties:
         author:
           $ref: '#/components/schemas/Creator'
@@ -1393,6 +1899,7 @@ components:
           type: string
         id:
           description: ID of the dashboard.
+          example: q5j-nti-fv6
           type: string
         is_favorite:
           description: Whether or not the dashboard is in the favorites.
@@ -1431,42 +1938,46 @@ components:
       - id
       - type
       type: object
+    DashboardListItemRequest:
+      description: A dashboard within a list.
+      example:
+        id: q5j-nti-fv6
+      properties:
+        id:
+          description: ID of the dashboard.
+          example: q5j-nti-fv6
+          type: string
+        type:
+          $ref: '#/components/schemas/DashboardType'
+      required:
+      - id
+      - type
+      type: object
+    DashboardListItemResponse:
+      description: A dashboard within a list.
+      example:
+        id: q5j-nti-fv6
+      properties:
+        id:
+          description: ID of the dashboard.
+          example: q5j-nti-fv6
+          readOnly: true
+          type: string
+        type:
+          $ref: '#/components/schemas/DashboardType'
+      required:
+      - id
+      - type
+      type: object
     DashboardListItems:
       description: Dashboards within a list.
       example:
-        total: 6
-        dashboards:
-        - is_favorite: true
-          author:
-            name: name
-            handle: handle
-            email: email
-          created: 2000-01-23T04:56:07.000+00:00
-          is_shared: true
-          popularity: 0
-          icon: icon
-          modified: 2000-01-23T04:56:07.000+00:00
-          is_read_only: true
-          id: id
-          title: title
-          url: url
-        - is_favorite: true
-          author:
-            name: name
-            handle: handle
-            email: email
-          created: 2000-01-23T04:56:07.000+00:00
-          is_shared: true
-          popularity: 0
-          icon: icon
-          modified: 2000-01-23T04:56:07.000+00:00
-          is_read_only: true
-          id: id
-          title: title
-          url: url
+        total: 0
+        dashboards: []
       properties:
         dashboards:
           description: List of dashboards in the dashboard list.
+          example: []
           items:
             $ref: '#/components/schemas/DashboardListItem'
           type: array
@@ -1477,6 +1988,32 @@ components:
           type: integer
       required:
       - dashboards
+      type: object
+    DashboardListUpdateItemsRequest:
+      description: Request containing the list of dashboards to update to.
+      example:
+        dashboards:
+        - id: q5j-nti-fv6
+        - id: q5j-nti-fv6
+      properties:
+        dashboards:
+          description: List of dashboards to update the dashboard list to.
+          items:
+            $ref: '#/components/schemas/DashboardListItemRequest'
+          type: array
+      type: object
+    DashboardListUpdateItemsResponse:
+      description: Response containing a list of updated dashboards.
+      example:
+        dashboards:
+        - id: q5j-nti-fv6
+        - id: q5j-nti-fv6
+      properties:
+        dashboards:
+          description: List of dashboards in the dashboard list.
+          items:
+            $ref: '#/components/schemas/DashboardListItemResponse'
+          type: array
       type: object
     DashboardType:
       description: The type of the dashboard.
@@ -1493,6 +2030,318 @@ components:
       - INTEGRATION_SCREENBOARD
       - INTEGRATION_TIMEBOARD
       - HOST_TIMEBOARD
+    LogsArchive:
+      description: The logs archive.
+      example:
+        data:
+          attributes:
+            query: source:nginx
+            name: Nginx Archive
+            state: WORKING
+          id: a2zcMylnM4OCHpYusxIi3g
+          type: archives
+      properties:
+        data:
+          $ref: '#/components/schemas/LogsArchiveDefinition'
+      type: object
+    LogsArchiveAttributes:
+      description: The attributes associated with the archive.
+      example:
+        query: source:nginx
+        name: Nginx Archive
+        state: WORKING
+      properties:
+        destination:
+          $ref: '#/components/schemas/LogsArchiveDestination'
+        name:
+          description: The archive name.
+          example: Nginx Archive
+          type: string
+        query:
+          description: The archive query/filter. Logs matching this query are included
+            in the archive.
+          example: source:nginx
+          type: string
+        state:
+          $ref: '#/components/schemas/LogsArchiveState'
+      required:
+      - destination
+      - name
+      - query
+      type: object
+    LogsArchiveCreateRequest:
+      description: The logs archive.
+      example:
+        data:
+          attributes:
+            query: source:nginx
+            name: Nginx Archive
+          type: archives
+      properties:
+        data:
+          $ref: '#/components/schemas/LogsArchiveCreateRequestDefinition'
+      type: object
+    LogsArchiveCreateRequestAttributes:
+      description: The attributes associated with the archive.
+      example:
+        query: source:nginx
+        name: Nginx Archive
+      properties:
+        destination:
+          $ref: '#/components/schemas/LogsArchiveCreateRequestDestination'
+        name:
+          description: The archive name.
+          example: Nginx Archive
+          type: string
+        query:
+          description: The archive query/filter. Logs matching this query are included
+            in the archive.
+          example: source:nginx
+          type: string
+      required:
+      - destination
+      - name
+      - query
+      type: object
+    LogsArchiveCreateRequestDefinition:
+      description: The definition of an archive.
+      example:
+        attributes:
+          query: source:nginx
+          name: Nginx Archive
+        type: archives
+      properties:
+        attributes:
+          $ref: '#/components/schemas/LogsArchiveCreateRequestAttributes'
+        type:
+          default: archives
+          description: The type of the resource. The value should always be archives.
+          example: archives
+          type: string
+      required:
+      - type
+      type: object
+    LogsArchiveCreateRequestDestination:
+      description: An archive's destination.
+      oneOf:
+      - $ref: '#/components/schemas/LogsArchiveDestinationAzure'
+      - $ref: '#/components/schemas/LogsArchiveDestinationGCS'
+      - $ref: '#/components/schemas/LogsArchiveDestinationS3'
+      required:
+      - integration
+      - type
+      type: object
+    LogsArchiveDefinition:
+      description: The definition of an archive.
+      example:
+        attributes:
+          query: source:nginx
+          name: Nginx Archive
+          state: WORKING
+        id: a2zcMylnM4OCHpYusxIi3g
+        type: archives
+      properties:
+        attributes:
+          $ref: '#/components/schemas/LogsArchiveAttributes'
+        id:
+          description: The archive ID.
+          example: a2zcMylnM4OCHpYusxIi3g
+          readOnly: true
+          type: string
+        type:
+          default: archives
+          description: The type of the resource. The value should always be archives.
+          example: archives
+          readOnly: true
+          type: string
+      required:
+      - type
+      type: object
+    LogsArchiveDestination:
+      description: An archive's destination.
+      nullable: true
+      oneOf:
+      - $ref: '#/components/schemas/LogsArchiveDestinationAzure'
+      - $ref: '#/components/schemas/LogsArchiveDestinationGCS'
+      - $ref: '#/components/schemas/LogsArchiveDestinationS3'
+      required:
+      - integration
+      - type
+      type: object
+    LogsArchiveDestinationAzure:
+      description: The Azure archive destination.
+      properties:
+        container:
+          description: The container where the archive will be stored.
+          example: container-name
+          type: string
+        integration:
+          $ref: '#/components/schemas/LogsArchiveIntegrationAzure'
+        path:
+          description: The archive path.
+          type: string
+        region:
+          description: The region where the archive will be stored.
+          type: string
+        storage_account:
+          description: The associated storage account.
+          example: account-name
+          type: string
+        type:
+          $ref: '#/components/schemas/LogsArchiveDestinationAzureType'
+      required:
+      - container
+      - integration
+      - storage_account
+      - type
+      type: object
+    LogsArchiveDestinationAzureType:
+      default: azure
+      description: Type of the Azure archive destination.
+      enum:
+      - azure
+      example: azure
+      type: string
+      x-enum-varnames:
+      - AZURE
+    LogsArchiveDestinationGCS:
+      description: The GCS archive destination.
+      properties:
+        bucket:
+          description: The bucket where the archive will be stored.
+          example: bucket-name
+          type: string
+        integration:
+          $ref: '#/components/schemas/LogsArchiveIntegrationGCS'
+        path:
+          description: The archive path.
+          type: string
+        type:
+          $ref: '#/components/schemas/LogsArchiveDestinationGCSType'
+      required:
+      - bucket
+      - integration
+      - type
+      type: object
+    LogsArchiveDestinationGCSType:
+      default: gcs
+      description: Type of the GCS archive destination.
+      enum:
+      - gcs
+      example: gcs
+      type: string
+      x-enum-varnames:
+      - GCS
+    LogsArchiveDestinationS3:
+      description: The S3 archive destination.
+      properties:
+        bucket:
+          description: The bucket where the archive will be stored.
+          example: bucket-name
+          type: string
+        integration:
+          $ref: '#/components/schemas/LogsArchiveIntegrationS3'
+        path:
+          description: The archive path.
+          type: string
+        type:
+          $ref: '#/components/schemas/LogsArchiveDestinationS3Type'
+      required:
+      - bucket
+      - integration
+      - type
+      type: object
+    LogsArchiveDestinationS3Type:
+      default: s3
+      description: Type of the S3 archive destination.
+      enum:
+      - s3
+      example: s3
+      type: string
+      x-enum-varnames:
+      - S3
+    LogsArchiveIntegrationAzure:
+      description: The Azure archive's integration destination.
+      properties:
+        client_id:
+          description: A client ID.
+          example: aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa
+          type: string
+        tenant_id:
+          description: A tenant ID.
+          example: aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa
+          type: string
+      required:
+      - client_id
+      - tenant_id
+      type: object
+    LogsArchiveIntegrationGCS:
+      description: The GCS archive's integration destination.
+      properties:
+        client_email:
+          description: A client email.
+          example: youremail@example.com
+          type: string
+        project_id:
+          description: A project ID.
+          example: project-id
+          type: string
+      required:
+      - client_email
+      - project_id
+      type: object
+    LogsArchiveIntegrationS3:
+      description: The S3 Archive's integration destination.
+      properties:
+        account_id:
+          description: The account ID for the integration.
+          example: "123456789012"
+          type: string
+        role_name:
+          description: The path of the integration.
+          example: role-name
+          type: string
+      required:
+      - account_id
+      - role_name
+      type: object
+    LogsArchiveState:
+      description: The state of the archive.
+      enum:
+      - UNKNOWN
+      - WORKING
+      - FAILING
+      - WORKING_AUTH_LEGACY
+      example: WORKING
+      type: string
+      x-enum-varnames:
+      - UNKNOWN
+      - WORKING
+      - FAILING
+      - WORKING_AUTH_LEGACY
+    LogsArchives:
+      description: The available archives.
+      example:
+        data:
+        - attributes:
+            query: source:nginx
+            name: Nginx Archive
+            state: WORKING
+          id: a2zcMylnM4OCHpYusxIi3g
+          type: archives
+        - attributes:
+            query: source:nginx
+            name: Nginx Archive
+            state: WORKING
+          id: a2zcMylnM4OCHpYusxIi3g
+          type: archives
+      properties:
+        data:
+          description: A list of archives.
+          items:
+            $ref: '#/components/schemas/LogsArchiveDefinition'
+          type: array
+      type: object
     Organization:
       description: Organization object.
       properties:
@@ -1502,10 +2351,7 @@ components:
           description: ID of the organization.
           type: string
         type:
-          default: orgs
-          description: Organizations resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/OrganizationsType'
       required:
       - type
       type: object
@@ -1539,11 +2385,20 @@ components:
           description: URL of the site that this organization exists at.
           type: string
       type: object
+    OrganizationsType:
+      default: orgs
+      description: Organizations resource type.
+      enum:
+      - orgs
+      example: orgs
+      type: string
+      x-enum-varnames:
+      - ORGS
     Pagination:
       description: Pagination object.
       example:
-        total_count: 0
-        total_filtered_count: 6
+        total_count: 6
+        total_filtered_count: 1
       properties:
         total_count:
           description: Total count.
@@ -1574,10 +2429,7 @@ components:
           description: ID of the permission.
           type: string
         type:
-          default: permissions
-          description: Permissions resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/PermissionsType'
       required:
       - type
       type: object
@@ -1646,6 +2498,15 @@ components:
             $ref: '#/components/schemas/Permission'
           type: array
       type: object
+    PermissionsType:
+      default: permissions
+      description: Permissions resource type.
+      enum:
+      - permissions
+      example: permissions
+      type: string
+      x-enum-varnames:
+      - PERMISSIONS
     QuerySortOrder:
       default: desc
       description: Direction of sort.
@@ -1676,10 +2537,7 @@ components:
           description: ID of the organization.
           type: string
         type:
-          default: orgs
-          description: Organizations type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/OrganizationsType'
       type: object
     RelationshipToOrganizations:
       description: Relationship to organizations.
@@ -1716,10 +2574,7 @@ components:
           description: ID of the permission.
           type: string
         type:
-          default: permissions
-          description: Permissions resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/PermissionsType'
       type: object
     RelationshipToPermissions:
       description: Relationship to multiple permissions objects.
@@ -1736,27 +2591,36 @@ components:
             $ref: '#/components/schemas/RelationshipToPermissionData'
           type: array
       type: object
+    RelationshipToRole:
+      description: Relationship to role.
+      example:
+        data:
+          id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
+          type: roles
+      properties:
+        data:
+          $ref: '#/components/schemas/RelationshipToRoleData'
+      type: object
     RelationshipToRoleData:
       description: Relationship to role object.
       example:
-        id: id
+        id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
         type: roles
       properties:
         id:
           description: ID of the role.
+          example: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
           type: string
         type:
-          default: roles
-          description: Type of role.
-          type: string
+          $ref: '#/components/schemas/RolesType'
       type: object
     RelationshipToRoles:
       description: Relationship to roles.
       example:
         data:
-        - id: id
+        - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
           type: roles
-        - id: id
+        - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
           type: roles
       properties:
         data:
@@ -1809,8 +2673,8 @@ components:
       description: Object describing meta attributes of response.
       example:
         page:
-          total_count: 0
-          total_filtered_count: 6
+          total_count: 6
+          total_filtered_count: 1
       properties:
         page:
           $ref: '#/components/schemas/Pagination'
@@ -1819,29 +2683,14 @@ components:
       description: Role object returned by the API.
       example:
         relationships:
-          org:
-            data:
-              id: id
-              type: orgs
-          roles:
+          permissions:
             data:
             - id: id
-              type: roles
+              type: permissions
             - id: id
-              type: roles
-          other_orgs:
-            data:
-            - id: id
-              type: orgs
-            - id: id
-              type: orgs
-          other_roles:
-            data:
-            - id: id
-              type: roles
-            - id: id
-              type: roles
+              type: permissions
         attributes:
+          user_count: 0
           name: name
           created_at: 2000-01-23T04:56:07.000+00:00
           modified_at: 2000-01-23T04:56:07.000+00:00
@@ -1856,16 +2705,14 @@ components:
         relationships:
           $ref: '#/components/schemas/RoleResponseRelationships'
         type:
-          default: roles
-          description: Roles type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/RolesType'
       required:
       - type
       type: object
     RoleAttributes:
       description: Attributes of the role.
       example:
+        user_count: 0
         name: name
         created_at: 2000-01-23T04:56:07.000+00:00
         modified_at: 2000-01-23T04:56:07.000+00:00
@@ -1883,14 +2730,31 @@ components:
         name:
           description: Name of the role.
           type: string
+        user_count:
+          description: Number of users with that role.
+          format: int64
+          readOnly: true
+          type: integer
       type: object
     RoleCreateAttributes:
       description: Attributes of the created role.
       example:
         name: name
+        created_at: 2000-01-23T04:56:07.000+00:00
+        modified_at: 2000-01-23T04:56:07.000+00:00
       properties:
+        created_at:
+          description: Creation time of the role.
+          format: date-time
+          readOnly: true
+          type: string
+        modified_at:
+          description: Time of last role modification.
+          format: date-time
+          readOnly: true
+          type: string
         name:
-          description: The name of the role.
+          description: Name of the role.
           type: string
       type: object
     RoleCreateData:
@@ -1911,6 +2775,8 @@ components:
               type: users
         attributes:
           name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
         type: roles
       properties:
         attributes:
@@ -1918,12 +2784,9 @@ components:
         relationships:
           $ref: '#/components/schemas/RoleRelationships'
         type:
-          default: roles
-          description: Roles resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/RolesType'
       type: object
-    RoleCreatePayload:
+    RoleCreateRequest:
       description: Create a role.
       example:
         data:
@@ -1942,10 +2805,33 @@ components:
                 type: users
           attributes:
             name: name
+            created_at: 2000-01-23T04:56:07.000+00:00
+            modified_at: 2000-01-23T04:56:07.000+00:00
           type: roles
       properties:
         data:
           $ref: '#/components/schemas/RoleCreateData'
+      type: object
+    RoleCreateResponse:
+      description: Response containing information about a created role.
+      example:
+        data:
+          relationships:
+            permissions:
+              data:
+              - id: id
+                type: permissions
+              - id: id
+                type: permissions
+          attributes:
+            name: name
+            created_at: 2000-01-23T04:56:07.000+00:00
+            modified_at: 2000-01-23T04:56:07.000+00:00
+          id: id
+          type: roles
+      properties:
+        data:
+          $ref: '#/components/schemas/RoleCreateResponse_data'
       type: object
     RoleRelationships:
       description: Relationships of the role object.
@@ -1973,29 +2859,14 @@ components:
       example:
         data:
           relationships:
-            org:
-              data:
-                id: id
-                type: orgs
-            roles:
+            permissions:
               data:
               - id: id
-                type: roles
+                type: permissions
               - id: id
-                type: roles
-            other_orgs:
-              data:
-              - id: id
-                type: orgs
-              - id: id
-                type: orgs
-            other_roles:
-              data:
-              - id: id
-                type: roles
-              - id: id
-                type: roles
+                type: permissions
           attributes:
+            user_count: 0
             name: name
             created_at: 2000-01-23T04:56:07.000+00:00
             modified_at: 2000-01-23T04:56:07.000+00:00
@@ -2008,45 +2879,35 @@ components:
     RoleResponseRelationships:
       description: Relationships of the role object returned by the API.
       example:
-        org:
-          data:
-            id: id
-            type: orgs
-        roles:
+        permissions:
           data:
           - id: id
-            type: roles
+            type: permissions
           - id: id
-            type: roles
-        other_orgs:
-          data:
-          - id: id
-            type: orgs
-          - id: id
-            type: orgs
-        other_roles:
-          data:
-          - id: id
-            type: roles
-          - id: id
-            type: roles
+            type: permissions
       properties:
-        org:
-          $ref: '#/components/schemas/RelationshipToOrganization'
-        other_orgs:
-          $ref: '#/components/schemas/RelationshipToOrganizations'
-        other_roles:
-          $ref: '#/components/schemas/RelationshipToRoles'
-        roles:
-          $ref: '#/components/schemas/RelationshipToRoles'
+        permissions:
+          $ref: '#/components/schemas/RelationshipToPermissions'
       type: object
     RoleUpdateAttributes:
-      description: Attributes of the edited role.
+      description: Attributes of the role.
       example:
         name: name
+        created_at: 2000-01-23T04:56:07.000+00:00
+        modified_at: 2000-01-23T04:56:07.000+00:00
       properties:
+        created_at:
+          description: Creation time of the role.
+          format: date-time
+          readOnly: true
+          type: string
+        modified_at:
+          description: Time of last role modification.
+          format: date-time
+          readOnly: true
+          type: string
         name:
-          description: The name of the role.
+          description: Name of the role.
           type: string
       type: object
     RoleUpdateData:
@@ -2054,6 +2915,8 @@ components:
       example:
         attributes:
           name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
         id: id
         type: roles
       properties:
@@ -2063,79 +2926,70 @@ components:
           description: ID of the role.
           type: string
         type:
-          default: roles
-          description: Type of role.
-          type: string
+          $ref: '#/components/schemas/RolesType'
       type: object
-    RoleUpdatePayload:
+    RoleUpdateRequest:
       description: Update a role.
       example:
         data:
-          attributes:
-            name: name
-          id: id
-          type: roles
-      properties:
-        data:
-          $ref: '#/components/schemas/RoleUpdateData'
-      type: object
-    RolesResponse:
-      description: Response containing information about multiple roles.
-      example:
-        data:
-        - relationships:
-            org:
-              data:
-                id: id
-                type: orgs
-            roles:
-              data:
-              - id: id
-                type: roles
-              - id: id
-                type: roles
-            other_orgs:
-              data:
-              - id: id
-                type: orgs
-              - id: id
-                type: orgs
-            other_roles:
-              data:
-              - id: id
-                type: roles
-              - id: id
-                type: roles
           attributes:
             name: name
             created_at: 2000-01-23T04:56:07.000+00:00
             modified_at: 2000-01-23T04:56:07.000+00:00
           id: id
           type: roles
-        - relationships:
-            org:
-              data:
-                id: id
-                type: orgs
-            roles:
-              data:
-              - id: id
-                type: roles
-              - id: id
-                type: roles
-            other_orgs:
+      properties:
+        data:
+          $ref: '#/components/schemas/RoleUpdateData'
+      type: object
+    RoleUpdateResponse:
+      description: Response containing information about an updated role.
+      example:
+        data:
+          relationships:
+            permissions:
               data:
               - id: id
-                type: orgs
+                type: permissions
               - id: id
-                type: orgs
-            other_roles:
-              data:
-              - id: id
-                type: roles
-              - id: id
-                type: roles
+                type: permissions
           attributes:
+            name: name
+            created_at: 2000-01-23T04:56:07.000+00:00
+            modified_at: 2000-01-23T04:56:07.000+00:00
+          id: id
+          type: roles
+      properties:
+        data:
+          $ref: '#/components/schemas/RoleUpdateResponse_data'
+      type: object
+    RolesResponse:
+      description: Response containing information about multiple roles.
+      example:
+        data:
+        - relationships:
+            permissions:
+              data:
+              - id: id
+                type: permissions
+              - id: id
+                type: permissions
+          attributes:
+            user_count: 0
+            name: name
+            created_at: 2000-01-23T04:56:07.000+00:00
+            modified_at: 2000-01-23T04:56:07.000+00:00
+          id: id
+          type: roles
+        - relationships:
+            permissions:
+              data:
+              - id: id
+                type: permissions
+              - id: id
+                type: permissions
+          attributes:
+            user_count: 0
             name: name
             created_at: 2000-01-23T04:56:07.000+00:00
             modified_at: 2000-01-23T04:56:07.000+00:00
@@ -2143,8 +2997,8 @@ components:
           type: roles
         meta:
           page:
-            total_count: 0
-            total_filtered_count: 6
+            total_count: 6
+            total_filtered_count: 1
       properties:
         data:
           description: Array of returned roles.
@@ -2172,6 +3026,459 @@ components:
       - MODIFIED_AT_DESCENDING
       - USER_COUNT_ASCENDING
       - USER_COUNT_DESCENDING
+    RolesType:
+      default: roles
+      description: Roles type.
+      enum:
+      - roles
+      example: roles
+      type: string
+      x-enum-varnames:
+      - ROLES
+    SecurityMonitoringListRulesResponse:
+      description: List of rules
+      example:
+        data:
+        - cases:
+          - condition: condition
+            name: name
+            notifications:
+            - notifications
+            - notifications
+          - condition: condition
+            name: name
+            notifications:
+            - notifications
+            - notifications
+          message: message
+          queries:
+          - groupByFields:
+            - groupByFields
+            - groupByFields
+            query: query
+            name: name
+          - groupByFields:
+            - groupByFields
+            - groupByFields
+            query: query
+            name: name
+          version: 1
+          tags:
+          - tags
+          - tags
+          creationAuthorId: 6
+          createdAt: 0
+          isDefault: true
+          isDeleted: true
+          isEnabled: true
+          name: name
+          options: {}
+          id: id
+        - cases:
+          - condition: condition
+            name: name
+            notifications:
+            - notifications
+            - notifications
+          - condition: condition
+            name: name
+            notifications:
+            - notifications
+            - notifications
+          message: message
+          queries:
+          - groupByFields:
+            - groupByFields
+            - groupByFields
+            query: query
+            name: name
+          - groupByFields:
+            - groupByFields
+            - groupByFields
+            query: query
+            name: name
+          version: 1
+          tags:
+          - tags
+          - tags
+          creationAuthorId: 6
+          createdAt: 0
+          isDefault: true
+          isDeleted: true
+          isEnabled: true
+          name: name
+          options: {}
+          id: id
+        meta:
+          page:
+            total_count: 6
+            total_filtered_count: 1
+      properties:
+        data:
+          description: TODO.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleResponse'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMetaAttributes'
+      type: object
+    SecurityMonitoringRuleCase:
+      description: Case when signal is generated.
+      example:
+        condition: condition
+        name: name
+        notifications:
+        - notifications
+        - notifications
+      properties:
+        condition:
+          description: |-
+            A rule case contains logical operations (>, >=, &&, ||) to determine if a signal should be generated
+            based on the event counts in the previously defined queries.
+          type: string
+        name:
+          description: Name of the case.
+          type: string
+        notifications:
+          description: Notification targets for each rule case
+          items:
+            description: Notification
+            type: string
+          type: array
+        status:
+          $ref: '#/components/schemas/SecurityMonitoringRuleSeverity'
+      type: object
+    SecurityMonitoringRuleCreatePayload:
+      description: Create a new rule.
+      example:
+        cases: []
+        name: name
+        options: {}
+        message: message
+        queries: []
+        enabled: true
+        tags:
+        - env:prod
+        - team:security
+      properties:
+        cases:
+          description: Cases for generating signals.
+          example: []
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleCase'
+          type: array
+        enabled:
+          description: Whether the rule is enabled.
+          example: true
+          type: boolean
+        message:
+          description: Message for generated signals.
+          type: string
+        name:
+          description: The name of the rule
+          type: string
+        options:
+          $ref: '#/components/schemas/SecurityMonitoringRuleOptions'
+        queries:
+          description: Queries for selecting logs which are part of the rule.
+          example: []
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleQuery'
+          type: array
+        tags:
+          description: Tags for generated signals.
+          example:
+          - env:prod
+          - team:security
+          items:
+            description: Tag
+            type: string
+          type: array
+      required:
+      - cases
+      - enabled
+      - message
+      - name
+      - options
+      - queries
+      - tags
+      type: object
+    SecurityMonitoringRuleEvaluationWindow:
+      description: |-
+        A time window is specified to match when at least one of the cases matches true. This is a sliding window
+        and evaluates in real time.
+      enum:
+      - 0
+      - 60
+      - 300
+      - 600
+      - 900
+      - 1800
+      - 3600
+      - 7200
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - ZERO_MINUTES
+      - ONE_MINUTE
+      - FIVE_MINUTES
+      - TEN_MINUTES
+      - FIFTEEN_MINUTES
+      - THIRTY_MINUTES
+      - ONE_HOUR
+      - TWO_HOURS
+    SecurityMonitoringRuleKeepAlive:
+      description: |-
+        Once a signal is generated, the signal will remain “open” if a case is matched at least once within
+        this keep alive window.
+      enum:
+      - 0
+      - 60
+      - 300
+      - 600
+      - 900
+      - 1800
+      - 3600
+      - 7200
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - ZERO_MINUTES
+      - ONE_MINUTE
+      - FIVE_MINUTES
+      - TEN_MINUTES
+      - FIFTEEN_MINUTES
+      - THIRTY_MINUTES
+      - ONE_HOUR
+      - TWO_HOURS
+    SecurityMonitoringRuleMaxSignalDuration:
+      description: |-
+        A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
+        This time is calculated from the first seen timestamp.
+      enum:
+      - 0
+      - 60
+      - 300
+      - 600
+      - 900
+      - 1800
+      - 3600
+      - 7200
+      - 10800
+      - 21600
+      - 43200
+      - 86400
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - ZERO_MINUTES
+      - ONE_MINUTE
+      - FIVE_MINUTES
+      - TEN_MINUTES
+      - FIFTEEN_MINUTES
+      - THIRTY_MINUTES
+      - ONE_HOUR
+      - TWO_HOURS
+      - THREE_HOURS
+      - SIX_HOURS
+      - TWELVE_HOURS
+      - ONE_DAY
+    SecurityMonitoringRuleOptions:
+      description: Options on rules.
+      example: {}
+      properties:
+        evaluationWindow:
+          $ref: '#/components/schemas/SecurityMonitoringRuleEvaluationWindow'
+        keepAlive:
+          $ref: '#/components/schemas/SecurityMonitoringRuleKeepAlive'
+        maxSignalDuration:
+          $ref: '#/components/schemas/SecurityMonitoringRuleMaxSignalDuration'
+      type: object
+    SecurityMonitoringRuleQuery:
+      description: Query for matching rule.
+      example:
+        groupByFields:
+        - groupByFields
+        - groupByFields
+        query: query
+        name: name
+      properties:
+        groupByFields:
+          description: Fields to group by.
+          items:
+            description: Field
+            type: string
+          type: array
+        name:
+          description: Name of the query
+          type: string
+        query:
+          description: Query to run on logs
+          type: string
+      type: object
+    SecurityMonitoringRuleResponse:
+      description: Detection rule
+      example:
+        cases:
+        - condition: condition
+          name: name
+          notifications:
+          - notifications
+          - notifications
+        - condition: condition
+          name: name
+          notifications:
+          - notifications
+          - notifications
+        message: message
+        queries:
+        - groupByFields:
+          - groupByFields
+          - groupByFields
+          query: query
+          name: name
+        - groupByFields:
+          - groupByFields
+          - groupByFields
+          query: query
+          name: name
+        version: 1
+        tags:
+        - tags
+        - tags
+        creationAuthorId: 6
+        createdAt: 0
+        isDefault: true
+        isDeleted: true
+        isEnabled: true
+        name: name
+        options: {}
+        id: id
+      properties:
+        cases:
+          description: Cases for generating signals.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleCase'
+          type: array
+        createdAt:
+          description: When the rule was created, timestamp in milliseconds.
+          format: int64
+          type: integer
+        creationAuthorId:
+          description: User ID of the user who created the rule.
+          format: int64
+          type: integer
+        id:
+          description: The ID of the rule.
+          type: string
+        isDefault:
+          description: Whether the rule is included by default.
+          type: boolean
+        isDeleted:
+          description: Whether the rule has been deleted.
+          type: boolean
+        isEnabled:
+          description: Whether the rule is enabled.
+          type: boolean
+        message:
+          description: Message for generated signals.
+          type: string
+        name:
+          description: The name of the rule.
+          type: string
+        options:
+          $ref: '#/components/schemas/SecurityMonitoringRuleOptions'
+        queries:
+          description: Queries for selecting logs which are part of the rule.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleQuery'
+          type: array
+        tags:
+          description: Tags for generated signals.
+          items:
+            description: Tag
+            type: string
+          type: array
+        version:
+          description: The version of the rule.
+          format: int64
+          type: integer
+    SecurityMonitoringRuleSeverity:
+      description: Severity of the Security Signal.
+      enum:
+      - info
+      - low
+      - medium
+      - high
+      - critical
+      type: string
+      x-enum-varnames:
+      - INFO
+      - LOW
+      - MEDIUM
+      - HIGH
+      - CRITICAL
+    SecurityMonitoringRuleUpdatePayload:
+      description: Update an existing rule.
+      example:
+        cases:
+        - condition: condition
+          name: name
+          notifications:
+          - notifications
+          - notifications
+        - condition: condition
+          name: name
+          notifications:
+          - notifications
+          - notifications
+        name: name
+        options: {}
+        message: message
+        queries:
+        - groupByFields:
+          - groupByFields
+          - groupByFields
+          query: query
+          name: name
+        - groupByFields:
+          - groupByFields
+          - groupByFields
+          query: query
+          name: name
+        enabled: true
+        tags:
+        - tags
+        - tags
+      properties:
+        cases:
+          description: Cases for generating signals.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleCase'
+          type: array
+        enabled:
+          description: Whether the rule is enabled.
+          type: boolean
+        message:
+          description: Message for generated signals.
+          type: string
+        name:
+          description: Name of the rule.
+          type: string
+        options:
+          $ref: '#/components/schemas/SecurityMonitoringRuleOptions'
+        queries:
+          description: Queries for selecting logs which are part of the rule.
+          items:
+            $ref: '#/components/schemas/SecurityMonitoringRuleQuery'
+          type: array
+        tags:
+          description: Tags for generated signals.
+          items:
+            description: Tag
+            type: string
+          type: array
+      type: object
     User:
       description: User object returned by the API.
       example:
@@ -2188,9 +3495,9 @@ components:
               type: orgs
           roles:
             data:
-            - id: id
+            - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
               type: roles
-            - id: id
+            - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
               type: roles
           other_orgs:
             data:
@@ -2209,7 +3516,6 @@ components:
           email: email
           status: status
         id: id
-        type: users
       properties:
         attributes:
           $ref: '#/components/schemas/UserAttributes'
@@ -2219,10 +3525,7 @@ components:
         relationships:
           $ref: '#/components/schemas/UserResponseRelationships'
         type:
-          default: users
-          description: Users type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/UsersType'
       type: object
     UserAttributes:
       description: Attributes of user object returned by the API.
@@ -2289,25 +3592,21 @@ components:
         relationships:
           roles:
             data:
-            - id: id
+            - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
               type: roles
-            - id: id
+            - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
               type: roles
         attributes:
           name: name
           title: title
           email: email
-        type: users
       properties:
         attributes:
           $ref: '#/components/schemas/UserCreateAttributes'
         relationships:
           $ref: '#/components/schemas/UserRelationships'
         type:
-          default: users
-          description: Users resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/UsersType'
       type: object
     UserCreatePayload:
       description: Create a user.
@@ -2316,15 +3615,14 @@ components:
           relationships:
             roles:
               data:
-              - id: id
+              - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
-              - id: id
+              - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
           attributes:
             name: name
             title: title
             email: email
-          type: users
       properties:
         data:
           $ref: '#/components/schemas/UserCreateData'
@@ -2337,14 +3635,11 @@ components:
             data:
               id: id
               type: users
-        type: user_invitations
       properties:
         relationships:
           $ref: '#/components/schemas/UserInvitationRelationships'
         type:
-          default: user_invitations
-          description: User invitations type.
-          type: string
+          $ref: '#/components/schemas/UserInvitationsType'
       type: object
     UserInvitationDataAttributes:
       description: Attributes of a user invitation.
@@ -2378,13 +3673,11 @@ components:
               data:
                 id: id
                 type: users
-          type: user_invitations
         - relationships:
             user:
               data:
                 id: id
                 type: users
-          type: user_invitations
       properties:
         data:
           description: List of user invitations.
@@ -2413,7 +3706,6 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             uuid: uuid
           id: id
-          type: user_invitations
       properties:
         data:
           $ref: '#/components/schemas/UserInvitationResponseData'
@@ -2427,7 +3719,6 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           uuid: uuid
         id: id
-        type: user_invitations
       properties:
         attributes:
           $ref: '#/components/schemas/UserInvitationDataAttributes'
@@ -2435,9 +3726,7 @@ components:
           description: ID of the user invitation.
           type: string
         type:
-          default: user_invitations
-          description: User invitations type.
-          type: string
+          $ref: '#/components/schemas/UserInvitationsType'
       type: object
     UserInvitationsResponse:
       description: User invitations as returned by the API.
@@ -2449,14 +3738,12 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             uuid: uuid
           id: id
-          type: user_invitations
         - attributes:
             invite_type: invite_type
             expires_at: 2000-01-23T04:56:07.000+00:00
             created_at: 2000-01-23T04:56:07.000+00:00
             uuid: uuid
           id: id
-          type: user_invitations
       properties:
         data:
           description: Array of user invitations.
@@ -2464,14 +3751,22 @@ components:
             $ref: '#/components/schemas/UserInvitationResponseData'
           type: array
       type: object
+    UserInvitationsType:
+      default: user_invitations
+      description: User invitations type.
+      enum:
+      - user_invitations
+      type: string
+      x-enum-varnames:
+      - USER_INVITATIONS
     UserRelationships:
       description: Relationships of the user object.
       example:
         roles:
           data:
-          - id: id
+          - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
             type: roles
-          - id: id
+          - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
             type: roles
       properties:
         roles:
@@ -2494,9 +3789,9 @@ components:
                 type: orgs
             roles:
               data:
-              - id: id
+              - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
-              - id: id
+              - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
             other_orgs:
               data:
@@ -2515,7 +3810,6 @@ components:
             email: email
             status: status
           id: id
-          type: users
         included:
         - null
         - null
@@ -2530,18 +3824,11 @@ components:
       type: object
     UserResponseIncludedItem:
       description: An object related to a user.
-      discriminator:
-        mapping:
-          orgs: '#/components/schemas/Organization'
-          permissions: '#/components/schemas/Permission'
-          roles: '#/components/schemas/Role'
-        propertyName: type
       oneOf:
       - $ref: '#/components/schemas/Organization'
       - $ref: '#/components/schemas/Permission'
       - $ref: '#/components/schemas/Role'
       type: object
-      x-one-of-name: UserResponseIncludedItem
     UserResponseRelationships:
       description: Relationships of the user object returned by the API.
       example:
@@ -2557,9 +3844,9 @@ components:
             type: orgs
         roles:
           data:
-          - id: id
+          - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
             type: roles
-          - id: id
+          - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
             type: roles
         other_orgs:
           data:
@@ -2602,7 +3889,6 @@ components:
           disabled: true
           email: email
         id: id
-        type: users
       properties:
         attributes:
           $ref: '#/components/schemas/UserUpdateAttributes'
@@ -2610,10 +3896,7 @@ components:
           description: ID of the user.
           type: string
         type:
-          default: users
-          description: Users resource type.
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/UsersType'
       type: object
     UserUpdatePayload:
       description: Update a user.
@@ -2624,7 +3907,6 @@ components:
             disabled: true
             email: email
           id: id
-          type: users
       properties:
         data:
           $ref: '#/components/schemas/UserUpdateData'
@@ -2646,9 +3928,9 @@ components:
                 type: orgs
             roles:
               data:
-              - id: id
+              - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
-              - id: id
+              - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
             other_orgs:
               data:
@@ -2667,7 +3949,6 @@ components:
             email: email
             status: status
           id: id
-          type: users
         - relationships:
             other_users:
               data:
@@ -2681,9 +3962,9 @@ components:
                 type: orgs
             roles:
               data:
-              - id: id
+              - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
-              - id: id
+              - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
             other_orgs:
               data:
@@ -2702,11 +3983,10 @@ components:
             email: email
             status: status
           id: id
-          type: users
         meta:
           page:
-            total_count: 0
-            total_filtered_count: 6
+            total_count: 6
+            total_filtered_count: 1
         included:
         - null
         - null
@@ -2724,6 +4004,70 @@ components:
         meta:
           $ref: '#/components/schemas/ResponseMetaAttributes'
       type: object
+    UsersType:
+      default: users
+      description: Users resource type.
+      enum:
+      - users
+      type: string
+      x-enum-varnames:
+      - USERS
+    RoleCreateResponse_data:
+      description: Role object returned by the API.
+      example:
+        relationships:
+          permissions:
+            data:
+            - id: id
+              type: permissions
+            - id: id
+              type: permissions
+        attributes:
+          name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
+        id: id
+        type: roles
+      properties:
+        attributes:
+          $ref: '#/components/schemas/RoleCreateAttributes'
+        id:
+          description: ID of the role.
+          type: string
+        relationships:
+          $ref: '#/components/schemas/RoleResponseRelationships'
+        type:
+          $ref: '#/components/schemas/RolesType'
+      required:
+      - type
+    RoleUpdateResponse_data:
+      description: Role object returned by the API.
+      example:
+        relationships:
+          permissions:
+            data:
+            - id: id
+              type: permissions
+            - id: id
+              type: permissions
+        attributes:
+          name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
+        id: id
+        type: roles
+      properties:
+        attributes:
+          $ref: '#/components/schemas/RoleUpdateAttributes'
+        id:
+          description: ID of the role.
+          type: string
+        relationships:
+          $ref: '#/components/schemas/RoleResponseRelationships'
+        type:
+          $ref: '#/components/schemas/RolesType'
+      required:
+      - type
   securitySchemes:
     apiKeyAuth:
       description: Your Datadog API Key.

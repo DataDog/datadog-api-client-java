@@ -30,13 +30,24 @@ public class DashboardListsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList body) throws ApiException {
     Object localVarPostBody = body;
@@ -75,7 +86,10 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardList> localVarReturnType = new GenericType<DashboardList>() {};
-    return apiClient.invokeAPI("DashboardListsApi.createDashboardList", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardListsApi.createDashboardList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateDashboardListRequest {
@@ -83,7 +97,6 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
 
     private APIcreateDashboardListRequest() {
     }
-    
 
     /**
      * Set body
@@ -94,7 +107,6 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createDashboardList request
@@ -125,9 +137,8 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardList> executeWithHttpInfo() throws ApiException {
       return createDashboardListWithHttpInfo(body);
     }
@@ -141,7 +152,6 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
    
    
    */
-  
   public APIcreateDashboardListRequest createDashboardList() throws ApiException {
     return new APIcreateDashboardListRequest();
   }
@@ -184,7 +194,10 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardListDeleteResponse> localVarReturnType = new GenericType<DashboardListDeleteResponse>() {};
-    return apiClient.invokeAPI("DashboardListsApi.deleteDashboardList", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardListsApi.deleteDashboardList", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteDashboardListRequest {
@@ -193,7 +206,6 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
     private APIdeleteDashboardListRequest(Long listId) {
       this.listId = listId;
     }
-    
 
     /**
      * Execute deleteDashboardList request
@@ -224,9 +236,8 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardListDeleteResponse> executeWithHttpInfo() throws ApiException {
       return deleteDashboardListWithHttpInfo(listId);
     }
@@ -241,7 +252,6 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
    
    
    */
-  
   public APIdeleteDashboardListRequest deleteDashboardList(Long listId) throws ApiException {
     return new APIdeleteDashboardListRequest(listId);
   }
@@ -284,7 +294,10 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardList> localVarReturnType = new GenericType<DashboardList>() {};
-    return apiClient.invokeAPI("DashboardListsApi.getDashboardList", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardListsApi.getDashboardList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetDashboardListRequest {
@@ -293,7 +306,6 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
     private APIgetDashboardListRequest(Long listId) {
       this.listId = listId;
     }
-    
 
     /**
      * Execute getDashboardList request
@@ -324,9 +336,8 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardList> executeWithHttpInfo() throws ApiException {
       return getDashboardListWithHttpInfo(listId);
     }
@@ -341,7 +352,6 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
    
    
    */
-  
   public APIgetDashboardListRequest getDashboardList(Long listId) throws ApiException {
     return new APIgetDashboardListRequest(listId);
   }
@@ -378,14 +388,16 @@ private ApiResponse<DashboardListListResponse> listDashboardListsWithHttpInfo() 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardListListResponse> localVarReturnType = new GenericType<DashboardListListResponse>() {};
-    return apiClient.invokeAPI("DashboardListsApi.listDashboardLists", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardListsApi.listDashboardLists", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistDashboardListsRequest {
 
     private APIlistDashboardListsRequest() {
     }
-    
 
     /**
      * Execute listDashboardLists request
@@ -414,9 +426,8 @@ private ApiResponse<DashboardListListResponse> listDashboardListsWithHttpInfo() 
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardListListResponse> executeWithHttpInfo() throws ApiException {
       return listDashboardListsWithHttpInfo();
     }
@@ -430,7 +441,6 @@ private ApiResponse<DashboardListListResponse> listDashboardListsWithHttpInfo() 
    
    
    */
-  
   public APIlistDashboardListsRequest listDashboardLists() throws ApiException {
     return new APIlistDashboardListsRequest();
   }
@@ -478,7 +488,10 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardList> localVarReturnType = new GenericType<DashboardList>() {};
-    return apiClient.invokeAPI("DashboardListsApi.updateDashboardList", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardListsApi.updateDashboardList", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateDashboardListRequest {
@@ -488,7 +501,6 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
     private APIupdateDashboardListRequest(Long listId) {
       this.listId = listId;
     }
-    
 
     /**
      * Set body
@@ -499,7 +511,6 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateDashboardList request
@@ -532,9 +543,8 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardList> executeWithHttpInfo() throws ApiException {
       return updateDashboardListWithHttpInfo(listId, body);
     }
@@ -549,7 +559,6 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
    
    
    */
-  
   public APIupdateDashboardListRequest updateDashboardList(Long listId) throws ApiException {
     return new APIupdateDashboardListRequest(listId);
   }

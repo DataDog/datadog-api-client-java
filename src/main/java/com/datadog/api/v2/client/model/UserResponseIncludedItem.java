@@ -18,25 +18,137 @@ import com.datadog.api.v2.client.model.Permission;
 import com.datadog.api.v2.client.model.Role;
 import com.datadog.api.v2.client.model.RoleAttributes;
 import com.datadog.api.v2.client.model.RoleResponseRelationships;
+import com.datadog.api.v2.client.model.RolesType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = Organization.class, name = "orgs"),
-  @JsonSubTypes.Type(value = Permission.class, name = "permissions"),
-  @JsonSubTypes.Type(value = Role.class, name = "roles"),
-})
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
-public interface UserResponseIncludedItem  {
-    public String getType();
+
+@JsonDeserialize(using=UserResponseIncludedItem.UserResponseIncludedItemDeserializer.class)
+public class UserResponseIncludedItem extends AbstractOpenApiSchema {
+    public static class UserResponseIncludedItemDeserializer extends StdDeserializer<UserResponseIncludedItem> {
+        public UserResponseIncludedItemDeserializer() {
+            this(UserResponseIncludedItem.class);
+        }
+
+        public UserResponseIncludedItemDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public UserResponseIncludedItem deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+
+            int match = 0;
+            Object deserialized = null;
+            // deserialize Organization
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(Organization.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize Permission
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(Permission.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            // deserialize Role
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(Role.class);
+                match++;
+            } catch (Exception e) {
+                // deserialization failed, continue
+            }
+
+            if (match == 1) {
+                UserResponseIncludedItem ret = new UserResponseIncludedItem();
+                ret.setActualInstance(deserialized);
+                return ret;
+            }
+            throw new IOException(String.format("Failed deserialization for UserResponseIncludedItem: %d classes match result, expected 1", match));
+        }
+    }
+
+    // store a list of schema names defined in oneOf
+    public final static Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+    public UserResponseIncludedItem() {
+        super("oneOf", Boolean.FALSE);
+    }
+
+    public UserResponseIncludedItem(Organization o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public UserResponseIncludedItem(Permission o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public UserResponseIncludedItem(Role o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("Organization", new GenericType<Organization>() {
+        });
+        schemas.put("Permission", new GenericType<Permission>() {
+        });
+        schemas.put("Role", new GenericType<Role>() {
+        });
+    }
+
+    @Override
+    public Map<String, GenericType> getSchemas() {
+        return UserResponseIncludedItem.schemas;
+    }
+
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof Organization) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof Permission) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof Role) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be Organization, Permission, Role");
+    }
+
+
+
 }
 

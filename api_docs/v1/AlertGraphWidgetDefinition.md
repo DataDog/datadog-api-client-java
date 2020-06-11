@@ -12,12 +12,8 @@ Name | Type | Description | Notes
 **title** | **String** | The title of the widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**AlertGraphWidgetDefinitionType**](AlertGraphWidgetDefinitionType.md) |  | 
 **vizType** | [**WidgetVizType**](WidgetVizType.md) |  | 
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 

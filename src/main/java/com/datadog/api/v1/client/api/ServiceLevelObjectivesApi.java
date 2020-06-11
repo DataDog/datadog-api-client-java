@@ -36,13 +36,24 @@ public class ServiceLevelObjectivesApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
 
 private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(String ids) throws ApiException {
     Object localVarPostBody = null;
@@ -82,7 +93,10 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<CheckCanDeleteSLOResponse> localVarReturnType = new GenericType<CheckCanDeleteSLOResponse>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.checkCanDeleteSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.checkCanDeleteSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcheckCanDeleteSLORequest {
@@ -90,7 +104,6 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
 
     private APIcheckCanDeleteSLORequest() {
     }
-    
 
     /**
      * Set ids
@@ -101,7 +114,6 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
       this.ids = ids;
       return this;
     }
-    
 
     /**
      * Execute checkCanDeleteSLO request
@@ -134,9 +146,8 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<CheckCanDeleteSLOResponse> executeWithHttpInfo() throws ApiException {
       return checkCanDeleteSLOWithHttpInfo(ids);
     }
@@ -150,7 +161,6 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
    
    
    */
-  
   public APIcheckCanDeleteSLORequest checkCanDeleteSLO() throws ApiException {
     return new APIcheckCanDeleteSLORequest();
   }
@@ -192,7 +202,10 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SLOListResponse> localVarReturnType = new GenericType<SLOListResponse>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.createSLO", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.createSLO", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateSLORequest {
@@ -200,7 +213,6 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
 
     private APIcreateSLORequest() {
     }
-    
 
     /**
      * Set body
@@ -211,7 +223,6 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createSLO request
@@ -242,9 +253,8 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SLOListResponse> executeWithHttpInfo() throws ApiException {
       return createSLOWithHttpInfo(body);
     }
@@ -258,7 +268,6 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
    
    
    */
-  
   public APIcreateSLORequest createSLO() throws ApiException {
     return new APIcreateSLORequest();
   }
@@ -302,7 +311,10 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId, Strin
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SLODeleteResponse> localVarReturnType = new GenericType<SLODeleteResponse>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.deleteSLO", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.deleteSLO", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteSLORequest {
@@ -312,7 +324,6 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId, Strin
     private APIdeleteSLORequest(String sloId) {
       this.sloId = sloId;
     }
-    
 
     /**
      * Set force
@@ -323,7 +334,6 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId, Strin
       this.force = force;
       return this;
     }
-    
 
     /**
      * Execute deleteSLO request
@@ -356,9 +366,8 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId, Strin
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
          <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SLODeleteResponse> executeWithHttpInfo() throws ApiException {
       return deleteSLOWithHttpInfo(sloId, force);
     }
@@ -373,7 +382,6 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId, Strin
    
    
    */
-  
   public APIdeleteSLORequest deleteSLO(String sloId) throws ApiException {
     return new APIdeleteSLORequest(sloId);
   }
@@ -415,7 +423,10 @@ private ApiResponse<SLOBulkDeleteResponse> deleteSLOTimeframeInBulkWithHttpInfo(
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SLOBulkDeleteResponse> localVarReturnType = new GenericType<SLOBulkDeleteResponse>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteSLOTimeframeInBulkRequest {
@@ -423,7 +434,6 @@ private ApiResponse<SLOBulkDeleteResponse> deleteSLOTimeframeInBulkWithHttpInfo(
 
     private APIdeleteSLOTimeframeInBulkRequest() {
     }
-    
 
     /**
      * Set body
@@ -434,7 +444,6 @@ private ApiResponse<SLOBulkDeleteResponse> deleteSLOTimeframeInBulkWithHttpInfo(
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute deleteSLOTimeframeInBulk request
@@ -465,9 +474,8 @@ private ApiResponse<SLOBulkDeleteResponse> deleteSLOTimeframeInBulkWithHttpInfo(
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SLOBulkDeleteResponse> executeWithHttpInfo() throws ApiException {
       return deleteSLOTimeframeInBulkWithHttpInfo(body);
     }
@@ -481,7 +489,6 @@ private ApiResponse<SLOBulkDeleteResponse> deleteSLOTimeframeInBulkWithHttpInfo(
    
    
    */
-  
   public APIdeleteSLOTimeframeInBulkRequest deleteSLOTimeframeInBulk() throws ApiException {
     return new APIdeleteSLOTimeframeInBulkRequest();
   }
@@ -524,7 +531,10 @@ private ApiResponse<SLOResponse> getSLOWithHttpInfo(String sloId) throws ApiExce
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SLOResponse> localVarReturnType = new GenericType<SLOResponse>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.getSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.getSLO", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetSLORequest {
@@ -533,7 +543,6 @@ private ApiResponse<SLOResponse> getSLOWithHttpInfo(String sloId) throws ApiExce
     private APIgetSLORequest(String sloId) {
       this.sloId = sloId;
     }
-    
 
     /**
      * Execute getSLO request
@@ -564,9 +573,8 @@ private ApiResponse<SLOResponse> getSLOWithHttpInfo(String sloId) throws ApiExce
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SLOResponse> executeWithHttpInfo() throws ApiException {
       return getSLOWithHttpInfo(sloId);
     }
@@ -581,7 +589,6 @@ private ApiResponse<SLOResponse> getSLOWithHttpInfo(String sloId) throws ApiExce
    
    
    */
-  
   public APIgetSLORequest getSLO(String sloId) throws ApiException {
     return new APIgetSLORequest(sloId);
   }
@@ -636,7 +643,10 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SLOHistoryResponse> localVarReturnType = new GenericType<SLOHistoryResponse>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.getSLOHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.getSLOHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetSLOHistoryRequest {
@@ -647,7 +657,6 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
     private APIgetSLOHistoryRequest(String sloId) {
       this.sloId = sloId;
     }
-    
 
     /**
      * Set fromTs
@@ -658,7 +667,6 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
       this.fromTs = fromTs;
       return this;
     }
-    
 
     /**
      * Set toTs
@@ -669,7 +677,6 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
       this.toTs = toTs;
       return this;
     }
-    
 
     /**
      * Execute getSLOHistory request
@@ -702,9 +709,8 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SLOHistoryResponse> executeWithHttpInfo() throws ApiException {
       return getSLOHistoryWithHttpInfo(sloId, fromTs, toTs);
     }
@@ -719,7 +725,6 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
    
    
    */
-  
   public APIgetSLOHistoryRequest getSLOHistory(String sloId) throws ApiException {
     String operationId = "getSLOHistory";
     if (apiClient.isUnstableOperationEnabled(operationId)) {
@@ -768,7 +773,10 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SLOListResponse> localVarReturnType = new GenericType<SLOListResponse>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.listSLOs", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.listSLOs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIlistSLOsRequest {
@@ -776,7 +784,6 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
 
     private APIlistSLOsRequest() {
     }
-    
 
     /**
      * Set ids
@@ -787,7 +794,6 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
       this.ids = ids;
       return this;
     }
-    
 
     /**
      * Execute listSLOs request
@@ -820,9 +826,8 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SLOListResponse> executeWithHttpInfo() throws ApiException {
       return listSLOsWithHttpInfo(ids);
     }
@@ -836,7 +841,6 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
    
    
    */
-  
   public APIlistSLOsRequest listSLOs() throws ApiException {
     return new APIlistSLOsRequest();
   }
@@ -884,7 +888,10 @@ private ApiResponse<SLOListResponse> updateSLOWithHttpInfo(String sloId, Service
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<SLOListResponse> localVarReturnType = new GenericType<SLOListResponse>() {};
-    return apiClient.invokeAPI("ServiceLevelObjectivesApi.updateSLO", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("ServiceLevelObjectivesApi.updateSLO", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateSLORequest {
@@ -894,7 +901,6 @@ private ApiResponse<SLOListResponse> updateSLOWithHttpInfo(String sloId, Service
     private APIupdateSLORequest(String sloId) {
       this.sloId = sloId;
     }
-    
 
     /**
      * Set body
@@ -905,7 +911,6 @@ private ApiResponse<SLOListResponse> updateSLOWithHttpInfo(String sloId, Service
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateSLO request
@@ -938,9 +943,8 @@ private ApiResponse<SLOListResponse> updateSLOWithHttpInfo(String sloId, Service
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<SLOListResponse> executeWithHttpInfo() throws ApiException {
       return updateSLOWithHttpInfo(sloId, body);
     }
@@ -955,7 +959,6 @@ private ApiResponse<SLOListResponse> updateSLOWithHttpInfo(String sloId, Service
    
    
    */
-  
   public APIupdateSLORequest updateSLO(String sloId) throws ApiException {
     return new APIupdateSLORequest(sloId);
   }

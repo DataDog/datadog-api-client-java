@@ -9,9 +9,13 @@ import com.datadog.api.v2.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v2.client.model.APIErrorResponse;
+import com.datadog.api.v2.client.model.DashboardListAddItemsRequest;
 import com.datadog.api.v2.client.model.DashboardListAddItemsResponse;
+import com.datadog.api.v2.client.model.DashboardListDeleteItemsRequest;
 import com.datadog.api.v2.client.model.DashboardListDeleteItemsResponse;
 import com.datadog.api.v2.client.model.DashboardListItems;
+import com.datadog.api.v2.client.model.DashboardListUpdateItemsRequest;
+import com.datadog.api.v2.client.model.DashboardListUpdateItemsResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,15 +34,26 @@ public class DashboardListsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Get the API cilent
+   *
+   * @return API client
+   */
   public ApiClient getApiClient() {
     return apiClient;
   }
 
+  /**
+   * Set the API cilent
+   *
+   * @param apiClient an instance of API client
+   */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
-private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListItems body) throws ApiException {
+
+private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListAddItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'dashboardListId' is set
@@ -81,28 +96,29 @@ private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithH
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardListAddItemsResponse> localVarReturnType = new GenericType<DashboardListAddItemsResponse>() {};
-    return apiClient.invokeAPI("DashboardListsApi.createDashboardListItems", localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardListsApi.createDashboardListItems", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIcreateDashboardListItemsRequest {
     private Long dashboardListId;
-    private DashboardListItems body;
+    private DashboardListAddItemsRequest body;
 
     private APIcreateDashboardListItemsRequest(Long dashboardListId) {
       this.dashboardListId = dashboardListId;
     }
-    
 
     /**
      * Set body
      * @param body Dashboards to add to the dashboard list. (required)
      * @return APIcreateDashboardListItemsRequest
      */
-    public APIcreateDashboardListItemsRequest body(DashboardListItems body) {
+    public APIcreateDashboardListItemsRequest body(DashboardListAddItemsRequest body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute createDashboardListItems request
@@ -135,9 +151,8 @@ private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithH
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardListAddItemsResponse> executeWithHttpInfo() throws ApiException {
       return createDashboardListItemsWithHttpInfo(dashboardListId, body);
     }
@@ -152,12 +167,11 @@ private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithH
    
    
    */
-  
   public APIcreateDashboardListItemsRequest createDashboardListItems(Long dashboardListId) throws ApiException {
     return new APIcreateDashboardListItemsRequest(dashboardListId);
   }
 
-private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListItems body) throws ApiException {
+private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListDeleteItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'dashboardListId' is set
@@ -200,28 +214,29 @@ private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWi
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardListDeleteItemsResponse> localVarReturnType = new GenericType<DashboardListDeleteItemsResponse>() {};
-    return apiClient.invokeAPI("DashboardListsApi.deleteDashboardListItems", localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardListsApi.deleteDashboardListItems", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIdeleteDashboardListItemsRequest {
     private Long dashboardListId;
-    private DashboardListItems body;
+    private DashboardListDeleteItemsRequest body;
 
     private APIdeleteDashboardListItemsRequest(Long dashboardListId) {
       this.dashboardListId = dashboardListId;
     }
-    
 
     /**
      * Set body
      * @param body Dashboards to delete from the dashboard list. (required)
      * @return APIdeleteDashboardListItemsRequest
      */
-    public APIdeleteDashboardListItemsRequest body(DashboardListItems body) {
+    public APIdeleteDashboardListItemsRequest body(DashboardListDeleteItemsRequest body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute deleteDashboardListItems request
@@ -254,9 +269,8 @@ private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWi
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardListDeleteItemsResponse> executeWithHttpInfo() throws ApiException {
       return deleteDashboardListItemsWithHttpInfo(dashboardListId, body);
     }
@@ -271,7 +285,6 @@ private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWi
    
    
    */
-  
   public APIdeleteDashboardListItemsRequest deleteDashboardListItems(Long dashboardListId) throws ApiException {
     return new APIdeleteDashboardListItemsRequest(dashboardListId);
   }
@@ -314,7 +327,10 @@ private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long d
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
     GenericType<DashboardListItems> localVarReturnType = new GenericType<DashboardListItems>() {};
-    return apiClient.invokeAPI("DashboardListsApi.getDashboardListItems", localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+
+    return apiClient.invokeAPI("DashboardListsApi.getDashboardListItems", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIgetDashboardListItemsRequest {
@@ -323,7 +339,6 @@ private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long d
     private APIgetDashboardListItemsRequest(Long dashboardListId) {
       this.dashboardListId = dashboardListId;
     }
-    
 
     /**
      * Execute getDashboardListItems request
@@ -354,9 +369,8 @@ private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long d
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
     public ApiResponse<DashboardListItems> executeWithHttpInfo() throws ApiException {
       return getDashboardListItemsWithHttpInfo(dashboardListId);
     }
@@ -371,12 +385,11 @@ private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long d
    
    
    */
-  
   public APIgetDashboardListItemsRequest getDashboardListItems(Long dashboardListId) throws ApiException {
     return new APIgetDashboardListItemsRequest(dashboardListId);
   }
 
-private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListItems body) throws ApiException {
+private ApiResponse<DashboardListUpdateItemsResponse> updateDashboardListItemsWithHttpInfo(Long dashboardListId, DashboardListUpdateItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'dashboardListId' is set
@@ -418,33 +431,34 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
-    GenericType<DashboardListItems> localVarReturnType = new GenericType<DashboardListItems>() {};
-    return apiClient.invokeAPI("DashboardListsApi.updateDashboardListItems", localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    GenericType<DashboardListUpdateItemsResponse> localVarReturnType = new GenericType<DashboardListUpdateItemsResponse>() {};
+
+    return apiClient.invokeAPI("DashboardListsApi.updateDashboardListItems", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
   }
 
   public class APIupdateDashboardListItemsRequest {
     private Long dashboardListId;
-    private DashboardListItems body;
+    private DashboardListUpdateItemsRequest body;
 
     private APIupdateDashboardListItemsRequest(Long dashboardListId) {
       this.dashboardListId = dashboardListId;
     }
-    
 
     /**
      * Set body
      * @param body New dashboards of the dashboard list. (required)
      * @return APIupdateDashboardListItemsRequest
      */
-    public APIupdateDashboardListItemsRequest body(DashboardListItems body) {
+    public APIupdateDashboardListItemsRequest body(DashboardListUpdateItemsRequest body) {
       this.body = body;
       return this;
     }
-    
 
     /**
      * Execute updateDashboardListItems request
-     * @return DashboardListItems
+     * @return DashboardListUpdateItemsResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -457,13 +471,13 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
      
      */
     
-    public DashboardListItems execute() throws ApiException {
+    public DashboardListUpdateItemsResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute updateDashboardListItems request with HTTP info returned
-     * @return ApiResponse&lt;DashboardListItems&gt;
+     * @return ApiResponse&lt;DashboardListUpdateItemsResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
@@ -473,10 +487,9 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        </table>
-     
+
      */
-    
-    public ApiResponse<DashboardListItems> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<DashboardListUpdateItemsResponse> executeWithHttpInfo() throws ApiException {
       return updateDashboardListItemsWithHttpInfo(dashboardListId, body);
     }
   }
@@ -490,7 +503,6 @@ private ApiResponse<DashboardListItems> updateDashboardListItemsWithHttpInfo(Lon
    
    
    */
-  
   public APIupdateDashboardListItemsRequest updateDashboardListItems(Long dashboardListId) throws ApiException {
     return new APIupdateDashboardListItemsRequest(dashboardListId);
   }

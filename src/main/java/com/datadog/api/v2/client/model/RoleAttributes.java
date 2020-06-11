@@ -29,7 +29,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   RoleAttributes.JSON_PROPERTY_CREATED_AT,
   RoleAttributes.JSON_PROPERTY_MODIFIED_AT,
-  RoleAttributes.JSON_PROPERTY_NAME
+  RoleAttributes.JSON_PROPERTY_NAME,
+  RoleAttributes.JSON_PROPERTY_USER_COUNT
 })
 
 public class RoleAttributes {
@@ -41,6 +42,9 @@ public class RoleAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_USER_COUNT = "user_count";
+  private Long userCount;
 
 
    /**
@@ -100,6 +104,22 @@ public class RoleAttributes {
   }
 
 
+   /**
+   * Number of users with that role.
+   * @return userCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of users with that role.")
+  @JsonProperty(JSON_PROPERTY_USER_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getUserCount() {
+    return userCount;
+  }
+
+
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -111,12 +131,13 @@ public class RoleAttributes {
     RoleAttributes roleAttributes = (RoleAttributes) o;
     return Objects.equals(this.createdAt, roleAttributes.createdAt) &&
         Objects.equals(this.modifiedAt, roleAttributes.modifiedAt) &&
-        Objects.equals(this.name, roleAttributes.name);
+        Objects.equals(this.name, roleAttributes.name) &&
+        Objects.equals(this.userCount, roleAttributes.userCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, modifiedAt, name);
+    return Objects.hash(createdAt, modifiedAt, name, userCount);
   }
 
 
@@ -127,6 +148,7 @@ public class RoleAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    userCount: ").append(toIndentedString(userCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

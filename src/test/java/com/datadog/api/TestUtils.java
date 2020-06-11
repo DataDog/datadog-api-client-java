@@ -6,6 +6,10 @@
 
 package com.datadog.api;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
@@ -27,7 +31,7 @@ import org.mockserver.model.Parameter;
 import org.mockserver.socket.tls.KeyStoreFactory;
 
 import javax.net.ssl.HttpsURLConnection;
-import java.io.IOException;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -46,13 +50,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static com.github.tomakehurst.wiremock.client.WireMock.reset;
 import static org.mockserver.integration.ClientAndServer.startClientAndServer;
 
 public class TestUtils {
 
+    public static int SUREFIRE_FORK = Integer.parseInt(System.getProperty("surefireForkNumber"));
     public static String MOCKSERVER_HOST = "localhost";
-    public static int MOCKSERVER_PORT = 8081;
+    public static int MOCKSERVER_PORT = 9090 + SUREFIRE_FORK;
 
     public static void retry(int interval, int count, BooleanSupplier call) throws RetryException {
         for (int i = 0; i <= count; i++) {
@@ -65,7 +71,7 @@ public class TestUtils {
                     throw e;
                 }
             }
-            if (isRecording()) {
+            if (!getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
                 try {
                     Thread.sleep(interval * 1000);
                 } catch (InterruptedException e) {
@@ -80,8 +86,17 @@ public class TestUtils {
         return IOUtils.toString(TestUtils.class.getResourceAsStream(path), "UTF-8");
     }
 
-    public static boolean isRecording() {
-        return Boolean.parseBoolean(System.getenv("RECORD"));
+    public static RecordingMode getRecordingMode() {
+        String envRecording = System.getenv("RECORD");
+        RecordingMode rm = RecordingMode.MODE_REPLAYING;
+        if (envRecording != null) {
+            if (envRecording.equals(RecordingMode.MODE_IGNORE.value)) {
+                rm = RecordingMode.MODE_IGNORE;
+            } else if (envRecording.equals(RecordingMode.MODE_RECORDING.value)) {
+                rm = RecordingMode.MODE_RECORDING;
+            }
+        }
+        return rm;
     }
 
     public static boolean isIbmJdk() {
@@ -92,7 +107,7 @@ public class TestUtils {
         if (!isIbmJdk()) {
             return false;
         }
-        if (!isRecording()) {
+        if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
             throw new RuntimeException("Can't run recorded tests on IBM JDK: https://github.com/mock-server/mockserver/issues/750");
         }
         System.err.println("NOTE: Running on IBM JDK can't record cassettes, will only run tests: https://github.com/mock-server/mockserver/issues/750");
@@ -115,25 +130,101 @@ public class TestUtils {
     }
 
     public static class APITest {
-
         protected static final String TEST_API_KEY_NAME = "DD_TEST_CLIENT_API_KEY";
         protected static final String TEST_APP_KEY_NAME = "DD_TEST_CLIENT_APP_KEY";
 
+        protected static final String cassettesDir = "src/test/resources/cassettes";
         protected static String version = "v1";
 
         protected static String TEST_API_KEY;
         protected static String TEST_APP_KEY;
+        protected static int WIREMOCK_PORT = 8080 + SUREFIRE_FORK;
         @Rule
-        public WireMockRule wireMockRule = new WireMockRule();
+        public WireMockRule wireMockRule = new WireMockRule(options().port(WIREMOCK_PORT));
         @Rule
         public TestName name = new TestName();
-        public ClientAndServer mockServer;
+        public static ClientAndServer mockServer;
         protected Clock clock;
         protected OffsetDateTime now;
 
+        /**
+         * Combines all cassettes into a single huge one.
+         *
+         * Note that this is aided by the "JAVA-TEST-NAME" headers that help mockserver distinguish
+         * calls to the same endpoint from different methods.
+         *
+         * @return Path to the combined cassette
+         */
+        private static Path createCombinedCassette() throws IOException {
+            File cassettesDir = new File(APITest.cassettesDir);
+            File[] cassettesVersionsDirs = cassettesDir.listFiles();
+            List<File> allCassettes = new ArrayList<>();
+            FilenameFilter filter = (dir, name) -> name.endsWith(".json");
+            for (File d: cassettesVersionsDirs) {
+                if (d.isDirectory()) {
+                    for (File c: d.listFiles(filter)) {
+                        if (c.length() > 0) { // exclude empty cassettes
+                            allCassettes.add(c);
+                        }
+                    }
+                }
+            }
+            ObjectMapper om = new ObjectMapper();
+            om.enable(SerializationFeature.INDENT_OUTPUT);
+            List<Object> allRecords = new ArrayList<>();
+            for (File c: allCassettes) {
+                allRecords.addAll(om.readValue(c, List.class));
+            }
+            File humongousCassette = null;
+            humongousCassette = File.createTempFile("datadog-api-client-java-cassette-", ".json");
+            humongousCassette.deleteOnExit();
+            om.writeValue(humongousCassette, allRecords);
+            return humongousCassette.toPath();
+        }
+
+        private static void setupMockServer() {
+            // Mockserver uses a connection pool with keepAlive connections to talk to the API.
+            // It seems that there are circumstances under which a reused connection freezes
+            // forever. We temporarily workaround this by making all connections closing
+            // instead of keepAlive, until we figure out where the problem really is.
+            System.setProperty("http.keepAlive", "false");
+            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+                return;
+            }
+            if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+                try {
+                    ConfigurationProperties.initializationJsonPath(createCombinedCassette().toString());
+                } catch (IOException e) {
+                    System.err.println("Failed creating combined cassette:");
+                    System.err.println(e);
+                    System.exit(1);
+                }
+            }
+            mockServer = startClientAndServer(MOCKSERVER_PORT);
+        }
+
+        static {
+            // to have mockserver initialized only once before running all tests, we use
+            // a static block - we put all cassettes into one huge file and create mockserver
+            // instance using that file (when replaying)
+            setupMockServer();
+        }
+
+        public String getQualifiedTestcaseName() {
+            return getClass().getSimpleName() + "." + name.getMethodName();
+        }
+
+        public String getCassetteName() {
+            return getQualifiedTestcaseName() + ".json";
+        }
+
+        public String getFreezefileName() {
+            return getQualifiedTestcaseName() + ".freeze";
+        }
+
         @BeforeClass
         public static void trustProxyCerts() {
-            if (handleIbmJdk()) {
+            if (handleIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }
             // Needed otherwise the Trust store does not have the correct type for java > 8.
@@ -147,7 +238,7 @@ public class TestUtils {
 
         @BeforeClass
         public static void getSecretsFromEnv() {
-            if (!isRecording()) return;
+            if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) return;
 
             HashMap<String, String> secrets = new HashMap<String, String>();
 
@@ -167,41 +258,23 @@ public class TestUtils {
         }
 
         @Before
-        public void setupMockServer() {
-            if (isIbmJdk()) {
-                return;
-            }
-            if (TestUtils.isRecording()) {
-                ConfigurationProperties.persistExpectations(true);
-                ConfigurationProperties.persistedExpectationsPath(
-                        Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".json").toString()
-                );
-            } else {
-                ConfigurationProperties.initializationJsonPath(
-                        Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".json").toString()
-                );
-            }
-            mockServer = startClientAndServer(MOCKSERVER_PORT);
-        }
-
-        @Before
         public void setupClock() throws IOException {
-            if (isIbmJdk()) {
+            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 now = OffsetDateTime.now();
                 return;
             }
             // Use a fixed time in tests to allow replaying from cassettes
-            if (TestUtils.isRecording()) {
+            if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
                 // When recording, set the clock to the current time and save it to a `freeze` file for replaying
                 clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
                 now = OffsetDateTime.ofInstant(Instant.now(clock), ZoneOffset.UTC);
                 Files.write(
-                        Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".freeze"),
+                        Paths.get("src/test/resources/cassettes", version, getFreezefileName()),
                         now.toString().getBytes()
                 );
             } else {
                 // When replaying, read the time in the `freeze` file, and set the clock to that time, or current time if file not found
-                Path freezeFile = Paths.get("src/test/resources/cassettes", version, name.getMethodName() + ".freeze");
+                Path freezeFile = Paths.get("src/test/resources/cassettes", version, getFreezefileName());
                 try {
                     List<String> lines = Files.readAllLines(freezeFile);
                     clock = Clock.fixed(Instant.parse(lines.get(0)), ZoneOffset.UTC);
@@ -214,10 +287,10 @@ public class TestUtils {
         }
 
         @After
-        public void cleanAndSendExpectations() {
+        public void cleanAndSendExpectations() throws IOException {
             // Cleanup the recorded requests from sensitive information (API keys in headers and query params),
-            // create the associated expectations and send them to mockserver to save them on disk in the `cassettes/**/*.json` files
-            if (isIbmJdk()) {
+            // create the associated expectations and save them to disk in the `cassettes/**/*.json` files
+            if (isIbmJdk() || !getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
                 return;
             }
             List<Expectation> expectations = new ArrayList<>();
@@ -249,13 +322,64 @@ public class TestUtils {
                 req.withQueryStringParameters(cleanParams);
                 expectations.add(Expectation.when(req, Times.once(), TimeToLive.unlimited()).thenRespond(requestAndResponse.getHttpResponse()));
             }
-            mockServer.sendExpectation(expectations.toArray(new Expectation[0]));
-            mockServer.stop();
+
+            // write the cassette
+            File cassette = new File(Paths.get(APITest.cassettesDir, version, getCassetteName()).toString());
+            cassette.getParentFile().mkdirs();
+            if (!cassette.exists()) {
+                cassette.createNewFile();
+            }
+            PrintWriter w = new PrintWriter(cassette.getPath());
+            w.print(expectations.toString());
+            w.close();
+            mockServer.reset();
         }
 
         @After
         public void resetWiremock() {
             reset();
+        }
+
+        /**
+         * Returns a unique string that can be used as a title/description/summary/... of an API entity.
+         * When used in Azure Pipelines and RECORD=true or RECORD=none, it will include BuildId to enable
+         * mapping resources that weren't deleted to builds.
+         *
+         * @return unique entity name to use in tests
+         */
+        public String getUniqueEntityName() {
+            String buildId = System.getenv("BUILD_BUILDID");
+            if (buildId == null || !System.getenv("CI").equals("true") || getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+                buildId = "local";
+            }
+
+            // NOTE: some endpoints have limits on certain fields (e.g. Roles V2 names can only be 55 chars long),
+            // so we need to keep this short
+            String result = String.format("java-%s-%s-%d", name.getMethodName(), buildId, now.toEpochSecond());
+            // In case this is used in URL, make sure we replace potential slash
+            return result;
+        }
+
+        /**
+         * Same as getUniqueEntityName, except it crops the returned result to a given length if it's longer.
+         *
+         * @return unique entity name to use in tests with maximum `maxLen` characters
+         */
+        public String getUniqueEntityName(int maxLen) {
+            String result = getUniqueEntityName();
+            if (result.length() > maxLen) {
+                result = result.substring(0, maxLen);
+            }
+            return result;
+        }
+
+        /*
+         * Same as getUniqueEntityName, except it attaches the given suffix to the end of the unique string.
+         *
+         * @return unique entity name to use in tests with a given suffix attached
+         */
+        public String getUniqueEntityName(String suffix) {
+            return String.format("%s-%s", getUniqueEntityName(), suffix);
         }
     }
 }

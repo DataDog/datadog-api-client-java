@@ -61,7 +61,7 @@ public class HostsApiTest extends V1ApiTest {
     @Test
     public void hostsTest() throws ApiException, TestUtils.RetryException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
-        String hostname = String.format("java-client-test-host-%d", nowMillis);
+        String hostname = getUniqueEntityName();
 
         ApiResponse<String> response = sendRequest(
                 "POST",
@@ -224,7 +224,7 @@ public class HostsApiTest extends V1ApiTest {
     @Test
     public void hostsMuteErrorsTest() throws ApiException, IOException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
-        String hostname = String.format("java-client-test-host-%d", nowMillis);
+        String hostname = getUniqueEntityName();
 
         //Mute host a first time in order to trigger a 400
         HostMuteSettings muteSettings = new HostMuteSettings();
@@ -253,7 +253,7 @@ public class HostsApiTest extends V1ApiTest {
     @Test
     public void hostsUnmuteErrorsTest() throws IOException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
-        String hostname = String.format("java-client-test-host-%d", nowMillis);
+        String hostname = getUniqueEntityName();
 
         try {
             api.unmuteHost(hostname).execute();

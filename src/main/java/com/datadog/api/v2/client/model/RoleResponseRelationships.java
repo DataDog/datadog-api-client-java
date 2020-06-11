@@ -13,9 +13,7 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.RelationshipToOrganization;
-import com.datadog.api.v2.client.model.RelationshipToOrganizations;
-import com.datadog.api.v2.client.model.RelationshipToRoles;
+import com.datadog.api.v2.client.model.RelationshipToPermissions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,123 +27,36 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @ApiModel(description = "Relationships of the role object returned by the API.")
 @JsonPropertyOrder({
-  RoleResponseRelationships.JSON_PROPERTY_ORG,
-  RoleResponseRelationships.JSON_PROPERTY_OTHER_ORGS,
-  RoleResponseRelationships.JSON_PROPERTY_OTHER_ROLES,
-  RoleResponseRelationships.JSON_PROPERTY_ROLES
+  RoleResponseRelationships.JSON_PROPERTY_PERMISSIONS
 })
 
 public class RoleResponseRelationships {
-  public static final String JSON_PROPERTY_ORG = "org";
-  private RelationshipToOrganization org;
-
-  public static final String JSON_PROPERTY_OTHER_ORGS = "other_orgs";
-  private RelationshipToOrganizations otherOrgs;
-
-  public static final String JSON_PROPERTY_OTHER_ROLES = "other_roles";
-  private RelationshipToRoles otherRoles;
-
-  public static final String JSON_PROPERTY_ROLES = "roles";
-  private RelationshipToRoles roles;
+  public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
+  private RelationshipToPermissions permissions;
 
 
-  public RoleResponseRelationships org(RelationshipToOrganization org) {
+  public RoleResponseRelationships permissions(RelationshipToPermissions permissions) {
     
-    this.org = org;
+    this.permissions = permissions;
     return this;
   }
 
    /**
-   * Get org
-   * @return org
+   * Get permissions
+   * @return permissions
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ORG)
+  @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public RelationshipToOrganization getOrg() {
-    return org;
+  public RelationshipToPermissions getPermissions() {
+    return permissions;
   }
 
 
-  public void setOrg(RelationshipToOrganization org) {
-    this.org = org;
-  }
-
-
-  public RoleResponseRelationships otherOrgs(RelationshipToOrganizations otherOrgs) {
-    
-    this.otherOrgs = otherOrgs;
-    return this;
-  }
-
-   /**
-   * Get otherOrgs
-   * @return otherOrgs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OTHER_ORGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public RelationshipToOrganizations getOtherOrgs() {
-    return otherOrgs;
-  }
-
-
-  public void setOtherOrgs(RelationshipToOrganizations otherOrgs) {
-    this.otherOrgs = otherOrgs;
-  }
-
-
-  public RoleResponseRelationships otherRoles(RelationshipToRoles otherRoles) {
-    
-    this.otherRoles = otherRoles;
-    return this;
-  }
-
-   /**
-   * Get otherRoles
-   * @return otherRoles
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OTHER_ROLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public RelationshipToRoles getOtherRoles() {
-    return otherRoles;
-  }
-
-
-  public void setOtherRoles(RelationshipToRoles otherRoles) {
-    this.otherRoles = otherRoles;
-  }
-
-
-  public RoleResponseRelationships roles(RelationshipToRoles roles) {
-    
-    this.roles = roles;
-    return this;
-  }
-
-   /**
-   * Get roles
-   * @return roles
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ROLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public RelationshipToRoles getRoles() {
-    return roles;
-  }
-
-
-  public void setRoles(RelationshipToRoles roles) {
-    this.roles = roles;
+  public void setPermissions(RelationshipToPermissions permissions) {
+    this.permissions = permissions;
   }
 
 
@@ -158,15 +69,12 @@ public class RoleResponseRelationships {
       return false;
     }
     RoleResponseRelationships roleResponseRelationships = (RoleResponseRelationships) o;
-    return Objects.equals(this.org, roleResponseRelationships.org) &&
-        Objects.equals(this.otherOrgs, roleResponseRelationships.otherOrgs) &&
-        Objects.equals(this.otherRoles, roleResponseRelationships.otherRoles) &&
-        Objects.equals(this.roles, roleResponseRelationships.roles);
+    return Objects.equals(this.permissions, roleResponseRelationships.permissions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(org, otherOrgs, otherRoles, roles);
+    return Objects.hash(permissions);
   }
 
 
@@ -174,10 +82,7 @@ public class RoleResponseRelationships {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RoleResponseRelationships {\n");
-    sb.append("    org: ").append(toIndentedString(org)).append("\n");
-    sb.append("    otherOrgs: ").append(toIndentedString(otherOrgs)).append("\n");
-    sb.append("    otherRoles: ").append(toIndentedString(otherRoles)).append("\n");
-    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

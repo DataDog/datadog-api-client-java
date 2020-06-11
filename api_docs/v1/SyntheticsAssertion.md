@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operator** | [**SyntheticsAssertionOperator**](SyntheticsAssertionOperator.md) |  | 
 **property** | **String** | The associated assertion property. |  [optional]
-**target** | [**Object**](.md) | Target to apply the assertion to. It can be a string, a number, or a Date. |  [optional]
+**target** | **Object** | Target to apply the assertion to. It can be a string, a number, or a Date. |  [optional]
 **type** | [**SyntheticsAssertionType**](SyntheticsAssertionType.md) |  | 
 
 

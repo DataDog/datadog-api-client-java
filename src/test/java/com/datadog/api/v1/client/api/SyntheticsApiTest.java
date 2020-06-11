@@ -57,7 +57,6 @@ public class SyntheticsApiTest extends V1ApiTest {
             )
             .locations(Arrays.asList("aws:us-east-2"))
             .message("testing Synthetics API test - this is message")
-            .name("testing Synthetics API test")
             .options(new SyntheticsTestOptions()
                     .acceptSelfSigned(false)
                     .allowInsecure(true)
@@ -83,7 +82,6 @@ public class SyntheticsApiTest extends V1ApiTest {
             )
             .locations(Arrays.asList("aws:us-east-2"))
             .message("testing Synthetics Browser test - this is message")
-            .name("testing Synthetics Browser test")
             .options(new SyntheticsTestOptions()
                     .acceptSelfSigned(false)
                     .allowInsecure(true)
@@ -143,25 +141,24 @@ public class SyntheticsApiTest extends V1ApiTest {
                 .getResource("synthetics_fixtures/api_test_single_result.json").getFile());
 
         // Create API test
+        String apiTestName = getUniqueEntityName();
+        apiTestConfig.setName(apiTestName);
         synt = api.createTest().body(apiTestConfig).execute();
         publicId = synt.getPublicId();
         deleteSyntheticsTests.add(publicId);
-        assertEquals("testing Synthetics API test", synt.getName());
+        assertEquals(apiTestName, synt.getName());
 
         // Update API test
-        synt.setName("updated name");
+        synt.setName(apiTestConfig.getName() + "-updated");
         // if we want to reuse the entity returned by the API, we must set these fields to null, as they can't be sent back
-        synt.setCreatedAt(null);
-        synt.setCreatedBy(null);
         synt.setMonitorId(null);
-        synt.setModifiedAt(null);
         synt.setPublicId(null);
         synt = api.updateTest(publicId).body(synt).execute();
-        assertEquals("updated name", synt.getName());
+        assertEquals(apiTestConfig.getName() + "-updated", synt.getName());
 
         // Get API test
         synt = api.getTest(publicId).execute();
-        assertEquals("updated name", synt.getName());
+        assertEquals(apiTestConfig.getName() + "-updated", synt.getName());
 
         // NOTE: API tests are started by default, so we have to stop it first
         // Stop API test
@@ -233,25 +230,24 @@ public class SyntheticsApiTest extends V1ApiTest {
                 .getResource("synthetics_fixtures/browser_test_single_result.json").getFile());
 
         // Create Browser test
+        String browserTestName = getUniqueEntityName();
+        browserTestConfig.setName(browserTestName);
         synt = api.createTest().body(browserTestConfig).execute();
         publicId = synt.getPublicId();
         deleteSyntheticsTests.add(publicId);
-        assertEquals("testing Synthetics Browser test", synt.getName());
+        assertEquals(browserTestName, synt.getName());
 
         // Update Browser test
-        synt.setName("updated name");
+        synt.setName(browserTestConfig.getName() + "-updated");
         // if we want to reuse the entity returned by the API, we must set these fields to null, as they can't be sent back
-        synt.setCreatedAt(null);
-        synt.setCreatedBy(null);
         synt.setMonitorId(null);
-        synt.setModifiedAt(null);
         synt.setPublicId(null);
         synt = api.updateTest(publicId).body(synt).execute();
-        assertEquals("updated name", synt.getName());
+        assertEquals(browserTestConfig.getName() + "-updated", synt.getName());
 
         // Get Browser test
         synt = api.getTest(publicId).execute();
-        assertEquals("updated name", synt.getName());
+        assertEquals(browserTestConfig.getName() + "-updated", synt.getName());
 
         // NOTE: Browser tests are paused by default, so we have to run it first
         // Start Browser test
@@ -305,8 +301,10 @@ public class SyntheticsApiTest extends V1ApiTest {
         SyntheticsTestDetails syntAPI, syntBrowser;
         SyntheticsListTestsResponse allTests;
 
+        apiTestConfig.setName(getUniqueEntityName("api"));
         syntAPI = api.createTest().body(apiTestConfig).execute();
         deleteSyntheticsTests.add(syntAPI.getPublicId());
+        browserTestConfig.setName(getUniqueEntityName("browser"));
         syntBrowser = api.createTest().body(browserTestConfig).execute();
         deleteSyntheticsTests.add(syntBrowser.getPublicId());
         allTests = api.listTests().execute();
@@ -366,6 +364,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     @Test
     public void updateStatusSyntheticsErrorsTest() throws ApiException, IOException {
         // Create API test
+        apiTestConfig.setName(getUniqueEntityName());
         SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
         String publicId = synt.getPublicId();
         deleteSyntheticsTests.add(publicId);
@@ -464,6 +463,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     @Test
     public void updateTestSyntheticsErrorsTest() throws ApiException, IOException {
         // Create API test
+        apiTestConfig.setName(getUniqueEntityName());
         SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
         String publicId = synt.getPublicId();
         deleteSyntheticsTests.add(publicId);
@@ -561,5 +561,11 @@ public class SyntheticsApiTest extends V1ApiTest {
             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
             assertNotNull(error.getErrors());
         }
+    }
+
+    @Test
+    public void syntheticsListLocationsTest() throws ApiException {
+        SyntheticsLocations locations = api.listLocations().execute();
+        assertTrue(locations.getLocations().size() > 0);
     }
 }

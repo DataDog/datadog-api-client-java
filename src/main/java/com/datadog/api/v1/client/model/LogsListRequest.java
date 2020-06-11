@@ -63,11 +63,11 @@ public class LogsListRequest {
   }
 
    /**
-   * For multi-index organizations, the log index in which the request is performed.
+   * For multi-index organizations, the log index in which the request is performed. Default to &#39;*&#39; (all indexes).
    * @return index
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For multi-index organizations, the log index in which the request is performed.")
+  @ApiModelProperty(example = "retention-3,retention-15", value = "For multi-index organizations, the log index in which the request is performed. Default to '*' (all indexes).")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,7 +117,7 @@ public class LogsListRequest {
    * The search query - following the log search syntax.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "The search query - following the log search syntax.")
+  @ApiModelProperty(example = "service:web* AND @http.status_code:[200 TO 299]", required = true, value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -50,7 +50,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
 
     @Before
     public void setupAzureAccounts() {
-        String uniqueTenantName = String.format("java_test-%07d", (now.toInstant().toEpochMilli()) % 10000000);
+        String uniqueTenantName = getUniqueEntityName();
 
         uniqueAzureAccount.setClientId("javatest-1234-5678-9101-3fcbf464test");
         uniqueAzureAccount.setClientSecret("testingx./Sw*g/Y33t..R1cH+hScMDt");
@@ -123,9 +123,16 @@ public class AzureIntegrationApiTest extends V1ApiTest {
 
         // Test account deletion as well
         api.deleteAzureIntegration().body(uniqueAzureAccount).execute();
-        listAccounts = api.listAzureIntegration().execute();
-        retrievedAccount = retrieveAccountInList(listAccounts, uniqueAzureAccount.getTenantName());
-        assertEquals(new AzureAccount(), retrievedAccount);
+        try {
+            // the API returns 400 if there are no accounts at all, but because of potential other tests
+            // running, we can never be sure if there are currently other accounts, so we handle both cases
+            listAccounts = api.listAzureIntegration().execute();
+            retrievedAccount = retrieveAccountInList(listAccounts, uniqueAzureAccount.getTenantName());
+            assertEquals(new AzureAccount(), retrievedAccount);
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            System.out.printf("Listing Azure accounts returned 400, this is ok when no other accounts exist at this moment");
+        }
     }
 
     /**

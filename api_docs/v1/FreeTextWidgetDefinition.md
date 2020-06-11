@@ -11,11 +11,7 @@ Name | Type | Description | Notes
 **fontSize** | **String** | Size of the text. |  [optional]
 **text** | **String** | Text to display. | 
 **textAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**type** | **String** | Type of the widget. |  [readonly]
+**type** | [**FreeTextWidgetDefinitionType**](FreeTextWidgetDefinitionType.md) |  | 
 
-
-## Implemented Interfaces
-
-* WidgetDefinition
 
 
