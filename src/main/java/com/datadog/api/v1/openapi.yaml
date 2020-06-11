@@ -7849,6 +7849,7 @@ components:
     WidgetLegendSize:
       description: Available legend sizes for a widget.
       enum:
+      - '0'
       - '2'
       - '4'
       - '8'
@@ -7856,6 +7857,7 @@ components:
       - auto
       type: string
       x-enum-varnames:
+      - ZERO
       - TWO
       - FOUR
       - EIGHT
