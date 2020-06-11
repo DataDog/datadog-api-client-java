@@ -562,4 +562,10 @@ public class SyntheticsApiTest extends V1ApiTest {
             assertNotNull(error.getErrors());
         }
     }
+
+    @Test
+    public void syntheticsListLocationsTest() throws ApiException {
+        SyntheticsLocations locations = api.listLocations().execute();
+        assertTrue(locations.getLocations().size() > 0);
+    }
 }
