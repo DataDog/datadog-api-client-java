@@ -78,10 +78,11 @@
                 <configuration>
                     <runOrder>random</runOrder>
                     <!-- We don't use threads, as that would complicate cassette recording, plus keystore used by tests isn't thread safe. -->
-                    <!-- FIXME use forkCount=2 -->
-                    <forkCount>1</forkCount>
+                    <!-- FIXME 
+                    <forkCount>2</forkCount>
                     <reuseForks>true</reuseForks>
                     <threadCount>1</threadCount>
+                    -->
                     <parallel>classes</parallel>
                     <systemProperties>
                         <property>
