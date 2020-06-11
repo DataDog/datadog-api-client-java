@@ -82,8 +82,8 @@
                     <forkCount>2</forkCount>
                     <reuseForks>true</reuseForks>
                     <threadCount>1</threadCount>
-                    -->
                     <parallel>classes</parallel>
+                    -->
                     <systemProperties>
                         <property>
                             <name>loggerPath</name>
