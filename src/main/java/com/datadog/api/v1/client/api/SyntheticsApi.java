@@ -16,6 +16,7 @@ import com.datadog.api.v1.client.model.SyntheticsDeleteTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetAPITestLatestResultsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetBrowserTestLatestResultsResponse;
 import com.datadog.api.v1.client.model.SyntheticsListTestsResponse;
+import com.datadog.api.v1.client.model.SyntheticsLocations;
 import com.datadog.api.v1.client.model.SyntheticsTestDetails;
 import com.datadog.api.v1.client.model.SyntheticsUpdateTestPauseStatusPayload;
 
@@ -606,7 +607,7 @@ private ApiResponse<SyntheticsTestDetails> getBrowserTestWithHttpInfo(String pub
   }
 
   /**
-   * Get a browser test configuration
+   * Get a test configuration (browser)
    * Get the detailed configuration (including steps) associated with a Synthetics browser test.
    * @param publicId The public ID of the test to get details from. (required)
    * @return getBrowserTestRequest
@@ -951,7 +952,7 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
   }
 
   /**
-   * Get a test configuration
+   * Get a test configuration (API)
    * Get the detailed configuration associated with a Synthetics test.
    * @param publicId The public ID of the test to get details from. (required)
    * @return getTestRequest
@@ -961,6 +962,93 @@ private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) 
    */
   public APIgetTestRequest getTest(String publicId) throws ApiException {
     return new APIgetTestRequest(publicId);
+  }
+
+private ApiResponse<SyntheticsLocations> listLocationsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/locations";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listLocations");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsLocations> localVarReturnType = new GenericType<SyntheticsLocations>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.listLocations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, null);
+  }
+
+  public class APIlistLocationsRequest {
+
+    private APIlistLocationsRequest() {
+    }
+
+    /**
+     * Execute listLocations request
+     * @return SyntheticsLocations
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsLocations execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listLocations request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsLocations&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsLocations> executeWithHttpInfo() throws ApiException {
+      return listLocationsWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get all locations (public and private)
+   * Get the list of public and private locations available for Synthetics tests. No arguments required.
+   * @return listLocationsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIlistLocationsRequest listLocations() throws ApiException {
+    return new APIlistLocationsRequest();
   }
 
 private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String checkType) throws ApiException {
