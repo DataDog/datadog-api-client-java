@@ -13,7 +13,7 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.RelationshipToPermissions;
+import com.datadog.api.v2.client.model.RoleUpdateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,40 +23,40 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Relationships of the role object returned by the API.
+ * Update a role.
  */
-@ApiModel(description = "Relationships of the role object returned by the API.")
+@ApiModel(description = "Update a role.")
 @JsonPropertyOrder({
-  RoleResponseRelationships.JSON_PROPERTY_PERMISSIONS
+  RoleUpdateRequest.JSON_PROPERTY_DATA
 })
 
-public class RoleResponseRelationships {
-  public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
-  private RelationshipToPermissions permissions;
+public class RoleUpdateRequest {
+  public static final String JSON_PROPERTY_DATA = "data";
+  private RoleUpdateData data;
 
 
-  public RoleResponseRelationships permissions(RelationshipToPermissions permissions) {
+  public RoleUpdateRequest data(RoleUpdateData data) {
     
-    this.permissions = permissions;
+    this.data = data;
     return this;
   }
 
    /**
-   * Get permissions
-   * @return permissions
+   * Get data
+   * @return data
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PERMISSIONS)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public RelationshipToPermissions getPermissions() {
-    return permissions;
+  public RoleUpdateData getData() {
+    return data;
   }
 
 
-  public void setPermissions(RelationshipToPermissions permissions) {
-    this.permissions = permissions;
+  public void setData(RoleUpdateData data) {
+    this.data = data;
   }
 
 
@@ -68,21 +68,21 @@ public class RoleResponseRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RoleResponseRelationships roleResponseRelationships = (RoleResponseRelationships) o;
-    return Objects.equals(this.permissions, roleResponseRelationships.permissions);
+    RoleUpdateRequest roleUpdateRequest = (RoleUpdateRequest) o;
+    return Objects.equals(this.data, roleUpdateRequest.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(permissions);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RoleResponseRelationships {\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("class RoleUpdateRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

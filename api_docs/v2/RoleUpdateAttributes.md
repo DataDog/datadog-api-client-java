@@ -2,12 +2,14 @@
 
 # RoleUpdateAttributes
 
-Attributes of the edited role.
+Attributes of the role.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | The name of the role. |  [optional]
+**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | Creation time of the role. |  [optional] [readonly]
+**modifiedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Time of last role modification. |  [optional] [readonly]
+**name** | **String** | Name of the role. |  [optional]
 
 
 

@@ -1,6 +1,6 @@
 
 
-# RoleCreatePayload
+# RoleCreateRequest
 
 Create a role.
 ## Properties

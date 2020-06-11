@@ -13,7 +13,7 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.RoleUpdateData;
+import com.datadog.api.v2.client.model.RoleUpdateResponseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,19 +23,19 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Update a role.
+ * Response containing information about an updated role.
  */
-@ApiModel(description = "Update a role.")
+@ApiModel(description = "Response containing information about an updated role.")
 @JsonPropertyOrder({
-  RoleUpdatePayload.JSON_PROPERTY_DATA
+  RoleUpdateResponse.JSON_PROPERTY_DATA
 })
 
-public class RoleUpdatePayload {
+public class RoleUpdateResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private RoleUpdateData data;
+  private RoleUpdateResponseData data;
 
 
-  public RoleUpdatePayload data(RoleUpdateData data) {
+  public RoleUpdateResponse data(RoleUpdateResponseData data) {
     
     this.data = data;
     return this;
@@ -50,12 +50,12 @@ public class RoleUpdatePayload {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public RoleUpdateData getData() {
+  public RoleUpdateResponseData getData() {
     return data;
   }
 
 
-  public void setData(RoleUpdateData data) {
+  public void setData(RoleUpdateResponseData data) {
     this.data = data;
   }
 
@@ -68,8 +68,8 @@ public class RoleUpdatePayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RoleUpdatePayload roleUpdatePayload = (RoleUpdatePayload) o;
-    return Objects.equals(this.data, roleUpdatePayload.data);
+    RoleUpdateResponse roleUpdateResponse = (RoleUpdateResponse) o;
+    return Objects.equals(this.data, roleUpdateResponse.data);
   }
 
   @Override
@@ -81,7 +81,7 @@ public class RoleUpdatePayload {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RoleUpdatePayload {\n");
+    sb.append("class RoleUpdateResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

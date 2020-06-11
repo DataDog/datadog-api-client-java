@@ -13,7 +13,7 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.RoleCreateData;
+import com.datadog.api.v2.client.model.RoleCreateResponseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,19 +23,19 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Create a role.
+ * Response containing information about a created role.
  */
-@ApiModel(description = "Create a role.")
+@ApiModel(description = "Response containing information about a created role.")
 @JsonPropertyOrder({
-  RoleCreatePayload.JSON_PROPERTY_DATA
+  RoleCreateResponse.JSON_PROPERTY_DATA
 })
 
-public class RoleCreatePayload {
+public class RoleCreateResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private RoleCreateData data;
+  private RoleCreateResponseData data;
 
 
-  public RoleCreatePayload data(RoleCreateData data) {
+  public RoleCreateResponse data(RoleCreateResponseData data) {
     
     this.data = data;
     return this;
@@ -50,12 +50,12 @@ public class RoleCreatePayload {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public RoleCreateData getData() {
+  public RoleCreateResponseData getData() {
     return data;
   }
 
 
-  public void setData(RoleCreateData data) {
+  public void setData(RoleCreateResponseData data) {
     this.data = data;
   }
 
@@ -68,8 +68,8 @@ public class RoleCreatePayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RoleCreatePayload roleCreatePayload = (RoleCreatePayload) o;
-    return Objects.equals(this.data, roleCreatePayload.data);
+    RoleCreateResponse roleCreateResponse = (RoleCreateResponse) o;
+    return Objects.equals(this.data, roleCreateResponse.data);
   }
 
   @Override
@@ -81,7 +81,7 @@ public class RoleCreatePayload {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RoleCreatePayload {\n");
+    sb.append("class RoleCreateResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
