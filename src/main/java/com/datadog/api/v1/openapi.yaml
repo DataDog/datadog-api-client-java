@@ -2803,7 +2803,8 @@ components:
       properties:
         index:
           description: For multi-index organizations, the log index in which the request
-            is performed.
+            is performed. Default to '*' (all indexes).
+          example: retention-3,retention-15
           type: string
         limit:
           description: Number of logs return in the response.
@@ -7848,6 +7849,7 @@ components:
     WidgetLegendSize:
       description: Available legend sizes for a widget.
       enum:
+      - '0'
       - '2'
       - '4'
       - '8'
@@ -7855,6 +7857,7 @@ components:
       - auto
       type: string
       x-enum-varnames:
+      - ZERO
       - TWO
       - FOUR
       - EIGHT
