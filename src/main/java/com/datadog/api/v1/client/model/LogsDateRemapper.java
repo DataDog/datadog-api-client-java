@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsDateRemapperType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.    - &#x60;timestamp&#x60;   - &#x60;date&#x60;   - &#x60;_timestamp&#x60;   - &#x60;Timestamp&#x60;   - &#x60;eventTime&#x60;   - &#x60;published_date&#x60;    If your logs put their dates in an attribute not in this list,   use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your logs don’t contain any of the default attributes   and you haven’t defined your own date attribute, Datadog timestamps   the logs with the date it received them.    If multiple log date remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.
@@ -50,7 +54,6 @@ public class LogsDateRemapper {
 
 
   public LogsDateRemapper isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -75,7 +78,6 @@ public class LogsDateRemapper {
 
 
   public LogsDateRemapper name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -100,7 +102,6 @@ public class LogsDateRemapper {
 
 
   public LogsDateRemapper sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -129,7 +130,6 @@ public class LogsDateRemapper {
 
 
   public LogsDateRemapper type(LogsDateRemapperType type) {
-    
     this.type = type;
     return this;
   }

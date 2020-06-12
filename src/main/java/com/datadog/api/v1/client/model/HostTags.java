@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Set of tags to associate with your host.
@@ -41,7 +45,6 @@ public class HostTags {
 
 
   public HostTags host(String host) {
-    
     this.host = host;
     return this;
   }
@@ -66,7 +69,6 @@ public class HostTags {
 
 
   public HostTags tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }

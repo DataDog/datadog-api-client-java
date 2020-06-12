@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,6 +23,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Attributes of a permission.
@@ -60,7 +64,6 @@ public class PermissionAttributes {
 
 
   public PermissionAttributes created(OffsetDateTime created) {
-    
     this.created = created;
     return this;
   }
@@ -85,7 +88,6 @@ public class PermissionAttributes {
 
 
   public PermissionAttributes description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -110,7 +112,6 @@ public class PermissionAttributes {
 
 
   public PermissionAttributes displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
@@ -135,7 +136,6 @@ public class PermissionAttributes {
 
 
   public PermissionAttributes displayType(String displayType) {
-    
     this.displayType = displayType;
     return this;
   }
@@ -160,7 +160,6 @@ public class PermissionAttributes {
 
 
   public PermissionAttributes groupName(String groupName) {
-    
     this.groupName = groupName;
     return this;
   }
@@ -185,7 +184,6 @@ public class PermissionAttributes {
 
 
   public PermissionAttributes name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -210,7 +208,6 @@ public class PermissionAttributes {
 
 
   public PermissionAttributes restricted(Boolean restricted) {
-    
     this.restricted = restricted;
     return this;
   }

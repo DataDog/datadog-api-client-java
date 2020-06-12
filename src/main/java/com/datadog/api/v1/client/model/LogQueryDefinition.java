@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogQueryDefinitionGroupBy;
 import com.datadog.api.v1.client.model.LogQueryDefinitionSearch;
 import com.datadog.api.v1.client.model.LogsQueryCompute;
@@ -25,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * List of logs.
@@ -56,7 +60,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition compute(LogsQueryCompute compute) {
-    
     this.compute = compute;
     return this;
   }
@@ -81,7 +84,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition groupBy(List<LogQueryDefinitionGroupBy> groupBy) {
-    
     this.groupBy = groupBy;
     return this;
   }
@@ -114,7 +116,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition index(String index) {
-    
     this.index = index;
     return this;
   }
@@ -139,7 +140,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition multiCompute(List<LogsQueryCompute> multiCompute) {
-    
     this.multiCompute = multiCompute;
     return this;
   }
@@ -172,7 +172,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition search(LogQueryDefinitionSearch search) {
-    
     this.search = search;
     return this;
   }

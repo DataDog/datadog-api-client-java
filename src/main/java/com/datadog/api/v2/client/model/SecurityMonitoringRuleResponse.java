@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCase;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQuery;
@@ -25,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Detection rule
@@ -88,7 +92,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse cases(List<SecurityMonitoringRuleCase> cases) {
-    
     this.cases = cases;
     return this;
   }
@@ -121,7 +124,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse createdAt(Long createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -146,7 +148,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse creationAuthorId(Long creationAuthorId) {
-    
     this.creationAuthorId = creationAuthorId;
     return this;
   }
@@ -171,7 +172,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -196,7 +196,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse isDefault(Boolean isDefault) {
-    
     this.isDefault = isDefault;
     return this;
   }
@@ -221,7 +220,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -246,7 +244,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -271,7 +268,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -296,7 +292,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -321,7 +316,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse options(SecurityMonitoringRuleOptions options) {
-    
     this.options = options;
     return this;
   }
@@ -346,7 +340,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse queries(List<SecurityMonitoringRuleQuery> queries) {
-    
     this.queries = queries;
     return this;
   }
@@ -379,7 +372,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -412,7 +404,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse version(Long version) {
-    
     this.version = version;
     return this;
   }

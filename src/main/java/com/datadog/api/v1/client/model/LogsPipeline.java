@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsFilter;
 import com.datadog.api.v1.client.model.LogsProcessor;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,6 +26,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Pipelines and processors operate on incoming logs, parsing and transforming them into structured attributes for easier querying.  **Note**: These endpoints are only available for admin users. Make sure to use an application key created by an admin.
@@ -63,7 +67,6 @@ public class LogsPipeline {
 
 
   public LogsPipeline filter(LogsFilter filter) {
-    
     this.filter = filter;
     return this;
   }
@@ -104,7 +107,6 @@ public class LogsPipeline {
 
 
   public LogsPipeline isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -145,7 +147,6 @@ public class LogsPipeline {
 
 
   public LogsPipeline name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -169,7 +170,6 @@ public class LogsPipeline {
 
 
   public LogsPipeline processors(List<LogsProcessor> processors) {
-    
     this.processors = processors;
     return this;
   }

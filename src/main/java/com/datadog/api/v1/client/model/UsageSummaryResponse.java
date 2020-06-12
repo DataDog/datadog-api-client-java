@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.UsageSummaryDate;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,6 +26,8 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Response with hourly report of all data billed by Datadog all organizations.
@@ -139,7 +143,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse agentHostTop99pSum(Long agentHostTop99pSum) {
-    
     this.agentHostTop99pSum = agentHostTop99pSum;
     return this;
   }
@@ -164,7 +167,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse apmHostTop99pSum(Long apmHostTop99pSum) {
-    
     this.apmHostTop99pSum = apmHostTop99pSum;
     return this;
   }
@@ -189,7 +191,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse awsHostTop99pSum(Long awsHostTop99pSum) {
-    
     this.awsHostTop99pSum = awsHostTop99pSum;
     return this;
   }
@@ -214,7 +215,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse awsLambdaFuncCount(Long awsLambdaFuncCount) {
-    
     this.awsLambdaFuncCount = awsLambdaFuncCount;
     return this;
   }
@@ -239,7 +239,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse awsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
-    
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
     return this;
   }
@@ -264,7 +263,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse azureHostTop99pSum(Long azureHostTop99pSum) {
-    
     this.azureHostTop99pSum = azureHostTop99pSum;
     return this;
   }
@@ -289,7 +287,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse billableIngestedBytesAggSum(Long billableIngestedBytesAggSum) {
-    
     this.billableIngestedBytesAggSum = billableIngestedBytesAggSum;
     return this;
   }
@@ -314,7 +311,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse containerAvgSum(Long containerAvgSum) {
-    
     this.containerAvgSum = containerAvgSum;
     return this;
   }
@@ -339,7 +335,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse containerHwmSum(Long containerHwmSum) {
-    
     this.containerHwmSum = containerHwmSum;
     return this;
   }
@@ -364,7 +359,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse customTsSum(Long customTsSum) {
-    
     this.customTsSum = customTsSum;
     return this;
   }
@@ -389,7 +383,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse endDate(OffsetDateTime endDate) {
-    
     this.endDate = endDate;
     return this;
   }
@@ -414,7 +407,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse fargateTasksCountAvgSum(Long fargateTasksCountAvgSum) {
-    
     this.fargateTasksCountAvgSum = fargateTasksCountAvgSum;
     return this;
   }
@@ -439,7 +431,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse fargateTasksCountHwmSum(Long fargateTasksCountHwmSum) {
-    
     this.fargateTasksCountHwmSum = fargateTasksCountHwmSum;
     return this;
   }
@@ -464,7 +455,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse gcpHostTop99pSum(Long gcpHostTop99pSum) {
-    
     this.gcpHostTop99pSum = gcpHostTop99pSum;
     return this;
   }
@@ -489,7 +479,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse indexedEventsCountAggSum(Long indexedEventsCountAggSum) {
-    
     this.indexedEventsCountAggSum = indexedEventsCountAggSum;
     return this;
   }
@@ -514,7 +503,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse infraHostTop99pSum(Long infraHostTop99pSum) {
-    
     this.infraHostTop99pSum = infraHostTop99pSum;
     return this;
   }
@@ -539,7 +527,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse ingestedEventsBytesAggSum(Long ingestedEventsBytesAggSum) {
-    
     this.ingestedEventsBytesAggSum = ingestedEventsBytesAggSum;
     return this;
   }
@@ -564,7 +551,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse lastUpdated(OffsetDateTime lastUpdated) {
-    
     this.lastUpdated = lastUpdated;
     return this;
   }
@@ -589,7 +575,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse netflowIndexedEventsCountAggSum(Long netflowIndexedEventsCountAggSum) {
-    
     this.netflowIndexedEventsCountAggSum = netflowIndexedEventsCountAggSum;
     return this;
   }
@@ -614,7 +599,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse npmHostTop99pSum(Long npmHostTop99pSum) {
-    
     this.npmHostTop99pSum = npmHostTop99pSum;
     return this;
   }
@@ -639,7 +623,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse rumSessionCountAggSum(Long rumSessionCountAggSum) {
-    
     this.rumSessionCountAggSum = rumSessionCountAggSum;
     return this;
   }
@@ -664,7 +647,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse startDate(OffsetDateTime startDate) {
-    
     this.startDate = startDate;
     return this;
   }
@@ -689,7 +671,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse syntheticsBrowserCheckCallsCountAggSum(Long syntheticsBrowserCheckCallsCountAggSum) {
-    
     this.syntheticsBrowserCheckCallsCountAggSum = syntheticsBrowserCheckCallsCountAggSum;
     return this;
   }
@@ -714,7 +695,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse syntheticsCheckCallsCountAggSum(Long syntheticsCheckCallsCountAggSum) {
-    
     this.syntheticsCheckCallsCountAggSum = syntheticsCheckCallsCountAggSum;
     return this;
   }
@@ -739,7 +719,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse traceSearchIndexedEventsCountAggSum(Long traceSearchIndexedEventsCountAggSum) {
-    
     this.traceSearchIndexedEventsCountAggSum = traceSearchIndexedEventsCountAggSum;
     return this;
   }
@@ -764,7 +743,6 @@ public class UsageSummaryResponse {
 
 
   public UsageSummaryResponse usage(List<UsageSummaryDate> usage) {
-    
     this.usage = usage;
     return this;
   }

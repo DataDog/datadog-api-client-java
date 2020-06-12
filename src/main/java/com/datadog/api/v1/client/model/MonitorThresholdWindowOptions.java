@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Alerting time window options.
@@ -43,7 +47,6 @@ public class MonitorThresholdWindowOptions {
 
   public MonitorThresholdWindowOptions recoveryWindow(String recoveryWindow) {
     this.recoveryWindow = JsonNullable.<String>of(recoveryWindow);
-    
     return this;
   }
 
@@ -78,7 +81,6 @@ public class MonitorThresholdWindowOptions {
 
   public MonitorThresholdWindowOptions triggerWindow(String triggerWindow) {
     this.triggerWindow = JsonNullable.<String>of(triggerWindow);
-    
     return this;
   }
 

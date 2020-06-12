@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.CheckCanDeleteMonitorResponseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,6 +26,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Response of monitor IDs that can or can&#39;t be safely deleted.
@@ -43,7 +47,6 @@ public class CheckCanDeleteMonitorResponse {
 
 
   public CheckCanDeleteMonitorResponse data(CheckCanDeleteMonitorResponseData data) {
-    
     this.data = data;
     return this;
   }
@@ -67,7 +70,6 @@ public class CheckCanDeleteMonitorResponse {
 
 
   public CheckCanDeleteMonitorResponse errors(Map<String, List<String>> errors) {
-    
     this.errors = errors;
     return this;
   }

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.CheckStatusWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetGrouping;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -26,6 +28,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Check status shows the current status or number of results for any check performed.
@@ -77,7 +81,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition check(String check) {
-    
     this.check = check;
     return this;
   }
@@ -101,7 +104,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition group(String group) {
-    
     this.group = group;
     return this;
   }
@@ -126,7 +128,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition groupBy(List<String> groupBy) {
-    
     this.groupBy = groupBy;
     return this;
   }
@@ -159,7 +160,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition grouping(WidgetGrouping grouping) {
-    
     this.grouping = grouping;
     return this;
   }
@@ -183,7 +183,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -216,7 +215,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -241,7 +239,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -266,7 +263,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -291,7 +287,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -316,7 +311,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition type(CheckStatusWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

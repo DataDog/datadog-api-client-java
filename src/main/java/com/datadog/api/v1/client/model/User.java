@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AccessRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Create, edit, and disable users.
@@ -60,7 +64,6 @@ public class User {
 
 
   public User accessRole(AccessRole accessRole) {
-    
     this.accessRole = accessRole;
     return this;
   }
@@ -85,7 +88,6 @@ public class User {
 
 
   public User disabled(Boolean disabled) {
-    
     this.disabled = disabled;
     return this;
   }
@@ -110,7 +112,6 @@ public class User {
 
 
   public User email(String email) {
-    
     this.email = email;
     return this;
   }
@@ -135,7 +136,6 @@ public class User {
 
 
   public User handle(String handle) {
-    
     this.handle = handle;
     return this;
   }
@@ -176,7 +176,6 @@ public class User {
 
 
   public User name(String name) {
-    
     this.name = name;
     return this;
   }

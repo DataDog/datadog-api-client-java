@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,6 +26,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A response list of all service level objective deleted.
@@ -43,7 +47,6 @@ public class SLODeleteResponse {
 
 
   public SLODeleteResponse data(List<String> data) {
-    
     this.data = data;
     return this;
   }
@@ -76,7 +79,6 @@ public class SLODeleteResponse {
 
 
   public SLODeleteResponse errors(Map<String, String> errors) {
-    
     this.errors = errors;
     return this;
   }

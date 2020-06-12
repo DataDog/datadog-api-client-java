@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsArithmeticProcessorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Use the Arithmetic Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log with the result of the provided formula. This enables you to remap different time attributes with different units into a single attribute, or to compute operations on attributes within the same log.  The formula can use parentheses and the basic arithmetic operators &#x60;-&#x60;, &#x60;+&#x60;, &#x60;*&#x60;, &#x60;/&#x60;.  By default, the calculation is skipped if an attribute is missing. Select “Replace missing attribute by 0” to automatically populate missing attribute values with 0 to ensure that the calculation is done. An attribute is missing if it is not found in the log attributes, or if it cannot be converted to a number.  *Notes*:  - The operator &#x60;-&#x60; needs to be space split in the formula as it can also be contained in attribute names. - If the target attribute already exists, it is overwritten by the result of the formula. - Results are rounded up to the 9th decimal. For example, if the result of the formula is &#x60;0.1234567891&#x60;,   the actual value stored for the attribute is &#x60;0.123456789&#x60;. - If you need to scale a unit of measure,   see [Scale Filter](https://docs.datadoghq.com/logs/processing/parsing/?tab&#x3D;filter#matcher-and-filter).
@@ -56,7 +60,6 @@ public class LogsArithmeticProcessor {
 
 
   public LogsArithmeticProcessor expression(String expression) {
-    
     this.expression = expression;
     return this;
   }
@@ -80,7 +83,6 @@ public class LogsArithmeticProcessor {
 
 
   public LogsArithmeticProcessor isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -105,7 +107,6 @@ public class LogsArithmeticProcessor {
 
 
   public LogsArithmeticProcessor isReplaceMissing(Boolean isReplaceMissing) {
-    
     this.isReplaceMissing = isReplaceMissing;
     return this;
   }
@@ -130,7 +131,6 @@ public class LogsArithmeticProcessor {
 
 
   public LogsArithmeticProcessor name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -155,7 +155,6 @@ public class LogsArithmeticProcessor {
 
 
   public LogsArithmeticProcessor target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -179,7 +178,6 @@ public class LogsArithmeticProcessor {
 
 
   public LogsArithmeticProcessor type(LogsArithmeticProcessorType type) {
-    
     this.type = type;
     return this;
   }

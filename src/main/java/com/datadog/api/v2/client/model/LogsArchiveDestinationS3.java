@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationS3Type;
 import com.datadog.api.v2.client.model.LogsArchiveIntegrationS3;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The S3 archive destination.
@@ -49,7 +53,6 @@ public class LogsArchiveDestinationS3 {
 
 
   public LogsArchiveDestinationS3 bucket(String bucket) {
-    
     this.bucket = bucket;
     return this;
   }
@@ -73,7 +76,6 @@ public class LogsArchiveDestinationS3 {
 
 
   public LogsArchiveDestinationS3 integration(LogsArchiveIntegrationS3 integration) {
-    
     this.integration = integration;
     return this;
   }
@@ -97,7 +99,6 @@ public class LogsArchiveDestinationS3 {
 
 
   public LogsArchiveDestinationS3 path(String path) {
-    
     this.path = path;
     return this;
   }
@@ -122,7 +123,6 @@ public class LogsArchiveDestinationS3 {
 
 
   public LogsArchiveDestinationS3 type(LogsArchiveDestinationS3Type type) {
-    
     this.type = type;
     return this;
   }

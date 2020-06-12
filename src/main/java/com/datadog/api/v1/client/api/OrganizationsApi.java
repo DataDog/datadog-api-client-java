@@ -93,7 +93,7 @@ private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(Organ
 
     return apiClient.invokeAPI("OrganizationsApi.createChildOrg", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateChildOrgRequest {
@@ -201,7 +201,7 @@ private ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId) th
 
     return apiClient.invokeAPI("OrganizationsApi.getOrg", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetOrgRequest {
@@ -295,7 +295,7 @@ private ApiResponse<OrganizationListResponse> listOrgsWithHttpInfo() throws ApiE
 
     return apiClient.invokeAPI("OrganizationsApi.listOrgs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistOrgsRequest {
@@ -395,7 +395,7 @@ private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId,
 
     return apiClient.invokeAPI("OrganizationsApi.updateOrg", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateOrgRequest {
@@ -513,7 +513,7 @@ private ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, Fi
 
     return apiClient.invokeAPI("OrganizationsApi.uploadIdPForOrg", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIuploadIdPForOrgRequest {

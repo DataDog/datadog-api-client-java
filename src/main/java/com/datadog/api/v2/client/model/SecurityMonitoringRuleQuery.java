@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Query for matching rule.
@@ -45,7 +49,6 @@ public class SecurityMonitoringRuleQuery {
 
 
   public SecurityMonitoringRuleQuery groupByFields(List<String> groupByFields) {
-    
     this.groupByFields = groupByFields;
     return this;
   }
@@ -78,7 +81,6 @@ public class SecurityMonitoringRuleQuery {
 
 
   public SecurityMonitoringRuleQuery name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -103,7 +105,6 @@ public class SecurityMonitoringRuleQuery {
 
 
   public SecurityMonitoringRuleQuery query(String query) {
-    
     this.query = query;
     return this;
   }

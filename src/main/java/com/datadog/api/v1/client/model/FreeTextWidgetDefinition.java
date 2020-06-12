@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.FreeTextWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
@@ -53,7 +57,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition color(String color) {
-    
     this.color = color;
     return this;
   }
@@ -78,7 +81,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition fontSize(String fontSize) {
-    
     this.fontSize = fontSize;
     return this;
   }
@@ -103,7 +105,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition text(String text) {
-    
     this.text = text;
     return this;
   }
@@ -127,7 +128,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition textAlign(WidgetTextAlign textAlign) {
-    
     this.textAlign = textAlign;
     return this;
   }
@@ -152,7 +152,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition type(FreeTextWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

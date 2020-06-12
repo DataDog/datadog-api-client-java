@@ -91,7 +91,7 @@ private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricN
 
     return apiClient.invokeAPI("MetricsApi.getMetricMetadata", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetMetricMetadataRequest {
@@ -192,7 +192,7 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
 
     return apiClient.invokeAPI("MetricsApi.listActiveMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistActiveMetricsRequest {
@@ -311,7 +311,7 @@ private ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) thro
 
     return apiClient.invokeAPI("MetricsApi.listMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistMetricsRequest {
@@ -431,7 +431,7 @@ private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(Long from, Lo
 
     return apiClient.invokeAPI("MetricsApi.queryMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIqueryMetricsRequest {
@@ -566,7 +566,7 @@ private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(String metr
 
     return apiClient.invokeAPI("MetricsApi.updateMetricMetadata", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateMetricMetadataRequest {

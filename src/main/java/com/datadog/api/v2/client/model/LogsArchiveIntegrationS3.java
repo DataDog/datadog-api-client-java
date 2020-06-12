@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The S3 Archive&#39;s integration destination.
@@ -39,7 +43,6 @@ public class LogsArchiveIntegrationS3 {
 
 
   public LogsArchiveIntegrationS3 accountId(String accountId) {
-    
     this.accountId = accountId;
     return this;
   }
@@ -63,7 +66,6 @@ public class LogsArchiveIntegrationS3 {
 
 
   public LogsArchiveIntegrationS3 roleName(String roleName) {
-    
     this.roleName = roleName;
     return this;
   }

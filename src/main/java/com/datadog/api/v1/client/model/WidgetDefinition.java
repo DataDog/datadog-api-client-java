@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AlertGraphWidgetDefinition;
 import com.datadog.api.v1.client.model.AlertValueWidgetDefinition;
 import com.datadog.api.v1.client.model.ChangeWidgetDefinition;
@@ -72,24 +74,54 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collections;
+import java.util.HashSet;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.datadog.api.v1.client.JSON;
 
 
-@JsonDeserialize(using=WidgetDefinition.WidgetDefinitionDeserializer.class)
+@JsonDeserialize(using = WidgetDefinition.WidgetDefinitionDeserializer.class)
+@JsonSerialize(using = WidgetDefinition.WidgetDefinitionSerializer.class)
 public class WidgetDefinition extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(WidgetDefinition.class.getName());
+
+    public static class WidgetDefinitionSerializer extends StdSerializer<WidgetDefinition> {
+        public WidgetDefinitionSerializer(Class<WidgetDefinition> t) {
+            super(t);
+        }
+
+        public WidgetDefinitionSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(WidgetDefinition value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
     public static class WidgetDefinitionDeserializer extends StdDeserializer<WidgetDefinition> {
         public WidgetDefinitionDeserializer() {
             this(WidgetDefinition.class);
@@ -102,199 +134,318 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         @Override
         public WidgetDefinition deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
-
-            int match = 0;
             Object deserialized = null;
+            int match = 0;
             // deserialize AlertGraphWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertGraphWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'AlertGraphWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AlertGraphWidgetDefinition'", e);
             }
 
             // deserialize AlertValueWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertValueWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'AlertValueWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AlertValueWidgetDefinition'", e);
             }
 
             // deserialize ChangeWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ChangeWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'ChangeWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ChangeWidgetDefinition'", e);
             }
 
             // deserialize CheckStatusWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckStatusWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'CheckStatusWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckStatusWidgetDefinition'", e);
             }
 
             // deserialize DistributionWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(DistributionWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'DistributionWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'DistributionWidgetDefinition'", e);
             }
 
             // deserialize EventStreamWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(EventStreamWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'EventStreamWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'EventStreamWidgetDefinition'", e);
             }
 
             // deserialize EventTimelineWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(EventTimelineWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'EventTimelineWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'EventTimelineWidgetDefinition'", e);
             }
 
             // deserialize FreeTextWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(FreeTextWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'FreeTextWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'FreeTextWidgetDefinition'", e);
             }
 
             // deserialize GroupWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(GroupWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'GroupWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'GroupWidgetDefinition'", e);
             }
 
             // deserialize HeatMapWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(HeatMapWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'HeatMapWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'HeatMapWidgetDefinition'", e);
             }
 
             // deserialize HostMapWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(HostMapWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'HostMapWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'HostMapWidgetDefinition'", e);
             }
 
             // deserialize IFrameWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(IFrameWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'IFrameWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'IFrameWidgetDefinition'", e);
             }
 
             // deserialize ImageWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ImageWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'ImageWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ImageWidgetDefinition'", e);
             }
 
             // deserialize LogStreamWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogStreamWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogStreamWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogStreamWidgetDefinition'", e);
             }
 
             // deserialize MonitorSummaryWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(MonitorSummaryWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'MonitorSummaryWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'MonitorSummaryWidgetDefinition'", e);
             }
 
             // deserialize NoteWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(NoteWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'NoteWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'NoteWidgetDefinition'", e);
             }
 
             // deserialize QueryValueWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(QueryValueWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'QueryValueWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'QueryValueWidgetDefinition'", e);
             }
 
             // deserialize SLOWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(SLOWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'SLOWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'SLOWidgetDefinition'", e);
             }
 
             // deserialize ScatterPlotWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ScatterPlotWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'ScatterPlotWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ScatterPlotWidgetDefinition'", e);
             }
 
             // deserialize ServiceMapWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceMapWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'ServiceMapWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ServiceMapWidgetDefinition'", e);
             }
 
             // deserialize ServiceSummaryWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceSummaryWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'ServiceSummaryWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ServiceSummaryWidgetDefinition'", e);
             }
 
             // deserialize TableWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(TableWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'TableWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'TableWidgetDefinition'", e);
             }
 
             // deserialize TimeseriesWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeseriesWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'TimeseriesWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'TimeseriesWidgetDefinition'", e);
             }
 
             // deserialize ToplistWidgetDefinition
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(ToplistWidgetDefinition.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'ToplistWidgetDefinition'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ToplistWidgetDefinition'", e);
             }
 
             if (match == 1) {
@@ -303,6 +454,15 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
                 return ret;
             }
             throw new IOException(String.format("Failed deserialization for WidgetDefinition: %d classes match result, expected 1", match));
+        }
+
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public WidgetDefinition getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "WidgetDefinition cannot be null");
         }
     }
 
@@ -482,6 +642,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         });
         schemas.put("ToplistWidgetDefinition", new GenericType<ToplistWidgetDefinition>() {
         });
+        JSON.registerDescendants(WidgetDefinition.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -489,124 +650,131 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         return WidgetDefinition.schemas;
     }
 
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas.
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
+     */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof AlertGraphWidgetDefinition) {
+        if (JSON.isInstanceOf(AlertGraphWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AlertValueWidgetDefinition) {
+        if (JSON.isInstanceOf(AlertValueWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ChangeWidgetDefinition) {
+        if (JSON.isInstanceOf(ChangeWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CheckStatusWidgetDefinition) {
+        if (JSON.isInstanceOf(CheckStatusWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof DistributionWidgetDefinition) {
+        if (JSON.isInstanceOf(DistributionWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof EventStreamWidgetDefinition) {
+        if (JSON.isInstanceOf(EventStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof EventTimelineWidgetDefinition) {
+        if (JSON.isInstanceOf(EventTimelineWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof FreeTextWidgetDefinition) {
+        if (JSON.isInstanceOf(FreeTextWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof GroupWidgetDefinition) {
+        if (JSON.isInstanceOf(GroupWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof HeatMapWidgetDefinition) {
+        if (JSON.isInstanceOf(HeatMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof HostMapWidgetDefinition) {
+        if (JSON.isInstanceOf(HostMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof IFrameWidgetDefinition) {
+        if (JSON.isInstanceOf(IFrameWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ImageWidgetDefinition) {
+        if (JSON.isInstanceOf(ImageWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogStreamWidgetDefinition) {
+        if (JSON.isInstanceOf(LogStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof MonitorSummaryWidgetDefinition) {
+        if (JSON.isInstanceOf(MonitorSummaryWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof NoteWidgetDefinition) {
+        if (JSON.isInstanceOf(NoteWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof QueryValueWidgetDefinition) {
+        if (JSON.isInstanceOf(QueryValueWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof SLOWidgetDefinition) {
+        if (JSON.isInstanceOf(SLOWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ScatterPlotWidgetDefinition) {
+        if (JSON.isInstanceOf(ScatterPlotWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ServiceMapWidgetDefinition) {
+        if (JSON.isInstanceOf(ServiceMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ServiceSummaryWidgetDefinition) {
+        if (JSON.isInstanceOf(ServiceSummaryWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof TableWidgetDefinition) {
+        if (JSON.isInstanceOf(TableWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof TimeseriesWidgetDefinition) {
+        if (JSON.isInstanceOf(TimeseriesWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ToplistWidgetDefinition) {
+        if (JSON.isInstanceOf(ToplistWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }

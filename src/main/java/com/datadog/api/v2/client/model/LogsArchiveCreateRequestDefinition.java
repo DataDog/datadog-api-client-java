@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequestAttributes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The definition of an archive.
@@ -40,7 +44,6 @@ public class LogsArchiveCreateRequestDefinition {
 
 
   public LogsArchiveCreateRequestDefinition attributes(LogsArchiveCreateRequestAttributes attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -65,7 +68,6 @@ public class LogsArchiveCreateRequestDefinition {
 
 
   public LogsArchiveCreateRequestDefinition type(String type) {
-    
     this.type = type;
     return this;
   }

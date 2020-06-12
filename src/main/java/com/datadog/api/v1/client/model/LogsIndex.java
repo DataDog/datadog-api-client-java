@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsExclusion;
 import com.datadog.api.v1.client.model.LogsFilter;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,6 +26,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing a Datadog Log index.
@@ -75,7 +79,6 @@ public class LogsIndex {
 
 
   public LogsIndex exclusionFilters(List<LogsExclusion> exclusionFilters) {
-    
     this.exclusionFilters = exclusionFilters;
     return this;
   }
@@ -108,7 +111,6 @@ public class LogsIndex {
 
 
   public LogsIndex filter(LogsFilter filter) {
-    
     this.filter = filter;
     return this;
   }

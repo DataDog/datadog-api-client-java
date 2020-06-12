@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.HTTPMethod;
 import com.datadog.api.v1.client.model.SyntheticsTestRequestBasicAuth;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,6 +27,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the Synthetic test request.
@@ -72,7 +76,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest basicAuth(SyntheticsTestRequestBasicAuth basicAuth) {
-    
     this.basicAuth = basicAuth;
     return this;
   }
@@ -97,7 +100,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest body(String body) {
-    
     this.body = body;
     return this;
   }
@@ -122,7 +124,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest headers(Map<String, String> headers) {
-    
     this.headers = headers;
     return this;
   }
@@ -155,7 +156,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest host(String host) {
-    
     this.host = host;
     return this;
   }
@@ -180,7 +180,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest method(HTTPMethod method) {
-    
     this.method = method;
     return this;
   }
@@ -205,7 +204,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest port(Long port) {
-    
     this.port = port;
     return this;
   }
@@ -230,7 +228,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest query(Object query) {
-    
     this.query = query;
     return this;
   }
@@ -255,7 +252,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest timeout(Double timeout) {
-    
     this.timeout = timeout;
     return this;
   }
@@ -280,7 +276,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest url(String url) {
-    
     this.url = url;
     return this;
   }

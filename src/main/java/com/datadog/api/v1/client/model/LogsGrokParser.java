@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsGrokParserRules;
 import com.datadog.api.v1.client.model.LogsGrokParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,6 +26,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Create custom grok rules to parse the full message or [a specific attribute of your raw event](https://docs.datadoghq.com/logs/processing/parsing/#advanced-settings). For more information, see the [parsing section](https://docs.datadoghq.com/logs/processing/parsing).
@@ -59,7 +63,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser grok(LogsGrokParserRules grok) {
-    
     this.grok = grok;
     return this;
   }
@@ -83,7 +86,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -108,7 +110,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -133,7 +134,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser samples(List<String> samples) {
-    
     this.samples = samples;
     return this;
   }
@@ -166,7 +166,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser source(String source) {
-    
     this.source = source;
     return this;
   }
@@ -190,7 +189,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser type(LogsGrokParserType type) {
-    
     this.type = type;
     return this;
   }

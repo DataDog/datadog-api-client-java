@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.UserCreateAttributes;
 import com.datadog.api.v2.client.model.UserRelationships;
 import com.datadog.api.v2.client.model.UsersType;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Object to create a user.
@@ -46,7 +50,6 @@ public class UserCreateData {
 
 
   public UserCreateData attributes(UserCreateAttributes attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -71,7 +74,6 @@ public class UserCreateData {
 
 
   public UserCreateData relationships(UserRelationships relationships) {
-    
     this.relationships = relationships;
     return this;
   }
@@ -96,7 +98,6 @@ public class UserCreateData {
 
 
   public UserCreateData type(UsersType type) {
-    
     this.type = type;
     return this;
   }

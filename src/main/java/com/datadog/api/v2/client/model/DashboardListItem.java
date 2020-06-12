@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.Creator;
 import com.datadog.api.v2.client.model.DashboardType;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * A dashboard within a list.
@@ -82,7 +86,6 @@ public class DashboardListItem {
 
 
   public DashboardListItem author(Creator author) {
-    
     this.author = author;
     return this;
   }
@@ -139,7 +142,6 @@ public class DashboardListItem {
 
 
   public DashboardListItem id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -260,7 +262,6 @@ public class DashboardListItem {
 
 
   public DashboardListItem type(DashboardType type) {
-    
     this.type = type;
     return this;
   }

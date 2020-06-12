@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsAttributeRemapperType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The remapper processor remaps any source attribute(s) or tag to another target attribute or tag. Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice). Some additional constraints are applied as &#x60;:&#x60; or &#x60;,&#x60; are not allowed in the target tag/attribute name.
@@ -70,7 +74,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -95,7 +98,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -120,7 +122,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper overrideOnConflict(Boolean overrideOnConflict) {
-    
     this.overrideOnConflict = overrideOnConflict;
     return this;
   }
@@ -145,7 +146,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper preserveSource(Boolean preserveSource) {
-    
     this.preserveSource = preserveSource;
     return this;
   }
@@ -170,7 +170,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper sourceType(String sourceType) {
-    
     this.sourceType = sourceType;
     return this;
   }
@@ -195,7 +194,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -224,7 +222,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -248,7 +245,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper targetType(String targetType) {
-    
     this.targetType = targetType;
     return this;
   }
@@ -273,7 +269,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper type(LogsAttributeRemapperType type) {
-    
     this.type = type;
     return this;
   }

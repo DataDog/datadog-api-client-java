@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Event overlay control options.  See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to learn how to build the &#x60;&lt;EVENTS_SCHEMA&gt;&#x60;.
@@ -39,7 +43,6 @@ public class WidgetEvent {
 
 
   public WidgetEvent q(String q) {
-    
     this.q = q;
     return this;
   }
@@ -63,7 +66,6 @@ public class WidgetEvent {
 
 
   public WidgetEvent tagsExecution(String tagsExecution) {
-    
     this.tagsExecution = tagsExecution;
     return this;
   }

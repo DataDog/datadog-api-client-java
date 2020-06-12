@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOHistoryMetrics;
 import com.datadog.api.v1.client.model.SLOHistorySLIData;
 import com.datadog.api.v1.client.model.SLOThreshold;
@@ -28,6 +30,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * An array of service level objective objects.
@@ -71,7 +75,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData fromTs(Long fromTs) {
-    
     this.fromTs = fromTs;
     return this;
   }
@@ -96,7 +99,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData groups(SLOHistorySLIData groups) {
-    
     this.groups = groups;
     return this;
   }
@@ -121,7 +123,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData overall(SLOHistorySLIData overall) {
-    
     this.overall = overall;
     return this;
   }
@@ -146,7 +147,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData series(SLOHistoryMetrics series) {
-    
     this.series = series;
     return this;
   }
@@ -171,7 +171,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData thresholds(Map<String, SLOThreshold> thresholds) {
-    
     this.thresholds = thresholds;
     return this;
   }
@@ -204,7 +203,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData toTs(Long toTs) {
-    
     this.toTs = toTs;
     return this;
   }
@@ -229,7 +227,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData type(SLOType type) {
-    
     this.type = type;
     return this;
   }
@@ -254,7 +251,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData typeId(SLOTypeNumeric typeId) {
-    
     this.typeId = typeId;
     return this;
   }

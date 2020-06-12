@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventStreamWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetEventSize;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -24,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.
@@ -67,7 +71,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition eventSize(WidgetEventSize eventSize) {
-    
     this.eventSize = eventSize;
     return this;
   }
@@ -92,7 +95,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -116,7 +118,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition tagsExecution(String tagsExecution) {
-    
     this.tagsExecution = tagsExecution;
     return this;
   }
@@ -141,7 +142,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -166,7 +166,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -191,7 +190,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -216,7 +214,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -241,7 +238,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition type(EventStreamWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

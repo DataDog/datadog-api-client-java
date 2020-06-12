@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,6 +26,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * An object that holds an SLI value and its associated data. It can represent an SLO&#39;s overall SLI value or the SLI value for a specific monitor (in multi-monitor SLOs) or group (in grouped SLOs). The uptime history is included for monitor SLOs.
@@ -63,7 +67,6 @@ public class SLOHistorySLIData {
 
 
   public SLOHistorySLIData history(List<List<Double>> history) {
-    
     this.history = history;
     return this;
   }
@@ -96,7 +99,6 @@ public class SLOHistorySLIData {
 
 
   public SLOHistorySLIData name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -121,7 +123,6 @@ public class SLOHistorySLIData {
 
 
   public SLOHistorySLIData precision(Map<String, Double> precision) {
-    
     this.precision = precision;
     return this;
   }
@@ -154,7 +155,6 @@ public class SLOHistorySLIData {
 
 
   public SLOHistorySLIData preview(Boolean preview) {
-    
     this.preview = preview;
     return this;
   }
@@ -179,7 +179,6 @@ public class SLOHistorySLIData {
 
 
   public SLOHistorySLIData sliValue(Double sliValue) {
-    
     this.sliValue = sliValue;
     return this;
   }
@@ -204,7 +203,6 @@ public class SLOHistorySLIData {
 
 
   public SLOHistorySLIData spanPrecision(Double spanPrecision) {
-    
     this.spanPrecision = spanPrecision;
     return this;
   }
@@ -229,7 +227,6 @@ public class SLOHistorySLIData {
 
 
   public SLOHistorySLIData uptime(Double uptime) {
-    
     this.uptime = uptime;
     return this;
   }

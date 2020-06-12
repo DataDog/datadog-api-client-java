@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetColorPreference;
 import com.datadog.api.v1.client.model.WidgetMonitorSummaryDisplayFormat;
@@ -26,6 +28,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.
@@ -89,7 +93,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition colorPreference(WidgetColorPreference colorPreference) {
-    
     this.colorPreference = colorPreference;
     return this;
   }
@@ -114,7 +117,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition count(Long count) {
-    
     this.count = count;
     return this;
   }
@@ -139,7 +141,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition displayFormat(WidgetMonitorSummaryDisplayFormat displayFormat) {
-    
     this.displayFormat = displayFormat;
     return this;
   }
@@ -164,7 +165,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition hideZeroCounts(Boolean hideZeroCounts) {
-    
     this.hideZeroCounts = hideZeroCounts;
     return this;
   }
@@ -189,7 +189,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -213,7 +212,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition showLastTriggered(Boolean showLastTriggered) {
-    
     this.showLastTriggered = showLastTriggered;
     return this;
   }
@@ -238,7 +236,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition sort(WidgetMonitorSummarySort sort) {
-    
     this.sort = sort;
     return this;
   }
@@ -263,7 +260,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition start(Long start) {
-    
     this.start = start;
     return this;
   }
@@ -288,7 +284,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition summaryType(WidgetSummaryType summaryType) {
-    
     this.summaryType = summaryType;
     return this;
   }
@@ -313,7 +308,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -338,7 +332,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -363,7 +356,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -388,7 +380,6 @@ public class MonitorSummaryWidgetDefinition {
 
 
   public MonitorSummaryWidgetDefinition type(MonitorSummaryWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

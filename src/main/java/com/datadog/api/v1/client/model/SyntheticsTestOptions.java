@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsDeviceID;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.v1.client.model.SyntheticsTickInterval;
@@ -25,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the extra options for a Synthetic test.
@@ -68,7 +72,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions acceptSelfSigned(Boolean acceptSelfSigned) {
-    
     this.acceptSelfSigned = acceptSelfSigned;
     return this;
   }
@@ -93,7 +96,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions allowInsecure(Boolean allowInsecure) {
-    
     this.allowInsecure = allowInsecure;
     return this;
   }
@@ -118,7 +120,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions deviceIds(List<SyntheticsDeviceID> deviceIds) {
-    
     this.deviceIds = deviceIds;
     return this;
   }
@@ -151,7 +152,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions followRedirects(Boolean followRedirects) {
-    
     this.followRedirects = followRedirects;
     return this;
   }
@@ -176,7 +176,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions minFailureDuration(Long minFailureDuration) {
-    
     this.minFailureDuration = minFailureDuration;
     return this;
   }
@@ -201,7 +200,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions minLocationFailed(Long minLocationFailed) {
-    
     this.minLocationFailed = minLocationFailed;
     return this;
   }
@@ -226,7 +224,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions retry(SyntheticsTestOptionsRetry retry) {
-    
     this.retry = retry;
     return this;
   }
@@ -251,7 +248,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions tickEvery(SyntheticsTickInterval tickEvery) {
-    
     this.tickEvery = tickEvery;
     return this;
   }

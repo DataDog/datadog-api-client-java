@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsGeoIPParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country, Subdivision, and City information in the target attribute path.
@@ -54,7 +58,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -79,7 +82,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -104,7 +106,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -133,7 +134,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -157,7 +157,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser type(LogsGeoIPParserType type) {
-    
     this.type = type;
     return this;
   }

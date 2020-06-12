@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleEvaluationWindow;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleMaxSignalDuration;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Options on rules.
@@ -46,7 +50,6 @@ public class SecurityMonitoringRuleOptions {
 
 
   public SecurityMonitoringRuleOptions evaluationWindow(SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
-    
     this.evaluationWindow = evaluationWindow;
     return this;
   }
@@ -71,7 +74,6 @@ public class SecurityMonitoringRuleOptions {
 
 
   public SecurityMonitoringRuleOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
-    
     this.keepAlive = keepAlive;
     return this;
   }
@@ -96,7 +98,6 @@ public class SecurityMonitoringRuleOptions {
 
 
   public SecurityMonitoringRuleOptions maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
-    
     this.maxSignalDuration = maxSignalDuration;
     return this;
   }

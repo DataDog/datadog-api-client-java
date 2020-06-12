@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsStepType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The steps used in a Synthetics browser test.
@@ -53,7 +57,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep allowFailure(Boolean allowFailure) {
-    
     this.allowFailure = allowFailure;
     return this;
   }
@@ -78,7 +81,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -103,7 +105,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep params(Object params) {
-    
     this.params = params;
     return this;
   }
@@ -128,7 +129,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep timeout(BigDecimal timeout) {
-    
     this.timeout = timeout;
     return this;
   }
@@ -153,7 +153,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep type(SyntheticsStepType type) {
-    
     this.type = type;
     return this;
   }

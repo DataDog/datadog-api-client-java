@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,6 +23,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Hour usage for logs.
@@ -48,7 +52,6 @@ public class UsageLogsHour {
 
 
   public UsageLogsHour billableIngestedBytes(Long billableIngestedBytes) {
-    
     this.billableIngestedBytes = billableIngestedBytes;
     return this;
   }
@@ -73,7 +76,6 @@ public class UsageLogsHour {
 
 
   public UsageLogsHour hour(OffsetDateTime hour) {
-    
     this.hour = hour;
     return this;
   }
@@ -98,7 +100,6 @@ public class UsageLogsHour {
 
 
   public UsageLogsHour indexedEventsCount(Long indexedEventsCount) {
-    
     this.indexedEventsCount = indexedEventsCount;
     return this;
   }
@@ -123,7 +124,6 @@ public class UsageLogsHour {
 
 
   public UsageLogsHour ingestedEventsBytes(Long ingestedEventsBytes) {
-    
     this.ingestedEventsBytes = ingestedEventsBytes;
     return this;
   }

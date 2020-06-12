@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.IPPrefixesAPI;
 import com.datadog.api.v1.client.model.IPPrefixesAPM;
 import com.datadog.api.v1.client.model.IPPrefixesAgents;
@@ -27,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * IP ranges.
@@ -74,7 +78,6 @@ public class IPRanges {
 
 
   public IPRanges agents(IPPrefixesAgents agents) {
-    
     this.agents = agents;
     return this;
   }
@@ -99,7 +102,6 @@ public class IPRanges {
 
 
   public IPRanges api(IPPrefixesAPI api) {
-    
     this.api = api;
     return this;
   }
@@ -124,7 +126,6 @@ public class IPRanges {
 
 
   public IPRanges apm(IPPrefixesAPM apm) {
-    
     this.apm = apm;
     return this;
   }
@@ -149,7 +150,6 @@ public class IPRanges {
 
 
   public IPRanges logs(IPPrefixesLogs logs) {
-    
     this.logs = logs;
     return this;
   }
@@ -174,7 +174,6 @@ public class IPRanges {
 
 
   public IPRanges modified(String modified) {
-    
     this.modified = modified;
     return this;
   }
@@ -199,7 +198,6 @@ public class IPRanges {
 
 
   public IPRanges process(IPPrefixesProcess process) {
-    
     this.process = process;
     return this;
   }
@@ -224,7 +222,6 @@ public class IPRanges {
 
 
   public IPRanges synthetics(IPPrefixesSynthetics synthetics) {
-    
     this.synthetics = synthetics;
     return this;
   }
@@ -249,7 +246,6 @@ public class IPRanges {
 
 
   public IPRanges version(Long version) {
-    
     this.version = version;
     return this;
   }
@@ -274,7 +270,6 @@ public class IPRanges {
 
 
   public IPRanges webhooks(IPPrefixesWebhooks webhooks) {
-    
     this.webhooks = webhooks;
     return this;
   }

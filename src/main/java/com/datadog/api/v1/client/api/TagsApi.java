@@ -95,7 +95,7 @@ private ApiResponse<HostTags> createHostTagsWithHttpInfo(String hostName, HostTa
 
     return apiClient.invokeAPI("TagsApi.createHostTags", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateHostTagsRequest {
@@ -216,7 +216,7 @@ private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String sou
 
     return apiClient.invokeAPI("TagsApi.deleteHostTags", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, null);
   }
 
   public class APIdeleteHostTagsRequest {
@@ -328,7 +328,7 @@ private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String so
 
     return apiClient.invokeAPI("TagsApi.getHostTags", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetHostTagsRequest {
@@ -434,7 +434,7 @@ private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws A
 
     return apiClient.invokeAPI("TagsApi.listHostTags", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistHostTagsRequest {
@@ -548,7 +548,7 @@ private ApiResponse<HostTags> updateHostTagsWithHttpInfo(String hostName, HostTa
 
     return apiClient.invokeAPI("TagsApi.updateHostTags", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateHostTagsRequest {

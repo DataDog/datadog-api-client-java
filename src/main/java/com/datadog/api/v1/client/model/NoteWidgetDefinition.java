@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.NoteWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTickEdge;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The notes and links widget is similar to free text widget, but allows for more formatting options.
@@ -66,7 +70,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition backgroundColor(String backgroundColor) {
-    
     this.backgroundColor = backgroundColor;
     return this;
   }
@@ -91,7 +94,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition content(String content) {
-    
     this.content = content;
     return this;
   }
@@ -115,7 +117,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition fontSize(String fontSize) {
-    
     this.fontSize = fontSize;
     return this;
   }
@@ -140,7 +141,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition showTick(Boolean showTick) {
-    
     this.showTick = showTick;
     return this;
   }
@@ -165,7 +165,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition textAlign(WidgetTextAlign textAlign) {
-    
     this.textAlign = textAlign;
     return this;
   }
@@ -190,7 +189,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition tickEdge(WidgetTickEdge tickEdge) {
-    
     this.tickEdge = tickEdge;
     return this;
   }
@@ -215,7 +213,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition tickPos(String tickPos) {
-    
     this.tickPos = tickPos;
     return this;
   }
@@ -240,7 +237,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition type(NoteWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

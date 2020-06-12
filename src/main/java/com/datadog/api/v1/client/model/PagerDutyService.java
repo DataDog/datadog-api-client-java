@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The PagerDuty service that is available for integration with Datadog.
@@ -39,7 +43,6 @@ public class PagerDutyService {
 
 
   public PagerDutyService serviceKey(String serviceKey) {
-    
     this.serviceKey = serviceKey;
     return this;
   }
@@ -63,7 +66,6 @@ public class PagerDutyService {
 
 
   public PagerDutyService serviceName(String serviceName) {
-    
     this.serviceName = serviceName;
     return this;
   }

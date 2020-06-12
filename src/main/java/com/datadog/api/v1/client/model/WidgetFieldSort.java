@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Which column and order to sort by
@@ -40,7 +44,6 @@ public class WidgetFieldSort {
 
 
   public WidgetFieldSort column(String column) {
-    
     this.column = column;
     return this;
   }
@@ -64,7 +67,6 @@ public class WidgetFieldSort {
 
 
   public WidgetFieldSort order(WidgetSort order) {
-    
     this.order = order;
     return this;
   }

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,6 +23,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Number of hosts/containers recorded for each hour for a given organization.
@@ -68,7 +72,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour agentHostCount(Long agentHostCount) {
-    
     this.agentHostCount = agentHostCount;
     return this;
   }
@@ -93,7 +96,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour alibabaHostCount(Long alibabaHostCount) {
-    
     this.alibabaHostCount = alibabaHostCount;
     return this;
   }
@@ -118,7 +120,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour apmHostCount(Long apmHostCount) {
-    
     this.apmHostCount = apmHostCount;
     return this;
   }
@@ -143,7 +144,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour awsHostCount(Long awsHostCount) {
-    
     this.awsHostCount = awsHostCount;
     return this;
   }
@@ -168,7 +168,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour azureHostCount(Long azureHostCount) {
-    
     this.azureHostCount = azureHostCount;
     return this;
   }
@@ -193,7 +192,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour containerCount(Long containerCount) {
-    
     this.containerCount = containerCount;
     return this;
   }
@@ -218,7 +216,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour gcpHostCount(Long gcpHostCount) {
-    
     this.gcpHostCount = gcpHostCount;
     return this;
   }
@@ -243,7 +240,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour hostCount(Long hostCount) {
-    
     this.hostCount = hostCount;
     return this;
   }
@@ -268,7 +264,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour hour(OffsetDateTime hour) {
-    
     this.hour = hour;
     return this;
   }

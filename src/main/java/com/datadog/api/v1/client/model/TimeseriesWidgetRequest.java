@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
@@ -28,6 +30,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Updated timeseries widget.
@@ -79,7 +83,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
-    
     this.apmQuery = apmQuery;
     return this;
   }
@@ -104,7 +107,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest displayType(WidgetDisplayType displayType) {
-    
     this.displayType = displayType;
     return this;
   }
@@ -129,7 +131,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
-    
     this.eventQuery = eventQuery;
     return this;
   }
@@ -154,7 +155,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest logQuery(LogQueryDefinition logQuery) {
-    
     this.logQuery = logQuery;
     return this;
   }
@@ -179,7 +179,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest metadata(List<TimeseriesWidgetRequestMetadata> metadata) {
-    
     this.metadata = metadata;
     return this;
   }
@@ -212,7 +211,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
-    
     this.networkQuery = networkQuery;
     return this;
   }
@@ -237,7 +235,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
-    
     this.processQuery = processQuery;
     return this;
   }
@@ -262,7 +259,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest q(String q) {
-    
     this.q = q;
     return this;
   }
@@ -287,7 +283,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
-    
     this.rumQuery = rumQuery;
     return this;
   }
@@ -312,7 +307,6 @@ public class TimeseriesWidgetRequest {
 
 
   public TimeseriesWidgetRequest style(WidgetRequestStyle style) {
-    
     this.style = style;
     return this;
   }

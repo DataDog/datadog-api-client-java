@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A list of current AWS services for which Datadog offers automatic log collection.
@@ -41,7 +45,6 @@ public class AWSLogsServicesRequest {
 
 
   public AWSLogsServicesRequest accountId(String accountId) {
-    
     this.accountId = accountId;
     return this;
   }
@@ -65,7 +68,6 @@ public class AWSLogsServicesRequest {
 
 
   public AWSLogsServicesRequest services(List<String> services) {
-    
     this.services = services;
     return this;
   }

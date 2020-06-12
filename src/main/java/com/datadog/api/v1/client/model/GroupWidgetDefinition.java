@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.GroupWidgetDefinitionType;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetLayoutType;
@@ -25,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
@@ -52,7 +56,6 @@ public class GroupWidgetDefinition {
 
 
   public GroupWidgetDefinition layoutType(WidgetLayoutType layoutType) {
-    
     this.layoutType = layoutType;
     return this;
   }
@@ -76,7 +79,6 @@ public class GroupWidgetDefinition {
 
 
   public GroupWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -101,7 +103,6 @@ public class GroupWidgetDefinition {
 
 
   public GroupWidgetDefinition type(GroupWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -125,7 +126,6 @@ public class GroupWidgetDefinition {
 
 
   public GroupWidgetDefinition widgets(List<Widget> widgets) {
-    
     this.widgets = widgets;
     return this;
   }

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Dashboard definition.
@@ -69,7 +73,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards authorHandle(String authorHandle) {
-    
     this.authorHandle = authorHandle;
     return this;
   }
@@ -94,7 +97,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -119,7 +121,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -144,7 +145,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -169,7 +169,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards isReadOnly(Boolean isReadOnly) {
-    
     this.isReadOnly = isReadOnly;
     return this;
   }
@@ -194,7 +193,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards layoutType(DashboardLayoutType layoutType) {
-    
     this.layoutType = layoutType;
     return this;
   }
@@ -219,7 +217,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards modifiedAt(OffsetDateTime modifiedAt) {
-    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -244,7 +241,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -269,7 +265,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards url(String url) {
-    
     this.url = url;
     return this;
   }

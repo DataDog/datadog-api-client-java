@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsFilter;
 import com.datadog.api.v1.client.model.LogsPipelineProcessorType;
 import com.datadog.api.v1.client.model.LogsProcessor;
@@ -25,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Nested Pipelines are pipelines within a pipeline. Use Nested Pipelines to split the processing into two steps. For example, first use a high-level filtering such as team and then a second level of filtering based on the integration, service, or any other tag or attribute.  A pipeline can contain Nested Pipelines and Processors whereas a Nested Pipeline can only contain Processors.
@@ -56,7 +60,6 @@ public class LogsPipelineProcessor {
 
 
   public LogsPipelineProcessor filter(LogsFilter filter) {
-    
     this.filter = filter;
     return this;
   }
@@ -81,7 +84,6 @@ public class LogsPipelineProcessor {
 
 
   public LogsPipelineProcessor isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -106,7 +108,6 @@ public class LogsPipelineProcessor {
 
 
   public LogsPipelineProcessor name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -131,7 +132,6 @@ public class LogsPipelineProcessor {
 
 
   public LogsPipelineProcessor processors(List<LogsProcessor> processors) {
-    
     this.processors = processors;
     return this;
   }
@@ -164,7 +164,6 @@ public class LogsPipelineProcessor {
 
 
   public LogsPipelineProcessor type(LogsPipelineProcessorType type) {
-    
     this.type = type;
     return this;
   }

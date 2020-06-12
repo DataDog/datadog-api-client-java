@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.datadog.api.v1.client.model.DashboardTemplateVariablePreset;
 import com.datadog.api.v1.client.model.DashboardTemplateVariables;
@@ -30,6 +32,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.
@@ -126,7 +130,6 @@ public class Dashboard {
 
   public Dashboard description(String description) {
     this.description = JsonNullable.<String>of(description);
-    
     return this;
   }
 
@@ -176,7 +179,6 @@ public class Dashboard {
 
 
   public Dashboard isReadOnly(Boolean isReadOnly) {
-    
     this.isReadOnly = isReadOnly;
     return this;
   }
@@ -201,7 +203,6 @@ public class Dashboard {
 
 
   public Dashboard layoutType(DashboardLayoutType layoutType) {
-    
     this.layoutType = layoutType;
     return this;
   }
@@ -242,7 +243,6 @@ public class Dashboard {
 
   public Dashboard notifyList(List<String> notifyList) {
     this.notifyList = JsonNullable.<List<String>>of(notifyList);
-    
     return this;
   }
 
@@ -289,7 +289,6 @@ public class Dashboard {
 
   public Dashboard templateVariablePresets(List<DashboardTemplateVariablePreset> templateVariablePresets) {
     this.templateVariablePresets = JsonNullable.<List<DashboardTemplateVariablePreset>>of(templateVariablePresets);
-    
     return this;
   }
 
@@ -336,7 +335,6 @@ public class Dashboard {
 
   public Dashboard templateVariables(List<DashboardTemplateVariables> templateVariables) {
     this.templateVariables = JsonNullable.<List<DashboardTemplateVariables>>of(templateVariables);
-    
     return this;
   }
 
@@ -382,7 +380,6 @@ public class Dashboard {
 
 
   public Dashboard title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -422,7 +419,6 @@ public class Dashboard {
 
 
   public Dashboard widgets(List<Widget> widgets) {
-    
     this.widgets = widgets;
     return this;
   }

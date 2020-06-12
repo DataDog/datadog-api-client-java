@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,6 +23,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object containing a deleted Synthetic test ID with the associated deletion timestamp.
@@ -40,7 +44,6 @@ public class SyntheticsDeleteTestsResponseDeletedTests {
 
 
   public SyntheticsDeleteTestsResponseDeletedTests deletedAt(OffsetDateTime deletedAt) {
-    
     this.deletedAt = deletedAt;
     return this;
   }
@@ -65,7 +68,6 @@ public class SyntheticsDeleteTestsResponseDeletedTests {
 
 
   public SyntheticsDeleteTestsResponseDeletedTests publicId(String publicId) {
-    
     this.publicId = publicId;
     return this;
   }

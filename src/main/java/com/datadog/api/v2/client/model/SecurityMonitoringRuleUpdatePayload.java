@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCase;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQuery;
@@ -25,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Update an existing rule.
@@ -64,7 +68,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload cases(List<SecurityMonitoringRuleCase> cases) {
-    
     this.cases = cases;
     return this;
   }
@@ -97,7 +100,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload enabled(Boolean enabled) {
-    
     this.enabled = enabled;
     return this;
   }
@@ -122,7 +124,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -147,7 +148,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -172,7 +172,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload options(SecurityMonitoringRuleOptions options) {
-    
     this.options = options;
     return this;
   }
@@ -197,7 +196,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload queries(List<SecurityMonitoringRuleQuery> queries) {
-    
     this.queries = queries;
     return this;
   }
@@ -230,7 +228,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }

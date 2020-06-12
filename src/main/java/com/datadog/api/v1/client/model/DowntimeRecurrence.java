@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,6 +27,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * An object defining the recurrence of the downtime.
@@ -56,7 +60,6 @@ public class DowntimeRecurrence {
 
 
   public DowntimeRecurrence period(Integer period) {
-    
     this.period = period;
     return this;
   }
@@ -82,7 +85,6 @@ public class DowntimeRecurrence {
 
 
   public DowntimeRecurrence type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -108,7 +110,6 @@ public class DowntimeRecurrence {
 
   public DowntimeRecurrence untilDate(Long untilDate) {
     this.untilDate = JsonNullable.<Long>of(untilDate);
-    
     return this;
   }
 
@@ -143,7 +144,6 @@ public class DowntimeRecurrence {
 
   public DowntimeRecurrence untilOccurrences(Integer untilOccurrences) {
     this.untilOccurrences = JsonNullable.<Integer>of(untilOccurrences);
-    
     return this;
   }
 
@@ -178,7 +178,6 @@ public class DowntimeRecurrence {
 
 
   public DowntimeRecurrence weekDays(List<String> weekDays) {
-    
     this.weekDays = weekDays;
     return this;
   }

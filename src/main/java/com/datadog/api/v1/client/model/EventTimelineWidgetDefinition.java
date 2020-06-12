@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventTimelineWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The event timeline is a widget version of the timeline that appears at the top of the Event Stream view. Only available on FREE layout dashboards.
@@ -62,7 +66,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -86,7 +89,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition tagsExecution(String tagsExecution) {
-    
     this.tagsExecution = tagsExecution;
     return this;
   }
@@ -111,7 +113,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -136,7 +137,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -161,7 +161,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -186,7 +185,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -211,7 +209,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition type(EventTimelineWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsUserAgentParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
@@ -58,7 +62,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -83,7 +86,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser isEncoded(Boolean isEncoded) {
-    
     this.isEncoded = isEncoded;
     return this;
   }
@@ -108,7 +110,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -133,7 +134,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -162,7 +162,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -186,7 +185,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser type(LogsUserAgentParserType type) {
-    
     this.type = type;
     return this;
   }

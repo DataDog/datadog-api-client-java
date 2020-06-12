@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object with all metric related metadata.
@@ -59,7 +63,6 @@ public class MetricMetadata {
 
 
   public MetricMetadata description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -100,7 +103,6 @@ public class MetricMetadata {
 
 
   public MetricMetadata perUnit(String perUnit) {
-    
     this.perUnit = perUnit;
     return this;
   }
@@ -125,7 +127,6 @@ public class MetricMetadata {
 
 
   public MetricMetadata shortName(String shortName) {
-    
     this.shortName = shortName;
     return this;
   }
@@ -150,7 +151,6 @@ public class MetricMetadata {
 
 
   public MetricMetadata statsdInterval(Long statsdInterval) {
-    
     this.statsdInterval = statsdInterval;
     return this;
   }
@@ -175,7 +175,6 @@ public class MetricMetadata {
 
 
   public MetricMetadata type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -200,7 +199,6 @@ public class MetricMetadata {
 
 
   public MetricMetadata unit(String unit) {
-    
     this.unit = unit;
     return this;
   }

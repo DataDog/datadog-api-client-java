@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOHistoryMetricsSeriesMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A representation of &#x60;metric&#x60; based SLO time series for the provided queries. This is the same response type from &#x60;batch_query&#x60; endpoint.
@@ -50,7 +54,6 @@ public class SLOHistoryMetricsSeries {
 
 
   public SLOHistoryMetricsSeries count(Long count) {
-    
     this.count = count;
     return this;
   }
@@ -74,7 +77,6 @@ public class SLOHistoryMetricsSeries {
 
 
   public SLOHistoryMetricsSeries metadata(SLOHistoryMetricsSeriesMetadata metadata) {
-    
     this.metadata = metadata;
     return this;
   }
@@ -98,7 +100,6 @@ public class SLOHistoryMetricsSeries {
 
 
   public SLOHistoryMetricsSeries sum(Double sum) {
-    
     this.sum = sum;
     return this;
   }
@@ -122,7 +123,6 @@ public class SLOHistoryMetricsSeries {
 
 
   public SLOHistoryMetricsSeries values(List<Double> values) {
-    
     this.values = values;
     return this;
   }

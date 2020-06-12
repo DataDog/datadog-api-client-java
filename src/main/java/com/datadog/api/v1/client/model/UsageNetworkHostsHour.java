@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,6 +23,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Number of active NPM hosts for each hour for a given organization.
@@ -40,7 +44,6 @@ public class UsageNetworkHostsHour {
 
 
   public UsageNetworkHostsHour hostCount(Long hostCount) {
-    
     this.hostCount = hostCount;
     return this;
   }
@@ -65,7 +68,6 @@ public class UsageNetworkHostsHour {
 
 
   public UsageNetworkHostsHour hour(OffsetDateTime hour) {
-    
     this.hour = hour;
     return this;
   }

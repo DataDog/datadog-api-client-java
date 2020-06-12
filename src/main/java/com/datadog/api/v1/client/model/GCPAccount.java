@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Your Google Cloud Platform Account.
@@ -85,7 +89,6 @@ public class GCPAccount {
 
 
   public GCPAccount authProviderX509CertUrl(String authProviderX509CertUrl) {
-    
     this.authProviderX509CertUrl = authProviderX509CertUrl;
     return this;
   }
@@ -110,7 +113,6 @@ public class GCPAccount {
 
 
   public GCPAccount authUri(String authUri) {
-    
     this.authUri = authUri;
     return this;
   }
@@ -135,7 +137,6 @@ public class GCPAccount {
 
 
   public GCPAccount automute(Boolean automute) {
-    
     this.automute = automute;
     return this;
   }
@@ -160,7 +161,6 @@ public class GCPAccount {
 
 
   public GCPAccount clientEmail(String clientEmail) {
-    
     this.clientEmail = clientEmail;
     return this;
   }
@@ -185,7 +185,6 @@ public class GCPAccount {
 
 
   public GCPAccount clientId(String clientId) {
-    
     this.clientId = clientId;
     return this;
   }
@@ -210,7 +209,6 @@ public class GCPAccount {
 
 
   public GCPAccount clientX509CertUrl(String clientX509CertUrl) {
-    
     this.clientX509CertUrl = clientX509CertUrl;
     return this;
   }
@@ -235,7 +233,6 @@ public class GCPAccount {
 
 
   public GCPAccount errors(List<String> errors) {
-    
     this.errors = errors;
     return this;
   }
@@ -268,7 +265,6 @@ public class GCPAccount {
 
 
   public GCPAccount hostFilters(String hostFilters) {
-    
     this.hostFilters = hostFilters;
     return this;
   }
@@ -293,7 +289,6 @@ public class GCPAccount {
 
 
   public GCPAccount privateKey(String privateKey) {
-    
     this.privateKey = privateKey;
     return this;
   }
@@ -318,7 +313,6 @@ public class GCPAccount {
 
 
   public GCPAccount privateKeyId(String privateKeyId) {
-    
     this.privateKeyId = privateKeyId;
     return this;
   }
@@ -343,7 +337,6 @@ public class GCPAccount {
 
 
   public GCPAccount projectId(String projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -368,7 +361,6 @@ public class GCPAccount {
 
 
   public GCPAccount tokenUri(String tokenUri) {
-    
     this.tokenUri = tokenUri;
     return this;
   }
@@ -393,7 +385,6 @@ public class GCPAccount {
 
 
   public GCPAccount type(String type) {
-    
     this.type = type;
     return this;
   }

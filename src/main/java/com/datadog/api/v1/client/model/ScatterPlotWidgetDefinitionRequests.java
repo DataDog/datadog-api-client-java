@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.ScatterPlotRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Widget definition.
@@ -40,7 +44,6 @@ public class ScatterPlotWidgetDefinitionRequests {
 
 
   public ScatterPlotWidgetDefinitionRequests x(ScatterPlotRequest x) {
-    
     this.x = x;
     return this;
   }
@@ -64,7 +67,6 @@ public class ScatterPlotWidgetDefinitionRequests {
 
 
   public ScatterPlotWidgetDefinitionRequests y(ScatterPlotRequest y) {
-    
     this.y = y;
     return this;
   }

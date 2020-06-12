@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDestination;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The attributes associated with the archive.
@@ -44,7 +48,6 @@ public class LogsArchiveCreateRequestAttributes {
 
 
   public LogsArchiveCreateRequestAttributes destination(LogsArchiveCreateRequestDestination destination) {
-    
     this.destination = destination;
     return this;
   }
@@ -68,7 +71,6 @@ public class LogsArchiveCreateRequestAttributes {
 
 
   public LogsArchiveCreateRequestAttributes name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -92,7 +94,6 @@ public class LogsArchiveCreateRequestAttributes {
 
 
   public LogsArchiveCreateRequestAttributes query(String query) {
-    
     this.query = query;
     return this;
   }

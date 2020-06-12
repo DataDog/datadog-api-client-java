@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Axis controls for the widget.
@@ -51,7 +55,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis includeZero(Boolean includeZero) {
-    
     this.includeZero = includeZero;
     return this;
   }
@@ -76,7 +79,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis label(String label) {
-    
     this.label = label;
     return this;
   }
@@ -101,7 +103,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis max(String max) {
-    
     this.max = max;
     return this;
   }
@@ -126,7 +127,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis min(String min) {
-    
     this.min = min;
     return this;
   }
@@ -151,7 +151,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis scale(String scale) {
-    
     this.scale = scale;
     return this;
   }

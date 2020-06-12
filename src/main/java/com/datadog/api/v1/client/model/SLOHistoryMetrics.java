@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOHistoryMetricsSeries;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A &#x60;metric&#x60; based SLO history response.
@@ -66,7 +70,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics denominator(SLOHistoryMetricsSeries denominator) {
-    
     this.denominator = denominator;
     return this;
   }
@@ -90,7 +93,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics interval(Long interval) {
-    
     this.interval = interval;
     return this;
   }
@@ -114,7 +116,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -139,7 +140,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics numerator(SLOHistoryMetricsSeries numerator) {
-    
     this.numerator = numerator;
     return this;
   }
@@ -163,7 +163,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -187,7 +186,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics resType(String resType) {
-    
     this.resType = resType;
     return this;
   }
@@ -211,7 +209,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics respVersion(Long respVersion) {
-    
     this.respVersion = respVersion;
     return this;
   }
@@ -235,7 +232,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics times(List<Double> times) {
-    
     this.times = times;
     return this;
   }

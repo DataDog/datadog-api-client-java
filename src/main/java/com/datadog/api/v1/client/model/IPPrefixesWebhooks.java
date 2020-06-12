@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Available prefix information for the Webhook endpoints.
@@ -41,7 +45,6 @@ public class IPPrefixesWebhooks {
 
 
   public IPPrefixesWebhooks prefixesIpv4(List<String> prefixesIpv4) {
-    
     this.prefixesIpv4 = prefixesIpv4;
     return this;
   }
@@ -74,7 +77,6 @@ public class IPPrefixesWebhooks {
 
 
   public IPPrefixesWebhooks prefixesIpv6(List<String> prefixesIpv6) {
-    
     this.prefixesIpv6 = prefixesIpv6;
     return this;
   }

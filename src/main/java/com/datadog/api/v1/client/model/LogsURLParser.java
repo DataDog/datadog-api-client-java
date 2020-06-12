@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsURLParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,6 +28,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * This processor extracts query parameters and other important parameters from a URL.
@@ -61,7 +65,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -86,7 +89,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -112,7 +114,6 @@ public class LogsURLParser {
 
   public LogsURLParser normalizeEndingSlashes(Boolean normalizeEndingSlashes) {
     this.normalizeEndingSlashes = JsonNullable.<Boolean>of(normalizeEndingSlashes);
-    
     return this;
   }
 
@@ -146,7 +147,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -175,7 +175,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -199,7 +198,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser type(LogsURLParserType type) {
-    
     this.type = type;
     return this;
   }

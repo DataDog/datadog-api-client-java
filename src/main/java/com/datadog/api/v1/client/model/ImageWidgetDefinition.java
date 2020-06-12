@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.ImageWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetImageSizing;
 import com.datadog.api.v1.client.model.WidgetMargin;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.
@@ -50,7 +54,6 @@ public class ImageWidgetDefinition {
 
 
   public ImageWidgetDefinition margin(WidgetMargin margin) {
-    
     this.margin = margin;
     return this;
   }
@@ -75,7 +78,6 @@ public class ImageWidgetDefinition {
 
 
   public ImageWidgetDefinition sizing(WidgetImageSizing sizing) {
-    
     this.sizing = sizing;
     return this;
   }
@@ -100,7 +102,6 @@ public class ImageWidgetDefinition {
 
 
   public ImageWidgetDefinition type(ImageWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -124,7 +125,6 @@ public class ImageWidgetDefinition {
 
 
   public ImageWidgetDefinition url(String url) {
-    
     this.url = url;
     return this;
   }

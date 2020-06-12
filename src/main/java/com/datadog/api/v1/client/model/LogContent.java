@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,6 +27,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * JSON object containing all log attributes and their associated values.
@@ -60,7 +64,6 @@ public class LogContent {
 
 
   public LogContent attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -93,7 +96,6 @@ public class LogContent {
 
 
   public LogContent host(String host) {
-    
     this.host = host;
     return this;
   }
@@ -118,7 +120,6 @@ public class LogContent {
 
 
   public LogContent message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -143,7 +144,6 @@ public class LogContent {
 
 
   public LogContent service(String service) {
-    
     this.service = service;
     return this;
   }
@@ -168,7 +168,6 @@ public class LogContent {
 
 
   public LogContent tags(List<Object> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -201,7 +200,6 @@ public class LogContent {
 
 
   public LogContent timestamp(OffsetDateTime timestamp) {
-    
     this.timestamp = timestamp;
     return this;
   }

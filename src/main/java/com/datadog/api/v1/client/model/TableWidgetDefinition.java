@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.TableWidgetDefinitionType;
 import com.datadog.api.v1.client.model.TableWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -26,6 +28,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
@@ -61,7 +65,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition requests(List<TableWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -90,7 +93,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -115,7 +117,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -140,7 +141,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -165,7 +165,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -190,7 +189,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition type(TableWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

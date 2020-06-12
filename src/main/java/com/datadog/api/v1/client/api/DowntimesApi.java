@@ -88,7 +88,7 @@ private ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws Api
 
     return apiClient.invokeAPI("DowntimesApi.cancelDowntime", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, null);
   }
 
   public class APIcancelDowntimeRequest {
@@ -187,7 +187,7 @@ private ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(Can
 
     return apiClient.invokeAPI("DowntimesApi.cancelDowntimesByScope", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcancelDowntimesByScopeRequest {
@@ -296,7 +296,7 @@ private ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws A
 
     return apiClient.invokeAPI("DowntimesApi.createDowntime", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateDowntimeRequest {
@@ -404,7 +404,7 @@ private ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws Ap
 
     return apiClient.invokeAPI("DowntimesApi.getDowntime", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetDowntimeRequest {
@@ -499,7 +499,7 @@ private ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(Boolean currentOnl
 
     return apiClient.invokeAPI("DowntimesApi.listDowntimes", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistDowntimesRequest {
@@ -610,7 +610,7 @@ private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downti
 
     return apiClient.invokeAPI("DowntimesApi.updateDowntime", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateDowntimeRequest {

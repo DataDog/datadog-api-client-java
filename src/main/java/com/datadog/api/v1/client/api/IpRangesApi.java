@@ -81,7 +81,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
 
     return apiClient.invokeAPI("IpRangesApi.getIPRanges", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetIPRangesRequest {

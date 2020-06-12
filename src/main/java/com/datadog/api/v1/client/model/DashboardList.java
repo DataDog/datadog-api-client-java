@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.Creator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Your Datadog Dashboards.
@@ -65,7 +69,6 @@ public class DashboardList {
 
 
   public DashboardList author(Creator author) {
-    
     this.author = author;
     return this;
   }
@@ -170,7 +173,6 @@ public class DashboardList {
 
 
   public DashboardList name(String name) {
-    
     this.name = name;
     return this;
   }

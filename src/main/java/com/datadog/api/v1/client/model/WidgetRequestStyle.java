@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.WidgetLineType;
 import com.datadog.api.v1.client.model.WidgetLineWidth;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Define request widget style.
@@ -45,7 +49,6 @@ public class WidgetRequestStyle {
 
 
   public WidgetRequestStyle lineType(WidgetLineType lineType) {
-    
     this.lineType = lineType;
     return this;
   }
@@ -70,7 +73,6 @@ public class WidgetRequestStyle {
 
 
   public WidgetRequestStyle lineWidth(WidgetLineWidth lineWidth) {
-    
     this.lineWidth = lineWidth;
     return this;
   }
@@ -95,7 +97,6 @@ public class WidgetRequestStyle {
 
 
   public WidgetRequestStyle palette(String palette) {
-    
     this.palette = palette;
     return this;
   }

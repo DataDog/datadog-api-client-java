@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the SSL certificate used for the test.
@@ -59,7 +63,6 @@ public class SyntheticsSSLCertificateSubject {
 
 
   public SyntheticsSSLCertificateSubject C(String C) {
-    
     this.C = C;
     return this;
   }
@@ -84,7 +87,6 @@ public class SyntheticsSSLCertificateSubject {
 
 
   public SyntheticsSSLCertificateSubject CN(String CN) {
-    
     this.CN = CN;
     return this;
   }
@@ -109,7 +111,6 @@ public class SyntheticsSSLCertificateSubject {
 
 
   public SyntheticsSSLCertificateSubject L(String L) {
-    
     this.L = L;
     return this;
   }
@@ -134,7 +135,6 @@ public class SyntheticsSSLCertificateSubject {
 
 
   public SyntheticsSSLCertificateSubject O(String O) {
-    
     this.O = O;
     return this;
   }
@@ -159,7 +159,6 @@ public class SyntheticsSSLCertificateSubject {
 
 
   public SyntheticsSSLCertificateSubject OU(String OU) {
-    
     this.OU = OU;
     return this;
   }
@@ -184,7 +183,6 @@ public class SyntheticsSSLCertificateSubject {
 
 
   public SyntheticsSSLCertificateSubject ST(String ST) {
-    
     this.ST = ST;
     return this;
   }
@@ -209,7 +207,6 @@ public class SyntheticsSSLCertificateSubject {
 
 
   public SyntheticsSSLCertificateSubject altName(String altName) {
-    
     this.altName = altName;
     return this;
   }

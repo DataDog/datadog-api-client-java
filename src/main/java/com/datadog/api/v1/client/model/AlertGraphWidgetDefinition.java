@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AlertGraphWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -24,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
@@ -63,7 +67,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition alertId(String alertId) {
-    
     this.alertId = alertId;
     return this;
   }
@@ -87,7 +90,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -112,7 +114,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -137,7 +138,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -162,7 +162,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -187,7 +186,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition type(AlertGraphWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -211,7 +209,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition vizType(WidgetVizType vizType) {
-    
     this.vizType = vizType;
     return this;
   }

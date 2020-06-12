@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AWSLogsAsyncResponseErrors;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A list of all Datadog-AWS logs integrations available in your Datadog organization.
@@ -42,7 +46,6 @@ public class AWSLogsAsyncResponse {
 
 
   public AWSLogsAsyncResponse errors(List<AWSLogsAsyncResponseErrors> errors) {
-    
     this.errors = errors;
     return this;
   }
@@ -75,7 +78,6 @@ public class AWSLogsAsyncResponse {
 
 
   public AWSLogsAsyncResponse status(String status) {
-    
     this.status = status;
     return this;
   }

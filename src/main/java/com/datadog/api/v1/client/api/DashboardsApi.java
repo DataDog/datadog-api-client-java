@@ -89,7 +89,7 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
 
     return apiClient.invokeAPI("DashboardsApi.createDashboard", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateDashboardRequest {
@@ -197,7 +197,7 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
 
     return apiClient.invokeAPI("DashboardsApi.deleteDashboard", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIdeleteDashboardRequest {
@@ -297,7 +297,7 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
 
     return apiClient.invokeAPI("DashboardsApi.getDashboard", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetDashboardRequest {
@@ -391,7 +391,7 @@ private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiExc
 
     return apiClient.invokeAPI("DashboardsApi.listDashboards", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistDashboardsRequest {
@@ -491,7 +491,7 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
 
     return apiClient.invokeAPI("DashboardsApi.updateDashboard", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateDashboardRequest {

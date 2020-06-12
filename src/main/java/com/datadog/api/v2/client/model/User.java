@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.UserAttributes;
 import com.datadog.api.v2.client.model.UserResponseRelationships;
 import com.datadog.api.v2.client.model.UsersType;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * User object returned by the API.
@@ -50,7 +54,6 @@ public class User {
 
 
   public User attributes(UserAttributes attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -75,7 +78,6 @@ public class User {
 
 
   public User id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -100,7 +102,6 @@ public class User {
 
 
   public User relationships(UserResponseRelationships relationships) {
-    
     this.relationships = relationships;
     return this;
   }
@@ -125,7 +126,6 @@ public class User {
 
 
   public User type(UsersType type) {
-    
     this.type = type;
     return this;
   }

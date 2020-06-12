@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.HostMeta;
 import com.datadog.api.v1.client.model.HostMetrics;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,6 +28,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object representing a host.
@@ -93,7 +97,6 @@ public class Host {
 
 
   public Host aliases(List<String> aliases) {
-    
     this.aliases = aliases;
     return this;
   }
@@ -126,7 +129,6 @@ public class Host {
 
 
   public Host apps(List<String> apps) {
-    
     this.apps = apps;
     return this;
   }
@@ -159,7 +161,6 @@ public class Host {
 
 
   public Host awsName(String awsName) {
-    
     this.awsName = awsName;
     return this;
   }
@@ -184,7 +185,6 @@ public class Host {
 
 
   public Host hostName(String hostName) {
-    
     this.hostName = hostName;
     return this;
   }
@@ -209,7 +209,6 @@ public class Host {
 
 
   public Host id(Long id) {
-    
     this.id = id;
     return this;
   }
@@ -234,7 +233,6 @@ public class Host {
 
 
   public Host isMuted(Boolean isMuted) {
-    
     this.isMuted = isMuted;
     return this;
   }
@@ -259,7 +257,6 @@ public class Host {
 
 
   public Host lastReportedTime(Long lastReportedTime) {
-    
     this.lastReportedTime = lastReportedTime;
     return this;
   }
@@ -284,7 +281,6 @@ public class Host {
 
 
   public Host meta(HostMeta meta) {
-    
     this.meta = meta;
     return this;
   }
@@ -309,7 +305,6 @@ public class Host {
 
 
   public Host metrics(HostMetrics metrics) {
-    
     this.metrics = metrics;
     return this;
   }
@@ -334,7 +329,6 @@ public class Host {
 
 
   public Host muteTimeout(Long muteTimeout) {
-    
     this.muteTimeout = muteTimeout;
     return this;
   }
@@ -359,7 +353,6 @@ public class Host {
 
 
   public Host name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -384,7 +377,6 @@ public class Host {
 
 
   public Host sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -417,7 +409,6 @@ public class Host {
 
 
   public Host tagsBySource(Map<String, List<String>> tagsBySource) {
-    
     this.tagsBySource = tagsBySource;
     return this;
   }
@@ -450,7 +441,6 @@ public class Host {
 
 
   public Host up(Boolean up) {
-    
     this.up = up;
     return this;
   }

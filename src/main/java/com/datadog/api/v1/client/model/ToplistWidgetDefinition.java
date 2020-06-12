@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.ToplistWidgetDefinitionType;
 import com.datadog.api.v1.client.model.ToplistWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -26,6 +28,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
@@ -61,7 +65,6 @@ public class ToplistWidgetDefinition {
 
 
   public ToplistWidgetDefinition requests(List<ToplistWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -90,7 +93,6 @@ public class ToplistWidgetDefinition {
 
 
   public ToplistWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -115,7 +117,6 @@ public class ToplistWidgetDefinition {
 
 
   public ToplistWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -140,7 +141,6 @@ public class ToplistWidgetDefinition {
 
 
   public ToplistWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -165,7 +165,6 @@ public class ToplistWidgetDefinition {
 
 
   public ToplistWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -190,7 +189,6 @@ public class ToplistWidgetDefinition {
 
 
   public ToplistWidgetDefinition type(ToplistWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

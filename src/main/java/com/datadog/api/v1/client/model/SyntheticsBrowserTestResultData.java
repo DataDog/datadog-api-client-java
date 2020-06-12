@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsDevice;
 import com.datadog.api.v1.client.model.SyntheticsStepDetail;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,6 +26,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object containing results for your Synthetic browser test.
@@ -79,7 +83,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData browserType(String browserType) {
-    
     this.browserType = browserType;
     return this;
   }
@@ -104,7 +107,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData browserVersion(String browserVersion) {
-    
     this.browserVersion = browserVersion;
     return this;
   }
@@ -129,7 +131,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData device(SyntheticsDevice device) {
-    
     this.device = device;
     return this;
   }
@@ -154,7 +155,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData duration(Double duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -179,7 +179,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData error(String error) {
-    
     this.error = error;
     return this;
   }
@@ -204,7 +203,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData passed(Boolean passed) {
-    
     this.passed = passed;
     return this;
   }
@@ -229,7 +227,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData receivedEmailCount(Long receivedEmailCount) {
-    
     this.receivedEmailCount = receivedEmailCount;
     return this;
   }
@@ -254,7 +251,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData startUrl(String startUrl) {
-    
     this.startUrl = startUrl;
     return this;
   }
@@ -279,7 +275,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData stepDetails(List<SyntheticsStepDetail> stepDetails) {
-    
     this.stepDetails = stepDetails;
     return this;
   }
@@ -312,7 +307,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData thumbnailsBucketKey(Boolean thumbnailsBucketKey) {
-    
     this.thumbnailsBucketKey = thumbnailsBucketKey;
     return this;
   }
@@ -337,7 +331,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData timeToInteractive(Double timeToInteractive) {
-    
     this.timeToInteractive = timeToInteractive;
     return this;
   }
