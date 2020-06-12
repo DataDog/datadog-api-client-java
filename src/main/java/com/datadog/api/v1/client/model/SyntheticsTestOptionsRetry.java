@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the retry strategy to apply to a Synthetic test.
@@ -39,7 +43,6 @@ public class SyntheticsTestOptionsRetry {
 
 
   public SyntheticsTestOptionsRetry count(Long count) {
-    
     this.count = count;
     return this;
   }
@@ -64,7 +67,6 @@ public class SyntheticsTestOptionsRetry {
 
 
   public SyntheticsTestOptionsRetry interval(Double interval) {
-    
     this.interval = interval;
     return this;
   }

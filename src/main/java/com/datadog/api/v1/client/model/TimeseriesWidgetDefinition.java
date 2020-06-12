@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetAxis;
@@ -30,6 +32,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Analyzed Spans over time.
@@ -85,7 +89,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition events(List<WidgetEvent> events) {
-    
     this.events = events;
     return this;
   }
@@ -118,7 +121,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition legendSize(WidgetLegendSize legendSize) {
-    
     this.legendSize = legendSize;
     return this;
   }
@@ -143,7 +145,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition markers(List<WidgetMarker> markers) {
-    
     this.markers = markers;
     return this;
   }
@@ -176,7 +177,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition requests(List<TimeseriesWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -205,7 +205,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition showLegend(Boolean showLegend) {
-    
     this.showLegend = showLegend;
     return this;
   }
@@ -230,7 +229,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -255,7 +253,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -280,7 +277,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -305,7 +301,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -330,7 +325,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition type(TimeseriesWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -354,7 +348,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition yaxis(WidgetAxis yaxis) {
-    
     this.yaxis = yaxis;
     return this;
   }

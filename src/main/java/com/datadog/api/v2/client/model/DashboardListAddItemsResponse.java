@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.DashboardListItemResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Response containing a list of added dashboards.
@@ -38,7 +42,6 @@ public class DashboardListAddItemsResponse {
 
 
   public DashboardListAddItemsResponse addedDashboardsToList(List<DashboardListItemResponse> addedDashboardsToList) {
-    
     this.addedDashboardsToList = addedDashboardsToList;
     return this;
   }

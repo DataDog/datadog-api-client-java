@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationAzureType;
 import com.datadog.api.v2.client.model.LogsArchiveIntegrationAzure;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The Azure archive destination.
@@ -57,7 +61,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure container(String container) {
-    
     this.container = container;
     return this;
   }
@@ -81,7 +84,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure integration(LogsArchiveIntegrationAzure integration) {
-    
     this.integration = integration;
     return this;
   }
@@ -105,7 +107,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure path(String path) {
-    
     this.path = path;
     return this;
   }
@@ -130,7 +131,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure region(String region) {
-    
     this.region = region;
     return this;
   }
@@ -155,7 +155,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure storageAccount(String storageAccount) {
-    
     this.storageAccount = storageAccount;
     return this;
   }
@@ -179,7 +178,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure type(LogsArchiveDestinationAzureType type) {
-    
     this.type = type;
     return this;
   }

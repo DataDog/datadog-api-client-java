@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A metric SLI query. **Required if type is &#x60;metric&#x60;**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
@@ -39,7 +43,6 @@ public class ServiceLevelObjectiveQuery {
 
 
   public ServiceLevelObjectiveQuery denominator(String denominator) {
-    
     this.denominator = denominator;
     return this;
   }
@@ -63,7 +66,6 @@ public class ServiceLevelObjectiveQuery {
 
 
   public ServiceLevelObjectiveQuery numerator(String numerator) {
-    
     this.numerator = numerator;
     return this;
   }

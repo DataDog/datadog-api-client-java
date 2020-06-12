@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Markers allow you to add visual conditional formatting for your graphs.
@@ -47,7 +51,6 @@ public class WidgetMarker {
 
 
   public WidgetMarker displayType(String displayType) {
-    
     this.displayType = displayType;
     return this;
   }
@@ -72,7 +75,6 @@ public class WidgetMarker {
 
 
   public WidgetMarker label(String label) {
-    
     this.label = label;
     return this;
   }
@@ -97,7 +99,6 @@ public class WidgetMarker {
 
 
   public WidgetMarker time(String time) {
-    
     this.time = time;
     return this;
   }
@@ -122,7 +123,6 @@ public class WidgetMarker {
 
 
   public WidgetMarker value(String value) {
-    
     this.value = value;
     return this;
   }

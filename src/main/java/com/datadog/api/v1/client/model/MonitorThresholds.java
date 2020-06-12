@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * List of the different monitor threshold available.
@@ -58,7 +62,6 @@ public class MonitorThresholds {
 
 
   public MonitorThresholds critical(Double critical) {
-    
     this.critical = critical;
     return this;
   }
@@ -84,7 +87,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds criticalRecovery(Double criticalRecovery) {
     this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
-    
     return this;
   }
 
@@ -119,7 +121,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds ok(Double ok) {
     this.ok = JsonNullable.<Double>of(ok);
-    
     return this;
   }
 
@@ -154,7 +155,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds unknown(Double unknown) {
     this.unknown = JsonNullable.<Double>of(unknown);
-    
     return this;
   }
 
@@ -189,7 +189,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds warning(Double warning) {
     this.warning = JsonNullable.<Double>of(warning);
-    
     return this;
   }
 
@@ -224,7 +223,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds warningRecovery(Double warningRecovery) {
     this.warningRecovery = JsonNullable.<Double>of(warningRecovery);
-    
     return this;
   }
 

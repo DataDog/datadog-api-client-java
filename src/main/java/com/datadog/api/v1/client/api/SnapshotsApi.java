@@ -98,7 +98,7 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
 
     return apiClient.invokeAPI("SnapshotsApi.getGraphSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetGraphSnapshotRequest {

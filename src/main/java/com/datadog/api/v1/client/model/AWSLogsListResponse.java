@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AWSLogsListResponseLambdas;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A list of all Datadog-AWS logs integrations available in your Datadog organization.
@@ -46,7 +50,6 @@ public class AWSLogsListResponse {
 
 
   public AWSLogsListResponse accountId(String accountId) {
-    
     this.accountId = accountId;
     return this;
   }
@@ -71,7 +74,6 @@ public class AWSLogsListResponse {
 
 
   public AWSLogsListResponse lambdas(List<AWSLogsListResponseLambdas> lambdas) {
-    
     this.lambdas = lambdas;
     return this;
   }
@@ -104,7 +106,6 @@ public class AWSLogsListResponse {
 
 
   public AWSLogsListResponse services(List<String> services) {
-    
     this.services = services;
     return this;
   }

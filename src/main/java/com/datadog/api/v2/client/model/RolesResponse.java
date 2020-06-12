@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.ResponseMetaAttributes;
 import com.datadog.api.v2.client.model.Role;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,6 +26,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Response containing information about multiple roles.
@@ -43,7 +47,6 @@ public class RolesResponse {
 
 
   public RolesResponse data(List<Role> data) {
-    
     this.data = data;
     return this;
   }
@@ -76,7 +79,6 @@ public class RolesResponse {
 
 
   public RolesResponse meta(ResponseMetaAttributes meta) {
-    
     this.meta = meta;
     return this;
   }

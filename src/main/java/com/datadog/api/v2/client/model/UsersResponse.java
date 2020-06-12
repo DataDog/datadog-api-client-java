@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.ResponseMetaAttributes;
 import com.datadog.api.v2.client.model.User;
 import com.datadog.api.v2.client.model.UserResponseIncludedItem;
@@ -25,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Response containing information about multiple users.
@@ -48,7 +52,6 @@ public class UsersResponse {
 
 
   public UsersResponse data(List<User> data) {
-    
     this.data = data;
     return this;
   }
@@ -81,7 +84,6 @@ public class UsersResponse {
 
 
   public UsersResponse included(List<UserResponseIncludedItem> included) {
-    
     this.included = included;
     return this;
   }
@@ -114,7 +116,6 @@ public class UsersResponse {
 
 
   public UsersResponse meta(ResponseMetaAttributes meta) {
-    
     this.meta = meta;
     return this;
   }

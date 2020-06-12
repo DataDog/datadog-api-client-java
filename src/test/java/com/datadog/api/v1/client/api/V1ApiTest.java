@@ -162,8 +162,7 @@ public abstract class V1ApiTest extends TestUtils.APITest {
                     "application/json",
                     "application/json",
                     new String[]{"apiKeyAuth", "appKeyAuth"},
-                    responseType,
-                    null
+                    responseType
             );
         } finally {
             generalApiClient.setBasePath(originalBasePath);

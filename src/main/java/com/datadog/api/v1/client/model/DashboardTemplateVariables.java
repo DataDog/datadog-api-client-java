@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Template variable.
@@ -47,7 +51,6 @@ public class DashboardTemplateVariables {
 
   public DashboardTemplateVariables _default(String _default) {
     this._default = JsonNullable.<String>of(_default);
-    
     return this;
   }
 
@@ -81,7 +84,6 @@ public class DashboardTemplateVariables {
 
 
   public DashboardTemplateVariables name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -106,7 +108,6 @@ public class DashboardTemplateVariables {
 
   public DashboardTemplateVariables prefix(String prefix) {
     this.prefix = JsonNullable.<String>of(prefix);
-    
     return this;
   }
 

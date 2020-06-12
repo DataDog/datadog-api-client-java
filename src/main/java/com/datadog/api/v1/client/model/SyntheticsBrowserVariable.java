@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsBrowserVariableType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
@@ -52,7 +56,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable example(String example) {
-    
     this.example = example;
     return this;
   }
@@ -77,7 +80,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -102,7 +104,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -126,7 +127,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable pattern(String pattern) {
-    
     this.pattern = pattern;
     return this;
   }
@@ -151,7 +151,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable type(SyntheticsBrowserVariableType type) {
-    
     this.type = type;
     return this;
   }

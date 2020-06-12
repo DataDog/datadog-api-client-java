@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.ApiKey;
 import com.datadog.api.v1.client.model.ApplicationKey;
 import com.datadog.api.v1.client.model.Organization;
@@ -24,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Response object for an organization creation.
@@ -51,7 +55,6 @@ public class OrganizationCreateResponse {
 
 
   public OrganizationCreateResponse apiKey(ApiKey apiKey) {
-    
     this.apiKey = apiKey;
     return this;
   }
@@ -76,7 +79,6 @@ public class OrganizationCreateResponse {
 
 
   public OrganizationCreateResponse applicationKey(ApplicationKey applicationKey) {
-    
     this.applicationKey = applicationKey;
     return this;
   }
@@ -101,7 +103,6 @@ public class OrganizationCreateResponse {
 
 
   public OrganizationCreateResponse org(Organization org) {
-    
     this.org = org;
     return this;
   }
@@ -126,7 +127,6 @@ public class OrganizationCreateResponse {
 
 
   public OrganizationCreateResponse user(User user) {
-    
     this.user = user;
     return this;
   }

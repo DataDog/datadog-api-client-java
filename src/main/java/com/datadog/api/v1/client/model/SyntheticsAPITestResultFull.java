@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsAPITestResultData;
 import com.datadog.api.v1.client.model.SyntheticsAPITestResultFullCheck;
 import com.datadog.api.v1.client.model.SyntheticsTestMonitorStatus;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object returned describing a API test result.
@@ -62,7 +66,6 @@ public class SyntheticsAPITestResultFull {
 
 
   public SyntheticsAPITestResultFull check(SyntheticsAPITestResultFullCheck check) {
-    
     this.check = check;
     return this;
   }
@@ -87,7 +90,6 @@ public class SyntheticsAPITestResultFull {
 
 
   public SyntheticsAPITestResultFull checkTime(Double checkTime) {
-    
     this.checkTime = checkTime;
     return this;
   }
@@ -112,7 +114,6 @@ public class SyntheticsAPITestResultFull {
 
 
   public SyntheticsAPITestResultFull checkVersion(Long checkVersion) {
-    
     this.checkVersion = checkVersion;
     return this;
   }
@@ -137,7 +138,6 @@ public class SyntheticsAPITestResultFull {
 
 
   public SyntheticsAPITestResultFull probeDc(String probeDc) {
-    
     this.probeDc = probeDc;
     return this;
   }
@@ -162,7 +162,6 @@ public class SyntheticsAPITestResultFull {
 
 
   public SyntheticsAPITestResultFull result(SyntheticsAPITestResultData result) {
-    
     this.result = result;
     return this;
   }
@@ -187,7 +186,6 @@ public class SyntheticsAPITestResultFull {
 
 
   public SyntheticsAPITestResultFull resultId(String resultId) {
-    
     this.resultId = resultId;
     return this;
   }
@@ -212,7 +210,6 @@ public class SyntheticsAPITestResultFull {
 
 
   public SyntheticsAPITestResultFull status(SyntheticsTestMonitorStatus status) {
-    
     this.status = status;
     return this;
   }

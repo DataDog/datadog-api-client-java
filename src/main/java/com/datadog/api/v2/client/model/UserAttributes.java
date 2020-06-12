@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,6 +23,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Attributes of user object returned by the API.
@@ -68,7 +72,6 @@ public class UserAttributes {
 
 
   public UserAttributes createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -93,7 +96,6 @@ public class UserAttributes {
 
 
   public UserAttributes disabled(Boolean disabled) {
-    
     this.disabled = disabled;
     return this;
   }
@@ -118,7 +120,6 @@ public class UserAttributes {
 
 
   public UserAttributes email(String email) {
-    
     this.email = email;
     return this;
   }
@@ -143,7 +144,6 @@ public class UserAttributes {
 
 
   public UserAttributes handle(String handle) {
-    
     this.handle = handle;
     return this;
   }
@@ -168,7 +168,6 @@ public class UserAttributes {
 
 
   public UserAttributes icon(String icon) {
-    
     this.icon = icon;
     return this;
   }
@@ -193,7 +192,6 @@ public class UserAttributes {
 
 
   public UserAttributes name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -218,7 +216,6 @@ public class UserAttributes {
 
 
   public UserAttributes status(String status) {
-    
     this.status = status;
     return this;
   }
@@ -243,7 +240,6 @@ public class UserAttributes {
 
 
   public UserAttributes title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -268,7 +264,6 @@ public class UserAttributes {
 
 
   public UserAttributes verified(Boolean verified) {
-    
     this.verified = verified;
     return this;
   }

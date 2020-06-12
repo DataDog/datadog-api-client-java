@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.MonitorDeviceID;
 import com.datadog.api.v1.client.model.MonitorOptionsAggregation;
 import com.datadog.api.v1.client.model.MonitorThresholdWindowOptions;
@@ -31,6 +33,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * List of options associated with your monitor.
@@ -122,7 +126,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions aggregation(MonitorOptionsAggregation aggregation) {
-    
     this.aggregation = aggregation;
     return this;
   }
@@ -163,7 +166,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions enableLogsSample(Boolean enableLogsSample) {
-    
     this.enableLogsSample = enableLogsSample;
     return this;
   }
@@ -188,7 +190,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions escalationMessage(String escalationMessage) {
-    
     this.escalationMessage = escalationMessage;
     return this;
   }
@@ -214,7 +215,6 @@ public class MonitorOptions {
 
   public MonitorOptions evaluationDelay(Long evaluationDelay) {
     this.evaluationDelay = JsonNullable.<Long>of(evaluationDelay);
-    
     return this;
   }
 
@@ -248,7 +248,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions includeTags(Boolean includeTags) {
-    
     this.includeTags = includeTags;
     return this;
   }
@@ -273,7 +272,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions locked(Boolean locked) {
-    
     this.locked = locked;
     return this;
   }
@@ -299,7 +297,6 @@ public class MonitorOptions {
 
   public MonitorOptions minFailureDuration(Long minFailureDuration) {
     this.minFailureDuration = JsonNullable.<Long>of(minFailureDuration);
-    
     return this;
   }
 
@@ -336,7 +333,6 @@ public class MonitorOptions {
 
   public MonitorOptions minLocationFailed(Long minLocationFailed) {
     this.minLocationFailed = JsonNullable.<Long>of(minLocationFailed);
-    
     return this;
   }
 
@@ -371,7 +367,6 @@ public class MonitorOptions {
 
   public MonitorOptions newHostDelay(Long newHostDelay) {
     this.newHostDelay = JsonNullable.<Long>of(newHostDelay);
-    
     return this;
   }
 
@@ -406,7 +401,6 @@ public class MonitorOptions {
 
   public MonitorOptions noDataTimeframe(Long noDataTimeframe) {
     this.noDataTimeframe = JsonNullable.<Long>of(noDataTimeframe);
-    
     return this;
   }
 
@@ -440,7 +434,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions notifyAudit(Boolean notifyAudit) {
-    
     this.notifyAudit = notifyAudit;
     return this;
   }
@@ -465,7 +458,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions notifyNoData(Boolean notifyNoData) {
-    
     this.notifyNoData = notifyNoData;
     return this;
   }
@@ -491,7 +483,6 @@ public class MonitorOptions {
 
   public MonitorOptions renotifyInterval(Long renotifyInterval) {
     this.renotifyInterval = JsonNullable.<Long>of(renotifyInterval);
-    
     return this;
   }
 
@@ -525,7 +516,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions requireFullWindow(Boolean requireFullWindow) {
-    
     this.requireFullWindow = requireFullWindow;
     return this;
   }
@@ -550,7 +540,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions silenced(Map<String, Long> silenced) {
-    
     this.silenced = silenced;
     return this;
   }
@@ -584,7 +573,6 @@ public class MonitorOptions {
 
   public MonitorOptions syntheticsCheckId(Long syntheticsCheckId) {
     this.syntheticsCheckId = JsonNullable.<Long>of(syntheticsCheckId);
-    
     return this;
   }
 
@@ -618,7 +606,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions thresholdWindows(MonitorThresholdWindowOptions thresholdWindows) {
-    
     this.thresholdWindows = thresholdWindows;
     return this;
   }
@@ -643,7 +630,6 @@ public class MonitorOptions {
 
 
   public MonitorOptions thresholds(MonitorThresholds thresholds) {
-    
     this.thresholds = thresholds;
     return this;
   }
@@ -669,7 +655,6 @@ public class MonitorOptions {
 
   public MonitorOptions timeoutH(Long timeoutH) {
     this.timeoutH = JsonNullable.<Long>of(timeoutH);
-    
     return this;
   }
 

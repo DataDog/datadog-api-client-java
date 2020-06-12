@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.RoleCreateAttributes;
 import com.datadog.api.v2.client.model.RoleRelationships;
 import com.datadog.api.v2.client.model.RolesType;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Data related to the creation of a role.
@@ -46,7 +50,6 @@ public class RoleCreateData {
 
 
   public RoleCreateData attributes(RoleCreateAttributes attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -71,7 +74,6 @@ public class RoleCreateData {
 
 
   public RoleCreateData relationships(RoleRelationships relationships) {
-    
     this.relationships = relationships;
     return this;
   }
@@ -96,7 +98,6 @@ public class RoleCreateData {
 
 
   public RoleCreateData type(RolesType type) {
-    
     this.type = type;
     return this;
   }

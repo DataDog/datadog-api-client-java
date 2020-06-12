@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.MonitorOverallStates;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Monitor state for a single group.
@@ -56,7 +60,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup lastNodataTs(Long lastNodataTs) {
-    
     this.lastNodataTs = lastNodataTs;
     return this;
   }
@@ -81,7 +84,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup lastNotifiedTs(Long lastNotifiedTs) {
-    
     this.lastNotifiedTs = lastNotifiedTs;
     return this;
   }
@@ -106,7 +108,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup lastResolvedTs(Long lastResolvedTs) {
-    
     this.lastResolvedTs = lastResolvedTs;
     return this;
   }
@@ -131,7 +132,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup lastTriggeredTs(Long lastTriggeredTs) {
-    
     this.lastTriggeredTs = lastTriggeredTs;
     return this;
   }
@@ -156,7 +156,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -181,7 +180,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup status(MonitorOverallStates status) {
-    
     this.status = status;
     return this;
   }

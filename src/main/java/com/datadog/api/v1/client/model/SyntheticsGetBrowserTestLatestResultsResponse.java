@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultShort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object with the latest Synthetic browser test run.
@@ -42,7 +46,6 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
 
 
   public SyntheticsGetBrowserTestLatestResultsResponse lastTimestampFetched(Long lastTimestampFetched) {
-    
     this.lastTimestampFetched = lastTimestampFetched;
     return this;
   }
@@ -67,7 +70,6 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
 
 
   public SyntheticsGetBrowserTestLatestResultsResponse results(List<SyntheticsBrowserTestResultShort> results) {
-    
     this.results = results;
     return this;
   }

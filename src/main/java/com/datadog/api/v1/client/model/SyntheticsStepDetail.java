@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsBrowserError;
 import com.datadog.api.v1.client.model.SyntheticsCheckType;
 import com.datadog.api.v1.client.model.SyntheticsPlayingTab;
@@ -28,6 +30,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing a step for a Synthetic test.
@@ -107,7 +111,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail browserErrors(List<SyntheticsBrowserError> browserErrors) {
-    
     this.browserErrors = browserErrors;
     return this;
   }
@@ -140,7 +143,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail checkType(SyntheticsCheckType checkType) {
-    
     this.checkType = checkType;
     return this;
   }
@@ -165,7 +167,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -190,7 +191,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail duration(Double duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -215,7 +215,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail error(String error) {
-    
     this.error = error;
     return this;
   }
@@ -240,7 +239,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail playingTab(SyntheticsPlayingTab playingTab) {
-    
     this.playingTab = playingTab;
     return this;
   }
@@ -265,7 +263,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail resources(List<SyntheticsResource> resources) {
-    
     this.resources = resources;
     return this;
   }
@@ -298,7 +295,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail screenshotBucketKey(Boolean screenshotBucketKey) {
-    
     this.screenshotBucketKey = screenshotBucketKey;
     return this;
   }
@@ -323,7 +319,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail skipped(Boolean skipped) {
-    
     this.skipped = skipped;
     return this;
   }
@@ -348,7 +343,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail snapshotBucketKey(Boolean snapshotBucketKey) {
-    
     this.snapshotBucketKey = snapshotBucketKey;
     return this;
   }
@@ -373,7 +367,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail stepId(Long stepId) {
-    
     this.stepId = stepId;
     return this;
   }
@@ -398,7 +391,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail subTestStepDetails(List<SyntheticsStepDetail> subTestStepDetails) {
-    
     this.subTestStepDetails = subTestStepDetails;
     return this;
   }
@@ -431,7 +423,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail timeToInteractive(Double timeToInteractive) {
-    
     this.timeToInteractive = timeToInteractive;
     return this;
   }
@@ -456,7 +447,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail type(SyntheticsStepType type) {
-    
     this.type = type;
     return this;
   }
@@ -481,7 +471,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -506,7 +495,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail value(Object value) {
-    
     this.value = value;
     return this;
   }
@@ -531,7 +519,6 @@ public class SyntheticsStepDetail {
 
 
   public SyntheticsStepDetail warnings(List<SyntheticsStepDetailWarnings> warnings) {
-    
     this.warnings = warnings;
     return this;
   }

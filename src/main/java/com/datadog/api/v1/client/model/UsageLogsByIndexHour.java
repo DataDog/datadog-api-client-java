@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,6 +23,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Number of indexed logs for each hour and index for a given organization.
@@ -52,7 +56,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour eventCount(Long eventCount) {
-    
     this.eventCount = eventCount;
     return this;
   }
@@ -77,7 +80,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour hour(OffsetDateTime hour) {
-    
     this.hour = hour;
     return this;
   }
@@ -102,7 +104,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour indexId(String indexId) {
-    
     this.indexId = indexId;
     return this;
   }
@@ -127,7 +128,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour indexName(String indexName) {
-    
     this.indexName = indexName;
     return this;
   }
@@ -152,7 +152,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour retention(Long retention) {
-    
     this.retention = retention;
     return this;
   }

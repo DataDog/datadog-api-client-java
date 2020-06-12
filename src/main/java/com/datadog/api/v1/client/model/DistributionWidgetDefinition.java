@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.DistributionWidgetDefinitionType;
 import com.datadog.api.v1.client.model.DistributionWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetLegendSize;
@@ -27,6 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
@@ -70,7 +74,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition legendSize(WidgetLegendSize legendSize) {
-    
     this.legendSize = legendSize;
     return this;
   }
@@ -95,7 +98,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition requests(List<DistributionWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -124,7 +126,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition showLegend(Boolean showLegend) {
-    
     this.showLegend = showLegend;
     return this;
   }
@@ -149,7 +150,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -174,7 +174,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -199,7 +198,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -224,7 +222,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -249,7 +246,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition type(DistributionWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

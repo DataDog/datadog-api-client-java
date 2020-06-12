@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.ServiceMapWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,6 +26,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * This widget displays a map of a service to all of the services that call it, and all of the services that it calls.
@@ -59,7 +63,6 @@ public class ServiceMapWidgetDefinition {
 
 
   public ServiceMapWidgetDefinition filters(List<String> filters) {
-    
     this.filters = filters;
     return this;
   }
@@ -88,7 +91,6 @@ public class ServiceMapWidgetDefinition {
 
 
   public ServiceMapWidgetDefinition service(String service) {
-    
     this.service = service;
     return this;
   }
@@ -112,7 +114,6 @@ public class ServiceMapWidgetDefinition {
 
 
   public ServiceMapWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -137,7 +138,6 @@ public class ServiceMapWidgetDefinition {
 
 
   public ServiceMapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -162,7 +162,6 @@ public class ServiceMapWidgetDefinition {
 
 
   public ServiceMapWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -187,7 +186,6 @@ public class ServiceMapWidgetDefinition {
 
 
   public ServiceMapWidgetDefinition type(ServiceMapWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

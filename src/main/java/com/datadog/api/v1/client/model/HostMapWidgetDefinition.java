@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.HostMapWidgetDefinitionRequests;
 import com.datadog.api.v1.client.model.HostMapWidgetDefinitionStyle;
 import com.datadog.api.v1.client.model.HostMapWidgetDefinitionType;
@@ -27,6 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.
@@ -86,7 +90,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition group(List<String> group) {
-    
     this.group = group;
     return this;
   }
@@ -119,7 +122,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition noGroupHosts(Boolean noGroupHosts) {
-    
     this.noGroupHosts = noGroupHosts;
     return this;
   }
@@ -144,7 +146,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition noMetricHosts(Boolean noMetricHosts) {
-    
     this.noMetricHosts = noMetricHosts;
     return this;
   }
@@ -169,7 +170,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition nodeType(WidgetNodeType nodeType) {
-    
     this.nodeType = nodeType;
     return this;
   }
@@ -194,7 +194,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition notes(String notes) {
-    
     this.notes = notes;
     return this;
   }
@@ -219,7 +218,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition requests(HostMapWidgetDefinitionRequests requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -243,7 +241,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition scope(List<String> scope) {
-    
     this.scope = scope;
     return this;
   }
@@ -276,7 +273,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition style(HostMapWidgetDefinitionStyle style) {
-    
     this.style = style;
     return this;
   }
@@ -301,7 +297,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -326,7 +321,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -351,7 +345,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -376,7 +369,6 @@ public class HostMapWidgetDefinition {
 
 
   public HostMapWidgetDefinition type(HostMapWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

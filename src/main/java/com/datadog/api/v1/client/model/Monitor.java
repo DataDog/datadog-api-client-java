@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.MonitorOptions;
 import com.datadog.api.v1.client.model.MonitorOverallStates;
@@ -31,6 +33,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing a monitor.
@@ -114,7 +118,6 @@ public class Monitor {
 
 
   public Monitor creator(Creator creator) {
-    
     this.creator = creator;
     return this;
   }
@@ -185,7 +188,6 @@ public class Monitor {
 
 
   public Monitor message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -242,7 +244,6 @@ public class Monitor {
 
 
   public Monitor name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -267,7 +268,6 @@ public class Monitor {
 
 
   public Monitor options(MonitorOptions options) {
-    
     this.options = options;
     return this;
   }
@@ -292,7 +292,6 @@ public class Monitor {
 
 
   public Monitor overallState(MonitorOverallStates overallState) {
-    
     this.overallState = overallState;
     return this;
   }
@@ -317,7 +316,6 @@ public class Monitor {
 
 
   public Monitor query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -342,7 +340,6 @@ public class Monitor {
 
 
   public Monitor state(MonitorState state) {
-    
     this.state = state;
     return this;
   }
@@ -367,7 +364,6 @@ public class Monitor {
 
 
   public Monitor tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -400,7 +396,6 @@ public class Monitor {
 
 
   public Monitor type(MonitorType type) {
-    
     this.type = type;
     return this;
   }

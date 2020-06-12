@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsBrowserErrorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Error response object for a browser test.
@@ -48,7 +52,6 @@ public class SyntheticsBrowserError {
 
 
   public SyntheticsBrowserError description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -72,7 +75,6 @@ public class SyntheticsBrowserError {
 
 
   public SyntheticsBrowserError name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -96,7 +98,6 @@ public class SyntheticsBrowserError {
 
 
   public SyntheticsBrowserError statusCode(Long statusCode) {
-    
     this.statusCode = statusCode;
     return this;
   }
@@ -121,7 +122,6 @@ public class SyntheticsBrowserError {
 
 
   public SyntheticsBrowserError type(SyntheticsBrowserErrorType type) {
-    
     this.type = type;
     return this;
   }

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventAlertType;
 import com.datadog.api.v1.client.model.EventPriority;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,6 +26,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object representing an event.
@@ -91,7 +95,6 @@ public class Event {
 
 
   public Event aggregationKey(String aggregationKey) {
-    
     this.aggregationKey = aggregationKey;
     return this;
   }
@@ -116,7 +119,6 @@ public class Event {
 
 
   public Event alertType(EventAlertType alertType) {
-    
     this.alertType = alertType;
     return this;
   }
@@ -141,7 +143,6 @@ public class Event {
 
 
   public Event dateHappened(Long dateHappened) {
-    
     this.dateHappened = dateHappened;
     return this;
   }
@@ -166,7 +167,6 @@ public class Event {
 
 
   public Event deviceName(List<String> deviceName) {
-    
     this.deviceName = deviceName;
     return this;
   }
@@ -199,7 +199,6 @@ public class Event {
 
 
   public Event host(String host) {
-    
     this.host = host;
     return this;
   }
@@ -256,7 +255,6 @@ public class Event {
 
 
   public Event priority(EventPriority priority) {
-    
     this.priority = priority;
     return this;
   }
@@ -281,7 +279,6 @@ public class Event {
 
 
   public Event relatedEventId(Long relatedEventId) {
-    
     this.relatedEventId = relatedEventId;
     return this;
   }
@@ -306,7 +303,6 @@ public class Event {
 
 
   public Event sourceTypeName(String sourceTypeName) {
-    
     this.sourceTypeName = sourceTypeName;
     return this;
   }
@@ -331,7 +327,6 @@ public class Event {
 
 
   public Event tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -364,7 +359,6 @@ public class Event {
 
 
   public Event text(String text) {
-    
     this.text = text;
     return this;
   }
@@ -388,7 +382,6 @@ public class Event {
 
 
   public Event title(String title) {
-    
     this.title = title;
     return this;
   }

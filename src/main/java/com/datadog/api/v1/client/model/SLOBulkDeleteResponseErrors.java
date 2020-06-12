@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOErrorTimeframe;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the error.
@@ -44,7 +48,6 @@ public class SLOBulkDeleteResponseErrors {
 
 
   public SLOBulkDeleteResponseErrors id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -68,7 +71,6 @@ public class SLOBulkDeleteResponseErrors {
 
 
   public SLOBulkDeleteResponseErrors message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -92,7 +94,6 @@ public class SLOBulkDeleteResponseErrors {
 
 
   public SLOBulkDeleteResponseErrors timeframe(SLOErrorTimeframe timeframe) {
-    
     this.timeframe = timeframe;
     return this;
   }

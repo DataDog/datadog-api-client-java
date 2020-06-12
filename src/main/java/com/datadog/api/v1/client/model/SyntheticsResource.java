@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsResourceType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing a resource which is the combination of requests (fetch, XHR) and Assets (HTML, CSS, JS, images).
@@ -64,7 +68,6 @@ public class SyntheticsResource {
 
 
   public SyntheticsResource duration(Double duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -89,7 +92,6 @@ public class SyntheticsResource {
 
 
   public SyntheticsResource method(String method) {
-    
     this.method = method;
     return this;
   }
@@ -114,7 +116,6 @@ public class SyntheticsResource {
 
 
   public SyntheticsResource size(Long size) {
-    
     this.size = size;
     return this;
   }
@@ -139,7 +140,6 @@ public class SyntheticsResource {
 
 
   public SyntheticsResource status(Long status) {
-    
     this.status = status;
     return this;
   }
@@ -164,7 +164,6 @@ public class SyntheticsResource {
 
 
   public SyntheticsResource timestamp(Double timestamp) {
-    
     this.timestamp = timestamp;
     return this;
   }
@@ -189,7 +188,6 @@ public class SyntheticsResource {
 
 
   public SyntheticsResource traceId(String traceId) {
-    
     this.traceId = traceId;
     return this;
   }
@@ -214,7 +212,6 @@ public class SyntheticsResource {
 
 
   public SyntheticsResource type(SyntheticsResourceType type) {
-    
     this.type = type;
     return this;
   }
@@ -239,7 +236,6 @@ public class SyntheticsResource {
 
 
   public SyntheticsResource url(String url) {
-    
     this.url = url;
     return this;
   }

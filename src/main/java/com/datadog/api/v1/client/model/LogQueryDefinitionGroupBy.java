@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogQueryDefinitionSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Defined items in the group.
@@ -44,7 +48,6 @@ public class LogQueryDefinitionGroupBy {
 
 
   public LogQueryDefinitionGroupBy facet(String facet) {
-    
     this.facet = facet;
     return this;
   }
@@ -68,7 +71,6 @@ public class LogQueryDefinitionGroupBy {
 
 
   public LogQueryDefinitionGroupBy limit(Long limit) {
-    
     this.limit = limit;
     return this;
   }
@@ -93,7 +95,6 @@ public class LogQueryDefinitionGroupBy {
 
 
   public LogQueryDefinitionGroupBy sort(LogQueryDefinitionSort sort) {
-    
     this.sort = sort;
     return this;
   }

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultShortResult;
 import com.datadog.api.v1.client.model.SyntheticsTestMonitorStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object with the results of a single Synthetic browser test.
@@ -53,7 +57,6 @@ public class SyntheticsBrowserTestResultShort {
 
 
   public SyntheticsBrowserTestResultShort checkTime(Double checkTime) {
-    
     this.checkTime = checkTime;
     return this;
   }
@@ -78,7 +81,6 @@ public class SyntheticsBrowserTestResultShort {
 
 
   public SyntheticsBrowserTestResultShort probeDc(String probeDc) {
-    
     this.probeDc = probeDc;
     return this;
   }
@@ -103,7 +105,6 @@ public class SyntheticsBrowserTestResultShort {
 
 
   public SyntheticsBrowserTestResultShort result(SyntheticsBrowserTestResultShortResult result) {
-    
     this.result = result;
     return this;
   }
@@ -128,7 +129,6 @@ public class SyntheticsBrowserTestResultShort {
 
 
   public SyntheticsBrowserTestResultShort resultId(String resultId) {
-    
     this.resultId = resultId;
     return this;
   }
@@ -153,7 +153,6 @@ public class SyntheticsBrowserTestResultShort {
 
 
   public SyntheticsBrowserTestResultShort status(SyntheticsTestMonitorStatus status) {
-    
     this.status = status;
     return this;
   }

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsMessageRemapperType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The message is a key attribute in Datadog. It is displayed in the message column of the Log Explorer and you can do full string search on it. Use this Processor to define one or more attributes as the official log message.  **Note:** If multiple log message remapper processors can be applied to a given log, only the first one (according to the pipeline order) is taken into account.
@@ -50,7 +54,6 @@ public class LogsMessageRemapper {
 
 
   public LogsMessageRemapper isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -75,7 +78,6 @@ public class LogsMessageRemapper {
 
 
   public LogsMessageRemapper name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -100,7 +102,6 @@ public class LogsMessageRemapper {
 
 
   public LogsMessageRemapper sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -129,7 +130,6 @@ public class LogsMessageRemapper {
 
 
   public LogsMessageRemapper type(LogsMessageRemapperType type) {
-    
     this.type = type;
     return this;
   }

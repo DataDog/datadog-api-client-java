@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.QueryValueWidgetDefinitionType;
 import com.datadog.api.v1.client.model.QueryValueWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -26,6 +28,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Query values display the current value of a given metric, APM, or log query.
@@ -77,7 +81,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition autoscale(Boolean autoscale) {
-    
     this.autoscale = autoscale;
     return this;
   }
@@ -102,7 +105,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition customUnit(String customUnit) {
-    
     this.customUnit = customUnit;
     return this;
   }
@@ -127,7 +129,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition precision(Long precision) {
-    
     this.precision = precision;
     return this;
   }
@@ -152,7 +153,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition requests(List<QueryValueWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -181,7 +181,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition textAlign(WidgetTextAlign textAlign) {
-    
     this.textAlign = textAlign;
     return this;
   }
@@ -206,7 +205,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -231,7 +229,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -256,7 +253,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -281,7 +277,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -306,7 +301,6 @@ public class QueryValueWidgetDefinition {
 
 
   public QueryValueWidgetDefinition type(QueryValueWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

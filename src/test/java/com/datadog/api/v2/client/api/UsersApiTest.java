@@ -59,7 +59,7 @@ public class UsersApiTest extends V2APITest {
     public void userLifecycleTest() throws ApiException {
         // TODO: test roles, permissions when we can
         // first, test creating a user
-        final String testingUserName = getUniqueEntityName();
+        final String testingUserName = getUniqueEntityName().toLowerCase();
         final String testingUserHandle = testingUserName + "@datadoghq.com";
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
@@ -112,7 +112,7 @@ public class UsersApiTest extends V2APITest {
 
     @Test
     public void userInvitationTest() throws ApiException {
-        final String testingUserName = getUniqueEntityName();
+        final String testingUserName = getUniqueEntityName().toLowerCase();
         final String testingUserHandle = testingUserName + "@datadoghq.com";
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The process query to use in the widget.
@@ -49,7 +53,6 @@ public class ProcessQueryDefinition {
 
 
   public ProcessQueryDefinition filterBy(List<String> filterBy) {
-    
     this.filterBy = filterBy;
     return this;
   }
@@ -82,7 +85,6 @@ public class ProcessQueryDefinition {
 
 
   public ProcessQueryDefinition limit(Long limit) {
-    
     this.limit = limit;
     return this;
   }
@@ -108,7 +110,6 @@ public class ProcessQueryDefinition {
 
 
   public ProcessQueryDefinition metric(String metric) {
-    
     this.metric = metric;
     return this;
   }
@@ -132,7 +133,6 @@ public class ProcessQueryDefinition {
 
 
   public ProcessQueryDefinition searchBy(String searchBy) {
-    
     this.searchBy = searchBy;
     return this;
   }

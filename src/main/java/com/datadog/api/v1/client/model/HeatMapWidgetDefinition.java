@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.HeatMapWidgetDefinitionType;
 import com.datadog.api.v1.client.model.HeatMapWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetAxis;
@@ -29,6 +31,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.
@@ -80,7 +84,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition events(List<WidgetEvent> events) {
-    
     this.events = events;
     return this;
   }
@@ -113,7 +116,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition legendSize(WidgetLegendSize legendSize) {
-    
     this.legendSize = legendSize;
     return this;
   }
@@ -138,7 +140,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition requests(List<HeatMapWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -167,7 +168,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition showLegend(Boolean showLegend) {
-    
     this.showLegend = showLegend;
     return this;
   }
@@ -192,7 +192,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -217,7 +216,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -242,7 +240,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -267,7 +264,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -292,7 +288,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition type(HeatMapWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -316,7 +311,6 @@ public class HeatMapWidgetDefinition {
 
 
   public HeatMapWidgetDefinition yaxis(WidgetAxis yaxis) {
-    
     this.yaxis = yaxis;
     return this;
   }

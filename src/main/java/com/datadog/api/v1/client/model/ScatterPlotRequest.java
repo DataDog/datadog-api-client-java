@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
@@ -24,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Updated scatter plot.
@@ -67,7 +71,6 @@ public class ScatterPlotRequest {
 
 
   public ScatterPlotRequest aggregator(WidgetAggregator aggregator) {
-    
     this.aggregator = aggregator;
     return this;
   }
@@ -92,7 +95,6 @@ public class ScatterPlotRequest {
 
 
   public ScatterPlotRequest apmQuery(LogQueryDefinition apmQuery) {
-    
     this.apmQuery = apmQuery;
     return this;
   }
@@ -117,7 +119,6 @@ public class ScatterPlotRequest {
 
 
   public ScatterPlotRequest eventQuery(EventQueryDefinition eventQuery) {
-    
     this.eventQuery = eventQuery;
     return this;
   }
@@ -142,7 +143,6 @@ public class ScatterPlotRequest {
 
 
   public ScatterPlotRequest logQuery(LogQueryDefinition logQuery) {
-    
     this.logQuery = logQuery;
     return this;
   }
@@ -167,7 +167,6 @@ public class ScatterPlotRequest {
 
 
   public ScatterPlotRequest networkQuery(LogQueryDefinition networkQuery) {
-    
     this.networkQuery = networkQuery;
     return this;
   }
@@ -192,7 +191,6 @@ public class ScatterPlotRequest {
 
 
   public ScatterPlotRequest processQuery(ProcessQueryDefinition processQuery) {
-    
     this.processQuery = processQuery;
     return this;
   }
@@ -217,7 +215,6 @@ public class ScatterPlotRequest {
 
 
   public ScatterPlotRequest q(String q) {
-    
     this.q = q;
     return this;
   }
@@ -242,7 +239,6 @@ public class ScatterPlotRequest {
 
 
   public ScatterPlotRequest rumQuery(LogQueryDefinition rumQuery) {
-    
     this.rumQuery = rumQuery;
     return this;
   }

@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.UserInvitationRelationships;
 import com.datadog.api.v2.client.model.UserInvitationsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Object to create a user invitation.
@@ -41,7 +45,6 @@ public class UserInvitationData {
 
 
   public UserInvitationData relationships(UserInvitationRelationships relationships) {
-    
     this.relationships = relationships;
     return this;
   }
@@ -66,7 +69,6 @@ public class UserInvitationData {
 
 
   public UserInvitationData type(UserInvitationsType type) {
-    
     this.type = type;
     return this;
   }

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.WidgetComparator;
 import com.datadog.api.v1.client.model.WidgetPalette;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Define a conditional format for the widget.
@@ -69,7 +73,6 @@ public class WidgetConditionalFormat {
 
 
   public WidgetConditionalFormat comparator(WidgetComparator comparator) {
-    
     this.comparator = comparator;
     return this;
   }
@@ -93,7 +96,6 @@ public class WidgetConditionalFormat {
 
 
   public WidgetConditionalFormat customBgColor(String customBgColor) {
-    
     this.customBgColor = customBgColor;
     return this;
   }
@@ -118,7 +120,6 @@ public class WidgetConditionalFormat {
 
 
   public WidgetConditionalFormat customFgColor(String customFgColor) {
-    
     this.customFgColor = customFgColor;
     return this;
   }
@@ -143,7 +144,6 @@ public class WidgetConditionalFormat {
 
 
   public WidgetConditionalFormat hideValue(Boolean hideValue) {
-    
     this.hideValue = hideValue;
     return this;
   }
@@ -168,7 +168,6 @@ public class WidgetConditionalFormat {
 
 
   public WidgetConditionalFormat imageUrl(String imageUrl) {
-    
     this.imageUrl = imageUrl;
     return this;
   }
@@ -193,7 +192,6 @@ public class WidgetConditionalFormat {
 
 
   public WidgetConditionalFormat metric(String metric) {
-    
     this.metric = metric;
     return this;
   }
@@ -218,7 +216,6 @@ public class WidgetConditionalFormat {
 
 
   public WidgetConditionalFormat palette(WidgetPalette palette) {
-    
     this.palette = palette;
     return this;
   }
@@ -242,7 +239,6 @@ public class WidgetConditionalFormat {
 
 
   public WidgetConditionalFormat timeframe(String timeframe) {
-    
     this.timeframe = timeframe;
     return this;
   }
@@ -267,7 +263,6 @@ public class WidgetConditionalFormat {
 
 
   public WidgetConditionalFormat value(Double value) {
-    
     this.value = value;
     return this;
   }

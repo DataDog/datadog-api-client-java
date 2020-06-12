@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.WidgetDefinition;
 import com.datadog.api.v1.client.model.WidgetLayout;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Information about widget.  Note: The &#x60;layout&#x60; property is required for widgets in dashboards with &#x60;free&#x60; &#x60;layout_type&#x60; only.
@@ -45,7 +49,6 @@ public class Widget {
 
 
   public Widget definition(WidgetDefinition definition) {
-    
     this.definition = definition;
     return this;
   }
@@ -69,7 +72,6 @@ public class Widget {
 
 
   public Widget id(Long id) {
-    
     this.id = id;
     return this;
   }
@@ -94,7 +96,6 @@ public class Widget {
 
 
   public Widget layout(WidgetLayout layout) {
-    
     this.layout = layout;
     return this;
   }

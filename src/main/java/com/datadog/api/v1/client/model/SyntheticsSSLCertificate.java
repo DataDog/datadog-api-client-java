@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsSSLCertificateIssuer;
 import com.datadog.api.v1.client.model.SyntheticsSSLCertificateSubject;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,6 +27,8 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the SSL certificate used for a Synthetic test.
@@ -84,7 +88,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate cipher(String cipher) {
-    
     this.cipher = cipher;
     return this;
   }
@@ -109,7 +112,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate exponent(Double exponent) {
-    
     this.exponent = exponent;
     return this;
   }
@@ -134,7 +136,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate extKeyUsage(List<String> extKeyUsage) {
-    
     this.extKeyUsage = extKeyUsage;
     return this;
   }
@@ -167,7 +168,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate fingerprint(String fingerprint) {
-    
     this.fingerprint = fingerprint;
     return this;
   }
@@ -192,7 +192,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate fingerprint256(String fingerprint256) {
-    
     this.fingerprint256 = fingerprint256;
     return this;
   }
@@ -217,7 +216,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate issuer(SyntheticsSSLCertificateIssuer issuer) {
-    
     this.issuer = issuer;
     return this;
   }
@@ -242,7 +240,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate modulus(String modulus) {
-    
     this.modulus = modulus;
     return this;
   }
@@ -267,7 +264,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate protocol(String protocol) {
-    
     this.protocol = protocol;
     return this;
   }
@@ -292,7 +288,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate serialNumber(String serialNumber) {
-    
     this.serialNumber = serialNumber;
     return this;
   }
@@ -317,7 +312,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate subject(SyntheticsSSLCertificateSubject subject) {
-    
     this.subject = subject;
     return this;
   }
@@ -342,7 +336,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate validFrom(OffsetDateTime validFrom) {
-    
     this.validFrom = validFrom;
     return this;
   }
@@ -367,7 +360,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate validTo(OffsetDateTime validTo) {
-    
     this.validTo = validTo;
     return this;
   }

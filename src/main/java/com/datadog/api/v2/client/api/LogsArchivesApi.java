@@ -90,7 +90,7 @@ private ApiResponse<Void> addReadRoleToArchiveWithHttpInfo(String archiveId, Rel
 
     return apiClient.invokeAPI("LogsArchivesApi.addReadRoleToArchive", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, null);
   }
 
   public class APIaddReadRoleToArchiveRequest {
@@ -208,7 +208,7 @@ private ApiResponse<LogsArchive> createLogsArchiveWithHttpInfo(LogsArchiveCreate
 
     return apiClient.invokeAPI("LogsArchivesApi.createLogsArchive", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateLogsArchiveRequest {
@@ -314,7 +314,7 @@ private ApiResponse<Void> deleteLogsArchiveWithHttpInfo(String archiveId) throws
 
     return apiClient.invokeAPI("LogsArchivesApi.deleteLogsArchive", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, null);
   }
 
   public class APIdeleteLogsArchiveRequest {
@@ -416,7 +416,7 @@ private ApiResponse<LogsArchive> getLogsArchiveWithHttpInfo(String archiveId) th
 
     return apiClient.invokeAPI("LogsArchivesApi.getLogsArchive", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetLogsArchiveRequest {
@@ -518,7 +518,7 @@ private ApiResponse<RolesResponse> listArchiveReadRolesWithHttpInfo(String archi
 
     return apiClient.invokeAPI("LogsArchivesApi.listArchiveReadRoles", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistArchiveReadRolesRequest {
@@ -620,7 +620,7 @@ private ApiResponse<LogsArchives> listLogsArchivesWithHttpInfo() throws ApiExcep
 
     return apiClient.invokeAPI("LogsArchivesApi.listLogsArchives", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistLogsArchivesRequest {
@@ -713,7 +713,7 @@ private ApiResponse<Void> removeRoleFromArchiveWithHttpInfo(String archiveId, Re
 
     return apiClient.invokeAPI("LogsArchivesApi.removeRoleFromArchive", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, null);
   }
 
   public class APIremoveRoleFromArchiveRequest {
@@ -837,7 +837,7 @@ private ApiResponse<LogsArchive> updateLogsArchiveWithHttpInfo(String archiveId,
 
     return apiClient.invokeAPI("LogsArchivesApi.updateLogsArchive", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateLogsArchiveRequest {

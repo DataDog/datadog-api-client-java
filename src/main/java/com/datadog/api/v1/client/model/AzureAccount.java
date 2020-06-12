@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Datadog-Azure integrations configured for your organization.
@@ -61,7 +65,6 @@ public class AzureAccount {
 
 
   public AzureAccount clientId(String clientId) {
-    
     this.clientId = clientId;
     return this;
   }
@@ -86,7 +89,6 @@ public class AzureAccount {
 
 
   public AzureAccount clientSecret(String clientSecret) {
-    
     this.clientSecret = clientSecret;
     return this;
   }
@@ -111,7 +113,6 @@ public class AzureAccount {
 
 
   public AzureAccount errors(List<String> errors) {
-    
     this.errors = errors;
     return this;
   }
@@ -144,7 +145,6 @@ public class AzureAccount {
 
 
   public AzureAccount hostFilters(String hostFilters) {
-    
     this.hostFilters = hostFilters;
     return this;
   }
@@ -169,7 +169,6 @@ public class AzureAccount {
 
 
   public AzureAccount newClientId(String newClientId) {
-    
     this.newClientId = newClientId;
     return this;
   }
@@ -194,7 +193,6 @@ public class AzureAccount {
 
 
   public AzureAccount newTenantName(String newTenantName) {
-    
     this.newTenantName = newTenantName;
     return this;
   }
@@ -219,7 +217,6 @@ public class AzureAccount {
 
 
   public AzureAccount tenantName(String tenantName) {
-    
     this.tenantName = tenantName;
     return this;
   }

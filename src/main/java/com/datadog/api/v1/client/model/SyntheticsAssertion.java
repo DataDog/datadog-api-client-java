@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsAssertionOperator;
 import com.datadog.api.v1.client.model.SyntheticsAssertionType;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the assertions type, their associated operator, which property they apply , and upon which target.
@@ -49,7 +53,6 @@ public class SyntheticsAssertion {
 
 
   public SyntheticsAssertion operator(SyntheticsAssertionOperator operator) {
-    
     this.operator = operator;
     return this;
   }
@@ -73,7 +76,6 @@ public class SyntheticsAssertion {
 
 
   public SyntheticsAssertion property(String property) {
-    
     this.property = property;
     return this;
   }
@@ -98,7 +100,6 @@ public class SyntheticsAssertion {
 
 
   public SyntheticsAssertion target(Object target) {
-    
     this.target = target;
     return this;
   }
@@ -123,7 +124,6 @@ public class SyntheticsAssertion {
 
 
   public SyntheticsAssertion type(SyntheticsAssertionType type) {
-    
     this.type = type;
     return this;
   }

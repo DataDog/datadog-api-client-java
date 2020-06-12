@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationGCSType;
 import com.datadog.api.v2.client.model.LogsArchiveIntegrationGCS;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The GCS archive destination.
@@ -49,7 +53,6 @@ public class LogsArchiveDestinationGCS {
 
 
   public LogsArchiveDestinationGCS bucket(String bucket) {
-    
     this.bucket = bucket;
     return this;
   }
@@ -73,7 +76,6 @@ public class LogsArchiveDestinationGCS {
 
 
   public LogsArchiveDestinationGCS integration(LogsArchiveIntegrationGCS integration) {
-    
     this.integration = integration;
     return this;
   }
@@ -97,7 +99,6 @@ public class LogsArchiveDestinationGCS {
 
 
   public LogsArchiveDestinationGCS path(String path) {
-    
     this.path = path;
     return this;
   }
@@ -122,7 +123,6 @@ public class LogsArchiveDestinationGCS {
 
 
   public LogsArchiveDestinationGCS type(LogsArchiveDestinationGCSType type) {
-    
     this.type = type;
     return this;
   }

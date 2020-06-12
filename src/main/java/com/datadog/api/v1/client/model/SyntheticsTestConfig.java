@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsAssertion;
 import com.datadog.api.v1.client.model.SyntheticsBrowserVariable;
 import com.datadog.api.v1.client.model.SyntheticsTestRequest;
@@ -25,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Configuration object for a Synthetic test.
@@ -48,7 +52,6 @@ public class SyntheticsTestConfig {
 
 
   public SyntheticsTestConfig assertions(List<SyntheticsAssertion> assertions) {
-    
     this.assertions = assertions;
     return this;
   }
@@ -77,7 +80,6 @@ public class SyntheticsTestConfig {
 
 
   public SyntheticsTestConfig request(SyntheticsTestRequest request) {
-    
     this.request = request;
     return this;
   }
@@ -101,7 +103,6 @@ public class SyntheticsTestConfig {
 
 
   public SyntheticsTestConfig variables(List<SyntheticsBrowserVariable> variables) {
-    
     this.variables = variables;
     return this;
   }

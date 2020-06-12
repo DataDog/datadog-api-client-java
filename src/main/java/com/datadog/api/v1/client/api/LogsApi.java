@@ -89,7 +89,7 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
 
     return apiClient.invokeAPI("LogsApi.listLogs", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistLogsRequest {

@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionRequests;
 import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetAxis;
@@ -27,6 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
@@ -74,7 +78,6 @@ public class ScatterPlotWidgetDefinition {
 
 
   public ScatterPlotWidgetDefinition colorByGroups(List<String> colorByGroups) {
-    
     this.colorByGroups = colorByGroups;
     return this;
   }
@@ -107,7 +110,6 @@ public class ScatterPlotWidgetDefinition {
 
 
   public ScatterPlotWidgetDefinition requests(ScatterPlotWidgetDefinitionRequests requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -131,7 +133,6 @@ public class ScatterPlotWidgetDefinition {
 
 
   public ScatterPlotWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -156,7 +157,6 @@ public class ScatterPlotWidgetDefinition {
 
 
   public ScatterPlotWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -181,7 +181,6 @@ public class ScatterPlotWidgetDefinition {
 
 
   public ScatterPlotWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -206,7 +205,6 @@ public class ScatterPlotWidgetDefinition {
 
 
   public ScatterPlotWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -231,7 +229,6 @@ public class ScatterPlotWidgetDefinition {
 
 
   public ScatterPlotWidgetDefinition type(ScatterPlotWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -255,7 +252,6 @@ public class ScatterPlotWidgetDefinition {
 
 
   public ScatterPlotWidgetDefinition xaxis(WidgetAxis xaxis) {
-    
     this.xaxis = xaxis;
     return this;
   }
@@ -280,7 +276,6 @@ public class ScatterPlotWidgetDefinition {
 
 
   public ScatterPlotWidgetDefinition yaxis(WidgetAxis yaxis) {
-    
     this.yaxis = yaxis;
     return this;
   }

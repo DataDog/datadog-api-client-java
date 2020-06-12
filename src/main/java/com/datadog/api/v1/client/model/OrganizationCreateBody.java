@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.OrganizationBilling;
 import com.datadog.api.v1.client.model.OrganizationSubscription;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing an organization to create.
@@ -45,7 +49,6 @@ public class OrganizationCreateBody {
 
 
   public OrganizationCreateBody billing(OrganizationBilling billing) {
-    
     this.billing = billing;
     return this;
   }
@@ -69,7 +72,6 @@ public class OrganizationCreateBody {
 
 
   public OrganizationCreateBody name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -94,7 +96,6 @@ public class OrganizationCreateBody {
 
 
   public OrganizationCreateBody subscription(OrganizationSubscription subscription) {
-    
     this.subscription = subscription;
     return this;
   }

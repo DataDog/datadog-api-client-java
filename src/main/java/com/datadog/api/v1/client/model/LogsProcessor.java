@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsArithmeticProcessor;
 import com.datadog.api.v1.client.model.LogsAttributeRemapper;
 import com.datadog.api.v1.client.model.LogsCategoryProcessor;
@@ -44,24 +46,54 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collections;
+import java.util.HashSet;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.datadog.api.v1.client.JSON;
 
 
-@JsonDeserialize(using=LogsProcessor.LogsProcessorDeserializer.class)
+@JsonDeserialize(using = LogsProcessor.LogsProcessorDeserializer.class)
+@JsonSerialize(using = LogsProcessor.LogsProcessorSerializer.class)
 public class LogsProcessor extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(LogsProcessor.class.getName());
+
+    public static class LogsProcessorSerializer extends StdSerializer<LogsProcessor> {
+        public LogsProcessorSerializer(Class<LogsProcessor> t) {
+            super(t);
+        }
+
+        public LogsProcessorSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(LogsProcessor value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
     public static class LogsProcessorDeserializer extends StdDeserializer<LogsProcessor> {
         public LogsProcessorDeserializer() {
             this(LogsProcessor.class);
@@ -74,127 +106,201 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         @Override
         public LogsProcessor deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
-
-            int match = 0;
             Object deserialized = null;
+            int match = 0;
             // deserialize LogsArithmeticProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArithmeticProcessor.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsArithmeticProcessor'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsArithmeticProcessor'", e);
             }
 
             // deserialize LogsAttributeRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsAttributeRemapper.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsAttributeRemapper'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsAttributeRemapper'", e);
             }
 
             // deserialize LogsCategoryProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsCategoryProcessor.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsCategoryProcessor'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsCategoryProcessor'", e);
             }
 
             // deserialize LogsDateRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsDateRemapper.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsDateRemapper'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsDateRemapper'", e);
             }
 
             // deserialize LogsGeoIPParser
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGeoIPParser.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsGeoIPParser'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsGeoIPParser'", e);
             }
 
             // deserialize LogsGrokParser
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGrokParser.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsGrokParser'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsGrokParser'", e);
             }
 
             // deserialize LogsLookupProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsLookupProcessor.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsLookupProcessor'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsLookupProcessor'", e);
             }
 
             // deserialize LogsMessageRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsMessageRemapper.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsMessageRemapper'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsMessageRemapper'", e);
             }
 
             // deserialize LogsPipelineProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsPipelineProcessor.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsPipelineProcessor'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsPipelineProcessor'", e);
             }
 
             // deserialize LogsServiceRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsServiceRemapper.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsServiceRemapper'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsServiceRemapper'", e);
             }
 
             // deserialize LogsStatusRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStatusRemapper.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsStatusRemapper'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsStatusRemapper'", e);
             }
 
             // deserialize LogsStringBuilderProcessor
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStringBuilderProcessor.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsStringBuilderProcessor'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsStringBuilderProcessor'", e);
             }
 
             // deserialize LogsTraceRemapper
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsTraceRemapper.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsTraceRemapper'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsTraceRemapper'", e);
             }
 
             // deserialize LogsURLParser
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsURLParser.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsURLParser'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsURLParser'", e);
             }
 
             // deserialize LogsUserAgentParser
             try {
                 deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsUserAgentParser.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
                 match++;
+                log.log(Level.FINER, "Input data matches schema 'LogsUserAgentParser'");
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsUserAgentParser'", e);
             }
 
             if (match == 1) {
@@ -203,6 +309,15 @@ public class LogsProcessor extends AbstractOpenApiSchema {
                 return ret;
             }
             throw new IOException(String.format("Failed deserialization for LogsProcessor: %d classes match result, expected 1", match));
+        }
+
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public LogsProcessor getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "LogsProcessor cannot be null");
         }
     }
 
@@ -319,6 +434,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         });
         schemas.put("LogsUserAgentParser", new GenericType<LogsUserAgentParser>() {
         });
+        JSON.registerDescendants(LogsProcessor.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -326,79 +442,86 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         return LogsProcessor.schemas;
     }
 
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas.
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
+     */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof LogsArithmeticProcessor) {
+        if (JSON.isInstanceOf(LogsArithmeticProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsAttributeRemapper) {
+        if (JSON.isInstanceOf(LogsAttributeRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsCategoryProcessor) {
+        if (JSON.isInstanceOf(LogsCategoryProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsDateRemapper) {
+        if (JSON.isInstanceOf(LogsDateRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsGeoIPParser) {
+        if (JSON.isInstanceOf(LogsGeoIPParser.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsGrokParser) {
+        if (JSON.isInstanceOf(LogsGrokParser.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsLookupProcessor) {
+        if (JSON.isInstanceOf(LogsLookupProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsMessageRemapper) {
+        if (JSON.isInstanceOf(LogsMessageRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsPipelineProcessor) {
+        if (JSON.isInstanceOf(LogsPipelineProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsServiceRemapper) {
+        if (JSON.isInstanceOf(LogsServiceRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsStatusRemapper) {
+        if (JSON.isInstanceOf(LogsStatusRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsStringBuilderProcessor) {
+        if (JSON.isInstanceOf(LogsStringBuilderProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsTraceRemapper) {
+        if (JSON.isInstanceOf(LogsTraceRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsURLParser) {
+        if (JSON.isInstanceOf(LogsURLParser.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsUserAgentParser) {
+        if (JSON.isInstanceOf(LogsUserAgentParser.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }

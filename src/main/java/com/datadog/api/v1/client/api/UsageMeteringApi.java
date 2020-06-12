@@ -106,7 +106,7 @@ private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageAnalyzedLogs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageAnalyzedLogsRequest {
@@ -226,7 +226,7 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageFargate", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageFargateRequest {
@@ -346,7 +346,7 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageHostsRequest {
@@ -466,7 +466,7 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageLambda", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageLambdaRequest {
@@ -586,7 +586,7 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageLogs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageLogsRequest {
@@ -707,7 +707,7 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageLogsByIndex", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageLogsByIndexRequest {
@@ -838,7 +838,7 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageNetworkFlows", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageNetworkFlowsRequest {
@@ -958,7 +958,7 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageNetworkHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageNetworkHostsRequest {
@@ -1078,7 +1078,7 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageRumSessions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageRumSessionsRequest {
@@ -1198,7 +1198,7 @@ private ApiResponse<UsageSNMPResponse> getUsageSNMPWithHttpInfo(OffsetDateTime s
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSNMP", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageSNMPRequest {
@@ -1319,7 +1319,7 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageSummaryRequest {
@@ -1450,7 +1450,7 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSynthetics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageSyntheticsRequest {
@@ -1572,7 +1572,7 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSyntheticsAPI", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageSyntheticsAPIRequest {
@@ -1692,7 +1692,7 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSyntheticsBrowser", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageSyntheticsBrowserRequest {
@@ -1812,7 +1812,7 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageTimeseries", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageTimeseriesRequest {
@@ -1932,7 +1932,7 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageTopAvgMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageTopAvgMetricsRequest {
@@ -2052,7 +2052,7 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageTrace", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetUsageTraceRequest {

@@ -82,7 +82,7 @@ private ApiResponse<AuthenticationValidationResponse> validateWithHttpInfo() thr
 
     return apiClient.invokeAPI("AuthenticationApi.validate", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIvalidateRequest {

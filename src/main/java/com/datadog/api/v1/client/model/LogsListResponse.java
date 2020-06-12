@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.Log;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Response object with all logs matching the request and pagination information.
@@ -46,7 +50,6 @@ public class LogsListResponse {
 
 
   public LogsListResponse logs(List<Log> logs) {
-    
     this.logs = logs;
     return this;
   }
@@ -79,7 +82,6 @@ public class LogsListResponse {
 
 
   public LogsListResponse nextLogId(String nextLogId) {
-    
     this.nextLogId = nextLogId;
     return this;
   }
@@ -104,7 +106,6 @@ public class LogsListResponse {
 
 
   public LogsListResponse status(String status) {
-    
     this.status = status;
     return this;
   }

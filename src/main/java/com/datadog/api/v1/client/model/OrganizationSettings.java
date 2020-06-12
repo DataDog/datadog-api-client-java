@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AccessRole;
 import com.datadog.api.v1.client.model.OrganizationSettingsSaml;
 import com.datadog.api.v1.client.model.OrganizationSettingsSamlAutocreateUsersDomains;
@@ -25,6 +27,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A JSON array of settings.
@@ -76,7 +80,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings privateWidgetShare(Boolean privateWidgetShare) {
-    
     this.privateWidgetShare = privateWidgetShare;
     return this;
   }
@@ -101,7 +104,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings saml(OrganizationSettingsSaml saml) {
-    
     this.saml = saml;
     return this;
   }
@@ -126,7 +128,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings samlAutocreateAccessRole(AccessRole samlAutocreateAccessRole) {
-    
     this.samlAutocreateAccessRole = samlAutocreateAccessRole;
     return this;
   }
@@ -151,7 +152,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings samlAutocreateUsersDomains(OrganizationSettingsSamlAutocreateUsersDomains samlAutocreateUsersDomains) {
-    
     this.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
     return this;
   }
@@ -176,7 +176,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings samlCanBeEnabled(Boolean samlCanBeEnabled) {
-    
     this.samlCanBeEnabled = samlCanBeEnabled;
     return this;
   }
@@ -201,7 +200,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings samlIdpEndpoint(String samlIdpEndpoint) {
-    
     this.samlIdpEndpoint = samlIdpEndpoint;
     return this;
   }
@@ -226,7 +224,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings samlIdpInitiatedLogin(OrganizationSettingsSamlIdpInitiatedLogin samlIdpInitiatedLogin) {
-    
     this.samlIdpInitiatedLogin = samlIdpInitiatedLogin;
     return this;
   }
@@ -251,7 +248,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings samlIdpMetadataUploaded(Boolean samlIdpMetadataUploaded) {
-    
     this.samlIdpMetadataUploaded = samlIdpMetadataUploaded;
     return this;
   }
@@ -276,7 +272,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings samlLoginUrl(String samlLoginUrl) {
-    
     this.samlLoginUrl = samlLoginUrl;
     return this;
   }
@@ -301,7 +296,6 @@ public class OrganizationSettings {
 
 
   public OrganizationSettings samlStrictMode(OrganizationSettingsSamlStrictMode samlStrictMode) {
-    
     this.samlStrictMode = samlStrictMode;
     return this;
   }

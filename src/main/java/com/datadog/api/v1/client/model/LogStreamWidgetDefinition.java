@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogStreamWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetFieldSort;
 import com.datadog.api.v1.client.model.WidgetMessageDisplay;
@@ -27,6 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
@@ -90,7 +94,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition columns(List<String> columns) {
-    
     this.columns = columns;
     return this;
   }
@@ -123,7 +126,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition indexes(List<String> indexes) {
-    
     this.indexes = indexes;
     return this;
   }
@@ -156,7 +158,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition logset(String logset) {
-    
     this.logset = logset;
     return this;
   }
@@ -181,7 +182,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition messageDisplay(WidgetMessageDisplay messageDisplay) {
-    
     this.messageDisplay = messageDisplay;
     return this;
   }
@@ -206,7 +206,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -231,7 +230,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition showDateColumn(Boolean showDateColumn) {
-    
     this.showDateColumn = showDateColumn;
     return this;
   }
@@ -256,7 +254,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition showMessageColumn(Boolean showMessageColumn) {
-    
     this.showMessageColumn = showMessageColumn;
     return this;
   }
@@ -281,7 +278,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition sort(WidgetFieldSort sort) {
-    
     this.sort = sort;
     return this;
   }
@@ -306,7 +302,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -331,7 +326,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -356,7 +350,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -381,7 +374,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -406,7 +398,6 @@ public class LogStreamWidgetDefinition {
 
 
   public LogStreamWidgetDefinition type(LogStreamWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }

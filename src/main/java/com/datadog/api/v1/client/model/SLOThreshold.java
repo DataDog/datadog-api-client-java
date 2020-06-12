@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOTimeframe;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * SLO thresholds (target and optionally warning) for a single time window.
@@ -52,7 +56,6 @@ public class SLOThreshold {
 
 
   public SLOThreshold target(Double target) {
-    
     this.target = target;
     return this;
   }
@@ -76,7 +79,6 @@ public class SLOThreshold {
 
 
   public SLOThreshold targetDisplay(String targetDisplay) {
-    
     this.targetDisplay = targetDisplay;
     return this;
   }
@@ -101,7 +103,6 @@ public class SLOThreshold {
 
 
   public SLOThreshold timeframe(SLOTimeframe timeframe) {
-    
     this.timeframe = timeframe;
     return this;
   }
@@ -125,7 +126,6 @@ public class SLOThreshold {
 
 
   public SLOThreshold warning(Double warning) {
-    
     this.warning = warning;
     return this;
   }
@@ -150,7 +150,6 @@ public class SLOThreshold {
 
 
   public SLOThreshold warningDisplay(String warningDisplay) {
-    
     this.warningDisplay = warningDisplay;
     return this;
   }

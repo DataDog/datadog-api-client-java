@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsLookupProcessorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Use the Lookup Processor to define a mapping between a log attribute and a human readable value saved in the processors mapping table. For example, you can use the Lookup Processor to map an internal service ID into a human readable service name. Alternatively, you could also use it to check if the MAC address that just attempted to connect to the production environment belongs to your list of stolen machines.
@@ -62,7 +66,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor defaultLookup(String defaultLookup) {
-    
     this.defaultLookup = defaultLookup;
     return this;
   }
@@ -87,7 +90,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -112,7 +114,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor lookupTable(List<String> lookupTable) {
-    
     this.lookupTable = lookupTable;
     return this;
   }
@@ -141,7 +142,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -166,7 +166,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor source(String source) {
-    
     this.source = source;
     return this;
   }
@@ -190,7 +189,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -214,7 +212,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor type(LogsLookupProcessorType type) {
-    
     this.type = type;
     return this;
   }

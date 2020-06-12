@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOBulkDeleteResponseData;
 import com.datadog.api.v1.client.model.SLOBulkDeleteResponseErrors;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,6 +26,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions succeeded and failed.
@@ -43,7 +47,6 @@ public class SLOBulkDeleteResponse {
 
 
   public SLOBulkDeleteResponse data(SLOBulkDeleteResponseData data) {
-    
     this.data = data;
     return this;
   }
@@ -68,7 +71,6 @@ public class SLOBulkDeleteResponse {
 
 
   public SLOBulkDeleteResponse errors(List<SLOBulkDeleteResponseErrors> errors) {
-    
     this.errors = errors;
     return this;
   }

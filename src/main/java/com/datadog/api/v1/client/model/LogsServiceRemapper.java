@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsServiceRemapperType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Use this processor if you want to assign one or more attributes as the official service.  **Note:** If multiple service remapper processors can be applied to a given log, only the first one (according to the pipeline order) is taken into account.
@@ -50,7 +54,6 @@ public class LogsServiceRemapper {
 
 
   public LogsServiceRemapper isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -75,7 +78,6 @@ public class LogsServiceRemapper {
 
 
   public LogsServiceRemapper name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -100,7 +102,6 @@ public class LogsServiceRemapper {
 
 
   public LogsServiceRemapper sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -129,7 +130,6 @@ public class LogsServiceRemapper {
 
 
   public LogsServiceRemapper type(LogsServiceRemapperType type) {
-    
     this.type = type;
     return this;
   }

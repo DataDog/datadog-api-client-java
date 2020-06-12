@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsDeviceID;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the device used to perform the Synthetic test.
@@ -52,7 +56,6 @@ public class SyntheticsDevice {
 
 
   public SyntheticsDevice height(Long height) {
-    
     this.height = height;
     return this;
   }
@@ -76,7 +79,6 @@ public class SyntheticsDevice {
 
 
   public SyntheticsDevice id(SyntheticsDeviceID id) {
-    
     this.id = id;
     return this;
   }
@@ -100,7 +102,6 @@ public class SyntheticsDevice {
 
 
   public SyntheticsDevice isMobile(Boolean isMobile) {
-    
     this.isMobile = isMobile;
     return this;
   }
@@ -125,7 +126,6 @@ public class SyntheticsDevice {
 
 
   public SyntheticsDevice name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -149,7 +149,6 @@ public class SyntheticsDevice {
 
 
   public SyntheticsDevice width(Long width) {
-    
     this.width = width;
     return this;
   }

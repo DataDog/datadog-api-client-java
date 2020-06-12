@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,6 +23,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
@@ -44,7 +48,6 @@ public class UsageLambdaHour {
 
 
   public UsageLambdaHour funcCount(Long funcCount) {
-    
     this.funcCount = funcCount;
     return this;
   }
@@ -69,7 +72,6 @@ public class UsageLambdaHour {
 
 
   public UsageLambdaHour hour(OffsetDateTime hour) {
-    
     this.hour = hour;
     return this;
   }
@@ -94,7 +96,6 @@ public class UsageLambdaHour {
 
 
   public UsageLambdaHour invocationsSum(Long invocationsSum) {
-    
     this.invocationsSum = invocationsSum;
     return this;
   }

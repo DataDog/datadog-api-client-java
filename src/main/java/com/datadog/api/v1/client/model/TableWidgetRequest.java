@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
@@ -28,6 +30,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Updated table widget.
@@ -87,7 +91,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest aggregator(WidgetAggregator aggregator) {
-    
     this.aggregator = aggregator;
     return this;
   }
@@ -112,7 +115,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest alias(String alias) {
-    
     this.alias = alias;
     return this;
   }
@@ -137,7 +139,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
-    
     this.apmQuery = apmQuery;
     return this;
   }
@@ -162,7 +163,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
-    
     this.conditionalFormats = conditionalFormats;
     return this;
   }
@@ -195,7 +195,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
-    
     this.eventQuery = eventQuery;
     return this;
   }
@@ -220,7 +219,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest limit(Long limit) {
-    
     this.limit = limit;
     return this;
   }
@@ -245,7 +243,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest logQuery(LogQueryDefinition logQuery) {
-    
     this.logQuery = logQuery;
     return this;
   }
@@ -270,7 +267,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
-    
     this.networkQuery = networkQuery;
     return this;
   }
@@ -295,7 +291,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest order(WidgetSort order) {
-    
     this.order = order;
     return this;
   }
@@ -320,7 +315,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
-    
     this.processQuery = processQuery;
     return this;
   }
@@ -345,7 +339,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest q(String q) {
-    
     this.q = q;
     return this;
   }
@@ -370,7 +363,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
-    
     this.rumQuery = rumQuery;
     return this;
   }

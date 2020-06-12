@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Type of aggregation performed in the monitor query.
@@ -43,7 +47,6 @@ public class MonitorOptionsAggregation {
 
 
   public MonitorOptionsAggregation groupBy(String groupBy) {
-    
     this.groupBy = groupBy;
     return this;
   }
@@ -68,7 +71,6 @@ public class MonitorOptionsAggregation {
 
 
   public MonitorOptionsAggregation metric(String metric) {
-    
     this.metric = metric;
     return this;
   }
@@ -93,7 +95,6 @@ public class MonitorOptionsAggregation {
 
 
   public MonitorOptionsAggregation type(String type) {
-    
     this.type = type;
     return this;
   }

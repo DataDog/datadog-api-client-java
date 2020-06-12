@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the issuer of a SSL certificate.
@@ -55,7 +59,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer C(String C) {
-    
     this.C = C;
     return this;
   }
@@ -80,7 +83,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer CN(String CN) {
-    
     this.CN = CN;
     return this;
   }
@@ -105,7 +107,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer L(String L) {
-    
     this.L = L;
     return this;
   }
@@ -130,7 +131,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer O(String O) {
-    
     this.O = O;
     return this;
   }
@@ -155,7 +155,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer OU(String OU) {
-    
     this.OU = OU;
     return this;
   }
@@ -180,7 +179,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer ST(String ST) {
-    
     this.ST = ST;
     return this;
   }

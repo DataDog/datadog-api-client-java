@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,6 +24,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
@@ -37,7 +41,6 @@ public class SyntheticsDeleteTestsPayload {
 
 
   public SyntheticsDeleteTestsPayload publicIds(List<String> publicIds) {
-    
     this.publicIds = publicIds;
     return this;
   }

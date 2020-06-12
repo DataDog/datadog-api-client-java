@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Case when signal is generated.
@@ -50,7 +54,6 @@ public class SecurityMonitoringRuleCase {
 
 
   public SecurityMonitoringRuleCase condition(String condition) {
-    
     this.condition = condition;
     return this;
   }
@@ -75,7 +78,6 @@ public class SecurityMonitoringRuleCase {
 
 
   public SecurityMonitoringRuleCase name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -100,7 +102,6 @@ public class SecurityMonitoringRuleCase {
 
 
   public SecurityMonitoringRuleCase notifications(List<String> notifications) {
-    
     this.notifications = notifications;
     return this;
   }
@@ -133,7 +134,6 @@ public class SecurityMonitoringRuleCase {
 
 
   public SecurityMonitoringRuleCase status(SecurityMonitoringRuleSeverity status) {
-    
     this.status = status;
     return this;
   }

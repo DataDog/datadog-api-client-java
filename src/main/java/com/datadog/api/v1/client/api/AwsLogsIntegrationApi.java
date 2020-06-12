@@ -91,7 +91,7 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(AW
 
     return apiClient.invokeAPI("AwsLogsIntegrationApi.checkAWSLogsLambdaAsync", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcheckAWSLogsLambdaAsyncRequest {
@@ -198,7 +198,7 @@ private ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
 
     return apiClient.invokeAPI("AwsLogsIntegrationApi.checkAWSLogsServicesAsync", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcheckAWSLogsServicesAsyncRequest {
@@ -305,7 +305,7 @@ private ApiResponse<Object> createAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
 
     return apiClient.invokeAPI("AwsLogsIntegrationApi.createAWSLambdaARN", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateAWSLambdaARNRequest {
@@ -412,7 +412,7 @@ private ApiResponse<Object> deleteAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRe
 
     return apiClient.invokeAPI("AwsLogsIntegrationApi.deleteAWSLambdaARN", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIdeleteAWSLambdaARNRequest {
@@ -519,7 +519,7 @@ private ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequ
 
     return apiClient.invokeAPI("AwsLogsIntegrationApi.enableAWSLogServices", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIenableAWSLogServicesRequest {
@@ -621,7 +621,7 @@ private ApiResponse<List<AWSLogsListResponse>> listAWSLogsIntegrationsWithHttpIn
 
     return apiClient.invokeAPI("AwsLogsIntegrationApi.listAWSLogsIntegrations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistAWSLogsIntegrationsRequest {
@@ -712,7 +712,7 @@ private ApiResponse<List<AWSLogsListServicesResponse>> listAWSLogsServicesWithHt
 
     return apiClient.invokeAPI("AwsLogsIntegrationApi.listAWSLogsServices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIlistAWSLogsServicesRequest {

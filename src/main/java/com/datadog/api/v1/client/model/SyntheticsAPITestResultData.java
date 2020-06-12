@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsErrorCode;
 import com.datadog.api.v1.client.model.SyntheticsSSLCertificate;
 import com.datadog.api.v1.client.model.SyntheticsTestProcessStatus;
@@ -27,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object containing results for your Synthetic API test.
@@ -78,7 +82,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData cert(SyntheticsSSLCertificate cert) {
-    
     this.cert = cert;
     return this;
   }
@@ -103,7 +106,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData errorCode(SyntheticsErrorCode errorCode) {
-    
     this.errorCode = errorCode;
     return this;
   }
@@ -128,7 +130,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData errorMessage(String errorMessage) {
-    
     this.errorMessage = errorMessage;
     return this;
   }
@@ -153,7 +154,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData eventType(SyntheticsTestProcessStatus eventType) {
-    
     this.eventType = eventType;
     return this;
   }
@@ -178,7 +178,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData httpStatusCode(Long httpStatusCode) {
-    
     this.httpStatusCode = httpStatusCode;
     return this;
   }
@@ -203,7 +202,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData requestHeaders(Map<String, Object> requestHeaders) {
-    
     this.requestHeaders = requestHeaders;
     return this;
   }
@@ -236,7 +234,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData responseBody(String responseBody) {
-    
     this.responseBody = responseBody;
     return this;
   }
@@ -261,7 +258,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData responseHeaders(Map<String, Object> responseHeaders) {
-    
     this.responseHeaders = responseHeaders;
     return this;
   }
@@ -294,7 +290,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData responseSize(Long responseSize) {
-    
     this.responseSize = responseSize;
     return this;
   }
@@ -319,7 +314,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData timings(SyntheticsTiming timings) {
-    
     this.timings = timings;
     return this;
   }

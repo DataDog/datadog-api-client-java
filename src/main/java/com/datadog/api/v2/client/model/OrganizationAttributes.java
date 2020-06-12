@@ -13,6 +13,8 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,6 +23,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Attributes of the organization.
@@ -64,7 +68,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -89,7 +92,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -114,7 +116,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes disabled(Boolean disabled) {
-    
     this.disabled = disabled;
     return this;
   }
@@ -139,7 +140,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes modifiedAt(OffsetDateTime modifiedAt) {
-    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -164,7 +164,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -189,7 +188,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes publicId(String publicId) {
-    
     this.publicId = publicId;
     return this;
   }
@@ -214,7 +212,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes sharing(String sharing) {
-    
     this.sharing = sharing;
     return this;
   }
@@ -239,7 +236,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes url(String url) {
-    
     this.url = url;
     return this;
   }

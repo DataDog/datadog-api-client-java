@@ -99,7 +99,7 @@ private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithH
 
     return apiClient.invokeAPI("DashboardListsApi.createDashboardListItems", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIcreateDashboardListItemsRequest {
@@ -217,7 +217,7 @@ private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWi
 
     return apiClient.invokeAPI("DashboardListsApi.deleteDashboardListItems", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIdeleteDashboardListItemsRequest {
@@ -330,7 +330,7 @@ private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long d
 
     return apiClient.invokeAPI("DashboardListsApi.getDashboardListItems", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIgetDashboardListItemsRequest {
@@ -435,7 +435,7 @@ private ApiResponse<DashboardListUpdateItemsResponse> updateDashboardListItemsWi
 
     return apiClient.invokeAPI("DashboardListsApi.updateDashboardListItems", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType);
   }
 
   public class APIupdateDashboardListItemsRequest {
