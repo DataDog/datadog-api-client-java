@@ -66,7 +66,7 @@ public class UsersApiTest extends V2APITest {
                 .name(testingUserName)
                 .title(testingUserTitle);
         UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreatePayload ucp = new UserCreatePayload().data(ucd);
+        UserCreateRequest ucp = new UserCreateRequest().data(ucd);
         UserResponse ur = api.createUser().body(ucp).execute();
         String uid = ur.getData().getId();
         disableUsers.add(uid);
@@ -78,7 +78,7 @@ public class UsersApiTest extends V2APITest {
         // now, test updating it
         UserUpdateAttributes uua = new UserUpdateAttributes().disabled(false).name("Joe Doe");
         UserUpdateData uud = new UserUpdateData().attributes(uua).id(uid);
-        UserUpdatePayload uup = new UserUpdatePayload().data(uud);
+        UserUpdateRequest uup = new UserUpdateRequest().data(uud);
         // no response payload; we're ok if it didn't throw exception
         api.updateUser(uid).body(uup).execute();
 
@@ -119,7 +119,7 @@ public class UsersApiTest extends V2APITest {
                 .name(testingUserName)
                 .title(testingUserTitle);
         UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreatePayload ucp = new UserCreatePayload().data(ucd);
+        UserCreateRequest ucp = new UserCreateRequest().data(ucd);
         UserResponse ur = api.createUser().body(ucp).execute();
         String id = ur.getData().getId();
 
@@ -130,7 +130,7 @@ public class UsersApiTest extends V2APITest {
         UserInvitationData uid = new UserInvitationData().relationships(uir);
         List<UserInvitationData> luid = new ArrayList<>();
         luid.add(uid);
-        UserInvitationPayload uip = new UserInvitationPayload().data(luid);
+        UserInvitationsRequest uip = new UserInvitationsRequest().data(luid);
 
         UserInvitationsResponse resp = api.sendInvitations().body(uip).execute();
         String respId = resp.getData().get(0).getId();
