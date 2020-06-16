@@ -195,8 +195,8 @@ public class RolesApiTest extends V2APITest {
                 .name(testingUserName)
                 .title(testingUserTitle);
         UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreateRequest ucp = new UserCreateRequest().data(ucd);
-        UserResponse ur = usersApi.createUser().body(ucp).execute();
+        UserCreateRequest ucr = new UserCreateRequest().data(ucd);
+        UserResponse ur = usersApi.createUser().body(ucr).execute();
         String uid = ur.getData().getId();
         disableUsers.add(uid);
 

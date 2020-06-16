@@ -66,8 +66,8 @@ public class UsersApiTest extends V2APITest {
                 .name(testingUserName)
                 .title(testingUserTitle);
         UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreateRequest ucp = new UserCreateRequest().data(ucd);
-        UserResponse ur = api.createUser().body(ucp).execute();
+        UserCreateRequest ucr = new UserCreateRequest().data(ucd);
+        UserResponse ur = api.createUser().body(ucr).execute();
         String uid = ur.getData().getId();
         disableUsers.add(uid);
 
@@ -78,9 +78,9 @@ public class UsersApiTest extends V2APITest {
         // now, test updating it
         UserUpdateAttributes uua = new UserUpdateAttributes().disabled(false).name("Joe Doe");
         UserUpdateData uud = new UserUpdateData().attributes(uua).id(uid);
-        UserUpdateRequest uup = new UserUpdateRequest().data(uud);
+        UserUpdateRequest uur = new UserUpdateRequest().data(uud);
         // no response payload; we're ok if it didn't throw exception
-        api.updateUser(uid).body(uup).execute();
+        api.updateUser(uid).body(uur).execute();
 
         // now, test getting it
         UserResponse urp = api.getUser(uid).execute();
@@ -119,8 +119,8 @@ public class UsersApiTest extends V2APITest {
                 .name(testingUserName)
                 .title(testingUserTitle);
         UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreateRequest ucp = new UserCreateRequest().data(ucd);
-        UserResponse ur = api.createUser().body(ucp).execute();
+        UserCreateRequest ucr = new UserCreateRequest().data(ucd);
+        UserResponse ur = api.createUser().body(ucr).execute();
         String id = ur.getData().getId();
 
         // first, create the user invitation
@@ -130,9 +130,9 @@ public class UsersApiTest extends V2APITest {
         UserInvitationData uid = new UserInvitationData().relationships(uir);
         List<UserInvitationData> luid = new ArrayList<>();
         luid.add(uid);
-        UserInvitationsRequest uip = new UserInvitationsRequest().data(luid);
+        UserInvitationsRequest uireq = new UserInvitationsRequest().data(luid);
 
-        UserInvitationsResponse resp = api.sendInvitations().body(uip).execute();
+        UserInvitationsResponse resp = api.sendInvitations().body(uireq).execute();
         String respId = resp.getData().get(0).getId();
 
         // now, test getting the invitation
