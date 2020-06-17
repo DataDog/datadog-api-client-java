@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import datadog.trace.api.DDTags;
 import datadog.trace.api.interceptor.MutableSpan;
 import io.opentracing.Span;
 import io.opentracing.tag.Tags;
@@ -147,6 +148,7 @@ public class TestUtils {
         // https://docs.datadoghq.com/tracing/guide/metrics_namespace/#errors
         // "version" is really the only one we can use here
         protected static final String TRACING_TAG_ENDPOINT = "version";
+        protected static final String TRACING_SPAN_TYPE = "test";
         @Rule
         public WireMockRule wireMockRule = new WireMockRule(options().port(WIREMOCK_PORT));
         @Rule
@@ -304,8 +306,13 @@ public class TestUtils {
                 MutableSpan localRootSpan = ((MutableSpan) span).getLocalRootSpan();
                 localRootSpan.setTag(TRACING_TAG_ENDPOINT, getTracingEndpoint());
                 // we need to set both resourceName and the `resource.name` tag, which is what's displayed in the UI
+                // similar for spanType + `span.type` (which also has to be set as operationName)
                 localRootSpan.setResourceName(getQualifiedTestcaseName());
-                localRootSpan.setTag("resource.name", getQualifiedTestcaseName());
+                localRootSpan.setOperationName(TRACING_SPAN_TYPE);
+                localRootSpan.setSpanType(TRACING_SPAN_TYPE);
+                localRootSpan.setTag("analytics.event", true);
+                localRootSpan.setTag(DDTags.RESOURCE_NAME, getQualifiedTestcaseName());
+                localRootSpan.setTag(DDTags.SPAN_TYPE, TRACING_SPAN_TYPE);
             }
         }
 
