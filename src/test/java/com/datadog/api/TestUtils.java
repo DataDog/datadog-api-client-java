@@ -310,7 +310,7 @@ public class TestUtils {
                 localRootSpan.setResourceName(getQualifiedTestcaseName());
                 localRootSpan.setOperationName(TRACING_SPAN_TYPE);
                 localRootSpan.setSpanType(TRACING_SPAN_TYPE);
-                localRootSpan.setTag("analytics.event", true);
+                localRootSpan.setTag(DDTags.ANALYTICS_SAMPLE_RATE, 1.0f);
                 localRootSpan.setTag(DDTags.RESOURCE_NAME, getQualifiedTestcaseName());
                 localRootSpan.setTag(DDTags.SPAN_TYPE, TRACING_SPAN_TYPE);
             }
