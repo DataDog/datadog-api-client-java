@@ -15,7 +15,7 @@ for one_dep in `echo $ALL_DEPS`; do
     set +e
     cat LICENSE-3rdparty.csv | grep "$one_dep" > /dev/null 2>&1
     if [ $? -ne 0 ]; then
-        DEPS_NOT_FOUND="${DEPS_NOT_FOUND}\n${one_dep}<LICENSE>,<COPYRIGHT>"
+        DEPS_NOT_FOUND="${DEPS_NOT_FOUND}\nimport,${one_dep},<LICENSE>,<COPYRIGHT>"
     fi
     set -e
 done

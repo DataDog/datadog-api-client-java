@@ -27,6 +27,11 @@ public class SecurityMonitoringApiTest extends V2APITest {
     private SecurityMonitoringApi api;
     private List<SecurityMonitoringRuleResponse> ruleCreateResponses;
 
+    @Override
+    public String getTracingEndpoint() {
+        return "security-monitoring";
+    }
+
     @Before
     public void setUp() throws Exception {
         api = new SecurityMonitoringApi(generalApiClient);

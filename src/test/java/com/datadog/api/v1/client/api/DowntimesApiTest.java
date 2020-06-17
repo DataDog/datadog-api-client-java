@@ -46,6 +46,11 @@ public class DowntimesApiTest extends V1ApiTest {
     private final List<String> testingDowntimeRecurrenceWeekDays = Arrays.asList("Mon", "Tue");
     private final Integer testingUntilDowntimeRecurrenceOccurrences = 10;
 
+    @Override
+    public String getTracingEndpoint() {
+        return "downtimes";
+    }
+
     @Before
     public void resetTest() {
         deleteDowntimes = new ArrayList<>();

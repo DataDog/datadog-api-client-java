@@ -59,6 +59,11 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     private static AWSAccountAndLambdaRequest uniqueAWSAccountLambdaRequest = new AWSAccountAndLambdaRequest();
     private static AWSLogsServicesRequest uniqueAWSLogsServicesRequest = new AWSLogsServicesRequest();
 
+    @Override
+    public String getTracingEndpoint() {
+        return "integration-aws";
+    }
+
     @BeforeClass
     public static void initApi() {
         api = new AwsIntegrationApi(generalApiClient);

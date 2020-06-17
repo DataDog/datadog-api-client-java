@@ -44,6 +44,11 @@ public class OrganizationsApiTest extends V1ApiTest {
     private final String apiUri = "/api/v1/org";
     private final String fixturePrefix = "v1/client/api/org_fixtures";
 
+    @Override
+    public String getTracingEndpoint() {
+        return "organizations";
+    }
+
     /**
      * Create child-organization.
      *
