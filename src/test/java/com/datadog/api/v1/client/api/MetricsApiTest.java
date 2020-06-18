@@ -40,6 +40,11 @@ public class MetricsApiTest extends V1ApiTest {
     private final String fixturePrefix = "v1/client/api/metrics_fixtures";
     private final String apiUri = "/api/v1/metrics";
 
+    @Override
+    public String getTracingEndpoint() {
+        return "metrics";
+    }
+
     @BeforeClass
     public static void initApi() {
         api = new MetricsApi(generalApiClient);

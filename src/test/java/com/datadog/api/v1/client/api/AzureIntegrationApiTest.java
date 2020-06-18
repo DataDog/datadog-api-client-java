@@ -40,6 +40,10 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     private final String fixturePrefix = "v1/client/api/azure_fixtures";
     private final String apiUri = "/api/v1/integration/azure";
 
+    @Override
+    public String getTracingEndpoint() {
+        return "integration-azure";
+    }
 
     @BeforeClass
     public static void initApi() {

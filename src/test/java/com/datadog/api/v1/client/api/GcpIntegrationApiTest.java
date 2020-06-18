@@ -40,6 +40,11 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     private final String apiUri = "/api/v1/integration/gcp";
     private final String fixturePrefix = "v1/client/api/gcp_fixtures";
 
+    @Override
+    public String getTracingEndpoint() {
+        return "integration-gcp";
+    }
+
     @BeforeClass
     public static void initAPI() {
         api = new GcpIntegrationApi(generalApiClient);

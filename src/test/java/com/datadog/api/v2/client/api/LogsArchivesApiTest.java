@@ -56,6 +56,10 @@ public class LogsArchivesApiTest extends V2APITest {
     private final String fixturePrefix = "v2/client/api/logs_archives_fixtures";
     private final String apiUri = "/api/v2/logs/config/archives";
 
+    @Override
+    public String getTracingEndpoint() {
+        return "logs-archives";
+    }
 
     @BeforeClass
     public static void initApi() {

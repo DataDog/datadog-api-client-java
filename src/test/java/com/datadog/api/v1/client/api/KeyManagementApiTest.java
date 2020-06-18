@@ -45,6 +45,11 @@ public class KeyManagementApiTest extends V1ApiTest {
     private final String appUri = "/api/v1/application_key";
     private final String fixturePrefix = "v1/client/api/keys_fixtures";
 
+    @Override
+    public String getTracingEndpoint() {
+        return "key-management";
+    }
+
     @Before
     public void resetTest() {
         deleteAppKeys = new ArrayList<>();

@@ -40,6 +40,9 @@ import,io.netty:netty-handler-proxy,Apache-2.0,2014 The Netty Project
 import,io.netty:netty-handler,Apache-2.0,2012 The Netty Project
 import,io.netty:netty-resolver,Apache-2.0,2014 The Netty Project
 import,io.netty:netty-transport,Apache-2.0,2012 The Netty Project
+import,io.opentracing:opentracing-api,Apache-2.0,2016-2020 The OpenTracing Authors
+import,io.opentracing:opentracing-noop,Apache-2.0,2016-2020 The OpenTracing Authors
+import,io.opentracing:opentracing-util,Apache-2.0,2016-2020 The OpenTracing Authors
 import,io.swagger:swagger-annotations,Apache-2.0,2016 SmartBear Software
 import,javax.activation:activation,BSD-3-Clause,2018 Oracle and/or its affiliates
 import,javax.activation:javax.activation-api,BSD-3-Clause,1997-2019 Oracle and/or its affiliates

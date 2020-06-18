@@ -24,6 +24,11 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     private static LogsPipelinesApi api;
     private static List<String> pipelinesToDelete;
 
+    @Override
+    public String getTracingEndpoint() {
+        return "logs-pipelines";
+    }
+
     @Before
     public void init() {
         api = new LogsPipelinesApi(generalApiClient);

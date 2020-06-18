@@ -35,6 +35,11 @@ public class RolesApiTest extends V2APITest {
     private final String testingUserName = "Test Datadog Client Java";
     private final String testingUserTitle = "Big boss";
 
+    @Override
+    public String getTracingEndpoint() {
+        return "roles";
+    }
+
     @BeforeClass
     public static void initApi() {
         api = new RolesApi(generalApiClient);
