@@ -60,7 +60,9 @@ jobs:
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         DD_TRACE_ANALYTICS_ENABLED: "true"
         # see docker-compose.yaml for information why we do this
-        DD_TRACE_METHODS: 'org.junit.rules.TestWatcher$$1[evaluate]'
+        # NOTE: this doesn't have double `$$` like the docker-compose line,
+        # as the escaping is different
+        DD_TRACE_METHODS: 'org.junit.rules.TestWatcher$1[evaluate]'
         RECORD: "none"
     - script: |
         bash <(curl -s https://codecov.io/bash) -F integration -v
