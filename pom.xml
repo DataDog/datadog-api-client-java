@@ -78,7 +78,7 @@
                 <configuration>
                     <runOrder>random</runOrder>
                     <!-- We don't use threads, as that would complicate cassette recording, plus keystore used by tests isn't thread safe. -->
-                    <!-- FIXME 
+                    <!-- FIXME
                     <forkCount>2</forkCount>
                     <reuseForks>true</reuseForks>
                     <threadCount>1</threadCount>
@@ -370,8 +370,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.5.22</swagger-annotations-version>
         <jersey-version>2.27</jersey-version>
-        <jackson-version>2.9.10</jackson-version>
-        <jackson-databind-version>2.9.10.4</jackson-databind-version>
+        <jackson-version>2.10.4</jackson-version>
+        <jackson-databind-version>2.10.4</jackson-databind-version>
         <jackson-databind-nullable-version>0.2.0</jackson-databind-nullable-version>
         <http-signature-version>1.3</http-signature-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
