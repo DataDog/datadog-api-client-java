@@ -26,9 +26,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Object describing the retry strategy to apply to a Synthetic test.
+ * Object describing the retry strategy to apply to a Synthetic test. By default, there is a 300ms wait before retrying a test that has failed.
  */
-@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test.")
+@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test. By default, there is a 300ms wait before retrying a test that has failed.")
 @JsonPropertyOrder({
   SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
   SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
