@@ -33,20 +33,20 @@ import com.datadog.api.v2.client.JSON;
  */
 @ApiModel(description = "Object to invite users to join the organization.")
 @JsonPropertyOrder({
-  UserInvitationPayload.JSON_PROPERTY_DATA
+  UserInvitationsRequest.JSON_PROPERTY_DATA
 })
 
-public class UserInvitationPayload {
+public class UserInvitationsRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<UserInvitationData> data = null;
 
 
-  public UserInvitationPayload data(List<UserInvitationData> data) {
+  public UserInvitationsRequest data(List<UserInvitationData> data) {
     this.data = data;
     return this;
   }
 
-  public UserInvitationPayload addDataItem(UserInvitationData dataItem) {
+  public UserInvitationsRequest addDataItem(UserInvitationData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -81,8 +81,8 @@ public class UserInvitationPayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserInvitationPayload userInvitationPayload = (UserInvitationPayload) o;
-    return Objects.equals(this.data, userInvitationPayload.data);
+    UserInvitationsRequest userInvitationsRequest = (UserInvitationsRequest) o;
+    return Objects.equals(this.data, userInvitationsRequest.data);
   }
 
   @Override
@@ -94,7 +94,7 @@ public class UserInvitationPayload {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserInvitationPayload {\n");
+    sb.append("class UserInvitationsRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

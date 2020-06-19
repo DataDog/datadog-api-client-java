@@ -11,6 +11,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import datadog.trace.api.DDTags;
+import datadog.trace.api.interceptor.MutableSpan;
+import io.opentracing.Span;
+import io.opentracing.tag.Tags;
+import io.opentracing.util.GlobalTracer;
 import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.junit.After;
@@ -129,7 +134,7 @@ public class TestUtils {
         }
     }
 
-    public static class APITest {
+    public abstract static class APITest {
         protected static final String TEST_API_KEY_NAME = "DD_TEST_CLIENT_API_KEY";
         protected static final String TEST_APP_KEY_NAME = "DD_TEST_CLIENT_APP_KEY";
 
@@ -139,6 +144,11 @@ public class TestUtils {
         protected static String TEST_API_KEY;
         protected static String TEST_APP_KEY;
         protected static int WIREMOCK_PORT = 8080 + SUREFIRE_FORK;
+        // We need to make the tag be something that is then searchable in monitors
+        // https://docs.datadoghq.com/tracing/guide/metrics_namespace/#errors
+        // "version" is really the only one we can use here
+        protected static final String TRACING_TAG_ENDPOINT = "version";
+        protected static final String TRACING_SPAN_TYPE = "test";
         @Rule
         public WireMockRule wireMockRule = new WireMockRule(options().port(WIREMOCK_PORT));
         @Rule
@@ -146,6 +156,8 @@ public class TestUtils {
         public static ClientAndServer mockServer;
         protected Clock clock;
         protected OffsetDateTime now;
+
+        public abstract String getTracingEndpoint();
 
         /**
          * Combines all cassettes into a single huge one.
@@ -283,6 +295,24 @@ public class TestUtils {
                     clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
                 }
                 now = OffsetDateTime.ofInstant(Instant.now(clock), ZoneOffset.UTC);
+            }
+        }
+
+        @Before
+        public void setTracingTags() {
+            final Span span = GlobalTracer.get().activeSpan();
+            if (span != null) {
+                // if the agent container is not running, span is null
+                MutableSpan localRootSpan = ((MutableSpan) span).getLocalRootSpan();
+                localRootSpan.setTag(TRACING_TAG_ENDPOINT, getTracingEndpoint());
+                // we need to set both resourceName and the `resource.name` tag, which is what's displayed in the UI
+                // similar for spanType + `span.type` (which also has to be set as operationName)
+                localRootSpan.setResourceName(getQualifiedTestcaseName());
+                localRootSpan.setOperationName(TRACING_SPAN_TYPE);
+                localRootSpan.setSpanType(TRACING_SPAN_TYPE);
+                localRootSpan.setTag(DDTags.ANALYTICS_SAMPLE_RATE, 1.0f);
+                localRootSpan.setTag(DDTags.RESOURCE_NAME, getQualifiedTestcaseName());
+                localRootSpan.setTag(DDTags.SPAN_TYPE, TRACING_SPAN_TYPE);
             }
         }
 

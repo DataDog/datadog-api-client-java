@@ -41,6 +41,11 @@ public class DashboardListsApiTest extends V2APITest {
     private static long dashboardListID;
     private final DashboardListsApi api = new DashboardListsApi(generalApiClient);
 
+    @Override
+    public String getTracingEndpoint() {
+        return "dashboard-lists";
+    }
+
     @After
     public void deleteDashboardList() throws com.datadog.api.v1.client.ApiException {
         dashboardListsApiV1.deleteDashboardList(dashboardListID).execute();

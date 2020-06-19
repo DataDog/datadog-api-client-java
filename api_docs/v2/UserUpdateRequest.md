@@ -1,6 +1,6 @@
 
 
-# UserUpdatePayload
+# UserUpdateRequest
 
 Update a user.
 ## Properties

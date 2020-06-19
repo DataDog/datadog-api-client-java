@@ -14,6 +14,11 @@ public class TelemetryTest extends V1ApiTest {
 
     private static AwsIntegrationApi api;
 
+    @Override
+    public String getTracingEndpoint() {
+        return "telemetry";
+    }
+
     @BeforeClass
     public static void initApi() {
         api = new AwsIntegrationApi(generalApiUnitTestClient);

@@ -42,6 +42,11 @@ public class UsersApiTest extends V1ApiTest {
     private final AccessRole testingUserAR = AccessRole.STANDARD;
     private ArrayList<String> disableUsers = null;
 
+    @Override
+    public String getTracingEndpoint() {
+        return "users";
+    }
+
     @Before
     public void resetDisableUsers() {
         disableUsers = new ArrayList<String>();
