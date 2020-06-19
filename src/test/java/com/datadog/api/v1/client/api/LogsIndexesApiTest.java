@@ -41,6 +41,10 @@ public class LogsIndexesApiTest extends V1ApiTest {
     private final String apiUri = "/api/v1/logs/config/indexes";
     private final String fixturePrefix = "v1/client/api/logs_indexes_fixtures";
 
+    @Override
+    public String getTracingEndpoint() {
+        return "logs-indexes";
+    }
 
     @BeforeClass
     public static void initApi() {

@@ -98,6 +98,11 @@ public class SyntheticsApiTest extends V1ApiTest {
             .tags(Arrays.asList("testing:browser"))
             .type(SyntheticsTestDetailsType.BROWSER);
 
+    @Override
+    public String getTracingEndpoint() {
+        return "synthetics";
+    }
+
     @Before
     public void resetDeleteSyntheticsTests() {
         deleteSyntheticsTests = new ArrayList<String>();

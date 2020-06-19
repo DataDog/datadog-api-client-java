@@ -48,6 +48,11 @@ public class UsageMeteringApiTest extends V1ApiTest {
     private final String apiUri = "/api/v1/usage";
     private final String fixturePrefix = "v1/client/api/usage_fixtures";
 
+    @Override
+    public String getTracingEndpoint() {
+        return "usage-metering";
+    }
+
     @BeforeClass
     public static void initApi() {
         api = new UsageMeteringApi(generalApiClient);

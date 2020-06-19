@@ -38,6 +38,11 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     private final LogsPipelinesApi api = new LogsPipelinesApi(generalApiClient);
     private final LogsPipelinesApi fakeAuthApi = new LogsPipelinesApi(generalFakeAuthApiClient);
 
+    @Override
+    public String getTracingEndpoint() {
+        return "logs-pipelines";
+    }
+
     /**
      * Create a Pipeline
      *

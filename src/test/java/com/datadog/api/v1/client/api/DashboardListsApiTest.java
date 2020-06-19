@@ -35,6 +35,11 @@ public class DashboardListsApiTest extends V1ApiTest {
 
     private ArrayList<Long> dashboardListsToDelete;
 
+    @Override
+    public String getTracingEndpoint() {
+        return "dashboard-lists";
+    }
+
     @Before
     public void resetDashboardListsToDelete() {
         dashboardListsToDelete = new ArrayList<Long>();

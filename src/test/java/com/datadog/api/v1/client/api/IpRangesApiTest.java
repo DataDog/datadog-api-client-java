@@ -26,6 +26,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 public class IpRangesApiTest extends V1ApiTest {
 
     private static IpRangesApi api;
+    @Override
+    public String getTracingEndpoint() {
+        return "ip-ranges";
+    }
 
     @Test
     public void getIPRangesTest() throws ApiException {

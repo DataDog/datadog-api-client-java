@@ -14,6 +14,11 @@ public class TelemetryTest extends V2APITest {
 
     private static DashboardListsApi api;
 
+    @Override
+    public String getTracingEndpoint() {
+        return "telemetry";
+    }
+
     @BeforeClass
     public static void initApi() {
         api = new DashboardListsApi(generalApiUnitTestClient);

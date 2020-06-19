@@ -33,6 +33,11 @@ public class UsersApiTest extends V2APITest {
     private final String testingUserTitle = "Big boss";
     private ArrayList<String> disableUsers = null;
 
+    @Override
+    public String getTracingEndpoint() {
+        return "users";
+    }
+
     @BeforeClass
     public static void initApi() {
         api = new UsersApi(generalApiClient);

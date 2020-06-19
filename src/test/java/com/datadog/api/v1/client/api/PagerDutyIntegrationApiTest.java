@@ -42,6 +42,11 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     // ObjectMapper instance configure to not fail when encountering unknown properties
     private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+    @Override
+    public String getTracingEndpoint() {
+        return "integration-pagerduty";
+    }
+
     @BeforeClass
     public static void initAPI() {
         api = new PagerDutyIntegrationApi(generalApiClient);

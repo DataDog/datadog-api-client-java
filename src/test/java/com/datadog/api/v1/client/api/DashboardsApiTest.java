@@ -58,6 +58,11 @@ public class DashboardsApiTest extends V1ApiTest{
                  .denominator("default(sum:non_existant_metric{*}.as_count(), 2)")
             );
 
+    @Override
+    public String getTracingEndpoint() {
+        return "dashboards";
+    }
+
     @BeforeClass
     public static void initAPI() {
         api = new DashboardsApi(generalApiClient);
