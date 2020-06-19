@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v2.client.model.UserCreateData;
+import com.datadog.api.v2.client.model.UserUpdateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,19 +27,19 @@ import com.datadog.api.v2.client.JSON;
 
 
 /**
- * Create a user.
+ * Update a user.
  */
-@ApiModel(description = "Create a user.")
+@ApiModel(description = "Update a user.")
 @JsonPropertyOrder({
-  UserCreatePayload.JSON_PROPERTY_DATA
+  UserUpdateRequest.JSON_PROPERTY_DATA
 })
 
-public class UserCreatePayload {
+public class UserUpdateRequest {
   public static final String JSON_PROPERTY_DATA = "data";
-  private UserCreateData data;
+  private UserUpdateData data;
 
 
-  public UserCreatePayload data(UserCreateData data) {
+  public UserUpdateRequest data(UserUpdateData data) {
     this.data = data;
     return this;
   }
@@ -53,12 +53,12 @@ public class UserCreatePayload {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UserCreateData getData() {
+  public UserUpdateData getData() {
     return data;
   }
 
 
-  public void setData(UserCreateData data) {
+  public void setData(UserUpdateData data) {
     this.data = data;
   }
 
@@ -71,8 +71,8 @@ public class UserCreatePayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserCreatePayload userCreatePayload = (UserCreatePayload) o;
-    return Objects.equals(this.data, userCreatePayload.data);
+    UserUpdateRequest userUpdateRequest = (UserUpdateRequest) o;
+    return Objects.equals(this.data, userUpdateRequest.data);
   }
 
   @Override
@@ -84,7 +84,7 @@ public class UserCreatePayload {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserCreatePayload {\n");
+    sb.append("class UserUpdateRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

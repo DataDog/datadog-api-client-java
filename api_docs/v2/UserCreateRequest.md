@@ -1,6 +1,6 @@
 
 
-# UserCreatePayload
+# UserCreateRequest
 
 Create a user.
 ## Properties

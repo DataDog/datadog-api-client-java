@@ -11,12 +11,12 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v2.client.model.APIErrorResponse;
 import com.datadog.api.v2.client.model.PermissionsResponse;
 import com.datadog.api.v2.client.model.QuerySortOrder;
-import com.datadog.api.v2.client.model.UserCreatePayload;
-import com.datadog.api.v2.client.model.UserInvitationPayload;
+import com.datadog.api.v2.client.model.UserCreateRequest;
 import com.datadog.api.v2.client.model.UserInvitationResponse;
+import com.datadog.api.v2.client.model.UserInvitationsRequest;
 import com.datadog.api.v2.client.model.UserInvitationsResponse;
 import com.datadog.api.v2.client.model.UserResponse;
-import com.datadog.api.v2.client.model.UserUpdatePayload;
+import com.datadog.api.v2.client.model.UserUpdateRequest;
 import com.datadog.api.v2.client.model.UsersResponse;
 
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ public class UsersApi {
   }
 
 
-private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreatePayload body) throws ApiException {
+private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // create path and map variables
@@ -94,7 +94,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreatePayload body)
   }
 
   public class APIcreateUserRequest {
-    private UserCreatePayload body;
+    private UserCreateRequest body;
 
     private APIcreateUserRequest() {
     }
@@ -104,7 +104,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreatePayload body)
      * @param body  (optional)
      * @return APIcreateUserRequest
      */
-    public APIcreateUserRequest body(UserCreatePayload body) {
+    public APIcreateUserRequest body(UserCreateRequest body) {
       this.body = body;
       return this;
     }
@@ -818,7 +818,7 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
     return new APIlistUsersRequest();
   }
 
-private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInvitationPayload body) throws ApiException {
+private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInvitationsRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // create path and map variables
@@ -857,7 +857,7 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
   }
 
   public class APIsendInvitationsRequest {
-    private UserInvitationPayload body;
+    private UserInvitationsRequest body;
 
     private APIsendInvitationsRequest() {
     }
@@ -867,7 +867,7 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
      * @param body  (optional)
      * @return APIsendInvitationsRequest
      */
-    public APIsendInvitationsRequest body(UserInvitationPayload body) {
+    public APIsendInvitationsRequest body(UserInvitationsRequest body) {
       this.body = body;
       return this;
     }
@@ -920,7 +920,7 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
     return new APIsendInvitationsRequest();
   }
 
-private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayload body) throws ApiException {
+private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'userId' is set
@@ -964,7 +964,7 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayloa
 
   public class APIupdateUserRequest {
     private String userId;
-    private UserUpdatePayload body;
+    private UserUpdateRequest body;
 
     private APIupdateUserRequest(String userId) {
       this.userId = userId;
@@ -975,7 +975,7 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayloa
      * @param body  (optional)
      * @return APIupdateUserRequest
      */
-    public APIupdateUserRequest body(UserUpdatePayload body) {
+    public APIupdateUserRequest body(UserUpdateRequest body) {
       this.body = body;
       return this;
     }
