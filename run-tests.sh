@@ -9,7 +9,12 @@ echo "Ensuring all dependencies are present in LICENSE-3rdparty.csv ..."
 #   org.glassfish.jersey.ext:jersey-entity-filtering:jar:2.27:compile
 # * the second sed result
 #   org.glassfish.jersey.ext:jersey-entity-filtering
-ALL_DEPS=`mvn dependency:tree -DoutputType=dot | grep -- "-> " | sed 's|.*-> "\(.*\)".*|\1|' | sed "s/\(.*\):jar:.*/\1/" | sort | uniq`
+MVN_OUTPUT=`mvn dependency:tree -DoutputType=dot`
+if [ $? -ne 0 ]; then
+    echo $MVN_OUTPUT
+    exit 1
+fi
+ALL_DEPS=`echo $MVN_OUTPUT | grep -- "-> " | sed 's|.*-> "\(.*\)".*|\1|' | sed "s/\(.*\):jar:.*/\1/" | sort | uniq`
 DEPS_NOT_FOUND=""
 for one_dep in `echo $ALL_DEPS`; do
     set +e
