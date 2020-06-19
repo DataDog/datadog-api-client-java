@@ -6269,8 +6269,10 @@ components:
           format: int64
           type: integer
         retry:
-          description: Object describing the retry strategy to apply to a Synthetic
+          description: 'Object describing the retry strategy to apply to a Synthetic
             test.
+
+            By default, there is a 300ms wait before retrying a test that has failed.'
           properties:
             count:
               description: The amount of location that needs to fail for the test
