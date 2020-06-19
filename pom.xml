@@ -4,14 +4,14 @@
     <artifactId>datadog-api-client</artifactId>
     <packaging>jar</packaging>
     <name>datadog-api-client</name>
-    <version>1.0.0-beta.5-SNAPSHOT</version>
+    <version>1.0.0-beta.5</version>
     <url>https://github.com/DataDog/datadog-api-client-java</url>
     <description>Java client library for Datadog API</description>
     <scm>
         <connection>scm:git:git://github.com/DataDog/datadog-api-client-java.git</connection>
         <developerConnection>scm:git:git@github.com:DataDog/datadog-api-client-java.git</developerConnection>
         <url>https://github.com/DataDog/datadog-api-client-java</url>
-      <tag>HEAD</tag>
+      <tag>datadog-api-client-1.0.0-beta.5</tag>
   </scm>
 
     <licenses>
