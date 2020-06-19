@@ -52,7 +52,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        UserCreatePayload body = new UserCreatePayload(); // UserCreatePayload | 
+        UserCreateRequest body = new UserCreateRequest(); // UserCreateRequest | 
         try {
             UserResponse result = api.createUser()
                 .body(body)
@@ -74,7 +74,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserCreatePayload**](UserCreatePayload.md)|  | [optional]
+ **body** | [**UserCreateRequest**](UserCreateRequest.md)|  | [optional]
 
 ### Return type
 
@@ -628,7 +628,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        UserInvitationPayload body = new UserInvitationPayload(); // UserInvitationPayload | 
+        UserInvitationsRequest body = new UserInvitationsRequest(); // UserInvitationsRequest | 
         try {
             UserInvitationsResponse result = api.sendInvitations()
                 .body(body)
@@ -650,7 +650,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserInvitationPayload**](UserInvitationPayload.md)|  | [optional]
+ **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -710,7 +710,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
-        UserUpdatePayload body = new UserUpdatePayload(); // UserUpdatePayload | 
+        UserUpdateRequest body = new UserUpdateRequest(); // UserUpdateRequest | 
         try {
             api.updateUser(userId)
                 .body(body)
@@ -732,7 +732,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The ID of the user. |
- **body** | [**UserUpdatePayload**](UserUpdatePayload.md)|  | [optional]
+ **body** | [**UserUpdateRequest**](UserUpdateRequest.md)|  | [optional]
 
 ### Return type
 
