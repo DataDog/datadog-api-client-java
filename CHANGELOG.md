@@ -7,8 +7,8 @@
 * [Fixed] Widget legend size can also be "0". See [#341](https://github.com/DataDog/datadog-api-client-java/pull/341).
 * [Fixed] Log Index as an optional parameter (default to "*") for List Queries. See [#340](https://github.com/DataDog/datadog-api-client-java/pull/340).
 * [Security] Bump jackson and jackson-databind from 2.9.10.4 to 2.10.4. See [#349](https://github.com/DataDog/datadog-api-client-java/pull/349).
-* [Changed] Rename payload objects to request for `users` API. See [#350](https://github.com/DataDog/datadog-api-client-java/pull/350).
-  * This change includes backwards incompatible changes when using the `user` endpoint.
+* [Changed] Rename payload objects to request for `users` v2 API. See [#350](https://github.com/DataDog/datadog-api-client-java/pull/350).
+  * This change includes backwards incompatible changes when using the `users` v2 endpoint.
 * [Changed] Split schema for roles API. See [#342](https://github.com/DataDog/datadog-api-client-java/pull/342).
   * This change includes backwards incompatible changes when using the `role` endpoint.
 
