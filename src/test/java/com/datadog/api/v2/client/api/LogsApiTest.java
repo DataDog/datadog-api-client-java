@@ -18,9 +18,9 @@ import static org.junit.Assert.assertTrue;
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.model.LogsListPayload;
-import com.datadog.api.v2.client.model.LogsListPayloadFilter;
-import com.datadog.api.v2.client.model.LogsListPayloadPage;
+import com.datadog.api.v2.client.model.LogsListRequest;
+import com.datadog.api.v2.client.model.LogsListRequestFilter;
+import com.datadog.api.v2.client.model.LogsListRequestPage;
 import com.datadog.api.v2.client.model.LogsListResponse;
 import com.datadog.api.v2.client.model.LogsSort;
 import java.net.URLEncoder;
@@ -77,17 +77,17 @@ public class LogsApiTest extends V2APITest {
         String suffix = "post-" + now.toEpochSecond();
         sendLogs(suffix);
 
-        LogsListPayloadFilter allLogsFilter = new LogsListPayloadFilter()
+        LogsListRequestFilter allLogsFilter = new LogsListRequestFilter()
                 .query(suffix)
                 .from(now.minus(Duration.ofHours(1)))
                 .to(now.plus(Duration.ofHours(1)));
 
         // Make sure both logs are indexed
-        LogsListPayload bothMessagesPayload = new LogsListPayload()
+        LogsListRequest bothMessagesRequest = new LogsListRequest()
                 .filter(allLogsFilter);
         TestUtils.retry(10, 10, () -> {
             try {
-                LogsListResponse response = api.listLogs().body(bothMessagesPayload).execute();
+                LogsListResponse response = api.listLogs().body(bothMessagesRequest).execute();
                 return response.getData() != null && response.getData().size() == 2;
             } catch (ApiException ignored) {
                 return false;
@@ -96,30 +96,30 @@ public class LogsApiTest extends V2APITest {
 
         // Sort works correctly
         LogsListResponse responseAscending = api.listLogs()
-                .body(new LogsListPayload()
+                .body(new LogsListRequest()
                         .filter(allLogsFilter)
                         .sort(LogsSort.TIMESTAMP_ASCENDING))
                 .execute();
 
         assertEquals(2, responseAscending.getData().size());
-        assertEquals("test-log-list " + suffix, responseAscending.getData().get(0).getContent().getMessage());
-        assertEquals("test-log-list-2 " + suffix, responseAscending.getData().get(1).getContent().getMessage());
+        assertEquals("test-log-list " + suffix, responseAscending.getData().get(0).getAttributes().getMessage());
+        assertEquals("test-log-list-2 " + suffix, responseAscending.getData().get(1).getAttributes().getMessage());
 
         LogsListResponse responseDescending = api.listLogs()
-                .body(new LogsListPayload()
+                .body(new LogsListRequest()
                         .filter(allLogsFilter)
                         .sort(LogsSort.TIMESTAMP_DESCENDING))
                 .execute();
 
         assertEquals(2, responseDescending.getData().size());
-        assertEquals("test-log-list-2 " + suffix, responseDescending.getData().get(0).getContent().getMessage());
-        assertEquals("test-log-list " + suffix, responseDescending.getData().get(1).getContent().getMessage());
+        assertEquals("test-log-list-2 " + suffix, responseDescending.getData().get(0).getAttributes().getMessage());
+        assertEquals("test-log-list " + suffix, responseDescending.getData().get(1).getAttributes().getMessage());
 
         // Paging
         LogsListResponse pageOneResponse = api.listLogs()
-                .body(new LogsListPayload()
+                .body(new LogsListRequest()
                         .filter(allLogsFilter)
-                        .page(new LogsListPayloadPage().limit(1)))
+                        .page(new LogsListRequestPage().limit(1)))
                 .execute();
         assertEquals(1, pageOneResponse.getData().size());
 
@@ -127,9 +127,9 @@ public class LogsApiTest extends V2APITest {
         assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
 
         LogsListResponse pageTwoResponse = api.listLogs()
-                .body(new LogsListPayload()
+                .body(new LogsListRequest()
                         .filter(allLogsFilter)
-                        .page(new LogsListPayloadPage()
+                        .page(new LogsListRequestPage()
                                 .cursor(cursor)
                                 .limit(1)))
                 .execute();
@@ -166,8 +166,8 @@ public class LogsApiTest extends V2APITest {
                 .execute();
 
         assertEquals(2, responseAscending.getData().size());
-        assertEquals("test-log-list " + suffix, responseAscending.getData().get(0).getContent().getMessage());
-        assertEquals("test-log-list-2 " + suffix, responseAscending.getData().get(1).getContent().getMessage());
+        assertEquals("test-log-list " + suffix, responseAscending.getData().get(0).getAttributes().getMessage());
+        assertEquals("test-log-list-2 " + suffix, responseAscending.getData().get(1).getAttributes().getMessage());
 
         LogsListResponse responseDescending = api.listLogsGet()
                 .filterQuery(suffix)
@@ -177,8 +177,8 @@ public class LogsApiTest extends V2APITest {
                 .execute();
 
         assertEquals(2, responseDescending.getData().size());
-        assertEquals("test-log-list-2 " + suffix, responseDescending.getData().get(0).getContent().getMessage());
-        assertEquals("test-log-list " + suffix, responseDescending.getData().get(1).getContent().getMessage());
+        assertEquals("test-log-list-2 " + suffix, responseDescending.getData().get(0).getAttributes().getMessage());
+        assertEquals("test-log-list " + suffix, responseDescending.getData().get(1).getAttributes().getMessage());
 
         // Paging
         LogsListResponse pageOneResponse = api.listLogsGet()
