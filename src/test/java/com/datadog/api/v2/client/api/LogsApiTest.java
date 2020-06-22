@@ -26,13 +26,32 @@ import com.datadog.api.v2.client.model.LogsSort;
 import java.net.URLEncoder;
 import java.time.Duration;
 import javax.ws.rs.core.GenericType;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("ConstantConditions")
 public class LogsApiTest extends V2APITest {
 
     private static LogsApi api;
+
+    @Override
+    public String getTracingEndpoint() {
+        return "logs";
+    }
+
+    @BeforeClass
+    public static void enableUnstableOperations() {
+        generalApiClient.setUnstableOperationEnabled("listLogs", true);
+        generalApiClient.setUnstableOperationEnabled("listLogsGet", true);
+    }
+
+    @AfterClass
+    public static void disableUnstableOperations() {
+        generalApiClient.setUnstableOperationEnabled("listLogs", false);
+        generalApiClient.setUnstableOperationEnabled("listLogsGet", false);
+    }
 
     @Before
     public void setup() {
