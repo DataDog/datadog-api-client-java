@@ -14,7 +14,11 @@ import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.ws.rs.core.GenericType;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
@@ -75,6 +79,18 @@ public abstract class V2APITest extends TestUtils.APITest {
         // these headers help mockserver properly identify the request in the huge all-in-one cassette
         generalApiClient.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
     }
+
+    public String testDomain() throws MalformedURLException {
+        String basePath = generalApiClient.getBasePath();
+        String host = new URL(basePath).getHost();
+
+        // naïvely assume the TLD does not contain periods
+        Pattern domainPattern = Pattern.compile(".*?([^.]+\\.[\\w]+)$");
+        Matcher matcher = domainPattern.matcher(host);
+        matcher.find();
+        return matcher.group(1);
+    }
+
 
     public <T> ApiResponse<T> sendRequest(String method, String url, String payload, GenericType<T> responseType) throws ApiException {
         String originalBasePath = generalApiClient.getBasePath();

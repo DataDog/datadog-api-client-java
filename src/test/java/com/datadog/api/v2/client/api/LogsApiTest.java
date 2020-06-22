@@ -23,6 +23,7 @@ import com.datadog.api.v2.client.model.LogsListRequestFilter;
 import com.datadog.api.v2.client.model.LogsListRequestPage;
 import com.datadog.api.v2.client.model.LogsListResponse;
 import com.datadog.api.v2.client.model.LogsSort;
+import java.net.MalformedURLException;
 import java.net.URLEncoder;
 import java.time.Duration;
 import javax.ws.rs.core.GenericType;
@@ -58,14 +59,14 @@ public class LogsApiTest extends V2APITest {
         api = new LogsApi(generalApiClient);
     }
 
-    private void sendLogs(String suffix) throws ApiException, InterruptedException {
+    private void sendLogs(String suffix) throws ApiException, MalformedURLException {
         long nowNano = now.toEpochSecond() * 1000000 + now.getNano();
         String source = String.format("java-client-test-%d", nowNano);
         String message = String.format("test-log-list %s", suffix);
         String secondMessage = String.format("test-log-list-2 %s", suffix);
         String hostname = getUniqueEntityName();
 
-        String intakeURL = "https://http-intake.logs.datadoghq.com/v1/input";
+        String intakeURL = String.format("https://http-intake.logs.%s/v1/input", testDomain());
         if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
             // when running from cassettes, we need to make sure that the default base URL
             // is used for mock server certificates to work properly
