@@ -94,7 +94,7 @@ public class LogsApiTest extends V2APITest {
 
     @Test
     public void listLogsTest() throws Exception {
-        String suffix = "post-" + now.toEpochSecond();
+        String suffix = getUniqueEntityName();
         sendLogs(suffix);
 
         LogsListRequestFilter allLogsFilter = new LogsListRequestFilter()
@@ -160,7 +160,7 @@ public class LogsApiTest extends V2APITest {
 
     @Test
     public void listLogsGetTest() throws Exception {
-        String suffix = "get-" + now.toEpochSecond();
+        String suffix = getUniqueEntityName();
         sendLogs(suffix);
 
         // Make sure both logs are indexed
