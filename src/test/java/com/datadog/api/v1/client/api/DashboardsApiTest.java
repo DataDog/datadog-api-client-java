@@ -72,12 +72,12 @@ public class DashboardsApiTest extends V1ApiTest{
 
     @After
     public void cleanupDash() throws ApiException {
-        try {
-            for(String id: cleanupDashIDs) {
+        for (String id: cleanupDashIDs) {
+            try {
                 api.deleteDashboard(id).execute();
+            } catch (ApiException e) {
+                System.out.printf("Error deleting dashboard, it may have already been deleted by a test: %s", e.getMessage());
             }
-        } catch (ApiException e) {
-            System.out.printf("Error deleting dashboard, it may have already been deleted by a test: %s", e.getMessage());
         }
         cleanupDashIDs = new ArrayList<>();
         if (deleteSLO != null) {
