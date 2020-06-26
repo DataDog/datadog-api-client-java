@@ -38,15 +38,19 @@ public class SyntheticsApiTest extends V1ApiTest {
     private SyntheticsTestDetails apiTestConfig = new SyntheticsTestDetails()
             .config(new SyntheticsTestConfig()
                     .assertions(Arrays.asList(
-                            new SyntheticsAssertion()
-                                    .operator(SyntheticsAssertionOperator.IS)
-                                    .property("content-type")
-                                    .target("text/html")
-                                    .type(SyntheticsAssertionType.HEADER),
-                            new SyntheticsAssertion()
-                                    .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                    .target(2000)
-                                    .type(SyntheticsAssertionType.RESPONSE_TIME)
+                            new SyntheticsAssertion(
+                                    new SyntheticsAssertionTarget()
+                                            .operator(SyntheticsAssertionOperator.IS)
+                                            .property("content-type")
+                                            .target("text/html")
+                                            .type(SyntheticsAssertionType.HEADER)
+                        ),
+                            new SyntheticsAssertion(
+                                    new SyntheticsAssertionTarget()
+                                            .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                            .target(2000)
+                                            .type(SyntheticsAssertionType.RESPONSE_TIME)
+                        )
                     ))
                     .request(new SyntheticsTestRequest()
                             .headers(new HashMap<String, String>() {{put("testingJavaClient", "true");}})
