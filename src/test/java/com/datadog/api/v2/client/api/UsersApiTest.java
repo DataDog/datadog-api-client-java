@@ -127,6 +127,7 @@ public class UsersApiTest extends V2APITest {
         UserCreateRequest ucr = new UserCreateRequest().data(ucd);
         UserResponse ur = api.createUser().body(ucr).execute();
         String id = ur.getData().getId();
+        disableUsers.add(id);
 
         // first, create the user invitation
         RelationshipToUserData rtud = new RelationshipToUserData().id(id);
