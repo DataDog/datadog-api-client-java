@@ -35,13 +35,14 @@ public class SecurityMonitoringApiTest extends V2APITest {
     @Before
     public void setUp() throws Exception {
         api = new SecurityMonitoringApi(generalApiClient);
+        ruleCreateResponses = new ArrayList<>();
     }
 
     @After
     public void tearDown() throws Exception {
         for (SecurityMonitoringRuleResponse rule : ruleCreateResponses) {
             try {
-                api.deleteSecurityMonitoringRule(rule.getId());
+                api.deleteSecurityMonitoringRule(rule.getId()).execute();
             } catch (ApiException e) {
                 // ignore
             }
@@ -51,8 +52,6 @@ public class SecurityMonitoringApiTest extends V2APITest {
     @Test
     public void rulesCrudTest() throws ApiException {
         String baseName = getUniqueEntityName();
-
-        ruleCreateResponses = new ArrayList<>();
 
         // create rules
         for (int i = 0; i < 5; i++) {
