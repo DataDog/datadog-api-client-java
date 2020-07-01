@@ -66,11 +66,13 @@ public class LogsApiTest extends V2APITest {
         String secondMessage = String.format("test-log-list-2 %s", suffix);
         String hostname = getUniqueEntityName();
 
-        String intakeURL = String.format("https://http-intake.logs.%s/v1/input", testDomain());
+        String intakeURL;
         if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
             // when running from cassettes, we need to make sure that the default base URL
             // is used for mock server certificates to work properly
             intakeURL = "/v1/input";
+        } else {
+            intakeURL = String.format("https://http-intake.logs.%s/v1/input", testDomain());
         }
         sendRequest(
             "POST",

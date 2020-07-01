@@ -87,12 +87,7 @@ public abstract class V2APITest extends TestUtils.APITest {
         // naïvely assume the TLD does not contain periods
         Pattern domainPattern = Pattern.compile(".*?([^.]+\\.[\\w]+)$");
         Matcher matcher = domainPattern.matcher(host);
-        if (matcher.find()) {
-            return matcher.group(1);
-        } else {
-            System.err.println("Unable to match domain for basePath=" + basePath + " defaulting to datadoghq.com");
-            return "datadoghq.com";
-        }
+        return matcher.group(1);
     }
 
 
