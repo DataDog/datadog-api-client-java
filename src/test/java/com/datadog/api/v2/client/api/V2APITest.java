@@ -38,6 +38,7 @@ public abstract class V2APITest extends TestUtils.APITest {
         secrets.put("apiKeyAuth", TEST_API_KEY);
         secrets.put("appKeyAuth", TEST_APP_KEY);
         generalApiClient.configureApiKeys(secrets);
+        generalApiClient.setServerIndex(0);
 
         // Set debugging based on env
         generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
@@ -87,7 +88,10 @@ public abstract class V2APITest extends TestUtils.APITest {
         // naïvely assume the TLD does not contain periods
         Pattern domainPattern = Pattern.compile(".*?([^.]+\\.[\\w]+)$");
         Matcher matcher = domainPattern.matcher(host);
-        return matcher.group(1);
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+        return null;
     }
 
 
