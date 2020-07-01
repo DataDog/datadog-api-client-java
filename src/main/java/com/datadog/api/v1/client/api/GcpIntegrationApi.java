@@ -98,7 +98,7 @@ private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) th
 
     /**
      * Set body
-     * @param body Create a Datadog-Azure integration. (required)
+     * @param body Create a Datadog-GCP integration. (required)
      * @return APIcreateGCPIntegrationRequest
      */
     public APIcreateGCPIntegrationRequest body(GCPAccount body) {
