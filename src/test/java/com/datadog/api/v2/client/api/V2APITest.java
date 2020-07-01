@@ -7,15 +7,23 @@
 package com.datadog.api.v2.client.api;
 
 
+import static java.util.Collections.emptyMap;
+
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.ApiResponse;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.ws.rs.core.GenericType;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.junit.Before;
 import org.junit.BeforeClass;
-
-import java.util.HashMap;
 
 public abstract class V2APITest extends TestUtils.APITest {
     protected static ApiClient generalApiClient;
@@ -30,6 +38,7 @@ public abstract class V2APITest extends TestUtils.APITest {
         secrets.put("apiKeyAuth", TEST_API_KEY);
         secrets.put("appKeyAuth", TEST_APP_KEY);
         generalApiClient.configureApiKeys(secrets);
+        generalApiClient.setServerIndex(0);
 
         // Set debugging based on env
         generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
@@ -70,5 +79,51 @@ public abstract class V2APITest extends TestUtils.APITest {
     public void setTestNameHeader() {
         // these headers help mockserver properly identify the request in the huge all-in-one cassette
         generalApiClient.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
+    }
+
+    public String testDomain() throws MalformedURLException {
+        String basePath = generalApiClient.getBasePath();
+        String host = new URL(basePath).getHost();
+
+        // naïvely assume the TLD does not contain periods
+        Pattern domainPattern = Pattern.compile(".*?([^.]+\\.[\\w]+)$");
+        Matcher matcher = domainPattern.matcher(host);
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+        return null;
+    }
+
+
+    public <T> ApiResponse<T> sendRequest(String method, String url, String payload, GenericType<T> responseType) throws ApiException {
+        String originalBasePath = generalApiClient.getBasePath();
+        Integer originalServerIndex = generalApiClient.getServerIndex();
+        if (url.startsWith("https://")) {
+            // if we got full URL, ensure that invokeAPI method doesn't use builtin operation servers
+            // but rather falls back to basePath, which is empty => we'll get precisely the URL we want as result
+            generalApiClient.setBasePath("");
+            generalApiClient.setServerIndex(null);
+        }
+        try {
+            return generalApiClient.invokeAPI(
+                    "",
+                    url,
+                    method,
+                    null,
+                    payload,
+                    emptyMap(),
+                    emptyMap(),
+                    emptyMap(),
+                    "application/json",
+                    "application/json",
+                    new String[]{"apiKeyAuth", "appKeyAuth"},
+                    responseType
+            );
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            generalApiClient.setBasePath(originalBasePath);
+            generalApiClient.setServerIndex(originalServerIndex);
+        }
     }
 }
