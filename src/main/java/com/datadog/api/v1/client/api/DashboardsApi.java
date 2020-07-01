@@ -435,7 +435,7 @@ private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiExc
 
   /**
    * Get all dashboards
-   * Get all dashboards.
+   * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
    * @return listDashboardsRequest
    * @throws ApiException if fails to make API call
    
