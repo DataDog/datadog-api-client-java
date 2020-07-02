@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.0.0-beta.7 / 2020-07-02
+
+* [Added] Add getter for User-Agent header value. See [#364](https://github.com/DataDog/datadog-api-client-java/pull/364).
+* [Added] Add Logs Search API v2. See [#362](https://github.com/DataDog/datadog-api-client-java/pull/362).
+* [Fixed] RRULE property for Downtimes API. See [#361](https://github.com/DataDog/datadog-api-client-java/pull/361).
+* [Deprecated] Dashboards List v1 has been deprecated. See [#360](https://github.com/DataDog/datadog-api-client-java/pull/360).
+
 ## datadog-api-client-1.0.0-beta.6 / 2020-06-22
 
 * [Fixed] Update enum of synthetics devices IDs to match API. See [#353](https://github.com/DataDog/datadog-api-client-java/pull/353).
