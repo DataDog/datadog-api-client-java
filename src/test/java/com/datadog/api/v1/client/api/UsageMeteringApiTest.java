@@ -675,7 +675,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         stubFor(get(urlPathEqualTo(apiUri + "/billable-summary"))
                 .willReturn(okJson(fixtureData).withStatus(400))
         );
-        // Mocked because this requires multi org feature
+        // Mocked as this call must be made from the parent organization
         try {
             unitApi.getUsageBillableSummary().startDate(startMonth).execute();
             fail("Expected ApiException not thrown");
