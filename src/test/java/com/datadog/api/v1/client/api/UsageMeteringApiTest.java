@@ -156,6 +156,48 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageBillableSummaryTest() throws ApiException, IOException {
+        OffsetDateTime startDate = OffsetDateTime.of(LocalDateTime.of(2020, 06, 01, 00, 00),
+        ZoneOffset.ofHoursMinutes(0, 0));
+        OffsetDateTime endDate = OffsetDateTime.of(LocalDateTime.of(2020, 06, 28, 23, 00),
+        ZoneOffset.ofHoursMinutes(0, 0));
+        stubFor(get(urlPathEqualTo("/api/v1/usage/billable-summary"))
+                .withQueryParam("start_date", equalTo(startDate.toString()))
+                .withQueryParam("end_date", equalTo(endDate.toString()))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/usage_fixtures/usage_billable_summary.json")))
+        );
+        UsageBillableSummaryResponse usage = unitApi.getUsageBillableSummary()
+                .startDate(startDate)
+                .endDate(endDate)
+                .execute();
+                
+        assertNotNull(usage.getUsage());
+        UsageBillableSummaryHour usageItem = usage.getUsage().get(0);
+        assertEquals(usageItem.getOrgName(), "Logs Probe - Test");
+        assertEquals(usageItem.getBillingPlan(), "Pro");
+        assertEquals(usageItem.getPublicId(), "927176c4b");
+        OffsetDateTime startDateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 06, 01, 00, 00),
+                ZoneOffset.ofHoursMinutes(0, 0));
+        OffsetDateTime endDateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 06, 28, 23, 00),
+                ZoneOffset.ofHoursMinutes(0, 0));
+        assertEquals(usageItem.getStartDate(), startDateExpected);
+        assertEquals(usageItem.getEndDate(), endDateExpected);
+        assertEquals(usageItem.getRatioInMonth().intValue(), 1);
+        assertEquals(usageItem.getNumOrgs().intValue(), 235);
+
+        UsageBillableSummaryKeys usageKeys = usageItem.getUsage();
+        UsageBillableSummaryBody logsIndexedSum = usageKeys.getLogsIndexedSum();
+
+        assertEquals(logsIndexedSum.getOrgBillableUsage().intValue(), 14514687);
+        assertEquals(logsIndexedSum.getUsageUnit(), "logs");
+        assertEquals(logsIndexedSum.getAccountBillableUsage().intValue(), 1611132837);
+        assertEquals(logsIndexedSum.getFirstBillableUsageHour(), startDateExpected);
+        assertEquals(logsIndexedSum.getElapsedUsageHours().intValue(), 672);
+        assertEquals(logsIndexedSum.getLastBillableUsageHour(), endDateExpected);
+        assertEquals(logsIndexedSum.getPercentageInAccount().floatValue(), 0.9);
+    }
+
+    @Test
     public void getUsageSummaryTest() throws ApiException, IOException {
         Boolean includeOrgDetails = true;
         OffsetDateTime startMonth = OffsetDateTime.now();
