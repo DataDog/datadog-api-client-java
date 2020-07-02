@@ -659,6 +659,34 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageBillableSummaryErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getUsageBillableSummary().startDate(futureStartMonth).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+    @Test
+    public void getUsageBillableSummary400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo(apiUri + "/billable-summary"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked because this requires multi org feature
+        try {
+            unitApi.getUsageBillableSummary().startDate(startMonth).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
     public void getUsageSummaryErrorsTest() throws IOException {
         try {
             fakeAuthApi.getUsageSummary().startMonth(futureStartMonth).execute();
