@@ -1,0 +1,38 @@
+[{
+  "id" : "dcd85759-4f9f-42d3-a7cf-bbeadd2eb737",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/usage/billable-summary",
+    "queryStringParameters" : {
+      "start_date" : [ "2020-08-02T20:52Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json;datetime-format=rfc3339" ],
+      "JAVA-TEST-NAME" : [ "getUsageBillableSummaryErrorsTest" ],
+      "DD-OPERATION-ID" : [ "getUsageBillableSummary" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 403,
+    "reasonPhrase" : "Forbidden",
+    "headers" : {
+      "Date" : [ "Thu, 02 Jul 2020 15:52:35 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+}]
