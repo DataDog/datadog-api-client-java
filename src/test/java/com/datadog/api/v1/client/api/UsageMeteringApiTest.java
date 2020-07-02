@@ -157,26 +157,17 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getUsageBillableSummaryTest() throws ApiException, IOException {
-        OffsetDateTime startDate = OffsetDateTime.of(LocalDateTime.of(2020, 06, 01, 00, 00),
-        ZoneOffset.ofHoursMinutes(0, 0));
-        OffsetDateTime endDate = OffsetDateTime.of(LocalDateTime.of(2020, 06, 28, 23, 00),
-        ZoneOffset.ofHoursMinutes(0, 0));
         stubFor(get(urlPathEqualTo("/api/v1/usage/billable-summary"))
-                .withQueryParam("start_date", equalTo(startDate.toString()))
-                .withQueryParam("end_date", equalTo(endDate.toString()))
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/usage_fixtures/usage_billable_summary.json")))
         );
-        
-        UsageBillableSummaryResponse usage = unitApi.getUsageBillableSummary()
-                .startDate(startDate)
-                .endDate(endDate)
-                .execute();
+
+        UsageBillableSummaryResponse usage = unitApi.getUsageBillableSummary().execute();
 
         assertNotNull(usage.getUsage());
         UsageBillableSummaryHour usageItem = usage.getUsage().get(0);
-        assertEquals(usageItem.getOrgName(), "Logs Probe - Test");
+        assertEquals(usageItem.getOrgName(), "API - Test");
         assertEquals(usageItem.getBillingPlan(), "Pro");
-        assertEquals(usageItem.getPublicId(), "927176c4b");
+        assertEquals(usageItem.getPublicId(), "123abcxyz");
         OffsetDateTime startDateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 06, 01, 00, 00),
                 ZoneOffset.ofHoursMinutes(0, 0));
         OffsetDateTime endDateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 06, 28, 23, 00),
@@ -661,7 +652,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getUsageBillableSummaryErrorsTest() throws IOException {
         try {
-            fakeAuthApi.getUsageBillableSummary().startDate(futureStartMonth).execute();
+            fakeAuthApi.getUsageBillableSummary().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
@@ -669,6 +660,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
             assertNotNull(error.getErrors());
         }
     }
+    
     @Test
     public void getUsageBillableSummary400ErrorTest() throws IOException {
         String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
@@ -677,7 +669,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         );
         // Mocked as this call must be made from the parent organization
         try {
-            unitApi.getUsageBillableSummary().startDate(startMonth).execute();
+            unitApi.getUsageBillableSummary().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
