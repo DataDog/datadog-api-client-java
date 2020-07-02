@@ -1,11 +1,8 @@
 [{
-  "id" : "dcd85759-4f9f-42d3-a7cf-bbeadd2eb737",
+  "id" : "9f78e024-d71c-488d-9190-4b029ec0a453",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/billable-summary",
-    "queryStringParameters" : {
-      "start_date" : [ "2020-08-02T20:52Z" ]
-    },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageBillableSummaryErrorsTest" ],
@@ -26,7 +23,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Thu, 02 Jul 2020 15:52:35 GMT" ],
+      "Date" : [ "Thu, 02 Jul 2020 21:45:53 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
