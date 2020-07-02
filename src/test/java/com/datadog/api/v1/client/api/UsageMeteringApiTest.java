@@ -195,7 +195,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(logsIndexedSum.getFirstBillableUsageHour(), startDateExpected);
         assertEquals(logsIndexedSum.getElapsedUsageHours().intValue(), 672);
         assertEquals(logsIndexedSum.getLastBillableUsageHour(), endDateExpected);
-        // assertEquals(logsIndexedSum.getPercentageInAccount().floatValue(), 0.9);
+        assertEquals(logsIndexedSum.getPercentageInAccount().doubleValue(), 0.9, 0);
     }
 
     @Test
