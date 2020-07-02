@@ -1,0 +1,538 @@
+[{
+  "id" : "1f0c9a58-ce53-4a9f-af0f-92b801cb76d7",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v2/security_monitoring/rules",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "DD-OPERATION-ID" : [ "createSecurityMonitoringRule" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "360" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"cases\":[{\"condition\":\"rule > 0\",\"name\":\"rule-case\",\"status\":\"info\"}],\"enabled\":true,\"message\":\"Rule message\",\"name\":\"java-listSignalsGet-local-1593780085\",\"options\":{\"evaluationWindow\":0,\"keepAlive\":0,\"maxSignalDuration\":0},\"queries\":[{\"groupByFields\":[],\"name\":\"rule\",\"query\":\"java-listSignalsGet-local-1593780085\"}],\"tags\":[\"datadog-api-client-test-java\"]}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:25 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 10-Jul-2020 12:41:25 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2697240" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "zgs4/R8U39Dx88K274ycCG8gmotK2r1yjyecTfeITqBuGEc/zW9V1MMOyMl9URns" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "546" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"creationAuthorId\":1445416,\"tags\":[\"datadog-api-client-test-java\"],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Rule message\",\"options\":{\"evaluationWindow\":0,\"maxSignalDuration\":0,\"keepAlive\":0},\"version\":1,\"createdAt\":1593780085456,\"queries\":[{\"query\":\"java-listSignalsGet-local-1593780085\",\"groupByFields\":[],\"name\":\"rule\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"rule-case\",\"condition\":\"rule > 0\"}],\"id\":\"b6m-cyu-9wl\",\"isDefault\":false,\"name\":\"java-listSignalsGet-local-1593780085\"}"
+  }
+}, {
+  "id" : "0769e1d7-d0e0-4291-8225-bb455b0a4c66",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/v1/input",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "125" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"ddtags\":\"java,test,list\",\"message\":\"{\\\"timestamp\\\": 1593779085000, \\\"message\\\": \\\"java-listSignalsGet-local-1593780085\\\"}\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:25 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ]
+    },
+    "body" : "{}"
+  }
+}, {
+  "id" : "797ab256-33f4-4892-b46d-3fbc44777da3",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/v1/input",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "close" ],
+      "Content-Length" : [ "125" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"ddtags\":\"java,test,list\",\"message\":\"{\\\"timestamp\\\": 1593780085000, \\\"message\\\": \\\"java-listSignalsGet-local-1593780085\\\"}\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:26 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ]
+    },
+    "body" : "{}"
+  }
+}, {
+  "id" : "a60a67b9-8fb9-4fdb-9f18-291fdd583937",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/security_monitoring/signals",
+    "queryStringParameters" : {
+      "filter[query]" : [ "java-listSignalsGet-local-1593780085" ],
+      "filter[from]" : [ "2020-07-03T11:41:25.079980Z" ],
+      "filter[to]" : [ "2020-07-03T13:41:25.079980Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "DD-OPERATION-ID" : [ "listSignalsGet" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:26 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Content-Length" : [ "11" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 10-Jul-2020 12:41:26 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2697240" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "QO3HutZQjgMDp/HqClcLon+qq5lEghb3LRV+gXMIQ2Jivd1m1eEGCh0RxplUQMIV" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"data\":[]}"
+  }
+}, {
+  "id" : "0c4f267c-ab31-4078-b2a4-f44edc58ee8e",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/security_monitoring/signals",
+    "queryStringParameters" : {
+      "filter[query]" : [ "java-listSignalsGet-local-1593780085" ],
+      "filter[from]" : [ "2020-07-03T11:41:25.079980Z" ],
+      "filter[to]" : [ "2020-07-03T13:41:25.079980Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "DD-OPERATION-ID" : [ "listSignalsGet" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:32 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Content-Length" : [ "11" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 10-Jul-2020 12:41:32 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2697240" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "CFSDBBie5Okt4N1oWVJNTAqpt778eCo7VQZ0NhVFWw8MHYFUwuA7DURhpFRYY+Wy" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"data\":[]}"
+  }
+}, {
+  "id" : "5ea40546-14bb-4443-8d1a-fd1e7677ee71",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/security_monitoring/signals",
+    "queryStringParameters" : {
+      "filter[query]" : [ "java-listSignalsGet-local-1593780085" ],
+      "filter[from]" : [ "2020-07-03T11:41:25.079980Z" ],
+      "filter[to]" : [ "2020-07-03T13:41:25.079980Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "DD-OPERATION-ID" : [ "listSignalsGet" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:38 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Content-Length" : [ "11" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 10-Jul-2020 12:41:37 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2697240" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "6TICFxDFBNq65Lw6aA0hO1z7nxUSiTzUAT0k7ln4UasEU6/emXomwtYWMJdIuxUV" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"data\":[]}"
+  }
+}, {
+  "id" : "a19228e1-ae36-4104-a425-f7133f66a2e7",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/security_monitoring/signals",
+    "queryStringParameters" : {
+      "filter[query]" : [ "java-listSignalsGet-local-1593780085" ],
+      "filter[from]" : [ "2020-07-03T11:41:25.079980Z" ],
+      "filter[to]" : [ "2020-07-03T13:41:25.079980Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "DD-OPERATION-ID" : [ "listSignalsGet" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:43 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Content-Length" : [ "11" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 10-Jul-2020 12:41:43 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2697240" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "nSRgqrrNNmPPT6VSGZq0R9QdtdJF1qxzho2//eboP+tsIQDRgfSx3bSVb1t6QyYb" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"data\":[]}"
+  }
+}, {
+  "id" : "681b645d-27ec-4075-93ca-bc42473573c8",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/security_monitoring/signals",
+    "queryStringParameters" : {
+      "filter[query]" : [ "java-listSignalsGet-local-1593780085" ],
+      "filter[from]" : [ "2020-07-03T11:41:25.079980Z" ],
+      "filter[to]" : [ "2020-07-03T13:41:25.079980Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "DD-OPERATION-ID" : [ "listSignalsGet" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:49 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Content-Length" : [ "11" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 10-Jul-2020 12:41:49 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2697240" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "HtltRxB6FWULKbr8JD/35HKWhI+dqAFQg/rNpMbjeMOPUq5j5iWk+nIs8OwDOqUR" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"data\":[]}"
+  }
+}, {
+  "id" : "d5d98485-e33e-4302-b96d-62fb87948b89",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/security_monitoring/signals",
+    "queryStringParameters" : {
+      "filter[query]" : [ "java-listSignalsGet-local-1593780085" ],
+      "filter[from]" : [ "2020-07-03T11:41:25.079980Z" ],
+      "filter[to]" : [ "2020-07-03T13:41:25.079980Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "DD-OPERATION-ID" : [ "listSignalsGet" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:54 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 10-Jul-2020 12:41:54 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2697240" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "J5PL0LnJukdy69mckjXi3cjye/YJX2hkoCBkqKQi+tYjrsXYELx6DfDD11fhyjYF" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "2815" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"meta\":{\"page\":{\"after\":\"eyJhZnRlciI6IkFRQUFBWE1Vc2l2VkFBQUFBQUFBQUFCaU5tMHRZM2wxTFRsM2JDMHhMVUZZVFZWemFWaDNUVko1TUVkNE5XUm1aMEZCIn0\"}},\"data\":[{\"attributes\":{\"status\":\"info\",\"attributes\":{\"relatedLogsQuery\":{\"query\":\"java-listSignalsGet-local-1593780085\",\"from\":\"2020-07-03T12:09:45.000Z\",\"to\":\"2020-07-04T12:24:45.000Z\"},\"title\":\"java-listSignalsGet-local-1593780085 - rule-case\",\"groupByPaths\":[],\"workflow\":{\"first_seen\":\"2020-07-03T12:24:45.000Z\",\"rule\":{\"version\":1,\"name\":\"java-listSignalsGet-local-1593780085\",\"id\":\"b6m-cyu-9wl\"},\"last_seen\":\"2020-07-03T12:24:45.000Z\"},\"samples\":[{\"eventId\":\"AQAAAXMUot7IeU61bAAAAABBWE1Vc2lSZDRSYlluTUtreXNBQQ\",\"content\":{\"status\":\"info\",\"tags\":[\"source:undefined\",\"java\",\"test\",\"list\"],\"timestamp\":\"2020-07-03T12:24:45.000Z\",\"ingest_size_in_bytes\":125,\"custom\":{\"timestamp\":1593779085000},\"source\":\"undefined\",\"tiebreaker\":2035201388,\"message\":\"java-listSignalsGet-local-1593780085\"},\"queryIndex\":0,\"trackKey\":{\"orgId\":321813,\"type\":\"logs\"},\"id\":\"AXMUsiRd4RbYnMKkysAA\"}],\"queries\":[{\"query\":\"java-listSignalsGet-local-1593780085\",\"groupByPaths\":[]}]},\"message\":\"%%%\\nRule message\\n%%%\",\"tags\":[\"datadog-api-client-test-java\"],\"timestamp\":\"2020-07-03T12:41:27.769Z\"},\"type\":\"signal\",\"id\":\"AQAAAXMUsivZAAAAAAAAAABiNm0tY3l1LTl3bC0xLUFYTVVzaVJkNFJiWW5NS2t5c0FB\"},{\"attributes\":{\"status\":\"info\",\"attributes\":{\"relatedLogsQuery\":{\"query\":\"java-listSignalsGet-local-1593780085\",\"from\":\"2020-07-03T12:26:25.000Z\",\"to\":\"2020-07-04T12:41:25.000Z\"},\"title\":\"java-listSignalsGet-local-1593780085 - rule-case\",\"groupByPaths\":[],\"workflow\":{\"first_seen\":\"2020-07-03T12:41:25.000Z\",\"rule\":{\"version\":1,\"name\":\"java-listSignalsGet-local-1593780085\",\"id\":\"b6m-cyu-9wl\"},\"last_seen\":\"2020-07-03T12:41:25.000Z\"},\"samples\":[{\"eventId\":\"AQAAAXMUsiEIAGuhKAAAAABBWE1Vc2lYd01SeTBHeDVkZmdBQQ\",\"content\":{\"status\":\"info\",\"tags\":[\"source:undefined\",\"java\",\"test\",\"list\"],\"timestamp\":\"2020-07-03T12:41:25.000Z\",\"ingest_size_in_bytes\":125,\"custom\":{\"timestamp\":1593780085000},\"source\":\"undefined\",\"tiebreaker\":7053608,\"message\":\"java-listSignalsGet-local-1593780085\"},\"queryIndex\":0,\"trackKey\":{\"orgId\":321813,\"type\":\"logs\"},\"id\":\"AXMUsiXwMRy0Gx5dfgAA\"}],\"queries\":[{\"query\":\"java-listSignalsGet-local-1593780085\",\"groupByPaths\":[]}]},\"message\":\"%%%\\nRule message\\n%%%\",\"tags\":[\"datadog-api-client-test-java\"],\"timestamp\":\"2020-07-03T12:41:27.765Z\"},\"type\":\"signal\",\"id\":\"AQAAAXMUsivVAAAAAAAAAABiNm0tY3l1LTl3bC0xLUFYTVVzaVh3TVJ5MEd4NWRmZ0FB\"}],\"links\":{\"next\":\"https://api.datadoghq.com/api/v2/security_monitoring/signals?filter%5Bquery%5D=java-listSignalsGet-local-1593780085&page%5Bcursor%5D=eyJhZnRlciI6IkFRQUFBWE1Vc2l2VkFBQUFBQUFBQUFCaU5tMHRZM2wxTFRsM2JDMHhMVUZZVFZWemFWaDNUVko1TUVkNE5XUm1aMEZCIn0&filter%5Bfrom%5D=2020-07-03T11%3A41%3A25.079980Z&filter%5Bto%5D=2020-07-03T13%3A41%3A25.079980Z\"}}"
+  }
+}, {
+  "id" : "e83f0d9d-cda5-420a-8d84-28801c54e231",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/security_monitoring/signals",
+    "queryStringParameters" : {
+      "filter[query]" : [ "java-listSignalsGet-local-1593780085" ],
+      "filter[from]" : [ "2020-07-03T11:41:25.079980Z" ],
+      "filter[to]" : [ "2020-07-03T13:41:25.079980Z" ],
+      "sort" : [ "timestamp" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "DD-OPERATION-ID" : [ "listSignalsGet" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:55 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 10-Jul-2020 12:41:55 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2697240" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "OGWvqyuIWnbl6WkXpkkRXBvKLURJhdDx+xXZ6vxnnyjZzYdefkAlNGOfG85GcOUu" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "2830" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"meta\":{\"page\":{\"after\":\"eyJhZnRlciI6IkFRQUFBWE1Vc2l2WkFBQUFBQUFBQUFCaU5tMHRZM2wxTFRsM2JDMHhMVUZZVFZWemFWSmtORkppV1c1TlMydDVjMEZCIn0\"}},\"data\":[{\"attributes\":{\"status\":\"info\",\"attributes\":{\"relatedLogsQuery\":{\"query\":\"java-listSignalsGet-local-1593780085\",\"from\":\"2020-07-03T12:26:25.000Z\",\"to\":\"2020-07-04T12:41:25.000Z\"},\"title\":\"java-listSignalsGet-local-1593780085 - rule-case\",\"groupByPaths\":[],\"workflow\":{\"first_seen\":\"2020-07-03T12:41:25.000Z\",\"rule\":{\"version\":1,\"name\":\"java-listSignalsGet-local-1593780085\",\"id\":\"b6m-cyu-9wl\"},\"last_seen\":\"2020-07-03T12:41:25.000Z\"},\"samples\":[{\"eventId\":\"AQAAAXMUsiEIAGuhKAAAAABBWE1Vc2lYd01SeTBHeDVkZmdBQQ\",\"content\":{\"status\":\"info\",\"tags\":[\"source:undefined\",\"java\",\"test\",\"list\"],\"timestamp\":\"2020-07-03T12:41:25.000Z\",\"ingest_size_in_bytes\":125,\"custom\":{\"timestamp\":1593780085000},\"source\":\"undefined\",\"tiebreaker\":7053608,\"message\":\"java-listSignalsGet-local-1593780085\"},\"queryIndex\":0,\"trackKey\":{\"orgId\":321813,\"type\":\"logs\"},\"id\":\"AXMUsiXwMRy0Gx5dfgAA\"}],\"queries\":[{\"query\":\"java-listSignalsGet-local-1593780085\",\"groupByPaths\":[]}]},\"message\":\"%%%\\nRule message\\n%%%\",\"tags\":[\"datadog-api-client-test-java\"],\"timestamp\":\"2020-07-03T12:41:27.765Z\"},\"type\":\"signal\",\"id\":\"AQAAAXMUsivVAAAAAAAAAABiNm0tY3l1LTl3bC0xLUFYTVVzaVh3TVJ5MEd4NWRmZ0FB\"},{\"attributes\":{\"status\":\"info\",\"attributes\":{\"relatedLogsQuery\":{\"query\":\"java-listSignalsGet-local-1593780085\",\"from\":\"2020-07-03T12:09:45.000Z\",\"to\":\"2020-07-04T12:24:45.000Z\"},\"title\":\"java-listSignalsGet-local-1593780085 - rule-case\",\"groupByPaths\":[],\"workflow\":{\"first_seen\":\"2020-07-03T12:24:45.000Z\",\"rule\":{\"version\":1,\"name\":\"java-listSignalsGet-local-1593780085\",\"id\":\"b6m-cyu-9wl\"},\"last_seen\":\"2020-07-03T12:24:45.000Z\"},\"samples\":[{\"eventId\":\"AQAAAXMUot7IeU61bAAAAABBWE1Vc2lSZDRSYlluTUtreXNBQQ\",\"content\":{\"status\":\"info\",\"tags\":[\"source:undefined\",\"java\",\"test\",\"list\"],\"timestamp\":\"2020-07-03T12:24:45.000Z\",\"ingest_size_in_bytes\":125,\"custom\":{\"timestamp\":1593779085000},\"source\":\"undefined\",\"tiebreaker\":2035201388,\"message\":\"java-listSignalsGet-local-1593780085\"},\"queryIndex\":0,\"trackKey\":{\"orgId\":321813,\"type\":\"logs\"},\"id\":\"AXMUsiRd4RbYnMKkysAA\"}],\"queries\":[{\"query\":\"java-listSignalsGet-local-1593780085\",\"groupByPaths\":[]}]},\"message\":\"%%%\\nRule message\\n%%%\",\"tags\":[\"datadog-api-client-test-java\"],\"timestamp\":\"2020-07-03T12:41:27.769Z\"},\"type\":\"signal\",\"id\":\"AQAAAXMUsivZAAAAAAAAAABiNm0tY3l1LTl3bC0xLUFYTVVzaVJkNFJiWW5NS2t5c0FB\"}],\"links\":{\"next\":\"https://api.datadoghq.com/api/v2/security_monitoring/signals?sort=timestamp&filter%5Bquery%5D=java-listSignalsGet-local-1593780085&page%5Bcursor%5D=eyJhZnRlciI6IkFRQUFBWE1Vc2l2WkFBQUFBQUFBQUFCaU5tMHRZM2wxTFRsM2JDMHhMVUZZVFZWemFWSmtORkppV1c1TlMydDVjMEZCIn0&filter%5Bfrom%5D=2020-07-03T11%3A41%3A25.079980Z&filter%5Bto%5D=2020-07-03T13%3A41%3A25.079980Z\"}}"
+  }
+}, {
+  "id" : "d2398f52-bd7c-48a7-bde9-363d1b79bf80",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/security_monitoring/signals",
+    "queryStringParameters" : {
+      "filter[query]" : [ "java-listSignalsGet-local-1593780085" ],
+      "filter[from]" : [ "2020-07-03T11:41:25.079980Z" ],
+      "filter[to]" : [ "2020-07-03T13:41:25.079980Z" ],
+      "sort" : [ "-timestamp" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "listSignalsGet" ],
+      "DD-OPERATION-ID" : [ "listSignalsGet" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 03 Jul 2020 12:41:55 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 10-Jul-2020 12:41:55 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2697240" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "gH++OYwf8a2QZXnzDsHHnXqPhHbI48oqNvFjE/0p0ObpMBY4290QCI5SB0tU0MAF" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "2831" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"meta\":{\"page\":{\"after\":\"eyJhZnRlciI6IkFRQUFBWE1Vc2l2VkFBQUFBQUFBQUFCaU5tMHRZM2wxTFRsM2JDMHhMVUZZVFZWemFWaDNUVko1TUVkNE5XUm1aMEZCIn0\"}},\"data\":[{\"attributes\":{\"status\":\"info\",\"attributes\":{\"relatedLogsQuery\":{\"query\":\"java-listSignalsGet-local-1593780085\",\"from\":\"2020-07-03T12:09:45.000Z\",\"to\":\"2020-07-04T12:24:45.000Z\"},\"title\":\"java-listSignalsGet-local-1593780085 - rule-case\",\"groupByPaths\":[],\"workflow\":{\"first_seen\":\"2020-07-03T12:24:45.000Z\",\"rule\":{\"version\":1,\"name\":\"java-listSignalsGet-local-1593780085\",\"id\":\"b6m-cyu-9wl\"},\"last_seen\":\"2020-07-03T12:24:45.000Z\"},\"samples\":[{\"eventId\":\"AQAAAXMUot7IeU61bAAAAABBWE1Vc2lSZDRSYlluTUtreXNBQQ\",\"content\":{\"status\":\"info\",\"tags\":[\"source:undefined\",\"java\",\"test\",\"list\"],\"timestamp\":\"2020-07-03T12:24:45.000Z\",\"ingest_size_in_bytes\":125,\"custom\":{\"timestamp\":1593779085000},\"source\":\"undefined\",\"tiebreaker\":2035201388,\"message\":\"java-listSignalsGet-local-1593780085\"},\"queryIndex\":0,\"trackKey\":{\"orgId\":321813,\"type\":\"logs\"},\"id\":\"AXMUsiRd4RbYnMKkysAA\"}],\"queries\":[{\"query\":\"java-listSignalsGet-local-1593780085\",\"groupByPaths\":[]}]},\"message\":\"%%%\\nRule message\\n%%%\",\"tags\":[\"datadog-api-client-test-java\"],\"timestamp\":\"2020-07-03T12:41:27.769Z\"},\"type\":\"signal\",\"id\":\"AQAAAXMUsivZAAAAAAAAAABiNm0tY3l1LTl3bC0xLUFYTVVzaVJkNFJiWW5NS2t5c0FB\"},{\"attributes\":{\"status\":\"info\",\"attributes\":{\"relatedLogsQuery\":{\"query\":\"java-listSignalsGet-local-1593780085\",\"from\":\"2020-07-03T12:26:25.000Z\",\"to\":\"2020-07-04T12:41:25.000Z\"},\"title\":\"java-listSignalsGet-local-1593780085 - rule-case\",\"groupByPaths\":[],\"workflow\":{\"first_seen\":\"2020-07-03T12:41:25.000Z\",\"rule\":{\"version\":1,\"name\":\"java-listSignalsGet-local-1593780085\",\"id\":\"b6m-cyu-9wl\"},\"last_seen\":\"2020-07-03T12:41:25.000Z\"},\"samples\":[{\"eventId\":\"AQAAAXMUsiEIAGuhKAAAAABBWE1Vc2lYd01SeTBHeDVkZmdBQQ\",\"content\":{\"status\":\"info\",\"tags\":[\"source:undefined\",\"java\",\"test\",\"list\"],\"timestamp\":\"2020-07-03T12:41:25.000Z\",\"ingest_size_in_bytes\":125,\"custom\":{\"timestamp\":1593780085000},\"source\":\"undefined\",\"tiebreaker\":7053608,\"message\":\"java-listSignalsGet-local-1593780085\"},\"queryIndex\":0,\"trackKey\":{\"orgId\":321813,\"type\":\"logs\"},\"id\":\"AXMUsiXwMRy0Gx5dfgAA\"}],\"queries\":[{\"query\":\"java-listSignalsGet-local-1593780085\",\"groupByPaths\":[]}]},\"message\":\"%%%\\nRule message\\n%%%\",\"tags\":[\"datadog-api-client-test-java\"],\"timestamp\":\"2020-07-03T12:41:27.765Z\"},\"type\":\"signal\",\"id\":\"AQAAAXMUsivVAAAAAAAAAABiNm0tY3l1LTl3bC0xLUFYTVVzaVh3TVJ5MEd4NWRmZ0FB\"}],\"links\":{\"next\":\"https://api.datadoghq.com/api/v2/security_monitoring/signals?sort=-timestamp&filter%5Bquery%5D=java-listSignalsGet-local-1593780085&page%5Bcursor%5D=eyJhZnRlciI6IkFRQUFBWE1Vc2l2VkFBQUFBQUFBQUFCaU5tMHRZM2wxTFRsM2JDMHhMVUZZVFZWemFWaDNUVko1TUVkNE5XUm1aMEZCIn0&filter%5Bfrom%5D=2020-07-03T11%3A41%3A25.079980Z&filter%5Bto%5D=2020-07-03T13%3A41%3A25.079980Z\"}}"
+  }
+}]
