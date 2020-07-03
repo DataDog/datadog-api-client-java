@@ -11,6 +11,7 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import java.time.OffsetDateTime;
 import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
+import com.datadog.api.v1.client.model.UsageBillableSummaryResponse;
 import com.datadog.api.v1.client.model.UsageFargateResponse;
 import com.datadog.api.v1.client.model.UsageHostsResponse;
 import com.datadog.api.v1.client.model.UsageLambdaResponse;
@@ -182,6 +183,109 @@ private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
    */
   public APIgetUsageAnalyzedLogsRequest getUsageAnalyzedLogs() throws ApiException {
     return new APIgetUsageAnalyzedLogsRequest();
+  }
+
+private ApiResponse<UsageBillableSummaryResponse> getUsageBillableSummaryWithHttpInfo(OffsetDateTime month) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/billable-summary";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageBillableSummary");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageBillableSummaryResponse> localVarReturnType = new GenericType<UsageBillableSummaryResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageBillableSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIgetUsageBillableSummaryRequest {
+    private OffsetDateTime month;
+
+    private APIgetUsageBillableSummaryRequest() {
+    }
+
+    /**
+     * Set month
+     * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month. (optional)
+     * @return APIgetUsageBillableSummaryRequest
+     */
+    public APIgetUsageBillableSummaryRequest month(OffsetDateTime month) {
+      this.month = month;
+      return this;
+    }
+
+    /**
+     * Execute getUsageBillableSummary request
+     * @return UsageBillableSummaryResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageBillableSummaryResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getUsageBillableSummary request with HTTP info returned
+     * @return ApiResponse&lt;UsageBillableSummaryResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageBillableSummaryResponse> executeWithHttpInfo() throws ApiException {
+      return getUsageBillableSummaryWithHttpInfo(month);
+    }
+  }
+
+  /**
+   * Get monthly billable summary
+   * Get the monthly billable summary.
+   * @return getUsageBillableSummaryRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetUsageBillableSummaryRequest getUsageBillableSummary() throws ApiException {
+    return new APIgetUsageBillableSummaryRequest();
   }
 
 private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {

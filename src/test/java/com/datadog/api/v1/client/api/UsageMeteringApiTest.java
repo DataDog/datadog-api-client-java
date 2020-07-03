@@ -156,6 +156,40 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageBillableSummaryTest() throws ApiException, IOException {
+        stubFor(get(urlPathEqualTo("/api/v1/usage/billable-summary"))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/usage_fixtures/usage_billable_summary.json")))
+        );
+
+        UsageBillableSummaryResponse usage = unitApi.getUsageBillableSummary().execute();
+
+        assertNotNull(usage.getUsage());
+        UsageBillableSummaryHour usageItem = usage.getUsage().get(0);
+        assertEquals(usageItem.getOrgName(), "API - Test");
+        assertEquals(usageItem.getBillingPlan(), "Pro");
+        assertEquals(usageItem.getPublicId(), "123abcxyz");
+        OffsetDateTime startDateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 06, 01, 00, 00),
+                ZoneOffset.ofHoursMinutes(0, 0));
+        OffsetDateTime endDateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 06, 28, 23, 00),
+                ZoneOffset.ofHoursMinutes(0, 0));
+        assertEquals(usageItem.getStartDate(), startDateExpected);
+        assertEquals(usageItem.getEndDate(), endDateExpected);
+        assertEquals(usageItem.getRatioInMonth().intValue(), 1);
+        assertEquals(usageItem.getNumOrgs().intValue(), 235);
+
+        UsageBillableSummaryKeys usageKeys = usageItem.getUsage();
+        UsageBillableSummaryBody logsIndexedSum = usageKeys.getLogsIndexedSum();
+
+        assertEquals(logsIndexedSum.getOrgBillableUsage().intValue(), 14514687);
+        assertEquals(logsIndexedSum.getUsageUnit(), "logs");
+        assertEquals(logsIndexedSum.getAccountBillableUsage().intValue(), 1611132837);
+        assertEquals(logsIndexedSum.getFirstBillableUsageHour(), startDateExpected);
+        assertEquals(logsIndexedSum.getElapsedUsageHours().intValue(), 672);
+        assertEquals(logsIndexedSum.getLastBillableUsageHour(), endDateExpected);
+        assertEquals(logsIndexedSum.getPercentageInAccount().doubleValue(), 0.9, 0);
+    }
+
+    @Test
     public void getUsageSummaryTest() throws ApiException, IOException {
         Boolean includeOrgDetails = true;
         OffsetDateTime startMonth = OffsetDateTime.now();
@@ -610,6 +644,35 @@ public class UsageMeteringApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getUsageBillableSummaryErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getUsageBillableSummary().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+    
+    @Test
+    public void getUsageBillableSummary400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo(apiUri + "/billable-summary"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked as this call must be made from the parent organization
+        try {
+            unitApi.getUsageBillableSummary().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
             assertNotNull(error.getErrors());
         }

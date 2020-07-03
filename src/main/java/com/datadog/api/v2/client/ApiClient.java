@@ -61,6 +61,7 @@ public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
   protected String basePath = "https://api.datadoghq.com";
+  protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
@@ -373,8 +374,17 @@ public class ApiClient {
    * @return API client
    */
   public ApiClient setUserAgent(String userAgent) {
+    userAgent = userAgent;
     addDefaultHeader("User-Agent", userAgent);
     return this;
+  }
+
+  /**
+   * Get the User-Agent header's value.
+   * @return User-Agent string
+   */
+  public String getUserAgent(){
+    return userAgent;
   }
 
   /**
@@ -384,7 +394,7 @@ public class ApiClient {
   public ApiClient setUserAgent() {
     final Properties properties = new Properties();
     try {
-      properties.load(getClass().getClassLoader().getResourceAsStream("project.properties"));
+      properties.load(getClass().getClassLoader().getResourceAsStream("com/datadog/api/project.properties"));
     } catch (IOException e) {
       logger.severe("Could not load client version: " + e.toString());
     }
@@ -398,6 +408,7 @@ public class ApiClient {
         + "arch " + System.getProperty("os.arch")
         + ")";
     addDefaultHeader("User-Agent", userAgent);
+    this.userAgent = userAgent;
     return this;
   }
 
