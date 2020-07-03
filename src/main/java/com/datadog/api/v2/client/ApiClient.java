@@ -394,7 +394,7 @@ public class ApiClient {
   public ApiClient setUserAgent() {
     final Properties properties = new Properties();
     try {
-      properties.load(getClass().getClassLoader().getResourceAsStream("project.properties"));
+      properties.load(getClass().getClassLoader().getResourceAsStream("com/datadog/api/project.properties"));
     } catch (IOException e) {
       logger.severe("Could not load client version: " + e.toString());
     }
