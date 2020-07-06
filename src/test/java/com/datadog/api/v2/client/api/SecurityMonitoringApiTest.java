@@ -25,11 +25,11 @@ import com.datadog.api.v2.client.model.SecurityMonitoringRuleQuery;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleUpdatePayload;
-import com.datadog.api.v2.client.model.SignalListRequest;
-import com.datadog.api.v2.client.model.SignalListRequestFilter;
-import com.datadog.api.v2.client.model.SignalListRequestPage;
-import com.datadog.api.v2.client.model.SignalsListResponse;
-import com.datadog.api.v2.client.model.SignalsSort;
+import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequest;
+import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestFilter;
+import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestPage;
+import com.datadog.api.v2.client.model.SecurityMonitoringSignalsListResponse;
+import com.datadog.api.v2.client.model.SecurityMonitoringSignalsSort;
 import java.net.URLEncoder;
 import java.time.Duration;
 import java.time.OffsetDateTime;
@@ -172,17 +172,17 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
         sendLogs(uniqueName);
 
-        SignalListRequestFilter allSignalsFilter = new SignalListRequestFilter()
+        SecurityMonitoringSignalListRequestFilter allSignalsFilter = new SecurityMonitoringSignalListRequestFilter()
                 .query(uniqueName)
                 .from(now.minus(Duration.ofHours(1)))
                 .to(now.plus(Duration.ofHours(1)));
 
         // Make sure both logs are indexed
-        SignalListRequest bothSignalsRequest = new SignalListRequest()
+        SecurityMonitoringSignalListRequest bothSignalsRequest = new SecurityMonitoringSignalListRequest()
                 .filter(allSignalsFilter);
         TestUtils.retry(10, 10, () -> {
             try {
-                SignalsListResponse response = api.listSignals().body(bothSignalsRequest).execute();
+                SecurityMonitoringSignalsListResponse response = api.listSignals().body(bothSignalsRequest).execute();
                 return response.getData() != null && response.getData().size() == 2;
             } catch (ApiException ignored) {
                 return false;
@@ -190,10 +190,10 @@ public class SecurityMonitoringApiTest extends V2APITest {
         });
 
         // Sort works correctly
-        SignalsListResponse responseAscending = api.listSignals()
-                .body(new SignalListRequest()
+        SecurityMonitoringSignalsListResponse responseAscending = api.listSignals()
+                .body(new SecurityMonitoringSignalListRequest()
                         .filter(allSignalsFilter)
-                        .sort(SignalsSort.TIMESTAMP_ASCENDING))
+                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING))
                 .execute();
 
         assertEquals(2, responseAscending.getData().size());
@@ -201,10 +201,10 @@ public class SecurityMonitoringApiTest extends V2APITest {
         OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
         assertTrue(firstTimestamp.isBefore(secondTimestamp));
 
-        SignalsListResponse responseDescending = api.listSignals()
-                .body(new SignalListRequest()
+        SecurityMonitoringSignalsListResponse responseDescending = api.listSignals()
+                .body(new SecurityMonitoringSignalListRequest()
                         .filter(allSignalsFilter)
-                        .sort(SignalsSort.TIMESTAMP_DESCENDING))
+                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING))
                 .execute();
 
         assertEquals(2, responseDescending.getData().size());
@@ -213,20 +213,20 @@ public class SecurityMonitoringApiTest extends V2APITest {
         assertTrue(firstTimestamp.isAfter(secondTimestamp));
 
         // Paging
-        SignalsListResponse pageOneResponse = api.listSignals()
-                .body(new SignalListRequest()
+        SecurityMonitoringSignalsListResponse pageOneResponse = api.listSignals()
+                .body(new SecurityMonitoringSignalListRequest()
                         .filter(allSignalsFilter)
-                        .page(new SignalListRequestPage().limit(1)))
+                        .page(new SecurityMonitoringSignalListRequestPage().limit(1)))
                 .execute();
         assertEquals(1, pageOneResponse.getData().size());
 
         String cursor = pageOneResponse.getMeta().getPage().getAfter();
         assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
 
-        SignalsListResponse pageTwoResponse = api.listSignals()
-                .body(new SignalListRequest()
+        SecurityMonitoringSignalsListResponse pageTwoResponse = api.listSignals()
+                .body(new SecurityMonitoringSignalListRequest()
                         .filter(allSignalsFilter)
-                        .page(new SignalListRequestPage()
+                        .page(new SecurityMonitoringSignalListRequestPage()
                                 .cursor(cursor)
                                 .limit(1)))
                 .execute();
@@ -244,7 +244,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
         TestUtils.retry(5, 10, () -> {
             try {
-                SignalsListResponse response = api.listSignalsGet()
+                SecurityMonitoringSignalsListResponse response = api.listSignalsGet()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -256,11 +256,11 @@ public class SecurityMonitoringApiTest extends V2APITest {
         });
 
         // Sort works correctly
-        SignalsListResponse responseAscending = api.listSignalsGet()
+        SecurityMonitoringSignalsListResponse responseAscending = api.listSignalsGet()
                 .filterQuery(uniqueName)
                 .filterFrom(now.minus(Duration.ofHours(1)))
                 .filterTo(now.plus(Duration.ofHours(1)))
-                .sort(SignalsSort.TIMESTAMP_ASCENDING)
+                .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING)
                 .execute();
 
         assertEquals(2, responseAscending.getData().size());
@@ -268,20 +268,20 @@ public class SecurityMonitoringApiTest extends V2APITest {
         OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
         assertTrue(firstTimestamp.isBefore(secondTimestamp));
 
-        SignalsListResponse responseDescending = api.listSignalsGet()
+        SecurityMonitoringSignalsListResponse responseDescending = api.listSignalsGet()
                 .filterQuery(uniqueName)
                 .filterFrom(now.minus(Duration.ofHours(1)))
                 .filterTo(now.plus(Duration.ofHours(1)))
-                .sort(SignalsSort.TIMESTAMP_DESCENDING)
+                .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING)
                 .execute();
 
         assertEquals(2, responseDescending.getData().size());
-        firstTimestamp = responseAscending.getData().get(0).getAttributes().getTimestamp();
-        secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
+        firstTimestamp = responseDescending.getData().get(0).getAttributes().getTimestamp();
+        secondTimestamp = responseDescending.getData().get(1).getAttributes().getTimestamp();
         assertTrue(firstTimestamp.isAfter(secondTimestamp));
 
         // Paging
-        SignalsListResponse pageOneResponse = api.listSignalsGet()
+        SecurityMonitoringSignalsListResponse pageOneResponse = api.listSignalsGet()
                 .filterQuery(uniqueName)
                 .filterFrom(now.minus(Duration.ofHours(1)))
                 .filterTo(now.plus(Duration.ofHours(1)))
@@ -293,7 +293,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         String cursor = pageOneResponse.getMeta().getPage().getAfter();
         assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
 
-        SignalsListResponse pageTwoResponse = api.listSignalsGet()
+        SecurityMonitoringSignalsListResponse pageTwoResponse = api.listSignalsGet()
                 .filterQuery(uniqueName)
                 .filterFrom(now.minus(Duration.ofHours(1)))
                 .filterTo(now.plus(Duration.ofHours(1)))
