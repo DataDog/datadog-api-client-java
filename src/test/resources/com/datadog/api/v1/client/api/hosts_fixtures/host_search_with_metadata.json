@@ -18,7 +18,9 @@
         },
         "sources": [],
         "meta": {
-            "foo": "bar"
+            "nixV": [
+                "bar"
+            ]
         },
         "host_name": "java-client-test-host-1579104626",
         "id": 1772099136,
@@ -43,7 +45,9 @@
         },
         "sources": [],
         "meta": {
-            "zoo": "car"
+            "nixV": [
+                "car"
+            ]
         },
         "host_name": "java-client-test-host-1579108302",
         "id": 1772283366,
@@ -68,7 +72,9 @@
         },
         "sources": [],
         "meta": {
-            "too": "far"
+            "nixV": [
+                "far"
+            ]
         },
         "host_name": "java-client-test-host-1579103587",
         "id": 1772040171,
