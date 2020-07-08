@@ -190,6 +190,23 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getSpecifiedDailyCustomReports() throws ApiException {
+        String reportID = "2019-10-02";
+        SpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID).execute();
+        assertNotNull(response.getMeta());
+        assertNotNull(response.getData());
+    }
+
+    @Test
+    public void getSpecifiedMonthlyCustomReports() throws ApiException {
+        String reportID = "2019-10-02";
+        SpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
+        assertNotNull(response.getMeta());
+        assertNotNull(response.getData());
+    }
+
+
+    @Test
     public void getDailyCustomReports() throws ApiException {
         CustomReportsResponse response = api.getDailyCustomReports().execute();
         assertNotNull(response.getMeta());
