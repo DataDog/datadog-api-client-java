@@ -187,16 +187,26 @@ public class LogsApiTest extends V2APITest {
         assertEquals("test-log-list " + suffix, responseAscending.get().getData().get(0).getAttributes().getMessage());
         assertEquals("test-log-list-2 " + suffix, responseAscending.get().getData().get(1).getAttributes().getMessage());
 
-        LogsListResponse responseDescending = api.listLogsGet()
-                .filterQuery(suffix)
-                .filterFrom(now.minus(Duration.ofHours(1)))
-                .filterTo(now.plus(Duration.ofHours(1)))
-                .sort(LogsSort.TIMESTAMP_DESCENDING)
-                .execute();
+        // Make sure both logs are indexed
+        AtomicReference<LogsListResponse> responseDescending = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                // Sort works correctly
+                responseDescending.set(api.listLogsGet()
+                        .filterQuery(suffix)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(LogsSort.TIMESTAMP_DESCENDING)
+                        .execute());
+                return responseDescending.get().getData() != null && responseDescending.get().getData().size() == 2;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
 
-        assertEquals(2, responseDescending.getData().size());
-        assertEquals("test-log-list-2 " + suffix, responseDescending.getData().get(0).getAttributes().getMessage());
-        assertEquals("test-log-list " + suffix, responseDescending.getData().get(1).getAttributes().getMessage());
+        assertEquals(2, responseDescending.get().getData().size());
+        assertEquals("test-log-list-2 " + suffix, responseDescending.get().getData().get(0).getAttributes().getMessage());
+        assertEquals("test-log-list " + suffix, responseDescending.get().getData().get(1).getAttributes().getMessage());
 
         // Paging
         LogsListResponse pageOneResponse = api.listLogsGet()
