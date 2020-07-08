@@ -1,0 +1,69 @@
+[{
+  "id" : "0b996d9f-b515-4b24-86f3-cb7f52b48b79",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/daily_custom_reports/whatever",
+    "headers" : {
+      "Accept" : [ "application/json;datetime-format=rfc3339" ],
+      "JAVA-TEST-NAME" : [ "getSpecifiedDailyCustomReportsTest" ],
+      "DD-OPERATION-ID" : [ "getSpecifiedDailyCustomReports" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 502,
+    "reasonPhrase" : "Bad Gateway",
+    "headers" : {
+      "Date" : [ "Wed, 08 Jul 2020 22:55:09 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "172" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":502,\"errors\":[\"Bad Gateway\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+}, {
+  "id" : "a23909e2-83ef-488a-a19d-e7641c0fce83",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/daily_custom_reports/whatever",
+    "headers" : {
+      "Accept" : [ "application/json;datetime-format=rfc3339" ],
+      "JAVA-TEST-NAME" : [ "getSpecifiedDailyCustomReportsTest" ],
+      "DD-OPERATION-ID" : [ "getSpecifiedDailyCustomReports" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 403,
+    "reasonPhrase" : "Forbidden",
+    "headers" : {
+      "Date" : [ "Wed, 08 Jul 2020 22:55:10 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+}]

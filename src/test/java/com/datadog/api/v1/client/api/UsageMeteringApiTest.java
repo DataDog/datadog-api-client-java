@@ -693,6 +693,27 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getSpecifiedDailyCustomReportsTest()throws IOException  {
+        try {
+            api.getSpecifiedDailyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(502, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getSpecifiedDailyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
     public void getDailyCustomReportsTest()throws IOException  {
         try {
             fakeAuthApi.getDailyCustomReports().execute();
