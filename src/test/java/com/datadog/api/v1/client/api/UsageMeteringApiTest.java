@@ -691,6 +691,36 @@ public class UsageMeteringApiTest extends V1ApiTest {
             assertNotNull(error.getErrors());
         }
     }
+
+    @Test
+    public void getDailyCustomReportsTest()throws IOException  {
+        try {
+            fakeAuthApi.getDailyCustomReports().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getDailyCustomReports404ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/no_authenticated_user_error.json");
+        stubFor(get(urlPathEqualTo("/api/v1/daily_custom_reports"))
+                .willReturn(okJson(fixtureData).withStatus(404))
+        );
+        
+        try {
+            unitApi.getDailyCustomReports().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
     
     @Test
     public void getUsageBillableSummary400ErrorTest() throws IOException {
