@@ -302,7 +302,7 @@ public class HostsApiTest extends V1ApiTest {
                 .sortDir("asc")
                 .sortField("status")
                 .start(3L)
-                .include_muted_hosts_data(false).execute();
+                .includeMutedHostsData(false).execute();
         HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
         assertEquals(expected, response);
@@ -331,7 +331,7 @@ public class HostsApiTest extends V1ApiTest {
                 .sortDir("asc")
                 .sortField("status")
                 .start(3L)
-                .include_muted_hosts_data(true).execute();
+                .includeMutedHostsData(true).execute();
         HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
         assertEquals(expected, response);
@@ -387,7 +387,7 @@ public class HostsApiTest extends V1ApiTest {
                 .sortDir("asc")
                 .sortField("status")
                 .start(3L)
-                .include_hosts_metadata(false).execute();
+                .includeHostsMetadata(false).execute();
         HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
         assertEquals(expected, response);
@@ -416,7 +416,7 @@ public class HostsApiTest extends V1ApiTest {
                 .sortDir("asc")
                 .sortField("status")
                 .start(3L)
-                .include_hosts_metadata(true).execute();
+                .includeHostsMetadata(true).execute();
         HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
         assertEquals(expected, response);
