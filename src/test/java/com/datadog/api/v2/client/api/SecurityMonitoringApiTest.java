@@ -61,14 +61,14 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     @BeforeClass
     public static void enableUnstableOperations() {
-        generalApiClient.setUnstableOperationEnabled("listSignals", true);
-        generalApiClient.setUnstableOperationEnabled("listSignalsGet", true);
+        generalApiClient.setUnstableOperationEnabled("listSecurityMonitoringSignals", true);
+        generalApiClient.setUnstableOperationEnabled("listSecurityMonitoringSignalsGet", true);
     }
 
     @AfterClass
     public static void disableUnstableOperations() {
-        generalApiClient.setUnstableOperationEnabled("listSignals", false);
-        generalApiClient.setUnstableOperationEnabled("listSignalsGet", false);
+        generalApiClient.setUnstableOperationEnabled("listSecurityMonitoringSignals", false);
+        generalApiClient.setUnstableOperationEnabled("listSecurityMonitoringSignalsGet", false);
     }
 
     @Before
@@ -182,7 +182,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
                 .filter(allSignalsFilter);
         TestUtils.retry(10, 10, () -> {
             try {
-                SecurityMonitoringSignalsListResponse response = api.listSignals().body(bothSignalsRequest).execute();
+                SecurityMonitoringSignalsListResponse response = api.listSecurityMonitoringSignals().body(bothSignalsRequest).execute();
                 return response.getData() != null && response.getData().size() == 2;
             } catch (ApiException ignored) {
                 return false;
@@ -190,7 +190,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         });
 
         // Sort works correctly
-        SecurityMonitoringSignalsListResponse responseAscending = api.listSignals()
+        SecurityMonitoringSignalsListResponse responseAscending = api.listSecurityMonitoringSignals()
                 .body(new SecurityMonitoringSignalListRequest()
                         .filter(allSignalsFilter)
                         .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING))
@@ -201,7 +201,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
         assertTrue(firstTimestamp.isBefore(secondTimestamp));
 
-        SecurityMonitoringSignalsListResponse responseDescending = api.listSignals()
+        SecurityMonitoringSignalsListResponse responseDescending = api.listSecurityMonitoringSignals()
                 .body(new SecurityMonitoringSignalListRequest()
                         .filter(allSignalsFilter)
                         .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING))
@@ -213,7 +213,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         assertTrue(firstTimestamp.isAfter(secondTimestamp));
 
         // Paging
-        SecurityMonitoringSignalsListResponse pageOneResponse = api.listSignals()
+        SecurityMonitoringSignalsListResponse pageOneResponse = api.listSecurityMonitoringSignals()
                 .body(new SecurityMonitoringSignalListRequest()
                         .filter(allSignalsFilter)
                         .page(new SecurityMonitoringSignalListRequestPage().limit(1)))
@@ -223,7 +223,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         String cursor = pageOneResponse.getMeta().getPage().getAfter();
         assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
 
-        SecurityMonitoringSignalsListResponse pageTwoResponse = api.listSignals()
+        SecurityMonitoringSignalsListResponse pageTwoResponse = api.listSecurityMonitoringSignals()
                 .body(new SecurityMonitoringSignalListRequest()
                         .filter(allSignalsFilter)
                         .page(new SecurityMonitoringSignalListRequestPage()
@@ -244,7 +244,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
         TestUtils.retry(5, 10, () -> {
             try {
-                SecurityMonitoringSignalsListResponse response = api.listSignalsGet()
+                SecurityMonitoringSignalsListResponse response = api.listSecurityMonitoringSignalsGet()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -256,7 +256,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         });
 
         // Sort works correctly
-        SecurityMonitoringSignalsListResponse responseAscending = api.listSignalsGet()
+        SecurityMonitoringSignalsListResponse responseAscending = api.listSecurityMonitoringSignalsGet()
                 .filterQuery(uniqueName)
                 .filterFrom(now.minus(Duration.ofHours(1)))
                 .filterTo(now.plus(Duration.ofHours(1)))
@@ -268,7 +268,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
         assertTrue(firstTimestamp.isBefore(secondTimestamp));
 
-        SecurityMonitoringSignalsListResponse responseDescending = api.listSignalsGet()
+        SecurityMonitoringSignalsListResponse responseDescending = api.listSecurityMonitoringSignalsGet()
                 .filterQuery(uniqueName)
                 .filterFrom(now.minus(Duration.ofHours(1)))
                 .filterTo(now.plus(Duration.ofHours(1)))
@@ -281,7 +281,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         assertTrue(firstTimestamp.isAfter(secondTimestamp));
 
         // Paging
-        SecurityMonitoringSignalsListResponse pageOneResponse = api.listSignalsGet()
+        SecurityMonitoringSignalsListResponse pageOneResponse = api.listSecurityMonitoringSignalsGet()
                 .filterQuery(uniqueName)
                 .filterFrom(now.minus(Duration.ofHours(1)))
                 .filterTo(now.plus(Duration.ofHours(1)))
@@ -293,7 +293,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         String cursor = pageOneResponse.getMeta().getPage().getAfter();
         assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
 
-        SecurityMonitoringSignalsListResponse pageTwoResponse = api.listSignalsGet()
+        SecurityMonitoringSignalsListResponse pageTwoResponse = api.listSecurityMonitoringSignalsGet()
                 .filterQuery(uniqueName)
                 .filterFrom(now.minus(Duration.ofHours(1)))
                 .filterTo(now.plus(Duration.ofHours(1)))
