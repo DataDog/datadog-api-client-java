@@ -190,6 +190,20 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getDailyCustomReports() throws ApiException {
+        CustomReportsResponse response = api.getDailyCustomReports().execute();
+        assertNotNull(response.getMeta());
+        assertNotNull(response.getData());
+    }
+
+    @Test
+    public void getMonthlyCustomReports() throws ApiException {
+        CustomReportsResponse response = api.getMonthlyCustomReports().execute();
+        assertNotNull(response.getMeta());
+        assertNotNull(response.getData());
+    }
+
+    @Test
     public void getUsageSummaryTest() throws ApiException, IOException {
         Boolean includeOrgDetails = true;
         OffsetDateTime startMonth = OffsetDateTime.now();
