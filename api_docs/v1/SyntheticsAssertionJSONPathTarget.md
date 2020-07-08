@@ -1,8 +1,8 @@
 
 
-# SyntheticsAssertion
+# SyntheticsAssertionJSONPathTarget
 
-Object describing the assertions type, their associated operator, which property they apply, and upon which target.
+An assertion for the `validatesJSONPath` operator.
 ## Properties
 
 Name | Type | Description | Notes
