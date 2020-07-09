@@ -693,6 +693,27 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getSpecifiedMonthlyCustomReportsTest()throws IOException  {
+        try {
+            api.getSpecifiedMonthlyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getSpecifiedMonthlyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
     public void getSpecifiedDailyCustomReportsTest()throws IOException  {
         try {
             api.getSpecifiedDailyCustomReports("whatever").execute();
@@ -734,6 +755,35 @@ public class UsageMeteringApiTest extends V1ApiTest {
         
         try {
             unitApi.getDailyCustomReports().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getMonthlyCustomReportsTest()throws IOException  {
+        try {
+            fakeAuthApi.getMonthlyCustomReports().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getMonthlyCustomReports404ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/no_authenticated_user_error.json");
+        stubFor(get(urlPathEqualTo("/api/v1/monthly_custom_reports"))
+                .willReturn(okJson(fixtureData).withStatus(404))
+        );
+        
+        try {
+            unitApi.getMonthlyCustomReports().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
