@@ -26,6 +26,7 @@ import com.datadog.api.v2.client.model.LogsSort;
 import java.net.MalformedURLException;
 import java.net.URLEncoder;
 import java.time.Duration;
+import java.util.concurrent.atomic.AtomicReference;
 import javax.ws.rs.core.GenericType;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -166,66 +167,87 @@ public class LogsApiTest extends V2APITest {
         sendLogs(suffix);
 
         // Make sure both logs are indexed
+        AtomicReference<LogsListResponse> responseAscending = new AtomicReference<>();
         TestUtils.retry(5, 10, () -> {
             try {
-                LogsListResponse response = api.listLogsGet()
+                // Sort works correctly
+                responseAscending.set(api.listLogsGet()
                         .filterQuery(suffix)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
-                        .execute();
-                return response.getData() != null && response.getData().size() == 2;
+                        .sort(LogsSort.TIMESTAMP_ASCENDING)
+                        .execute());
+                return responseAscending.get().getData() != null && responseAscending.get().getData().size() == 2;
             } catch (ApiException ignored) {
                 return false;
             }
         });
 
-        // Sort works correctly
-        LogsListResponse responseAscending = api.listLogsGet()
-                .filterQuery(suffix)
-                .filterFrom(now.minus(Duration.ofHours(1)))
-                .filterTo(now.plus(Duration.ofHours(1)))
-                .sort(LogsSort.TIMESTAMP_ASCENDING)
-                .execute();
+        assertEquals(2, responseAscending.get().getData().size());
+        assertEquals("test-log-list " + suffix, responseAscending.get().getData().get(0).getAttributes().getMessage());
+        assertEquals("test-log-list-2 " + suffix, responseAscending.get().getData().get(1).getAttributes().getMessage());
 
-        assertEquals(2, responseAscending.getData().size());
-        assertEquals("test-log-list " + suffix, responseAscending.getData().get(0).getAttributes().getMessage());
-        assertEquals("test-log-list-2 " + suffix, responseAscending.getData().get(1).getAttributes().getMessage());
+        // Make sure both logs are indexed
+        AtomicReference<LogsListResponse> responseDescending = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                // Sort works correctly
+                responseDescending.set(api.listLogsGet()
+                        .filterQuery(suffix)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(LogsSort.TIMESTAMP_DESCENDING)
+                        .execute());
+                return responseDescending.get().getData() != null && responseDescending.get().getData().size() == 2;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
 
-        LogsListResponse responseDescending = api.listLogsGet()
-                .filterQuery(suffix)
-                .filterFrom(now.minus(Duration.ofHours(1)))
-                .filterTo(now.plus(Duration.ofHours(1)))
-                .sort(LogsSort.TIMESTAMP_DESCENDING)
-                .execute();
-
-        assertEquals(2, responseDescending.getData().size());
-        assertEquals("test-log-list-2 " + suffix, responseDescending.getData().get(0).getAttributes().getMessage());
-        assertEquals("test-log-list " + suffix, responseDescending.getData().get(1).getAttributes().getMessage());
+        assertEquals(2, responseDescending.get().getData().size());
+        assertEquals("test-log-list-2 " + suffix, responseDescending.get().getData().get(0).getAttributes().getMessage());
+        assertEquals("test-log-list " + suffix, responseDescending.get().getData().get(1).getAttributes().getMessage());
 
         // Paging
-        LogsListResponse pageOneResponse = api.listLogsGet()
-                .filterQuery(suffix)
-                .filterFrom(now.minus(Duration.ofHours(1)))
-                .filterTo(now.plus(Duration.ofHours(1)))
-                .pageLimit(1)
-                .execute();
+        AtomicReference<LogsListResponse> pageOneResponse = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                pageOneResponse.set(api.listLogsGet()
+                        .filterQuery(suffix)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .pageLimit(1)
+                        .execute());
+                return pageOneResponse.get().getData() != null && pageOneResponse.get().getData().size() == 1;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
 
-        assertEquals(1, pageOneResponse.getData().size());
+        assertEquals(1, pageOneResponse.get().getData().size());
 
-        String cursor = pageOneResponse.getMeta().getPage().getAfter();
-        assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
+        String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
+        assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor)));
 
-        LogsListResponse pageTwoResponse = api.listLogsGet()
-                .filterQuery(suffix)
-                .filterFrom(now.minus(Duration.ofHours(1)))
-                .filterTo(now.plus(Duration.ofHours(1)))
-                .pageLimit(1)
-                .pageCursor(cursor)
-                .execute();
+        AtomicReference<LogsListResponse> pageTwoResponse = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                pageTwoResponse.set(api.listLogsGet()
+                        .filterQuery(suffix)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .pageLimit(1)
+                        .pageCursor(cursor)
+                        .execute());
+                return pageTwoResponse.get().getData() != null && pageTwoResponse.get().getData().size() == 1;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
 
-        assertEquals(1, pageTwoResponse.getData().size());
+        assertEquals(1, pageTwoResponse.get().getData().size());
 
-        assertNotEquals(pageOneResponse.getData().get(0).getId(), pageTwoResponse.getData().get(0).getId());
+        assertNotEquals(pageOneResponse.get().getData().get(0).getId(), pageTwoResponse.get().getData().get(0).getId());
     }
 
 }

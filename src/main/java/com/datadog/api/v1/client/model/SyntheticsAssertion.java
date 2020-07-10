@@ -15,7 +15,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsAssertionOperator;
+import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathOperator;
+import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathTarget;
+import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathTargetTarget;
+import com.datadog.api.v1.client.model.SyntheticsAssertionTarget;
 import com.datadog.api.v1.client.model.SyntheticsAssertionType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,169 +29,163 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v1.client.JSON;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 
-/**
- * Object describing the assertions type, their associated operator, which property they apply , and upon which target.
- */
-@ApiModel(description = "Object describing the assertions type, their associated operator, which property they apply , and upon which target.")
-@JsonPropertyOrder({
-  SyntheticsAssertion.JSON_PROPERTY_OPERATOR,
-  SyntheticsAssertion.JSON_PROPERTY_PROPERTY,
-  SyntheticsAssertion.JSON_PROPERTY_TARGET,
-  SyntheticsAssertion.JSON_PROPERTY_TYPE
-})
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
-public class SyntheticsAssertion {
-  public static final String JSON_PROPERTY_OPERATOR = "operator";
-  private SyntheticsAssertionOperator operator;
-
-  public static final String JSON_PROPERTY_PROPERTY = "property";
-  private String property;
-
-  public static final String JSON_PROPERTY_TARGET = "target";
-  private Object target;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private SyntheticsAssertionType type;
-
-
-  public SyntheticsAssertion operator(SyntheticsAssertionOperator operator) {
-    this.operator = operator;
-    return this;
-  }
-
-   /**
-   * Get operator
-   * @return operator
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_OPERATOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public SyntheticsAssertionOperator getOperator() {
-    return operator;
-  }
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.datadog.api.v1.client.JSON;
 
 
-  public void setOperator(SyntheticsAssertionOperator operator) {
-    this.operator = operator;
-  }
+@JsonDeserialize(using = SyntheticsAssertion.SyntheticsAssertionDeserializer.class)
+@JsonSerialize(using = SyntheticsAssertion.SyntheticsAssertionSerializer.class)
+public class SyntheticsAssertion extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(SyntheticsAssertion.class.getName());
 
+    public static class SyntheticsAssertionSerializer extends StdSerializer<SyntheticsAssertion> {
+        public SyntheticsAssertionSerializer(Class<SyntheticsAssertion> t) {
+            super(t);
+        }
 
-  public SyntheticsAssertion property(String property) {
-    this.property = property;
-    return this;
-  }
+        public SyntheticsAssertionSerializer() {
+            this(null);
+        }
 
-   /**
-   * The associated assertion property.
-   * @return property
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The associated assertion property.")
-  @JsonProperty(JSON_PROPERTY_PROPERTY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getProperty() {
-    return property;
-  }
-
-
-  public void setProperty(String property) {
-    this.property = property;
-  }
-
-
-  public SyntheticsAssertion target(Object target) {
-    this.target = target;
-    return this;
-  }
-
-   /**
-   * Target to apply the assertion to. It can be a string, a number, or a Date.
-   * @return target
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Target to apply the assertion to. It can be a string, a number, or a Date.")
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Object getTarget() {
-    return target;
-  }
-
-
-  public void setTarget(Object target) {
-    this.target = target;
-  }
-
-
-  public SyntheticsAssertion type(SyntheticsAssertionType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public SyntheticsAssertionType getType() {
-    return type;
-  }
-
-
-  public void setType(SyntheticsAssertionType type) {
-    this.type = type;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+        @Override
+        public void serialize(SyntheticsAssertion value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public static class SyntheticsAssertionDeserializer extends StdDeserializer<SyntheticsAssertion> {
+        public SyntheticsAssertionDeserializer() {
+            this(SyntheticsAssertion.class);
+        }
+
+        public SyntheticsAssertionDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public SyntheticsAssertion deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+            Object deserialized = null;
+            int match = 0;
+            // deserialize SyntheticsAssertionJSONPathTarget
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAssertionJSONPathTarget.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
+                match++;
+                log.log(Level.FINER, "Input data matches schema 'SyntheticsAssertionJSONPathTarget'");
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'SyntheticsAssertionJSONPathTarget'", e);
+            }
+
+            // deserialize SyntheticsAssertionTarget
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAssertionTarget.class);
+                // TODO: there is no validation against JSON schema constraints
+                // (min, max, enum, pattern...), this does not perform a strict JSON
+                // validation, which means the 'match' count may be higher than it should be.
+                match++;
+                log.log(Level.FINER, "Input data matches schema 'SyntheticsAssertionTarget'");
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'SyntheticsAssertionTarget'", e);
+            }
+
+            if (match == 1) {
+                SyntheticsAssertion ret = new SyntheticsAssertion();
+                ret.setActualInstance(deserialized);
+                return ret;
+            }
+            throw new IOException(String.format("Failed deserialization for SyntheticsAssertion: %d classes match result, expected 1", match));
+        }
+
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public SyntheticsAssertion getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "SyntheticsAssertion cannot be null");
+        }
     }
-    SyntheticsAssertion syntheticsAssertion = (SyntheticsAssertion) o;
-    return Objects.equals(this.operator, syntheticsAssertion.operator) &&
-        Objects.equals(this.property, syntheticsAssertion.property) &&
-        Objects.equals(this.target, syntheticsAssertion.target) &&
-        Objects.equals(this.type, syntheticsAssertion.type);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(operator, property, target, type);
-  }
+    // store a list of schema names defined in oneOf
+    public final static Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsAssertion {\n");
-    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
-    sb.append("    property: ").append(toIndentedString(property)).append("\n");
-    sb.append("    target: ").append(toIndentedString(target)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public SyntheticsAssertion() {
+        super("oneOf", Boolean.FALSE);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public SyntheticsAssertion(SyntheticsAssertionJSONPathTarget o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public SyntheticsAssertion(SyntheticsAssertionTarget o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("SyntheticsAssertionJSONPathTarget", new GenericType<SyntheticsAssertionJSONPathTarget>() {
+        });
+        schemas.put("SyntheticsAssertionTarget", new GenericType<SyntheticsAssertionTarget>() {
+        });
+        JSON.registerDescendants(SyntheticsAssertion.class, Collections.unmodifiableMap(schemas));
+    }
+
+    @Override
+    public Map<String, GenericType> getSchemas() {
+        return SyntheticsAssertion.schemas;
+    }
+
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas.
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (JSON.isInstanceOf(SyntheticsAssertionJSONPathTarget.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(SyntheticsAssertionTarget.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be SyntheticsAssertionJSONPathTarget, SyntheticsAssertionTarget");
+    }
+
+
 
 }
 
