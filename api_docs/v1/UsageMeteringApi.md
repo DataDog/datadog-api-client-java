@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions) | **GET** /api/v1/usage/rum_sessions | Get hourly usage for RUM Sessions
 [**getUsageSNMP**](UsageMeteringApi.md#getUsageSNMP) | **GET** /api/v1/usage/snmp | Get hourly usage for SNMP devices
 [**getUsageSummary**](UsageMeteringApi.md#getUsageSummary) | **GET** /api/v1/usage/summary | Get usage across your multi-org account
-[**getUsageSynthetics**](UsageMeteringApi.md#getUsageSynthetics) | **GET** /api/v1/usage/synthetics | Get hourly usage for Synthetics API Checks
+[**getUsageSynthetics**](UsageMeteringApi.md#getUsageSynthetics) | **GET** /api/v1/usage/synthetics | Get hourly usage for Synthetics Checks
 [**getUsageSyntheticsAPI**](UsageMeteringApi.md#getUsageSyntheticsAPI) | **GET** /api/v1/usage/synthetics_api | Get hourly usage for Synthetics API Checks
 [**getUsageSyntheticsBrowser**](UsageMeteringApi.md#getUsageSyntheticsBrowser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
 [**getUsageTimeseries**](UsageMeteringApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
@@ -1040,9 +1040,9 @@ Name | Type | Description  | Notes
 
 > UsageSyntheticsResponse getUsageSynthetics().startHr(startHr).endHr(endHr).execute();
 
-Get hourly usage for Synthetics API Checks
+Get hourly usage for Synthetics Checks
 
-Get hourly usage for [Synthetics API checks](https://docs.datadoghq.com/synthetics/).
+Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
 
 ### Example
 

@@ -1622,8 +1622,8 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks
-   * Get hourly usage for [Synthetics API checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics Checks
+   * Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
    * @return getUsageSyntheticsRequest
    * @throws ApiException if fails to make API call
    * @deprecated
