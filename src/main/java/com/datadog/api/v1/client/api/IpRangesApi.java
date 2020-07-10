@@ -96,7 +96,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> List of IP ranges. </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        </table>
      
      */
@@ -112,7 +112,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> List of IP ranges. </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        </table>
 
      */
