@@ -1,8 +1,8 @@
 [{
-  "id" : "e1d6ddb6-ceb4-4ad4-adc3-745d493fa362",
+  "id" : "6b689b08-90ac-403b-8ebd-994e54286c8c",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/monthly_custom_reports/whatever",
+    "path" : "/api/v1/monthly_custom_reports/2019-10-02",
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getSpecifiedMonthlyCustomReportsTest" ],
@@ -20,56 +20,28 @@
     "unlimited" : true
   },
   "httpResponse" : {
-    "statusCode" : 400,
-    "reasonPhrase" : "Bad Request",
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Thu, 09 Jul 2020 14:46:36 GMT" ],
+      "Date" : [ "Sat, 11 Jul 2020 18:14:53 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "109" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2720045" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Set-Cookie" : [ "DD-PSHARD=99; Max-Age=604800; Path=/; expires=Sat, 18-Jul-2020 18:14:52 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.2726960" ],
+      "Cache-Control" : [ "max-age=300" ],
+      "Expires" : [ "Sat, 11 Jul 2020 18:19:52 GMT" ],
+      "X-DD-Debug" : [ "fC3nh8iOXKwtiSzXDd6YQth/B3FvwnZl/5EmUbWEMED2eHrOXvSTi3DGeeHZMkTn" ],
       "DD-POOL" : [ "dogweb_wallace" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
       "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "1320" ]
     },
-    "body" : "{\"errors\": [\"The value provided for parameter 'Only use YYYY-MM-DD to specify a monthly report' is invalid\"]}"
-  }
-}, {
-  "id" : "66cfddcd-e929-4f87-b819-1c7ec6b066a9",
-  "httpRequest" : {
-    "method" : "GET",
-    "path" : "/api/v1/monthly_custom_reports/whatever",
-    "headers" : {
-      "Accept" : [ "application/json;datetime-format=rfc3339" ],
-      "JAVA-TEST-NAME" : [ "getSpecifiedMonthlyCustomReportsTest" ],
-      "DD-OPERATION-ID" : [ "getSpecifiedMonthlyCustomReports" ],
-      "Connection" : [ "close" ],
-      "content-length" : [ "0" ]
+    "cookies" : {
+      "DD-PSHARD" : "99"
     },
-    "keepAlive" : false,
-    "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 403,
-    "reasonPhrase" : "Forbidden",
-    "headers" : {
-      "Date" : [ "Thu, 09 Jul 2020 14:46:37 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Via" : [ "1.1 haproxy" ],
-      "content-length" : [ "170" ]
-    },
-    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+    "body" : "{\"meta\":{\"page\":{\"total_count\":1}},\"data\":{\"type\":\"reports\",\"id\":\"2019-10-01\",\"attributes\":{\"tags\":[\"env\",\"service\",\"team\"],\"start_date\":\"2019-10-01\",\"end_date\":\"2019-11-01\",\"size\":1893482234,\"computed_on\":\"2019-11-02T03:38:28+00:00\",\"location\":\"https://dd-michelada-custom-reporting-prod.s3.amazonaws.com/org_month_custom_reporting/1.0/2019/10/0/13/monthly_report_2019-10.zip?AWSAccessKeyId=ASIAWYLNJGWWAV5E4NEM&Signature=2nIhram8e3wwGAY6UymmOOOSWL8%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIGAgJmgNWAhNSgwcbHkbqBQggTs3embwQ8gcyqJHK%2BGFAiBARPlCOzLZYrCYw6ppLNBeWK1UZt40mLWFzUCuvIzdSSrfAQhLEAAaDDQ2NDYyMjUzMjAxMiIMMz%2FnZm4vCTIOUOt4KrwBoTIFFB5R5UivwVwMvMjnxDPNvD4MUqogOea6EOiMfBOzCjtGWBQ%2B%2B%2BQjfqHhI4q4te0jKOWLwnOCO8j3X1W%2FhOw5uJts1041lGHYCJR9DodhP5wcrOE3oXmA842zTbeRa3mOtsexYZQbDt7qhfYKEpvFrTf2pcFxn2U79WWoGVtHfndzMmSF4OFkq811Z24A94YtSJcJo8ce%2BGNieGcUZlAsLGHptfnBnAbAoOu%2FyccxFg9Xc6hj%2BuAbt8ww%2BIKo%2BAU65AF0xhJsYFUZowsI0msmjtKLRse7gBKZk7%2FF7fg10swdnEn96fsyjTHC3%2BYL%2B%2FHhOHrC0wv%2FBLdTD5yOdgWfH7HF94XuSgrGPDYlYGFhyWkZseafiJE8OiJhXjxptGccJRqs6J89gJPr%2F2ihbqWCrIDOwEzcPgN5SRBecDQu9If%2FWskYc79yvqoYS6fornW1rw90uvS3OLyOFPrDAVUaqe4elQf1IDhHER6Z%2B1FoKvPL3NEIw8zG9XwFpoAICpoQ4w6BJW0tGVqlYvoO0UjcMHF6wBesuhbndXdDZ%2BAjbldxg2GRAIQ%3D&Expires=1594491593\"}}}"
   }
 }]

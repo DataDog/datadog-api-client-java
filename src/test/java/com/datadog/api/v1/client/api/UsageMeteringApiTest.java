@@ -190,7 +190,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getSpecifiedDailyCustomReports() throws ApiException {
+    public void getSpecifiedDailyCustomReportsTest() throws ApiException {
         String reportID = "2019-10-02";
         SpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID).execute();
         assertNotNull(response.getMeta());
@@ -198,7 +198,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getSpecifiedMonthlyCustomReports() throws ApiException {
+    public void getSpecifiedMonthlyCustomReportsTest() throws ApiException {
         String reportID = "2019-10-02";
         SpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
         assertNotNull(response.getMeta());
@@ -207,14 +207,14 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
 
     @Test
-    public void getDailyCustomReports() throws ApiException {
+    public void getDailyCustomReportsTest() throws ApiException {
         CustomReportsResponse response = api.getDailyCustomReports().execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
     }
 
     @Test
-    public void getMonthlyCustomReports() throws ApiException {
+    public void getMonthlyCustomReportsTest() throws ApiException {
         CustomReportsResponse response = api.getMonthlyCustomReports().execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
@@ -693,7 +693,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getSpecifiedMonthlyCustomReportsTest()throws IOException  {
+    public void getSpecifiedMonthlyCustomReportsErrorsTest()throws IOException  {
         try {
             api.getSpecifiedMonthlyCustomReports("whatever").execute();
             fail("Expected ApiException not thrown");
@@ -714,16 +714,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getSpecifiedDailyCustomReportsTest()throws IOException  {
-        try {
-            api.getSpecifiedDailyCustomReports("whatever").execute();
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            assertEquals(502, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-
+    public void getSpecifiedDailyCustomReportsErrorsTest()throws IOException  {
         try {
             fakeAuthApi.getSpecifiedDailyCustomReports("whatever").execute();
             fail("Expected ApiException not thrown");
@@ -735,7 +726,24 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getDailyCustomReportsTest()throws IOException  {
+    public void getSpecifiedDailyCustomReports400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/custom_reports_error_400.json");
+        stubFor(get(urlPathEqualTo("/api/v1/daily_custom_reports/whatever"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        
+        try {
+            unitApi.getSpecifiedDailyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getDailyCustomReportsErrorsTest()throws IOException  {
         try {
             fakeAuthApi.getDailyCustomReports().execute();
             fail("Expected ApiException not thrown");
@@ -764,7 +772,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getMonthlyCustomReportsTest()throws IOException  {
+    public void getMonthlyCustomReportsErrorsTest()throws IOException  {
         try {
             fakeAuthApi.getMonthlyCustomReports().execute();
             fail("Expected ApiException not thrown");
