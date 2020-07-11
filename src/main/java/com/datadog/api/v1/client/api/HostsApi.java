@@ -153,7 +153,7 @@ private ApiResponse<HostTotals> getHostTotalsWithHttpInfo(Long from) throws ApiE
     return new APIgetHostTotalsRequest();
   }
 
-private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, String sortField, String sortDir, Long start, Long count, Long from) throws ApiException {
+private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, String sortField, String sortDir, Long start, Long count, Long from, Boolean includeMutedHostsData, Boolean includeHostsMetadata) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -171,6 +171,8 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_muted_hosts_data", includeMutedHostsData));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_hosts_metadata", includeHostsMetadata));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listHosts");
@@ -204,6 +206,8 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
     private Long start;
     private Long count;
     private Long from;
+    private Boolean includeMutedHostsData;
+    private Boolean includeHostsMetadata;
 
     private APIlistHostsRequest() {
     }
@@ -269,6 +273,26 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
     }
 
     /**
+     * Set includeMutedHostsData
+     * @param includeMutedHostsData Include information on the muted status of hosts and when the mute expires. (optional)
+     * @return APIlistHostsRequest
+     */
+    public APIlistHostsRequest includeMutedHostsData(Boolean includeMutedHostsData) {
+      this.includeMutedHostsData = includeMutedHostsData;
+      return this;
+    }
+
+    /**
+     * Set includeHostsMetadata
+     * @param includeHostsMetadata Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.). (optional)
+     * @return APIlistHostsRequest
+     */
+    public APIlistHostsRequest includeHostsMetadata(Boolean includeHostsMetadata) {
+      this.includeHostsMetadata = includeHostsMetadata;
+      return this;
+    }
+
+    /**
      * Execute listHosts request
      * @return HostListResponse
      * @throws ApiException if fails to make API call
@@ -300,7 +324,7 @@ private ApiResponse<HostListResponse> listHostsWithHttpInfo(String filter, Strin
 
      */
     public ApiResponse<HostListResponse> executeWithHttpInfo() throws ApiException {
-      return listHostsWithHttpInfo(filter, sortField, sortDir, start, count, from);
+      return listHostsWithHttpInfo(filter, sortField, sortDir, start, count, from, includeMutedHostsData, includeHostsMetadata);
     }
   }
 

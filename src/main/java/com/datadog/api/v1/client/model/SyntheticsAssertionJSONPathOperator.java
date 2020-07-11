@@ -26,33 +26,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 /**
  * Assertion operator to apply.
  */
-public enum SyntheticsAssertionOperator {
+public enum SyntheticsAssertionJSONPathOperator {
   
-  CONTAINS("contains"),
-  
-  DOES_NOT_CONTAIN("doesNotContain"),
-  
-  IS("is"),
-  
-  IS_NOT("isNot"),
-  
-  LESS_THAN("lessThan"),
-  
-  MORE_THAN("moreThan"),
-  
-  MATCHES("matches"),
-  
-  DOES_NOT_MATCH("doesNotMatch"),
-  
-  VALIDATES("validates"),
-  
-  IS_IN_MORE_DAYS_THAN("isInMoreThan"),
-  
-  IS_IN_LESS_DAYS_THAN("isInLessThan");
+  VALIDATES_JSON_PATH("validatesJSONPath");
 
   private String value;
 
-  SyntheticsAssertionOperator(String value) {
+  SyntheticsAssertionJSONPathOperator(String value) {
     this.value = value;
   }
 
@@ -67,8 +47,8 @@ public enum SyntheticsAssertionOperator {
   }
 
   @JsonCreator
-  public static SyntheticsAssertionOperator fromValue(String value) {
-    for (SyntheticsAssertionOperator b : SyntheticsAssertionOperator.values()) {
+  public static SyntheticsAssertionJSONPathOperator fromValue(String value) {
+    for (SyntheticsAssertionJSONPathOperator b : SyntheticsAssertionJSONPathOperator.values()) {
       if (b.value.equals(value)) {
         return b;
       }

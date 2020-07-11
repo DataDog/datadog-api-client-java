@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ## listHosts
 
-> HostListResponse listHosts().filter(filter).sortField(sortField).sortDir(sortDir).start(start).count(count).from(from).execute();
+> HostListResponse listHosts().filter(filter).sortField(sortField).sortDir(sortDir).start(start).count(count).from(from).includeMutedHostsData(includeMutedHostsData).includeHostsMetadata(includeHostsMetadata).execute();
 
 Get all hosts for your organization
 
@@ -138,6 +138,8 @@ public class Example {
         Long start = 56L; // Long | Host result to start search from.
         Long count = 56L; // Long | Number of hosts to return. Max 1000.
         Long from = 56L; // Long | Number of seconds since UNIX epoch from which you want to search your hosts.
+        Boolean includeMutedHostsData = true; // Boolean | Include information on the muted status of hosts and when the mute expires.
+        Boolean includeHostsMetadata = true; // Boolean | Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
         try {
             HostListResponse result = api.listHosts()
                 .filter(filter)
@@ -146,6 +148,8 @@ public class Example {
                 .start(start)
                 .count(count)
                 .from(from)
+                .includeMutedHostsData(includeMutedHostsData)
+                .includeHostsMetadata(includeHostsMetadata)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -170,6 +174,8 @@ Name | Type | Description  | Notes
  **start** | **Long**| Host result to start search from. | [optional]
  **count** | **Long**| Number of hosts to return. Max 1000. | [optional]
  **from** | **Long**| Number of seconds since UNIX epoch from which you want to search your hosts. | [optional]
+ **includeMutedHostsData** | **Boolean**| Include information on the muted status of hosts and when the mute expires. | [optional]
+ **includeHostsMetadata** | **Boolean**| Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.). | [optional]
 
 ### Return type
 
