@@ -192,6 +192,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getSpecifiedDailyCustomReportsTest() throws ApiException {
         String reportID = "2019-10-02";
+        generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
         SpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID).execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
@@ -200,6 +201,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getSpecifiedMonthlyCustomReportsTest() throws ApiException {
         String reportID = "2019-10-02";
+        generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
         SpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
@@ -208,6 +210,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getDailyCustomReportsTest() throws ApiException {
+        generalApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
         CustomReportsResponse response = api.getDailyCustomReports().execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
@@ -215,6 +218,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getMonthlyCustomReportsTest() throws ApiException {
+        generalApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
         CustomReportsResponse response = api.getMonthlyCustomReports().execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
@@ -695,6 +699,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getSpecifiedMonthlyCustomReportsErrorsTest()throws IOException  {
         try {
+            generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
             api.getSpecifiedMonthlyCustomReports("whatever").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
@@ -704,6 +709,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         }
 
         try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
             fakeAuthApi.getSpecifiedMonthlyCustomReports("whatever").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
@@ -716,6 +722,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getSpecifiedDailyCustomReportsErrorsTest()throws IOException  {
         try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
             fakeAuthApi.getSpecifiedDailyCustomReports("whatever").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
@@ -733,6 +740,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         );
         
         try {
+            generalApiUnitTestClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
             unitApi.getSpecifiedDailyCustomReports("whatever").execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
@@ -745,6 +753,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getDailyCustomReportsErrorsTest()throws IOException  {
         try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
             fakeAuthApi.getDailyCustomReports().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
@@ -762,6 +771,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         );
         
         try {
+            generalApiUnitTestClient.setUnstableOperationEnabled("getDailyCustomReports", true);
             unitApi.getDailyCustomReports().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
@@ -774,6 +784,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getMonthlyCustomReportsErrorsTest()throws IOException  {
         try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
             fakeAuthApi.getMonthlyCustomReports().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
@@ -791,6 +802,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         );
         
         try {
+            generalApiUnitTestClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
             unitApi.getMonthlyCustomReports().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
