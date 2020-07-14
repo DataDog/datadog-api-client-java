@@ -2,11 +2,18 @@ name: "Ensure labels"
 on: # yamllint disable-line rule:truthy
   pull_request:
     types:
+      - assigned
+      - unassigned
       - labeled
       - unlabeled
       - opened
-      - synchronize
+      - edited
+      - closed
       - reopened
+      - synchronize
+      - ready_for_review
+      - review_requested
+      - review_request_removed
 
 jobs:
   changelog:
