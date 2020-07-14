@@ -193,7 +193,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     public void getSpecifiedDailyCustomReportsTest() throws ApiException {
         String reportID = "2019-10-02";
         generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
-        SpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID).execute();
+        UsageSpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID).execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
     }
@@ -202,7 +202,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     public void getSpecifiedMonthlyCustomReportsTest() throws ApiException {
         String reportID = "2019-10-02";
         generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
-        SpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
+        UsageSpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
     }
@@ -211,7 +211,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getDailyCustomReportsTest() throws ApiException {
         generalApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
-        CustomReportsResponse response = api.getDailyCustomReports().execute();
+        UsageCustomReportsResponse response = api.getDailyCustomReports().execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
     }
@@ -219,7 +219,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     @Test
     public void getMonthlyCustomReportsTest() throws ApiException {
         generalApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
-        CustomReportsResponse response = api.getMonthlyCustomReports().execute();
+        UsageCustomReportsResponse response = api.getMonthlyCustomReports().execute();
         assertNotNull(response.getMeta());
         assertNotNull(response.getData());
     }
