@@ -15,6 +15,7 @@ import com.datadog.api.v1.client.model.SyntheticsDeleteTestsPayload;
 import com.datadog.api.v1.client.model.SyntheticsDeleteTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetAPITestLatestResultsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetBrowserTestLatestResultsResponse;
+import com.datadog.api.v1.client.model.SyntheticsGlobalVariable;
 import com.datadog.api.v1.client.model.SyntheticsListTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsLocations;
 import com.datadog.api.v1.client.model.SyntheticsTestDetails;
@@ -55,6 +56,113 @@ public class SyntheticsApi {
     this.apiClient = apiClient;
   }
 
+
+private ApiResponse<SyntheticsGlobalVariable> createGlobalVariableWithHttpInfo(SyntheticsGlobalVariable body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createGlobalVariable");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/variables";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createGlobalVariable");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsGlobalVariable> localVarReturnType = new GenericType<SyntheticsGlobalVariable>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.createGlobalVariable", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIcreateGlobalVariableRequest {
+    private SyntheticsGlobalVariable body;
+
+    private APIcreateGlobalVariableRequest() {
+    }
+
+    /**
+     * Set body
+     * @param body Details of the global variable to create. (required)
+     * @return APIcreateGlobalVariableRequest
+     */
+    public APIcreateGlobalVariableRequest body(SyntheticsGlobalVariable body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createGlobalVariable request
+     * @return SyntheticsGlobalVariable
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsGlobalVariable execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createGlobalVariable request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsGlobalVariable> executeWithHttpInfo() throws ApiException {
+      return createGlobalVariableWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Create a global variable
+   * Create a Synthetics global variable.
+   * @return createGlobalVariableRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIcreateGlobalVariableRequest createGlobalVariable() throws ApiException {
+    return new APIcreateGlobalVariableRequest();
+  }
 
 private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTestDetails body) throws ApiException {
     Object localVarPostBody = body;
@@ -165,6 +273,106 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
     return new APIcreateTestRequest();
   }
 
+private ApiResponse<Void> deleteGlobalVariableWithHttpInfo(String variableId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'variableId' is set
+    if (variableId == null) {
+      throw new ApiException(400, "Missing the required parameter 'variableId' when calling deleteGlobalVariable");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/variables/{variable_id}"
+      .replaceAll("\\{" + "variable_id" + "\\}", apiClient.escapeString(variableId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteGlobalVariable");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    return apiClient.invokeAPI("SyntheticsApi.deleteGlobalVariable", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, null);
+  }
+
+  public class APIdeleteGlobalVariableRequest {
+    private String variableId;
+
+    private APIdeleteGlobalVariableRequest(String variableId) {
+      this.variableId = variableId;
+    }
+
+    /**
+     * Execute deleteGlobalVariable request
+     
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public void execute() throws ApiException {
+      this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute deleteGlobalVariable request with HTTP info returned
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+      return deleteGlobalVariableWithHttpInfo(variableId);
+    }
+  }
+
+  /**
+   * Delete a global variable
+   * Delete a Synthetics global variable.
+   * @param variableId The ID of the global variable. (required)
+   * @return deleteGlobalVariableRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIdeleteGlobalVariableRequest deleteGlobalVariable(String variableId) throws ApiException {
+    return new APIdeleteGlobalVariableRequest(variableId);
+  }
+
 private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(SyntheticsDeleteTestsPayload body) throws ApiException {
     Object localVarPostBody = body;
     
@@ -272,6 +480,122 @@ private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(Synth
    */
   public APIdeleteTestsRequest deleteTests() throws ApiException {
     return new APIdeleteTestsRequest();
+  }
+
+private ApiResponse<SyntheticsGlobalVariable> editGlobalVariableWithHttpInfo(String variableId, SyntheticsGlobalVariable body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'variableId' is set
+    if (variableId == null) {
+      throw new ApiException(400, "Missing the required parameter 'variableId' when calling editGlobalVariable");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling editGlobalVariable");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/variables/{variable_id}"
+      .replaceAll("\\{" + "variable_id" + "\\}", apiClient.escapeString(variableId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "editGlobalVariable");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsGlobalVariable> localVarReturnType = new GenericType<SyntheticsGlobalVariable>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.editGlobalVariable", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType);
+  }
+
+  public class APIeditGlobalVariableRequest {
+    private String variableId;
+    private SyntheticsGlobalVariable body;
+
+    private APIeditGlobalVariableRequest(String variableId) {
+      this.variableId = variableId;
+    }
+
+    /**
+     * Set body
+     * @param body Details of the global variable to update. (required)
+     * @return APIeditGlobalVariableRequest
+     */
+    public APIeditGlobalVariableRequest body(SyntheticsGlobalVariable body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute editGlobalVariable request
+     * @return SyntheticsGlobalVariable
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsGlobalVariable execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute editGlobalVariable request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsGlobalVariable> executeWithHttpInfo() throws ApiException {
+      return editGlobalVariableWithHttpInfo(variableId, body);
+    }
+  }
+
+  /**
+   * Edit a global variable
+   * Edit a Synthetics global variable.
+   * @param variableId The ID of the global variable. (required)
+   * @return editGlobalVariableRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIeditGlobalVariableRequest editGlobalVariable(String variableId) throws ApiException {
+    return new APIeditGlobalVariableRequest(variableId);
   }
 
 private ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestResultsWithHttpInfo(String publicId, Long fromTs, Long toTs, List<String> probeDc) throws ApiException {
