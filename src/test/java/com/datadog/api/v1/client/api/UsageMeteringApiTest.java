@@ -8,6 +8,8 @@ package com.datadog.api.v1.client.api;
 
 
 import com.datadog.api.TestUtils;
+import com.datadog.api.RecordingMode;
+import static org.junit.Assume.assumeFalse;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -191,7 +193,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getSpecifiedDailyCustomReportsTest() throws ApiException {
-        String reportID = "2019-10-02";
+        // No reports are available yet for Org 321813
+        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
+        String reportID = "2019-10-02"; // Likely have to change this date once report for org 321813 is available and cassette is recorded
         generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
         UsageSpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID).execute();
         assertNotNull(response.getMeta());
@@ -200,7 +204,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getSpecifiedMonthlyCustomReportsTest() throws ApiException {
-        String reportID = "2019-10-02";
+        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
+        String reportID = "2019-10-02"; // Likely have to change this date once report for org 321813 is available and cassette is recorded
         generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
         UsageSpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
         assertNotNull(response.getMeta());
@@ -210,6 +215,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getDailyCustomReportsTest() throws ApiException {
+        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
         generalApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
         UsageCustomReportsResponse response = api.getDailyCustomReports().execute();
         assertNotNull(response.getMeta());
@@ -218,6 +224,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getMonthlyCustomReportsTest() throws ApiException {
+        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
         generalApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
         UsageCustomReportsResponse response = api.getMonthlyCustomReports().execute();
         assertNotNull(response.getMeta());
@@ -698,6 +705,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getSpecifiedMonthlyCustomReportsErrorsTest()throws IOException  {
+        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
+
         try {
             generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
             api.getSpecifiedMonthlyCustomReports("whatever").execute();
@@ -721,6 +730,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getSpecifiedDailyCustomReportsErrorsTest()throws IOException  {
+        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
+
         try {
             generalFakeAuthApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
             fakeAuthApi.getSpecifiedDailyCustomReports("whatever").execute();
@@ -752,6 +763,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getDailyCustomReportsErrorsTest()throws IOException  {
+        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
+
         try {
             generalFakeAuthApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
             fakeAuthApi.getDailyCustomReports().execute();
@@ -783,6 +796,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getMonthlyCustomReportsErrorsTest()throws IOException  {
+        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
+        
         try {
             generalFakeAuthApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
             fakeAuthApi.getMonthlyCustomReports().execute();
