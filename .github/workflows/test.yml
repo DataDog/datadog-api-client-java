@@ -37,7 +37,7 @@ jobs:
      # https://github.com/shyiko/jabba - a tool that can install various JDKs
      # NOTE: when upstream releases version 8, we can change this to:
      # uses: olafurpg/setup-scala@v8
-     uses: bkabrda/setup-scala@0af3a8259815032a2604ba25c4df5ab0b9591e8f
+     uses: bkabrda/setup-scala@2acf8c43d988aa7ce2a2e736892114730d04e1e5
      with:
        java-version: ${{ matrix.java-version }}
        jabba-version: 0.11.2
