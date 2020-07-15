@@ -31,9 +31,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * List of logs.
+ * The log query.
  */
-@ApiModel(description = "List of logs.")
+@ApiModel(description = "The log query.")
 @JsonPropertyOrder({
   LogQueryDefinition.JSON_PROPERTY_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_GROUP_BY,
