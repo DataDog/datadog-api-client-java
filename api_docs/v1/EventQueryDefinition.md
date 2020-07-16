@@ -2,7 +2,7 @@
 
 # EventQueryDefinition
 
-List of events
+The event query.
 ## Properties
 
 Name | Type | Description | Notes
