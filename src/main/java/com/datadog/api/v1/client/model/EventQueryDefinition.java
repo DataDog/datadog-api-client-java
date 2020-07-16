@@ -26,9 +26,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * List of events
+ * The event query.
  */
-@ApiModel(description = "List of events")
+@ApiModel(description = "The event query.")
 @JsonPropertyOrder({
   EventQueryDefinition.JSON_PROPERTY_SEARCH,
   EventQueryDefinition.JSON_PROPERTY_TAGS_EXECUTION
