@@ -166,7 +166,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
     }
 
     @Test
-    public void listSignalsTest() throws Exception {
+    public void searchSignals() throws Exception {
         String uniqueName = getUniqueEntityName();
         SecurityMonitoringRuleResponse rule = createRule(uniqueName);
 
@@ -236,7 +236,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
     }
 
     @Test
-    public void listSignalsGet() throws Exception {
+    public void listSignals() throws Exception {
         String uniqueName = getUniqueEntityName();
         SecurityMonitoringRuleResponse rule = createRule(uniqueName);
 
