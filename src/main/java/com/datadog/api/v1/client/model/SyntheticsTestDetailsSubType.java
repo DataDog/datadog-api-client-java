@@ -30,7 +30,9 @@ public enum SyntheticsTestDetailsSubType {
   
   HTTP("http"),
   
-  SSL("ssl");
+  SSL("ssl"),
+  
+  TCP("tcp");
 
   private String value;
 
