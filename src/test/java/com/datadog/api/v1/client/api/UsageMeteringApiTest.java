@@ -20,8 +20,10 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
@@ -193,14 +195,16 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getSpecifiedDailyCustomReportsTest() throws ApiException {
-        String reportID = "2020-07-15";
-        generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);   
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String reportID = FORMATTER.format(date.minusDays(1)); // Only have report from previous day
+        generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
         try{
             UsageSpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID).execute();
             assertNotNull(response.getMeta());
             assertNotNull(response.getData());
         } catch (ApiException e) {
-            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false 
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
             || e.getCode() == 404 || e.getCode() == 403) {
                 System.out.println("\nNo reports are available yet or this org is forbidden\n");
             }
@@ -209,14 +213,16 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getSpecifiedMonthlyCustomReportsTest() throws ApiException {
-        String reportID = "2020-08-15"; //Reports will only be generated on this date for FROG org
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String reportID = FORMATTER.format(date.minusDays(1)); // //Reports will only be generated on this 2020-08-15 for FROG org
         generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
         try {
             UsageSpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
             assertNotNull(response.getMeta());
             assertNotNull(response.getData());
         } catch (ApiException e) {
-            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false 
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
             || e.getCode() == 404 || e.getCode() == 403) {
                 System.out.println("\nNo reports are available yet or this org is forbidden\n");
             }
@@ -232,7 +238,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
             assertNotNull(response.getMeta());
             assertNotNull(response.getData());
         } catch (ApiException e) {
-            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false 
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
             || e.getCode() == 404 || e.getCode() == 403) {
                 System.out.println("\nNo reports are available yet or this org is forbidden\n");
             }
@@ -247,7 +253,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
             assertNotNull(response.getMeta());
             assertNotNull(response.getData());
         } catch (ApiException e) {
-            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false 
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
             || e.getCode() == 404 || e.getCode() == 403) {
                 System.out.println("\nNo reports are available yet or this org is forbidden\n");
             }
@@ -787,7 +793,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getDailyCustomReportsErrorsTest()throws IOException  {
+    public void getDailyCustomReportsErrorsTest() throws IOException {
         try {
             generalFakeAuthApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
             fakeAuthApi.getDailyCustomReports().execute();
@@ -800,7 +806,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getMonthlyCustomReportsErrorsTest()throws IOException  {        
+    public void getMonthlyCustomReportsErrorsTest() throws IOException {        
         try {
             generalFakeAuthApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
             fakeAuthApi.getMonthlyCustomReports().execute();
