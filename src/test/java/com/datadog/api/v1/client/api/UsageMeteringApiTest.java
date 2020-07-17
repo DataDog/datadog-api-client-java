@@ -215,7 +215,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     public void getSpecifiedMonthlyCustomReportsTest() throws ApiException {
         LocalDate date = LocalDate.now();
         DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String reportID = FORMATTER.format(date.minusDays(1)); // //Reports will only be generated on this 2020-08-15 for FROG org
+        String reportID = FORMATTER.format(date.minusDays(1)); //Reports will only be generated on this 2020-08-15 for this org
         generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
         try {
             UsageSpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
