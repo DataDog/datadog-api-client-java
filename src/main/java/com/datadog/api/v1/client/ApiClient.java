@@ -174,6 +174,10 @@ public class ApiClient {
     put("updateLogsIndex", false);
     put("updateLogsIndexOrder", false);
     put("getSLOHistory", false);
+    put("getDailyCustomReports", false);
+    put("getMonthlyCustomReports", false);
+    put("getSpecifiedDailyCustomReports", false);
+    put("getSpecifiedMonthlyCustomReports", false);
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
