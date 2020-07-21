@@ -304,11 +304,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * The steps of the test (only for browser tests).
+   * For browser test, the steps of the test.
    * @return steps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The steps of the test (only for browser tests).")
+  @ApiModelProperty(value = "For browser test, the steps of the test.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
