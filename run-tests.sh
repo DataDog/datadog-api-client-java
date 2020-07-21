@@ -37,6 +37,7 @@ set +e
 mvn --show-version --batch-mode -Dsurefire.rerunFailingTestsCount=${RERUN_COUNT} test
 RESULT=$?
 if [ "$RERECORD_FAILED_TESTS" == "true" -a "$RESULT" -ne 0 ]; then
+    set -e
     python3 -m pip install -U pip setuptools
     python3 -m pip install "junitparser==1.4.1"
     python3 failed.py | RECORD=true bash
