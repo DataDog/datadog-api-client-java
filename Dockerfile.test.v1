@@ -2,6 +2,12 @@ FROM maven:3-openjdk-8
 
 ENTRYPOINT ["/datadog-api-client-java/run-tests.sh"]
 
+RUN set -eux; \
+	apt-get update; \
+	apt-get install -y --no-install-recommends \
+		python3 python3-pip; \
+	rm -rf /var/lib/apt/lists/*
+
 # Predownload the dependencies, so that execution of the image is fast.
 # Also, this will make us better use Docker build cache, as pom.xml won't
 # be changed very often and so maven dependency installation will be cached.
