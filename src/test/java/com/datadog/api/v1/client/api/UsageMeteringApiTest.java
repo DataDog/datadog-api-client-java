@@ -8,6 +8,8 @@ package com.datadog.api.v1.client.api;
 
 
 import com.datadog.api.TestUtils;
+import com.datadog.api.RecordingMode;
+import static org.junit.Assume.assumeFalse;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -18,8 +20,10 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
@@ -187,6 +191,73 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(logsIndexedSum.getElapsedUsageHours().intValue(), 672);
         assertEquals(logsIndexedSum.getLastBillableUsageHour(), endDateExpected);
         assertEquals(logsIndexedSum.getPercentageInAccount().doubleValue(), 0.9, 0);
+    }
+
+    @Test
+    public void getSpecifiedDailyCustomReportsTest() throws ApiException {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String reportID = FORMATTER.format(date.minusDays(1)); // Only have report from previous day
+        generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
+        try{
+            UsageSpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID).execute();
+            assertNotNull(response.getMeta());
+            assertNotNull(response.getData());
+        } catch (ApiException e) {
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
+            || e.getCode() == 404 || e.getCode() == 403) {
+                System.out.println("\nNo reports are available yet or this org is forbidden\n");
+            }
+        }
+    }
+
+    @Test
+    public void getSpecifiedMonthlyCustomReportsTest() throws ApiException {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String reportID = FORMATTER.format(date.minusDays(1)); //Reports will only be generated on this 2020-08-15 for this org
+        generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
+        try {
+            UsageSpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
+            assertNotNull(response.getMeta());
+            assertNotNull(response.getData());
+        } catch (ApiException e) {
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
+            || e.getCode() == 404 || e.getCode() == 403) {
+                System.out.println("\nNo reports are available yet or this org is forbidden\n");
+            }
+        }
+    }
+
+
+    @Test
+    public void getDailyCustomReportsTest() throws ApiException {
+        generalApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
+        try {
+            UsageCustomReportsResponse response = api.getDailyCustomReports().execute();
+            assertNotNull(response.getMeta());
+            assertNotNull(response.getData());
+        } catch (ApiException e) {
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
+            || e.getCode() == 404 || e.getCode() == 403) {
+                System.out.println("\nNo reports are available yet or this org is forbidden\n");
+            }
+        }
+    }
+
+    @Test
+    public void getMonthlyCustomReportsTest() throws ApiException {
+        generalApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
+        try {
+            UsageCustomReportsResponse response = api.getMonthlyCustomReports().execute();
+            assertNotNull(response.getMeta());
+            assertNotNull(response.getData());
+        } catch (ApiException e) {
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
+            || e.getCode() == 404 || e.getCode() == 403) {
+                System.out.println("\nNo reports are available yet or this org is forbidden\n");
+            }
+        }
     }
 
     @Test
@@ -653,6 +724,92 @@ public class UsageMeteringApiTest extends V1ApiTest {
     public void getUsageBillableSummaryErrorsTest() throws IOException {
         try {
             fakeAuthApi.getUsageBillableSummary().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getSpecifiedDailyCustomReportsErrorsTest()throws IOException  {
+        try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
+            fakeAuthApi.getSpecifiedDailyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
+            api.getSpecifiedDailyCustomReports("2010-01-01").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getSpecifiedMonthlyCustomReportsErrorsTest()throws IOException  {
+        try {
+            generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
+            api.getSpecifiedMonthlyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
+            fakeAuthApi.getSpecifiedMonthlyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+
+    @Test
+    public void getSpecifiedMonthlyCustomReports404ErrorTest() throws IOException {
+        try {
+            generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
+            api.getSpecifiedMonthlyCustomReports("2010-01-01").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getDailyCustomReportsErrorsTest() throws IOException {
+        try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
+            fakeAuthApi.getDailyCustomReports().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getMonthlyCustomReportsErrorsTest() throws IOException {        
+        try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
+            fakeAuthApi.getMonthlyCustomReports().execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
