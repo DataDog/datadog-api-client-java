@@ -26,9 +26,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Object describing the retry strategy to apply to a Synthetic test. By default, there is a 300ms wait before retrying a test that has failed.
+ * Object describing the retry strategy to apply to a Synthetic test.
  */
-@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test. By default, there is a 300ms wait before retrying a test that has failed.")
+@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
   SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
@@ -48,11 +48,11 @@ public class SyntheticsTestOptionsRetry {
   }
 
    /**
-   * The amount of location that needs to fail for the test to be retried.
+   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
    * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The amount of location that needs to fail for the test to be retried.")
+  @ApiModelProperty(value = "Number of times a test needs to be retried before marking a location as failed. Defaults to 0.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -72,11 +72,11 @@ public class SyntheticsTestOptionsRetry {
   }
 
    /**
-   * The interval over which the amount of location needed to fail for the test to be retried.
+   * Time interval between retries (in milliseconds). Defaults to 300ms.
    * @return interval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The interval over which the amount of location needed to fail for the test to be retried.")
+  @ApiModelProperty(value = "Time interval between retries (in milliseconds). Defaults to 300ms.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
