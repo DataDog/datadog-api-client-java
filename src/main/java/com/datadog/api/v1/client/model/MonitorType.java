@@ -46,7 +46,9 @@ public enum MonitorType {
   
   SYNTHETICS_ALERT("synthetics alert"),
   
-  TRACE_ANALYTICS_ALERT("trace-analytics alert");
+  TRACE_ANALYTICS_ALERT("trace-analytics alert"),
+  
+  SLO_ALERT("slo alert");
 
   private String value;
 
