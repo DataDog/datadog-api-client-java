@@ -25,5 +25,7 @@
 
 * `TRACE_ANALYTICS_ALERT` (value: `"trace-analytics alert"`)
 
+* `SLO_ALERT` (value: `"slo alert"`)
+
 
 
