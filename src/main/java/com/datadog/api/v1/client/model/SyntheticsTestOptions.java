@@ -77,11 +77,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * For browser test, whether or not the test should allow self signed certificate.
+   * For SSL test, whether or not the test should allow self signed certificates.
    * @return acceptSelfSigned
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For browser test, whether or not the test should allow self signed certificate.")
+  @ApiModelProperty(value = "For SSL test, whether or not the test should allow self signed certificates.")
   @JsonProperty(JSON_PROPERTY_ACCEPT_SELF_SIGNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -133,11 +133,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * Array with the different device IDs used to run the test.
+   * For browser test, array with the different device IDs used to run the test.
    * @return deviceIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array with the different device IDs used to run the test.")
+  @ApiModelProperty(value = "For browser test, array with the different device IDs used to run the test.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,11 +157,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * For API SSL test, whether or not the test should follow redirects.
+   * For API HTTP test, whether or not the test should follow redirects.
    * @return followRedirects
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For API SSL test, whether or not the test should follow redirects.")
+  @ApiModelProperty(value = "For API HTTP test, whether or not the test should follow redirects.")
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -181,11 +181,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * Minimum amount of time before declaring the test has failed.
+   * Minimum amount of time in failure required to trigger an alert.
    * @return minFailureDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum amount of time before declaring the test has failed.")
+  @ApiModelProperty(value = "Minimum amount of time in failure required to trigger an alert.")
   @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -205,11 +205,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * Minimum amount of locations that are allowed to fail for the test.
+   * Minimum number of locations in failure required to trigger an alert.
    * @return minLocationFailed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum amount of locations that are allowed to fail for the test.")
+  @ApiModelProperty(value = "Minimum number of locations in failure required to trigger an alert.")
   @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
