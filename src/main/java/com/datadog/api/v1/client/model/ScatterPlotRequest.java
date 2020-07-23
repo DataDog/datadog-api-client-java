@@ -41,7 +41,8 @@ import com.datadog.api.v1.client.JSON;
   ScatterPlotRequest.JSON_PROPERTY_NETWORK_QUERY,
   ScatterPlotRequest.JSON_PROPERTY_PROCESS_QUERY,
   ScatterPlotRequest.JSON_PROPERTY_Q,
-  ScatterPlotRequest.JSON_PROPERTY_RUM_QUERY
+  ScatterPlotRequest.JSON_PROPERTY_RUM_QUERY,
+  ScatterPlotRequest.JSON_PROPERTY_SECURITY_QUERY
 })
 
 public class ScatterPlotRequest {
@@ -68,6 +69,9 @@ public class ScatterPlotRequest {
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
+
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
 
 
   public ScatterPlotRequest aggregator(WidgetAggregator aggregator) {
@@ -262,6 +266,30 @@ public class ScatterPlotRequest {
   }
 
 
+  public ScatterPlotRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -278,12 +306,13 @@ public class ScatterPlotRequest {
         Objects.equals(this.networkQuery, scatterPlotRequest.networkQuery) &&
         Objects.equals(this.processQuery, scatterPlotRequest.processQuery) &&
         Objects.equals(this.q, scatterPlotRequest.q) &&
-        Objects.equals(this.rumQuery, scatterPlotRequest.rumQuery);
+        Objects.equals(this.rumQuery, scatterPlotRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, scatterPlotRequest.securityQuery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, apmQuery, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery);
+    return Objects.hash(aggregator, apmQuery, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery, securityQuery);
   }
 
 
@@ -299,6 +328,7 @@ public class ScatterPlotRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("}");
     return sb.toString();
   }

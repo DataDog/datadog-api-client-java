@@ -39,7 +39,8 @@ import com.datadog.api.v1.client.JSON;
   HostMapRequest.JSON_PROPERTY_NETWORK_QUERY,
   HostMapRequest.JSON_PROPERTY_PROCESS_QUERY,
   HostMapRequest.JSON_PROPERTY_Q,
-  HostMapRequest.JSON_PROPERTY_RUM_QUERY
+  HostMapRequest.JSON_PROPERTY_RUM_QUERY,
+  HostMapRequest.JSON_PROPERTY_SECURITY_QUERY
 })
 
 public class HostMapRequest {
@@ -63,6 +64,9 @@ public class HostMapRequest {
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
+
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
 
 
   public HostMapRequest apmQuery(LogQueryDefinition apmQuery) {
@@ -233,6 +237,30 @@ public class HostMapRequest {
   }
 
 
+  public HostMapRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -248,12 +276,13 @@ public class HostMapRequest {
         Objects.equals(this.networkQuery, hostMapRequest.networkQuery) &&
         Objects.equals(this.processQuery, hostMapRequest.processQuery) &&
         Objects.equals(this.q, hostMapRequest.q) &&
-        Objects.equals(this.rumQuery, hostMapRequest.rumQuery);
+        Objects.equals(this.rumQuery, hostMapRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, hostMapRequest.securityQuery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery);
+    return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery, securityQuery);
   }
 
 
@@ -268,6 +297,7 @@ public class HostMapRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("}");
     return sb.toString();
   }

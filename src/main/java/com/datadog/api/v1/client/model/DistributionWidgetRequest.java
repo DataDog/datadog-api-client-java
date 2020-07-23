@@ -41,6 +41,7 @@ import com.datadog.api.v1.client.JSON;
   DistributionWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_Q,
   DistributionWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  DistributionWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_STYLE
 })
 
@@ -65,6 +66,9 @@ public class DistributionWidgetRequest {
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
+
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
 
   public static final String JSON_PROPERTY_STYLE = "style";
   private WidgetStyle style;
@@ -238,6 +242,30 @@ public class DistributionWidgetRequest {
   }
 
 
+  public DistributionWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
   public DistributionWidgetRequest style(WidgetStyle style) {
     this.style = style;
     return this;
@@ -278,12 +306,13 @@ public class DistributionWidgetRequest {
         Objects.equals(this.processQuery, distributionWidgetRequest.processQuery) &&
         Objects.equals(this.q, distributionWidgetRequest.q) &&
         Objects.equals(this.rumQuery, distributionWidgetRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, distributionWidgetRequest.securityQuery) &&
         Objects.equals(this.style, distributionWidgetRequest.style);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery, style);
+    return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery, securityQuery, style);
   }
 
 
@@ -298,6 +327,7 @@ public class DistributionWidgetRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("}");
     return sb.toString();

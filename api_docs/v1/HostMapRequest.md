@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
 **q** | **String** | Query definition. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
+**securityQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 
 
 
