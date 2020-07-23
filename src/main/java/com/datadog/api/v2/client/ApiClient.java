@@ -130,6 +130,8 @@ public class ApiClient {
     put("addReadRoleToArchive", false);
     put("listArchiveReadRoles", false);
     put("removeRoleFromArchive", false);
+    put("listSecurityMonitoringSignals", false);
+    put("searchSecurityMonitoringSignals", false);
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
