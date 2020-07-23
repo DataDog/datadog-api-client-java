@@ -49,7 +49,8 @@ import com.datadog.api.v1.client.JSON;
   TableWidgetRequest.JSON_PROPERTY_ORDER,
   TableWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   TableWidgetRequest.JSON_PROPERTY_Q,
-  TableWidgetRequest.JSON_PROPERTY_RUM_QUERY
+  TableWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  TableWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
 
 public class TableWidgetRequest {
@@ -88,6 +89,9 @@ public class TableWidgetRequest {
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
+
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
 
 
   public TableWidgetRequest aggregator(WidgetAggregator aggregator) {
@@ -386,6 +390,30 @@ public class TableWidgetRequest {
   }
 
 
+  public TableWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -406,12 +434,13 @@ public class TableWidgetRequest {
         Objects.equals(this.order, tableWidgetRequest.order) &&
         Objects.equals(this.processQuery, tableWidgetRequest.processQuery) &&
         Objects.equals(this.q, tableWidgetRequest.q) &&
-        Objects.equals(this.rumQuery, tableWidgetRequest.rumQuery);
+        Objects.equals(this.rumQuery, tableWidgetRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, tableWidgetRequest.securityQuery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, alias, apmQuery, conditionalFormats, eventQuery, limit, logQuery, networkQuery, order, processQuery, q, rumQuery);
+    return Objects.hash(aggregator, alias, apmQuery, conditionalFormats, eventQuery, limit, logQuery, networkQuery, order, processQuery, q, rumQuery, securityQuery);
   }
 
 
@@ -431,6 +460,7 @@ public class TableWidgetRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("}");
     return sb.toString();
   }

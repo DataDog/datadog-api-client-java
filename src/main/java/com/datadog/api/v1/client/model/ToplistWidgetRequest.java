@@ -45,6 +45,7 @@ import com.datadog.api.v1.client.JSON;
   ToplistWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_Q,
   ToplistWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  ToplistWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_STYLE
 })
 
@@ -72,6 +73,9 @@ public class ToplistWidgetRequest {
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
+
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
 
   public static final String JSON_PROPERTY_STYLE = "style";
   private WidgetRequestStyle style;
@@ -277,6 +281,30 @@ public class ToplistWidgetRequest {
   }
 
 
+  public ToplistWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
   public ToplistWidgetRequest style(WidgetRequestStyle style) {
     this.style = style;
     return this;
@@ -318,12 +346,13 @@ public class ToplistWidgetRequest {
         Objects.equals(this.processQuery, toplistWidgetRequest.processQuery) &&
         Objects.equals(this.q, toplistWidgetRequest.q) &&
         Objects.equals(this.rumQuery, toplistWidgetRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, toplistWidgetRequest.securityQuery) &&
         Objects.equals(this.style, toplistWidgetRequest.style);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, conditionalFormats, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery, style);
+    return Objects.hash(apmQuery, conditionalFormats, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery, securityQuery, style);
   }
 
 
@@ -339,6 +368,7 @@ public class ToplistWidgetRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("}");
     return sb.toString();
