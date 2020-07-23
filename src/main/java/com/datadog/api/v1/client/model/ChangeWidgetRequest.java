@@ -49,6 +49,7 @@ import com.datadog.api.v1.client.JSON;
   ChangeWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_Q,
   ChangeWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  ChangeWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_SHOW_PRESENT
 })
 
@@ -88,6 +89,9 @@ public class ChangeWidgetRequest {
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
+
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
 
   public static final String JSON_PROPERTY_SHOW_PRESENT = "show_present";
   private Boolean showPresent;
@@ -381,6 +385,30 @@ public class ChangeWidgetRequest {
   }
 
 
+  public ChangeWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
   public ChangeWidgetRequest showPresent(Boolean showPresent) {
     this.showPresent = showPresent;
     return this;
@@ -426,12 +454,13 @@ public class ChangeWidgetRequest {
         Objects.equals(this.processQuery, changeWidgetRequest.processQuery) &&
         Objects.equals(this.q, changeWidgetRequest.q) &&
         Objects.equals(this.rumQuery, changeWidgetRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, changeWidgetRequest.securityQuery) &&
         Objects.equals(this.showPresent, changeWidgetRequest.showPresent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, changeType, compareTo, eventQuery, increaseGood, logQuery, networkQuery, orderBy, orderDir, processQuery, q, rumQuery, showPresent);
+    return Objects.hash(apmQuery, changeType, compareTo, eventQuery, increaseGood, logQuery, networkQuery, orderBy, orderDir, processQuery, q, rumQuery, securityQuery, showPresent);
   }
 
 
@@ -451,6 +480,7 @@ public class ChangeWidgetRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    showPresent: ").append(toIndentedString(showPresent)).append("\n");
     sb.append("}");
     return sb.toString();
