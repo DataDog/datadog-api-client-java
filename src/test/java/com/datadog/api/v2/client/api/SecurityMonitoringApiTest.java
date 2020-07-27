@@ -104,7 +104,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         SecurityMonitoringRuleResponse updatedRule = api.updateSecurityMonitoringRule(createdRule.getId())
                 .body(new SecurityMonitoringRuleUpdatePayload()
                         .name(createdRule.getName())
-                        .enabled(false)
+                        .isEnabled(false)
                         .queries(createdRule.getQueries())
                         .options(createdRule.getOptions())
                         .cases(createdRule.getCases())
@@ -130,7 +130,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         SecurityMonitoringRuleCreatePayload createRulePayload = new SecurityMonitoringRuleCreatePayload();
         createRulePayload
                 .name(ruleName)
-                .enabled(true)
+                .isEnabled(true)
                 .addQueriesItem(new SecurityMonitoringRuleQuery()
                         .name("nevermatch")
                         .query("thiswillnevernevermatch")

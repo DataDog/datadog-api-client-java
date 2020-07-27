@@ -8,7 +8,7 @@ Create a new rule.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cases** | [**List&lt;SecurityMonitoringRuleCase&gt;**](SecurityMonitoringRuleCase.md) | Cases for generating signals. | 
-**enabled** | **Boolean** | Whether the rule is enabled. | 
+**isEnabled** | **Boolean** | Whether the rule is enabled. | 
 **message** | **String** | Message for generated signals. | 
 **name** | **String** | The name of the rule | 
 **options** | [**SecurityMonitoringRuleOptions**](SecurityMonitoringRuleOptions.md) |  | 
