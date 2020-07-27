@@ -36,7 +36,7 @@ import com.datadog.api.v2.client.JSON;
 @ApiModel(description = "Create a new rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_CASES,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_ENABLED,
+  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_IS_ENABLED,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_MESSAGE,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_OPTIONS,
@@ -48,8 +48,8 @@ public class SecurityMonitoringRuleCreatePayload {
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private Boolean enabled;
+  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -95,26 +95,26 @@ public class SecurityMonitoringRuleCreatePayload {
   }
 
 
-  public SecurityMonitoringRuleCreatePayload enabled(Boolean enabled) {
-    this.enabled = enabled;
+  public SecurityMonitoringRuleCreatePayload isEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
     return this;
   }
 
    /**
    * Whether the rule is enabled.
-   * @return enabled
+   * @return isEnabled
   **/
   @ApiModelProperty(example = "true", required = true, value = "Whether the rule is enabled.")
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Boolean getEnabled() {
-    return enabled;
+  public Boolean getIsEnabled() {
+    return isEnabled;
   }
 
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
   }
 
 
@@ -253,7 +253,7 @@ public class SecurityMonitoringRuleCreatePayload {
     }
     SecurityMonitoringRuleCreatePayload securityMonitoringRuleCreatePayload = (SecurityMonitoringRuleCreatePayload) o;
     return Objects.equals(this.cases, securityMonitoringRuleCreatePayload.cases) &&
-        Objects.equals(this.enabled, securityMonitoringRuleCreatePayload.enabled) &&
+        Objects.equals(this.isEnabled, securityMonitoringRuleCreatePayload.isEnabled) &&
         Objects.equals(this.message, securityMonitoringRuleCreatePayload.message) &&
         Objects.equals(this.name, securityMonitoringRuleCreatePayload.name) &&
         Objects.equals(this.options, securityMonitoringRuleCreatePayload.options) &&
@@ -263,7 +263,7 @@ public class SecurityMonitoringRuleCreatePayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cases, enabled, message, name, options, queries, tags);
+    return Objects.hash(cases, isEnabled, message, name, options, queries, tags);
   }
 
 
@@ -272,7 +272,7 @@ public class SecurityMonitoringRuleCreatePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleCreatePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
