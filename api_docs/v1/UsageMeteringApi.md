@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getMonthlyCustomReports
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getSpecifiedDailyCustomReports
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 | **404** | Not Found |  -  |
 
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 | **404** | Not Found |  -  |
 
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageBillableSummary
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageFargate
@@ -614,7 +614,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageHosts
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageLambda
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageLogs
@@ -866,7 +866,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageLogsByIndex
@@ -953,7 +953,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageNetworkFlows
@@ -1037,7 +1037,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageNetworkHosts
@@ -1121,7 +1121,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageRumSessions
@@ -1205,7 +1205,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageSNMP
@@ -1289,7 +1289,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageSummary
@@ -1376,7 +1376,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageSynthetics
@@ -1460,7 +1460,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageSyntheticsAPI
@@ -1544,7 +1544,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageSyntheticsBrowser
@@ -1628,7 +1628,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageTimeseries
@@ -1712,7 +1712,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageTopAvgMetrics
@@ -1796,7 +1796,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageTrace
@@ -1880,5 +1880,5 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
