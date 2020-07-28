@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -e
 echo "Ensuring all dependencies are present in LICENSE-3rdparty.csv ..."
 # -DoutputType=dot will make output look like:
@@ -32,4 +32,15 @@ else
 fi
 
 RERUN_COUNT=$([ "$CI" == "true" ] && echo "1" || echo "0")
+
+set +e
 mvn --show-version --batch-mode -Dsurefire.rerunFailingTestsCount=${RERUN_COUNT} test
+RESULT=$?
+if [ "$RERECORD_FAILED_TESTS" == "true" -a "$RESULT" -ne 0 ]; then
+    set -e
+    python3 -m pip install -U pip setuptools
+    python3 -m pip install "junitparser==1.4.1"
+    python3 failed.py | RECORD=true bash
+    RESULT=$?
+fi
+exit $RESULT

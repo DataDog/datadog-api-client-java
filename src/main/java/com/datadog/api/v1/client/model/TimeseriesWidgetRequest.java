@@ -47,6 +47,7 @@ import com.datadog.api.v1.client.JSON;
   TimeseriesWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_Q,
   TimeseriesWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_STYLE
 })
 
@@ -77,6 +78,9 @@ public class TimeseriesWidgetRequest {
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
+
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
 
   public static final String JSON_PROPERTY_STYLE = "style";
   private WidgetRequestStyle style;
@@ -306,6 +310,30 @@ public class TimeseriesWidgetRequest {
   }
 
 
+  public TimeseriesWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
   public TimeseriesWidgetRequest style(WidgetRequestStyle style) {
     this.style = style;
     return this;
@@ -348,12 +376,13 @@ public class TimeseriesWidgetRequest {
         Objects.equals(this.processQuery, timeseriesWidgetRequest.processQuery) &&
         Objects.equals(this.q, timeseriesWidgetRequest.q) &&
         Objects.equals(this.rumQuery, timeseriesWidgetRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, timeseriesWidgetRequest.securityQuery) &&
         Objects.equals(this.style, timeseriesWidgetRequest.style);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, displayType, eventQuery, logQuery, metadata, networkQuery, processQuery, q, rumQuery, style);
+    return Objects.hash(apmQuery, displayType, eventQuery, logQuery, metadata, networkQuery, processQuery, q, rumQuery, securityQuery, style);
   }
 
 
@@ -370,6 +399,7 @@ public class TimeseriesWidgetRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("}");
     return sb.toString();

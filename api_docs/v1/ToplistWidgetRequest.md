@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
 **q** | **String** | Widget query. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
+**securityQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **style** | [**WidgetRequestStyle**](WidgetRequestStyle.md) |  |  [optional]
 
 
