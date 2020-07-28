@@ -131,7 +131,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         createRulePayload
                 .name(ruleName)
                 .isEnabled(true)
-                .addQueriesItem(new SecurityMonitoringRuleQuery()
+                .addQueriesItem(new SecurityMonitoringRuleQueryCreate()
                         .name("nevermatch")
                         .query("thiswillnevernevermatch")
                         .groupByFields(Collections.emptyList()))
@@ -139,7 +139,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
                         .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIVE_MINUTES)
                         .keepAlive(SecurityMonitoringRuleKeepAlive.FIVE_MINUTES)
                         .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.FIVE_MINUTES))
-                .addCasesItem(new SecurityMonitoringRuleCase()
+                .addCasesItem(new SecurityMonitoringRuleCaseCreate()
                         .name("rule-case")
                         .condition("nevermatch > 1000")
                         .status(SecurityMonitoringRuleSeverity.INFO))
