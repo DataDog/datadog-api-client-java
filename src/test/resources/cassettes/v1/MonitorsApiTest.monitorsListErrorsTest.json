@@ -1,5 +1,5 @@
 [{
-  "id" : "1601fbb7-6bb6-49a0-88bf-b90f422b5960",
+  "id" : "e1bfc34f-c3d8-4f09-a091-f93380c647ed",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/monitor",
@@ -26,7 +26,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:11:22 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:33:11 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "43" ],
       "Connection" : [ "keep-alive" ],
@@ -34,9 +34,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "1000" ],
       "X-RateLimit-Period" : [ "10" ],
-      "X-RateLimit-Reset" : [ "8" ],
+      "X-RateLimit-Reset" : [ "9" ],
       "X-RateLimit-Remaining" : [ "999" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -46,7 +46,7 @@
     "body" : "{\"errors\":[\"Invalid group_state filters.\"]}"
   }
 }, {
-  "id" : "d4355cb0-f519-47c1-be96-20dac2854e1c",
+  "id" : "f1c3d507-5703-452f-84ee-8463a6646a0f",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/monitor",
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:11:22 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:33:12 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

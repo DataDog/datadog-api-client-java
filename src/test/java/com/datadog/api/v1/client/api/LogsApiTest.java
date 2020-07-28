@@ -19,6 +19,8 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -60,23 +62,32 @@ public class LogsApiTest extends V1ApiTest {
             // is used for mock server certificates to work properly
             intakeURL = "/v1/input";
         }
+        // use TreeMap, as it's sorted and will always serialize in the same way
+        Map<String, Object> payload = new TreeMap<String, Object>() {{
+           put("ddsource", source);
+           put("ddtags", "java,test,list");
+           put("hostname", hostname);
+           put("message", new TreeMap<String, Object>() {{
+               put("timestamp", (now.toEpochSecond() - 1) * 1000);
+               put("message", message);
+           }});
+        }};
         sendRequest(
                 "POST",
                 intakeURL,
-                String.format(
-                        "{\"ddsource\":\"%s\",\"ddtags\":\"java,test,list\",\"hostname\":\"%s\",\"message\":\"{\\\"timestamp\\\": %d, \\\"message\\\": \\\"%s\\\"}\"}",
-                        source, hostname, (now.toEpochSecond() - 1) * 1000, message
-                ),
+                payload,
                 new GenericType<String>(String.class)
         );
         Thread.sleep(500);
+
+        payload.put("message", new TreeMap<String, Object>() {{
+            put("timestamp", (now.toEpochSecond()) * 1000);
+            put("message", secondMessage);
+        }});
         sendRequest(
                 "POST",
                 intakeURL,
-                String.format(
-                        "{\"ddsource\":\"%s\",\"ddtags\":\"java,test,list\",\"hostname\":\"%s\",\"message\":\"{\\\"timestamp\\\": %d, \\\"message\\\": \\\"%s\\\"}\"}",
-                        source, hostname, (now.toEpochSecond()) * 1000, secondMessage
-                ),
+                payload,
                 new GenericType<String>(String.class)
         );
 

@@ -26,6 +26,8 @@ import com.datadog.api.v2.client.model.LogsSort;
 import java.net.MalformedURLException;
 import java.net.URLEncoder;
 import java.time.Duration;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.ws.rs.core.GenericType;
 import org.junit.AfterClass;
@@ -75,22 +77,31 @@ public class LogsApiTest extends V2APITest {
         } else {
             intakeURL = String.format("https://http-intake.logs.%s/v1/input", testDomain());
         }
+        // use TreeMap, as it's sorted and will always serialize in the same way
+        Map<String, Object> payload = new TreeMap<String, Object>() {{
+            put("ddsource", source);
+            put("ddtags", "java,test,list");
+            put("hostname", hostname);
+            put("message", new TreeMap<String, Object>() {{
+                put("timestamp", (now.toEpochSecond() - 1000) * 1000);
+                put("message", message);
+            }});
+        }};
         sendRequest(
             "POST",
             intakeURL,
-            String.format(
-                    "{\"ddsource\":\"%s\",\"ddtags\":\"java,test,list\",\"hostname\":\"%s\",\"message\":\"{\\\"timestamp\\\": %d, \\\"message\\\": \\\"%s\\\"}\"}",
-                    source, hostname, (now.toEpochSecond() - 1000) * 1000, message
-            ),
+            payload,
             new GenericType<String>(String.class)
         );
+
+        payload.put("message", new TreeMap<String, Object>() {{
+            put("timestamp", (now.toEpochSecond() - 1) * 1000);
+            put("message", secondMessage);
+        }});
         sendRequest(
                 "POST",
                 intakeURL,
-                String.format(
-                        "{\"ddsource\":\"%s\",\"ddtags\":\"java,test,list\",\"hostname\":\"%s\",\"message\":\"{\\\"timestamp\\\": %d, \\\"message\\\": \\\"%s\\\"}\"}",
-                        source, hostname, (now.toEpochSecond() - 1) * 1000, secondMessage
-                ),
+                payload,
                 new GenericType<String>(String.class)
         );
     }

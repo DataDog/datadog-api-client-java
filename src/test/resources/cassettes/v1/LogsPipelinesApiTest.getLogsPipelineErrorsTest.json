@@ -1,5 +1,5 @@
 [{
-  "id" : "c13326d2-9bfe-4b9a-8a19-c8883b42935f",
+  "id" : "627ad574-003a-4ff1-ac49-c122591b6896",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/logs/config/pipelines/id",
@@ -23,7 +23,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:45 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:28:38 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "70" ],
       "Connection" : [ "keep-alive" ],
@@ -31,9 +31,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "5000" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2715" ],
-      "X-RateLimit-Remaining" : [ "4985" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-RateLimit-Reset" : [ "1882" ],
+      "X-RateLimit-Remaining" : [ "4999" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -43,7 +43,7 @@
     "body" : "{\"error\":{\"code\":\"InvalidArgument\",\"message\":\"Non existing pipeline\"}}"
   }
 }, {
-  "id" : "6be68c07-4fc4-4553-9b11-59d9f64af66b",
+  "id" : "6e3b3ea5-1ccb-438a-8ac9-b633c8037597",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/logs/config/pipelines/id",
@@ -67,7 +67,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:45 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:28:39 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

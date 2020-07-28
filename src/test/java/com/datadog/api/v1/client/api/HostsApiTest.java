@@ -23,6 +23,9 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * API tests for HostsApi
@@ -67,14 +70,22 @@ public class HostsApiTest extends V1ApiTest {
     public void hostsTest() throws ApiException, TestUtils.RetryException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
         String hostname = getUniqueEntityName();
+        // use TreeMap, as it's sorted and will always serialize in the same way
+        Map<String, Object> payload = new TreeMap<String, Object>() {{
+           put("series", Arrays.asList(
+               new TreeMap<String, Object>() {{
+                   put("host", hostname);
+                   put("metric", "java.client.test.metric");
+                   put("points", Arrays.asList(Arrays.asList((double)nowMillis), 0.0));
+                   put("type", "gauge");
+               }}
+           ));
+        }};
 
         ApiResponse<String> response = sendRequest(
                 "POST",
                 "/api/v1/series",
-                String.format(
-                        "{\"series\":[{\"host\":\"%s\",\"metric\":\"java.client.test.metric\",\"points\":[[%f,0.0]],\"type\":\"gauge\"}]}",
-                        hostname, (double)nowMillis
-                ),
+                payload,
                 new GenericType<String>(String.class)
         );
         assertEquals("{\"status\": \"ok\"}", response.getData());

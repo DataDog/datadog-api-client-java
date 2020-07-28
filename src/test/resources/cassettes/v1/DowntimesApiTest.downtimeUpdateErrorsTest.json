@@ -1,5 +1,5 @@
 [{
-  "id" : "4706f3d9-2598-4907-809a-871ee8057956",
+  "id" : "0d797592-f094-4793-ba72-5d442e358e47",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/downtime/1234",
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:41 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:21:26 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "61" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,7 +44,7 @@
     "body" : "{\"errors\":[\"Scheduled downtime start cannot be in the past\"]}"
   }
 }, {
-  "id" : "71466b7f-f80a-411a-ab39-63f8777d85b7",
+  "id" : "20f40cea-0e5a-48c6-b051-ecdd7290ceb3",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/downtime/1234",
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:41 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:21:27 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -83,7 +83,7 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "1d7c7b11-c367-4361-9feb-c1e2c407844d",
+  "id" : "96ee28e6-0f38-4098-8926-2c2c8de4c968",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/downtime/1234",
@@ -112,13 +112,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:42 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:21:28 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
