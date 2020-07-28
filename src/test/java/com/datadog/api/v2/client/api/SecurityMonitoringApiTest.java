@@ -65,7 +65,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         // get single rule
         SecurityMonitoringRuleResponseCreate createdRule = ruleCreateResponses.get(0);
         SecurityMonitoringRuleResponse fetchedRule = api.getSecurityMonitoringRule(createdRule.getId()).execute();
-        assertEquals(createdRule, fetchedRule);
+        assertEquals(createdRule.getName(), fetchedRule.getName());
 
         //// get all rules
         // get total count

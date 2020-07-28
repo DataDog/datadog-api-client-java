@@ -1,5 +1,5 @@
 [{
-  "id" : "313b8ad8-96ac-4c8e-bda7-96554ece3d45",
+  "id" : "21d52205-eff1-4485-b215-54d8738b972c",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/dashboard/lists/manual",
