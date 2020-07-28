@@ -32,12 +32,16 @@ import com.datadog.api.v2.client.JSON;
  */
 @ApiModel(description = "Query for matching rule.")
 @JsonPropertyOrder({
+  SecurityMonitoringRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_QUERY
 })
 
 public class SecurityMonitoringRuleQuery {
+  public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
+  private List<String> distinctFields = null;
+
   public static final String JSON_PROPERTY_GROUP_BY_FIELDS = "groupByFields";
   private List<String> groupByFields = null;
 
@@ -46,6 +50,38 @@ public class SecurityMonitoringRuleQuery {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+
+  public SecurityMonitoringRuleQuery distinctFields(List<String> distinctFields) {
+    this.distinctFields = distinctFields;
+    return this;
+  }
+
+  public SecurityMonitoringRuleQuery addDistinctFieldsItem(String distinctFieldsItem) {
+    if (this.distinctFields == null) {
+      this.distinctFields = new ArrayList<>();
+    }
+    this.distinctFields.add(distinctFieldsItem);
+    return this;
+  }
+
+   /**
+   * Field for which the cardinality is measured. Sent as an array.
+   * @return distinctFields
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Field for which the cardinality is measured. Sent as an array.")
+  @JsonProperty(JSON_PROPERTY_DISTINCT_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getDistinctFields() {
+    return distinctFields;
+  }
+
+
+  public void setDistinctFields(List<String> distinctFields) {
+    this.distinctFields = distinctFields;
+  }
 
 
   public SecurityMonitoringRuleQuery groupByFields(List<String> groupByFields) {
@@ -137,14 +173,15 @@ public class SecurityMonitoringRuleQuery {
       return false;
     }
     SecurityMonitoringRuleQuery securityMonitoringRuleQuery = (SecurityMonitoringRuleQuery) o;
-    return Objects.equals(this.groupByFields, securityMonitoringRuleQuery.groupByFields) &&
+    return Objects.equals(this.distinctFields, securityMonitoringRuleQuery.distinctFields) &&
+        Objects.equals(this.groupByFields, securityMonitoringRuleQuery.groupByFields) &&
         Objects.equals(this.name, securityMonitoringRuleQuery.name) &&
         Objects.equals(this.query, securityMonitoringRuleQuery.query);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupByFields, name, query);
+    return Objects.hash(distinctFields, groupByFields, name, query);
   }
 
 
@@ -152,6 +189,7 @@ public class SecurityMonitoringRuleQuery {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleQuery {\n");
+    sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");

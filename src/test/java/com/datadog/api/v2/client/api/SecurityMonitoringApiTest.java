@@ -134,6 +134,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
                 .addQueriesItem(new SecurityMonitoringRuleQuery()
                         .name("nevermatch")
                         .query("thiswillnevernevermatch")
+                        .distinctFields(Collections.emptyList())
                         .groupByFields(Collections.emptyList()))
                 .options(new SecurityMonitoringRuleOptions()
                         .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIVE_MINUTES)
