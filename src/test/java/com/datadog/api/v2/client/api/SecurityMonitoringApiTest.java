@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 public class SecurityMonitoringApiTest extends V2APITest {
 
     private SecurityMonitoringApi api;
-    private List<SecurityMonitoringRuleResponse> ruleCreateResponses;
+    private List<SecurityMonitoringRuleResponseCreate> ruleCreateResponses;
 
     @Override
     public String getTracingEndpoint() {
@@ -40,7 +40,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     @After
     public void tearDown() throws Exception {
-        for (SecurityMonitoringRuleResponse rule : ruleCreateResponses) {
+        for (SecurityMonitoringRuleResponseCreate rule : ruleCreateResponses) {
             try {
                 api.deleteSecurityMonitoringRule(rule.getId()).execute();
             } catch (ApiException e) {
@@ -56,14 +56,14 @@ public class SecurityMonitoringApiTest extends V2APITest {
         // create rules
         for (int i = 0; i < 5; i++) {
             String ruleName = String.format("%s-%d", baseName, i);
-            SecurityMonitoringRuleResponse response = createRule(ruleName);
+            SecurityMonitoringRuleResponseCreate response = createRule(ruleName);
             ruleCreateResponses.add(response);
 
             assertEquals(ruleName, response.getName());
         }
 
         // get single rule
-        SecurityMonitoringRuleResponse createdRule = ruleCreateResponses.get(0);
+        SecurityMonitoringRuleResponseCreate createdRule = ruleCreateResponses.get(0);
         SecurityMonitoringRuleResponse fetchedRule = api.getSecurityMonitoringRule(createdRule.getId()).execute();
         assertEquals(createdRule, fetchedRule);
 
@@ -78,7 +78,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         SecurityMonitoringListRulesResponse getAllRules = api.listSecurityMonitoringRules().pageSize(ruleCount).execute();
         // this could be flaky if another test is run at the same time
         // assertEquals(ruleCount, getAllRules.getData().size());
-        Set<String> ids = ruleCreateResponses.stream().map(SecurityMonitoringRuleResponse::getId).collect(Collectors.toSet());
+        Set<String> ids = ruleCreateResponses.stream().map(SecurityMonitoringRuleResponseCreate::getId).collect(Collectors.toSet());
         List<SecurityMonitoringRuleResponse> knownRules = getAllRules.getData()
                 .stream()
                 .filter(rule -> ids.contains(rule.getId()))
@@ -101,32 +101,32 @@ public class SecurityMonitoringApiTest extends V2APITest {
         assertEquals(0, idsIntersection.size());
 
         //// update rule
-        SecurityMonitoringRuleResponse updatedRule = api.updateSecurityMonitoringRule(createdRule.getId())
+        SecurityMonitoringRuleResponse updatedRule = api.updateSecurityMonitoringRule(fetchedRule.getId())
                 .body(new SecurityMonitoringRuleUpdatePayload()
-                        .name(createdRule.getName())
+                        .name(fetchedRule.getName())
                         .isEnabled(false)
-                        .queries(createdRule.getQueries())
-                        .options(createdRule.getOptions())
-                        .cases(createdRule.getCases())
-                        .message(createdRule.getMessage())
-                        .tags(createdRule.getTags()))
+                        .queries(fetchedRule.getQueries())
+                        .options(fetchedRule.getOptions())
+                        .cases(fetchedRule.getCases())
+                        .message(fetchedRule.getMessage())
+                        .tags(fetchedRule.getTags()))
                 .execute();
-        assertEquals(createdRule.getName(), updatedRule.getName());
+        assertEquals(fetchedRule.getName(), updatedRule.getName());
         assertEquals(false, updatedRule.getIsEnabled());
 
-        SecurityMonitoringRuleResponse getUpdatedRule = api.getSecurityMonitoringRule(createdRule.getId()).execute();
+        SecurityMonitoringRuleResponse getUpdatedRule = api.getSecurityMonitoringRule(fetchedRule.getId()).execute();
         assertEquals(false, getUpdatedRule.getIsEnabled());
 
         //// delete rule
-        api.deleteSecurityMonitoringRule(createdRule.getId()).execute();
+        api.deleteSecurityMonitoringRule(fetchedRule.getId()).execute();
         try {
-            api.getSecurityMonitoringRule(createdRule.getId()).execute();
+            api.getSecurityMonitoringRule(fetchedRule.getId()).execute();
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
         }
     }
 
-    private SecurityMonitoringRuleResponse createRule(String ruleName) throws ApiException {
+    private SecurityMonitoringRuleResponseCreate createRule(String ruleName) throws ApiException {
         SecurityMonitoringRuleCreatePayload createRulePayload = new SecurityMonitoringRuleCreatePayload();
         createRulePayload
                 .name(ruleName)
