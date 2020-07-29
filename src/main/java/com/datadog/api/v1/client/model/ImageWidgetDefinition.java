@@ -21,6 +21,7 @@ import com.datadog.api.v1.client.model.WidgetMargin;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,7 +39,7 @@ import com.datadog.api.v1.client.JSON;
   ImageWidgetDefinition.JSON_PROPERTY_TYPE,
   ImageWidgetDefinition.JSON_PROPERTY_URL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ImageWidgetDefinition {
   public static final String JSON_PROPERTY_MARGIN = "margin";
   private WidgetMargin margin;
@@ -147,6 +148,9 @@ public class ImageWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this ImageWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

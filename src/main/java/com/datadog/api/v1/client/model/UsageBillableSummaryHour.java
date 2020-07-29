@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.UsageBillableSummaryKeys;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +42,7 @@ import com.datadog.api.v1.client.JSON;
   UsageBillableSummaryHour.JSON_PROPERTY_START_DATE,
   UsageBillableSummaryHour.JSON_PROPERTY_USAGE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageBillableSummaryHour {
   public static final String JSON_PROPERTY_BILLING_PLAN = "billing_plan";
   private String billingPlan;
@@ -260,6 +261,9 @@ public class UsageBillableSummaryHour {
   }
 
 
+  /**
+   * Return true if this UsageBillableSummaryHour object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

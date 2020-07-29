@@ -31,7 +31,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -112,7 +112,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -193,7 +193,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -274,7 +274,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -361,7 +361,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -436,7 +436,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {

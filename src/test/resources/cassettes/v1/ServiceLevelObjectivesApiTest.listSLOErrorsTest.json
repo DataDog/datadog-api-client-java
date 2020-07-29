@@ -1,5 +1,5 @@
 [{
-  "id" : "209e19ab-11e2-4d7c-80e5-e704ba7c8ef4",
+  "id" : "3ddfa651-02b5-4ef2-9a85-5067e55919e8",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/slo",
@@ -26,13 +26,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:15 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:23:47 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "60" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -42,7 +42,7 @@
     "body" : "{\"errors\": [\"All items in parameter 'True' must be unique\"]}"
   }
 }, {
-  "id" : "e7a2d024-f33a-4873-bcc1-a5c38533e9be",
+  "id" : "0c41d6a1-bf49-4146-b935-4c3bf6e64f1c",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/slo",
@@ -69,13 +69,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:15 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:23:48 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -86,7 +86,7 @@
     "body" : "{\"errors\": [\"no SLOs found for ids: [u'id1', u'id2'] not found\"]}"
   }
 }, {
-  "id" : "110dd385-7f9b-4eb6-8afa-f5b5663c9b17",
+  "id" : "4aa2a13c-1432-427f-96ff-5ddb31b62953",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/slo",
@@ -113,7 +113,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:16 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:23:48 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

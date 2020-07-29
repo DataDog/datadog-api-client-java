@@ -1,5 +1,5 @@
 [{
-  "id" : "5969862b-d9d2-4ea8-a68a-ff064e710de4",
+  "id" : "bd915417-58bf-43ba-b939-aa4a4978f155",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/dashboard/lists/manual",
@@ -23,7 +23,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:11:06 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:20:46 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

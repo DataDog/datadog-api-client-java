@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,7 +39,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_S_T,
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_ALT_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsSSLCertificateSubject {
   public static final String JSON_PROPERTY_C = "C";
   private String C;
@@ -230,6 +231,9 @@ public class SyntheticsSSLCertificateSubject {
   }
 
 
+  /**
+   * Return true if this SyntheticsSSLCertificate_subject object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

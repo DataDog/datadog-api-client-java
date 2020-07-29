@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,7 +36,7 @@ import com.datadog.api.v1.client.JSON;
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE,
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE_FLIP
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMapWidgetDefinitionStyle {
   public static final String JSON_PROPERTY_FILL_MAX = "fill_max";
   private String fillMax;
@@ -146,6 +147,9 @@ public class HostMapWidgetDefinitionStyle {
   }
 
 
+  /**
+   * Return true if this HostMapWidgetDefinition_style object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

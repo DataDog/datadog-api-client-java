@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.UsageBillableSummaryBody;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -50,7 +51,7 @@ import com.datadog.api.v1.client.JSON;
   UsageBillableSummaryKeys.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECKS_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_TIMESERIES_AVERAGE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageBillableSummaryKeys {
   public static final String JSON_PROPERTY_APM_HOST_SUM = "apm_host_sum";
   private UsageBillableSummaryBody apmHostSum;
@@ -539,6 +540,9 @@ public class UsageBillableSummaryKeys {
   }
 
 
+  /**
+   * Return true if this UsageBillableSummaryKeys object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

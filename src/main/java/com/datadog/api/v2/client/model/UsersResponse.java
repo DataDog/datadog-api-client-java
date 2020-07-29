@@ -21,6 +21,7 @@ import com.datadog.api.v2.client.model.UserResponseIncludedItem;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -39,7 +40,7 @@ import com.datadog.api.v2.client.JSON;
   UsersResponse.JSON_PROPERTY_INCLUDED,
   UsersResponse.JSON_PROPERTY_META
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsersResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<User> data = null;
@@ -139,6 +140,9 @@ public class UsersResponse {
   }
 
 
+  /**
+   * Return true if this UsersResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.SyntheticsStepDetail;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -46,7 +47,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsBrowserTestResultData.JSON_PROPERTY_THUMBNAILS_BUCKET_KEY,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_TIME_TO_INTERACTIVE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserTestResultData {
   public static final String JSON_PROPERTY_BROWSER_TYPE = "browserType";
   private String browserType;
@@ -354,6 +355,9 @@ public class SyntheticsBrowserTestResultData {
   }
 
 
+  /**
+   * Return true if this SyntheticsBrowserTestResultData object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

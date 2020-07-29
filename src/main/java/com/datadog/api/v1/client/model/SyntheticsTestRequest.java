@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.SyntheticsTestRequestBasicAuth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -45,7 +46,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
   SyntheticsTestRequest.JSON_PROPERTY_URL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_BASIC_AUTH = "basicAuth";
   private SyntheticsTestRequestBasicAuth basicAuth;
@@ -299,6 +300,9 @@ public class SyntheticsTestRequest {
   }
 
 
+  /**
+   * Return true if this SyntheticsTestRequest object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

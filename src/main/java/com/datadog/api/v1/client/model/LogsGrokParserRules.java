@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -33,7 +34,7 @@ import com.datadog.api.v1.client.JSON;
   LogsGrokParserRules.JSON_PROPERTY_MATCH_RULES,
   LogsGrokParserRules.JSON_PROPERTY_SUPPORT_RULES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsGrokParserRules {
   public static final String JSON_PROPERTY_MATCH_RULES = "match_rules";
   private String matchRules;
@@ -89,6 +90,9 @@ public class LogsGrokParserRules {
   }
 
 
+  /**
+   * Return true if this LogsGrokParserRules object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

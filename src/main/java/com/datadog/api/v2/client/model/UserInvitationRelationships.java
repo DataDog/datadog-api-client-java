@@ -19,6 +19,7 @@ import com.datadog.api.v2.client.model.RelationshipToUser;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -33,7 +34,7 @@ import com.datadog.api.v2.client.JSON;
 @JsonPropertyOrder({
   UserInvitationRelationships.JSON_PROPERTY_USER
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserInvitationRelationships {
   public static final String JSON_PROPERTY_USER = "user";
   private RelationshipToUser user;
@@ -63,6 +64,9 @@ public class UserInvitationRelationships {
   }
 
 
+  /**
+   * Return true if this UserInvitationRelationships object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

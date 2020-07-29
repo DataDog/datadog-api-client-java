@@ -1,5 +1,5 @@
 [{
-  "id" : "a8c34074-e5df-4ef0-813c-3cfd40113c61",
+  "id" : "a48a4176-6b2c-4d5f-9a96-062500a5742d",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/logs/config/pipelines/id",
@@ -9,14 +9,10 @@
       "DD-OPERATION-ID" : [ "deleteLogsPipeline" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "256" ]
+      "Content-Length" : [ "0" ]
     },
     "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"entity\":\"\",\"variant\":{\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}},\"annotations\":[],\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}}"
-    }
+    "secure" : true
   },
   "times" : {
     "remainingTimes" : 1
@@ -28,7 +24,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:48 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:28:42 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "77" ],
       "Connection" : [ "keep-alive" ],
@@ -36,9 +32,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "100" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2712" ],
-      "X-RateLimit-Remaining" : [ "79" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-RateLimit-Reset" : [ "1878" ],
+      "X-RateLimit-Remaining" : [ "95" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,7 +44,7 @@
     "body" : "{\"error\":{\"code\":\"InvalidArgument\",\"message\":\"This pipeline does not exist\"}}"
   }
 }, {
-  "id" : "d97e4900-d6ed-432b-9a58-3bf8926aa335",
+  "id" : "fc706215-6c0b-49e6-9a79-cd225db5f00d",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/logs/config/pipelines/id",
@@ -58,14 +54,10 @@
       "DD-OPERATION-ID" : [ "deleteLogsPipeline" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "256" ]
+      "Content-Length" : [ "0" ]
     },
     "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"entity\":\"\",\"variant\":{\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}},\"annotations\":[],\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}}"
-    }
+    "secure" : true
   },
   "times" : {
     "remainingTimes" : 1
@@ -77,7 +69,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:48 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:28:43 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

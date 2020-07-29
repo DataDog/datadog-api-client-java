@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,7 +35,7 @@ import com.datadog.api.v2.client.JSON;
   UserCreateAttributes.JSON_PROPERTY_NAME,
   UserCreateAttributes.JSON_PROPERTY_TITLE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserCreateAttributes {
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
@@ -118,6 +119,9 @@ public class UserCreateAttributes {
   }
 
 
+  /**
+   * Return true if this UserCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

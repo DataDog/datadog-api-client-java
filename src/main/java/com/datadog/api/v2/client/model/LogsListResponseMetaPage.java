@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,7 +33,7 @@ import com.datadog.api.v2.client.JSON;
 @JsonPropertyOrder({
   LogsListResponseMetaPage.JSON_PROPERTY_AFTER
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsListResponseMetaPage {
   public static final String JSON_PROPERTY_AFTER = "after";
   private String after;
@@ -62,6 +63,9 @@ public class LogsListResponseMetaPage {
   }
 
 
+  /**
+   * Return true if this LogsListResponse_meta_page object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

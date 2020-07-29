@@ -22,6 +22,7 @@ import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -47,7 +48,7 @@ import com.datadog.api.v1.client.JSON;
   QueryValueWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   QueryValueWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryValueWidgetDefinition {
   public static final String JSON_PROPERTY_AUTOSCALE = "autoscale";
   private Boolean autoscale;
@@ -323,6 +324,9 @@ public class QueryValueWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this QueryValueWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

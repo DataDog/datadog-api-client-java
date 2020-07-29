@@ -21,6 +21,7 @@ import com.datadog.api.v2.client.model.SecurityMonitoringRuleQuery;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -49,7 +50,7 @@ import com.datadog.api.v2.client.JSON;
   SecurityMonitoringRuleResponse.JSON_PROPERTY_TAGS,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_VERSION
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleResponse {
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
@@ -427,6 +428,9 @@ public class SecurityMonitoringRuleResponse {
   }
 
 
+  /**
+   * Return true if this SecurityMonitoringRuleResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

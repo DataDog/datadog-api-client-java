@@ -1,5 +1,5 @@
 [{
-  "id" : "7c56d682-7d06-47bf-8bbe-d87952c8a05f",
+  "id" : "2ef5ef99-6f35-4fd9-b2a3-9025b04128e9",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/slo",
@@ -28,7 +28,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:13 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:23:45 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "56" ],
       "Connection" : [ "keep-alive" ],
@@ -36,9 +36,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "500" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "47" ],
+      "X-RateLimit-Reset" : [ "15" ],
       "X-RateLimit-Remaining" : [ "496" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,7 +48,7 @@
     "body" : "{\"errors\": [\"Invalid payload: 'name' should be string\"]}"
   }
 }, {
-  "id" : "c3bc2598-9ca6-400e-9fa7-f39aabef7c72",
+  "id" : "75f8a4c5-078a-4898-836b-4783c955729a",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/slo",
@@ -77,7 +77,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:14 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:23:46 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

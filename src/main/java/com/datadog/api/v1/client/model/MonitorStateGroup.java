@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.MonitorOverallStates;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,7 +39,7 @@ import com.datadog.api.v1.client.JSON;
   MonitorStateGroup.JSON_PROPERTY_NAME,
   MonitorStateGroup.JSON_PROPERTY_STATUS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorStateGroup {
   public static final String JSON_PROPERTY_LAST_NODATA_TS = "last_nodata_ts";
   private Long lastNodataTs;
@@ -203,6 +204,9 @@ public class MonitorStateGroup {
   }
 
 
+  /**
+   * Return true if this MonitorStateGroup object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

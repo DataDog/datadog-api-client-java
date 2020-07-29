@@ -1,8 +1,8 @@
 [{
-  "id" : "40b54c58-4c6c-45a6-b3b3-bc28c5fc86f1",
+  "id" : "a706b28e-2d2b-4dce-8b89-6bd407da1833",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/java-updatePagerDutyIntegrationServicesTest-local-1591009834",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-updatePagerDutyIntegrationServicesTest-local-1595946551",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "updatePagerDutyIntegrationServicesTest" ],
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:34 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:29:11 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "46" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,10 +44,10 @@
     "body" : "{\"errors\": [\"'service_key' should be string\"]}"
   }
 }, {
-  "id" : "33098b64-9bed-4b40-b737-5bee62e6b990",
+  "id" : "e8d6ffa2-e3aa-4de2-b700-3f62543b2a8d",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/java-updatePagerDutyIntegrationServicesTest-local-1591009834",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-updatePagerDutyIntegrationServicesTest-local-1595946551",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "updatePagerDutyIntegrationServicesTest" ],
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:35 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:29:12 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -83,10 +83,10 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "d0ac3a50-c9a1-4659-96f7-fccff6d3383a",
+  "id" : "28c75a04-047e-4dd3-85dd-4997205007b0",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/java-updatePagerDutyIntegrationServicesTest-local-1591009834",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-updatePagerDutyIntegrationServicesTest-local-1595946551",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "updatePagerDutyIntegrationServicesTest" ],
@@ -112,13 +112,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:35 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:29:13 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

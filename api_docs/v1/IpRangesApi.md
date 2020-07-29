@@ -23,7 +23,7 @@ Get information about Datadog IP ranges.
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.IpRangesApi;
 
 public class Example {

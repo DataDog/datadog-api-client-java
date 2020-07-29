@@ -21,6 +21,7 @@ import com.datadog.api.v1.client.model.LogsQueryCompute;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +42,7 @@ import com.datadog.api.v1.client.JSON;
   LogQueryDefinition.JSON_PROPERTY_MULTI_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_SEARCH
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogQueryDefinition {
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private LogsQueryCompute compute;
@@ -195,6 +196,9 @@ public class LogQueryDefinition {
   }
 
 
+  /**
+   * Return true if this LogQueryDefinition object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

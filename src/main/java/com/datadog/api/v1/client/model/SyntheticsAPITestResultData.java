@@ -22,6 +22,7 @@ import com.datadog.api.v1.client.model.SyntheticsTiming;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -48,7 +49,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_SIZE,
   SyntheticsAPITestResultData.JSON_PROPERTY_TIMINGS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestResultData {
   public static final String JSON_PROPERTY_CERT = "cert";
   private SyntheticsSSLCertificate cert;
@@ -337,6 +338,9 @@ public class SyntheticsAPITestResultData {
   }
 
 
+  /**
+   * Return true if this SyntheticsAPITestResultData object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
