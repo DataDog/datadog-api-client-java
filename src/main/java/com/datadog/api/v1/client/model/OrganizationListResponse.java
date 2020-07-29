@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.Organization;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,7 +36,7 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   OrganizationListResponse.JSON_PROPERTY_ORGS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationListResponse {
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private List<Organization> orgs = null;
@@ -73,6 +74,9 @@ public class OrganizationListResponse {
   }
 
 
+  /**
+   * Return true if this OrganizationListResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

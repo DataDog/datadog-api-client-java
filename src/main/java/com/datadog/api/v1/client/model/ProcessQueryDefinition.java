@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,7 +38,7 @@ import com.datadog.api.v1.client.JSON;
   ProcessQueryDefinition.JSON_PROPERTY_METRIC,
   ProcessQueryDefinition.JSON_PROPERTY_SEARCH_BY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProcessQueryDefinition {
   public static final String JSON_PROPERTY_FILTER_BY = "filter_by";
   private List<String> filterBy = null;
@@ -156,6 +157,9 @@ public class ProcessQueryDefinition {
   }
 
 
+  /**
+   * Return true if this ProcessQueryDefinition object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

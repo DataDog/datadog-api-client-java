@@ -1,5 +1,5 @@
 [{
-  "id" : "4545768b-dc41-44e9-926a-3c702bc11899",
+  "id" : "3d61bc93-0ad4-488c-b68c-6bbbc713b64b",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/events",
@@ -27,13 +27,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:13:43 GMT" ],
+      "Date" : [ "Wed, 29 Jul 2020 08:26:38 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "58" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2801846" ],
       "DD-POOL" : [ "dogweb_events" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -43,7 +43,7 @@
     "body" : "{\"errors\": [\"start param must be greater than end param\"]}"
   }
 }, {
-  "id" : "e86a7803-2402-4a2c-b6f4-6a634b31a031",
+  "id" : "feffd307-d6cf-4071-b7dc-44ebdbd70c1a",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/events",
@@ -71,7 +71,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:13:44 GMT" ],
+      "Date" : [ "Wed, 29 Jul 2020 08:26:39 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

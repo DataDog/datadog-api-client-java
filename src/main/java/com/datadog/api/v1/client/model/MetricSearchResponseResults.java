@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,7 +35,7 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   MetricSearchResponseResults.JSON_PROPERTY_METRICS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricSearchResponseResults {
   public static final String JSON_PROPERTY_METRICS = "metrics";
   private List<String> metrics = null;
@@ -72,6 +73,9 @@ public class MetricSearchResponseResults {
   }
 
 
+  /**
+   * Return true if this MetricSearchResponse_results object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

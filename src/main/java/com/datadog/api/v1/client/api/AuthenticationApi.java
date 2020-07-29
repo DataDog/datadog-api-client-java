@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AuthenticationApi {
   private ApiClient apiClient;
 
@@ -82,7 +82,7 @@ private ApiResponse<AuthenticationValidationResponse> validateWithHttpInfo() thr
 
     return apiClient.invokeAPI("AuthenticationApi.validate", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIvalidateRequest {

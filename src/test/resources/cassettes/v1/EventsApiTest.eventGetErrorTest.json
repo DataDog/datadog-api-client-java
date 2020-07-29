@@ -1,5 +1,5 @@
 [{
-  "id" : "ff8b5714-8724-4dd3-9f15-e79e9046dabd",
+  "id" : "117f8cd5-4414-4a65-9c94-0fefdbf8c0bc",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/events/1234",
@@ -23,7 +23,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:09 GMT" ],
+      "Date" : [ "Wed, 29 Jul 2020 08:27:05 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -33,7 +33,7 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "a682faa0-27f8-4a6c-ba68-8259df01f910",
+  "id" : "d66aa47d-f430-4c31-88e4-d4043d93d549",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/events/1234",
@@ -57,13 +57,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:11 GMT" ],
+      "Date" : [ "Wed, 29 Jul 2020 08:27:06 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2801846" ],
       "DD-POOL" : [ "dogweb_events" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

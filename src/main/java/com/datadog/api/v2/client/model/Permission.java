@@ -20,6 +20,7 @@ import com.datadog.api.v2.client.model.PermissionsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,7 +37,7 @@ import com.datadog.api.v2.client.JSON;
   Permission.JSON_PROPERTY_ID,
   Permission.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Permission {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private PermissionAttributes attributes;
@@ -119,6 +120,9 @@ public class Permission {
   }
 
 
+  /**
+   * Return true if this Permission object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

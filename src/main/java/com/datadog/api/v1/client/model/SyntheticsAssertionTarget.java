@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.SyntheticsAssertionType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,7 +38,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsAssertionTarget.JSON_PROPERTY_TARGET,
   SyntheticsAssertionTarget.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAssertionTarget {
   public static final String JSON_PROPERTY_OPERATOR = "operator";
   private SyntheticsAssertionOperator operator;
@@ -146,6 +147,9 @@ public class SyntheticsAssertionTarget {
   }
 
 
+  /**
+   * Return true if this SyntheticsAssertionTarget object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

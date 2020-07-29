@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class KeyManagementApi {
   private ApiClient apiClient;
 
@@ -92,7 +92,7 @@ private ApiResponse<ApiKeyResponse> createAPIKeyWithHttpInfo(ApiKey body) throws
 
     return apiClient.invokeAPI("KeyManagementApi.createAPIKey", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateAPIKeyRequest {
@@ -199,7 +199,7 @@ private ApiResponse<ApplicationKeyResponse> createApplicationKeyWithHttpInfo(App
 
     return apiClient.invokeAPI("KeyManagementApi.createApplicationKey", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateApplicationKeyRequest {
@@ -309,7 +309,7 @@ private ApiResponse<ApiKeyResponse> deleteAPIKeyWithHttpInfo(String key) throws 
 
     return apiClient.invokeAPI("KeyManagementApi.deleteAPIKey", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIdeleteAPIKeyRequest {
@@ -411,7 +411,7 @@ private ApiResponse<ApplicationKeyResponse> deleteApplicationKeyWithHttpInfo(Str
 
     return apiClient.invokeAPI("KeyManagementApi.deleteApplicationKey", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIdeleteApplicationKeyRequest {
@@ -511,7 +511,7 @@ private ApiResponse<ApiKeyResponse> getAPIKeyWithHttpInfo(String key) throws Api
 
     return apiClient.invokeAPI("KeyManagementApi.getAPIKey", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetAPIKeyRequest {
@@ -611,7 +611,7 @@ private ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(String
 
     return apiClient.invokeAPI("KeyManagementApi.getApplicationKey", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetApplicationKeyRequest {
@@ -705,7 +705,7 @@ private ApiResponse<ApiKeyListResponse> listAPIKeysWithHttpInfo() throws ApiExce
 
     return apiClient.invokeAPI("KeyManagementApi.listAPIKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistAPIKeysRequest {
@@ -794,7 +794,7 @@ private ApiResponse<ApplicationKeyListResponse> listApplicationKeysWithHttpInfo(
 
     return apiClient.invokeAPI("KeyManagementApi.listApplicationKeys", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistApplicationKeysRequest {
@@ -894,7 +894,7 @@ private ApiResponse<ApiKeyResponse> updateAPIKeyWithHttpInfo(String key, ApiKey 
 
     return apiClient.invokeAPI("KeyManagementApi.updateAPIKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateAPIKeyRequest {
@@ -1012,7 +1012,7 @@ private ApiResponse<ApplicationKeyResponse> updateApplicationKeyWithHttpInfo(Str
 
     return apiClient.invokeAPI("KeyManagementApi.updateApplicationKey", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateApplicationKeyRequest {

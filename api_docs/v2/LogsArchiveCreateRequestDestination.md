@@ -3,17 +3,46 @@
 # LogsArchiveCreateRequestDestination
 
 An archive's destination.
-## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**container** | **String** | The container where the archive will be stored. | 
-**integration** | [**LogsArchiveIntegrationS3**](LogsArchiveIntegrationS3.md) |  | 
-**path** | **String** | The archive path. |  [optional]
-**region** | **String** | The region where the archive will be stored. |  [optional]
-**storageAccount** | **String** | The associated storage account. | 
-**type** | [**LogsArchiveDestinationS3Type**](LogsArchiveDestinationS3Type.md) |  | 
-**bucket** | **String** | The bucket where the archive will be stored. | 
+## oneOf schemas
+* [LogsArchiveDestinationAzure](LogsArchiveDestinationAzure.md)
+* [LogsArchiveDestinationGCS](LogsArchiveDestinationGCS.md)
+* [LogsArchiveDestinationS3](LogsArchiveDestinationS3.md)
 
+## Example
+```java
+// Import classes:
+import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDestination;
+import com.datadog.api.v2.client.model.LogsArchiveDestinationAzure;
+import com.datadog.api.v2.client.model.LogsArchiveDestinationGCS;
+import com.datadog.api.v2.client.model.LogsArchiveDestinationS3;
+
+public class Example {
+    public static void main(String[] args) {
+        LogsArchiveCreateRequestDestination exampleLogsArchiveCreateRequestDestination = new LogsArchiveCreateRequestDestination();
+
+        // create a new LogsArchiveDestinationAzure
+        LogsArchiveDestinationAzure exampleLogsArchiveDestinationAzure = new LogsArchiveDestinationAzure();
+        // set LogsArchiveCreateRequestDestination to LogsArchiveDestinationAzure
+        exampleLogsArchiveCreateRequestDestination.setActualInstance(exampleLogsArchiveDestinationAzure);
+        // to get back the LogsArchiveDestinationAzure set earlier
+        LogsArchiveDestinationAzure testLogsArchiveDestinationAzure = (LogsArchiveDestinationAzure) exampleLogsArchiveCreateRequestDestination.getActualInstance();
+
+        // create a new LogsArchiveDestinationGCS
+        LogsArchiveDestinationGCS exampleLogsArchiveDestinationGCS = new LogsArchiveDestinationGCS();
+        // set LogsArchiveCreateRequestDestination to LogsArchiveDestinationGCS
+        exampleLogsArchiveCreateRequestDestination.setActualInstance(exampleLogsArchiveDestinationGCS);
+        // to get back the LogsArchiveDestinationGCS set earlier
+        LogsArchiveDestinationGCS testLogsArchiveDestinationGCS = (LogsArchiveDestinationGCS) exampleLogsArchiveCreateRequestDestination.getActualInstance();
+
+        // create a new LogsArchiveDestinationS3
+        LogsArchiveDestinationS3 exampleLogsArchiveDestinationS3 = new LogsArchiveDestinationS3();
+        // set LogsArchiveCreateRequestDestination to LogsArchiveDestinationS3
+        exampleLogsArchiveCreateRequestDestination.setActualInstance(exampleLogsArchiveDestinationS3);
+        // to get back the LogsArchiveDestinationS3 set earlier
+        LogsArchiveDestinationS3 testLogsArchiveDestinationS3 = (LogsArchiveDestinationS3) exampleLogsArchiveCreateRequestDestination.getActualInstance();
+    }
+}
+```
 
 

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventsApi {
   private ApiClient apiClient;
 
@@ -90,7 +90,7 @@ private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws Api
 
     return apiClient.invokeAPI("EventsApi.getEvent", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetEventRequest {
@@ -200,7 +200,7 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
 
     return apiClient.invokeAPI("EventsApi.listEvents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistEventsRequest {

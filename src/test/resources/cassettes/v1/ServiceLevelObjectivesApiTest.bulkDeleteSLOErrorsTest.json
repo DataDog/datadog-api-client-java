@@ -1,5 +1,5 @@
 [{
-  "id" : "3c456195-3ce2-44a9-a14b-4cb9d94806d1",
+  "id" : "ca6846ea-fb0e-4cf5-a95d-3546b8a442bf",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/slo/bulk_delete",
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:26 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:24:03 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "25" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,7 +44,7 @@
     "body" : "{\"errors\": [\"API error\"]}"
   }
 }, {
-  "id" : "c20c1403-1720-4b03-b43c-b9e9db8d381c",
+  "id" : "4bd8a4a0-5135-44ce-bb31-0dd0304849fa",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/slo/bulk_delete",
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:26 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:24:04 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

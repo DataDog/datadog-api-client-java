@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,7 +37,7 @@ import com.datadog.api.v1.client.JSON;
   MetricsQueryResponseUnit.JSON_PROPERTY_SCALE_FACTOR,
   MetricsQueryResponseUnit.JSON_PROPERTY_SHORT_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricsQueryResponseUnit {
   public static final String JSON_PROPERTY_FAMILY = "family";
   private String family;
@@ -134,6 +135,9 @@ public class MetricsQueryResponseUnit {
 
 
 
+  /**
+   * Return true if this MetricsQueryResponse_unit object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

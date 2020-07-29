@@ -14,7 +14,7 @@ package com.datadog.api.v2.client;
 import java.util.Collection;
 import java.util.Iterator;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

@@ -1,5 +1,5 @@
 [{
-  "id" : "21d52205-eff1-4485-b215-54d8738b972c",
+  "id" : "7ecc325a-6d75-498a-9baa-5f281d197d54",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/dashboard/lists/manual",
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:11:06 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:20:47 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "39" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,7 +44,7 @@
     "body" : "{\"errors\": [\"'name' should be string\"]}"
   }
 }, {
-  "id" : "7f906c9d-60b0-473c-9b00-0af33154a0db",
+  "id" : "9b23c21d-94b6-47fe-b107-30eb7035fd45",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/dashboard/lists/manual",
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:11:07 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:20:48 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

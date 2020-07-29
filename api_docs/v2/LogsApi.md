@@ -36,7 +36,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsApi;
 
 public class Example {
@@ -128,7 +128,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsApi;
 
 public class Example {

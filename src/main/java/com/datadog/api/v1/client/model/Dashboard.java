@@ -22,6 +22,7 @@ import com.datadog.api.v1.client.model.Widget;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -54,7 +55,7 @@ import com.datadog.api.v1.client.JSON;
   Dashboard.JSON_PROPERTY_URL,
   Dashboard.JSON_PROPERTY_WIDGETS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Dashboard {
   public static final String JSON_PROPERTY_AUTHOR_HANDLE = "author_handle";
   private String authorHandle;
@@ -446,6 +447,9 @@ public class Dashboard {
   }
 
 
+  /**
+   * Return true if this Dashboard object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +42,7 @@ import com.datadog.api.v1.client.JSON;
   AlertValueWidgetDefinition.JSON_PROPERTY_TYPE,
   AlertValueWidgetDefinition.JSON_PROPERTY_UNIT
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AlertValueWidgetDefinition {
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
@@ -258,6 +259,9 @@ public class AlertValueWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this AlertValueWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

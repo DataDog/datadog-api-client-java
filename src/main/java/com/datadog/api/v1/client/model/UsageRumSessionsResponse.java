@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.UsageRumSessionsHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,7 +36,7 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   UsageRumSessionsResponse.JSON_PROPERTY_USAGE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageRumSessionsResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageRumSessionsHour> usage = null;
@@ -73,6 +74,9 @@ public class UsageRumSessionsResponse {
   }
 
 
+  /**
+   * Return true if this UsageRumSessionsResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

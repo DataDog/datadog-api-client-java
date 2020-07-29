@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +42,7 @@ import com.datadog.api.v1.client.JSON;
   ServiceMapWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ServiceMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceMapWidgetDefinition {
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<String> filters = new ArrayList<>();
@@ -208,6 +209,9 @@ public class ServiceMapWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this ServiceMapWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,7 +37,7 @@ import com.datadog.api.v1.client.JSON;
   UsageLogsHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT,
   UsageLogsHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageLogsHour {
   public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES = "billable_ingested_bytes";
   private Long billableIngestedBytes;
@@ -147,6 +148,9 @@ public class UsageLogsHour {
   }
 
 
+  /**
+   * Return true if this UsageLogsHour object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -33,7 +34,7 @@ import com.datadog.api.v1.client.JSON;
   TimeseriesWidgetRequestMetadata.JSON_PROPERTY_ALIAS_NAME,
   TimeseriesWidgetRequestMetadata.JSON_PROPERTY_EXPRESSION
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TimeseriesWidgetRequestMetadata {
   public static final String JSON_PROPERTY_ALIAS_NAME = "alias_name";
   private String aliasName;
@@ -89,6 +90,9 @@ public class TimeseriesWidgetRequestMetadata {
   }
 
 
+  /**
+   * Return true if this TimeseriesWidgetRequest_metadata object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

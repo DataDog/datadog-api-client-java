@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GcpIntegrationApi {
   private ApiClient apiClient;
 
@@ -87,7 +87,7 @@ private ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) th
 
     return apiClient.invokeAPI("GcpIntegrationApi.createGCPIntegration", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateGCPIntegrationRequest {
@@ -194,7 +194,7 @@ private ApiResponse<Object> deleteGCPIntegrationWithHttpInfo(GCPAccount body) th
 
     return apiClient.invokeAPI("GcpIntegrationApi.deleteGCPIntegration", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIdeleteGCPIntegrationRequest {
@@ -296,7 +296,7 @@ private ApiResponse<List<GCPAccount>> listGCPIntegrationWithHttpInfo() throws Ap
 
     return apiClient.invokeAPI("GcpIntegrationApi.listGCPIntegration", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistGCPIntegrationRequest {
@@ -392,7 +392,7 @@ private ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) th
 
     return apiClient.invokeAPI("GcpIntegrationApi.updateGCPIntegration", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateGCPIntegrationRequest {

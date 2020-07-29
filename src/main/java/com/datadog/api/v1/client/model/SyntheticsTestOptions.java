@@ -21,6 +21,7 @@ import com.datadog.api.v1.client.model.SyntheticsTickInterval;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -44,7 +45,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_ACCEPT_SELF_SIGNED = "accept_self_signed";
   private Boolean acceptSelfSigned;
@@ -271,6 +272,9 @@ public class SyntheticsTestOptions {
   }
 
 
+  /**
+   * Return true if this SyntheticsTestOptions object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

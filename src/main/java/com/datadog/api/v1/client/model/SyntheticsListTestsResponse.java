@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.SyntheticsTestDetails;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,7 +36,7 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   SyntheticsListTestsResponse.JSON_PROPERTY_TESTS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsListTestsResponse {
   public static final String JSON_PROPERTY_TESTS = "tests";
   private List<SyntheticsTestDetails> tests = null;
@@ -73,6 +74,9 @@ public class SyntheticsListTestsResponse {
   }
 
 
+  /**
+   * Return true if this SyntheticsListTestsResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

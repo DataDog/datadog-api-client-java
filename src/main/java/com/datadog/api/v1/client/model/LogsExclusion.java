@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.LogsExclusionFilter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,7 +36,7 @@ import com.datadog.api.v1.client.JSON;
   LogsExclusion.JSON_PROPERTY_IS_ENABLED,
   LogsExclusion.JSON_PROPERTY_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsExclusion {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsExclusionFilter filter;
@@ -118,6 +119,9 @@ public class LogsExclusion {
   }
 
 
+  /**
+   * Return true if this LogsExclusion object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

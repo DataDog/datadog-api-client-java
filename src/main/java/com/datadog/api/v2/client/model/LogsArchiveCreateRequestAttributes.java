@@ -19,6 +19,7 @@ import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDestination;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,7 +36,7 @@ import com.datadog.api.v2.client.JSON;
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_NAME,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_QUERY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveCreateRequestAttributes {
   public static final String JSON_PROPERTY_DESTINATION = "destination";
   private LogsArchiveCreateRequestDestination destination;
@@ -116,6 +117,9 @@ public class LogsArchiveCreateRequestAttributes {
   }
 
 
+  /**
+   * Return true if this LogsArchiveCreateRequestAttributes object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

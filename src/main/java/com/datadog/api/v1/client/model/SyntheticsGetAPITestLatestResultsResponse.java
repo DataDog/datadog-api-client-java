@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.SyntheticsAPITestResultShort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,7 +37,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_RESULTS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsGetAPITestLatestResultsResponse {
   public static final String JSON_PROPERTY_LAST_TIMESTAMP_FETCHED = "last_timestamp_fetched";
   private Long lastTimestampFetched;
@@ -101,6 +102,9 @@ public class SyntheticsGetAPITestLatestResultsResponse {
   }
 
 
+  /**
+   * Return true if this SyntheticsGetAPITestLatestResultsResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

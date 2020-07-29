@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IpRangesApi {
   private ApiClient apiClient;
 
@@ -81,7 +81,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
 
     return apiClient.invokeAPI("IpRangesApi.getIPRanges", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetIPRangesRequest {

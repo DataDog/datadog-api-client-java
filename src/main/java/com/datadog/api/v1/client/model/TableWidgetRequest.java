@@ -24,6 +24,7 @@ import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -52,7 +53,7 @@ import com.datadog.api.v1.client.JSON;
   TableWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   TableWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TableWidgetRequest {
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private WidgetAggregator aggregator;
@@ -414,6 +415,9 @@ public class TableWidgetRequest {
   }
 
 
+  /**
+   * Return true if this TableWidgetRequest object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
