@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,7 +33,7 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   PagerDutyServiceName.JSON_PROPERTY_SERVICE_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PagerDutyServiceName {
   public static final String JSON_PROPERTY_SERVICE_NAME = "service_name";
   private String serviceName;
@@ -61,6 +62,9 @@ public class PagerDutyServiceName {
   }
 
 
+  /**
+   * Return true if this PagerDutyServiceName object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

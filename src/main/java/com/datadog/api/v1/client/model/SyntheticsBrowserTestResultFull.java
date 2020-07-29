@@ -21,6 +21,7 @@ import com.datadog.api.v1.client.model.SyntheticsTestMonitorStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +42,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_RESULT_ID,
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_STATUS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserTestResultFull {
   public static final String JSON_PROPERTY_CHECK = "check";
   private SyntheticsBrowserTestResultFullCheck check;
@@ -233,6 +234,9 @@ public class SyntheticsBrowserTestResultFull {
   }
 
 
+  /**
+   * Return true if this SyntheticsBrowserTestResultFull object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

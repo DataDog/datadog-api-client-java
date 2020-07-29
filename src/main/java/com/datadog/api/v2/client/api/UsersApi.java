@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsersApi {
   private ApiClient apiClient;
 
@@ -90,7 +90,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreateRequest body)
 
     return apiClient.invokeAPI("UsersApi.createUser", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateUserRequest {
@@ -196,7 +196,7 @@ private ApiResponse<Void> disableUserWithHttpInfo(String userId) throws ApiExcep
 
     return apiClient.invokeAPI("UsersApi.disableUser", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null);
+                               localVarAuthNames, null, false);
   }
 
   public class APIdisableUserRequest {
@@ -296,7 +296,7 @@ private ApiResponse<UserInvitationResponse> getInvitationWithHttpInfo(String use
 
     return apiClient.invokeAPI("UsersApi.getInvitation", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetInvitationRequest {
@@ -396,7 +396,7 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userId) throws ApiE
 
     return apiClient.invokeAPI("UsersApi.getUser", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUserRequest {
@@ -496,7 +496,7 @@ private ApiResponse<UserResponse> listUserOrganizationsWithHttpInfo(String userI
 
     return apiClient.invokeAPI("UsersApi.listUserOrganizations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistUserOrganizationsRequest {
@@ -596,7 +596,7 @@ private ApiResponse<PermissionsResponse> listUserPermissionsWithHttpInfo(String 
 
     return apiClient.invokeAPI("UsersApi.listUserPermissions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistUserPermissionsRequest {
@@ -696,7 +696,7 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
 
     return apiClient.invokeAPI("UsersApi.listUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistUsersRequest {
@@ -853,7 +853,7 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
 
     return apiClient.invokeAPI("UsersApi.sendInvitations", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIsendInvitationsRequest {
@@ -959,7 +959,7 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdateReques
 
     return apiClient.invokeAPI("UsersApi.updateUser", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null);
+                               localVarAuthNames, null, false);
   }
 
   public class APIupdateUserRequest {

@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.SLOBulkDeleteResponseErrors;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,7 +38,7 @@ import com.datadog.api.v1.client.JSON;
   SLOBulkDeleteResponse.JSON_PROPERTY_DATA,
   SLOBulkDeleteResponse.JSON_PROPERTY_ERRORS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOBulkDeleteResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private SLOBulkDeleteResponseData data;
@@ -102,6 +103,9 @@ public class SLOBulkDeleteResponse {
   }
 
 
+  /**
+   * Return true if this SLOBulkDeleteResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

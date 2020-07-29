@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.SLOHistoryMetricsSeries;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,7 +43,7 @@ import com.datadog.api.v1.client.JSON;
   SLOHistoryMetrics.JSON_PROPERTY_RESP_VERSION,
   SLOHistoryMetrics.JSON_PROPERTY_TIMES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryMetrics {
   public static final String JSON_PROPERTY_DENOMINATOR = "denominator";
   private SLOHistoryMetricsSeries denominator;
@@ -259,6 +260,9 @@ public class SLOHistoryMetrics {
   }
 
 
+  /**
+   * Return true if this SLOHistoryMetrics object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

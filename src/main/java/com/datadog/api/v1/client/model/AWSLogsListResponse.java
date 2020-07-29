@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.AWSLogsListResponseLambdas;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,7 +38,7 @@ import com.datadog.api.v1.client.JSON;
   AWSLogsListResponse.JSON_PROPERTY_LAMBDAS,
   AWSLogsListResponse.JSON_PROPERTY_SERVICES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsListResponse {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -137,6 +138,9 @@ public class AWSLogsListResponse {
   }
 
 
+  /**
+   * Return true if this AWSLogsListResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

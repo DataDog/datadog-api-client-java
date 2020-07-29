@@ -19,6 +19,7 @@ import com.datadog.api.v2.client.model.RelationshipToPermissions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -33,7 +34,7 @@ import com.datadog.api.v2.client.JSON;
 @JsonPropertyOrder({
   RoleResponseRelationships.JSON_PROPERTY_PERMISSIONS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleResponseRelationships {
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
   private RelationshipToPermissions permissions;
@@ -63,6 +64,9 @@ public class RoleResponseRelationships {
   }
 
 
+  /**
+   * Return true if this RoleResponseRelationships object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

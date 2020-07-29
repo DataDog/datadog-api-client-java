@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringApi {
   private ApiClient apiClient;
 
@@ -85,7 +85,7 @@ private ApiResponse<SecurityMonitoringRuleResponse> createSecurityMonitoringRule
 
     return apiClient.invokeAPI("SecurityMonitoringApi.createSecurityMonitoringRule", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateSecurityMonitoringRuleRequest {
@@ -191,7 +191,7 @@ private ApiResponse<Void> deleteSecurityMonitoringRuleWithHttpInfo(String ruleId
 
     return apiClient.invokeAPI("SecurityMonitoringApi.deleteSecurityMonitoringRule", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null);
+                               localVarAuthNames, null, false);
   }
 
   public class APIdeleteSecurityMonitoringRuleRequest {
@@ -291,7 +291,7 @@ private ApiResponse<SecurityMonitoringRuleResponse> getSecurityMonitoringRuleWit
 
     return apiClient.invokeAPI("SecurityMonitoringApi.getSecurityMonitoringRule", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetSecurityMonitoringRuleRequest {
@@ -385,7 +385,7 @@ private ApiResponse<SecurityMonitoringListRulesResponse> listSecurityMonitoringR
 
     return apiClient.invokeAPI("SecurityMonitoringApi.listSecurityMonitoringRules", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistSecurityMonitoringRulesRequest {
@@ -502,7 +502,7 @@ private ApiResponse<SecurityMonitoringRuleResponse> updateSecurityMonitoringRule
 
     return apiClient.invokeAPI("SecurityMonitoringApi.updateSecurityMonitoringRule", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateSecurityMonitoringRuleRequest {

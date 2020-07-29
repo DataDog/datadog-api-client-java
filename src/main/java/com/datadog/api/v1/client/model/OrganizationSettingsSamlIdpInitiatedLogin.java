@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,7 +33,7 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   OrganizationSettingsSamlIdpInitiatedLogin.JSON_PROPERTY_ENABLED
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSettingsSamlIdpInitiatedLogin {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
@@ -62,6 +63,9 @@ public class OrganizationSettingsSamlIdpInitiatedLogin {
   }
 
 
+  /**
+   * Return true if this Organization_settings_saml_idp_initiated_login object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

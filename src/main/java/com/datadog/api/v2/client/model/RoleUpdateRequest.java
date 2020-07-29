@@ -19,6 +19,7 @@ import com.datadog.api.v2.client.model.RoleUpdateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -33,7 +34,7 @@ import com.datadog.api.v2.client.JSON;
 @JsonPropertyOrder({
   RoleUpdateRequest.JSON_PROPERTY_DATA
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleUpdateRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private RoleUpdateData data;
@@ -63,6 +64,9 @@ public class RoleUpdateRequest {
   }
 
 
+  /**
+   * Return true if this RoleUpdateRequest object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

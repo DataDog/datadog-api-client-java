@@ -22,6 +22,7 @@ import com.datadog.api.v1.client.model.WidgetStyle;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -44,7 +45,7 @@ import com.datadog.api.v1.client.JSON;
   DistributionWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_STYLE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DistributionWidgetRequest {
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
@@ -290,6 +291,9 @@ public class DistributionWidgetRequest {
   }
 
 
+  /**
+   * Return true if this DistributionWidgetRequest object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

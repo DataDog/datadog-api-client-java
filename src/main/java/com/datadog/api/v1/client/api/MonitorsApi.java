@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorsApi {
   private ApiClient apiClient;
 
@@ -91,7 +91,7 @@ private ApiResponse<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorWithHttp
 
     return apiClient.invokeAPI("MonitorsApi.checkCanDeleteMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcheckCanDeleteMonitorRequest {
@@ -200,7 +200,7 @@ private ApiResponse<Monitor> createMonitorWithHttpInfo(Monitor body) throws ApiE
 
     return apiClient.invokeAPI("MonitorsApi.createMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateMonitorRequest {
@@ -309,7 +309,7 @@ private ApiResponse<DeletedMonitor> deleteMonitorWithHttpInfo(Long monitorId, St
 
     return apiClient.invokeAPI("MonitorsApi.deleteMonitor", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIdeleteMonitorRequest {
@@ -425,7 +425,7 @@ private ApiResponse<Monitor> getMonitorWithHttpInfo(Long monitorId, String group
 
     return apiClient.invokeAPI("MonitorsApi.getMonitor", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetMonitorRequest {
@@ -540,7 +540,7 @@ private ApiResponse<List<Monitor>> listMonitorsWithHttpInfo(String groupStates, 
 
     return apiClient.invokeAPI("MonitorsApi.listMonitors", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistMonitorsRequest {
@@ -730,7 +730,7 @@ private ApiResponse<Monitor> updateMonitorWithHttpInfo(Long monitorId, MonitorUp
 
     return apiClient.invokeAPI("MonitorsApi.updateMonitor", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateMonitorRequest {
@@ -844,7 +844,7 @@ private ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws Ap
 
     return apiClient.invokeAPI("MonitorsApi.validateMonitor", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIvalidateMonitorRequest {

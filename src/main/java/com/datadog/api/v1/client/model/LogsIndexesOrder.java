@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,7 +35,7 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   LogsIndexesOrder.JSON_PROPERTY_INDEX_NAMES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsIndexesOrder {
   public static final String JSON_PROPERTY_INDEX_NAMES = "index_names";
   private List<String> indexNames = new ArrayList<>();
@@ -68,6 +69,9 @@ public class LogsIndexesOrder {
   }
 
 
+  /**
+   * Return true if this LogsIndexesOrder object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

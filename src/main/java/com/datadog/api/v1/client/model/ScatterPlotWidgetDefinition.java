@@ -23,6 +23,7 @@ import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -47,7 +48,7 @@ import com.datadog.api.v1.client.JSON;
   ScatterPlotWidgetDefinition.JSON_PROPERTY_XAXIS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_YAXIS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ScatterPlotWidgetDefinition {
   public static final String JSON_PROPERTY_COLOR_BY_GROUPS = "color_by_groups";
   private List<String> colorByGroups = null;
@@ -299,6 +300,9 @@ public class ScatterPlotWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this ScatterPlotWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

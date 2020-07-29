@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -46,7 +47,7 @@ import com.datadog.api.v1.client.JSON;
   GCPAccount.JSON_PROPERTY_TOKEN_URI,
   GCPAccount.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GCPAccount {
   public static final String JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL = "auth_provider_x509_cert_url";
   private String authProviderX509CertUrl;
@@ -408,6 +409,9 @@ public class GCPAccount {
   }
 
 
+  /**
+   * Return true if this GCPAccount object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

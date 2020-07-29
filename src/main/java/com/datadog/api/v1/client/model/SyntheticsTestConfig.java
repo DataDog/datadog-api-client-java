@@ -21,6 +21,7 @@ import com.datadog.api.v1.client.model.SyntheticsTestRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -39,7 +40,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsTestConfig.JSON_PROPERTY_REQUEST,
   SyntheticsTestConfig.JSON_PROPERTY_VARIABLES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestConfig {
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = new ArrayList<>();
@@ -134,6 +135,9 @@ public class SyntheticsTestConfig {
   }
 
 
+  /**
+   * Return true if this SyntheticsTestConfig object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

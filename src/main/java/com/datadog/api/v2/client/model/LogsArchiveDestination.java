@@ -23,6 +23,7 @@ import com.datadog.api.v2.client.model.LogsArchiveIntegrationS3;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -43,10 +44,12 @@ import java.util.HashSet;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -54,7 +57,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.datadog.api.v2.client.JSON;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonDeserialize(using = LogsArchiveDestination.LogsArchiveDestinationDeserializer.class)
 @JsonSerialize(using = LogsArchiveDestination.LogsArchiveDestinationSerializer.class)
 public class LogsArchiveDestination extends AbstractOpenApiSchema {
@@ -88,15 +91,31 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
         public LogsArchiveDestination deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
             Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
             // deserialize LogsArchiveDestinationAzure
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArchiveDestinationAzure.class);
-                // TODO: there is no validation against JSON schema constraints
-                // (min, max, enum, pattern...), this does not perform a strict JSON
-                // validation, which means the 'match' count may be higher than it should be.
-                match++;
-                log.log(Level.FINER, "Input data matches schema 'LogsArchiveDestinationAzure'");
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsArchiveDestinationAzure.class.equals(Integer.class) || LogsArchiveDestinationAzure.class.equals(Long.class) || LogsArchiveDestinationAzure.class.equals(Float.class) || LogsArchiveDestinationAzure.class.equals(Double.class) || LogsArchiveDestinationAzure.class.equals(Boolean.class) || LogsArchiveDestinationAzure.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsArchiveDestinationAzure.class.equals(Integer.class) || LogsArchiveDestinationAzure.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsArchiveDestinationAzure.class.equals(Float.class) || LogsArchiveDestinationAzure.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsArchiveDestinationAzure.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsArchiveDestinationAzure.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= (token == JsonToken.VALUE_NULL);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArchiveDestinationAzure.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsArchiveDestinationAzure'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'LogsArchiveDestinationAzure'", e);
@@ -104,12 +123,26 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
 
             // deserialize LogsArchiveDestinationGCS
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArchiveDestinationGCS.class);
-                // TODO: there is no validation against JSON schema constraints
-                // (min, max, enum, pattern...), this does not perform a strict JSON
-                // validation, which means the 'match' count may be higher than it should be.
-                match++;
-                log.log(Level.FINER, "Input data matches schema 'LogsArchiveDestinationGCS'");
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsArchiveDestinationGCS.class.equals(Integer.class) || LogsArchiveDestinationGCS.class.equals(Long.class) || LogsArchiveDestinationGCS.class.equals(Float.class) || LogsArchiveDestinationGCS.class.equals(Double.class) || LogsArchiveDestinationGCS.class.equals(Boolean.class) || LogsArchiveDestinationGCS.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsArchiveDestinationGCS.class.equals(Integer.class) || LogsArchiveDestinationGCS.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsArchiveDestinationGCS.class.equals(Float.class) || LogsArchiveDestinationGCS.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsArchiveDestinationGCS.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsArchiveDestinationGCS.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= (token == JsonToken.VALUE_NULL);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArchiveDestinationGCS.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsArchiveDestinationGCS'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'LogsArchiveDestinationGCS'", e);
@@ -117,12 +150,26 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
 
             // deserialize LogsArchiveDestinationS3
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArchiveDestinationS3.class);
-                // TODO: there is no validation against JSON schema constraints
-                // (min, max, enum, pattern...), this does not perform a strict JSON
-                // validation, which means the 'match' count may be higher than it should be.
-                match++;
-                log.log(Level.FINER, "Input data matches schema 'LogsArchiveDestinationS3'");
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsArchiveDestinationS3.class.equals(Integer.class) || LogsArchiveDestinationS3.class.equals(Long.class) || LogsArchiveDestinationS3.class.equals(Float.class) || LogsArchiveDestinationS3.class.equals(Double.class) || LogsArchiveDestinationS3.class.equals(Boolean.class) || LogsArchiveDestinationS3.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsArchiveDestinationS3.class.equals(Integer.class) || LogsArchiveDestinationS3.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsArchiveDestinationS3.class.equals(Float.class) || LogsArchiveDestinationS3.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsArchiveDestinationS3.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsArchiveDestinationS3.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= (token == JsonToken.VALUE_NULL);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArchiveDestinationS3.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsArchiveDestinationS3'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'LogsArchiveDestinationS3'", e);
@@ -135,7 +182,6 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
             }
             throw new IOException(String.format("Failed deserialization for LogsArchiveDestination: %d classes match result, expected 1", match));
         }
-
 
         /**
          * Handle deserialization of the 'null' value.

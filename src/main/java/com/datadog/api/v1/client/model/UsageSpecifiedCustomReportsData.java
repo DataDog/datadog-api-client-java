@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.UsageSpecifiedCustomReportsAttributes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,7 +37,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSpecifiedCustomReportsData.JSON_PROPERTY_ID,
   UsageSpecifiedCustomReportsData.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSpecifiedCustomReportsData {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private UsageSpecifiedCustomReportsAttributes attributes;
@@ -120,6 +121,9 @@ public class UsageSpecifiedCustomReportsData {
   }
 
 
+  /**
+   * Return true if this UsageSpecifiedCustomReportsData object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

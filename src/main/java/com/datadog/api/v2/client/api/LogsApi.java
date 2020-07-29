@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsApi {
   private ApiClient apiClient;
 
@@ -85,7 +85,7 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
 
     return apiClient.invokeAPI("LogsApi.listLogs", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistLogsRequest {
@@ -200,7 +200,7 @@ private ApiResponse<LogsListResponse> listLogsGetWithHttpInfo(String filterQuery
 
     return apiClient.invokeAPI("LogsApi.listLogsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistLogsGetRequest {

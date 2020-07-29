@@ -20,6 +20,7 @@ import com.datadog.api.v2.client.model.LogType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,7 +37,7 @@ import com.datadog.api.v2.client.JSON;
   Log.JSON_PROPERTY_ID,
   Log.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Log {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private LogAttributes attributes;
@@ -120,6 +121,9 @@ public class Log {
   }
 
 
+  /**
+   * Return true if this Log object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

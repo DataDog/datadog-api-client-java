@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.EventPriority;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -49,7 +50,7 @@ import com.datadog.api.v1.client.JSON;
   Event.JSON_PROPERTY_TITLE,
   Event.JSON_PROPERTY_URL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Event {
   public static final String JSON_PROPERTY_AGGREGATION_KEY = "aggregation_key";
   private String aggregationKey;
@@ -420,6 +421,9 @@ public class Event {
 
 
 
+  /**
+   * Return true if this Event object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

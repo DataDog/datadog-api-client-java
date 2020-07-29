@@ -23,6 +23,7 @@ import com.datadog.api.v1.client.model.OrganizationSettingsSamlStrictMode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -46,7 +47,7 @@ import com.datadog.api.v1.client.JSON;
   OrganizationSettings.JSON_PROPERTY_SAML_LOGIN_URL,
   OrganizationSettings.JSON_PROPERTY_SAML_STRICT_MODE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSettings {
   public static final String JSON_PROPERTY_PRIVATE_WIDGET_SHARE = "private_widget_share";
   private Boolean privateWidgetShare;
@@ -319,6 +320,9 @@ public class OrganizationSettings {
   }
 
 
+  /**
+   * Return true if this Organization_settings object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.LogsFilter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,7 +35,7 @@ import com.datadog.api.v1.client.JSON;
   LogsCategoryProcessorCategories.JSON_PROPERTY_FILTER,
   LogsCategoryProcessorCategories.JSON_PROPERTY_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsCategoryProcessorCategories {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsFilter filter;
@@ -91,6 +92,9 @@ public class LogsCategoryProcessorCategories {
   }
 
 
+  /**
+   * Return true if this LogsCategoryProcessor_categories object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

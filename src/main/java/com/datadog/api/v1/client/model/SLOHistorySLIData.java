@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,7 +43,7 @@ import com.datadog.api.v1.client.JSON;
   SLOHistorySLIData.JSON_PROPERTY_SPAN_PRECISION,
   SLOHistorySLIData.JSON_PROPERTY_UPTIME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistorySLIData {
   public static final String JSON_PROPERTY_HISTORY = "history";
   private List<List<Double>> history = null;
@@ -250,6 +251,9 @@ public class SLOHistorySLIData {
   }
 
 
+  /**
+   * Return true if this SLOHistorySLIData object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
