@@ -3331,12 +3331,18 @@ components:
             - notifications
           message: message
           queries:
-          - groupByFields:
+          - distinctFields:
+            - distinctFields
+            - distinctFields
+            groupByFields:
             - groupByFields
             - groupByFields
             query: query
             name: name
-          - groupByFields:
+          - distinctFields:
+            - distinctFields
+            - distinctFields
+            groupByFields:
             - groupByFields
             - groupByFields
             query: query
@@ -3366,12 +3372,18 @@ components:
             - notifications
           message: message
           queries:
-          - groupByFields:
+          - distinctFields:
+            - distinctFields
+            - distinctFields
+            groupByFields:
             - groupByFields
             - groupByFields
             query: query
             name: name
-          - groupByFields:
+          - distinctFields:
+            - distinctFields
+            - distinctFields
+            groupByFields:
             - groupByFields
             - groupByFields
             query: query
@@ -3576,12 +3588,21 @@ components:
     SecurityMonitoringRuleQuery:
       description: Query for matching rule.
       example:
+        distinctFields:
+        - distinctFields
+        - distinctFields
         groupByFields:
         - groupByFields
         - groupByFields
         query: query
         name: name
       properties:
+        distinctFields:
+          description: Field for which the cardinality is measured. Sent as an array.
+          items:
+            description: Field
+            type: string
+          type: array
         groupByFields:
           description: Fields to group by.
           items:
@@ -3611,12 +3632,18 @@ components:
           - notifications
         message: message
         queries:
-        - groupByFields:
+        - distinctFields:
+          - distinctFields
+          - distinctFields
+          groupByFields:
           - groupByFields
           - groupByFields
           query: query
           name: name
-        - groupByFields:
+        - distinctFields:
+          - distinctFields
+          - distinctFields
+          groupByFields:
           - groupByFields
           - groupByFields
           query: query
@@ -3716,12 +3743,18 @@ components:
         options: {}
         message: message
         queries:
-        - groupByFields:
+        - distinctFields:
+          - distinctFields
+          - distinctFields
+          groupByFields:
           - groupByFields
           - groupByFields
           query: query
           name: name
-        - groupByFields:
+        - distinctFields:
+          - distinctFields
+          - distinctFields
+          groupByFields:
           - groupByFields
           - groupByFields
           query: query
