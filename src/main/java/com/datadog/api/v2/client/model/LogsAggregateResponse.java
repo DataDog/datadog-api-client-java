@@ -15,8 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v2.client.model.Log;
-import com.datadog.api.v2.client.model.LogsListResponseLinks;
+import com.datadog.api.v2.client.model.LogsAggregateResponseData;
 import com.datadog.api.v2.client.model.LogsResponseMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,90 +24,52 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v2.client.JSON;
 
 
 /**
- * Response object with all logs matching the request and pagination information.
+ * The response object for the logs aggregate API endpoint
  */
-@ApiModel(description = "Response object with all logs matching the request and pagination information.")
+@ApiModel(description = "The response object for the logs aggregate API endpoint")
 @JsonPropertyOrder({
-  LogsListResponse.JSON_PROPERTY_DATA,
-  LogsListResponse.JSON_PROPERTY_LINKS,
-  LogsListResponse.JSON_PROPERTY_META
+  LogsAggregateResponse.JSON_PROPERTY_DATA,
+  LogsAggregateResponse.JSON_PROPERTY_META
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class LogsListResponse {
+public class LogsAggregateResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<Log> data = null;
-
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private LogsListResponseLinks links;
+  private LogsAggregateResponseData data;
 
   public static final String JSON_PROPERTY_META = "meta";
   private LogsResponseMetadata meta;
 
 
-  public LogsListResponse data(List<Log> data) {
+  public LogsAggregateResponse data(LogsAggregateResponseData data) {
     this.data = data;
     return this;
   }
 
-  public LogsListResponse addDataItem(Log dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * Array of logs matching the request.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of logs matching the request.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Log> getData() {
+  public LogsAggregateResponseData getData() {
     return data;
   }
 
 
-  public void setData(List<Log> data) {
+  public void setData(LogsAggregateResponseData data) {
     this.data = data;
   }
 
 
-  public LogsListResponse links(LogsListResponseLinks links) {
-    this.links = links;
-    return this;
-  }
-
-   /**
-   * Get links
-   * @return links
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public LogsListResponseLinks getLinks() {
-    return links;
-  }
-
-
-  public void setLinks(LogsListResponseLinks links) {
-    this.links = links;
-  }
-
-
-  public LogsListResponse meta(LogsResponseMetadata meta) {
+  public LogsAggregateResponse meta(LogsResponseMetadata meta) {
     this.meta = meta;
     return this;
   }
@@ -133,7 +94,7 @@ public class LogsListResponse {
 
 
   /**
-   * Return true if this LogsListResponse object is equal to o.
+   * Return true if this LogsAggregateResponse object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -143,24 +104,22 @@ public class LogsListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsListResponse logsListResponse = (LogsListResponse) o;
-    return Objects.equals(this.data, logsListResponse.data) &&
-        Objects.equals(this.links, logsListResponse.links) &&
-        Objects.equals(this.meta, logsListResponse.meta);
+    LogsAggregateResponse logsAggregateResponse = (LogsAggregateResponse) o;
+    return Objects.equals(this.data, logsAggregateResponse.data) &&
+        Objects.equals(this.meta, logsAggregateResponse.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, meta);
+    return Objects.hash(data, meta);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogsListResponse {\n");
+    sb.append("class LogsAggregateResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();

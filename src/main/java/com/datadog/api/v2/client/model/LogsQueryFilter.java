@@ -22,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,60 +29,60 @@ import com.datadog.api.v2.client.JSON;
 
 
 /**
- * Search filters for listing logs.
+ * The search and filter query settings
  */
-@ApiModel(description = "Search filters for listing logs.")
+@ApiModel(description = "The search and filter query settings")
 @JsonPropertyOrder({
-  LogsListRequestFilter.JSON_PROPERTY_FROM,
-  LogsListRequestFilter.JSON_PROPERTY_INDEXES,
-  LogsListRequestFilter.JSON_PROPERTY_QUERY,
-  LogsListRequestFilter.JSON_PROPERTY_TO
+  LogsQueryFilter.JSON_PROPERTY_FROM,
+  LogsQueryFilter.JSON_PROPERTY_INDEXES,
+  LogsQueryFilter.JSON_PROPERTY_QUERY,
+  LogsQueryFilter.JSON_PROPERTY_TO
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class LogsListRequestFilter {
+public class LogsQueryFilter {
   public static final String JSON_PROPERTY_FROM = "from";
-  private OffsetDateTime from;
+  private String from = "now-15m";
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
 
   public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
+  private String query = "*";
 
   public static final String JSON_PROPERTY_TO = "to";
-  private OffsetDateTime to;
+  private String to = "now";
 
 
-  public LogsListRequestFilter from(OffsetDateTime from) {
+  public LogsQueryFilter from(String from) {
     this.from = from;
     return this;
   }
 
    /**
-   * Minimum timestamp for requested logs.
+   * The minimum time for the requested logs, supports date math and regular timestamps
    * @return from
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "Minimum timestamp for requested logs.")
+  @ApiModelProperty(example = "now-15m", value = "The minimum time for the requested logs, supports date math and regular timestamps")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getFrom() {
+  public String getFrom() {
     return from;
   }
 
 
-  public void setFrom(OffsetDateTime from) {
+  public void setFrom(String from) {
     this.from = from;
   }
 
 
-  public LogsListRequestFilter indexes(List<String> indexes) {
+  public LogsQueryFilter indexes(List<String> indexes) {
     this.indexes = indexes;
     return this;
   }
 
-  public LogsListRequestFilter addIndexesItem(String indexesItem) {
+  public LogsQueryFilter addIndexesItem(String indexesItem) {
     if (this.indexes == null) {
       this.indexes = new ArrayList<>();
     }
@@ -92,11 +91,11 @@ public class LogsListRequestFilter {
   }
 
    /**
-   * For customers with multiple indexes, the indexes to search. Defaults to &#39;*&#39; which means all indexes.
+   * For customers with multiple indexes, the indexes to search. Defaults to [&#39;*&#39;] which means all indexes.
    * @return indexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"main\"]", value = "For customers with multiple indexes, the indexes to search. Defaults to '*' which means all indexes.")
+  @ApiModelProperty(example = "[\"main\",\"web\"]", value = "For customers with multiple indexes, the indexes to search. Defaults to ['*'] which means all indexes.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -110,17 +109,17 @@ public class LogsListRequestFilter {
   }
 
 
-  public LogsListRequestFilter query(String query) {
+  public LogsQueryFilter query(String query) {
     this.query = query;
     return this;
   }
 
    /**
-   * Search query following logs syntax.
+   * The search query - following the log search syntax.
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "@datacenter:us @role:db", value = "Search query following logs syntax.")
+  @ApiModelProperty(example = "service:web* AND @http.status_code:[200 TO 299]", value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,32 +133,32 @@ public class LogsListRequestFilter {
   }
 
 
-  public LogsListRequestFilter to(OffsetDateTime to) {
+  public LogsQueryFilter to(String to) {
     this.to = to;
     return this;
   }
 
    /**
-   * Maximum timestamp for requested logs.
+   * The maximum time for the requested logs, supports date math and regular timestamps
    * @return to
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-01-03T09:42:36.320Z", value = "Maximum timestamp for requested logs.")
+  @ApiModelProperty(example = "now", value = "The maximum time for the requested logs, supports date math and regular timestamps")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getTo() {
+  public String getTo() {
     return to;
   }
 
 
-  public void setTo(OffsetDateTime to) {
+  public void setTo(String to) {
     this.to = to;
   }
 
 
   /**
-   * Return true if this LogsListRequest_filter object is equal to o.
+   * Return true if this LogsQueryFilter object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -169,11 +168,11 @@ public class LogsListRequestFilter {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsListRequestFilter logsListRequestFilter = (LogsListRequestFilter) o;
-    return Objects.equals(this.from, logsListRequestFilter.from) &&
-        Objects.equals(this.indexes, logsListRequestFilter.indexes) &&
-        Objects.equals(this.query, logsListRequestFilter.query) &&
-        Objects.equals(this.to, logsListRequestFilter.to);
+    LogsQueryFilter logsQueryFilter = (LogsQueryFilter) o;
+    return Objects.equals(this.from, logsQueryFilter.from) &&
+        Objects.equals(this.indexes, logsQueryFilter.indexes) &&
+        Objects.equals(this.query, logsQueryFilter.query) &&
+        Objects.equals(this.to, logsQueryFilter.to);
   }
 
   @Override
@@ -185,7 +184,7 @@ public class LogsListRequestFilter {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogsListRequestFilter {\n");
+    sb.append("class LogsQueryFilter {\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");

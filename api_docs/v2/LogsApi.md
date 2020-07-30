@@ -4,9 +4,91 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**aggregateLogs**](LogsApi.md#aggregateLogs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
 [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v2/logs/events/search | Get a list of logs
 [**listLogsGet**](LogsApi.md#listLogsGet) | **GET** /api/v2/logs/events | Get a quick list of logs
 
+
+
+## aggregateLogs
+
+> LogsAggregateResponse aggregateLogs().body(body).execute();
+
+Aggregate events
+
+The public API endpoint to aggregate events into buckets and compute metrics and timeseries.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.LogsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        LogsApi apiInstance = new LogsApi(defaultClient);
+        LogsAggregateRequest body = new LogsAggregateRequest(); // LogsAggregateRequest | 
+        try {
+            LogsAggregateResponse result = api.aggregateLogs()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling LogsApi#aggregateLogs");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md)|  | [optional]
+
+### Return type
+
+[**LogsAggregateResponse**](LogsAggregateResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
 
 
 ## listLogs

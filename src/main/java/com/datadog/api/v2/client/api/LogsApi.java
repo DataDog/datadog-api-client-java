@@ -9,6 +9,8 @@ import com.datadog.api.v2.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v2.client.model.APIErrorResponse;
+import com.datadog.api.v2.client.model.LogsAggregateRequest;
+import com.datadog.api.v2.client.model.LogsAggregateResponse;
 import com.datadog.api.v2.client.model.LogsListRequest;
 import com.datadog.api.v2.client.model.LogsListResponse;
 import com.datadog.api.v2.client.model.LogsSort;
@@ -49,6 +51,114 @@ public class LogsApi {
     this.apiClient = apiClient;
   }
 
+
+private ApiResponse<LogsAggregateResponse> aggregateLogsWithHttpInfo(LogsAggregateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/analytics/aggregate";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "aggregateLogs");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<LogsAggregateResponse> localVarReturnType = new GenericType<LogsAggregateResponse>() {};
+
+    return apiClient.invokeAPI("LogsApi.aggregateLogs", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIaggregateLogsRequest {
+    private LogsAggregateRequest body;
+
+    private APIaggregateLogsRequest() {
+    }
+
+    /**
+     * Set body
+     * @param body  (optional)
+     * @return APIaggregateLogsRequest
+     */
+    public APIaggregateLogsRequest body(LogsAggregateRequest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute aggregateLogs request
+     * @return LogsAggregateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public LogsAggregateResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute aggregateLogs request with HTTP info returned
+     * @return ApiResponse&lt;LogsAggregateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<LogsAggregateResponse> executeWithHttpInfo() throws ApiException {
+      return aggregateLogsWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Aggregate events
+   * The public API endpoint to aggregate events into buckets and compute metrics and timeseries.
+   * @return aggregateLogsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIaggregateLogsRequest aggregateLogs() throws ApiException {
+    String operationId = "aggregateLogs";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIaggregateLogsRequest();
+  }
 
 private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body) throws ApiException {
     Object localVarPostBody = body;
