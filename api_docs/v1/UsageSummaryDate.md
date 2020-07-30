@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **netflowIndexedEventsCountSum** | **Long** | Shows the sum of all Network flows indexed over all hours in the current date for all organizations. |  [optional]
 **npmHostTop99p** | **Long** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations. |  [optional]
 **orgs** | [**List&lt;UsageSummaryDateOrg&gt;**](UsageSummaryDateOrg.md) | Organizations associated with a user. |  [optional]
+**profilingHostTop99p** | **Long** | Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations. |  [optional]
 **rumSessionCountSum** | **Long** | Shows the sum of all RUM Sessions over all hours in the current date for all organizations |  [optional]
 **syntheticsBrowserCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations. |  [optional]
 **syntheticsCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current date for all organizations. |  [optional]
