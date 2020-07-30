@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **followRedirects** | **Boolean** | For API HTTP test, whether or not the test should follow redirects. |  [optional]
 **minFailureDuration** | **Long** | Minimum amount of time in failure required to trigger an alert. |  [optional]
 **minLocationFailed** | **Long** | Minimum number of locations in failure required to trigger an alert. |  [optional]
+**monitorOptions** | [**SyntheticsTestOptionsMonitorOptions**](SyntheticsTestOptionsMonitorOptions.md) |  |  [optional]
 **retry** | [**SyntheticsTestOptionsRetry**](SyntheticsTestOptionsRetry.md) |  |  [optional]
 **tickEvery** | [**SyntheticsTickInterval**](SyntheticsTickInterval.md) |  |  [optional]
 
