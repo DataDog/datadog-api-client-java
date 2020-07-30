@@ -7,7 +7,8 @@ The request for a logs list.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filter** | [**LogsListRequestFilter**](LogsListRequestFilter.md) |  |  [optional]
+**filter** | [**LogsQueryFilter**](LogsQueryFilter.md) |  |  [optional]
+**options** | [**LogsQueryOptions**](LogsQueryOptions.md) |  |  [optional]
 **page** | [**LogsListRequestPage**](LogsListRequestPage.md) |  |  [optional]
 **sort** | [**LogsSort**](LogsSort.md) |  |  [optional]
 

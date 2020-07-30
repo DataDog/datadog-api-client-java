@@ -19,9 +19,9 @@ import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.model.LogsListRequest;
-import com.datadog.api.v2.client.model.LogsListRequestFilter;
 import com.datadog.api.v2.client.model.LogsListRequestPage;
 import com.datadog.api.v2.client.model.LogsListResponse;
+import com.datadog.api.v2.client.model.LogsQueryFilter;
 import com.datadog.api.v2.client.model.LogsSort;
 import java.net.MalformedURLException;
 import java.net.URLEncoder;
@@ -111,10 +111,10 @@ public class LogsApiTest extends V2APITest {
         String suffix = getUniqueEntityName();
         sendLogs(suffix);
 
-        LogsListRequestFilter allLogsFilter = new LogsListRequestFilter()
+        LogsQueryFilter allLogsFilter = new LogsQueryFilter()
                 .query(suffix)
-                .from(now.minus(Duration.ofHours(1)))
-                .to(now.plus(Duration.ofHours(1)));
+                .from("now-1h")
+                .to("now+1h");
 
         // Make sure both logs are indexed
         LogsListRequest bothMessagesRequest = new LogsListRequest()

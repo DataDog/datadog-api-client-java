@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**List&lt;Log&gt;**](Log.md) | Array of logs matching the request. |  [optional]
 **links** | [**LogsListResponseLinks**](LogsListResponseLinks.md) |  |  [optional]
-**meta** | [**LogsListResponseMeta**](LogsListResponseMeta.md) |  |  [optional]
+**meta** | [**LogsResponseMetadata**](LogsResponseMetadata.md) |  |  [optional]
 
 
 

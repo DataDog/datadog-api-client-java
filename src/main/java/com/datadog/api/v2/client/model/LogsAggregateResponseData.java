@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v2.client.model.LogsAggregateBucket;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -22,49 +23,59 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v2.client.JSON;
 
 
 /**
- * Paging attributes.
+ * The query results
  */
-@ApiModel(description = "Paging attributes.")
+@ApiModel(description = "The query results")
 @JsonPropertyOrder({
-  LogsListResponseMetaPage.JSON_PROPERTY_AFTER
+  LogsAggregateResponseData.JSON_PROPERTY_BUCKETS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class LogsListResponseMetaPage {
-  public static final String JSON_PROPERTY_AFTER = "after";
-  private String after;
+public class LogsAggregateResponseData {
+  public static final String JSON_PROPERTY_BUCKETS = "buckets";
+  private List<LogsAggregateBucket> buckets = null;
 
 
-  public LogsListResponseMetaPage after(String after) {
-    this.after = after;
+  public LogsAggregateResponseData buckets(List<LogsAggregateBucket> buckets) {
+    this.buckets = buckets;
+    return this;
+  }
+
+  public LogsAggregateResponseData addBucketsItem(LogsAggregateBucket bucketsItem) {
+    if (this.buckets == null) {
+      this.buckets = new ArrayList<>();
+    }
+    this.buckets.add(bucketsItem);
     return this;
   }
 
    /**
-   * Cursor to use to get next results, if any. To make the next request, use the same parameters with the addition of the &#x60;page[cursor]&#x60;.
-   * @return after
+   * The list of matching buckets, one item per bucket
+   * @return buckets
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==", value = "Cursor to use to get next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.")
-  @JsonProperty(JSON_PROPERTY_AFTER)
+  @ApiModelProperty(value = "The list of matching buckets, one item per bucket")
+  @JsonProperty(JSON_PROPERTY_BUCKETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getAfter() {
-    return after;
+  public List<LogsAggregateBucket> getBuckets() {
+    return buckets;
   }
 
 
-  public void setAfter(String after) {
-    this.after = after;
+  public void setBuckets(List<LogsAggregateBucket> buckets) {
+    this.buckets = buckets;
   }
 
 
   /**
-   * Return true if this LogsListResponse_meta_page object is equal to o.
+   * Return true if this LogsAggregateResponse_data object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -74,21 +85,21 @@ public class LogsListResponseMetaPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsListResponseMetaPage logsListResponseMetaPage = (LogsListResponseMetaPage) o;
-    return Objects.equals(this.after, logsListResponseMetaPage.after);
+    LogsAggregateResponseData logsAggregateResponseData = (LogsAggregateResponseData) o;
+    return Objects.equals(this.buckets, logsAggregateResponseData.buckets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(after);
+    return Objects.hash(buckets);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogsListResponseMetaPage {\n");
-    sb.append("    after: ").append(toIndentedString(after)).append("\n");
+    sb.append("class LogsAggregateResponseData {\n");
+    sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
     sb.append("}");
     return sb.toString();
   }
