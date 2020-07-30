@@ -50,6 +50,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDateOrg.JSON_PROPERTY_NAME,
   UsageSummaryDateOrg.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NPM_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PUBLIC_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
@@ -114,6 +115,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P = "npm_host_top99p";
   private Long npmHostTop99p;
+
+  public static final String JSON_PROPERTY_PROFILING_HOST_TOP99P = "profiling_host_top99p";
+  private Long profilingHostTop99p;
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
@@ -587,6 +591,30 @@ public class UsageSummaryDateOrg {
   }
 
 
+  public UsageSummaryDateOrg profilingHostTop99p(Long profilingHostTop99p) {
+    this.profilingHostTop99p = profilingHostTop99p;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.
+   * @return profilingHostTop99p
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_PROFILING_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getProfilingHostTop99p() {
+    return profilingHostTop99p;
+  }
+
+
+  public void setProfilingHostTop99p(Long profilingHostTop99p) {
+    this.profilingHostTop99p = profilingHostTop99p;
+  }
+
+
   public UsageSummaryDateOrg publicId(String publicId) {
     this.publicId = publicId;
     return this;
@@ -738,6 +766,7 @@ public class UsageSummaryDateOrg {
         Objects.equals(this.name, usageSummaryDateOrg.name) &&
         Objects.equals(this.netflowIndexedEventsCountSum, usageSummaryDateOrg.netflowIndexedEventsCountSum) &&
         Objects.equals(this.npmHostTop99p, usageSummaryDateOrg.npmHostTop99p) &&
+        Objects.equals(this.profilingHostTop99p, usageSummaryDateOrg.profilingHostTop99p) &&
         Objects.equals(this.publicId, usageSummaryDateOrg.publicId) &&
         Objects.equals(this.rumSessionCountSum, usageSummaryDateOrg.rumSessionCountSum) &&
         Objects.equals(this.syntheticsBrowserCheckCallsCountSum, usageSummaryDateOrg.syntheticsBrowserCheckCallsCountSum) &&
@@ -747,7 +776,7 @@ public class UsageSummaryDateOrg {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, name, netflowIndexedEventsCountSum, npmHostTop99p, publicId, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum);
+    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum);
   }
 
 
@@ -774,6 +803,7 @@ public class UsageSummaryDateOrg {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    netflowIndexedEventsCountSum: ").append(toIndentedString(netflowIndexedEventsCountSum)).append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
+    sb.append("    profilingHostTop99p: ").append(toIndentedString(profilingHostTop99p)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountSum)).append("\n");

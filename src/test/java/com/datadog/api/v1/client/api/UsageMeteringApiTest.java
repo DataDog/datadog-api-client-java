@@ -291,6 +291,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getContainerHwmSum().longValue(), 1L);
         assertEquals(usage.getCustomTsSum().longValue(), 4L);
         assertEquals(usage.getRumSessionCountAggSum().longValue(), 5L);
+        assertEquals(usage.getProfilingHostCountTop99pSum().longValue(), 6L);
 
         // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
         OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
@@ -305,6 +306,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageItem.getGcpHostTop99p().longValue(), 7L);
         assertEquals(usageItem.getInfraHostTop99p().longValue(), 8L);
         assertEquals(usageItem.getRumSessionCountSum().longValue(), 9L);
+        assertEquals(usageItem.getProfilingHostTop99p().longValue(), 10L);
 
         UsageSummaryDateOrg usageOrgItem = usageItem.getOrgs().get(0);
         assertEquals(usageOrgItem.getId(), "1b");
@@ -317,6 +319,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageOrgItem.getGcpHostTop99p().longValue(), 7L);
         assertEquals(usageOrgItem.getInfraHostTop99p().longValue(), 8L);
         assertEquals(usageOrgItem.getRumSessionCountSum().longValue(), 9L);
+        assertEquals(usageOrgItem.getProfilingHostTop99p().longValue(), 10L);
     }
 
     @Test

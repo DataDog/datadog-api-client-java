@@ -55,6 +55,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryResponse.JSON_PROPERTY_LAST_UPDATED,
   UsageSummaryResponse.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_START_DATE,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM,
@@ -123,6 +124,9 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P_SUM = "npm_host_top99p_sum";
   private Long npmHostTop99pSum;
+
+  public static final String JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM = "profiling_host_count_top99p_sum";
+  private Long profilingHostCountTop99pSum;
 
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM = "rum_session_count_agg_sum";
   private Long rumSessionCountAggSum;
@@ -623,6 +627,30 @@ public class UsageSummaryResponse {
   }
 
 
+  public UsageSummaryResponse profilingHostCountTop99pSum(Long profilingHostCountTop99pSum) {
+    this.profilingHostCountTop99pSum = profilingHostCountTop99pSum;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all profiled hosts over all hours in the current month(s) for all organizations.
+   * @return profilingHostCountTop99pSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all profiled hosts over all hours in the current month(s) for all organizations.")
+  @JsonProperty(JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getProfilingHostCountTop99pSum() {
+    return profilingHostCountTop99pSum;
+  }
+
+
+  public void setProfilingHostCountTop99pSum(Long profilingHostCountTop99pSum) {
+    this.profilingHostCountTop99pSum = profilingHostCountTop99pSum;
+  }
+
+
   public UsageSummaryResponse rumSessionCountAggSum(Long rumSessionCountAggSum) {
     this.rumSessionCountAggSum = rumSessionCountAggSum;
     return this;
@@ -807,6 +835,7 @@ public class UsageSummaryResponse {
         Objects.equals(this.lastUpdated, usageSummaryResponse.lastUpdated) &&
         Objects.equals(this.netflowIndexedEventsCountAggSum, usageSummaryResponse.netflowIndexedEventsCountAggSum) &&
         Objects.equals(this.npmHostTop99pSum, usageSummaryResponse.npmHostTop99pSum) &&
+        Objects.equals(this.profilingHostCountTop99pSum, usageSummaryResponse.profilingHostCountTop99pSum) &&
         Objects.equals(this.rumSessionCountAggSum, usageSummaryResponse.rumSessionCountAggSum) &&
         Objects.equals(this.startDate, usageSummaryResponse.startDate) &&
         Objects.equals(this.syntheticsBrowserCheckCallsCountAggSum, usageSummaryResponse.syntheticsBrowserCheckCallsCountAggSum) &&
@@ -817,7 +846,7 @@ public class UsageSummaryResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, lastUpdated, netflowIndexedEventsCountAggSum, npmHostTop99pSum, rumSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, usage);
+    return Objects.hash(agentHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, lastUpdated, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingHostCountTop99pSum, rumSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, usage);
   }
 
 
@@ -845,6 +874,7 @@ public class UsageSummaryResponse {
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
     sb.append("    netflowIndexedEventsCountAggSum: ").append(toIndentedString(netflowIndexedEventsCountAggSum)).append("\n");
     sb.append("    npmHostTop99pSum: ").append(toIndentedString(npmHostTop99pSum)).append("\n");
+    sb.append("    profilingHostCountTop99pSum: ").append(toIndentedString(profilingHostCountTop99pSum)).append("\n");
     sb.append("    rumSessionCountAggSum: ").append(toIndentedString(rumSessionCountAggSum)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountAggSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountAggSum)).append("\n");
