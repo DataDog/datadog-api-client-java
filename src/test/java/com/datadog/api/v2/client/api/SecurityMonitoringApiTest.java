@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 public class SecurityMonitoringApiTest extends V2APITest {
 
     private SecurityMonitoringApi api;
-    private List<SecurityMonitoringRuleResponseCreate> ruleCreateResponses;
+    private List<SecurityMonitoringRuleResponse> ruleResponses;
 
     @Override
     public String getTracingEndpoint() {
@@ -35,12 +35,12 @@ public class SecurityMonitoringApiTest extends V2APITest {
     @Before
     public void setUp() throws Exception {
         api = new SecurityMonitoringApi(generalApiClient);
-        ruleCreateResponses = new ArrayList<>();
+        ruleResponses = new ArrayList<>();
     }
 
     @After
     public void tearDown() throws Exception {
-        for (SecurityMonitoringRuleResponseCreate rule : ruleCreateResponses) {
+        for (SecurityMonitoringRuleResponse rule : ruleResponses) {
             try {
                 api.deleteSecurityMonitoringRule(rule.getId()).execute();
             } catch (ApiException e) {
@@ -56,16 +56,16 @@ public class SecurityMonitoringApiTest extends V2APITest {
         // create rules
         for (int i = 0; i < 5; i++) {
             String ruleName = String.format("%s-%d", baseName, i);
-            SecurityMonitoringRuleResponseCreate response = createRule(ruleName);
-            ruleCreateResponses.add(response);
+            SecurityMonitoringRuleResponse response = createRule(ruleName);
+            ruleResponses.add(response);
 
             assertEquals(ruleName, response.getName());
         }
 
         // get single rule
-        SecurityMonitoringRuleResponseCreate createdRule = ruleCreateResponses.get(0);
+        SecurityMonitoringRuleResponse createdRule = ruleResponses.get(0);
         SecurityMonitoringRuleResponse fetchedRule = api.getSecurityMonitoringRule(createdRule.getId()).execute();
-        assertEquals(createdRule.getName(), fetchedRule.getName());
+        assertEquals(createdRule, fetchedRule);
 
         //// get all rules
         // get total count
@@ -78,12 +78,12 @@ public class SecurityMonitoringApiTest extends V2APITest {
         SecurityMonitoringListRulesResponse getAllRules = api.listSecurityMonitoringRules().pageSize(ruleCount).execute();
         // this could be flaky if another test is run at the same time
         // assertEquals(ruleCount, getAllRules.getData().size());
-        Set<String> ids = ruleCreateResponses.stream().map(SecurityMonitoringRuleResponseCreate::getId).collect(Collectors.toSet());
+        Set<String> ids = ruleResponses.stream().map(SecurityMonitoringRuleResponse::getId).collect(Collectors.toSet());
         List<SecurityMonitoringRuleResponse> knownRules = getAllRules.getData()
                 .stream()
                 .filter(rule -> ids.contains(rule.getId()))
                 .collect(Collectors.toList());
-        assertEquals(ruleCreateResponses.size(), knownRules.size());
+        assertEquals(ruleResponses.size(), knownRules.size());
 
         // paging
         SecurityMonitoringListRulesResponse firstPage = api.listSecurityMonitoringRules().pageSize(2L).pageNumber(0L).execute();
@@ -126,7 +126,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         }
     }
 
-    private SecurityMonitoringRuleResponseCreate createRule(String ruleName) throws ApiException {
+    private SecurityMonitoringRuleResponse createRule(String ruleName) throws ApiException {
         SecurityMonitoringRuleCreatePayload createRulePayload = new SecurityMonitoringRuleCreatePayload();
         createRulePayload
                 .name(ruleName)
