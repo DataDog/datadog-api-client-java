@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsDeviceID;
+import com.datadog.api.v1.client.model.SyntheticsTestOptionsMonitorOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.v1.client.model.SyntheticsTickInterval;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -42,6 +43,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
+  SyntheticsTestOptions.JSON_PROPERTY_MONITOR_OPTIONS,
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
@@ -64,6 +66,9 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_MIN_LOCATION_FAILED = "min_location_failed";
   private Long minLocationFailed;
+
+  public static final String JSON_PROPERTY_MONITOR_OPTIONS = "monitor_options";
+  private SyntheticsTestOptionsMonitorOptions monitorOptions;
 
   public static final String JSON_PROPERTY_RETRY = "retry";
   private SyntheticsTestOptionsRetry retry;
@@ -224,6 +229,30 @@ public class SyntheticsTestOptions {
   }
 
 
+  public SyntheticsTestOptions monitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
+    this.monitorOptions = monitorOptions;
+    return this;
+  }
+
+   /**
+   * Get monitorOptions
+   * @return monitorOptions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MONITOR_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SyntheticsTestOptionsMonitorOptions getMonitorOptions() {
+    return monitorOptions;
+  }
+
+
+  public void setMonitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
+    this.monitorOptions = monitorOptions;
+  }
+
+
   public SyntheticsTestOptions retry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
     return this;
@@ -290,13 +319,14 @@ public class SyntheticsTestOptions {
         Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects) &&
         Objects.equals(this.minFailureDuration, syntheticsTestOptions.minFailureDuration) &&
         Objects.equals(this.minLocationFailed, syntheticsTestOptions.minLocationFailed) &&
+        Objects.equals(this.monitorOptions, syntheticsTestOptions.monitorOptions) &&
         Objects.equals(this.retry, syntheticsTestOptions.retry) &&
         Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptSelfSigned, allowInsecure, deviceIds, followRedirects, minFailureDuration, minLocationFailed, retry, tickEvery);
+    return Objects.hash(acceptSelfSigned, allowInsecure, deviceIds, followRedirects, minFailureDuration, minLocationFailed, monitorOptions, retry, tickEvery);
   }
 
 
@@ -310,6 +340,7 @@ public class SyntheticsTestOptions {
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
     sb.append("    minFailureDuration: ").append(toIndentedString(minFailureDuration)).append("\n");
     sb.append("    minLocationFailed: ").append(toIndentedString(minLocationFailed)).append("\n");
+    sb.append("    monitorOptions: ").append(toIndentedString(monitorOptions)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    tickEvery: ").append(toIndentedString(tickEvery)).append("\n");
     sb.append("}");
