@@ -34,13 +34,13 @@ import com.datadog.api.v2.client.JSON;
  */
 @ApiModel(description = "Case when signal is generated.")
 @JsonPropertyOrder({
-  SecurityMonitoringRuleCase.JSON_PROPERTY_CONDITION,
-  SecurityMonitoringRuleCase.JSON_PROPERTY_NAME,
-  SecurityMonitoringRuleCase.JSON_PROPERTY_NOTIFICATIONS,
-  SecurityMonitoringRuleCase.JSON_PROPERTY_STATUS
+  SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_CONDITION,
+  SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_NAME,
+  SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_NOTIFICATIONS,
+  SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SecurityMonitoringRuleCase {
+public class SecurityMonitoringRuleCaseCreate {
   public static final String JSON_PROPERTY_CONDITION = "condition";
   private String condition;
 
@@ -54,7 +54,7 @@ public class SecurityMonitoringRuleCase {
   private SecurityMonitoringRuleSeverity status;
 
 
-  public SecurityMonitoringRuleCase condition(String condition) {
+  public SecurityMonitoringRuleCaseCreate condition(String condition) {
     this.condition = condition;
     return this;
   }
@@ -78,7 +78,7 @@ public class SecurityMonitoringRuleCase {
   }
 
 
-  public SecurityMonitoringRuleCase name(String name) {
+  public SecurityMonitoringRuleCaseCreate name(String name) {
     this.name = name;
     return this;
   }
@@ -102,12 +102,12 @@ public class SecurityMonitoringRuleCase {
   }
 
 
-  public SecurityMonitoringRuleCase notifications(List<String> notifications) {
+  public SecurityMonitoringRuleCaseCreate notifications(List<String> notifications) {
     this.notifications = notifications;
     return this;
   }
 
-  public SecurityMonitoringRuleCase addNotificationsItem(String notificationsItem) {
+  public SecurityMonitoringRuleCaseCreate addNotificationsItem(String notificationsItem) {
     if (this.notifications == null) {
       this.notifications = new ArrayList<>();
     }
@@ -134,7 +134,7 @@ public class SecurityMonitoringRuleCase {
   }
 
 
-  public SecurityMonitoringRuleCase status(SecurityMonitoringRuleSeverity status) {
+  public SecurityMonitoringRuleCaseCreate status(SecurityMonitoringRuleSeverity status) {
     this.status = status;
     return this;
   }
@@ -143,10 +143,9 @@ public class SecurityMonitoringRuleCase {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SecurityMonitoringRuleSeverity getStatus() {
     return status;
@@ -159,7 +158,7 @@ public class SecurityMonitoringRuleCase {
 
 
   /**
-   * Return true if this SecurityMonitoringRuleCase object is equal to o.
+   * Return true if this SecurityMonitoringRuleCaseCreate object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -169,11 +168,11 @@ public class SecurityMonitoringRuleCase {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleCase securityMonitoringRuleCase = (SecurityMonitoringRuleCase) o;
-    return Objects.equals(this.condition, securityMonitoringRuleCase.condition) &&
-        Objects.equals(this.name, securityMonitoringRuleCase.name) &&
-        Objects.equals(this.notifications, securityMonitoringRuleCase.notifications) &&
-        Objects.equals(this.status, securityMonitoringRuleCase.status);
+    SecurityMonitoringRuleCaseCreate securityMonitoringRuleCaseCreate = (SecurityMonitoringRuleCaseCreate) o;
+    return Objects.equals(this.condition, securityMonitoringRuleCaseCreate.condition) &&
+        Objects.equals(this.name, securityMonitoringRuleCaseCreate.name) &&
+        Objects.equals(this.notifications, securityMonitoringRuleCaseCreate.notifications) &&
+        Objects.equals(this.status, securityMonitoringRuleCaseCreate.status);
   }
 
   @Override
@@ -185,7 +184,7 @@ public class SecurityMonitoringRuleCase {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringRuleCase {\n");
+    sb.append("class SecurityMonitoringRuleCaseCreate {\n");
     sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");

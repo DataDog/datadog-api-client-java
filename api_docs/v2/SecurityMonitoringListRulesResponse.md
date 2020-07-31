@@ -2,7 +2,7 @@
 
 # SecurityMonitoringListRulesResponse
 
-List of rules
+List of rules.
 ## Properties
 
 Name | Type | Description | Notes

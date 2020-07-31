@@ -33,13 +33,13 @@ import com.datadog.api.v2.client.JSON;
  */
 @ApiModel(description = "Query for matching rule.")
 @JsonPropertyOrder({
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_NAME,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_QUERY
+  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_DISTINCT_FIELDS,
+  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_GROUP_BY_FIELDS,
+  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_NAME,
+  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_QUERY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SecurityMonitoringRuleQuery {
+public class SecurityMonitoringRuleQueryCreate {
   public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
   private List<String> distinctFields = null;
 
@@ -53,12 +53,12 @@ public class SecurityMonitoringRuleQuery {
   private String query;
 
 
-  public SecurityMonitoringRuleQuery distinctFields(List<String> distinctFields) {
+  public SecurityMonitoringRuleQueryCreate distinctFields(List<String> distinctFields) {
     this.distinctFields = distinctFields;
     return this;
   }
 
-  public SecurityMonitoringRuleQuery addDistinctFieldsItem(String distinctFieldsItem) {
+  public SecurityMonitoringRuleQueryCreate addDistinctFieldsItem(String distinctFieldsItem) {
     if (this.distinctFields == null) {
       this.distinctFields = new ArrayList<>();
     }
@@ -85,12 +85,12 @@ public class SecurityMonitoringRuleQuery {
   }
 
 
-  public SecurityMonitoringRuleQuery groupByFields(List<String> groupByFields) {
+  public SecurityMonitoringRuleQueryCreate groupByFields(List<String> groupByFields) {
     this.groupByFields = groupByFields;
     return this;
   }
 
-  public SecurityMonitoringRuleQuery addGroupByFieldsItem(String groupByFieldsItem) {
+  public SecurityMonitoringRuleQueryCreate addGroupByFieldsItem(String groupByFieldsItem) {
     if (this.groupByFields == null) {
       this.groupByFields = new ArrayList<>();
     }
@@ -117,7 +117,7 @@ public class SecurityMonitoringRuleQuery {
   }
 
 
-  public SecurityMonitoringRuleQuery name(String name) {
+  public SecurityMonitoringRuleQueryCreate name(String name) {
     this.name = name;
     return this;
   }
@@ -141,7 +141,7 @@ public class SecurityMonitoringRuleQuery {
   }
 
 
-  public SecurityMonitoringRuleQuery query(String query) {
+  public SecurityMonitoringRuleQueryCreate query(String query) {
     this.query = query;
     return this;
   }
@@ -150,10 +150,9 @@ public class SecurityMonitoringRuleQuery {
    * Query to run on logs.
    * @return query
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query to run on logs.")
+  @ApiModelProperty(required = true, value = "Query to run on logs.")
   @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getQuery() {
     return query;
@@ -166,7 +165,7 @@ public class SecurityMonitoringRuleQuery {
 
 
   /**
-   * Return true if this SecurityMonitoringRuleQuery object is equal to o.
+   * Return true if this SecurityMonitoringRuleQueryCreate object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,11 +175,11 @@ public class SecurityMonitoringRuleQuery {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleQuery securityMonitoringRuleQuery = (SecurityMonitoringRuleQuery) o;
-    return Objects.equals(this.distinctFields, securityMonitoringRuleQuery.distinctFields) &&
-        Objects.equals(this.groupByFields, securityMonitoringRuleQuery.groupByFields) &&
-        Objects.equals(this.name, securityMonitoringRuleQuery.name) &&
-        Objects.equals(this.query, securityMonitoringRuleQuery.query);
+    SecurityMonitoringRuleQueryCreate securityMonitoringRuleQueryCreate = (SecurityMonitoringRuleQueryCreate) o;
+    return Objects.equals(this.distinctFields, securityMonitoringRuleQueryCreate.distinctFields) &&
+        Objects.equals(this.groupByFields, securityMonitoringRuleQueryCreate.groupByFields) &&
+        Objects.equals(this.name, securityMonitoringRuleQueryCreate.name) &&
+        Objects.equals(this.query, securityMonitoringRuleQueryCreate.query);
   }
 
   @Override
@@ -192,7 +191,7 @@ public class SecurityMonitoringRuleQuery {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringRuleQuery {\n");
+    sb.append("class SecurityMonitoringRuleQueryCreate {\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

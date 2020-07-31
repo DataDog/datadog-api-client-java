@@ -450,7 +450,7 @@
       "X-Frame-Options" : [ "SAMEORIGIN" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "3382" ]
+      "content-length" : [ "3380" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
@@ -501,7 +501,7 @@
       "X-Frame-Options" : [ "SAMEORIGIN" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "2669" ]
+      "content-length" : [ "2667" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
