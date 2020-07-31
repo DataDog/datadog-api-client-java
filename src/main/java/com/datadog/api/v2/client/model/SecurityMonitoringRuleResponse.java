@@ -32,9 +32,9 @@ import com.datadog.api.v2.client.JSON;
 
 
 /**
- * Detection rule
+ * Detection rule.
  */
-@ApiModel(description = "Detection rule")
+@ApiModel(description = "Detection rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CREATED_AT,

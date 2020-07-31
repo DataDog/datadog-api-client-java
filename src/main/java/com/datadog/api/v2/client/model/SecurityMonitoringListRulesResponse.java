@@ -31,9 +31,9 @@ import com.datadog.api.v2.client.JSON;
 
 
 /**
- * List of rules
+ * List of rules.
  */
-@ApiModel(description = "List of rules")
+@ApiModel(description = "List of rules.")
 @JsonPropertyOrder({
   SecurityMonitoringListRulesResponse.JSON_PROPERTY_DATA,
   SecurityMonitoringListRulesResponse.JSON_PROPERTY_META

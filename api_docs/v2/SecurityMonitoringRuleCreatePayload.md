@@ -7,13 +7,13 @@ Create a new rule.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cases** | [**List&lt;SecurityMonitoringRuleCase&gt;**](SecurityMonitoringRuleCase.md) | Cases for generating signals. | 
+**cases** | [**List&lt;SecurityMonitoringRuleCaseCreate&gt;**](SecurityMonitoringRuleCaseCreate.md) | Cases for generating signals. | 
 **isEnabled** | **Boolean** | Whether the rule is enabled. | 
 **message** | **String** | Message for generated signals. | 
-**name** | **String** | The name of the rule | 
+**name** | **String** | The name of the rule. | 
 **options** | [**SecurityMonitoringRuleOptions**](SecurityMonitoringRuleOptions.md) |  | 
-**queries** | [**List&lt;SecurityMonitoringRuleQuery&gt;**](SecurityMonitoringRuleQuery.md) | Queries for selecting logs which are part of the rule. | 
-**tags** | **List&lt;String&gt;** | Tags for generated signals. | 
+**queries** | [**List&lt;SecurityMonitoringRuleQueryCreate&gt;**](SecurityMonitoringRuleQueryCreate.md) | Queries for selecting logs which are part of the rule. | 
+**tags** | **List&lt;String&gt;** | Tags for generated signals. |  [optional]
 
 
 
