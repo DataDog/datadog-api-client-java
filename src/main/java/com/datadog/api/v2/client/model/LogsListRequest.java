@@ -15,8 +15,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsListRequestFilter;
 import com.datadog.api.v2.client.model.LogsListRequestPage;
+import com.datadog.api.v2.client.model.LogsQueryFilter;
+import com.datadog.api.v2.client.model.LogsQueryOptions;
 import com.datadog.api.v2.client.model.LogsSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,13 +36,17 @@ import com.datadog.api.v2.client.JSON;
 @ApiModel(description = "The request for a logs list.")
 @JsonPropertyOrder({
   LogsListRequest.JSON_PROPERTY_FILTER,
+  LogsListRequest.JSON_PROPERTY_OPTIONS,
   LogsListRequest.JSON_PROPERTY_PAGE,
   LogsListRequest.JSON_PROPERTY_SORT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsListRequest {
   public static final String JSON_PROPERTY_FILTER = "filter";
-  private LogsListRequestFilter filter;
+  private LogsQueryFilter filter;
+
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  private LogsQueryOptions options;
 
   public static final String JSON_PROPERTY_PAGE = "page";
   private LogsListRequestPage page;
@@ -50,7 +55,7 @@ public class LogsListRequest {
   private LogsSort sort;
 
 
-  public LogsListRequest filter(LogsListRequestFilter filter) {
+  public LogsListRequest filter(LogsQueryFilter filter) {
     this.filter = filter;
     return this;
   }
@@ -64,13 +69,37 @@ public class LogsListRequest {
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LogsListRequestFilter getFilter() {
+  public LogsQueryFilter getFilter() {
     return filter;
   }
 
 
-  public void setFilter(LogsListRequestFilter filter) {
+  public void setFilter(LogsQueryFilter filter) {
     this.filter = filter;
+  }
+
+
+  public LogsListRequest options(LogsQueryOptions options) {
+    this.options = options;
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogsQueryOptions getOptions() {
+    return options;
+  }
+
+
+  public void setOptions(LogsQueryOptions options) {
+    this.options = options;
   }
 
 
@@ -135,13 +164,14 @@ public class LogsListRequest {
     }
     LogsListRequest logsListRequest = (LogsListRequest) o;
     return Objects.equals(this.filter, logsListRequest.filter) &&
+        Objects.equals(this.options, logsListRequest.options) &&
         Objects.equals(this.page, logsListRequest.page) &&
         Objects.equals(this.sort, logsListRequest.sort);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, page, sort);
+    return Objects.hash(filter, options, page, sort);
   }
 
 
@@ -150,6 +180,7 @@ public class LogsListRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsListRequest {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("}");

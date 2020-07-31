@@ -15,7 +15,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsListResponseMetaPage;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -28,44 +27,44 @@ import com.datadog.api.v2.client.JSON;
 
 
 /**
- * Meta attributes.
+ * Paging attributes.
  */
-@ApiModel(description = "Meta attributes.")
+@ApiModel(description = "Paging attributes.")
 @JsonPropertyOrder({
-  LogsListResponseMeta.JSON_PROPERTY_PAGE
+  LogsResponseMetadataPage.JSON_PROPERTY_AFTER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class LogsListResponseMeta {
-  public static final String JSON_PROPERTY_PAGE = "page";
-  private LogsListResponseMetaPage page;
+public class LogsResponseMetadataPage {
+  public static final String JSON_PROPERTY_AFTER = "after";
+  private String after;
 
 
-  public LogsListResponseMeta page(LogsListResponseMetaPage page) {
-    this.page = page;
+  public LogsResponseMetadataPage after(String after) {
+    this.after = after;
     return this;
   }
 
    /**
-   * Get page
-   * @return page
+   * The cursor to use to get the next results, if any. To make the next request, use the same. parameters with the addition of the &#x60;page[cursor]&#x60;.
+   * @return after
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PAGE)
+  @ApiModelProperty(example = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==", value = "The cursor to use to get the next results, if any. To make the next request, use the same. parameters with the addition of the `page[cursor]`.")
+  @JsonProperty(JSON_PROPERTY_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LogsListResponseMetaPage getPage() {
-    return page;
+  public String getAfter() {
+    return after;
   }
 
 
-  public void setPage(LogsListResponseMetaPage page) {
-    this.page = page;
+  public void setAfter(String after) {
+    this.after = after;
   }
 
 
   /**
-   * Return true if this LogsListResponse_meta object is equal to o.
+   * Return true if this LogsResponseMetadata_page object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -75,21 +74,21 @@ public class LogsListResponseMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsListResponseMeta logsListResponseMeta = (LogsListResponseMeta) o;
-    return Objects.equals(this.page, logsListResponseMeta.page);
+    LogsResponseMetadataPage logsResponseMetadataPage = (LogsResponseMetadataPage) o;
+    return Objects.equals(this.after, logsResponseMetadataPage.after);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page);
+    return Objects.hash(after);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogsListResponseMeta {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("class LogsResponseMetadataPage {\n");
+    sb.append("    after: ").append(toIndentedString(after)).append("\n");
     sb.append("}");
     return sb.toString();
   }
