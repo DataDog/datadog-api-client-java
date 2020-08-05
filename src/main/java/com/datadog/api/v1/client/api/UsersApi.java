@@ -185,7 +185,7 @@ private ApiResponse<UserDisableResponse> disableUserWithHttpInfo(String userHand
     
     
     final String[] localVarAccepts = {
-      "applcation/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
