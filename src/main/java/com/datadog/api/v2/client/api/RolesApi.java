@@ -603,7 +603,7 @@ private ApiResponse<PermissionsResponse> listPermissionsWithHttpInfo() throws Ap
     
     
     final String[] localVarAccepts = {
-      "application/json", "applcation/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -946,7 +946,7 @@ private ApiResponse<RolesResponse> listRolesWithHttpInfo(Long pageSize, Long pag
     
     
     final String[] localVarAccepts = {
-      "application/json", "applcation/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
