@@ -106,7 +106,7 @@
     "method" : "DELETE",
     "path" : "/api/v1/user/java-userdisableerrorstest-local-1595946645%40datadoghq.com",
     "headers" : {
-      "Accept" : [ "applcation/json" ],
+      "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userDisableErrorsTest" ],
       "DD-OPERATION-ID" : [ "disableUser" ],
       "Content-Type" : [ "application/json" ],
@@ -147,7 +147,7 @@
     "method" : "DELETE",
     "path" : "/api/v1/user/notahandle",
     "headers" : {
-      "Accept" : [ "applcation/json" ],
+      "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userDisableErrorsTest" ],
       "DD-OPERATION-ID" : [ "disableUser" ],
       "Content-Type" : [ "application/json" ],
@@ -182,7 +182,7 @@
     "method" : "DELETE",
     "path" : "/api/v1/user/notahandle",
     "headers" : {
-      "Accept" : [ "applcation/json" ],
+      "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userDisableErrorsTest" ],
       "DD-OPERATION-ID" : [ "disableUser" ],
       "Content-Type" : [ "application/json" ],

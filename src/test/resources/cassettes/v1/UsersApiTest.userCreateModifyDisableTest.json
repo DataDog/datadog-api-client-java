@@ -152,7 +152,7 @@
     "method" : "DELETE",
     "path" : "/api/v1/user/java-usercreatemodifydisabletest-local-15959466%40datadoghq.com",
     "headers" : {
-      "Accept" : [ "applcation/json" ],
+      "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userCreateModifyDisableTest" ],
       "DD-OPERATION-ID" : [ "disableUser" ],
       "Content-Type" : [ "application/json" ],

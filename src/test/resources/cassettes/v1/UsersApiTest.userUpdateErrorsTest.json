@@ -231,7 +231,7 @@
     "method" : "DELETE",
     "path" : "/api/v1/user/java-userUpdateErrorsTest-local-1595946652%40datadoghq.com",
     "headers" : {
-      "Accept" : [ "applcation/json" ],
+      "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userUpdateErrorsTest" ],
       "DD-OPERATION-ID" : [ "disableUser" ],
       "Content-Type" : [ "application/json" ],
