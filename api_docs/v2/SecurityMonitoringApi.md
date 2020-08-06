@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**deleteSecurityMonitoringRule**](SecurityMonitoringApi.md#deleteSecurityMonitoringRule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule
 [**getSecurityMonitoringRule**](SecurityMonitoringApi.md#getSecurityMonitoringRule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule&#39;s details
 [**listSecurityMonitoringRules**](SecurityMonitoringApi.md#listSecurityMonitoringRules) | **GET** /api/v2/security_monitoring/rules | List rules
+[**listSecurityMonitoringSignals**](SecurityMonitoringApi.md#listSecurityMonitoringSignals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals
+[**searchSecurityMonitoringSignals**](SecurityMonitoringApi.md#searchSecurityMonitoringSignals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals
 [**updateSecurityMonitoringRule**](SecurityMonitoringApi.md#updateSecurityMonitoringRule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule
 
 
@@ -332,6 +334,187 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+
+
+## listSecurityMonitoringSignals
+
+> SecurityMonitoringSignalsListResponse listSecurityMonitoringSignals().filterQuery(filterQuery).filterFrom(filterFrom).filterTo(filterTo).sort(sort).pageCursor(pageCursor).pageLimit(pageLimit).execute();
+
+Get a quick list of security signals
+
+The list endpoint returns security signals that match a search query.
+Both this endpoint and the POST endpoint can be used interchangeably when listing
+security signals.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.SecurityMonitoringApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
+        String filterQuery = security:attack status:high; // String | The search query for security signals.
+        OffsetDateTime filterFrom = 2019-01-02T09:42:36.320Z; // OffsetDateTime | The minimum timestamp for requested security signals.
+        OffsetDateTime filterTo = 2019-01-03T09:42:36.320Z; // OffsetDateTime | The maximum timestamp for requested security signals.
+        SecurityMonitoringSignalsSort sort = new SecurityMonitoringSignalsSort(); // SecurityMonitoringSignalsSort | The order of the security signals in results.
+        String pageCursor = eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==; // String | A list of results using the cursor provided in the previous query.
+        Integer pageLimit = 25; // Integer | The maximum number of security signals in the response.
+        try {
+            SecurityMonitoringSignalsListResponse result = api.listSecurityMonitoringSignals()
+                .filterQuery(filterQuery)
+                .filterFrom(filterFrom)
+                .filterTo(filterTo)
+                .sort(sort)
+                .pageCursor(pageCursor)
+                .pageLimit(pageLimit)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SecurityMonitoringApi#listSecurityMonitoringSignals");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterQuery** | **String**| The search query for security signals. | [optional]
+ **filterFrom** | **OffsetDateTime**| The minimum timestamp for requested security signals. | [optional]
+ **filterTo** | **OffsetDateTime**| The maximum timestamp for requested security signals. | [optional]
+ **sort** | [**SecurityMonitoringSignalsSort**](.md)| The order of the security signals in results. | [optional] [enum: timestamp, -timestamp]
+ **pageCursor** | **String**| A list of results using the cursor provided in the previous query. | [optional]
+ **pageLimit** | **Integer**| The maximum number of security signals in the response. | [optional] [default to 10]
+
+### Return type
+
+[**SecurityMonitoringSignalsListResponse**](SecurityMonitoringSignalsListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
+
+
+## searchSecurityMonitoringSignals
+
+> SecurityMonitoringSignalsListResponse searchSecurityMonitoringSignals().body(body).execute();
+
+Get a list of security signals
+
+Returns security signals that match a search query.
+Both this endpoint and the GET endpoint can be used interchangeably for listing
+security signals.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.SecurityMonitoringApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
+        SecurityMonitoringSignalListRequest body = new SecurityMonitoringSignalListRequest(); // SecurityMonitoringSignalListRequest | 
+        try {
+            SecurityMonitoringSignalsListResponse result = api.searchSecurityMonitoringSignals()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SecurityMonitoringApi#searchSecurityMonitoringSignals");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SecurityMonitoringSignalListRequest**](SecurityMonitoringSignalListRequest.md)|  | [optional]
+
+### Return type
+
+[**SecurityMonitoringSignalsListResponse**](SecurityMonitoringSignalsListResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
 
 
 ## updateSecurityMonitoringRule
