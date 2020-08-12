@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.HTTPMethod;
-import com.datadog.api.v1.client.model.SyntheticsTestRequestBasicAuth;
+import com.datadog.api.v1.client.model.SyntheticsBasicAuth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -49,7 +49,7 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_BASIC_AUTH = "basicAuth";
-  private SyntheticsTestRequestBasicAuth basicAuth;
+  private SyntheticsBasicAuth basicAuth;
 
   public static final String JSON_PROPERTY_BODY = "body";
   private String body;
@@ -76,7 +76,7 @@ public class SyntheticsTestRequest {
   private String url;
 
 
-  public SyntheticsTestRequest basicAuth(SyntheticsTestRequestBasicAuth basicAuth) {
+  public SyntheticsTestRequest basicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
     return this;
   }
@@ -90,12 +90,12 @@ public class SyntheticsTestRequest {
   @JsonProperty(JSON_PROPERTY_BASIC_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SyntheticsTestRequestBasicAuth getBasicAuth() {
+  public SyntheticsBasicAuth getBasicAuth() {
     return basicAuth;
   }
 
 
-  public void setBasicAuth(SyntheticsTestRequestBasicAuth basicAuth) {
+  public void setBasicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
   }
 

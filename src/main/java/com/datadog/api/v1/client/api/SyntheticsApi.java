@@ -11,6 +11,7 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.SyntheticsAPITestResultFull;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultFull;
+import com.datadog.api.v1.client.model.SyntheticsCITestBody;
 import com.datadog.api.v1.client.model.SyntheticsDeleteTestsPayload;
 import com.datadog.api.v1.client.model.SyntheticsDeleteTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetAPITestLatestResultsResponse;
@@ -19,6 +20,7 @@ import com.datadog.api.v1.client.model.SyntheticsGlobalVariable;
 import com.datadog.api.v1.client.model.SyntheticsListTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsLocations;
 import com.datadog.api.v1.client.model.SyntheticsTestDetails;
+import com.datadog.api.v1.client.model.SyntheticsTriggerCITestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsUpdateTestPauseStatusPayload;
 
 import java.util.ArrayList;
@@ -1476,6 +1478,111 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
    */
   public APIlistTestsRequest listTests() throws ApiException {
     return new APIlistTestsRequest();
+  }
+
+private ApiResponse<SyntheticsTriggerCITestsResponse> triggerCITestsWithHttpInfo(SyntheticsCITestBody body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling triggerCITests");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/trigger/ci";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "triggerCITests");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsTriggerCITestsResponse> localVarReturnType = new GenericType<SyntheticsTriggerCITestsResponse>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.triggerCITests", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APItriggerCITestsRequest {
+    private SyntheticsCITestBody body;
+
+    private APItriggerCITestsRequest() {
+    }
+
+    /**
+     * Set body
+     * @param body Details of the test to trigger. (required)
+     * @return APItriggerCITestsRequest
+     */
+    public APItriggerCITestsRequest body(SyntheticsCITestBody body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute triggerCITests request
+     * @return SyntheticsTriggerCITestsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsTriggerCITestsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute triggerCITests request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsTriggerCITestsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsTriggerCITestsResponse> executeWithHttpInfo() throws ApiException {
+      return triggerCITestsWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Trigger some Synthetics tests for CI
+   * Trigger a set of Synthetics tests for continuous integration
+   * @return triggerCITestsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APItriggerCITestsRequest triggerCITests() throws ApiException {
+    return new APItriggerCITestsRequest();
   }
 
 private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicId, SyntheticsTestDetails body) throws ApiException {

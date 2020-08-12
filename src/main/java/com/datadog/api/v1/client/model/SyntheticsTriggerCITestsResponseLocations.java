@@ -22,77 +22,78 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Object describing the retry strategy to apply to a Synthetic test.
+ * Synthetics location.
  */
-@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test.")
+@ApiModel(description = "Synthetics location.")
 @JsonPropertyOrder({
-  SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
-  SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
+  SyntheticsTriggerCITestsResponseLocations.JSON_PROPERTY_ID,
+  SyntheticsTriggerCITestsResponseLocations.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsTestOptionsRetry {
-  public static final String JSON_PROPERTY_COUNT = "count";
-  private Long count;
+public class SyntheticsTriggerCITestsResponseLocations {
+  public static final String JSON_PROPERTY_ID = "id";
+  private BigDecimal id;
 
-  public static final String JSON_PROPERTY_INTERVAL = "interval";
-  private Double interval;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
 
-  public SyntheticsTestOptionsRetry count(Long count) {
-    this.count = count;
+  public SyntheticsTriggerCITestsResponseLocations id(BigDecimal id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
-   * @return count
+   * Unique identifier of the location.
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of times a test needs to be retried before marking a location as failed. Defaults to 0.")
-  @JsonProperty(JSON_PROPERTY_COUNT)
+  @ApiModelProperty(value = "Unique identifier of the location.")
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getCount() {
-    return count;
+  public BigDecimal getId() {
+    return id;
   }
 
 
-  public void setCount(Long count) {
-    this.count = count;
+  public void setId(BigDecimal id) {
+    this.id = id;
   }
 
 
-  public SyntheticsTestOptionsRetry interval(Double interval) {
-    this.interval = interval;
+  public SyntheticsTriggerCITestsResponseLocations name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Time interval between retries (in milliseconds). Defaults to 300ms.
-   * @return interval
+   * Name of the location.
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time interval between retries (in milliseconds). Defaults to 300ms.")
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @ApiModelProperty(value = "Name of the location.")
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getInterval() {
-    return interval;
+  public String getName() {
+    return name;
   }
 
 
-  public void setInterval(Double interval) {
-    this.interval = interval;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
   /**
-   * Return true if this SyntheticsTestOptionsRetry object is equal to o.
+   * Return true if this SyntheticsTriggerCITestsResponse_locations object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,23 +103,23 @@ public class SyntheticsTestOptionsRetry {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestOptionsRetry syntheticsTestOptionsRetry = (SyntheticsTestOptionsRetry) o;
-    return Objects.equals(this.count, syntheticsTestOptionsRetry.count) &&
-        Objects.equals(this.interval, syntheticsTestOptionsRetry.interval);
+    SyntheticsTriggerCITestsResponseLocations syntheticsTriggerCITestsResponseLocations = (SyntheticsTriggerCITestsResponseLocations) o;
+    return Objects.equals(this.id, syntheticsTriggerCITestsResponseLocations.id) &&
+        Objects.equals(this.name, syntheticsTriggerCITestsResponseLocations.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, interval);
+    return Objects.hash(id, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestOptionsRetry {\n");
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
-    sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("class SyntheticsTriggerCITestsResponseLocations {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

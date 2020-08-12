@@ -31,11 +31,11 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "Object to handle basic authentication when performing the test.")
 @JsonPropertyOrder({
-  SyntheticsTestRequestBasicAuth.JSON_PROPERTY_PASSWORD,
-  SyntheticsTestRequestBasicAuth.JSON_PROPERTY_USERNAME
+  SyntheticsBasicAuth.JSON_PROPERTY_PASSWORD,
+  SyntheticsBasicAuth.JSON_PROPERTY_USERNAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsTestRequestBasicAuth {
+public class SyntheticsBasicAuth {
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
@@ -43,7 +43,7 @@ public class SyntheticsTestRequestBasicAuth {
   private String username;
 
 
-  public SyntheticsTestRequestBasicAuth password(String password) {
+  public SyntheticsBasicAuth password(String password) {
     this.password = password;
     return this;
   }
@@ -66,7 +66,7 @@ public class SyntheticsTestRequestBasicAuth {
   }
 
 
-  public SyntheticsTestRequestBasicAuth username(String username) {
+  public SyntheticsBasicAuth username(String username) {
     this.username = username;
     return this;
   }
@@ -90,7 +90,7 @@ public class SyntheticsTestRequestBasicAuth {
 
 
   /**
-   * Return true if this SyntheticsTestRequest_basicAuth object is equal to o.
+   * Return true if this SyntheticsBasicAuth object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -100,9 +100,9 @@ public class SyntheticsTestRequestBasicAuth {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestRequestBasicAuth syntheticsTestRequestBasicAuth = (SyntheticsTestRequestBasicAuth) o;
-    return Objects.equals(this.password, syntheticsTestRequestBasicAuth.password) &&
-        Objects.equals(this.username, syntheticsTestRequestBasicAuth.username);
+    SyntheticsBasicAuth syntheticsBasicAuth = (SyntheticsBasicAuth) o;
+    return Objects.equals(this.password, syntheticsBasicAuth.password) &&
+        Objects.equals(this.username, syntheticsBasicAuth.username);
   }
 
   @Override
@@ -114,7 +114,7 @@ public class SyntheticsTestRequestBasicAuth {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestRequestBasicAuth {\n");
+    sb.append("class SyntheticsBasicAuth {\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");

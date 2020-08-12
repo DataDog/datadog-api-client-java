@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 [**listLocations**](SyntheticsApi.md#listLocations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 [**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get a list of tests
+[**triggerCITests**](SyntheticsApi.md#triggerCITests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
 [**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 [**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
 
@@ -1085,6 +1086,86 @@ Name | Type | Description  | Notes
 | **200** | OK - Returns the list of all Synthetic tests (properly filtered by type). |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Synthetics is not activated for the user. |  -  |
+
+
+## triggerCITests
+
+> SyntheticsTriggerCITestsResponse triggerCITests().body(body).execute();
+
+Trigger some Synthetics tests for CI
+
+Trigger a set of Synthetics tests for continuous integration
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        SyntheticsCITestBody body = new SyntheticsCITestBody(); // SyntheticsCITestBody | Details of the test to trigger.
+        try {
+            SyntheticsTriggerCITestsResponse result = api.triggerCITests()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#triggerCITests");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SyntheticsCITestBody**](SyntheticsCITestBody.md)| Details of the test to trigger. |
+
+### Return type
+
+[**SyntheticsTriggerCITestsResponse**](SyntheticsTriggerCITestsResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | JSON format is wrong |  -  |
 
 
 ## updateTest

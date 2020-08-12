@@ -1,6 +1,6 @@
 
 
-# SyntheticsTestRequestBasicAuth
+# SyntheticsBasicAuth
 
 Object to handle basic authentication when performing the test.
 ## Properties
