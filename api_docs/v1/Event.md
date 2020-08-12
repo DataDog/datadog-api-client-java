@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **aggregationKey** | **String** | An arbitrary string to use for aggregation. Limited to 100 characters. If you specify a key, all events using that key are grouped together in the Event Stream. |  [optional]
 **alertType** | [**EventAlertType**](EventAlertType.md) |  |  [optional]
 **dateHappened** | **Long** | POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 7 days. |  [optional]
-**deviceName** | **List&lt;String&gt;** | A list of device names to post the event with. |  [optional]
+**deviceName** | **String** | A device name. |  [optional]
 **host** | **String** | Host name to associate with the event. Any tags associated with the host are also applied to this event. |  [optional]
 **id** | **Long** | Integer ID of the event. |  [optional] [readonly]
 **payload** | **String** | Payload of the event. |  [optional] [readonly]

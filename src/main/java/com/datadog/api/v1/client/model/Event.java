@@ -62,7 +62,7 @@ public class Event {
   private Long dateHappened;
 
   public static final String JSON_PROPERTY_DEVICE_NAME = "device_name";
-  private List<String> deviceName = null;
+  private String deviceName;
 
   public static final String JSON_PROPERTY_HOST = "host";
   private String host;
@@ -167,34 +167,26 @@ public class Event {
   }
 
 
-  public Event deviceName(List<String> deviceName) {
+  public Event deviceName(String deviceName) {
     this.deviceName = deviceName;
     return this;
   }
 
-  public Event addDeviceNameItem(String deviceNameItem) {
-    if (this.deviceName == null) {
-      this.deviceName = new ArrayList<>();
-    }
-    this.deviceName.add(deviceNameItem);
-    return this;
-  }
-
    /**
-   * A list of device names to post the event with.
+   * A device name.
    * @return deviceName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of device names to post the event with.")
+  @ApiModelProperty(value = "A device name.")
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getDeviceName() {
+  public String getDeviceName() {
     return deviceName;
   }
 
 
-  public void setDeviceName(List<String> deviceName) {
+  public void setDeviceName(String deviceName) {
     this.deviceName = deviceName;
   }
 
