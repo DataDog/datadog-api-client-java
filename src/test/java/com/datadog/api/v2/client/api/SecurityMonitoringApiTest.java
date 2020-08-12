@@ -44,6 +44,7 @@ import java.util.stream.Collectors;
 import javax.ws.rs.core.GenericType;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -169,6 +170,8 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     @Test
     public void searchSignals() throws Exception {
+	Assume.assumeTrue("Skip when ignoring recording", !TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE));
+
         String uniqueName = getUniqueEntityName();
         SecurityMonitoringRuleResponse rule = createRule(uniqueName);
 
@@ -201,7 +204,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         assertEquals(2, responseAscending.getData().size());
         OffsetDateTime firstTimestamp = responseAscending.getData().get(0).getAttributes().getTimestamp();
         OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
-        assertTrue(firstTimestamp.isBefore(secondTimestamp));
+        assertTrue(firstTimestamp.isBefore(secondTimestamp) || firstTimestamp.isEqual(secondTimestamp));
 
         SecurityMonitoringSignalsListResponse responseDescending = api.searchSecurityMonitoringSignals()
                 .body(new SecurityMonitoringSignalListRequest()
@@ -212,7 +215,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         assertEquals(2, responseDescending.getData().size());
         firstTimestamp = responseDescending.getData().get(0).getAttributes().getTimestamp();
         secondTimestamp = responseDescending.getData().get(1).getAttributes().getTimestamp();
-        assertTrue(firstTimestamp.isAfter(secondTimestamp));
+        assertTrue(firstTimestamp.isAfter(secondTimestamp) || firstTimestamp.isEqual(secondTimestamp));
 
         // Paging
         SecurityMonitoringSignalsListResponse pageOneResponse = api.searchSecurityMonitoringSignals()
@@ -239,6 +242,8 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     @Test
     public void listSignals() throws Exception {
+	Assume.assumeTrue("Skip when ignoring recording", !TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE));
+
         String uniqueName = getUniqueEntityName();
         SecurityMonitoringRuleResponse rule = createRule(uniqueName);
 
@@ -268,7 +273,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         assertEquals(2, responseAscending.getData().size());
         OffsetDateTime firstTimestamp = responseAscending.getData().get(0).getAttributes().getTimestamp();
         OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
-        assertTrue(firstTimestamp.isBefore(secondTimestamp));
+        assertTrue(firstTimestamp.isBefore(secondTimestamp) || firstTimestamp.isEqual(secondTimestamp));
 
         SecurityMonitoringSignalsListResponse responseDescending = api.listSecurityMonitoringSignals()
                 .filterQuery(uniqueName)
@@ -280,7 +285,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         assertEquals(2, responseDescending.getData().size());
         firstTimestamp = responseDescending.getData().get(0).getAttributes().getTimestamp();
         secondTimestamp = responseDescending.getData().get(1).getAttributes().getTimestamp();
-        assertTrue(firstTimestamp.isAfter(secondTimestamp));
+        assertTrue(firstTimestamp.isAfter(secondTimestamp) || firstTimestamp.isEqual(secondTimestamp));
 
         // Paging
         SecurityMonitoringSignalsListResponse pageOneResponse = api.listSecurityMonitoringSignals()
