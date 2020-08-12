@@ -15,6 +15,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsCITestMetadataCi;
+import com.datadog.api.v1.client.model.SyntheticsCITestMetadataGit;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,72 +29,72 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Object describing the retry strategy to apply to a Synthetic test.
+ * Metadata for the Synthetics tests run
  */
-@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test.")
+@ApiModel(description = "Metadata for the Synthetics tests run")
 @JsonPropertyOrder({
-  SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
-  SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
+  SyntheticsCITestMetadata.JSON_PROPERTY_CI,
+  SyntheticsCITestMetadata.JSON_PROPERTY_GIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsTestOptionsRetry {
-  public static final String JSON_PROPERTY_COUNT = "count";
-  private Long count;
+public class SyntheticsCITestMetadata {
+  public static final String JSON_PROPERTY_CI = "ci";
+  private SyntheticsCITestMetadataCi ci;
 
-  public static final String JSON_PROPERTY_INTERVAL = "interval";
-  private Double interval;
+  public static final String JSON_PROPERTY_GIT = "git";
+  private SyntheticsCITestMetadataGit git;
 
 
-  public SyntheticsTestOptionsRetry count(Long count) {
-    this.count = count;
+  public SyntheticsCITestMetadata ci(SyntheticsCITestMetadataCi ci) {
+    this.ci = ci;
     return this;
   }
 
    /**
-   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
-   * @return count
+   * Get ci
+   * @return ci
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of times a test needs to be retried before marking a location as failed. Defaults to 0.")
-  @JsonProperty(JSON_PROPERTY_COUNT)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getCount() {
-    return count;
+  public SyntheticsCITestMetadataCi getCi() {
+    return ci;
   }
 
 
-  public void setCount(Long count) {
-    this.count = count;
+  public void setCi(SyntheticsCITestMetadataCi ci) {
+    this.ci = ci;
   }
 
 
-  public SyntheticsTestOptionsRetry interval(Double interval) {
-    this.interval = interval;
+  public SyntheticsCITestMetadata git(SyntheticsCITestMetadataGit git) {
+    this.git = git;
     return this;
   }
 
    /**
-   * Time interval between retries (in milliseconds). Defaults to 300ms.
-   * @return interval
+   * Get git
+   * @return git
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time interval between retries (in milliseconds). Defaults to 300ms.")
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getInterval() {
-    return interval;
+  public SyntheticsCITestMetadataGit getGit() {
+    return git;
   }
 
 
-  public void setInterval(Double interval) {
-    this.interval = interval;
+  public void setGit(SyntheticsCITestMetadataGit git) {
+    this.git = git;
   }
 
 
   /**
-   * Return true if this SyntheticsTestOptionsRetry object is equal to o.
+   * Return true if this SyntheticsCITest_metadata object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,23 +104,23 @@ public class SyntheticsTestOptionsRetry {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestOptionsRetry syntheticsTestOptionsRetry = (SyntheticsTestOptionsRetry) o;
-    return Objects.equals(this.count, syntheticsTestOptionsRetry.count) &&
-        Objects.equals(this.interval, syntheticsTestOptionsRetry.interval);
+    SyntheticsCITestMetadata syntheticsCITestMetadata = (SyntheticsCITestMetadata) o;
+    return Objects.equals(this.ci, syntheticsCITestMetadata.ci) &&
+        Objects.equals(this.git, syntheticsCITestMetadata.git);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, interval);
+    return Objects.hash(ci, git);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestOptionsRetry {\n");
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
-    sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("class SyntheticsCITestMetadata {\n");
+    sb.append("    ci: ").append(toIndentedString(ci)).append("\n");
+    sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("}");
     return sb.toString();
   }

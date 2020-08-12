@@ -27,72 +27,71 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Object describing the retry strategy to apply to a Synthetic test.
+ * SyntheticsCITestMetadataGit
  */
-@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test.")
 @JsonPropertyOrder({
-  SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
-  SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
+  SyntheticsCITestMetadataGit.JSON_PROPERTY_BRANCH,
+  SyntheticsCITestMetadataGit.JSON_PROPERTY_COMMIT_SHA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsTestOptionsRetry {
-  public static final String JSON_PROPERTY_COUNT = "count";
-  private Long count;
+public class SyntheticsCITestMetadataGit {
+  public static final String JSON_PROPERTY_BRANCH = "branch";
+  private String branch;
 
-  public static final String JSON_PROPERTY_INTERVAL = "interval";
-  private Double interval;
+  public static final String JSON_PROPERTY_COMMIT_SHA = "commit_sha";
+  private String commitSha;
 
 
-  public SyntheticsTestOptionsRetry count(Long count) {
-    this.count = count;
+  public SyntheticsCITestMetadataGit branch(String branch) {
+    this.branch = branch;
     return this;
   }
 
    /**
-   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
-   * @return count
+   * Get branch
+   * @return branch
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of times a test needs to be retried before marking a location as failed. Defaults to 0.")
-  @JsonProperty(JSON_PROPERTY_COUNT)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BRANCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getCount() {
-    return count;
+  public String getBranch() {
+    return branch;
   }
 
 
-  public void setCount(Long count) {
-    this.count = count;
+  public void setBranch(String branch) {
+    this.branch = branch;
   }
 
 
-  public SyntheticsTestOptionsRetry interval(Double interval) {
-    this.interval = interval;
+  public SyntheticsCITestMetadataGit commitSha(String commitSha) {
+    this.commitSha = commitSha;
     return this;
   }
 
    /**
-   * Time interval between retries (in milliseconds). Defaults to 300ms.
-   * @return interval
+   * Get commitSha
+   * @return commitSha
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time interval between retries (in milliseconds). Defaults to 300ms.")
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COMMIT_SHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getInterval() {
-    return interval;
+  public String getCommitSha() {
+    return commitSha;
   }
 
 
-  public void setInterval(Double interval) {
-    this.interval = interval;
+  public void setCommitSha(String commitSha) {
+    this.commitSha = commitSha;
   }
 
 
   /**
-   * Return true if this SyntheticsTestOptionsRetry object is equal to o.
+   * Return true if this SyntheticsCITest_metadata_git object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,23 +101,23 @@ public class SyntheticsTestOptionsRetry {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestOptionsRetry syntheticsTestOptionsRetry = (SyntheticsTestOptionsRetry) o;
-    return Objects.equals(this.count, syntheticsTestOptionsRetry.count) &&
-        Objects.equals(this.interval, syntheticsTestOptionsRetry.interval);
+    SyntheticsCITestMetadataGit syntheticsCITestMetadataGit = (SyntheticsCITestMetadataGit) o;
+    return Objects.equals(this.branch, syntheticsCITestMetadataGit.branch) &&
+        Objects.equals(this.commitSha, syntheticsCITestMetadataGit.commitSha);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, interval);
+    return Objects.hash(branch, commitSha);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestOptionsRetry {\n");
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
-    sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("class SyntheticsCITestMetadataGit {\n");
+    sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
+    sb.append("    commitSha: ").append(toIndentedString(commitSha)).append("\n");
     sb.append("}");
     return sb.toString();
   }

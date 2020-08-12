@@ -27,72 +27,71 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Object describing the retry strategy to apply to a Synthetic test.
+ * SyntheticsCITestMetadataCi
  */
-@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test.")
 @JsonPropertyOrder({
-  SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
-  SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
+  SyntheticsCITestMetadataCi.JSON_PROPERTY_PIPELINE,
+  SyntheticsCITestMetadataCi.JSON_PROPERTY_PROVIDER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsTestOptionsRetry {
-  public static final String JSON_PROPERTY_COUNT = "count";
-  private Long count;
+public class SyntheticsCITestMetadataCi {
+  public static final String JSON_PROPERTY_PIPELINE = "pipeline";
+  private String pipeline;
 
-  public static final String JSON_PROPERTY_INTERVAL = "interval";
-  private Double interval;
+  public static final String JSON_PROPERTY_PROVIDER = "provider";
+  private String provider;
 
 
-  public SyntheticsTestOptionsRetry count(Long count) {
-    this.count = count;
+  public SyntheticsCITestMetadataCi pipeline(String pipeline) {
+    this.pipeline = pipeline;
     return this;
   }
 
    /**
-   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
-   * @return count
+   * Get pipeline
+   * @return pipeline
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of times a test needs to be retried before marking a location as failed. Defaults to 0.")
-  @JsonProperty(JSON_PROPERTY_COUNT)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PIPELINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getCount() {
-    return count;
+  public String getPipeline() {
+    return pipeline;
   }
 
 
-  public void setCount(Long count) {
-    this.count = count;
+  public void setPipeline(String pipeline) {
+    this.pipeline = pipeline;
   }
 
 
-  public SyntheticsTestOptionsRetry interval(Double interval) {
-    this.interval = interval;
+  public SyntheticsCITestMetadataCi provider(String provider) {
+    this.provider = provider;
     return this;
   }
 
    /**
-   * Time interval between retries (in milliseconds). Defaults to 300ms.
-   * @return interval
+   * Get provider
+   * @return provider
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time interval between retries (in milliseconds). Defaults to 300ms.")
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Double getInterval() {
-    return interval;
+  public String getProvider() {
+    return provider;
   }
 
 
-  public void setInterval(Double interval) {
-    this.interval = interval;
+  public void setProvider(String provider) {
+    this.provider = provider;
   }
 
 
   /**
-   * Return true if this SyntheticsTestOptionsRetry object is equal to o.
+   * Return true if this SyntheticsCITest_metadata_ci object is equal to o.
    */
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,23 +101,23 @@ public class SyntheticsTestOptionsRetry {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestOptionsRetry syntheticsTestOptionsRetry = (SyntheticsTestOptionsRetry) o;
-    return Objects.equals(this.count, syntheticsTestOptionsRetry.count) &&
-        Objects.equals(this.interval, syntheticsTestOptionsRetry.interval);
+    SyntheticsCITestMetadataCi syntheticsCITestMetadataCi = (SyntheticsCITestMetadataCi) o;
+    return Objects.equals(this.pipeline, syntheticsCITestMetadataCi.pipeline) &&
+        Objects.equals(this.provider, syntheticsCITestMetadataCi.provider);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, interval);
+    return Objects.hash(pipeline, provider);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestOptionsRetry {\n");
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
-    sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("class SyntheticsCITestMetadataCi {\n");
+    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
+    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("}");
     return sb.toString();
   }
