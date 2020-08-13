@@ -19,7 +19,6 @@ import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetAxis;
 import com.datadog.api.v1.client.model.WidgetEvent;
-import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetMarker;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -59,7 +58,7 @@ public class TimeseriesWidgetDefinition {
   private List<WidgetEvent> events = null;
 
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
-  private WidgetLegendSize legendSize;
+  private String legendSize;
 
   public static final String JSON_PROPERTY_MARKERS = "markers";
   private List<WidgetMarker> markers = null;
@@ -121,26 +120,26 @@ public class TimeseriesWidgetDefinition {
   }
 
 
-  public TimeseriesWidgetDefinition legendSize(WidgetLegendSize legendSize) {
+  public TimeseriesWidgetDefinition legendSize(String legendSize) {
     this.legendSize = legendSize;
     return this;
   }
 
    /**
-   * Get legendSize
+   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
    * @return legendSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public WidgetLegendSize getLegendSize() {
+  public String getLegendSize() {
     return legendSize;
   }
 
 
-  public void setLegendSize(WidgetLegendSize legendSize) {
+  public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
   }
 

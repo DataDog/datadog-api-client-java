@@ -59,7 +59,7 @@ public class SyntheticsDeleteTestsPayload {
    * @return publicIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of Synthetic test IDs you want to delete.")
+  @ApiModelProperty(example = "[]", value = "An array of Synthetic test IDs you want to delete.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
