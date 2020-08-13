@@ -214,7 +214,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addEventsItem(new WidgetEvent().q("Build succeeded").tagsExecution("tags"))
                 .title("Test Headmap Widget").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.FOUR);
+                .showLegend(true).legendSize("4");
         Widget heatMapWidget = new Widget().definition(new WidgetDefinition(heatMapWidgetDefinition));
         orderedWidgetList.add(heatMapWidget);
 
@@ -417,7 +417,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Timeseries Widget").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+                .showLegend(true).legendSize("16");
         Widget timeseriesWidget = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinition));
         orderedWidgetList.add(timeseriesWidget);
 
@@ -446,7 +446,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Timeseries Widget with Process Query").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+                .showLegend(true).legendSize("16");
         Widget timeseriesWidgetProcessQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionProcessQuery));
         orderedWidgetList.add(timeseriesWidgetProcessQuery);
 
@@ -477,7 +477,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Timeseries Widget with Log Query").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+                .showLegend(true).legendSize("16");
         Widget timeseriesWidgetLogQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionLogQuery));
         orderedWidgetList.add(timeseriesWidgetLogQuery);
 
@@ -502,7 +502,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Timeseries Widget with Event Query").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+                .showLegend(true).legendSize("16");
         Widget timeseriesWidgetEventQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionEventQuery));
         orderedWidgetList.add(timeseriesWidgetEventQuery);
 
