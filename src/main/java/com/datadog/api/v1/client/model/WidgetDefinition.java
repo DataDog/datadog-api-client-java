@@ -50,7 +50,6 @@ import com.datadog.api.v1.client.model.WidgetEventSize;
 import com.datadog.api.v1.client.model.WidgetGrouping;
 import com.datadog.api.v1.client.model.WidgetImageSizing;
 import com.datadog.api.v1.client.model.WidgetLayoutType;
-import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetMargin;
 import com.datadog.api.v1.client.model.WidgetMarker;
 import com.datadog.api.v1.client.model.WidgetMessageDisplay;

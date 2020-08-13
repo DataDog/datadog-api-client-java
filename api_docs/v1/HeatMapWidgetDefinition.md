@@ -8,7 +8,7 @@ The heat map visualization shows metrics aggregated across many tags, such as ho
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **events** | [**List&lt;WidgetEvent&gt;**](WidgetEvent.md) | List of widget events. |  [optional]
-**legendSize** | [**WidgetLegendSize**](WidgetLegendSize.md) |  |  [optional]
+**legendSize** | **String** | Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;. |  [optional]
 **requests** | [**List&lt;HeatMapWidgetRequest&gt;**](HeatMapWidgetRequest.md) | List of widget types. | 
 **showLegend** | **Boolean** | Whether or not to display the legend on this widget. |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]

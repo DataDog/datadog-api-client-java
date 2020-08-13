@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.DistributionWidgetDefinitionType;
 import com.datadog.api.v1.client.model.DistributionWidgetRequest;
-import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -50,7 +49,7 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DistributionWidgetDefinition {
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
-  private WidgetLegendSize legendSize;
+  private String legendSize;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<DistributionWidgetRequest> requests = new ArrayList<>();
@@ -74,26 +73,26 @@ public class DistributionWidgetDefinition {
   private DistributionWidgetDefinitionType type = DistributionWidgetDefinitionType.DISTRIBUTION;
 
 
-  public DistributionWidgetDefinition legendSize(WidgetLegendSize legendSize) {
+  public DistributionWidgetDefinition legendSize(String legendSize) {
     this.legendSize = legendSize;
     return this;
   }
 
    /**
-   * Get legendSize
+   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
    * @return legendSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public WidgetLegendSize getLegendSize() {
+  public String getLegendSize() {
     return legendSize;
   }
 
 
-  public void setLegendSize(WidgetLegendSize legendSize) {
+  public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
   }
 
