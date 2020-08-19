@@ -330,7 +330,6 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageOrgItem.getInfraHostTop99p().longValue(), 8L);
         assertEquals(usageOrgItem.getRumSessionCountSum().longValue(), 9L);
         assertEquals(usageOrgItem.getProfilingHostTop99p().longValue(), 10L);
-
     }
 
     @Test
