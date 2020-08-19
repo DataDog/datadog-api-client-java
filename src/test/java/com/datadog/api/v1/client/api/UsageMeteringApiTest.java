@@ -301,7 +301,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getCustomTsSum().longValue(), 4L);
         assertEquals(usage.getRumSessionCountAggSum().longValue(), 5L);
         assertEquals(usage.getProfilingHostCountTop99pSum().longValue(), 6L);
-        assertEquals(usage.getProfilingContainerAgentCountAvg().longValue(), 0L);
+        assertEquals(usage.getProfilingContainerAgentCountAvg().longValue(), 7L);
 
         // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
         OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
