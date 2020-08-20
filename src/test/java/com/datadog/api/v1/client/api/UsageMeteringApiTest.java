@@ -114,6 +114,15 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageProfilingTest() throws ApiException {
+        UsageProfilingResponse response = api.getUsageProfiling()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
     public void getUsageLogsTest() throws ApiException {
         UsageLogsResponse response = api.getUsageLogs()
                 .startHr(startHr)
@@ -292,6 +301,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getCustomTsSum().longValue(), 4L);
         assertEquals(usage.getRumSessionCountAggSum().longValue(), 5L);
         assertEquals(usage.getProfilingHostCountTop99pSum().longValue(), 6L);
+        assertEquals(usage.getProfilingContainerAgentCountAvg().longValue(), 7L);
 
         // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
         OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
@@ -420,6 +430,27 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
         try {
             fakeAuthApi.getUsageHosts().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getUsageProfilingErrorsTest() throws IOException {
+        try {
+            api.getUsageProfiling().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getUsageProfiling().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());

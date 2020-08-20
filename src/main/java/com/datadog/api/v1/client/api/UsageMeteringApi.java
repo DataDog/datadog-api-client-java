@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.UsageLogsByIndexResponse;
 import com.datadog.api.v1.client.model.UsageLogsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkFlowsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkHostsResponse;
+import com.datadog.api.v1.client.model.UsageProfilingResponse;
 import com.datadog.api.v1.client.model.UsageRumSessionsResponse;
 import com.datadog.api.v1.client.model.UsageSNMPResponse;
 import com.datadog.api.v1.client.model.UsageSort;
@@ -1642,6 +1643,126 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
    */
   public APIgetUsageNetworkHostsRequest getUsageNetworkHosts() throws ApiException {
     return new APIgetUsageNetworkHostsRequest();
+  }
+
+private ApiResponse<UsageProfilingResponse> getUsageProfilingWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(400, "Missing the required parameter 'startHr' when calling getUsageProfiling");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/profiling";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageProfiling");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageProfilingResponse> localVarReturnType = new GenericType<UsageProfilingResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageProfiling", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetUsageProfilingRequest {
+    private OffsetDateTime startHr;
+    private OffsetDateTime endHr;
+
+    private APIgetUsageProfilingRequest() {
+    }
+
+    /**
+     * Set startHr
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. (required)
+     * @return APIgetUsageProfilingRequest
+     */
+    public APIgetUsageProfilingRequest startHr(OffsetDateTime startHr) {
+      this.startHr = startHr;
+      return this;
+    }
+
+    /**
+     * Set endHr
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. (optional)
+     * @return APIgetUsageProfilingRequest
+     */
+    public APIgetUsageProfilingRequest endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Execute getUsageProfiling request
+     * @return UsageProfilingResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageProfilingResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getUsageProfiling request with HTTP info returned
+     * @return ApiResponse&lt;UsageProfilingResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageProfilingResponse> executeWithHttpInfo() throws ApiException {
+      return getUsageProfilingWithHttpInfo(startHr, endHr);
+    }
+  }
+
+  /**
+   * Get hourly usage for profiled hosts
+   * Get hourly usage for profiled hosts.
+   * @return getUsageProfilingRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetUsageProfilingRequest getUsageProfiling() throws ApiException {
+    return new APIgetUsageProfilingRequest();
   }
 
 private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
