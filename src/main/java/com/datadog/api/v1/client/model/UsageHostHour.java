@@ -198,11 +198,11 @@ public class UsageHostHour {
   }
 
    /**
-   * Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of &#x60;agent_host_count&#x60;, &#x60;aws_host_count&#x60;, and &#x60;gcp_host_count&#x60;.
+   * Shows the total number of containers reported by the Docker integration during the hour.
    * @return containerCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.")
+  @ApiModelProperty(value = "Shows the total number of containers reported by the Docker integration during the hour.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -246,11 +246,11 @@ public class UsageHostHour {
   }
 
    /**
-   * Shows the total number of containers reporting via the Docker integration during the hour.
+   * Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of &#x60;agent_host_count&#x60;, &#x60;aws_host_count&#x60;, and &#x60;gcp_host_count&#x60;.
    * @return hostCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the total number of containers reporting via the Docker integration during the hour.")
+  @ApiModelProperty(value = "Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.")
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
