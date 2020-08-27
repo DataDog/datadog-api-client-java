@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-> updateUser(userId).body(body).execute();
+> UserResponse updateUser(userId).body(body).execute();
 
 Update a user
 
@@ -712,9 +712,10 @@ public class Example {
         String userId = "userId_example"; // String | The ID of the user.
         UserUpdateRequest body = new UserUpdateRequest(); // UserUpdateRequest | 
         try {
-            api.updateUser(userId)
+            UserResponse result = api.updateUser(userId)
                 .body(body)
                 .execute();
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#updateUser");
             System.err.println("Status code: " + e.getCode());
@@ -736,7 +737,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -750,7 +751,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | OK |  -  |
+| **200** | OK |  -  |
+| **204** | No changes |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
 | **404** | Not found |  -  |
