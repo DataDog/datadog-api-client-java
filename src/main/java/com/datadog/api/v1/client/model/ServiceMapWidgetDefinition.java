@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.ServiceMapWidgetDefinitionType;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,6 +36,7 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "This widget displays a map of a service to all of the services that call it, and all of the services that it calls.")
 @JsonPropertyOrder({
+  ServiceMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ServiceMapWidgetDefinition.JSON_PROPERTY_FILTERS,
   ServiceMapWidgetDefinition.JSON_PROPERTY_SERVICE,
   ServiceMapWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -44,6 +46,9 @@ import com.datadog.api.v1.client.JSON;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceMapWidgetDefinition {
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<String> filters = new ArrayList<>();
 
@@ -61,6 +66,38 @@ public class ServiceMapWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ServiceMapWidgetDefinitionType type = ServiceMapWidgetDefinitionType.SERVICEMAP;
+
+
+  public ServiceMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public ServiceMapWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
 
 
   public ServiceMapWidgetDefinition filters(List<String> filters) {
@@ -221,7 +258,8 @@ public class ServiceMapWidgetDefinition {
       return false;
     }
     ServiceMapWidgetDefinition serviceMapWidgetDefinition = (ServiceMapWidgetDefinition) o;
-    return Objects.equals(this.filters, serviceMapWidgetDefinition.filters) &&
+    return Objects.equals(this.customLinks, serviceMapWidgetDefinition.customLinks) &&
+        Objects.equals(this.filters, serviceMapWidgetDefinition.filters) &&
         Objects.equals(this.service, serviceMapWidgetDefinition.service) &&
         Objects.equals(this.title, serviceMapWidgetDefinition.title) &&
         Objects.equals(this.titleAlign, serviceMapWidgetDefinition.titleAlign) &&
@@ -231,7 +269,7 @@ public class ServiceMapWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filters, service, title, titleAlign, titleSize, type);
+    return Objects.hash(customLinks, filters, service, title, titleAlign, titleSize, type);
   }
 
 
@@ -239,6 +277,7 @@ public class ServiceMapWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceMapWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

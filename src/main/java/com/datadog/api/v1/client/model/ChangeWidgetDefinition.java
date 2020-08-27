@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.ChangeWidgetDefinitionType;
 import com.datadog.api.v1.client.model.ChangeWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,6 +38,7 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "The Change graph shows you the change in a value over the time period chosen.")
 @JsonPropertyOrder({
+  ChangeWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ChangeWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ChangeWidgetDefinition.JSON_PROPERTY_TIME,
   ChangeWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -46,6 +48,9 @@ import com.datadog.api.v1.client.JSON;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ChangeWidgetDefinition {
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<ChangeWidgetRequest> requests = new ArrayList<>();
 
@@ -63,6 +68,38 @@ public class ChangeWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ChangeWidgetDefinitionType type = ChangeWidgetDefinitionType.CHANGE;
+
+
+  public ChangeWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public ChangeWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
 
 
   public ChangeWidgetDefinition requests(List<ChangeWidgetRequest> requests) {
@@ -224,7 +261,8 @@ public class ChangeWidgetDefinition {
       return false;
     }
     ChangeWidgetDefinition changeWidgetDefinition = (ChangeWidgetDefinition) o;
-    return Objects.equals(this.requests, changeWidgetDefinition.requests) &&
+    return Objects.equals(this.customLinks, changeWidgetDefinition.customLinks) &&
+        Objects.equals(this.requests, changeWidgetDefinition.requests) &&
         Objects.equals(this.time, changeWidgetDefinition.time) &&
         Objects.equals(this.title, changeWidgetDefinition.title) &&
         Objects.equals(this.titleAlign, changeWidgetDefinition.titleAlign) &&
@@ -234,7 +272,7 @@ public class ChangeWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests, time, title, titleAlign, titleSize, type);
+    return Objects.hash(customLinks, requests, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -242,6 +280,7 @@ public class ChangeWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChangeWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

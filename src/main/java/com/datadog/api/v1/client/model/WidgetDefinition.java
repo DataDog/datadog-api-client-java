@@ -45,6 +45,7 @@ import com.datadog.api.v1.client.model.ToplistWidgetRequest;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetAxis;
 import com.datadog.api.v1.client.model.WidgetColorPreference;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetEvent;
 import com.datadog.api.v1.client.model.WidgetEventSize;
 import com.datadog.api.v1.client.model.WidgetGrouping;

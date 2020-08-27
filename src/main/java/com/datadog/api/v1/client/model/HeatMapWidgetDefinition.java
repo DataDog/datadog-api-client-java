@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.datadog.api.v1.client.model.HeatMapWidgetDefinitionType;
 import com.datadog.api.v1.client.model.HeatMapWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetAxis;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetEvent;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -39,6 +40,7 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.")
 @JsonPropertyOrder({
+  HeatMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   HeatMapWidgetDefinition.JSON_PROPERTY_EVENTS,
   HeatMapWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   HeatMapWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -52,6 +54,9 @@ import com.datadog.api.v1.client.JSON;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HeatMapWidgetDefinition {
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<WidgetEvent> events = null;
 
@@ -81,6 +86,38 @@ public class HeatMapWidgetDefinition {
 
   public static final String JSON_PROPERTY_YAXIS = "yaxis";
   private WidgetAxis yaxis;
+
+
+  public HeatMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public HeatMapWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
 
 
   public HeatMapWidgetDefinition events(List<WidgetEvent> events) {
@@ -346,7 +383,8 @@ public class HeatMapWidgetDefinition {
       return false;
     }
     HeatMapWidgetDefinition heatMapWidgetDefinition = (HeatMapWidgetDefinition) o;
-    return Objects.equals(this.events, heatMapWidgetDefinition.events) &&
+    return Objects.equals(this.customLinks, heatMapWidgetDefinition.customLinks) &&
+        Objects.equals(this.events, heatMapWidgetDefinition.events) &&
         Objects.equals(this.legendSize, heatMapWidgetDefinition.legendSize) &&
         Objects.equals(this.requests, heatMapWidgetDefinition.requests) &&
         Objects.equals(this.showLegend, heatMapWidgetDefinition.showLegend) &&
@@ -360,7 +398,7 @@ public class HeatMapWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, legendSize, requests, showLegend, time, title, titleAlign, titleSize, type, yaxis);
+    return Objects.hash(customLinks, events, legendSize, requests, showLegend, time, title, titleAlign, titleSize, type, yaxis);
   }
 
 
@@ -368,6 +406,7 @@ public class HeatMapWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeatMapWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
