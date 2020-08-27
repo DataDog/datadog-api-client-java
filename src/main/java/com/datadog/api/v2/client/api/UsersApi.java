@@ -920,7 +920,7 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
     return new APIsendInvitationsRequest();
   }
 
-private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdateRequest body) throws ApiException {
+private ApiResponse<UserResponse> updateUserWithHttpInfo(String userId, UserUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'userId' is set
@@ -957,9 +957,11 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdateReques
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
+
     return apiClient.invokeAPI("UsersApi.updateUser", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateUserRequest {
@@ -982,12 +984,13 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdateReques
 
     /**
      * Execute updateUser request
-     
+     * @return UserResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 204 </td><td> No changes </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
@@ -996,18 +999,19 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdateReques
      
      */
     
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
+    public UserResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute updateUser request with HTTP info returned
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;UserResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 204 </td><td> No changes </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
@@ -1015,7 +1019,7 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdateReques
        </table>
 
      */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
       return updateUserWithHttpInfo(userId, body);
     }
   }
