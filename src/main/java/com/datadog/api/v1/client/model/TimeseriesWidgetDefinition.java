@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetAxis;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetEvent;
 import com.datadog.api.v1.client.model.WidgetMarker;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -40,6 +41,7 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Analyzed Spans over time.")
 @JsonPropertyOrder({
+  TimeseriesWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_EVENTS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   TimeseriesWidgetDefinition.JSON_PROPERTY_MARKERS,
@@ -54,6 +56,9 @@ import com.datadog.api.v1.client.JSON;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TimeseriesWidgetDefinition {
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<WidgetEvent> events = null;
 
@@ -86,6 +91,38 @@ public class TimeseriesWidgetDefinition {
 
   public static final String JSON_PROPERTY_YAXIS = "yaxis";
   private WidgetAxis yaxis;
+
+
+  public TimeseriesWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public TimeseriesWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
 
 
   public TimeseriesWidgetDefinition events(List<WidgetEvent> events) {
@@ -383,7 +420,8 @@ public class TimeseriesWidgetDefinition {
       return false;
     }
     TimeseriesWidgetDefinition timeseriesWidgetDefinition = (TimeseriesWidgetDefinition) o;
-    return Objects.equals(this.events, timeseriesWidgetDefinition.events) &&
+    return Objects.equals(this.customLinks, timeseriesWidgetDefinition.customLinks) &&
+        Objects.equals(this.events, timeseriesWidgetDefinition.events) &&
         Objects.equals(this.legendSize, timeseriesWidgetDefinition.legendSize) &&
         Objects.equals(this.markers, timeseriesWidgetDefinition.markers) &&
         Objects.equals(this.requests, timeseriesWidgetDefinition.requests) &&
@@ -398,7 +436,7 @@ public class TimeseriesWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, legendSize, markers, requests, showLegend, time, title, titleAlign, titleSize, type, yaxis);
+    return Objects.hash(customLinks, events, legendSize, markers, requests, showLegend, time, title, titleAlign, titleSize, type, yaxis);
   }
 
 
@@ -406,6 +444,7 @@ public class TimeseriesWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeseriesWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    markers: ").append(toIndentedString(markers)).append("\n");

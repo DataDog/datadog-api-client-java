@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.ToplistWidgetDefinitionType;
 import com.datadog.api.v1.client.model.ToplistWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,6 +38,7 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.")
 @JsonPropertyOrder({
+  ToplistWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ToplistWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ToplistWidgetDefinition.JSON_PROPERTY_TIME,
   ToplistWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -46,6 +48,9 @@ import com.datadog.api.v1.client.JSON;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ToplistWidgetDefinition {
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<ToplistWidgetRequest> requests = new ArrayList<>();
 
@@ -63,6 +68,38 @@ public class ToplistWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ToplistWidgetDefinitionType type = ToplistWidgetDefinitionType.TOPLIST;
+
+
+  public ToplistWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public ToplistWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
 
 
   public ToplistWidgetDefinition requests(List<ToplistWidgetRequest> requests) {
@@ -224,7 +261,8 @@ public class ToplistWidgetDefinition {
       return false;
     }
     ToplistWidgetDefinition toplistWidgetDefinition = (ToplistWidgetDefinition) o;
-    return Objects.equals(this.requests, toplistWidgetDefinition.requests) &&
+    return Objects.equals(this.customLinks, toplistWidgetDefinition.customLinks) &&
+        Objects.equals(this.requests, toplistWidgetDefinition.requests) &&
         Objects.equals(this.time, toplistWidgetDefinition.time) &&
         Objects.equals(this.title, toplistWidgetDefinition.title) &&
         Objects.equals(this.titleAlign, toplistWidgetDefinition.titleAlign) &&
@@ -234,7 +272,7 @@ public class ToplistWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests, time, title, titleAlign, titleSize, type);
+    return Objects.hash(customLinks, requests, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -242,6 +280,7 @@ public class ToplistWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ToplistWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
