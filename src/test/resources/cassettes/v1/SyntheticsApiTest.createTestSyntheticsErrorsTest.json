@@ -1,5 +1,5 @@
 [{
-  "id" : "ca24bb9e-1a77-4274-9ace-1bedb078a7f6",
+  "id" : "06f13dc9-a8d1-46db-90ec-c54a83ef9e5b",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests",
@@ -28,7 +28,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:15:07 GMT" ],
+      "Date" : [ "Thu, 27 Aug 2020 14:08:21 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "52" ],
       "Connection" : [ "keep-alive" ],
@@ -36,9 +36,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "120" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "53" ],
+      "X-RateLimit-Reset" : [ "39" ],
       "X-RateLimit-Remaining" : [ "118" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2943602" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,7 +48,7 @@
     "body" : "{\"errors\": [\"Required parameter 'type' is missing\"]}"
   }
 }, {
-  "id" : "fd556a2f-940e-407c-9201-984f06785c4d",
+  "id" : "f8047c81-67d0-4b4f-84cc-1a64c267b047",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests",
@@ -77,7 +77,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:15:08 GMT" ],
+      "Date" : [ "Thu, 27 Aug 2020 14:08:21 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
