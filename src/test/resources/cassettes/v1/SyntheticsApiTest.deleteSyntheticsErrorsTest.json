@@ -1,5 +1,5 @@
 [{
-  "id" : "6a24f6e8-60da-454a-9b03-66f2975676cb",
+  "id" : "aaddec85-2f3a-423b-972e-cfb051de854c",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
@@ -28,7 +28,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:15:06 GMT" ],
+      "Date" : [ "Thu, 27 Aug 2020 14:08:20 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "58" ],
       "Connection" : [ "keep-alive" ],
@@ -36,9 +36,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "120" ],
       "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "54" ],
+      "X-RateLimit-Reset" : [ "40" ],
       "X-RateLimit-Remaining" : [ "118" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2943602" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,7 +48,7 @@
     "body" : "{\"errors\": [\"Required parameter 'public_ids' is missing\"]}"
   }
 }, {
-  "id" : "cfd0e8d5-0f6f-4d53-bb58-c7d7f4e6ca1a",
+  "id" : "91a9cb13-54ef-4a4b-9212-2d407e08767c",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/synthetics/tests/delete",
@@ -77,7 +77,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:15:06 GMT" ],
+      "Date" : [ "Thu, 27 Aug 2020 14:08:20 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
