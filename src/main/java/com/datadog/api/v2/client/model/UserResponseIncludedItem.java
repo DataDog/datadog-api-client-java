@@ -229,7 +229,8 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas.
+     * the instance parameter is valid against the oneOf child schemas:
+     * Organization, Permission, Role
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -254,7 +255,49 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
         throw new RuntimeException("Invalid instance type. Must be Organization, Permission, Role");
     }
 
+    /**
+     * Get the actual instance, which can be the following:
+     * Organization, Permission, Role
+     *
+     * @return The actual instance (Organization, Permission, Role)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
 
+    /**
+     * Get the actual instance of `Organization`. If the actual instanct is not `Organization`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Organization`
+     * @throws ClassCastException if the instance is not `Organization`
+     */
+    public Organization getOrganization() throws ClassCastException {
+        return (Organization)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `Permission`. If the actual instanct is not `Permission`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Permission`
+     * @throws ClassCastException if the instance is not `Permission`
+     */
+    public Permission getPermission() throws ClassCastException {
+        return (Permission)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `Role`. If the actual instanct is not `Role`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Role`
+     * @throws ClassCastException if the instance is not `Role`
+     */
+    public Role getRole() throws ClassCastException {
+        return (Role)super.getActualInstance();
+    }
 
 }
 
