@@ -118,6 +118,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -136,6 +137,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
        </table>
 
      */
@@ -146,7 +148,7 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
 
   /**
    * Create an AWS integration
-   * Create a Datadog-Amazon Web Services integration. Using the &#x60;POST&#x60; method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.
+   * Create a Datadog-Amazon Web Services integration. Using the &#x60;POST&#x60; method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
    * @return createAWSAccountRequest
    * @throws ApiException if fails to make API call
    
@@ -332,6 +334,7 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -350,6 +353,7 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
        </table>
 
      */
@@ -691,6 +695,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
        </table>
      
      */
@@ -709,6 +714,7 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
        </table>
 
      */

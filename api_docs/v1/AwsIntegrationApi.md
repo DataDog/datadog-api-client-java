@@ -22,6 +22,7 @@ Create an AWS integration
 Create a Datadog-Amazon Web Services integration.
 Using the `POST` method updates your integration configuration
 by adding your new configuration to the existing one in your Datadog organization.
+A unique AWS Account ID for role based authentication.
 
 ### Example
 
@@ -94,6 +95,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication Error |  -  |
+| **409** | Conflict Error |  -  |
 
 
 ## createNewAWSExternalID
@@ -256,6 +258,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication Error |  -  |
+| **409** | Conflict Error |  -  |
 
 
 ## listAWSAccounts
@@ -508,4 +511,5 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication Error |  -  |
+| **409** | Conflict Error |  -  |
 
