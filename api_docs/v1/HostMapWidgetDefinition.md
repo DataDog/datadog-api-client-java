@@ -7,6 +7,7 @@ The host map widget graphs any metric across your hosts using the same visualiza
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**customLinks** | [**List&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md) | List of custom links. |  [optional]
 **group** | **List&lt;String&gt;** | List of tag prefixes to group by. |  [optional]
 **noGroupHosts** | **Boolean** | Whether to show the hosts that don’t fit in a group. |  [optional]
 **noMetricHosts** | **Boolean** | Whether to show the hosts with no metrics. |  [optional]

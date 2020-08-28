@@ -7,6 +7,7 @@ The timeseries visualization allows you to display the evolution of one or more 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**customLinks** | [**List&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md) | List of custom links. |  [optional]
 **events** | [**List&lt;WidgetEvent&gt;**](WidgetEvent.md) | List of widget events. |  [optional]
 **legendSize** | **String** | Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;. |  [optional]
 **markers** | [**List&lt;WidgetMarker&gt;**](WidgetMarker.md) | List of markers. |  [optional]
