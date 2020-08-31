@@ -169,6 +169,15 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageTracingWithoutLimitsTest() throws ApiException {
+        UsageTracingWithoutLimitsResponse response = api.getTracingWithoutLimits()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
     public void getUsageBillableSummaryTest() throws ApiException, IOException {
         stubFor(get(urlPathEqualTo("/api/v1/usage/billable-summary"))
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/usage_fixtures/usage_billable_summary.json")))
@@ -302,6 +311,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getRumSessionCountAggSum().longValue(), 5L);
         assertEquals(usage.getProfilingHostCountTop99pSum().longValue(), 6L);
         assertEquals(usage.getProfilingContainerAgentCountAvg().longValue(), 7L);
+        assertEquals(usage.getTwolIngestedEventsBytesAggSum().longValue(), 8L);
 
         // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
         OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
@@ -317,6 +327,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageItem.getInfraHostTop99p().longValue(), 8L);
         assertEquals(usageItem.getRumSessionCountSum().longValue(), 9L);
         assertEquals(usageItem.getProfilingHostTop99p().longValue(), 10L);
+        assertEquals(usageItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
 
         UsageSummaryDateOrg usageOrgItem = usageItem.getOrgs().get(0);
         assertEquals(usageOrgItem.getId(), "1b");
@@ -330,6 +341,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageOrgItem.getInfraHostTop99p().longValue(), 8L);
         assertEquals(usageOrgItem.getRumSessionCountSum().longValue(), 9L);
         assertEquals(usageOrgItem.getProfilingHostTop99p().longValue(), 10L);
+        assertEquals(usageOrgItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
     }
 
     @Test
@@ -746,6 +758,27 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
         try {
             fakeAuthApi.getUsageSNMP().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getUsageTracingWithoutLimitsErrorsTest()throws IOException  {
+        try {
+            api.getTracingWithoutLimits().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getTracingWithoutLimits().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());

@@ -1,0 +1,85 @@
+[{
+  "id" : "0db9f64f-4aee-4f3b-ace5-78432b285e4e",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/usage/tracing-without-limits",
+    "queryStringParameters" : {
+      "start_hr" : [ "2020-08-31T22:57Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json;datetime-format=rfc3339" ],
+      "JAVA-TEST-NAME" : [ "getUsageTracingWithoutLimitsErrorsTest" ],
+      "DD-OPERATION-ID" : [ "getTracingWithoutLimits" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Mon, 31 Aug 2020 17:57:52 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "48" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-RateLimit-Limit" : [ "12000" ],
+      "X-RateLimit-Period" : [ "3600" ],
+      "X-RateLimit-Reset" : [ "128" ],
+      "X-RateLimit-Remaining" : [ "9562" ],
+      "X-DD-VERSION" : [ "35.2960961" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "body" : "{\"errors\": [\"start_hr cannot be in the future\"]}"
+  }
+}, {
+  "id" : "1cae1ffd-292b-4b6c-8de9-bacc8ae80cf0",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/usage/tracing-without-limits",
+    "queryStringParameters" : {
+      "start_hr" : [ "2020-08-31T22:57Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json;datetime-format=rfc3339" ],
+      "JAVA-TEST-NAME" : [ "getUsageTracingWithoutLimitsErrorsTest" ],
+      "DD-OPERATION-ID" : [ "getTracingWithoutLimits" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 403,
+    "reasonPhrase" : "Forbidden",
+    "headers" : {
+      "Date" : [ "Mon, 31 Aug 2020 17:57:53 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+}]
