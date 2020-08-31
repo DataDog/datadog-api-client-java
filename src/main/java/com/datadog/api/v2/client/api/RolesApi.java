@@ -541,7 +541,7 @@ private ApiResponse<RoleResponse> getRoleWithHttpInfo(String roleId) throws ApiE
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK for get role </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        </table>
@@ -559,7 +559,7 @@ private ApiResponse<RoleResponse> getRoleWithHttpInfo(String roleId) throws ApiE
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK for get role </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        </table>
