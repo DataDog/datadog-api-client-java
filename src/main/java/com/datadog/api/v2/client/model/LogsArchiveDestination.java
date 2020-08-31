@@ -231,7 +231,8 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas.
+     * the instance parameter is valid against the oneOf child schemas:
+     * LogsArchiveDestinationAzure, LogsArchiveDestinationGCS, LogsArchiveDestinationS3
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -261,7 +262,49 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
         throw new RuntimeException("Invalid instance type. Must be LogsArchiveDestinationAzure, LogsArchiveDestinationGCS, LogsArchiveDestinationS3");
     }
 
+    /**
+     * Get the actual instance, which can be the following:
+     * LogsArchiveDestinationAzure, LogsArchiveDestinationGCS, LogsArchiveDestinationS3
+     *
+     * @return The actual instance (LogsArchiveDestinationAzure, LogsArchiveDestinationGCS, LogsArchiveDestinationS3)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
 
+    /**
+     * Get the actual instance of `LogsArchiveDestinationAzure`. If the actual instanct is not `LogsArchiveDestinationAzure`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsArchiveDestinationAzure`
+     * @throws ClassCastException if the instance is not `LogsArchiveDestinationAzure`
+     */
+    public LogsArchiveDestinationAzure getLogsArchiveDestinationAzure() throws ClassCastException {
+        return (LogsArchiveDestinationAzure)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsArchiveDestinationGCS`. If the actual instanct is not `LogsArchiveDestinationGCS`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsArchiveDestinationGCS`
+     * @throws ClassCastException if the instance is not `LogsArchiveDestinationGCS`
+     */
+    public LogsArchiveDestinationGCS getLogsArchiveDestinationGCS() throws ClassCastException {
+        return (LogsArchiveDestinationGCS)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsArchiveDestinationS3`. If the actual instanct is not `LogsArchiveDestinationS3`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsArchiveDestinationS3`
+     * @throws ClassCastException if the instance is not `LogsArchiveDestinationS3`
+     */
+    public LogsArchiveDestinationS3 getLogsArchiveDestinationS3() throws ClassCastException {
+        return (LogsArchiveDestinationS3)super.getActualInstance();
+    }
 
 }
 

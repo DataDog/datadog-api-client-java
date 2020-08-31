@@ -643,7 +643,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas.
+     * the instance parameter is valid against the oneOf child schemas:
+     * LogsArithmeticProcessor, LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -728,7 +729,181 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         throw new RuntimeException("Invalid instance type. Must be LogsArithmeticProcessor, LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser");
     }
 
+    /**
+     * Get the actual instance, which can be the following:
+     * LogsArithmeticProcessor, LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser
+     *
+     * @return The actual instance (LogsArithmeticProcessor, LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
 
+    /**
+     * Get the actual instance of `LogsArithmeticProcessor`. If the actual instanct is not `LogsArithmeticProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsArithmeticProcessor`
+     * @throws ClassCastException if the instance is not `LogsArithmeticProcessor`
+     */
+    public LogsArithmeticProcessor getLogsArithmeticProcessor() throws ClassCastException {
+        return (LogsArithmeticProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsAttributeRemapper`. If the actual instanct is not `LogsAttributeRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsAttributeRemapper`
+     * @throws ClassCastException if the instance is not `LogsAttributeRemapper`
+     */
+    public LogsAttributeRemapper getLogsAttributeRemapper() throws ClassCastException {
+        return (LogsAttributeRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsCategoryProcessor`. If the actual instanct is not `LogsCategoryProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsCategoryProcessor`
+     * @throws ClassCastException if the instance is not `LogsCategoryProcessor`
+     */
+    public LogsCategoryProcessor getLogsCategoryProcessor() throws ClassCastException {
+        return (LogsCategoryProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsDateRemapper`. If the actual instanct is not `LogsDateRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsDateRemapper`
+     * @throws ClassCastException if the instance is not `LogsDateRemapper`
+     */
+    public LogsDateRemapper getLogsDateRemapper() throws ClassCastException {
+        return (LogsDateRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsGeoIPParser`. If the actual instanct is not `LogsGeoIPParser`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsGeoIPParser`
+     * @throws ClassCastException if the instance is not `LogsGeoIPParser`
+     */
+    public LogsGeoIPParser getLogsGeoIPParser() throws ClassCastException {
+        return (LogsGeoIPParser)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsGrokParser`. If the actual instanct is not `LogsGrokParser`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsGrokParser`
+     * @throws ClassCastException if the instance is not `LogsGrokParser`
+     */
+    public LogsGrokParser getLogsGrokParser() throws ClassCastException {
+        return (LogsGrokParser)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsLookupProcessor`. If the actual instanct is not `LogsLookupProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsLookupProcessor`
+     * @throws ClassCastException if the instance is not `LogsLookupProcessor`
+     */
+    public LogsLookupProcessor getLogsLookupProcessor() throws ClassCastException {
+        return (LogsLookupProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsMessageRemapper`. If the actual instanct is not `LogsMessageRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsMessageRemapper`
+     * @throws ClassCastException if the instance is not `LogsMessageRemapper`
+     */
+    public LogsMessageRemapper getLogsMessageRemapper() throws ClassCastException {
+        return (LogsMessageRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsPipelineProcessor`. If the actual instanct is not `LogsPipelineProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsPipelineProcessor`
+     * @throws ClassCastException if the instance is not `LogsPipelineProcessor`
+     */
+    public LogsPipelineProcessor getLogsPipelineProcessor() throws ClassCastException {
+        return (LogsPipelineProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsServiceRemapper`. If the actual instanct is not `LogsServiceRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsServiceRemapper`
+     * @throws ClassCastException if the instance is not `LogsServiceRemapper`
+     */
+    public LogsServiceRemapper getLogsServiceRemapper() throws ClassCastException {
+        return (LogsServiceRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsStatusRemapper`. If the actual instanct is not `LogsStatusRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsStatusRemapper`
+     * @throws ClassCastException if the instance is not `LogsStatusRemapper`
+     */
+    public LogsStatusRemapper getLogsStatusRemapper() throws ClassCastException {
+        return (LogsStatusRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsStringBuilderProcessor`. If the actual instanct is not `LogsStringBuilderProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsStringBuilderProcessor`
+     * @throws ClassCastException if the instance is not `LogsStringBuilderProcessor`
+     */
+    public LogsStringBuilderProcessor getLogsStringBuilderProcessor() throws ClassCastException {
+        return (LogsStringBuilderProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsTraceRemapper`. If the actual instanct is not `LogsTraceRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsTraceRemapper`
+     * @throws ClassCastException if the instance is not `LogsTraceRemapper`
+     */
+    public LogsTraceRemapper getLogsTraceRemapper() throws ClassCastException {
+        return (LogsTraceRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsURLParser`. If the actual instanct is not `LogsURLParser`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsURLParser`
+     * @throws ClassCastException if the instance is not `LogsURLParser`
+     */
+    public LogsURLParser getLogsURLParser() throws ClassCastException {
+        return (LogsURLParser)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsUserAgentParser`. If the actual instanct is not `LogsUserAgentParser`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsUserAgentParser`
+     * @throws ClassCastException if the instance is not `LogsUserAgentParser`
+     */
+    public LogsUserAgentParser getLogsUserAgentParser() throws ClassCastException {
+        return (LogsUserAgentParser)super.getActualInstance();
+    }
 
 }
 

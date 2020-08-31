@@ -184,7 +184,8 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas.
+     * the instance parameter is valid against the oneOf child schemas:
+     * Double, String
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -204,7 +205,38 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
         throw new RuntimeException("Invalid instance type. Must be Double, String");
     }
 
+    /**
+     * Get the actual instance, which can be the following:
+     * Double, String
+     *
+     * @return The actual instance (Double, String)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
 
+    /**
+     * Get the actual instance of `Double`. If the actual instanct is not `Double`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Double`
+     * @throws ClassCastException if the instance is not `Double`
+     */
+    public Double getDouble() throws ClassCastException {
+        return (Double)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `String`. If the actual instanct is not `String`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `String`
+     * @throws ClassCastException if the instance is not `String`
+     */
+    public String getString() throws ClassCastException {
+        return (String)super.getActualInstance();
+    }
 
 }
 

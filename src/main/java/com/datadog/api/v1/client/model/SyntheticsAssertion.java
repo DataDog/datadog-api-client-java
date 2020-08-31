@@ -195,7 +195,8 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas.
+     * the instance parameter is valid against the oneOf child schemas:
+     * SyntheticsAssertionJSONPathTarget, SyntheticsAssertionTarget
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -215,7 +216,38 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
         throw new RuntimeException("Invalid instance type. Must be SyntheticsAssertionJSONPathTarget, SyntheticsAssertionTarget");
     }
 
+    /**
+     * Get the actual instance, which can be the following:
+     * SyntheticsAssertionJSONPathTarget, SyntheticsAssertionTarget
+     *
+     * @return The actual instance (SyntheticsAssertionJSONPathTarget, SyntheticsAssertionTarget)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
 
+    /**
+     * Get the actual instance of `SyntheticsAssertionJSONPathTarget`. If the actual instanct is not `SyntheticsAssertionJSONPathTarget`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `SyntheticsAssertionJSONPathTarget`
+     * @throws ClassCastException if the instance is not `SyntheticsAssertionJSONPathTarget`
+     */
+    public SyntheticsAssertionJSONPathTarget getSyntheticsAssertionJSONPathTarget() throws ClassCastException {
+        return (SyntheticsAssertionJSONPathTarget)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `SyntheticsAssertionTarget`. If the actual instanct is not `SyntheticsAssertionTarget`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `SyntheticsAssertionTarget`
+     * @throws ClassCastException if the instance is not `SyntheticsAssertionTarget`
+     */
+    public SyntheticsAssertionTarget getSyntheticsAssertionTarget() throws ClassCastException {
+        return (SyntheticsAssertionTarget)super.getActualInstance();
+    }
 
 }
 
