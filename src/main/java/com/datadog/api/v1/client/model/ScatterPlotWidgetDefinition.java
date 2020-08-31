@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionRequests;
 import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetAxis;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -39,6 +40,7 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.")
 @JsonPropertyOrder({
   ScatterPlotWidgetDefinition.JSON_PROPERTY_COLOR_BY_GROUPS,
+  ScatterPlotWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_TIME,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -52,6 +54,9 @@ import com.datadog.api.v1.client.JSON;
 public class ScatterPlotWidgetDefinition {
   public static final String JSON_PROPERTY_COLOR_BY_GROUPS = "color_by_groups";
   private List<String> colorByGroups = null;
+
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private ScatterPlotWidgetDefinitionRequests requests;
@@ -107,6 +112,38 @@ public class ScatterPlotWidgetDefinition {
 
   public void setColorByGroups(List<String> colorByGroups) {
     this.colorByGroups = colorByGroups;
+  }
+
+
+  public ScatterPlotWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public ScatterPlotWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
   }
 
 
@@ -304,7 +341,7 @@ public class ScatterPlotWidgetDefinition {
    * Return true if this ScatterPlotWidgetDefinition object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -313,6 +350,7 @@ public class ScatterPlotWidgetDefinition {
     }
     ScatterPlotWidgetDefinition scatterPlotWidgetDefinition = (ScatterPlotWidgetDefinition) o;
     return Objects.equals(this.colorByGroups, scatterPlotWidgetDefinition.colorByGroups) &&
+        Objects.equals(this.customLinks, scatterPlotWidgetDefinition.customLinks) &&
         Objects.equals(this.requests, scatterPlotWidgetDefinition.requests) &&
         Objects.equals(this.time, scatterPlotWidgetDefinition.time) &&
         Objects.equals(this.title, scatterPlotWidgetDefinition.title) &&
@@ -325,7 +363,7 @@ public class ScatterPlotWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorByGroups, requests, time, title, titleAlign, titleSize, type, xaxis, yaxis);
+    return Objects.hash(colorByGroups, customLinks, requests, time, title, titleAlign, titleSize, type, xaxis, yaxis);
   }
 
 
@@ -334,6 +372,7 @@ public class ScatterPlotWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScatterPlotWidgetDefinition {\n");
     sb.append("    colorByGroups: ").append(toIndentedString(colorByGroups)).append("\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
@@ -350,7 +389,7 @@ public class ScatterPlotWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

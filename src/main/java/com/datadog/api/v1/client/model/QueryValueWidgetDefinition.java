@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.QueryValueWidgetDefinitionType;
 import com.datadog.api.v1.client.model.QueryValueWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -38,6 +39,7 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "Query values display the current value of a given metric, APM, or log query.")
 @JsonPropertyOrder({
   QueryValueWidgetDefinition.JSON_PROPERTY_AUTOSCALE,
+  QueryValueWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   QueryValueWidgetDefinition.JSON_PROPERTY_CUSTOM_UNIT,
   QueryValueWidgetDefinition.JSON_PROPERTY_PRECISION,
   QueryValueWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -52,6 +54,9 @@ import com.datadog.api.v1.client.JSON;
 public class QueryValueWidgetDefinition {
   public static final String JSON_PROPERTY_AUTOSCALE = "autoscale";
   private Boolean autoscale;
+
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
 
   public static final String JSON_PROPERTY_CUSTOM_UNIT = "custom_unit";
   private String customUnit;
@@ -102,6 +107,38 @@ public class QueryValueWidgetDefinition {
 
   public void setAutoscale(Boolean autoscale) {
     this.autoscale = autoscale;
+  }
+
+
+  public QueryValueWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public QueryValueWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
   }
 
 
@@ -328,7 +365,7 @@ public class QueryValueWidgetDefinition {
    * Return true if this QueryValueWidgetDefinition object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -337,6 +374,7 @@ public class QueryValueWidgetDefinition {
     }
     QueryValueWidgetDefinition queryValueWidgetDefinition = (QueryValueWidgetDefinition) o;
     return Objects.equals(this.autoscale, queryValueWidgetDefinition.autoscale) &&
+        Objects.equals(this.customLinks, queryValueWidgetDefinition.customLinks) &&
         Objects.equals(this.customUnit, queryValueWidgetDefinition.customUnit) &&
         Objects.equals(this.precision, queryValueWidgetDefinition.precision) &&
         Objects.equals(this.requests, queryValueWidgetDefinition.requests) &&
@@ -350,7 +388,7 @@ public class QueryValueWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoscale, customUnit, precision, requests, textAlign, time, title, titleAlign, titleSize, type);
+    return Objects.hash(autoscale, customLinks, customUnit, precision, requests, textAlign, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -359,6 +397,7 @@ public class QueryValueWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryValueWidgetDefinition {\n");
     sb.append("    autoscale: ").append(toIndentedString(autoscale)).append("\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    customUnit: ").append(toIndentedString(customUnit)).append("\n");
     sb.append("    precision: ").append(toIndentedString(precision)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
@@ -376,7 +415,7 @@ public class QueryValueWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

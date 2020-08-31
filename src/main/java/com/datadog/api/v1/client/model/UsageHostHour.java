@@ -198,11 +198,11 @@ public class UsageHostHour {
   }
 
    /**
-   * Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of &#x60;agent_host_count&#x60;, &#x60;aws_host_count&#x60;, and &#x60;gcp_host_count&#x60;.
+   * Shows the total number of containers reported by the Docker integration during the hour.
    * @return containerCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.")
+  @ApiModelProperty(value = "Shows the total number of containers reported by the Docker integration during the hour.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -246,11 +246,11 @@ public class UsageHostHour {
   }
 
    /**
-   * Shows the total number of containers reporting via the Docker integration during the hour.
+   * Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of &#x60;agent_host_count&#x60;, &#x60;aws_host_count&#x60;, and &#x60;gcp_host_count&#x60;.
    * @return hostCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the total number of containers reporting via the Docker integration during the hour.")
+  @ApiModelProperty(value = "Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.")
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -292,7 +292,7 @@ public class UsageHostHour {
    * Return true if this UsageHostHour object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -338,7 +338,7 @@ public class UsageHostHour {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

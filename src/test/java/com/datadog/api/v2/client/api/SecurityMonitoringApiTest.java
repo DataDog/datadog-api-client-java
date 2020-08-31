@@ -170,8 +170,6 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     @Test
     public void searchSignals() throws Exception {
-	Assume.assumeTrue("Skip when ignoring recording", !TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE));
-
         String uniqueName = getUniqueEntityName();
         SecurityMonitoringRuleResponse rule = createRule(uniqueName);
 
@@ -242,8 +240,6 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     @Test
     public void listSignals() throws Exception {
-	Assume.assumeTrue("Skip when ignoring recording", !TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE));
-
         String uniqueName = getUniqueEntityName();
         SecurityMonitoringRuleResponse rule = createRule(uniqueName);
 

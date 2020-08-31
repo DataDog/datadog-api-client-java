@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.TableWidgetDefinitionType;
 import com.datadog.api.v1.client.model.TableWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,6 +38,7 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.")
 @JsonPropertyOrder({
+  TableWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   TableWidgetDefinition.JSON_PROPERTY_REQUESTS,
   TableWidgetDefinition.JSON_PROPERTY_TIME,
   TableWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -46,6 +48,9 @@ import com.datadog.api.v1.client.JSON;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TableWidgetDefinition {
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<TableWidgetRequest> requests = new ArrayList<>();
 
@@ -63,6 +68,38 @@ public class TableWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TableWidgetDefinitionType type = TableWidgetDefinitionType.QUERY_TABLE;
+
+
+  public TableWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public TableWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
 
 
   public TableWidgetDefinition requests(List<TableWidgetRequest> requests) {
@@ -216,7 +253,7 @@ public class TableWidgetDefinition {
    * Return true if this TableWidgetDefinition object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -224,7 +261,8 @@ public class TableWidgetDefinition {
       return false;
     }
     TableWidgetDefinition tableWidgetDefinition = (TableWidgetDefinition) o;
-    return Objects.equals(this.requests, tableWidgetDefinition.requests) &&
+    return Objects.equals(this.customLinks, tableWidgetDefinition.customLinks) &&
+        Objects.equals(this.requests, tableWidgetDefinition.requests) &&
         Objects.equals(this.time, tableWidgetDefinition.time) &&
         Objects.equals(this.title, tableWidgetDefinition.title) &&
         Objects.equals(this.titleAlign, tableWidgetDefinition.titleAlign) &&
@@ -234,7 +272,7 @@ public class TableWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests, time, title, titleAlign, titleSize, type);
+    return Objects.hash(customLinks, requests, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -242,6 +280,7 @@ public class TableWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
@@ -256,7 +295,7 @@ public class TableWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -45,6 +45,7 @@ import com.datadog.api.v1.client.model.ToplistWidgetRequest;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetAxis;
 import com.datadog.api.v1.client.model.WidgetColorPreference;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetEvent;
 import com.datadog.api.v1.client.model.WidgetEventSize;
 import com.datadog.api.v1.client.model.WidgetGrouping;
@@ -967,7 +968,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas.
+     * the instance parameter is valid against the oneOf child schemas:
+     * AlertGraphWidgetDefinition, AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -1097,7 +1099,280 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         throw new RuntimeException("Invalid instance type. Must be AlertGraphWidgetDefinition, AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition");
     }
 
+    /**
+     * Get the actual instance, which can be the following:
+     * AlertGraphWidgetDefinition, AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition
+     *
+     * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
 
+    /**
+     * Get the actual instance of `AlertGraphWidgetDefinition`. If the actual instanct is not `AlertGraphWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AlertGraphWidgetDefinition`
+     * @throws ClassCastException if the instance is not `AlertGraphWidgetDefinition`
+     */
+    public AlertGraphWidgetDefinition getAlertGraphWidgetDefinition() throws ClassCastException {
+        return (AlertGraphWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AlertValueWidgetDefinition`. If the actual instanct is not `AlertValueWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AlertValueWidgetDefinition`
+     * @throws ClassCastException if the instance is not `AlertValueWidgetDefinition`
+     */
+    public AlertValueWidgetDefinition getAlertValueWidgetDefinition() throws ClassCastException {
+        return (AlertValueWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ChangeWidgetDefinition`. If the actual instanct is not `ChangeWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ChangeWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ChangeWidgetDefinition`
+     */
+    public ChangeWidgetDefinition getChangeWidgetDefinition() throws ClassCastException {
+        return (ChangeWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CheckStatusWidgetDefinition`. If the actual instanct is not `CheckStatusWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CheckStatusWidgetDefinition`
+     * @throws ClassCastException if the instance is not `CheckStatusWidgetDefinition`
+     */
+    public CheckStatusWidgetDefinition getCheckStatusWidgetDefinition() throws ClassCastException {
+        return (CheckStatusWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `DistributionWidgetDefinition`. If the actual instanct is not `DistributionWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `DistributionWidgetDefinition`
+     * @throws ClassCastException if the instance is not `DistributionWidgetDefinition`
+     */
+    public DistributionWidgetDefinition getDistributionWidgetDefinition() throws ClassCastException {
+        return (DistributionWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EventStreamWidgetDefinition`. If the actual instanct is not `EventStreamWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EventStreamWidgetDefinition`
+     * @throws ClassCastException if the instance is not `EventStreamWidgetDefinition`
+     */
+    public EventStreamWidgetDefinition getEventStreamWidgetDefinition() throws ClassCastException {
+        return (EventStreamWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EventTimelineWidgetDefinition`. If the actual instanct is not `EventTimelineWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EventTimelineWidgetDefinition`
+     * @throws ClassCastException if the instance is not `EventTimelineWidgetDefinition`
+     */
+    public EventTimelineWidgetDefinition getEventTimelineWidgetDefinition() throws ClassCastException {
+        return (EventTimelineWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `FreeTextWidgetDefinition`. If the actual instanct is not `FreeTextWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `FreeTextWidgetDefinition`
+     * @throws ClassCastException if the instance is not `FreeTextWidgetDefinition`
+     */
+    public FreeTextWidgetDefinition getFreeTextWidgetDefinition() throws ClassCastException {
+        return (FreeTextWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `GroupWidgetDefinition`. If the actual instanct is not `GroupWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `GroupWidgetDefinition`
+     * @throws ClassCastException if the instance is not `GroupWidgetDefinition`
+     */
+    public GroupWidgetDefinition getGroupWidgetDefinition() throws ClassCastException {
+        return (GroupWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `HeatMapWidgetDefinition`. If the actual instanct is not `HeatMapWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `HeatMapWidgetDefinition`
+     * @throws ClassCastException if the instance is not `HeatMapWidgetDefinition`
+     */
+    public HeatMapWidgetDefinition getHeatMapWidgetDefinition() throws ClassCastException {
+        return (HeatMapWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `HostMapWidgetDefinition`. If the actual instanct is not `HostMapWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `HostMapWidgetDefinition`
+     * @throws ClassCastException if the instance is not `HostMapWidgetDefinition`
+     */
+    public HostMapWidgetDefinition getHostMapWidgetDefinition() throws ClassCastException {
+        return (HostMapWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `IFrameWidgetDefinition`. If the actual instanct is not `IFrameWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `IFrameWidgetDefinition`
+     * @throws ClassCastException if the instance is not `IFrameWidgetDefinition`
+     */
+    public IFrameWidgetDefinition getIFrameWidgetDefinition() throws ClassCastException {
+        return (IFrameWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ImageWidgetDefinition`. If the actual instanct is not `ImageWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ImageWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ImageWidgetDefinition`
+     */
+    public ImageWidgetDefinition getImageWidgetDefinition() throws ClassCastException {
+        return (ImageWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogStreamWidgetDefinition`. If the actual instanct is not `LogStreamWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogStreamWidgetDefinition`
+     * @throws ClassCastException if the instance is not `LogStreamWidgetDefinition`
+     */
+    public LogStreamWidgetDefinition getLogStreamWidgetDefinition() throws ClassCastException {
+        return (LogStreamWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `MonitorSummaryWidgetDefinition`. If the actual instanct is not `MonitorSummaryWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `MonitorSummaryWidgetDefinition`
+     * @throws ClassCastException if the instance is not `MonitorSummaryWidgetDefinition`
+     */
+    public MonitorSummaryWidgetDefinition getMonitorSummaryWidgetDefinition() throws ClassCastException {
+        return (MonitorSummaryWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `NoteWidgetDefinition`. If the actual instanct is not `NoteWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `NoteWidgetDefinition`
+     * @throws ClassCastException if the instance is not `NoteWidgetDefinition`
+     */
+    public NoteWidgetDefinition getNoteWidgetDefinition() throws ClassCastException {
+        return (NoteWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `QueryValueWidgetDefinition`. If the actual instanct is not `QueryValueWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `QueryValueWidgetDefinition`
+     * @throws ClassCastException if the instance is not `QueryValueWidgetDefinition`
+     */
+    public QueryValueWidgetDefinition getQueryValueWidgetDefinition() throws ClassCastException {
+        return (QueryValueWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `SLOWidgetDefinition`. If the actual instanct is not `SLOWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `SLOWidgetDefinition`
+     * @throws ClassCastException if the instance is not `SLOWidgetDefinition`
+     */
+    public SLOWidgetDefinition getSLOWidgetDefinition() throws ClassCastException {
+        return (SLOWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ScatterPlotWidgetDefinition`. If the actual instanct is not `ScatterPlotWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ScatterPlotWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ScatterPlotWidgetDefinition`
+     */
+    public ScatterPlotWidgetDefinition getScatterPlotWidgetDefinition() throws ClassCastException {
+        return (ScatterPlotWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ServiceMapWidgetDefinition`. If the actual instanct is not `ServiceMapWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ServiceMapWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ServiceMapWidgetDefinition`
+     */
+    public ServiceMapWidgetDefinition getServiceMapWidgetDefinition() throws ClassCastException {
+        return (ServiceMapWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ServiceSummaryWidgetDefinition`. If the actual instanct is not `ServiceSummaryWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ServiceSummaryWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ServiceSummaryWidgetDefinition`
+     */
+    public ServiceSummaryWidgetDefinition getServiceSummaryWidgetDefinition() throws ClassCastException {
+        return (ServiceSummaryWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `TableWidgetDefinition`. If the actual instanct is not `TableWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TableWidgetDefinition`
+     * @throws ClassCastException if the instance is not `TableWidgetDefinition`
+     */
+    public TableWidgetDefinition getTableWidgetDefinition() throws ClassCastException {
+        return (TableWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `TimeseriesWidgetDefinition`. If the actual instanct is not `TimeseriesWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TimeseriesWidgetDefinition`
+     * @throws ClassCastException if the instance is not `TimeseriesWidgetDefinition`
+     */
+    public TimeseriesWidgetDefinition getTimeseriesWidgetDefinition() throws ClassCastException {
+        return (TimeseriesWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ToplistWidgetDefinition`. If the actual instanct is not `ToplistWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ToplistWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ToplistWidgetDefinition`
+     */
+    public ToplistWidgetDefinition getToplistWidgetDefinition() throws ClassCastException {
+        return (ToplistWidgetDefinition)super.getActualInstance();
+    }
 
 }
 
