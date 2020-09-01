@@ -55,7 +55,8 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
-  UsageSummaryDateOrg.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM
+  UsageSummaryDateOrg.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSummaryDateOrg {
@@ -133,6 +134,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM = "trace_search_indexed_events_count_sum";
   private Long traceSearchIndexedEventsCountSum;
+
+  public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM = "twol_ingested_events_bytes_sum";
+  private Long twolIngestedEventsBytesSum;
 
 
   public UsageSummaryDateOrg agentHostTop99p(Long agentHostTop99p) {
@@ -597,11 +601,11 @@ public class UsageSummaryDateOrg {
   }
 
    /**
-   * Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.
+   * Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org.
    * @return profilingHostTop99p
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.")
+  @ApiModelProperty(value = "Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_PROFILING_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -735,6 +739,30 @@ public class UsageSummaryDateOrg {
   }
 
 
+  public UsageSummaryDateOrg twolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
+    this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org.
+   * @return twolIngestedEventsBytesSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getTwolIngestedEventsBytesSum() {
+    return twolIngestedEventsBytesSum;
+  }
+
+
+  public void setTwolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
+    this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
+  }
+
+
   /**
    * Return true if this UsageSummaryDateOrg object is equal to o.
    */
@@ -771,12 +799,13 @@ public class UsageSummaryDateOrg {
         Objects.equals(this.rumSessionCountSum, usageSummaryDateOrg.rumSessionCountSum) &&
         Objects.equals(this.syntheticsBrowserCheckCallsCountSum, usageSummaryDateOrg.syntheticsBrowserCheckCallsCountSum) &&
         Objects.equals(this.syntheticsCheckCallsCountSum, usageSummaryDateOrg.syntheticsCheckCallsCountSum) &&
-        Objects.equals(this.traceSearchIndexedEventsCountSum, usageSummaryDateOrg.traceSearchIndexedEventsCountSum);
+        Objects.equals(this.traceSearchIndexedEventsCountSum, usageSummaryDateOrg.traceSearchIndexedEventsCountSum) &&
+        Objects.equals(this.twolIngestedEventsBytesSum, usageSummaryDateOrg.twolIngestedEventsBytesSum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum);
+    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
   }
 
 
@@ -809,6 +838,7 @@ public class UsageSummaryDateOrg {
     sb.append("    syntheticsBrowserCheckCallsCountSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountSum)).append("\n");
     sb.append("    syntheticsCheckCallsCountSum: ").append(toIndentedString(syntheticsCheckCallsCountSum)).append("\n");
     sb.append("    traceSearchIndexedEventsCountSum: ").append(toIndentedString(traceSearchIndexedEventsCountSum)).append("\n");
+    sb.append("    twolIngestedEventsBytesSum: ").append(toIndentedString(twolIngestedEventsBytesSum)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -40,6 +40,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryResponse.JSON_PROPERTY_AWS_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT,
   UsageSummaryResponse.JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AZURE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_AVG_SUM,
@@ -62,6 +63,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_USAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -80,6 +82,9 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM = "aws_lambda_invocations_sum";
   private Long awsLambdaInvocationsSum;
+
+  public static final String JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P_SUM = "azure_app_service_top99p_sum";
+  private Long azureAppServiceTop99pSum;
 
   public static final String JSON_PROPERTY_AZURE_HOST_TOP99P_SUM = "azure_host_top99p_sum";
   private Long azureHostTop99pSum;
@@ -146,6 +151,9 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_AGG_SUM = "trace_search_indexed_events_count_agg_sum";
   private Long traceSearchIndexedEventsCountAggSum;
+
+  public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_AGG_SUM = "twol_ingested_events_bytes_agg_sum";
+  private Long twolIngestedEventsBytesAggSum;
 
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageSummaryDate> usage = null;
@@ -268,6 +276,30 @@ public class UsageSummaryResponse {
 
   public void setAwsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
+  }
+
+
+  public UsageSummaryResponse azureAppServiceTop99pSum(Long azureAppServiceTop99pSum) {
+    this.azureAppServiceTop99pSum = azureAppServiceTop99pSum;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all Azure app services over all hours in the current month(s) for all organizations.
+   * @return azureAppServiceTop99pSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all Azure app services over all hours in the current month(s) for all organizations.")
+  @JsonProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getAzureAppServiceTop99pSum() {
+    return azureAppServiceTop99pSum;
+  }
+
+
+  public void setAzureAppServiceTop99pSum(Long azureAppServiceTop99pSum) {
+    this.azureAppServiceTop99pSum = azureAppServiceTop99pSum;
   }
 
 
@@ -799,6 +831,30 @@ public class UsageSummaryResponse {
   }
 
 
+  public UsageSummaryResponse twolIngestedEventsBytesAggSum(Long twolIngestedEventsBytesAggSum) {
+    this.twolIngestedEventsBytesAggSum = twolIngestedEventsBytesAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all tracing without limits bytes ingested over all hours in the current month(s) for all organizations.
+   * @return twolIngestedEventsBytesAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all tracing without limits bytes ingested over all hours in the current month(s) for all organizations.")
+  @JsonProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getTwolIngestedEventsBytesAggSum() {
+    return twolIngestedEventsBytesAggSum;
+  }
+
+
+  public void setTwolIngestedEventsBytesAggSum(Long twolIngestedEventsBytesAggSum) {
+    this.twolIngestedEventsBytesAggSum = twolIngestedEventsBytesAggSum;
+  }
+
+
   public UsageSummaryResponse usage(List<UsageSummaryDate> usage) {
     this.usage = usage;
     return this;
@@ -848,6 +904,7 @@ public class UsageSummaryResponse {
         Objects.equals(this.awsHostTop99pSum, usageSummaryResponse.awsHostTop99pSum) &&
         Objects.equals(this.awsLambdaFuncCount, usageSummaryResponse.awsLambdaFuncCount) &&
         Objects.equals(this.awsLambdaInvocationsSum, usageSummaryResponse.awsLambdaInvocationsSum) &&
+        Objects.equals(this.azureAppServiceTop99pSum, usageSummaryResponse.azureAppServiceTop99pSum) &&
         Objects.equals(this.azureHostTop99pSum, usageSummaryResponse.azureHostTop99pSum) &&
         Objects.equals(this.billableIngestedBytesAggSum, usageSummaryResponse.billableIngestedBytesAggSum) &&
         Objects.equals(this.containerAvgSum, usageSummaryResponse.containerAvgSum) &&
@@ -870,12 +927,13 @@ public class UsageSummaryResponse {
         Objects.equals(this.syntheticsBrowserCheckCallsCountAggSum, usageSummaryResponse.syntheticsBrowserCheckCallsCountAggSum) &&
         Objects.equals(this.syntheticsCheckCallsCountAggSum, usageSummaryResponse.syntheticsCheckCallsCountAggSum) &&
         Objects.equals(this.traceSearchIndexedEventsCountAggSum, usageSummaryResponse.traceSearchIndexedEventsCountAggSum) &&
+        Objects.equals(this.twolIngestedEventsBytesAggSum, usageSummaryResponse.twolIngestedEventsBytesAggSum) &&
         Objects.equals(this.usage, usageSummaryResponse.usage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, lastUpdated, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingContainerAgentCountAvg, profilingHostCountTop99pSum, rumSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, usage);
+    return Objects.hash(agentHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99pSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, lastUpdated, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingContainerAgentCountAvg, profilingHostCountTop99pSum, rumSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, twolIngestedEventsBytesAggSum, usage);
   }
 
 
@@ -888,6 +946,7 @@ public class UsageSummaryResponse {
     sb.append("    awsHostTop99pSum: ").append(toIndentedString(awsHostTop99pSum)).append("\n");
     sb.append("    awsLambdaFuncCount: ").append(toIndentedString(awsLambdaFuncCount)).append("\n");
     sb.append("    awsLambdaInvocationsSum: ").append(toIndentedString(awsLambdaInvocationsSum)).append("\n");
+    sb.append("    azureAppServiceTop99pSum: ").append(toIndentedString(azureAppServiceTop99pSum)).append("\n");
     sb.append("    azureHostTop99pSum: ").append(toIndentedString(azureHostTop99pSum)).append("\n");
     sb.append("    billableIngestedBytesAggSum: ").append(toIndentedString(billableIngestedBytesAggSum)).append("\n");
     sb.append("    containerAvgSum: ").append(toIndentedString(containerAvgSum)).append("\n");
@@ -910,6 +969,7 @@ public class UsageSummaryResponse {
     sb.append("    syntheticsBrowserCheckCallsCountAggSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountAggSum)).append("\n");
     sb.append("    syntheticsCheckCallsCountAggSum: ").append(toIndentedString(syntheticsCheckCallsCountAggSum)).append("\n");
     sb.append("    traceSearchIndexedEventsCountAggSum: ").append(toIndentedString(traceSearchIndexedEventsCountAggSum)).append("\n");
+    sb.append("    twolIngestedEventsBytesAggSum: ").append(toIndentedString(twolIngestedEventsBytesAggSum)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();

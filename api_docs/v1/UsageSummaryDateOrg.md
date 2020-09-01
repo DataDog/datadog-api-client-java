@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 **name** | **String** | The organization name. |  [optional]
 **netflowIndexedEventsCountSum** | **Long** | Shows the sum of all Network flows indexed over all hours in the current date for the given org. |  [optional]
 **npmHostTop99p** | **Long** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for the given org. |  [optional]
-**profilingHostTop99p** | **Long** | Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations. |  [optional]
+**profilingHostTop99p** | **Long** | Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org. |  [optional]
 **publicId** | **String** | The organization public id. |  [optional]
 **rumSessionCountSum** | **Long** | Shows the sum of all RUM Sessions over all hours in the current date for the given org. |  [optional]
 **syntheticsBrowserCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current date for the given org. |  [optional]
 **syntheticsCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current date for the given org. |  [optional]
 **traceSearchIndexedEventsCountSum** | **Long** | Shows the sum of all analyzed spans indexed over all hours in the current date for the given org. |  [optional]
+**twolIngestedEventsBytesSum** | **Long** | Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org. |  [optional]
 
 
 

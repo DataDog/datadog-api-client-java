@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **awsHostTop99pSum** | **Long** | Shows the 99th percentile of all AWS hosts over all hours in the current month(s) for all organizations. |  [optional]
 **awsLambdaFuncCount** | **Long** | Shows the average of the number of functions that executed 1 or more times each hour in the current month(s) for all organizations. |  [optional]
 **awsLambdaInvocationsSum** | **Long** | Shows the sum of all AWS Lambda invocations over all hours in the current month(s) for all organizations. |  [optional]
+**azureAppServiceTop99pSum** | **Long** | Shows the 99th percentile of all Azure app services over all hours in the current month(s) for all organizations. |  [optional]
 **azureHostTop99pSum** | **Long** | Shows the 99th percentile of all Azure hosts over all hours in the current month(s) for all organizations. |  [optional]
 **billableIngestedBytesAggSum** | **Long** | Shows the sum of all log bytes ingested over all hours in the current month(s) for all organizations. |  [optional]
 **containerAvgSum** | **Long** | Shows the average of all distinct containers over all hours in the current month(s) for all organizations. |  [optional]
@@ -34,6 +35,7 @@ Name | Type | Description | Notes
 **syntheticsBrowserCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current month(s) for all organizations. |  [optional]
 **syntheticsCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current month(s) for all organizations. |  [optional]
 **traceSearchIndexedEventsCountAggSum** | **Long** | Shows the sum of all analyzed spans indexed over all hours in the current month(s) for all organizations. |  [optional]
+**twolIngestedEventsBytesAggSum** | **Long** | Shows the sum of all tracing without limits bytes ingested over all hours in the current month(s) for all organizations. |  [optional]
 **usage** | [**List&lt;UsageSummaryDate&gt;**](UsageSummaryDate.md) | An array of objects regarding hourly usage. |  [optional]
 
 

@@ -33,6 +33,7 @@ import com.datadog.api.v1.client.model.UsageSyntheticsResponse;
 import com.datadog.api.v1.client.model.UsageTimeseriesResponse;
 import com.datadog.api.v1.client.model.UsageTopAvgMetricsResponse;
 import com.datadog.api.v1.client.model.UsageTraceResponse;
+import com.datadog.api.v1.client.model.UsageTracingWithoutLimitsResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -568,6 +569,126 @@ private ApiResponse<UsageSpecifiedCustomReportsResponse> getSpecifiedMonthlyCust
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     return new APIgetSpecifiedMonthlyCustomReportsRequest(reportId);
+  }
+
+private ApiResponse<UsageTracingWithoutLimitsResponse> getTracingWithoutLimitsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(400, "Missing the required parameter 'startHr' when calling getTracingWithoutLimits");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/tracing-without-limits";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getTracingWithoutLimits");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageTracingWithoutLimitsResponse> localVarReturnType = new GenericType<UsageTracingWithoutLimitsResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getTracingWithoutLimits", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetTracingWithoutLimitsRequest {
+    private OffsetDateTime startHr;
+    private OffsetDateTime endHr;
+
+    private APIgetTracingWithoutLimitsRequest() {
+    }
+
+    /**
+     * Set startHr
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. (required)
+     * @return APIgetTracingWithoutLimitsRequest
+     */
+    public APIgetTracingWithoutLimitsRequest startHr(OffsetDateTime startHr) {
+      this.startHr = startHr;
+      return this;
+    }
+
+    /**
+     * Set endHr
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. (optional)
+     * @return APIgetTracingWithoutLimitsRequest
+     */
+    public APIgetTracingWithoutLimitsRequest endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Execute getTracingWithoutLimits request
+     * @return UsageTracingWithoutLimitsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageTracingWithoutLimitsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getTracingWithoutLimits request with HTTP info returned
+     * @return ApiResponse&lt;UsageTracingWithoutLimitsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageTracingWithoutLimitsResponse> executeWithHttpInfo() throws ApiException {
+      return getTracingWithoutLimitsWithHttpInfo(startHr, endHr);
+    }
+  }
+
+  /**
+   * Get hourly usage for tracing without limits
+   * Get hourly usage for tracing without limits.
+   * @return getTracingWithoutLimitsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetTracingWithoutLimitsRequest getTracingWithoutLimits() throws ApiException {
+    return new APIgetTracingWithoutLimitsRequest();
   }
 
 private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
