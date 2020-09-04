@@ -185,7 +185,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         // Make sure both logs are indexed
         SecurityMonitoringSignalListRequest bothSignalsRequest = new SecurityMonitoringSignalListRequest()
                 .filter(allSignalsFilter);
-        TestUtils.retry(10, 10, () -> {
+        TestUtils.retry(5, 10, () -> {
             try {
                 SecurityMonitoringSignalsListResponse response = api.searchSecurityMonitoringSignals().body(bothSignalsRequest).execute();
                 return response.getData() != null && response.getData().size() == 2;
@@ -195,7 +195,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         });
 
         // Sort ascending works correctly
-        TestUtils.retry(10, 10, () -> {
+        TestUtils.retry(5, 10, () -> {
             try {
                 SecurityMonitoringSignalsListResponse responseAscending = api.searchSecurityMonitoringSignals()
                         .body(new SecurityMonitoringSignalListRequest()
@@ -203,8 +203,9 @@ public class SecurityMonitoringApiTest extends V2APITest {
                                 .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING))
                         .execute();
 
-                if (responseAscending.getData() == null || responseAscending.getData().size() < 2)
+                if (responseAscending.getData() == null || responseAscending.getData().size() < 2) {
                     return false;
+                }
 
                 OffsetDateTime firstTimestamp = responseAscending.getData().get(0).getAttributes().getTimestamp();
                 OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
@@ -215,7 +216,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         });
 
         // Sort ascending works correctly
-        TestUtils.retry(10, 10, () -> {
+        TestUtils.retry(5, 10, () -> {
             try {
                 SecurityMonitoringSignalsListResponse responseDescending = api.searchSecurityMonitoringSignals()
                         .body(new SecurityMonitoringSignalListRequest()
@@ -223,8 +224,9 @@ public class SecurityMonitoringApiTest extends V2APITest {
                                 .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING))
                         .execute();
 
-                if (responseDescending.getData() == null || responseDescending.getData().size() < 2)
+                if (responseDescending.getData() == null || responseDescending.getData().size() < 2) {
                     return false;
+                }
 
                 OffsetDateTime firstTimestamp = responseDescending.getData().get(0).getAttributes().getTimestamp();
                 OffsetDateTime secondTimestamp = responseDescending.getData().get(1).getAttributes().getTimestamp();
@@ -235,7 +237,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         });
 
         // Paging
-        TestUtils.retry(10, 10, () -> {
+        TestUtils.retry(5, 10, () -> {
             try {
                 SecurityMonitoringSignalsListResponse pageOneResponse = api.searchSecurityMonitoringSignals()
                         .body(new SecurityMonitoringSignalListRequest()
@@ -243,11 +245,12 @@ public class SecurityMonitoringApiTest extends V2APITest {
                                 .page(new SecurityMonitoringSignalListRequestPage().limit(1)))
                         .execute();
 
-                if (pageOneResponse.getData() == null || pageOneResponse.getData().size() < 1)
+                if (pageOneResponse.getData() == null || pageOneResponse.getData().size() < 1) {
                     return false;
+                }
 
                 String cursor = pageOneResponse.getMeta().getPage().getAfter();
-                boolean correctFirstLink = pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor));
+                boolean firstLinkIsCorrect = pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor));
 
                 SecurityMonitoringSignalsListResponse pageTwoResponse = api.searchSecurityMonitoringSignals()
                         .body(new SecurityMonitoringSignalListRequest()
@@ -256,11 +259,12 @@ public class SecurityMonitoringApiTest extends V2APITest {
                                         .cursor(cursor)
                                         .limit(1)))
                         .execute();
-                if (pageTwoResponse.getData() == null || pageTwoResponse.getData().size() < 1)
+                if (pageTwoResponse.getData() == null || pageTwoResponse.getData().size() < 1) {
                     return false;
-                
-                boolean correctSecondLink = !pageOneResponse.getData().get(0).getId().equals( pageTwoResponse.getData().get(0).getId());
-                return correctFirstLink && correctSecondLink;
+                }
+
+                boolean secondLinkIsDifferent = !pageOneResponse.getData().get(0).getId().equals( pageTwoResponse.getData().get(0).getId());
+                return firstLinkIsCorrect && secondLinkIsDifferent;
             } catch (ApiException ignored) {
                 return false;
             }
@@ -302,8 +306,9 @@ public class SecurityMonitoringApiTest extends V2APITest {
                         .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING)
                         .execute();
 
-                if (responseAscending.getData() == null || responseAscending.getData().size() < 2)
+                if (responseAscending.getData() == null || responseAscending.getData().size() < 2) {
                     return false;
+                }
 
                 OffsetDateTime firstTimestamp = responseAscending.getData().get(0).getAttributes().getTimestamp();
                 OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
@@ -323,8 +328,9 @@ public class SecurityMonitoringApiTest extends V2APITest {
                         .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING)
                         .execute();
 
-                if (responseDescending.getData() == null || responseDescending.getData().size() < 2)
+                if (responseDescending.getData() == null || responseDescending.getData().size() < 2) {
                     return false;
+                }
 
                 OffsetDateTime firstTimestamp = responseDescending.getData().get(0).getAttributes().getTimestamp();
                 OffsetDateTime secondTimestamp = responseDescending.getData().get(1).getAttributes().getTimestamp();
@@ -345,11 +351,12 @@ public class SecurityMonitoringApiTest extends V2APITest {
                         .pageLimit(1)
                         .execute();
 
-                if (pageOneResponse.getData() == null || pageOneResponse.getData().size() < 1)
+                if (pageOneResponse.getData() == null || pageOneResponse.getData().size() < 1) {
                     return false;
+                }
 
                 String cursor = pageOneResponse.getMeta().getPage().getAfter();
-                boolean correctFirstLink = pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor));
+                boolean firstLinkIsCorrect  = pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor));
 
                 // Second page
                 SecurityMonitoringSignalsListResponse pageTwoResponse = api.listSecurityMonitoringSignals()
@@ -360,11 +367,12 @@ public class SecurityMonitoringApiTest extends V2APITest {
                         .pageCursor(cursor)
                         .execute();
 
-                if (pageTwoResponse.getData() == null || pageTwoResponse.getData().size() < 1)
+                if (pageTwoResponse.getData() == null || pageTwoResponse.getData().size() < 1) {
                     return false;
+                }
 
-                boolean correctSecondLink = !pageOneResponse.getData().get(0).getId().equals(pageTwoResponse.getData().get(0).getId());
-                return correctFirstLink && correctSecondLink;
+                boolean secondLinkIsDifferent = !pageOneResponse.getData().get(0).getId().equals(pageTwoResponse.getData().get(0).getId());
+                return firstLinkIsCorrect && secondLinkIsDifferent;
             } catch (ApiException ignored) {
                 return false;
             }
