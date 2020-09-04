@@ -172,7 +172,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
     public void searchSignals() throws Exception {
         String uniqueName = getUniqueEntityName();
         createRule(uniqueName);
-        // Wait for the rules to be created
+        // Wait for the backend to start processing the rule
         Thread.sleep(5000);
 
         sendLogs(uniqueName);
