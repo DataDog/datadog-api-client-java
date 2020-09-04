@@ -173,7 +173,9 @@ public class SecurityMonitoringApiTest extends V2APITest {
         String uniqueName = getUniqueEntityName();
         createRule(uniqueName);
         // Wait for the backend to start processing the rule
-        Thread.sleep(5000);
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            Thread.sleep(5000);
+        }
 
         sendLogs(uniqueName);
 
@@ -277,7 +279,9 @@ public class SecurityMonitoringApiTest extends V2APITest {
         String uniqueName = getUniqueEntityName();
         SecurityMonitoringRuleResponse rule = createRule(uniqueName);
         // Wait for the rules to be created
-        Thread.sleep(5000);
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            Thread.sleep(5000);
+        }
 
         sendLogs(uniqueName);
 
@@ -401,7 +405,10 @@ public class SecurityMonitoringApiTest extends V2APITest {
         );
 
         // Let's ensure log arrival order
-        Thread.sleep(5000);
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            Thread.sleep(5000);
+        }
+
         sendRequest(
                 "POST",
                 intakeURL,
