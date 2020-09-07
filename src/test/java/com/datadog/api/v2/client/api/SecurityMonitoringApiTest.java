@@ -40,6 +40,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import javax.ws.rs.core.GenericType;
 import org.junit.After;
@@ -197,81 +198,73 @@ public class SecurityMonitoringApiTest extends V2APITest {
         });
 
         // Sort ascending works correctly
+        AtomicReference<SecurityMonitoringSignalsListResponse> responseAscending = new AtomicReference<>();
         TestUtils.retry(5, 10, () -> {
             try {
-                SecurityMonitoringSignalsListResponse responseAscending = api.searchSecurityMonitoringSignals()
+                responseAscending.set(api.searchSecurityMonitoringSignals()
                         .body(new SecurityMonitoringSignalListRequest()
                                 .filter(allSignalsFilter)
                                 .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING))
-                        .execute();
+                        .execute());
 
-                if (responseAscending.getData() == null || responseAscending.getData().size() < 2) {
-                    return false;
-                }
-
-                OffsetDateTime firstTimestamp = responseAscending.getData().get(0).getAttributes().getTimestamp();
-                OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
-                return firstTimestamp.isBefore(secondTimestamp);
+                return responseAscending.get().getData() != null && responseAscending.get().getData().size() >= 2;
             } catch (ApiException ignored) {
                 return false;
             }
         });
+        OffsetDateTime firstTimestamp = responseAscending.get().getData().get(0).getAttributes().getTimestamp();
+        OffsetDateTime secondTimestamp = responseAscending.get().getData().get(1).getAttributes().getTimestamp();
+        assertTrue(firstTimestamp.isBefore(secondTimestamp));
 
-        // Sort ascending works correctly
+        // Sort descending works correctly
+        AtomicReference<SecurityMonitoringSignalsListResponse> responseDescending = new AtomicReference<>();
         TestUtils.retry(5, 10, () -> {
             try {
-                SecurityMonitoringSignalsListResponse responseDescending = api.searchSecurityMonitoringSignals()
+                responseDescending.set(api.searchSecurityMonitoringSignals()
                         .body(new SecurityMonitoringSignalListRequest()
                                 .filter(allSignalsFilter)
                                 .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING))
-                        .execute();
+                        .execute());
 
-                if (responseDescending.getData() == null || responseDescending.getData().size() < 2) {
-                    return false;
-                }
-
-                OffsetDateTime firstTimestamp = responseDescending.getData().get(0).getAttributes().getTimestamp();
-                OffsetDateTime secondTimestamp = responseDescending.getData().get(1).getAttributes().getTimestamp();
-                return firstTimestamp.isAfter(secondTimestamp);
+                return responseDescending.get().getData() != null && responseDescending.get().getData().size() >= 2;
             } catch (ApiException ignored) {
                 return false;
             }
         });
+        firstTimestamp = responseDescending.get().getData().get(0).getAttributes().getTimestamp();
+        secondTimestamp = responseDescending.get().getData().get(1).getAttributes().getTimestamp();
+        assertTrue(firstTimestamp.isAfter(secondTimestamp));
 
         // Paging
+        AtomicReference<SecurityMonitoringSignalsListResponse> pageOneResponse = new AtomicReference<>();
+        AtomicReference<SecurityMonitoringSignalsListResponse> pageTwoResponse = new AtomicReference<>();
         TestUtils.retry(5, 10, () -> {
             try {
-                SecurityMonitoringSignalsListResponse pageOneResponse = api.searchSecurityMonitoringSignals()
+                pageOneResponse.set(api.searchSecurityMonitoringSignals()
                         .body(new SecurityMonitoringSignalListRequest()
                                 .filter(allSignalsFilter)
                                 .page(new SecurityMonitoringSignalListRequestPage().limit(1)))
-                        .execute();
+                        .execute());
 
-                if (pageOneResponse.getData() == null || pageOneResponse.getData().size() < 1) {
+                if (pageOneResponse.get().getData() == null || pageOneResponse.get().getData().size() < 1) {
                     return false;
                 }
 
-                String cursor = pageOneResponse.getMeta().getPage().getAfter();
-                boolean firstLinkIsCorrect = pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor));
-
-                SecurityMonitoringSignalsListResponse pageTwoResponse = api.searchSecurityMonitoringSignals()
+                pageTwoResponse.set(api.searchSecurityMonitoringSignals()
                         .body(new SecurityMonitoringSignalListRequest()
                                 .filter(allSignalsFilter)
                                 .page(new SecurityMonitoringSignalListRequestPage()
-                                        .cursor(cursor)
+                                        .cursor(pageOneResponse.get().getMeta().getPage().getAfter())
                                         .limit(1)))
-                        .execute();
-                if (pageTwoResponse.getData() == null || pageTwoResponse.getData().size() < 1) {
-                    return false;
-                }
-
-                boolean secondLinkIsDifferent = !pageOneResponse.getData().get(0).getId().equals( pageTwoResponse.getData().get(0).getId());
-                return firstLinkIsCorrect && secondLinkIsDifferent;
+                        .execute());
+                return pageTwoResponse.get().getData() != null && pageTwoResponse.get().getData().size() >= 1;
             } catch (ApiException ignored) {
                 return false;
             }
         });
-
+        String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
+        assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor)));
+        assertNotEquals(pageOneResponse.get().getData().get(0).getId(), pageTwoResponse.get().getData().get(0).getId());
     }
 
     @Test
@@ -301,86 +294,79 @@ public class SecurityMonitoringApiTest extends V2APITest {
         });
 
         // Ascending sort works correctly
+        AtomicReference<SecurityMonitoringSignalsListResponse> responseAscending = new AtomicReference<>();
         TestUtils.retry(5, 10, () -> {
             try {
-                SecurityMonitoringSignalsListResponse responseAscending = api.listSecurityMonitoringSignals()
+                responseAscending.set(api.listSecurityMonitoringSignals()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
                         .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING)
-                        .execute();
+                        .execute());
 
-                if (responseAscending.getData() == null || responseAscending.getData().size() < 2) {
-                    return false;
-                }
-
-                OffsetDateTime firstTimestamp = responseAscending.getData().get(0).getAttributes().getTimestamp();
-                OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
-                return firstTimestamp.isBefore(secondTimestamp);
+                return responseAscending.get().getData() != null && responseAscending.get().getData().size() >= 2;
             } catch (ApiException ignored) {
                 return false;
             }
         });
+        OffsetDateTime firstTimestamp = responseAscending.get().getData().get(0).getAttributes().getTimestamp();
+        OffsetDateTime secondTimestamp = responseAscending.get().getData().get(1).getAttributes().getTimestamp();
+        assertTrue(firstTimestamp.isBefore(secondTimestamp));
 
         // Descending sort works correctly
+        AtomicReference<SecurityMonitoringSignalsListResponse> responseDescending = new AtomicReference<>();
         TestUtils.retry(5, 10, () -> {
             try {
-                SecurityMonitoringSignalsListResponse responseDescending = api.listSecurityMonitoringSignals()
+                responseDescending.set(api.listSecurityMonitoringSignals()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
                         .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING)
-                        .execute();
+                        .execute());
 
-                if (responseDescending.getData() == null || responseDescending.getData().size() < 2) {
-                    return false;
-                }
-
-                OffsetDateTime firstTimestamp = responseDescending.getData().get(0).getAttributes().getTimestamp();
-                OffsetDateTime secondTimestamp = responseDescending.getData().get(1).getAttributes().getTimestamp();
-                return firstTimestamp.isAfter(secondTimestamp);
+                return responseDescending.get().getData() != null && responseDescending.get().getData().size() >= 2;
             } catch (ApiException ignored) {
                 return false;
             }
         });
+        firstTimestamp = responseDescending.get().getData().get(0).getAttributes().getTimestamp();
+        secondTimestamp = responseDescending.get().getData().get(1).getAttributes().getTimestamp();
+        assertTrue(firstTimestamp.isAfter(secondTimestamp));
 
         // Paging
+        AtomicReference<SecurityMonitoringSignalsListResponse> pageOneResponse = new AtomicReference<>();
+        AtomicReference<SecurityMonitoringSignalsListResponse> pageTwoResponse = new AtomicReference<>();
         TestUtils.retry(5, 10, () -> {
             try {
                 // First page
-                SecurityMonitoringSignalsListResponse pageOneResponse = api.listSecurityMonitoringSignals()
+                pageOneResponse.set(api.listSecurityMonitoringSignals()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
                         .pageLimit(1)
-                        .execute();
+                        .execute());
 
-                if (pageOneResponse.getData() == null || pageOneResponse.getData().size() < 1) {
+                if (pageOneResponse.get().getData() == null || pageOneResponse.get().getData().size() < 1) {
                     return false;
                 }
-
-                String cursor = pageOneResponse.getMeta().getPage().getAfter();
-                boolean firstLinkIsCorrect  = pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor));
 
                 // Second page
-                SecurityMonitoringSignalsListResponse pageTwoResponse = api.listSecurityMonitoringSignals()
+                pageTwoResponse.set(api.listSecurityMonitoringSignals()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
                         .pageLimit(1)
-                        .pageCursor(cursor)
-                        .execute();
+                        .pageCursor(pageOneResponse.get().getMeta().getPage().getAfter())
+                        .execute());
 
-                if (pageTwoResponse.getData() == null || pageTwoResponse.getData().size() < 1) {
-                    return false;
-                }
-
-                boolean secondLinkIsDifferent = !pageOneResponse.getData().get(0).getId().equals(pageTwoResponse.getData().get(0).getId());
-                return firstLinkIsCorrect && secondLinkIsDifferent;
+                return pageTwoResponse.get().getData() != null && pageTwoResponse.get().getData().size() >= 1;
             } catch (ApiException ignored) {
                 return false;
             }
         });
+        String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
+        assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor)));
+        assertNotEquals(pageOneResponse.get().getData().get(0).getId(), pageTwoResponse.get().getData().get(0).getId());
 
         api.deleteSecurityMonitoringRule(rule.getId());
     }
