@@ -40,6 +40,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import javax.ws.rs.core.GenericType;
 import org.junit.After;
@@ -171,7 +172,11 @@ public class SecurityMonitoringApiTest extends V2APITest {
     @Test
     public void searchSignals() throws Exception {
         String uniqueName = getUniqueEntityName();
-        SecurityMonitoringRuleResponse rule = createRule(uniqueName);
+        createRule(uniqueName);
+        // Wait for the backend to start processing the rule
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            Thread.sleep(5000);
+        }
 
         sendLogs(uniqueName);
 
@@ -183,7 +188,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
         // Make sure both logs are indexed
         SecurityMonitoringSignalListRequest bothSignalsRequest = new SecurityMonitoringSignalListRequest()
                 .filter(allSignalsFilter);
-        TestUtils.retry(10, 10, () -> {
+        TestUtils.retry(5, 10, () -> {
             try {
                 SecurityMonitoringSignalsListResponse response = api.searchSecurityMonitoringSignals().body(bothSignalsRequest).execute();
                 return response.getData() != null && response.getData().size() == 2;
@@ -192,65 +197,95 @@ public class SecurityMonitoringApiTest extends V2APITest {
             }
         });
 
-        // Sort works correctly
-        SecurityMonitoringSignalsListResponse responseAscending = api.searchSecurityMonitoringSignals()
-                .body(new SecurityMonitoringSignalListRequest()
-                        .filter(allSignalsFilter)
-                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING))
-                .execute();
+        // Sort ascending works correctly
+        AtomicReference<SecurityMonitoringSignalsListResponse> responseAscending = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                responseAscending.set(api.searchSecurityMonitoringSignals()
+                        .body(new SecurityMonitoringSignalListRequest()
+                                .filter(allSignalsFilter)
+                                .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING))
+                        .execute());
 
-        assertEquals(2, responseAscending.getData().size());
-        OffsetDateTime firstTimestamp = responseAscending.getData().get(0).getAttributes().getTimestamp();
-        OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
-        assertTrue(firstTimestamp.isBefore(secondTimestamp) || firstTimestamp.isEqual(secondTimestamp));
+                return responseAscending.get().getData() != null && responseAscending.get().getData().size() >= 2;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
+        OffsetDateTime firstTimestamp = responseAscending.get().getData().get(0).getAttributes().getTimestamp();
+        OffsetDateTime secondTimestamp = responseAscending.get().getData().get(1).getAttributes().getTimestamp();
+        assertTrue(firstTimestamp.isBefore(secondTimestamp));
 
-        SecurityMonitoringSignalsListResponse responseDescending = api.searchSecurityMonitoringSignals()
-                .body(new SecurityMonitoringSignalListRequest()
-                        .filter(allSignalsFilter)
-                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING))
-                .execute();
+        // Sort descending works correctly
+        AtomicReference<SecurityMonitoringSignalsListResponse> responseDescending = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                responseDescending.set(api.searchSecurityMonitoringSignals()
+                        .body(new SecurityMonitoringSignalListRequest()
+                                .filter(allSignalsFilter)
+                                .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING))
+                        .execute());
 
-        assertEquals(2, responseDescending.getData().size());
-        firstTimestamp = responseDescending.getData().get(0).getAttributes().getTimestamp();
-        secondTimestamp = responseDescending.getData().get(1).getAttributes().getTimestamp();
-        assertTrue(firstTimestamp.isAfter(secondTimestamp) || firstTimestamp.isEqual(secondTimestamp));
+                return responseDescending.get().getData() != null && responseDescending.get().getData().size() >= 2;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
+        firstTimestamp = responseDescending.get().getData().get(0).getAttributes().getTimestamp();
+        secondTimestamp = responseDescending.get().getData().get(1).getAttributes().getTimestamp();
+        assertTrue(firstTimestamp.isAfter(secondTimestamp));
 
         // Paging
-        SecurityMonitoringSignalsListResponse pageOneResponse = api.searchSecurityMonitoringSignals()
-                .body(new SecurityMonitoringSignalListRequest()
-                        .filter(allSignalsFilter)
-                        .page(new SecurityMonitoringSignalListRequestPage().limit(1)))
-                .execute();
-        assertEquals(1, pageOneResponse.getData().size());
+        AtomicReference<SecurityMonitoringSignalsListResponse> pageOneResponse = new AtomicReference<>();
+        AtomicReference<SecurityMonitoringSignalsListResponse> pageTwoResponse = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                pageOneResponse.set(api.searchSecurityMonitoringSignals()
+                        .body(new SecurityMonitoringSignalListRequest()
+                                .filter(allSignalsFilter)
+                                .page(new SecurityMonitoringSignalListRequestPage().limit(1)))
+                        .execute());
 
-        String cursor = pageOneResponse.getMeta().getPage().getAfter();
-        assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
+                if (pageOneResponse.get().getData() == null || pageOneResponse.get().getData().size() < 1) {
+                    return false;
+                }
 
-        SecurityMonitoringSignalsListResponse pageTwoResponse = api.searchSecurityMonitoringSignals()
-                .body(new SecurityMonitoringSignalListRequest()
-                        .filter(allSignalsFilter)
-                        .page(new SecurityMonitoringSignalListRequestPage()
-                                .cursor(cursor)
-                                .limit(1)))
-                .execute();
-        assertEquals(1, pageTwoResponse.getData().size());
-
-        assertNotEquals(pageOneResponse.getData().get(0).getId(), pageTwoResponse.getData().get(0).getId());
+                pageTwoResponse.set(api.searchSecurityMonitoringSignals()
+                        .body(new SecurityMonitoringSignalListRequest()
+                                .filter(allSignalsFilter)
+                                .page(new SecurityMonitoringSignalListRequestPage()
+                                        .cursor(pageOneResponse.get().getMeta().getPage().getAfter())
+                                        .limit(1)))
+                        .execute());
+                return pageTwoResponse.get().getData() != null && pageTwoResponse.get().getData().size() >= 1;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
+        String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
+        assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor)));
+        assertNotEquals(pageOneResponse.get().getData().get(0).getId(), pageTwoResponse.get().getData().get(0).getId());
     }
 
     @Test
     public void listSignals() throws Exception {
         String uniqueName = getUniqueEntityName();
         SecurityMonitoringRuleResponse rule = createRule(uniqueName);
+        // Wait for the rules to be created
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            Thread.sleep(5000);
+        }
 
         sendLogs(uniqueName);
 
+        // Signals can be retrieved
         TestUtils.retry(5, 10, () -> {
             try {
                 SecurityMonitoringSignalsListResponse response = api.listSecurityMonitoringSignals()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING)
                         .execute();
                 return response.getData() != null && response.getData().size() == 2;
             } catch (ApiException ignored) {
@@ -258,55 +293,80 @@ public class SecurityMonitoringApiTest extends V2APITest {
             }
         });
 
-        // Sort works correctly
-        SecurityMonitoringSignalsListResponse responseAscending = api.listSecurityMonitoringSignals()
-                .filterQuery(uniqueName)
-                .filterFrom(now.minus(Duration.ofHours(1)))
-                .filterTo(now.plus(Duration.ofHours(1)))
-                .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING)
-                .execute();
+        // Ascending sort works correctly
+        AtomicReference<SecurityMonitoringSignalsListResponse> responseAscending = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                responseAscending.set(api.listSecurityMonitoringSignals()
+                        .filterQuery(uniqueName)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING)
+                        .execute());
 
-        assertEquals(2, responseAscending.getData().size());
-        OffsetDateTime firstTimestamp = responseAscending.getData().get(0).getAttributes().getTimestamp();
-        OffsetDateTime secondTimestamp = responseAscending.getData().get(1).getAttributes().getTimestamp();
-        assertTrue(firstTimestamp.isBefore(secondTimestamp) || firstTimestamp.isEqual(secondTimestamp));
+                return responseAscending.get().getData() != null && responseAscending.get().getData().size() >= 2;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
+        OffsetDateTime firstTimestamp = responseAscending.get().getData().get(0).getAttributes().getTimestamp();
+        OffsetDateTime secondTimestamp = responseAscending.get().getData().get(1).getAttributes().getTimestamp();
+        assertTrue(firstTimestamp.isBefore(secondTimestamp));
 
-        SecurityMonitoringSignalsListResponse responseDescending = api.listSecurityMonitoringSignals()
-                .filterQuery(uniqueName)
-                .filterFrom(now.minus(Duration.ofHours(1)))
-                .filterTo(now.plus(Duration.ofHours(1)))
-                .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING)
-                .execute();
+        // Descending sort works correctly
+        AtomicReference<SecurityMonitoringSignalsListResponse> responseDescending = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                responseDescending.set(api.listSecurityMonitoringSignals()
+                        .filterQuery(uniqueName)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING)
+                        .execute());
 
-        assertEquals(2, responseDescending.getData().size());
-        firstTimestamp = responseDescending.getData().get(0).getAttributes().getTimestamp();
-        secondTimestamp = responseDescending.getData().get(1).getAttributes().getTimestamp();
-        assertTrue(firstTimestamp.isAfter(secondTimestamp) || firstTimestamp.isEqual(secondTimestamp));
+                return responseDescending.get().getData() != null && responseDescending.get().getData().size() >= 2;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
+        firstTimestamp = responseDescending.get().getData().get(0).getAttributes().getTimestamp();
+        secondTimestamp = responseDescending.get().getData().get(1).getAttributes().getTimestamp();
+        assertTrue(firstTimestamp.isAfter(secondTimestamp));
 
         // Paging
-        SecurityMonitoringSignalsListResponse pageOneResponse = api.listSecurityMonitoringSignals()
-                .filterQuery(uniqueName)
-                .filterFrom(now.minus(Duration.ofHours(1)))
-                .filterTo(now.plus(Duration.ofHours(1)))
-                .pageLimit(1)
-                .execute();
+        AtomicReference<SecurityMonitoringSignalsListResponse> pageOneResponse = new AtomicReference<>();
+        AtomicReference<SecurityMonitoringSignalsListResponse> pageTwoResponse = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                // First page
+                pageOneResponse.set(api.listSecurityMonitoringSignals()
+                        .filterQuery(uniqueName)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .pageLimit(1)
+                        .execute());
 
-        assertEquals(1, pageOneResponse.getData().size());
+                if (pageOneResponse.get().getData() == null || pageOneResponse.get().getData().size() < 1) {
+                    return false;
+                }
 
-        String cursor = pageOneResponse.getMeta().getPage().getAfter();
-        assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
+                // Second page
+                pageTwoResponse.set(api.listSecurityMonitoringSignals()
+                        .filterQuery(uniqueName)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .pageLimit(1)
+                        .pageCursor(pageOneResponse.get().getMeta().getPage().getAfter())
+                        .execute());
 
-        SecurityMonitoringSignalsListResponse pageTwoResponse = api.listSecurityMonitoringSignals()
-                .filterQuery(uniqueName)
-                .filterFrom(now.minus(Duration.ofHours(1)))
-                .filterTo(now.plus(Duration.ofHours(1)))
-                .pageLimit(1)
-                .pageCursor(cursor)
-                .execute();
-
-        assertEquals(1, pageTwoResponse.getData().size());
-
-        assertNotEquals(pageOneResponse.getData().get(0).getId(), pageTwoResponse.getData().get(0).getId());
+                return pageTwoResponse.get().getData() != null && pageTwoResponse.get().getData().size() >= 1;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
+        String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
+        assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor)));
+        assertNotEquals(pageOneResponse.get().getData().get(0).getId(), pageTwoResponse.get().getData().get(0).getId());
 
         api.deleteSecurityMonitoringRule(rule.getId());
     }
@@ -329,6 +389,12 @@ public class SecurityMonitoringApiTest extends V2APITest {
                 ),
                 new GenericType<String>(String.class)
         );
+
+        // Let's ensure log arrival order
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            Thread.sleep(5000);
+        }
+
         sendRequest(
                 "POST",
                 intakeURL,
