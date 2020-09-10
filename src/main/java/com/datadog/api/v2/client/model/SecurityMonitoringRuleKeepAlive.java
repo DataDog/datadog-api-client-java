@@ -42,7 +42,11 @@ public enum SecurityMonitoringRuleKeepAlive {
   
   ONE_HOUR(3600),
   
-  TWO_HOURS(7200);
+  TWO_HOURS(7200),
+  
+  THREE_HOURS(10800),
+  
+  SIX_HOURS(21600);
 
   private Integer value;
 
