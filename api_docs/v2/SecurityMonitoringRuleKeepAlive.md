@@ -21,5 +21,9 @@
 
 * `TWO_HOURS` (value: `7200`)
 
+* `THREE_HOURS` (value: `10800`)
+
+* `SIX_HOURS` (value: `21600`)
+
 
 
