@@ -258,11 +258,11 @@ public class SyntheticsTestRequest {
   }
 
    /**
-   * Timeout in millisecond for the test.
+   * Timeout in seconds for the test.
    * @return timeout
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timeout in millisecond for the test.")
+  @ApiModelProperty(value = "Timeout in seconds for the test.")
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
