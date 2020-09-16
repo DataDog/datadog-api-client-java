@@ -62,7 +62,7 @@ public class LogAttributes {
   private String status;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<Object> tags = null;
+  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private OffsetDateTime timestamp;
@@ -196,12 +196,12 @@ public class LogAttributes {
   }
 
 
-  public LogAttributes tags(List<Object> tags) {
+  public LogAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public LogAttributes addTagsItem(Object tagsItem) {
+  public LogAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -218,12 +218,12 @@ public class LogAttributes {
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getTags() {
+  public List<String> getTags() {
     return tags;
   }
 
 
-  public void setTags(List<Object> tags) {
+  public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
