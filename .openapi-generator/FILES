@@ -120,6 +120,7 @@ docs/SecurityMonitoringRuleKeepAlive.md
 docs/SecurityMonitoringRuleMaxSignalDuration.md
 docs/SecurityMonitoringRuleOptions.md
 docs/SecurityMonitoringRuleQuery.md
+docs/SecurityMonitoringRuleQueryAggregation.md
 docs/SecurityMonitoringRuleQueryCreate.md
 docs/SecurityMonitoringRuleResponse.md
 docs/SecurityMonitoringRuleSeverity.md
@@ -300,6 +301,7 @@ src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleKeepAlive.ja
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleMaxSignalDuration.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleOptions.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQuery.java
+src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryAggregation.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryCreate.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleResponse.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleSeverity.java
@@ -449,6 +451,7 @@ src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleEvaluationWi
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleKeepAliveTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleMaxSignalDurationTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleOptionsTest.java
+src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryAggregationTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryCreateTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleResponseTest.java
