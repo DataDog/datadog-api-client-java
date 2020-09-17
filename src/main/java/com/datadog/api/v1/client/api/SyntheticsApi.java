@@ -1377,7 +1377,7 @@ private ApiResponse<SyntheticsLocations> listLocationsWithHttpInfo() throws ApiE
     return new APIlistLocationsRequest();
   }
 
-private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String checkType) throws ApiException {
+private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1389,7 +1389,6 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "check_type", checkType));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listTests");
@@ -1417,19 +1416,8 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
   }
 
   public class APIlistTestsRequest {
-    private String checkType;
 
     private APIlistTestsRequest() {
-    }
-
-    /**
-     * Set checkType
-     * @param checkType API or browser to filter the list by test type, undefined to get the unfiltered list. (optional)
-     * @return APIlistTestsRequest
-     */
-    public APIlistTestsRequest checkType(String checkType) {
-      this.checkType = checkType;
-      return this;
     }
 
     /**
@@ -1439,7 +1427,7 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests. </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
        </table>
@@ -1457,20 +1445,20 @@ private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(String ch
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests (properly filtered by type). </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests. </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
        </table>
 
      */
     public ApiResponse<SyntheticsListTestsResponse> executeWithHttpInfo() throws ApiException {
-      return listTestsWithHttpInfo(checkType);
+      return listTestsWithHttpInfo();
     }
   }
 
   /**
-   * Get a list of tests
-   * Get the list of all Synthetic tests (can be filtered by type).
+   * Get the list of all tests
+   * Get the list of all Synthetic tests.
    * @return listTestsRequest
    * @throws ApiException if fails to make API call
    
