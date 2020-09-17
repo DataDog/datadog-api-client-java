@@ -48,6 +48,7 @@ import org.junit.AfterClass;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -170,6 +171,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
     }
 
     @Test
+    @Ignore
     public void searchSignals() throws Exception {
         String uniqueName = getUniqueEntityName();
         createRule(uniqueName);
@@ -268,6 +270,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
     }
 
     @Test
+    @Ignore
     public void listSignals() throws Exception {
         String uniqueName = getUniqueEntityName();
         SecurityMonitoringRuleResponse rule = createRule(uniqueName);
