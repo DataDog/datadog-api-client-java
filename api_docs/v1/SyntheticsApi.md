@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
 [**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 [**listLocations**](SyntheticsApi.md#listLocations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
-[**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get a list of tests
+[**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
 [**triggerCITests**](SyntheticsApi.md#triggerCITests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
 [**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 [**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
@@ -1009,11 +1009,11 @@ This endpoint does not need any parameter.
 
 ## listTests
 
-> SyntheticsListTestsResponse listTests().checkType(checkType).execute();
+> SyntheticsListTestsResponse listTests().execute();
 
-Get a list of tests
+Get the list of all tests
 
-Get the list of all Synthetic tests (can be filtered by type).
+Get the list of all Synthetic tests.
 
 ### Example
 
@@ -1043,10 +1043,8 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String checkType = "checkType_example"; // String | API or browser to filter the list by test type, undefined to get the unfiltered list.
         try {
             SyntheticsListTestsResponse result = api.listTests()
-                .checkType(checkType)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -1062,10 +1060,7 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **checkType** | **String**| API or browser to filter the list by test type, undefined to get the unfiltered list. | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1083,7 +1078,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK - Returns the list of all Synthetic tests (properly filtered by type). |  -  |
+| **200** | OK - Returns the list of all Synthetic tests. |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Synthetics is not activated for the user. |  -  |
 
