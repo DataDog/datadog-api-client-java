@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v2.client.model.UsersType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,7 +41,7 @@ public class RelationshipToUserData {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "users";
+  private UsersType type = UsersType.USERS;
 
 
   public RelationshipToUserData id(String id) {
@@ -52,10 +53,9 @@ public class RelationshipToUserData {
    * ID of the user.
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the user.")
+  @ApiModelProperty(required = true, value = "ID of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
     return id;
@@ -67,20 +67,27 @@ public class RelationshipToUserData {
   }
 
 
+  public RelationshipToUserData type(UsersType type) {
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Users type.
+   * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Users type.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public UsersType getType() {
     return type;
   }
 
 
+  public void setType(UsersType type) {
+    this.type = type;
+  }
 
 
   /**
