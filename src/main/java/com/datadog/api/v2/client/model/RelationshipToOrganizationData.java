@@ -53,10 +53,9 @@ public class RelationshipToOrganizationData {
    * ID of the organization.
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the organization.")
+  @ApiModelProperty(required = true, value = "ID of the organization.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
     return id;
@@ -77,10 +76,9 @@ public class RelationshipToOrganizationData {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OrganizationsType getType() {
     return type;
