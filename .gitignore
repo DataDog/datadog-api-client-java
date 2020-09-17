@@ -29,6 +29,7 @@ build
 .classpath
 .project
 .settings
+*.iml
 
 # Files produced by openapi-generator that we don't want/need
 .travis.yml
