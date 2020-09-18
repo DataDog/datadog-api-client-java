@@ -105,6 +105,16 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageMobileRumSessionsTest() throws ApiException {
+        UsageRumSessionsResponse response = api.getUsageRumSessions()
+                .startHr(startHr)
+                .endHr(endHr)
+                .type("mobile")
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
     public void getUsageHostsTest() throws ApiException {
         UsageHostsResponse response = api.getUsageHosts()
                 .startHr(startHr)
@@ -312,6 +322,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getProfilingHostCountTop99pSum().longValue(), 6L);
         assertEquals(usage.getProfilingContainerAgentCountAvg().longValue(), 7L);
         assertEquals(usage.getTwolIngestedEventsBytesAggSum().longValue(), 8L);
+        assertEquals(usage.getMobileRumSessionCountAggSum().longValue(), 9L);
 
         // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
         OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
@@ -328,6 +339,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageItem.getRumSessionCountSum().longValue(), 9L);
         assertEquals(usageItem.getProfilingHostTop99p().longValue(), 10L);
         assertEquals(usageItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
+        assertEquals(usageItem.getMobileRumSessionCountSum().longValue(), 12L);
 
         UsageSummaryDateOrg usageOrgItem = usageItem.getOrgs().get(0);
         assertEquals(usageOrgItem.getId(), "1b");
@@ -342,6 +354,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageOrgItem.getRumSessionCountSum().longValue(), 9L);
         assertEquals(usageOrgItem.getProfilingHostTop99p().longValue(), 10L);
         assertEquals(usageOrgItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
+        assertEquals(usageOrgItem.getMobileRumSessionCountSum().longValue(), 12L);
     }
 
     @Test
@@ -686,6 +699,19 @@ public class UsageMeteringApiTest extends V1ApiTest {
     public void getUsageRumSessionErrorsTest() throws IOException {
         try {
             api.getUsageRumSessions().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            api.getUsageRumSessions()
+                    .startHr(startHr)
+                    .endHr(endHr)
+                    .type("invalid")
+                    .execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());

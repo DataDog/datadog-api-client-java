@@ -1886,7 +1886,7 @@ private ApiResponse<UsageProfilingResponse> getUsageProfilingWithHttpInfo(Offset
     return new APIgetUsageProfilingRequest();
   }
 
-private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr, String type) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'startHr' is set
@@ -1905,6 +1905,7 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "type", type));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumSessions");
@@ -1934,6 +1935,7 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
   public class APIgetUsageRumSessionsRequest {
     private OffsetDateTime startHr;
     private OffsetDateTime endHr;
+    private String type;
 
     private APIgetUsageRumSessionsRequest() {
     }
@@ -1955,6 +1957,16 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
      */
     public APIgetUsageRumSessionsRequest endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Set type
+     * @param type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;. (optional)
+     * @return APIgetUsageRumSessionsRequest
+     */
+    public APIgetUsageRumSessionsRequest type(String type) {
+      this.type = type;
       return this;
     }
 
@@ -1990,7 +2002,7 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
 
      */
     public ApiResponse<UsageRumSessionsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageRumSessionsWithHttpInfo(startHr, endHr);
+      return getUsageRumSessionsWithHttpInfo(startHr, endHr, type);
     }
   }
 

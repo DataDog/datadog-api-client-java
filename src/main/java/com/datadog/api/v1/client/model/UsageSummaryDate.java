@@ -52,6 +52,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDate.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
@@ -114,6 +115,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM = "ingested_events_bytes_sum";
   private Long ingestedEventsBytesSum;
+
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM = "mobile_rum_session_count_sum";
+  private Long mobileRumSessionCountSum;
 
   public static final String JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM = "netflow_indexed_events_count_sum";
   private Long netflowIndexedEventsCountSum;
@@ -551,6 +555,30 @@ public class UsageSummaryDate {
   }
 
 
+  public UsageSummaryDate mobileRumSessionCountSum(Long mobileRumSessionCountSum) {
+    this.mobileRumSessionCountSum = mobileRumSessionCountSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations
+   * @return mobileRumSessionCountSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMobileRumSessionCountSum() {
+    return mobileRumSessionCountSum;
+  }
+
+
+  public void setMobileRumSessionCountSum(Long mobileRumSessionCountSum) {
+    this.mobileRumSessionCountSum = mobileRumSessionCountSum;
+  }
+
+
   public UsageSummaryDate netflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
     return this;
@@ -661,11 +689,11 @@ public class UsageSummaryDate {
   }
 
    /**
-   * Shows the sum of all RUM Sessions over all hours in the current date for all organizations
+   * Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations
    * @return rumSessionCountSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all RUM Sessions over all hours in the current date for all organizations")
+  @ApiModelProperty(value = "Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations")
   @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -804,6 +832,7 @@ public class UsageSummaryDate {
         Objects.equals(this.indexedEventsCountSum, usageSummaryDate.indexedEventsCountSum) &&
         Objects.equals(this.infraHostTop99p, usageSummaryDate.infraHostTop99p) &&
         Objects.equals(this.ingestedEventsBytesSum, usageSummaryDate.ingestedEventsBytesSum) &&
+        Objects.equals(this.mobileRumSessionCountSum, usageSummaryDate.mobileRumSessionCountSum) &&
         Objects.equals(this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum) &&
         Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p) &&
         Objects.equals(this.orgs, usageSummaryDate.orgs) &&
@@ -817,7 +846,7 @@ public class UsageSummaryDate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99p, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, date, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, netflowIndexedEventsCountSum, npmHostTop99p, orgs, profilingHostTop99p, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
+    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99p, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, date, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, mobileRumSessionCountSum, netflowIndexedEventsCountSum, npmHostTop99p, orgs, profilingHostTop99p, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
   }
 
 
@@ -842,6 +871,7 @@ public class UsageSummaryDate {
     sb.append("    indexedEventsCountSum: ").append(toIndentedString(indexedEventsCountSum)).append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
     sb.append("    ingestedEventsBytesSum: ").append(toIndentedString(ingestedEventsBytesSum)).append("\n");
+    sb.append("    mobileRumSessionCountSum: ").append(toIndentedString(mobileRumSessionCountSum)).append("\n");
     sb.append("    netflowIndexedEventsCountSum: ").append(toIndentedString(netflowIndexedEventsCountSum)).append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");

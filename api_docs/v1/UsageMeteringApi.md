@@ -1296,7 +1296,7 @@ Name | Type | Description  | Notes
 
 ## getUsageRumSessions
 
-> UsageRumSessionsResponse getUsageRumSessions().startHr(startHr).endHr(endHr).execute();
+> UsageRumSessionsResponse getUsageRumSessions().startHr(startHr).endHr(endHr).type(type).execute();
 
 Get hourly usage for RUM Sessions
 
@@ -1332,10 +1332,12 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+        String type = "type_example"; // String | RUM type: `[browser, mobile]`. Defaults to `browser`.
         try {
             UsageRumSessionsResponse result = api.getUsageRumSessions()
                 .startHr(startHr)
                 .endHr(endHr)
+                .type(type)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -1356,6 +1358,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
  **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
+ **type** | **String**| RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;. | [optional]
 
 ### Return type
 
