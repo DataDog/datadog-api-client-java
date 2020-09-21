@@ -140,6 +140,16 @@ public class ApiClient {
     put("removeRoleFromArchive", false);
     put("listSecurityMonitoringSignals", false);
     put("searchSecurityMonitoringSignals", false);
+    put("createService", false);
+    put("deleteService", false);
+    put("getService", false);
+    put("getServices", false);
+    put("updateService", false);
+    put("createTeam", false);
+    put("deleteTeam", false);
+    put("getTeam", false);
+    put("getTeams", false);
+    put("updateTeam", false);
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
