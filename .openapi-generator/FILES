@@ -179,8 +179,6 @@ docs/UserInvitationResponseData.md
 docs/UserInvitationsRequest.md
 docs/UserInvitationsResponse.md
 docs/UserInvitationsType.md
-docs/UserRelationship.md
-docs/UserRelationshipData.md
 docs/UserRelationships.md
 docs/UserResponse.md
 docs/UserResponseIncludedItem.md
@@ -392,8 +390,6 @@ src/main/java/com/datadog/api/v2/client/model/UserInvitationResponseData.java
 src/main/java/com/datadog/api/v2/client/model/UserInvitationsRequest.java
 src/main/java/com/datadog/api/v2/client/model/UserInvitationsResponse.java
 src/main/java/com/datadog/api/v2/client/model/UserInvitationsType.java
-src/main/java/com/datadog/api/v2/client/model/UserRelationship.java
-src/main/java/com/datadog/api/v2/client/model/UserRelationshipData.java
 src/main/java/com/datadog/api/v2/client/model/UserRelationships.java
 src/main/java/com/datadog/api/v2/client/model/UserResponse.java
 src/main/java/com/datadog/api/v2/client/model/UserResponseIncludedItem.java
@@ -403,8 +399,6 @@ src/main/java/com/datadog/api/v2/client/model/UserUpdateData.java
 src/main/java/com/datadog/api/v2/client/model/UserUpdateRequest.java
 src/main/java/com/datadog/api/v2/client/model/UsersResponse.java
 src/main/java/com/datadog/api/v2/client/model/UsersType.java
-src/test/java/com/datadog/api/v2/client/api/ServicesApiTest.java
-src/test/java/com/datadog/api/v2/client/api/TeamsApiTest.java
 src/test/java/com/datadog/api/v2/client/model/APIErrorResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/CreatorTest.java
 src/test/java/com/datadog/api/v2/client/model/DashboardListAddItemsRequestTest.java
@@ -574,8 +568,6 @@ src/test/java/com/datadog/api/v2/client/model/UserInvitationResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/UserInvitationsRequestTest.java
 src/test/java/com/datadog/api/v2/client/model/UserInvitationsResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/UserInvitationsTypeTest.java
-src/test/java/com/datadog/api/v2/client/model/UserRelationshipDataTest.java
-src/test/java/com/datadog/api/v2/client/model/UserRelationshipTest.java
 src/test/java/com/datadog/api/v2/client/model/UserRelationshipsTest.java
 src/test/java/com/datadog/api/v2/client/model/UserResponseIncludedItemTest.java
 src/test/java/com/datadog/api/v2/client/model/UserResponseRelationshipsTest.java

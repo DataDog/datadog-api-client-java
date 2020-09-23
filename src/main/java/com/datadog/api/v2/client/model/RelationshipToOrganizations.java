@@ -39,7 +39,7 @@ import com.datadog.api.v2.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelationshipToOrganizations {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<RelationshipToOrganizationData> data = null;
+  private List<RelationshipToOrganizationData> data = new ArrayList<>();
 
 
   public RelationshipToOrganizations data(List<RelationshipToOrganizationData> data) {
@@ -48,9 +48,6 @@ public class RelationshipToOrganizations {
   }
 
   public RelationshipToOrganizations addDataItem(RelationshipToOrganizationData dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
     this.data.add(dataItem);
     return this;
   }
@@ -59,10 +56,9 @@ public class RelationshipToOrganizations {
    * Relationships to organization objects.
    * @return data
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Relationships to organization objects.")
+  @ApiModelProperty(required = true, value = "Relationships to organization objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<RelationshipToOrganizationData> getData() {
     return data;

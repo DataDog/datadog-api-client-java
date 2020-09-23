@@ -7,9 +7,9 @@ Data related to the update of a role.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**RoleUpdateAttributes**](RoleUpdateAttributes.md) |  |  [optional]
-**id** | **String** | ID of the role. |  [optional]
-**type** | [**RolesType**](RolesType.md) |  |  [optional]
+**attributes** | [**RoleUpdateAttributes**](RoleUpdateAttributes.md) |  | 
+**id** | **String** | ID of the role. | 
+**type** | [**RolesType**](RolesType.md) |  | 
 
 
 

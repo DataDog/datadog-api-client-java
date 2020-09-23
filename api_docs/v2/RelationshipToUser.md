@@ -7,7 +7,7 @@ Relationship to user.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**RelationshipToUserData**](RelationshipToUserData.md) |  |  [optional]
+**data** | [**RelationshipToUserData**](RelationshipToUserData.md) |  | 
 
 
 

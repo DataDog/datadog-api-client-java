@@ -89,10 +89,9 @@ public class RoleCreateAttributes {
    * Name of the role.
    * @return name
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the role.")
+  @ApiModelProperty(required = true, value = "Name of the role.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;

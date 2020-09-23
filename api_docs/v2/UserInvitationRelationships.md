@@ -7,7 +7,7 @@ Relationships data for user invitation.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**RelationshipToUser**](RelationshipToUser.md) |  |  [optional]
+**user** | [**RelationshipToUser**](RelationshipToUser.md) |  | 
 
 
 
