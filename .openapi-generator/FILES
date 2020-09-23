@@ -403,8 +403,6 @@ src/main/java/com/datadog/api/v2/client/model/UserUpdateData.java
 src/main/java/com/datadog/api/v2/client/model/UserUpdateRequest.java
 src/main/java/com/datadog/api/v2/client/model/UsersResponse.java
 src/main/java/com/datadog/api/v2/client/model/UsersType.java
-src/test/java/com/datadog/api/v2/client/api/ServicesApiTest.java
-src/test/java/com/datadog/api/v2/client/api/TeamsApiTest.java
 src/test/java/com/datadog/api/v2/client/model/APIErrorResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/CreatorTest.java
 src/test/java/com/datadog/api/v2/client/model/DashboardListAddItemsRequestTest.java
