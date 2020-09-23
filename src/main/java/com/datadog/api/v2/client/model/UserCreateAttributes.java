@@ -56,10 +56,9 @@ public class UserCreateAttributes {
    * The email of the user.
    * @return email
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The email of the user.")
+  @ApiModelProperty(required = true, value = "The email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmail() {
     return email;

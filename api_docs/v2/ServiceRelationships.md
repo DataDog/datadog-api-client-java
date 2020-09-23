@@ -7,8 +7,8 @@ The service's relationships.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**createdBy** | [**UserRelationship**](UserRelationship.md) |  |  [optional]
-**lastModifiedBy** | [**UserRelationship**](UserRelationship.md) |  |  [optional]
+**createdBy** | [**RelationshipToUser**](RelationshipToUser.md) |  |  [optional]
+**lastModifiedBy** | [**RelationshipToUser**](RelationshipToUser.md) |  |  [optional]
 
 
 

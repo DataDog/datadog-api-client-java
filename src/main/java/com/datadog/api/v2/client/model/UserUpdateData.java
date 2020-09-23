@@ -58,10 +58,9 @@ public class UserUpdateData {
    * Get attributes
    * @return attributes
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UserUpdateAttributes getAttributes() {
     return attributes;
@@ -82,10 +81,9 @@ public class UserUpdateData {
    * ID of the user.
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the user.")
+  @ApiModelProperty(required = true, value = "ID of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
     return id;
@@ -106,10 +104,9 @@ public class UserUpdateData {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UsersType getType() {
     return type;

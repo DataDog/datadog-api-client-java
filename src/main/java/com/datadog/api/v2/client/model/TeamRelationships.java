@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v2.client.model.UserRelationship;
+import com.datadog.api.v2.client.model.RelationshipToUser;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,13 +38,13 @@ import com.datadog.api.v2.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamRelationships {
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
-  private UserRelationship createdBy;
+  private RelationshipToUser createdBy;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED_BY = "last_modified_by";
-  private UserRelationship lastModifiedBy;
+  private RelationshipToUser lastModifiedBy;
 
 
-  public TeamRelationships createdBy(UserRelationship createdBy) {
+  public TeamRelationships createdBy(RelationshipToUser createdBy) {
     this.createdBy = createdBy;
     return this;
   }
@@ -58,17 +58,17 @@ public class TeamRelationships {
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UserRelationship getCreatedBy() {
+  public RelationshipToUser getCreatedBy() {
     return createdBy;
   }
 
 
-  public void setCreatedBy(UserRelationship createdBy) {
+  public void setCreatedBy(RelationshipToUser createdBy) {
     this.createdBy = createdBy;
   }
 
 
-  public TeamRelationships lastModifiedBy(UserRelationship lastModifiedBy) {
+  public TeamRelationships lastModifiedBy(RelationshipToUser lastModifiedBy) {
     this.lastModifiedBy = lastModifiedBy;
     return this;
   }
@@ -82,12 +82,12 @@ public class TeamRelationships {
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UserRelationship getLastModifiedBy() {
+  public RelationshipToUser getLastModifiedBy() {
     return lastModifiedBy;
   }
 
 
-  public void setLastModifiedBy(UserRelationship lastModifiedBy) {
+  public void setLastModifiedBy(RelationshipToUser lastModifiedBy) {
     this.lastModifiedBy = lastModifiedBy;
   }
 

@@ -7,7 +7,7 @@ Relationship to organizations.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List&lt;RelationshipToOrganizationData&gt;**](RelationshipToOrganizationData.md) | Relationships to organization objects. |  [optional]
+**data** | [**List&lt;RelationshipToOrganizationData&gt;**](RelationshipToOrganizationData.md) | Relationships to organization objects. | 
 
 
 

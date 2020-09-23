@@ -58,10 +58,9 @@ public class RoleUpdateData {
    * Get attributes
    * @return attributes
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public RoleUpdateAttributes getAttributes() {
     return attributes;
@@ -82,10 +81,9 @@ public class RoleUpdateData {
    * ID of the role.
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the role.")
+  @ApiModelProperty(required = true, value = "ID of the role.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
     return id;
@@ -106,10 +104,9 @@ public class RoleUpdateData {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public RolesType getType() {
     return type;

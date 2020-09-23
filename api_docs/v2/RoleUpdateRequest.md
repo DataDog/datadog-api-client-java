@@ -7,7 +7,7 @@ Update a role.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**RoleUpdateData**](RoleUpdateData.md) |  |  [optional]
+**data** | [**RoleUpdateData**](RoleUpdateData.md) |  | 
 
 
 
