@@ -11,5 +11,7 @@
 
 * `TCP` (value: `"tcp"`)
 
+* `DNS` (value: `"dns"`)
+
 
 
