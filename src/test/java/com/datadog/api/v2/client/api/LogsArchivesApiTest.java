@@ -58,8 +58,8 @@ public class LogsArchivesApiTest extends V2APITest {
     private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private final String fixturePrefix = "v2/client/api/logs_archives_fixtures";
-    private final String apiUri = "/api/v2/logs/config/archives";
-    private final String apiUriOrder = "/api/v2/logs/config/archive-order";
+    private final String apiUriForArchives = "/api/v2/logs/config/archives";
+    private final String apiUriForArchiveOrder = "/api/v2/logs/config/archive-order";
 
     @Override
     public String getTracingEndpoint() {
@@ -85,7 +85,7 @@ public class LogsArchivesApiTest extends V2APITest {
         LogsArchiveCreateRequest archive = createLogsArchiveCreateRequestS3();
         String archiveType = "s3";
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
-        stubFor(post(urlPathEqualTo(apiUri))
+        stubFor(post(urlPathEqualTo(apiUriForArchives))
                 .withRequestBody(equalToJson(objectMapper.writeValueAsString(archive)))
                 .willReturn(okJson(outputData).withStatus(200))
         );
@@ -107,7 +107,7 @@ public class LogsArchivesApiTest extends V2APITest {
         LogsArchiveCreateRequest archive = createLogsArchiveCreateRequestAzure();
         String archiveType = "azure";
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
-        stubFor(post(urlPathEqualTo(apiUri))
+        stubFor(post(urlPathEqualTo(apiUriForArchives))
                 .withRequestBody(equalToJson(objectMapper.writeValueAsString(archive)))
                 .willReturn(okJson(outputData).withStatus(200))
         );
@@ -129,7 +129,7 @@ public class LogsArchivesApiTest extends V2APITest {
         LogsArchiveCreateRequest archive = createLogsArchiveCreateRequestGCS();
         String archiveType = "gcs";
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "create.json"));
-        stubFor(post(urlPathEqualTo(apiUri))
+        stubFor(post(urlPathEqualTo(apiUriForArchives))
                 .withRequestBody(equalToJson(objectMapper.writeValueAsString(archive)))
                 .willReturn(okJson(outputData).withStatus(200))
         );
@@ -151,7 +151,7 @@ public class LogsArchivesApiTest extends V2APITest {
     public void deleteLogsArchiveTest() throws IOException, ApiException {
         String archiveType = "s3";
         String fixtureData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "getbyid.json"));
-        stubFor(delete(urlPathEqualTo(String.format("%s/%s", apiUri, ARCHIVE_ID)))
+        stubFor(delete(urlPathEqualTo(String.format("%s/%s", apiUriForArchives, ARCHIVE_ID)))
                 .willReturn(okJson(fixtureData).withStatus(204))
         );
         ApiResponse<Void> response = api.deleteLogsArchive(ARCHIVE_ID).executeWithHttpInfo();
@@ -171,7 +171,7 @@ public class LogsArchivesApiTest extends V2APITest {
     public void getLogsArchiveTest() throws IOException, ApiException {
         String archiveType = "s3";
         String fixtureData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "getbyid.json"));
-        stubFor(get(urlPathEqualTo(String.format("%s/%s", apiUri, ARCHIVE_ID)))
+        stubFor(get(urlPathEqualTo(String.format("%s/%s", apiUriForArchives, ARCHIVE_ID)))
                 .willReturn(okJson(fixtureData).withStatus(200))
         );
         LogsArchive response = api.getLogsArchive(ARCHIVE_ID).execute();
@@ -191,7 +191,7 @@ public class LogsArchivesApiTest extends V2APITest {
     public void listLogsArchivesTest() throws IOException, ApiException {
         String archiveType = "s3";
         String fixtureData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "getall.json"));
-        stubFor(get(urlPathEqualTo(apiUri))
+        stubFor(get(urlPathEqualTo(apiUriForArchives))
                 .willReturn(okJson(fixtureData).withStatus(200))
         );
         LogsArchives response = api.listLogsArchives().execute();
@@ -212,7 +212,7 @@ public class LogsArchivesApiTest extends V2APITest {
         String archiveType = "s3";
         LogsArchiveCreateRequest input = createLogsArchiveCreateRequestS3();
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, archiveType, "update.json"));
-        stubFor(put(urlPathEqualTo(String.format("%s/%s", apiUri, ARCHIVE_ID)))
+        stubFor(put(urlPathEqualTo(String.format("%s/%s", apiUriForArchives, ARCHIVE_ID)))
                 .withRequestBody(equalToJson(objectMapper.writeValueAsString(input)))
                 .willReturn(okJson(outputData).withStatus(200))
         );
@@ -242,7 +242,7 @@ public class LogsArchivesApiTest extends V2APITest {
     @Test
     public void getArchiveOrderTest() throws ApiException, IOException {
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, "archive_order",  "default.json"));
-        stubFor(get(urlPathEqualTo(String.format("%s", apiUriOrder)))
+        stubFor(get(urlPathEqualTo(String.format("%s", apiUriForArchiveOrder)))
                 .willReturn(okJson(outputData).withStatus(200)));
 
 
@@ -257,7 +257,7 @@ public class LogsArchivesApiTest extends V2APITest {
     public void updateArchiveOrderTest() throws ApiException, IOException {
         LogsArchiveOrder input = createUpdatedLogsArchiveOrder();
         String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, "archive_order",  "updated.json"));
-        stubFor(put(urlPathEqualTo(String.format("%s", apiUriOrder)))
+        stubFor(put(urlPathEqualTo(String.format("%s", apiUriForArchiveOrder)))
                 .withRequestBody(equalToJson(objectMapper.writeValueAsString(input)))
                 .willReturn(okJson(outputData).withStatus(200))
         );
