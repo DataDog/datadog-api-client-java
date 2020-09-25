@@ -251,11 +251,11 @@ public class LogsAttributeRemapper {
   }
 
    /**
-   * Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;.
+   * Defines if the final attribute or tag name is from log &#x60;attribute&#x60; or &#x60;tag&#x60;.
    * @return targetType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Defines if the sources are from log `attribute` or `tag`.")
+  @ApiModelProperty(value = "Defines if the final attribute or tag name is from log `attribute` or `tag`.")
   @JsonProperty(JSON_PROPERTY_TARGET_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
