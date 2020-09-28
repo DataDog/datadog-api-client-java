@@ -73,10 +73,10 @@ public class SyntheticsGlobalVariableValue {
   }
 
    /**
-   * Value of the global variable.
+   * Value of the global variable. When reading a global variable, the value will not be present if the variable is secure.
    * @return value
   **/
-  @ApiModelProperty(required = true, value = "Value of the global variable.")
+  @ApiModelProperty(required = true, value = "Value of the global variable. When reading a global variable, the value will not be present if the variable is secure.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
