@@ -439,8 +439,8 @@ private ApiResponse<UserListResponse> listUsersWithHttpInfo() throws ApiExceptio
   }
 
   /**
-   * Get all users
-   * Get all users for your organization.
+   * List all users
+   * List all users for your organization.
    * @return listUsersRequest
    * @throws ApiException if fails to make API call
    
