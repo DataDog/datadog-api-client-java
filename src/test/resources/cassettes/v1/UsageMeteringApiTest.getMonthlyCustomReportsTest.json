@@ -1,5 +1,5 @@
 [{
-  "id" : "10806a0f-0d91-4dab-b0f1-5ccbf4ead768",
+  "id" : "851e4f61-1cba-4c7a-b433-7ff8fb5204a5",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/monthly_custom_reports",
@@ -23,25 +23,25 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Thu, 16 Jul 2020 20:52:26 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:36 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 23-Jul-2020 20:52:25 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2748465" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 05-Oct-2020 13:35:36 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "Cache-Control" : [ "max-age=300" ],
-      "Expires" : [ "Thu, 16 Jul 2020 20:57:25 GMT" ],
-      "X-DD-Debug" : [ "osF1kWpYU0AciWFqKS4lR5m8H0c1r4ePrbbqxu4pcRpATLMKiOAIf6ycuHKMILPv" ],
+      "Expires" : [ "Mon, 28 Sep 2020 13:40:36 GMT" ],
+      "X-DD-Debug" : [ "ZAO2HSre7ZPjEDEDs2eiS5SdSwvcDrV7s715bRHaf9vcdw9h8cuMOU6gRpmzdfcX" ],
       "DD-POOL" : [ "dogweb_wallace" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "45" ]
+      "content-length" : [ "398" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"meta\":{\"page\":{\"total_count\":0}},\"data\":[]}"
+    "body" : "{\"meta\":{\"page\":{\"total_count\":2}},\"data\":[{\"type\":\"reports\",\"id\":\"2020-08-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-08-01\",\"end_date\":\"2020-09-01\",\"size\":346966,\"computed_on\":\"2020-09-01T17:02:30+00:00\"}},{\"type\":\"reports\",\"id\":\"2020-07-15\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-07-15\",\"end_date\":\"2020-08-01\",\"size\":189933,\"computed_on\":\"2020-08-01T17:25:00+00:00\"}}]}"
   }
 }]

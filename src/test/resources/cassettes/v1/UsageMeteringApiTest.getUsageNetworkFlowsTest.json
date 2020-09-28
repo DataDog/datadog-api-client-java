@@ -1,11 +1,11 @@
 [{
-  "id" : "a79972a9-11d9-49f6-b0e9-c722a07a1b39",
+  "id" : "851e970e-bb38-4551-9963-9dbf97047d1e",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/network_flows",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-05-01T12:00Z" ],
-      "end_hr" : [ "2020-05-01T13:00Z" ]
+      "start_hr" : [ "2020-08-01T12:00:00Z" ],
+      "end_hr" : [ "2020-08-01T13:00:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -27,19 +27,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:11:54 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:40 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 11:11:54 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 05-Oct-2020 13:35:40 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2886" ],
-      "X-RateLimit-Remaining" : [ "354" ],
-      "X-DD-Debug" : [ "IYH6Ubmq2MBSPq8ODr3BCv3hq6/qfjckWAQPmybeluQn4umf0be4fk6ceyy1pnBw" ],
+      "X-RateLimit-Reset" : [ "1460" ],
+      "X-RateLimit-Remaining" : [ "306" ],
+      "X-DD-Debug" : [ "jQnCQ800IM9+AhjSbgOLP1olAAN0Zx3e3JL4dG9omKhKnkmdw7EJe7yfXnjuT+74" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -50,6 +50,6 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"usage\":[{\"indexed_events_count\":1102,\"hour\":\"2020-05-01T12:00:00+00:00\"}]}"
+    "body" : "{\"usage\":[{\"indexed_events_count\":4339,\"hour\":\"2020-08-01T12:00:00+00:00\"}]}"
   }
 }]
