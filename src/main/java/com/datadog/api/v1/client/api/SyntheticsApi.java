@@ -1190,6 +1190,106 @@ private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHtt
     return new APIgetBrowserTestResultRequest(publicId, resultId);
   }
 
+private ApiResponse<SyntheticsGlobalVariable> getGlobalVariableWithHttpInfo(String variableId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'variableId' is set
+    if (variableId == null) {
+      throw new ApiException(400, "Missing the required parameter 'variableId' when calling getGlobalVariable");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/variables/{variable_id}"
+      .replaceAll("\\{" + "variable_id" + "\\}", apiClient.escapeString(variableId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getGlobalVariable");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsGlobalVariable> localVarReturnType = new GenericType<SyntheticsGlobalVariable>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.getGlobalVariable", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetGlobalVariableRequest {
+    private String variableId;
+
+    private APIgetGlobalVariableRequest(String variableId) {
+      this.variableId = variableId;
+    }
+
+    /**
+     * Execute getGlobalVariable request
+     * @return SyntheticsGlobalVariable
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsGlobalVariable execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getGlobalVariable request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsGlobalVariable> executeWithHttpInfo() throws ApiException {
+      return getGlobalVariableWithHttpInfo(variableId);
+    }
+  }
+
+  /**
+   * Get a global variable
+   * Get the detailed configuration of a global variable.
+   * @param variableId The ID of the global variable. (required)
+   * @return getGlobalVariableRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetGlobalVariableRequest getGlobalVariable(String variableId) throws ApiException {
+    return new APIgetGlobalVariableRequest(variableId);
+  }
+
 private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) throws ApiException {
     Object localVarPostBody = null;
     
