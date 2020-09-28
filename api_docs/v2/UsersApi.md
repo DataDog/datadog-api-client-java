@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create a user
 [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable a user
 [**getInvitation**](UsersApi.md#getInvitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
-[**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{user_id} | Get a user
+[**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{user_id} | Get user details
 [**listUserOrganizations**](UsersApi.md#listUserOrganizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization
 [**listUserPermissions**](UsersApi.md#listUserPermissions) | **GET** /api/v2/users/{user_id}/permissions | Get a user permissions
 [**listUsers**](UsersApi.md#listUsers) | **GET** /api/v2/users | List all users
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 > UserResponse getUser(userId).execute();
 
-Get a user
+Get user details
 
 Get a user in the organization specified by the user’s `user_id`.
 
