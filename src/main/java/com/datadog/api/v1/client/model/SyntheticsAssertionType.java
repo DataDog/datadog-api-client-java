@@ -38,7 +38,11 @@ public enum SyntheticsAssertionType {
   
   RESPONSE_TIME("responseTime"),
   
-  PROPERTY("property");
+  PROPERTY("property"),
+  
+  RECORD_EVERY("recordEvery"),
+  
+  RECORD_SOME("recordSome");
 
   private String value;
 

@@ -17,5 +17,9 @@
 
 * `PROPERTY` (value: `"property"`)
 
+* `RECORD_EVERY` (value: `"recordEvery"`)
+
+* `RECORD_SOME` (value: `"recordSome"`)
+
 
 
