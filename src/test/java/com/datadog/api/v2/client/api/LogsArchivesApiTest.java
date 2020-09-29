@@ -39,6 +39,8 @@ import com.datadog.api.v2.client.model.LogsArchives;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -227,7 +229,8 @@ public class LogsArchivesApiTest extends V2APITest {
         LogsArchiveCreateRequestAttributes attributes = new LogsArchiveCreateRequestAttributes()
                 .destination(new LogsArchiveCreateRequestDestination(destination))
                 .name("datadog-api-client-go Tests Archive")
-                .query("service:toto");
+                .query("service:toto")
+                .rehydrationTags(Arrays.asList("team:intake", "team:app"));
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
@@ -246,7 +249,8 @@ public class LogsArchivesApiTest extends V2APITest {
         LogsArchiveCreateRequestAttributes attributes = new LogsArchiveCreateRequestAttributes()
                 .destination(new LogsArchiveCreateRequestDestination(destination))
                 .name("datadog-api-client-go Tests Archive")
-                .query("service:toto");
+                .query("service:toto")
+                .rehydrationTags(Arrays.asList("team:intake", "team:app"));
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
@@ -262,7 +266,8 @@ public class LogsArchivesApiTest extends V2APITest {
         LogsArchiveCreateRequestAttributes attributes = new LogsArchiveCreateRequestAttributes()
                 .destination(new LogsArchiveCreateRequestDestination(destination))
                 .name("datadog-api-client-go Tests Archive")
-                .query("service:toto");
+                .query("service:toto")
+                .rehydrationTags(Arrays.asList("team:intake", "team:app"));
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
     
