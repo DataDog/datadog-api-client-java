@@ -52,6 +52,7 @@ jobs:
         CI: "true"
         DD_AGENT_HOST: datadog-agent
         DD_ENV: prod
+        DD_INTEGRATION_JUNIT_ENABLED: "true"
         DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
         DD_LOGS_INJECTION: "true"
         DD_SERVICE: datadog-api-client-java
