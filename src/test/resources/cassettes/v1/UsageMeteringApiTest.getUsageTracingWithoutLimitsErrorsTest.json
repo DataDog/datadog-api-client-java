@@ -1,10 +1,10 @@
 [{
-  "id" : "0db9f64f-4aee-4f3b-ace5-78432b285e4e",
+  "id" : "52cb40ab-1978-4e8a-8668-7c4c2e16f078",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/tracing-without-limits",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-08-31T22:57Z" ]
+      "start_hr" : [ "2020-09-28T18:35:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -26,17 +26,17 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 31 Aug 2020 17:57:52 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:25 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "48" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-RateLimit-Limit" : [ "12000" ],
+      "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "128" ],
-      "X-RateLimit-Remaining" : [ "9562" ],
-      "X-DD-VERSION" : [ "35.2960961" ],
+      "X-RateLimit-Reset" : [ "1475" ],
+      "X-RateLimit-Remaining" : [ "320" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -46,12 +46,12 @@
     "body" : "{\"errors\": [\"start_hr cannot be in the future\"]}"
   }
 }, {
-  "id" : "1cae1ffd-292b-4b6c-8de9-bacc8ae80cf0",
+  "id" : "21705e40-89aa-46f1-88b8-59de8556953a",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/tracing-without-limits",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-08-31T22:57Z" ]
+      "start_hr" : [ "2020-09-28T18:35:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 31 Aug 2020 17:57:53 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:25 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

@@ -1,5 +1,5 @@
 [{
-  "id" : "f9a52a97-850d-49f5-bd05-e6a63c3e5e8d",
+  "id" : "a071dfed-6425-4ca6-bc51-e5a590381bdf",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/monthly_custom_reports/2010-01-01",
@@ -23,13 +23,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Thu, 16 Jul 2020 21:09:12 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:36:01 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2748465" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "DD-POOL" : [ "dogweb_wallace" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
