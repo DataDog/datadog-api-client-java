@@ -1,11 +1,11 @@
 [{
-  "id" : "ed594fbd-9c0b-46f5-b31b-7b10a163bd8c",
+  "id" : "10830707-fb0a-41f3-95f0-3b909d1880dc",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/synthetics_browser",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-05-01T12:00Z" ],
-      "end_hr" : [ "2020-05-01T13:00Z" ]
+      "start_hr" : [ "2020-08-01T12:00:00Z" ],
+      "end_hr" : [ "2020-08-01T13:00:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -27,19 +27,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:11:57 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:45 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 11:11:56 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 05-Oct-2020 13:35:45 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2884" ],
-      "X-RateLimit-Remaining" : [ "351" ],
-      "X-DD-Debug" : [ "yqCkAb2Y8/4OgTSGYvedTl/k5gsPukDI7OLTlGSm9adIbRDVlGb00Ve5DDv9ImFD" ],
+      "X-RateLimit-Reset" : [ "1455" ],
+      "X-RateLimit-Remaining" : [ "303" ],
+      "X-DD-Debug" : [ "1yK3PnBzCoxF/WGKEJeJqS2Jb9mutr3xDuvLdPbJCfX1HVDqeCXkaWYDO6wQpQhO" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -50,6 +50,6 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"usage\":[{\"browser_check_calls_count\":0,\"hour\":\"2020-05-01T12:00:00+00:00\"}]}"
+    "body" : "{\"usage\":[{\"browser_check_calls_count\":0,\"hour\":\"2020-08-01T12:00:00+00:00\"}]}"
   }
 }]

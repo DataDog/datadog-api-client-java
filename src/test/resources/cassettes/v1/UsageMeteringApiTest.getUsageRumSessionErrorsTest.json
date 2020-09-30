@@ -1,10 +1,10 @@
 [{
-  "id" : "e2258aee-46ef-489f-bc1c-87f5b0df0695",
+  "id" : "6af8caca-305d-420b-80d8-d52fe11b9d7f",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/rum_sessions",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-09-17T22:35Z" ]
+      "start_hr" : [ "2020-09-28T18:36:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -26,17 +26,17 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Thu, 17 Sep 2020 17:35:56 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:36:06 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "48" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-RateLimit-Limit" : [ "12000" ],
+      "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "1444" ],
-      "X-RateLimit-Remaining" : [ "9838" ],
-      "X-DD-VERSION" : [ "35.3052480" ],
+      "X-RateLimit-Reset" : [ "1434" ],
+      "X-RateLimit-Remaining" : [ "287" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -46,13 +46,13 @@
     "body" : "{\"errors\": [\"start_hr cannot be in the future\"]}"
   }
 }, {
-  "id" : "8b9ac463-8476-408f-9765-5694f55bfa47",
+  "id" : "2763c8b8-120a-4e3e-a45c-bbff2296366d",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/rum_sessions",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-08-01T12:00Z" ],
-      "end_hr" : [ "2020-08-01T13:00Z" ],
+      "start_hr" : [ "2020-08-01T12:00:00Z" ],
+      "end_hr" : [ "2020-08-01T13:00:00Z" ],
       "type" : [ "invalid" ]
     },
     "headers" : {
@@ -75,17 +75,17 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Thu, 17 Sep 2020 17:35:57 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:36:06 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "72" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-RateLimit-Limit" : [ "12000" ],
+      "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "1443" ],
-      "X-RateLimit-Remaining" : [ "9837" ],
-      "X-DD-VERSION" : [ "35.3052480" ],
+      "X-RateLimit-Reset" : [ "1434" ],
+      "X-RateLimit-Remaining" : [ "286" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -95,12 +95,12 @@
     "body" : "{\"errors\": [\"Invalid type parameter invalid. Must be (browser|mobile)\"]}"
   }
 }, {
-  "id" : "7be99986-7866-4c52-ac6d-b4be843f1bf9",
+  "id" : "c0c0f8ca-359b-4531-9594-98afb55dcbbd",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/rum_sessions",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-09-17T22:35Z" ]
+      "start_hr" : [ "2020-09-28T18:36:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -122,7 +122,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Thu, 17 Sep 2020 17:35:57 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:36:07 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

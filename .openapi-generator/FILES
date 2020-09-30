@@ -202,6 +202,7 @@ src/main/java/com/datadog/api/v2/client/ApiException.java
 src/main/java/com/datadog/api/v2/client/ApiResponse.java
 src/main/java/com/datadog/api/v2/client/Configuration.java
 src/main/java/com/datadog/api/v2/client/JSON.java
+src/main/java/com/datadog/api/v2/client/JavaTimeFormatter.java
 src/main/java/com/datadog/api/v2/client/Pair.java
 src/main/java/com/datadog/api/v2/client/RFC3339DateFormat.java
 src/main/java/com/datadog/api/v2/client/ServerConfiguration.java

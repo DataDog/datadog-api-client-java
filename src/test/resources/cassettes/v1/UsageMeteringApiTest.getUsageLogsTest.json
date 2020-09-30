@@ -1,11 +1,11 @@
 [{
-  "id" : "d4d67927-67b0-42a1-b1a8-2ddc6117aba3",
+  "id" : "ef275341-439b-4166-a060-bf1a91574455",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/logs",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-05-01T12:00Z" ],
-      "end_hr" : [ "2020-05-01T13:00Z" ]
+      "start_hr" : [ "2020-08-01T12:00:00Z" ],
+      "end_hr" : [ "2020-08-01T13:00:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -27,29 +27,29 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:11:51 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:37 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 11:11:51 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 05-Oct-2020 13:35:37 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2889" ],
-      "X-RateLimit-Remaining" : [ "357" ],
-      "X-DD-Debug" : [ "fLh2Ki8TBaqqP7azNnKugW2P+FqYhl36RGg8m8syr+2I6kNse5gXxG00+xylWppT" ],
+      "X-RateLimit-Reset" : [ "1463" ],
+      "X-RateLimit-Remaining" : [ "309" ],
+      "X-DD-Debug" : [ "4XEHrKCjPbSbs1iu1F78+tH4eaIPZCq+IGDoHN/GQcOsLq6w3Zzz7ZK1RqpTUzFS" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "129" ]
+      "content-length" : [ "131" ]
     },
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"usage\":[{\"billable_ingested_bytes\":0,\"ingested_events_bytes\":934,\"indexed_events_count\":4,\"hour\":\"2020-05-01T12:00:00+00:00\"}]}"
+    "body" : "{\"usage\":[{\"billable_ingested_bytes\":0,\"ingested_events_bytes\":2410,\"indexed_events_count\":10,\"hour\":\"2020-08-01T12:00:00+00:00\"}]}"
   }
 }]
