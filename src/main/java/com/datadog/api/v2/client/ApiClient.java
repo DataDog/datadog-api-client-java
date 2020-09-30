@@ -133,7 +133,6 @@ public class ApiClient extends JavaTimeFormatter {
 
   protected DateFormat dateFormat;
   protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {{
-    put("aggregateLogs", false);
     put("listLogs", false);
     put("listLogsGet", false);
     put("addReadRoleToArchive", false);
