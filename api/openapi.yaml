@@ -264,8 +264,8 @@ paths:
       x-accepts: application/json
   /api/v2/logs/analytics/aggregate:
     post:
-      description: The public API endpoint to aggregate events into buckets and compute
-        metrics and timeseries.
+      description: The API endpoint to aggregate events into buckets and compute metrics
+        and timeseries.
       operationId: AggregateLogs
       requestBody:
         content:
@@ -295,9 +295,6 @@ paths:
       tags:
       - Logs
       x-codegen-request-body-name: body
-      x-unstable: |-
-        **Note**: This endpoint is in public beta.
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
       x-contentType: application/json
       x-accepts: application/json
   /api/v2/logs/config/archives:
