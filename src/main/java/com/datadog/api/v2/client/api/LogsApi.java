@@ -144,19 +144,13 @@ private ApiResponse<LogsAggregateResponse> aggregateLogsWithHttpInfo(LogsAggrega
 
   /**
    * Aggregate events
-   * The public API endpoint to aggregate events into buckets and compute metrics and timeseries.
+   * The API endpoint to aggregate events into buckets and compute metrics and timeseries.
    * @return aggregateLogsRequest
    * @throws ApiException if fails to make API call
    
    
    */
   public APIaggregateLogsRequest aggregateLogs() throws ApiException {
-    String operationId = "aggregateLogs";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     return new APIaggregateLogsRequest();
   }
 
