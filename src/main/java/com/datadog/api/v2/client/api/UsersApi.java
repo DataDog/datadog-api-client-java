@@ -443,7 +443,7 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userId) throws ApiE
   }
 
   /**
-   * Get a user
+   * Get user details
    * Get a user in the organization specified by the user’s &#x60;user_id&#x60;.
    * @param userId The ID of the user. (required)
    * @return getUserRequest

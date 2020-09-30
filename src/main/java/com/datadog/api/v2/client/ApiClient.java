@@ -48,6 +48,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.Date;
 import java.util.Properties;
+import java.time.OffsetDateTime;
 
 import java.net.URLEncoder;
 
@@ -64,7 +65,7 @@ import com.datadog.api.v2.client.auth.HttpBearerAuth;
 import com.datadog.api.v2.client.auth.ApiKeyAuth;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ApiClient {
+public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
   protected String basePath = "https://api.datadoghq.com";
@@ -646,6 +647,8 @@ public class ApiClient {
       return "";
     } else if (param instanceof Date) {
       return formatDate((Date) param);
+    } else if (param instanceof OffsetDateTime) {
+      return formatOffsetDateTime((OffsetDateTime) param);
     } else if (param instanceof Collection) {
       StringBuilder b = new StringBuilder();
       for(Object o : (Collection)param) {

@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v1.client.model.ApmStatsQueryRowType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,18 +30,20 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * The APM resources (stats) query for Table Widget.
+ * The APM stats query for table and distributions widgets.
  */
-@ApiModel(description = "The APM resources (stats) query for Table Widget.")
+@ApiModel(description = "The APM stats query for table and distributions widgets.")
 @JsonPropertyOrder({
-  ApmResourcesQueryDefinition.JSON_PROPERTY_COLUMNS,
-  ApmResourcesQueryDefinition.JSON_PROPERTY_ENV,
-  ApmResourcesQueryDefinition.JSON_PROPERTY_NAME,
-  ApmResourcesQueryDefinition.JSON_PROPERTY_RESOURCE,
-  ApmResourcesQueryDefinition.JSON_PROPERTY_SERVICE
+  ApmStatsQueryDefinition.JSON_PROPERTY_COLUMNS,
+  ApmStatsQueryDefinition.JSON_PROPERTY_ENV,
+  ApmStatsQueryDefinition.JSON_PROPERTY_NAME,
+  ApmStatsQueryDefinition.JSON_PROPERTY_PRIMARY_TAG,
+  ApmStatsQueryDefinition.JSON_PROPERTY_RESOURCE,
+  ApmStatsQueryDefinition.JSON_PROPERTY_ROW_TYPE,
+  ApmStatsQueryDefinition.JSON_PROPERTY_SERVICE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ApmResourcesQueryDefinition {
+public class ApmStatsQueryDefinition {
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<String> columns = null;
 
@@ -50,19 +53,25 @@ public class ApmResourcesQueryDefinition {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_PRIMARY_TAG = "primary_tag";
+  private String primaryTag;
+
   public static final String JSON_PROPERTY_RESOURCE = "resource";
   private String resource;
+
+  public static final String JSON_PROPERTY_ROW_TYPE = "row_type";
+  private ApmStatsQueryRowType rowType;
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
 
 
-  public ApmResourcesQueryDefinition columns(List<String> columns) {
+  public ApmStatsQueryDefinition columns(List<String> columns) {
     this.columns = columns;
     return this;
   }
 
-  public ApmResourcesQueryDefinition addColumnsItem(String columnsItem) {
+  public ApmStatsQueryDefinition addColumnsItem(String columnsItem) {
     if (this.columns == null) {
       this.columns = new ArrayList<>();
     }
@@ -89,7 +98,7 @@ public class ApmResourcesQueryDefinition {
   }
 
 
-  public ApmResourcesQueryDefinition env(String env) {
+  public ApmStatsQueryDefinition env(String env) {
     this.env = env;
     return this;
   }
@@ -112,7 +121,7 @@ public class ApmResourcesQueryDefinition {
   }
 
 
-  public ApmResourcesQueryDefinition name(String name) {
+  public ApmStatsQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
@@ -135,7 +144,30 @@ public class ApmResourcesQueryDefinition {
   }
 
 
-  public ApmResourcesQueryDefinition resource(String resource) {
+  public ApmStatsQueryDefinition primaryTag(String primaryTag) {
+    this.primaryTag = primaryTag;
+    return this;
+  }
+
+   /**
+   * The organization&#39;s host group name and value.
+   * @return primaryTag
+  **/
+  @ApiModelProperty(example = "datacenter:*", required = true, value = "The organization's host group name and value.")
+  @JsonProperty(JSON_PROPERTY_PRIMARY_TAG)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getPrimaryTag() {
+    return primaryTag;
+  }
+
+
+  public void setPrimaryTag(String primaryTag) {
+    this.primaryTag = primaryTag;
+  }
+
+
+  public ApmStatsQueryDefinition resource(String resource) {
     this.resource = resource;
     return this;
   }
@@ -159,7 +191,30 @@ public class ApmResourcesQueryDefinition {
   }
 
 
-  public ApmResourcesQueryDefinition service(String service) {
+  public ApmStatsQueryDefinition rowType(ApmStatsQueryRowType rowType) {
+    this.rowType = rowType;
+    return this;
+  }
+
+   /**
+   * Get rowType
+   * @return rowType
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ROW_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public ApmStatsQueryRowType getRowType() {
+    return rowType;
+  }
+
+
+  public void setRowType(ApmStatsQueryRowType rowType) {
+    this.rowType = rowType;
+  }
+
+
+  public ApmStatsQueryDefinition service(String service) {
     this.service = service;
     return this;
   }
@@ -183,7 +238,7 @@ public class ApmResourcesQueryDefinition {
 
 
   /**
-   * Return true if this ApmResourcesQueryDefinition object is equal to o.
+   * Return true if this ApmStatsQueryDefinition object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -193,28 +248,32 @@ public class ApmResourcesQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApmResourcesQueryDefinition apmResourcesQueryDefinition = (ApmResourcesQueryDefinition) o;
-    return Objects.equals(this.columns, apmResourcesQueryDefinition.columns) &&
-        Objects.equals(this.env, apmResourcesQueryDefinition.env) &&
-        Objects.equals(this.name, apmResourcesQueryDefinition.name) &&
-        Objects.equals(this.resource, apmResourcesQueryDefinition.resource) &&
-        Objects.equals(this.service, apmResourcesQueryDefinition.service);
+    ApmStatsQueryDefinition apmStatsQueryDefinition = (ApmStatsQueryDefinition) o;
+    return Objects.equals(this.columns, apmStatsQueryDefinition.columns) &&
+        Objects.equals(this.env, apmStatsQueryDefinition.env) &&
+        Objects.equals(this.name, apmStatsQueryDefinition.name) &&
+        Objects.equals(this.primaryTag, apmStatsQueryDefinition.primaryTag) &&
+        Objects.equals(this.resource, apmStatsQueryDefinition.resource) &&
+        Objects.equals(this.rowType, apmStatsQueryDefinition.rowType) &&
+        Objects.equals(this.service, apmStatsQueryDefinition.service);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, env, name, resource, service);
+    return Objects.hash(columns, env, name, primaryTag, resource, rowType, service);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApmResourcesQueryDefinition {\n");
+    sb.append("class ApmStatsQueryDefinition {\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    primaryTag: ").append(toIndentedString(primaryTag)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
+    sb.append("    rowType: ").append(toIndentedString(rowType)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("}");
     return sb.toString();
