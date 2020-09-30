@@ -1,8 +1,8 @@
 [{
-  "id" : "e08d2177-5154-44d4-8fc5-552b716b9728",
+  "id" : "910467b6-d6d9-4bde-b2aa-54120e6c352e",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/monthly_custom_reports/2020-07-16",
+    "path" : "/api/v1/monthly_custom_reports/2020-09-27",
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getSpecifiedMonthlyCustomReportsTest" ],
@@ -23,13 +23,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Fri, 17 Jul 2020 16:18:50 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:38 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2751869" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "DD-POOL" : [ "dogweb_wallace" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

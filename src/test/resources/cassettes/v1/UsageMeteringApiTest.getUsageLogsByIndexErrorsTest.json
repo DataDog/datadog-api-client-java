@@ -1,10 +1,10 @@
 [{
-  "id" : "f676dab5-a49f-40f3-a3fa-4eec2accfa64",
+  "id" : "49e7a25c-7c91-4f8d-b27f-d298d019e1f6",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/logs_by_index",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-06-01T16:12Z" ]
+      "start_hr" : [ "2020-09-28T18:35:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -26,7 +26,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:02 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:49 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "48" ],
       "Connection" : [ "keep-alive" ],
@@ -34,9 +34,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2879" ],
-      "X-RateLimit-Remaining" : [ "345" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-RateLimit-Reset" : [ "1451" ],
+      "X-RateLimit-Remaining" : [ "296" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -46,12 +46,12 @@
     "body" : "{\"errors\": [\"start_hr cannot be in the future\"]}"
   }
 }, {
-  "id" : "3848615e-5c32-42e0-bd31-5dffc3e68d9a",
+  "id" : "6373e7e4-0849-4ebc-807b-af192b898a7b",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/logs_by_index",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-06-01T16:12Z" ]
+      "start_hr" : [ "2020-09-28T18:35:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:02 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:50 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
