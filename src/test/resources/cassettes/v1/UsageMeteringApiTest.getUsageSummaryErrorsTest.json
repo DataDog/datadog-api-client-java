@@ -1,10 +1,10 @@
 [{
-  "id" : "08c39edf-2e38-464a-82a0-efb82b6421d9",
+  "id" : "b63b20f8-5d9e-4041-9e33-fce15df1f4ca",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/summary",
     "queryStringParameters" : {
-      "start_month" : [ "2020-07-01T16:12Z" ]
+      "start_month" : [ "2020-10-28T18:35:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -26,7 +26,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:06 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:52 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

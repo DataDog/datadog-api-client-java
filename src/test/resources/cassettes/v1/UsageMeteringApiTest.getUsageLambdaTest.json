@@ -1,11 +1,11 @@
 [{
-  "id" : "3aa47d9d-d7dd-45f7-88f6-d3ecc6b67c3a",
+  "id" : "b7dcb841-156b-4587-9ef9-a76e8b2f8564",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/aws_lambda",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-05-01T12:00Z" ],
-      "end_hr" : [ "2020-05-01T13:00Z" ]
+      "start_hr" : [ "2020-08-01T12:00:00Z" ],
+      "end_hr" : [ "2020-08-01T13:00:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -27,19 +27,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:11:42 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:19 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 08-Jun-2020 11:11:42 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 05-Oct-2020 13:35:19 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2898" ],
-      "X-RateLimit-Remaining" : [ "367" ],
-      "X-DD-Debug" : [ "OxP+mFpjAbASiVhNf+t4MttAs95ZlMiGosIRnYJJGFoApNgv2oxtdzpnmNlMOki6" ],
+      "X-RateLimit-Reset" : [ "1481" ],
+      "X-RateLimit-Remaining" : [ "323" ],
+      "X-DD-Debug" : [ "H6mGk0NVWFFYd9VUP8vVAv2c5S84SY5SnfwDRAyGeGOpnNeKpu2AiMB1a9R6+y9D" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -50,6 +50,6 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"usage\":[{\"func_count\":0,\"hour\":\"2020-05-01T12:00:00+00:00\",\"invocations_sum\":0}]}"
+    "body" : "{\"usage\":[{\"func_count\":0,\"hour\":\"2020-08-01T12:00:00+00:00\",\"invocations_sum\":0}]}"
   }
 }]
