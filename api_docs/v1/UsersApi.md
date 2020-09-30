@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**createUser**](UsersApi.md#createUser) | **POST** /api/v1/user | Create a user
 [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v1/user/{user_handle} | Disable a user
 [**getUser**](UsersApi.md#getUser) | **GET** /api/v1/user/{user_handle} | Get user details
-[**listUsers**](UsersApi.md#listUsers) | **GET** /api/v1/user | Get all users
+[**listUsers**](UsersApi.md#listUsers) | **GET** /api/v1/user | List all users
 [**updateUser**](UsersApi.md#updateUser) | **PUT** /api/v1/user/{user_handle} | Update a user
 
 
@@ -265,9 +265,9 @@ Name | Type | Description  | Notes
 
 > UserListResponse listUsers().execute();
 
-Get all users
+List all users
 
-Get all users for your organization.
+List all users for your organization.
 
 ### Example
 
