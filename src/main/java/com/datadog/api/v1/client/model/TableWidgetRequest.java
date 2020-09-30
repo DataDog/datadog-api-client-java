@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.ApmResourcesQueryDefinition;
+import com.datadog.api.v1.client.model.ApmStatsQueryDefinition;
 import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
@@ -43,7 +43,7 @@ import com.datadog.api.v1.client.JSON;
   TableWidgetRequest.JSON_PROPERTY_AGGREGATOR,
   TableWidgetRequest.JSON_PROPERTY_ALIAS,
   TableWidgetRequest.JSON_PROPERTY_APM_QUERY,
-  TableWidgetRequest.JSON_PROPERTY_APM_RESOURCES_QUERY,
+  TableWidgetRequest.JSON_PROPERTY_APM_STATS_QUERY,
   TableWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
   TableWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
   TableWidgetRequest.JSON_PROPERTY_LIMIT,
@@ -66,8 +66,8 @@ public class TableWidgetRequest {
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
 
-  public static final String JSON_PROPERTY_APM_RESOURCES_QUERY = "apm_resources_query";
-  private ApmResourcesQueryDefinition apmResourcesQuery;
+  public static final String JSON_PROPERTY_APM_STATS_QUERY = "apm_stats_query";
+  private ApmStatsQueryDefinition apmStatsQuery;
 
   public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
   private List<WidgetConditionalFormat> conditionalFormats = null;
@@ -172,27 +172,27 @@ public class TableWidgetRequest {
   }
 
 
-  public TableWidgetRequest apmResourcesQuery(ApmResourcesQueryDefinition apmResourcesQuery) {
-    this.apmResourcesQuery = apmResourcesQuery;
+  public TableWidgetRequest apmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
+    this.apmStatsQuery = apmStatsQuery;
     return this;
   }
 
    /**
-   * Get apmResourcesQuery
-   * @return apmResourcesQuery
+   * Get apmStatsQuery
+   * @return apmStatsQuery
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_APM_RESOURCES_QUERY)
+  @JsonProperty(JSON_PROPERTY_APM_STATS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ApmResourcesQueryDefinition getApmResourcesQuery() {
-    return apmResourcesQuery;
+  public ApmStatsQueryDefinition getApmStatsQuery() {
+    return apmStatsQuery;
   }
 
 
-  public void setApmResourcesQuery(ApmResourcesQueryDefinition apmResourcesQuery) {
-    this.apmResourcesQuery = apmResourcesQuery;
+  public void setApmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
+    this.apmStatsQuery = apmStatsQuery;
   }
 
 
@@ -459,7 +459,7 @@ public class TableWidgetRequest {
     return Objects.equals(this.aggregator, tableWidgetRequest.aggregator) &&
         Objects.equals(this.alias, tableWidgetRequest.alias) &&
         Objects.equals(this.apmQuery, tableWidgetRequest.apmQuery) &&
-        Objects.equals(this.apmResourcesQuery, tableWidgetRequest.apmResourcesQuery) &&
+        Objects.equals(this.apmStatsQuery, tableWidgetRequest.apmStatsQuery) &&
         Objects.equals(this.conditionalFormats, tableWidgetRequest.conditionalFormats) &&
         Objects.equals(this.eventQuery, tableWidgetRequest.eventQuery) &&
         Objects.equals(this.limit, tableWidgetRequest.limit) &&
@@ -474,7 +474,7 @@ public class TableWidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, alias, apmQuery, apmResourcesQuery, conditionalFormats, eventQuery, limit, logQuery, networkQuery, order, processQuery, q, rumQuery, securityQuery);
+    return Objects.hash(aggregator, alias, apmQuery, apmStatsQuery, conditionalFormats, eventQuery, limit, logQuery, networkQuery, order, processQuery, q, rumQuery, securityQuery);
   }
 
 
@@ -485,7 +485,7 @@ public class TableWidgetRequest {
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
     sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
-    sb.append("    apmResourcesQuery: ").append(toIndentedString(apmResourcesQuery)).append("\n");
+    sb.append("    apmStatsQuery: ").append(toIndentedString(apmStatsQuery)).append("\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
