@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **legendSize** | **String** | Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;. |  [optional]
 **markers** | [**List&lt;WidgetMarker&gt;**](WidgetMarker.md) | List of markers. |  [optional]
 **requests** | [**List&lt;TimeseriesWidgetRequest&gt;**](TimeseriesWidgetRequest.md) | List of timeseries widget requests. | 
+**rightYaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 **showLegend** | **Boolean** | (screenboard only) Show the legend for this widget. |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]
