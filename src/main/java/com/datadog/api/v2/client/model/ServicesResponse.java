@@ -66,7 +66,7 @@ public class ServicesResponse {
    * An array of services.
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "An array of services.")
+  @ApiModelProperty(example = "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"services\"}]", required = true, value = "An array of services.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

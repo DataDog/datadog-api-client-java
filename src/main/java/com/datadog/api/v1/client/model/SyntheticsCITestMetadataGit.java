@@ -27,8 +27,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * SyntheticsCITestMetadataGit
+ * Git information.
  */
+@ApiModel(description = "Git information.")
 @JsonPropertyOrder({
   SyntheticsCITestMetadataGit.JSON_PROPERTY_BRANCH,
   SyntheticsCITestMetadataGit.JSON_PROPERTY_COMMIT_SHA
@@ -48,11 +49,11 @@ public class SyntheticsCITestMetadataGit {
   }
 
    /**
-   * Get branch
+   * Branch name.
    * @return branch
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Branch name.")
   @JsonProperty(JSON_PROPERTY_BRANCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -72,11 +73,11 @@ public class SyntheticsCITestMetadataGit {
   }
 
    /**
-   * Get commitSha
+   * Commit SHA.
    * @return commitSha
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Commit SHA.")
   @JsonProperty(JSON_PROPERTY_COMMIT_SHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

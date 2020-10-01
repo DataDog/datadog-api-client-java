@@ -808,7 +808,7 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
 
   /**
    * List all users
-   * Get the list of all users in the organization. This list includes all users even if they are disabled or unverified.
+   * Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
    * @return listUsersRequest
    * @throws ApiException if fails to make API call
    

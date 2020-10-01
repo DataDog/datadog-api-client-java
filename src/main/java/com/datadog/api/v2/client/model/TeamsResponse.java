@@ -66,7 +66,7 @@ public class TeamsResponse {
    * An array of teams.
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "An array of teams.")
+  @ApiModelProperty(example = "[{\"attributes\":{\"name\":\"team name\"},\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"teams\"}]", required = true, value = "An array of teams.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
