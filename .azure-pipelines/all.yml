@@ -56,7 +56,7 @@ jobs:
         DD_INTEGRATION_JUNIT_ENABLED: "true"
         DD_LOGS_INJECTION: "true"
         DD_SERVICE: datadog-api-client-java
-        DD_TAGS: "team:integration-tools-and-libraries,build.requested_by:$(Build.RequestedForId),build.attempt:$(System.StageAttempt),pull_request.number:$(System.PullRequest.PullRequestNumber)"
+        DD_TAGS: "team:integration-tools-and-libraries,git.repository_url:$(Build.Repository.Uri),git.commit_sha:$(Build.SourceVersion),git.branch:$(Build.SourceBranch),build.requested_by:$(Build.RequestedForId),build.attempt:$(System.StageAttempt),pull_request.number:$(System.PullRequest.PullRequestNumber)"
         DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         DD_TRACE_ANALYTICS_ENABLED: "true"
