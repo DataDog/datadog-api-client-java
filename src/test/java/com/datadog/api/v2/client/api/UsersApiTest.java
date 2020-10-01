@@ -85,14 +85,9 @@ public class UsersApiTest extends V2APITest {
         UserUpdateAttributes uua = new UserUpdateAttributes().disabled(false).name("Joe Doe");
         UserUpdateData uud = new UserUpdateData().attributes(uua).id(uid);
         UserUpdateRequest uur = new UserUpdateRequest().data(uud);
-        // no response payload; we're ok if it didn't throw exception
-        try {
-            api.updateUser(uid).body(uur).execute();
-            fail("did not raise");
-        } catch (MessageBodyProviderNotFoundException ignore) {
-            // FIXME it should raise ApiException
-            // assertEquals(204, e.getCode());
-        }
+
+        // empty response payload, if the call doesn't raise an exception, we're ok
+        api.updateUser(uid).body(uur).execute();
 
         // now, test getting it
         UserResponse urp = api.getUser(uid).execute();
@@ -101,7 +96,7 @@ public class UsersApiTest extends V2APITest {
         assertFalse(urp.getData().getAttributes().getDisabled());
 
         // now, test disabling it
-        // no response payload; we're of it it didn't throw exception
+        // no response payload; we're ok it it didn't throw exception
         api.disableUser(uid).execute();
 
         // now, test filtering for it in the list call

@@ -934,7 +934,7 @@ private ApiResponse<SyntheticsTestDetails> getBrowserTestWithHttpInfo(String pub
 
   /**
    * Get a test configuration (browser)
-   * Get the detailed configuration (including steps) associated with a Synthetics browser test.
+   * Get the detailed configuration (including steps) associated with a Synthetic browser test.
    * @param publicId The public ID of the test to get details from. (required)
    * @return getBrowserTestRequest
    * @throws ApiException if fails to make API call
@@ -1467,7 +1467,7 @@ private ApiResponse<SyntheticsLocations> listLocationsWithHttpInfo() throws ApiE
 
   /**
    * Get all locations (public and private)
-   * Get the list of public and private locations available for Synthetics tests. No arguments required.
+   * Get the list of public and private locations available for Synthetic tests. No arguments required.
    * @return listLocationsRequest
    * @throws ApiException if fails to make API call
    
