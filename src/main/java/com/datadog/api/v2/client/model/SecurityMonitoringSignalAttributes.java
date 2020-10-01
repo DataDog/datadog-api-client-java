@@ -32,9 +32,9 @@ import com.datadog.api.v2.client.JSON;
 
 
 /**
- * The JSON object containing all signal attributes and their associated values.
+ * The object containing all signal attributes and their associated values.
  */
-@ApiModel(description = "The JSON object containing all signal attributes and their associated values.")
+@ApiModel(description = "The object containing all signal attributes and their associated values.")
 @JsonPropertyOrder({
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_ATTRIBUTES,
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_MESSAGE,

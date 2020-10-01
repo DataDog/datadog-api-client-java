@@ -103,7 +103,8 @@ Name | Type | Description  | Notes
 
 Disable a user
 
-Disable a user. Can only be used with an application key belonging to an administrator user.
+Disable a user. Can only be used with an application key belonging
+to an administrator user.
 
 ### Example
 
@@ -342,7 +343,8 @@ Name | Type | Description  | Notes
 
 Get a user organization
 
-Get a user organization. Returns the user information and all organizations joined by this user.
+Get a user organization. Returns the user information and all organizations
+joined by this user.
 
 ### Example
 
@@ -422,7 +424,8 @@ Name | Type | Description  | Notes
 
 Get a user permissions
 
-Get a user permission set. Returns a list of the user’s permissions granted by the associated user's roles.
+Get a user permission set. Returns a list of the user’s permissions
+granted by the associated user's roles.
 
 ### Example
 
@@ -502,7 +505,8 @@ Name | Type | Description  | Notes
 
 List all users
 
-Get the list of all users in the organization. This list includes all users even if they are disabled or unverified.
+Get the list of all users in the organization. This list includes
+all users even if they are deactivated or unverified.
 
 ### Example
 
@@ -679,7 +683,8 @@ Name | Type | Description  | Notes
 
 Update a user
 
-Edit a user. Can only be used with an application key belonging to an administrator user.
+Edit a user. Can only be used with an application key belonging
+to an administrator user.
 
 ### Example
 

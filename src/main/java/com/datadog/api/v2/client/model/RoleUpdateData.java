@@ -81,7 +81,7 @@ public class RoleUpdateData {
    * ID of the role.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "ID of the role.")
+  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "ID of the role.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

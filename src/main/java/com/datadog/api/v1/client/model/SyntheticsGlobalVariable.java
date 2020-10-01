@@ -67,7 +67,7 @@ public class SyntheticsGlobalVariable {
    * Description of the global variable.
    * @return description
   **/
-  @ApiModelProperty(required = true, value = "Description of the global variable.")
+  @ApiModelProperty(example = "Example description", required = true, value = "Description of the global variable.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -106,7 +106,7 @@ public class SyntheticsGlobalVariable {
    * Name of the global variable.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name of the global variable.")
+  @ApiModelProperty(example = "MY_VARIABLE", required = true, value = "Name of the global variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -134,7 +134,7 @@ public class SyntheticsGlobalVariable {
    * Tags of the global variable.
    * @return tags
   **/
-  @ApiModelProperty(required = true, value = "Tags of the global variable.")
+  @ApiModelProperty(example = "[\"team:front\",\"test:workflow-1\"]", required = true, value = "Tags of the global variable.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

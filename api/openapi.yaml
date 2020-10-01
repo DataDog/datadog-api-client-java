@@ -61,7 +61,9 @@ tags:
     read access on a specific log index to a role can be done in Datadog from the
     [Pipelines page](https://app.datadoghq.com/logs/pipelines).
   name: Roles
-- description: Detection rules for generating signals and listing of generated signals
+- description: |-
+    Detection rules for generating signals and listing of generated
+    signals.
   name: Security Monitoring
 - description: Create, update, delete and retrieve your organizations services.
   name: Services
@@ -264,8 +266,8 @@ paths:
       x-accepts: application/json
   /api/v2/logs/analytics/aggregate:
     post:
-      description: The public API endpoint to aggregate events into buckets and compute
-        metrics and timeseries.
+      description: The API endpoint to aggregate events into buckets and compute metrics
+        and timeseries.
       operationId: AggregateLogs
       requestBody:
         content:
@@ -295,9 +297,6 @@ paths:
       tags:
       - Logs
       x-codegen-request-body-name: body
-      x-unstable: |-
-        **Note**: This endpoint is in public beta.
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
       x-contentType: application/json
       x-accepts: application/json
   /api/v2/logs/config/archives:
@@ -2332,8 +2331,9 @@ paths:
       x-accepts: application/json
   /api/v2/users:
     get:
-      description: Get the list of all users in the organization. This list includes
-        all users even if they are disabled or unverified.
+      description: |-
+        Get the list of all users in the organization. This list includes
+        all users even if they are deactivated or unverified.
       operationId: ListUsers
       parameters:
       - description: Size for a given page.
@@ -2356,9 +2356,11 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: 'User attribute to order results by. Sort order is ascending
-          by default. Sort order is descending if the field is prefixed by a negative
-          sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.'
+      - description: |-
+          User attribute to order results by. Sort order is ascending by default.
+          Sort order is descending if the field
+          is prefixed by a negative sign, for example `sort=-name`. Options: `name`,
+          `modified_at`, `user_count`.
         explode: true
         in: query
         name: sort
@@ -2453,7 +2455,8 @@ paths:
       x-accepts: application/json
   /api/v2/users/{user_id}:
     delete:
-      description: Disable a user. Can only be used with an application key belonging
+      description: |-
+        Disable a user. Can only be used with an application key belonging
         to an administrator user.
       operationId: DisableUser
       parameters:
@@ -2522,7 +2525,8 @@ paths:
       x-codegen-request-body-name: body
       x-accepts: application/json
     patch:
-      description: Edit a user. Can only be used with an application key belonging
+      description: |-
+        Edit a user. Can only be used with an application key belonging
         to an administrator user.
       operationId: UpdateUser
       parameters:
@@ -2578,7 +2582,8 @@ paths:
       x-accepts: application/json
   /api/v2/users/{user_id}/orgs:
     get:
-      description: Get a user organization. Returns the user information and all organizations
+      description: |-
+        Get a user organization. Returns the user information and all organizations
         joined by this user.
       operationId: ListUserOrganizations
       parameters:
@@ -2616,7 +2621,8 @@ paths:
       x-accepts: application/json
   /api/v2/users/{user_id}/permissions:
     get:
-      description: Get a user permission set. Returns a list of the user’s permissions
+      description: |-
+        Get a user permission set. Returns a list of the user’s permissions
         granted by the associated user's roles.
       operationId: ListUserPermissions
       parameters:
@@ -4095,7 +4101,7 @@ components:
       description: Relationship to an organization.
       example:
         data:
-          id: id
+          id: 00000000-0000-0000-0000-000000000000
           type: orgs
       properties:
         data:
@@ -4106,11 +4112,12 @@ components:
     RelationshipToOrganizationData:
       description: Relationship to organization object.
       example:
-        id: id
+        id: 00000000-0000-0000-0000-000000000000
         type: orgs
       properties:
         id:
           description: ID of the organization.
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         type:
           $ref: '#/components/schemas/OrganizationsType'
@@ -4121,14 +4128,11 @@ components:
     RelationshipToOrganizations:
       description: Relationship to organizations.
       example:
-        data:
-        - id: id
-          type: orgs
-        - id: id
-          type: orgs
+        data: []
       properties:
         data:
           description: Relationships to organization objects.
+          example: []
           items:
             $ref: '#/components/schemas/RelationshipToOrganizationData'
           type: array
@@ -4241,14 +4245,11 @@ components:
     RelationshipToUsers:
       description: Relationship to users.
       example:
-        data:
-        - id: 00000000-0000-0000-0000-000000000000
-          type: users
-        - id: 00000000-0000-0000-0000-000000000000
-          type: users
+        data: []
       properties:
         data:
           description: Relationships to user objects.
+          example: []
           items:
             $ref: '#/components/schemas/RelationshipToUserData'
           type: array
@@ -4325,7 +4326,7 @@ components:
     RoleCreateAttributes:
       description: Attributes of the created role.
       example:
-        name: name
+        name: developers
         created_at: 2000-01-23T04:56:07.000+00:00
         modified_at: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4341,6 +4342,7 @@ components:
           type: string
         name:
           description: Name of the role.
+          example: developers
           type: string
       required:
       - name
@@ -4356,13 +4358,9 @@ components:
             - id: id
               type: permissions
           users:
-            data:
-            - id: 00000000-0000-0000-0000-000000000000
-              type: users
-            - id: 00000000-0000-0000-0000-000000000000
-              type: users
+            data: []
         attributes:
-          name: name
+          name: developers
           created_at: 2000-01-23T04:56:07.000+00:00
           modified_at: 2000-01-23T04:56:07.000+00:00
         type: roles
@@ -4388,13 +4386,9 @@ components:
               - id: id
                 type: permissions
             users:
-              data:
-              - id: 00000000-0000-0000-0000-000000000000
-                type: users
-              - id: 00000000-0000-0000-0000-000000000000
-                type: users
+              data: []
           attributes:
-            name: name
+            name: developers
             created_at: 2000-01-23T04:56:07.000+00:00
             modified_at: 2000-01-23T04:56:07.000+00:00
           type: roles
@@ -4416,7 +4410,7 @@ components:
               - id: id
                 type: permissions
           attributes:
-            name: name
+            name: developers
             created_at: 2000-01-23T04:56:07.000+00:00
             modified_at: 2000-01-23T04:56:07.000+00:00
           id: id
@@ -4435,11 +4429,7 @@ components:
           - id: id
             type: permissions
         users:
-          data:
-          - id: 00000000-0000-0000-0000-000000000000
-            type: users
-          - id: 00000000-0000-0000-0000-000000000000
-            type: users
+          data: []
       properties:
         permissions:
           $ref: '#/components/schemas/RelationshipToPermissions'
@@ -4509,13 +4499,14 @@ components:
           name: name
           created_at: 2000-01-23T04:56:07.000+00:00
           modified_at: 2000-01-23T04:56:07.000+00:00
-        id: id
+        id: 00000000-0000-0000-0000-000000000000
         type: roles
       properties:
         attributes:
           $ref: '#/components/schemas/RoleUpdateAttributes'
         id:
           description: ID of the role.
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         type:
           $ref: '#/components/schemas/RolesType'
@@ -4532,7 +4523,7 @@ components:
             name: name
             created_at: 2000-01-23T04:56:07.000+00:00
             modified_at: 2000-01-23T04:56:07.000+00:00
-          id: id
+          id: 00000000-0000-0000-0000-000000000000
           type: roles
       properties:
         data:
@@ -4961,7 +4952,8 @@ components:
             type: string
           type: array
         metric:
-          description: The target field to aggregate over when using the sum or max
+          description: |-
+            The target field to aggregate over when using the sum or max
             aggregations.
           type: string
         name:
@@ -5002,7 +4994,8 @@ components:
             type: string
           type: array
         metric:
-          description: The target field to aggregate over when using the sum or max
+          description: |-
+            The target field to aggregate over when using the sum or max
             aggregations.
           type: string
         name:
@@ -5010,6 +5003,7 @@ components:
           type: string
         query:
           description: Query to run on logs.
+          example: a < 3
           type: string
       required:
       - query
@@ -5562,35 +5556,7 @@ components:
       description: Response with a list of service payloads.
       example:
         data:
-        - relationships:
-            last_modified_by:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-            created_by:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-          attributes:
-            created: 2000-01-23T04:56:07.000+00:00
-            name: service name
-            modified: 2000-01-23T04:56:07.000+00:00
-          id: 00000000-0000-0000-0000-000000000000
-          type: services
-        - relationships:
-            last_modified_by:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-            created_by:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-          attributes:
-            created: 2000-01-23T04:56:07.000+00:00
-            name: service name
-            modified: 2000-01-23T04:56:07.000+00:00
-          id: 00000000-0000-0000-0000-000000000000
+        - id: 00000000-0000-0000-0000-000000000000
           type: services
         meta:
           pagination:
@@ -5603,6 +5569,9 @@ components:
       properties:
         data:
           description: An array of services.
+          example:
+          - id: 00000000-0000-0000-0000-000000000000
+            type: services
           items:
             $ref: '#/components/schemas/ServiceResponseData'
           type: array
@@ -5864,34 +5833,8 @@ components:
       description: Response with a list of team payloads.
       example:
         data:
-        - relationships:
-            last_modified_by:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-            created_by:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-          attributes:
-            created: 2000-01-23T04:56:07.000+00:00
+        - attributes:
             name: team name
-            modified: 2000-01-23T04:56:07.000+00:00
-          id: 00000000-0000-0000-0000-000000000000
-          type: teams
-        - relationships:
-            last_modified_by:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-            created_by:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-          attributes:
-            created: 2000-01-23T04:56:07.000+00:00
-            name: team name
-            modified: 2000-01-23T04:56:07.000+00:00
           id: 00000000-0000-0000-0000-000000000000
           type: teams
         meta:
@@ -5905,6 +5848,11 @@ components:
       properties:
         data:
           description: An array of teams.
+          example:
+          - attributes:
+              name: team name
+            id: 00000000-0000-0000-0000-000000000000
+            type: teams
           items:
             $ref: '#/components/schemas/TeamResponseData'
           type: array
@@ -5924,14 +5872,10 @@ components:
       example:
         relationships:
           other_users:
-            data:
-            - id: 00000000-0000-0000-0000-000000000000
-              type: users
-            - id: 00000000-0000-0000-0000-000000000000
-              type: users
+            data: []
           org:
             data:
-              id: id
+              id: 00000000-0000-0000-0000-000000000000
               type: orgs
           roles:
             data:
@@ -5940,11 +5884,7 @@ components:
             - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
               type: roles
           other_orgs:
-            data:
-            - id: id
-              type: orgs
-            - id: id
-              type: orgs
+            data: []
         attributes:
           icon: icon
           name: name
@@ -6015,10 +5955,11 @@ components:
       example:
         name: name
         title: title
-        email: email
+        email: joe.doe@example.com
       properties:
         email:
           description: The email of the user.
+          example: joe.doe@example.com
           type: string
         name:
           description: The name of the user.
@@ -6042,7 +5983,7 @@ components:
         attributes:
           name: name
           title: title
-          email: email
+          email: joe.doe@example.com
         type: users
       properties:
         attributes:
@@ -6069,7 +6010,7 @@ components:
           attributes:
             name: name
             title: title
-            email: email
+            email: joe.doe@example.com
           type: users
       properties:
         data:
@@ -6079,13 +6020,6 @@ components:
       type: object
     UserInvitationData:
       description: Object to create a user invitation.
-      example:
-        relationships:
-          user:
-            data:
-              id: 00000000-0000-0000-0000-000000000000
-              type: users
-        type: user_invitations
       properties:
         relationships:
           $ref: '#/components/schemas/UserInvitationRelationships'
@@ -6120,11 +6054,6 @@ components:
       type: object
     UserInvitationRelationships:
       description: Relationships data for user invitation.
-      example:
-        user:
-          data:
-            id: 00000000-0000-0000-0000-000000000000
-            type: users
       properties:
         user:
           $ref: '#/components/schemas/RelationshipToUser'
@@ -6168,22 +6097,11 @@ components:
     UserInvitationsRequest:
       description: Object to invite users to join the organization.
       example:
-        data:
-        - relationships:
-            user:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-          type: user_invitations
-        - relationships:
-            user:
-              data:
-                id: 00000000-0000-0000-0000-000000000000
-                type: users
-          type: user_invitations
+        data: []
       properties:
         data:
           description: List of user invitations.
+          example: []
           items:
             $ref: '#/components/schemas/UserInvitationData'
           type: array
@@ -6243,14 +6161,10 @@ components:
         data:
           relationships:
             other_users:
-              data:
-              - id: 00000000-0000-0000-0000-000000000000
-                type: users
-              - id: 00000000-0000-0000-0000-000000000000
-                type: users
+              data: []
             org:
               data:
-                id: id
+                id: 00000000-0000-0000-0000-000000000000
                 type: orgs
             roles:
               data:
@@ -6259,11 +6173,7 @@ components:
               - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
             other_orgs:
-              data:
-              - id: id
-                type: orgs
-              - id: id
-                type: orgs
+              data: []
           attributes:
             icon: icon
             name: name
@@ -6299,14 +6209,10 @@ components:
       description: Relationships of the user object returned by the API.
       example:
         other_users:
-          data:
-          - id: 00000000-0000-0000-0000-000000000000
-            type: users
-          - id: 00000000-0000-0000-0000-000000000000
-            type: users
+          data: []
         org:
           data:
-            id: id
+            id: 00000000-0000-0000-0000-000000000000
             type: orgs
         roles:
           data:
@@ -6315,11 +6221,7 @@ components:
           - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
             type: roles
         other_orgs:
-          data:
-          - id: id
-            type: orgs
-          - id: id
-            type: orgs
+          data: []
       properties:
         org:
           $ref: '#/components/schemas/RelationshipToOrganization'
@@ -6354,13 +6256,14 @@ components:
           name: name
           disabled: true
           email: email
-        id: id
+        id: 00000000-0000-0000-0000-000000000000
         type: users
       properties:
         attributes:
           $ref: '#/components/schemas/UserUpdateAttributes'
         id:
           description: ID of the user.
+          example: 00000000-0000-0000-0000-000000000000
           type: string
         type:
           $ref: '#/components/schemas/UsersType'
@@ -6377,7 +6280,7 @@ components:
             name: name
             disabled: true
             email: email
-          id: id
+          id: 00000000-0000-0000-0000-000000000000
           type: users
       properties:
         data:
@@ -6391,14 +6294,10 @@ components:
         data:
         - relationships:
             other_users:
-              data:
-              - id: 00000000-0000-0000-0000-000000000000
-                type: users
-              - id: 00000000-0000-0000-0000-000000000000
-                type: users
+              data: []
             org:
               data:
-                id: id
+                id: 00000000-0000-0000-0000-000000000000
                 type: orgs
             roles:
               data:
@@ -6407,11 +6306,7 @@ components:
               - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
             other_orgs:
-              data:
-              - id: id
-                type: orgs
-              - id: id
-                type: orgs
+              data: []
           attributes:
             icon: icon
             name: name
@@ -6426,14 +6321,10 @@ components:
           type: users
         - relationships:
             other_users:
-              data:
-              - id: 00000000-0000-0000-0000-000000000000
-                type: users
-              - id: 00000000-0000-0000-0000-000000000000
-                type: users
+              data: []
             org:
               data:
-                id: id
+                id: 00000000-0000-0000-0000-000000000000
                 type: orgs
             roles:
               data:
@@ -6442,11 +6333,7 @@ components:
               - id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
                 type: roles
             other_orgs:
-              data:
-              - id: id
-                type: orgs
-              - id: id
-                type: orgs
+              data: []
           attributes:
             icon: icon
             name: name
@@ -6664,7 +6551,7 @@ components:
             - id: id
               type: permissions
         attributes:
-          name: name
+          name: developers
           created_at: 2000-01-23T04:56:07.000+00:00
           modified_at: 2000-01-23T04:56:07.000+00:00
         id: id
@@ -6712,8 +6599,9 @@ components:
       - type
       type: object
     SecurityMonitoringSignal_attributes:
-      description: The JSON object containing all signal attributes and their associated
-        values.
+      description: |-
+        The object containing all signal attributes and their
+        associated values.
       example:
         attributes:
           workflow:
