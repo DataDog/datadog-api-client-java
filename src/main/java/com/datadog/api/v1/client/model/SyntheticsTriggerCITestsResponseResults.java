@@ -29,8 +29,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * SyntheticsTriggerCITestsResponseResults
+ * Information about a single test run.
  */
+@ApiModel(description = "Information about a single test run.")
 @JsonPropertyOrder({
   SyntheticsTriggerCITestsResponseResults.JSON_PROPERTY_DEVICE,
   SyntheticsTriggerCITestsResponseResults.JSON_PROPERTY_LOCATION,

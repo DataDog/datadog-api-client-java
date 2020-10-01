@@ -56,7 +56,7 @@ public class RelationshipToOrganizations {
    * Relationships to organization objects.
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "Relationships to organization objects.")
+  @ApiModelProperty(example = "[]", required = true, value = "Relationships to organization objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

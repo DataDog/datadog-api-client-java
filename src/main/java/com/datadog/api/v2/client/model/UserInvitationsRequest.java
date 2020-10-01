@@ -56,7 +56,7 @@ public class UserInvitationsRequest {
    * List of user invitations.
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "List of user invitations.")
+  @ApiModelProperty(example = "[]", required = true, value = "List of user invitations.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

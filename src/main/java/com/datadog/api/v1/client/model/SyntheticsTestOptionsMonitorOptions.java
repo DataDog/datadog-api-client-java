@@ -27,9 +27,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Object containing the options for a Synthetic test as a monitor (e.g. renotification).
+ * Object containing the options for a Synthetic test as a monitor (for example, renotification).
  */
-@ApiModel(description = "Object containing the options for a Synthetic test as a monitor (e.g. renotification).")
+@ApiModel(description = "Object containing the options for a Synthetic test as a monitor (for example, renotification).")
 @JsonPropertyOrder({
   SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL
 })

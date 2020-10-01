@@ -27,8 +27,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * SyntheticsCITestMetadataCi
+ * Describe CI provider.
  */
+@ApiModel(description = "Describe CI provider.")
 @JsonPropertyOrder({
   SyntheticsCITestMetadataCi.JSON_PROPERTY_PIPELINE,
   SyntheticsCITestMetadataCi.JSON_PROPERTY_PROVIDER
@@ -48,11 +49,11 @@ public class SyntheticsCITestMetadataCi {
   }
 
    /**
-   * Get pipeline
+   * Name of the pipeline.
    * @return pipeline
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the pipeline.")
   @JsonProperty(JSON_PROPERTY_PIPELINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -72,11 +73,11 @@ public class SyntheticsCITestMetadataCi {
   }
 
    /**
-   * Get provider
+   * Name of the CI provider.
    * @return provider
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the CI provider.")
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

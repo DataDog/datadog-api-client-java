@@ -609,7 +609,8 @@ Name | Type | Description  | Notes
 
 Get a test configuration (browser)
 
-Get the detailed configuration (including steps) associated with a Synthetics browser test.
+Get the detailed configuration (including steps) associated with
+a Synthetic browser test.
 
 ### Example
 
@@ -1020,7 +1021,8 @@ Name | Type | Description  | Notes
 
 Get all locations (public and private)
 
-Get the list of public and private locations available for Synthetics tests. No arguments required.
+Get the list of public and private locations available for Synthetic
+tests. No arguments required.
 
 ### Example
 
