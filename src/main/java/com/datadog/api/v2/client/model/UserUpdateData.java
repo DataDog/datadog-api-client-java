@@ -81,7 +81,7 @@ public class UserUpdateData {
    * ID of the user.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "ID of the user.")
+  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "ID of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

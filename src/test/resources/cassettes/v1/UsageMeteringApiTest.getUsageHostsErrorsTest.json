@@ -1,10 +1,10 @@
 [{
-  "id" : "ceccff63-a6ad-4c14-b619-4e304c8c1534",
+  "id" : "cac109c4-60d9-4bb6-a1fe-fe02e524752c",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/hosts",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-06-01T16:12Z" ]
+      "start_hr" : [ "2020-09-28T18:35:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -26,7 +26,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:08 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:36:00 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "48" ],
       "Connection" : [ "keep-alive" ],
@@ -34,9 +34,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2872" ],
-      "X-RateLimit-Remaining" : [ "339" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-RateLimit-Reset" : [ "1440" ],
+      "X-RateLimit-Remaining" : [ "290" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -46,12 +46,12 @@
     "body" : "{\"errors\": [\"start_hr cannot be in the future\"]}"
   }
 }, {
-  "id" : "91302584-e212-4d03-b5c4-0a5b72532d24",
+  "id" : "1d4b7f9b-393f-4b1c-8ce2-a3db2b3598c4",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/hosts",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-06-01T16:12Z" ]
+      "start_hr" : [ "2020-09-28T18:35:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:09 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:36:00 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

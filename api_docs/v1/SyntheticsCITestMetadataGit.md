@@ -2,12 +2,13 @@
 
 # SyntheticsCITestMetadataGit
 
+Git information.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**branch** | **String** |  |  [optional]
-**commitSha** | **String** |  |  [optional]
+**branch** | **String** | Branch name. |  [optional]
+**commitSha** | **String** | Commit SHA. |  [optional]
 
 
 

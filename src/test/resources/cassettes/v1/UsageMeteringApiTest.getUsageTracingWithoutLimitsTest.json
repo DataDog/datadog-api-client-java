@@ -1,11 +1,11 @@
 [{
-  "id" : "f78c6a94-f12b-46bb-b93e-2db367367b90",
+  "id" : "00d94da7-af00-4d3e-8751-1e1eb71c8cbc",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/tracing-without-limits",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-07-01T12:00Z" ],
-      "end_hr" : [ "2020-07-01T13:00Z" ]
+      "start_hr" : [ "2020-08-01T12:00:00Z" ],
+      "end_hr" : [ "2020-08-01T13:00:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
@@ -27,19 +27,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 31 Aug 2020 17:57:14 GMT" ],
+      "Date" : [ "Mon, 28 Sep 2020 13:35:29 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=99; Max-Age=604800; Path=/; expires=Mon, 07-Sep-2020 17:57:14 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2960961" ],
-      "X-RateLimit-Limit" : [ "12000" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 05-Oct-2020 13:35:28 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.3101592" ],
+      "X-RateLimit-Limit" : [ "400" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "166" ],
-      "X-RateLimit-Remaining" : [ "9605" ],
-      "X-DD-Debug" : [ "sbJ6i3VupQQcT7EDgPAdOxGmcKsvZJqf4l3SlQaWZNaaFfahh7BdNF3x5CttmH4Q" ],
+      "X-RateLimit-Reset" : [ "1472" ],
+      "X-RateLimit-Remaining" : [ "316" ],
+      "X-DD-Debug" : [ "V26KHlc/RfdWahgILvghYzp00rgLN6YCNAgg+V0KrlqUWK5TouaimNqGpGYzd/eX" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,8 +48,8 @@
       "content-length" : [ "74" ]
     },
     "cookies" : {
-      "DD-PSHARD" : "99"
+      "DD-PSHARD" : "233"
     },
-    "body" : "{\"usage\":[{\"ingested_events_bytes\":0,\"hour\":\"2020-07-01T12:00:00+00:00\"}]}"
+    "body" : "{\"usage\":[{\"ingested_events_bytes\":0,\"hour\":\"2020-08-01T12:00:00+00:00\"}]}"
   }
 }]
