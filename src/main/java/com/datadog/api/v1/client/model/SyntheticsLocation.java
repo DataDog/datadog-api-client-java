@@ -27,9 +27,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Synthetics location that can be used when creating or editing a test.
+ * Synthetic location that can be used when creating or editing a test.
  */
-@ApiModel(description = "Synthetics location that can be used when creating or editing a test.")
+@ApiModel(description = "Synthetic location that can be used when creating or editing a test.")
 @JsonPropertyOrder({
   SyntheticsLocation.JSON_PROPERTY_ID,
   SyntheticsLocation.JSON_PROPERTY_NAME

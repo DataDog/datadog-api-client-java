@@ -372,7 +372,7 @@ public class SyntheticsCITest {
    * The public ID of the Synthetics test to trigger.
    * @return publicId
   **/
-  @ApiModelProperty(required = true, value = "The public ID of the Synthetics test to trigger.")
+  @ApiModelProperty(example = "aaa-aaa-aaa", required = true, value = "The public ID of the Synthetics test to trigger.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
