@@ -53,7 +53,7 @@ public class RelationshipToOrganizationData {
    * ID of the organization.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "ID of the organization.")
+  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "ID of the organization.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

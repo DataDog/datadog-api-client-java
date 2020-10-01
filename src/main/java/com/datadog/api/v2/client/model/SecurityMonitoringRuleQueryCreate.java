@@ -207,7 +207,7 @@ public class SecurityMonitoringRuleQueryCreate {
    * Query to run on logs.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "Query to run on logs.")
+  @ApiModelProperty(example = "a < 3", required = true, value = "Query to run on logs.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

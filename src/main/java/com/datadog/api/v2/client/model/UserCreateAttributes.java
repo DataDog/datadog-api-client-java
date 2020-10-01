@@ -56,7 +56,7 @@ public class UserCreateAttributes {
    * The email of the user.
    * @return email
   **/
-  @ApiModelProperty(required = true, value = "The email of the user.")
+  @ApiModelProperty(example = "joe.doe@example.com", required = true, value = "The email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

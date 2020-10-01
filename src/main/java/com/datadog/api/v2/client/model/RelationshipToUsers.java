@@ -56,7 +56,7 @@ public class RelationshipToUsers {
    * Relationships to user objects.
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "Relationships to user objects.")
+  @ApiModelProperty(example = "[]", required = true, value = "Relationships to user objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

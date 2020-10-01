@@ -89,7 +89,7 @@ public class RoleCreateAttributes {
    * Name of the role.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name of the role.")
+  @ApiModelProperty(example = "developers", required = true, value = "Name of the role.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
