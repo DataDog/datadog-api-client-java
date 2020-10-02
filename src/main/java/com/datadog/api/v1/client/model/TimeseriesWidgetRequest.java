@@ -45,6 +45,7 @@ import com.datadog.api.v1.client.JSON;
   TimeseriesWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_METADATA,
   TimeseriesWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_ON_RIGHT_YAXIS,
   TimeseriesWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_Q,
   TimeseriesWidgetRequest.JSON_PROPERTY_RUM_QUERY,
@@ -70,6 +71,9 @@ public class TimeseriesWidgetRequest {
 
   public static final String JSON_PROPERTY_NETWORK_QUERY = "network_query";
   private LogQueryDefinition networkQuery;
+
+  public static final String JSON_PROPERTY_ON_RIGHT_YAXIS = "on_right_yaxis";
+  private Boolean onRightYaxis;
 
   public static final String JSON_PROPERTY_PROCESS_QUERY = "process_query";
   private ProcessQueryDefinition processQuery;
@@ -239,6 +243,30 @@ public class TimeseriesWidgetRequest {
   }
 
 
+  public TimeseriesWidgetRequest onRightYaxis(Boolean onRightYaxis) {
+    this.onRightYaxis = onRightYaxis;
+    return this;
+  }
+
+   /**
+   * Whether or not to display a second y-axis on the right.
+   * @return onRightYaxis
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not to display a second y-axis on the right.")
+  @JsonProperty(JSON_PROPERTY_ON_RIGHT_YAXIS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getOnRightYaxis() {
+    return onRightYaxis;
+  }
+
+
+  public void setOnRightYaxis(Boolean onRightYaxis) {
+    this.onRightYaxis = onRightYaxis;
+  }
+
+
   public TimeseriesWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
     return this;
@@ -377,6 +405,7 @@ public class TimeseriesWidgetRequest {
         Objects.equals(this.logQuery, timeseriesWidgetRequest.logQuery) &&
         Objects.equals(this.metadata, timeseriesWidgetRequest.metadata) &&
         Objects.equals(this.networkQuery, timeseriesWidgetRequest.networkQuery) &&
+        Objects.equals(this.onRightYaxis, timeseriesWidgetRequest.onRightYaxis) &&
         Objects.equals(this.processQuery, timeseriesWidgetRequest.processQuery) &&
         Objects.equals(this.q, timeseriesWidgetRequest.q) &&
         Objects.equals(this.rumQuery, timeseriesWidgetRequest.rumQuery) &&
@@ -386,7 +415,7 @@ public class TimeseriesWidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, displayType, eventQuery, logQuery, metadata, networkQuery, processQuery, q, rumQuery, securityQuery, style);
+    return Objects.hash(apmQuery, displayType, eventQuery, logQuery, metadata, networkQuery, onRightYaxis, processQuery, q, rumQuery, securityQuery, style);
   }
 
 
@@ -400,6 +429,7 @@ public class TimeseriesWidgetRequest {
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
+    sb.append("    onRightYaxis: ").append(toIndentedString(onRightYaxis)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
