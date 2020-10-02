@@ -39,6 +39,7 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.")
 @JsonPropertyOrder({
   TableWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  TableWidgetDefinition.JSON_PROPERTY_HAS_SEARCH_BAR,
   TableWidgetDefinition.JSON_PROPERTY_REQUESTS,
   TableWidgetDefinition.JSON_PROPERTY_TIME,
   TableWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -50,6 +51,46 @@ import com.datadog.api.v1.client.JSON;
 public class TableWidgetDefinition {
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  /**
+   * Controls the display of the search bar.
+   */
+  public enum HasSearchBarEnum {
+    ALWAYS("always"),
+    
+    NEVER("never"),
+    
+    AUTO("auto");
+
+    private String value;
+
+    HasSearchBarEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static HasSearchBarEnum fromValue(String value) {
+      for (HasSearchBarEnum b : HasSearchBarEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_HAS_SEARCH_BAR = "has_search_bar";
+  private HasSearchBarEnum hasSearchBar = HasSearchBarEnum.AUTO;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<TableWidgetRequest> requests = new ArrayList<>();
@@ -99,6 +140,30 @@ public class TableWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+
+  public TableWidgetDefinition hasSearchBar(HasSearchBarEnum hasSearchBar) {
+    this.hasSearchBar = hasSearchBar;
+    return this;
+  }
+
+   /**
+   * Controls the display of the search bar.
+   * @return hasSearchBar
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "auto", value = "Controls the display of the search bar.")
+  @JsonProperty(JSON_PROPERTY_HAS_SEARCH_BAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public HasSearchBarEnum getHasSearchBar() {
+    return hasSearchBar;
+  }
+
+
+  public void setHasSearchBar(HasSearchBarEnum hasSearchBar) {
+    this.hasSearchBar = hasSearchBar;
   }
 
 
@@ -262,6 +327,7 @@ public class TableWidgetDefinition {
     }
     TableWidgetDefinition tableWidgetDefinition = (TableWidgetDefinition) o;
     return Objects.equals(this.customLinks, tableWidgetDefinition.customLinks) &&
+        Objects.equals(this.hasSearchBar, tableWidgetDefinition.hasSearchBar) &&
         Objects.equals(this.requests, tableWidgetDefinition.requests) &&
         Objects.equals(this.time, tableWidgetDefinition.time) &&
         Objects.equals(this.title, tableWidgetDefinition.title) &&
@@ -272,7 +338,7 @@ public class TableWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customLinks, requests, time, title, titleAlign, titleSize, type);
+    return Objects.hash(customLinks, hasSearchBar, requests, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -281,6 +347,7 @@ public class TableWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    hasSearchBar: ").append(toIndentedString(hasSearchBar)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

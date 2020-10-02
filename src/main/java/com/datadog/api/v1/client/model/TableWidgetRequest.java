@@ -44,6 +44,7 @@ import com.datadog.api.v1.client.JSON;
   TableWidgetRequest.JSON_PROPERTY_ALIAS,
   TableWidgetRequest.JSON_PROPERTY_APM_QUERY,
   TableWidgetRequest.JSON_PROPERTY_APM_STATS_QUERY,
+  TableWidgetRequest.JSON_PROPERTY_CELL_DISPLAY_MODE,
   TableWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
   TableWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
   TableWidgetRequest.JSON_PROPERTY_LIMIT,
@@ -68,6 +69,44 @@ public class TableWidgetRequest {
 
   public static final String JSON_PROPERTY_APM_STATS_QUERY = "apm_stats_query";
   private ApmStatsQueryDefinition apmStatsQuery;
+
+  /**
+   * Define a display mode for the table cell.
+   */
+  public enum CellDisplayModeEnum {
+    NUMBER("number"),
+    
+    BAR("bar");
+
+    private String value;
+
+    CellDisplayModeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static CellDisplayModeEnum fromValue(String value) {
+      for (CellDisplayModeEnum b : CellDisplayModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_CELL_DISPLAY_MODE = "cell_display_mode";
+  private List<CellDisplayModeEnum> cellDisplayMode = null;
 
   public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
   private List<WidgetConditionalFormat> conditionalFormats = null;
@@ -193,6 +232,38 @@ public class TableWidgetRequest {
 
   public void setApmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
     this.apmStatsQuery = apmStatsQuery;
+  }
+
+
+  public TableWidgetRequest cellDisplayMode(List<CellDisplayModeEnum> cellDisplayMode) {
+    this.cellDisplayMode = cellDisplayMode;
+    return this;
+  }
+
+  public TableWidgetRequest addCellDisplayModeItem(CellDisplayModeEnum cellDisplayModeItem) {
+    if (this.cellDisplayMode == null) {
+      this.cellDisplayMode = new ArrayList<>();
+    }
+    this.cellDisplayMode.add(cellDisplayModeItem);
+    return this;
+  }
+
+   /**
+   * A list of display modes for each table cell.
+   * @return cellDisplayMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of display modes for each table cell.")
+  @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<CellDisplayModeEnum> getCellDisplayMode() {
+    return cellDisplayMode;
+  }
+
+
+  public void setCellDisplayMode(List<CellDisplayModeEnum> cellDisplayMode) {
+    this.cellDisplayMode = cellDisplayMode;
   }
 
 
@@ -460,6 +531,7 @@ public class TableWidgetRequest {
         Objects.equals(this.alias, tableWidgetRequest.alias) &&
         Objects.equals(this.apmQuery, tableWidgetRequest.apmQuery) &&
         Objects.equals(this.apmStatsQuery, tableWidgetRequest.apmStatsQuery) &&
+        Objects.equals(this.cellDisplayMode, tableWidgetRequest.cellDisplayMode) &&
         Objects.equals(this.conditionalFormats, tableWidgetRequest.conditionalFormats) &&
         Objects.equals(this.eventQuery, tableWidgetRequest.eventQuery) &&
         Objects.equals(this.limit, tableWidgetRequest.limit) &&
@@ -474,7 +546,7 @@ public class TableWidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, alias, apmQuery, apmStatsQuery, conditionalFormats, eventQuery, limit, logQuery, networkQuery, order, processQuery, q, rumQuery, securityQuery);
+    return Objects.hash(aggregator, alias, apmQuery, apmStatsQuery, cellDisplayMode, conditionalFormats, eventQuery, limit, logQuery, networkQuery, order, processQuery, q, rumQuery, securityQuery);
   }
 
 
@@ -486,6 +558,7 @@ public class TableWidgetRequest {
     sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
     sb.append("    apmStatsQuery: ").append(toIndentedString(apmStatsQuery)).append("\n");
+    sb.append("    cellDisplayMode: ").append(toIndentedString(cellDisplayMode)).append("\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");

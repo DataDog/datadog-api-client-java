@@ -46,6 +46,7 @@ import com.datadog.api.v1.client.JSON;
   TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   TimeseriesWidgetDefinition.JSON_PROPERTY_MARKERS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_REQUESTS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_RIGHT_YAXIS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_SHOW_LEGEND,
   TimeseriesWidgetDefinition.JSON_PROPERTY_TIME,
   TimeseriesWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -70,6 +71,9 @@ public class TimeseriesWidgetDefinition {
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<TimeseriesWidgetRequest> requests = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_RIGHT_YAXIS = "right_yaxis";
+  private WidgetAxis rightYaxis;
 
   public static final String JSON_PROPERTY_SHOW_LEGEND = "show_legend";
   private Boolean showLegend;
@@ -238,6 +242,30 @@ public class TimeseriesWidgetDefinition {
 
   public void setRequests(List<TimeseriesWidgetRequest> requests) {
     this.requests = requests;
+  }
+
+
+  public TimeseriesWidgetDefinition rightYaxis(WidgetAxis rightYaxis) {
+    this.rightYaxis = rightYaxis;
+    return this;
+  }
+
+   /**
+   * Get rightYaxis
+   * @return rightYaxis
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RIGHT_YAXIS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WidgetAxis getRightYaxis() {
+    return rightYaxis;
+  }
+
+
+  public void setRightYaxis(WidgetAxis rightYaxis) {
+    this.rightYaxis = rightYaxis;
   }
 
 
@@ -425,6 +453,7 @@ public class TimeseriesWidgetDefinition {
         Objects.equals(this.legendSize, timeseriesWidgetDefinition.legendSize) &&
         Objects.equals(this.markers, timeseriesWidgetDefinition.markers) &&
         Objects.equals(this.requests, timeseriesWidgetDefinition.requests) &&
+        Objects.equals(this.rightYaxis, timeseriesWidgetDefinition.rightYaxis) &&
         Objects.equals(this.showLegend, timeseriesWidgetDefinition.showLegend) &&
         Objects.equals(this.time, timeseriesWidgetDefinition.time) &&
         Objects.equals(this.title, timeseriesWidgetDefinition.title) &&
@@ -436,7 +465,7 @@ public class TimeseriesWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customLinks, events, legendSize, markers, requests, showLegend, time, title, titleAlign, titleSize, type, yaxis);
+    return Objects.hash(customLinks, events, legendSize, markers, requests, rightYaxis, showLegend, time, title, titleAlign, titleSize, type, yaxis);
   }
 
 
@@ -449,6 +478,7 @@ public class TimeseriesWidgetDefinition {
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    markers: ").append(toIndentedString(markers)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
+    sb.append("    rightYaxis: ").append(toIndentedString(rightYaxis)).append("\n");
     sb.append("    showLegend: ").append(toIndentedString(showLegend)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

@@ -413,10 +413,12 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .customFgColor("black")
                                 .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
                         )
+                        .addCellDisplayModeItem(TableWidgetRequest.CellDisplayModeEnum.NUMBER)
                 ).title("Test Table Widget").titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
                 .addCustomLinksItem(new WidgetCustomLink()
                         .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
-                );
+                )
+                .hasSearchBar(TableWidgetDefinition.HasSearchBarEnum.AUTO);
         Widget tableWidget = new Widget().definition(new WidgetDefinition(tableWidgetDefinition));
         orderedWidgetList.add(tableWidget);
 
@@ -431,7 +433,9 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
+                        .onRightYaxis(true)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear").label("Widget Scale"))
+                .rightYaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear").label("Widget Scale"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
@@ -463,7 +467,9 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
+                        .onRightYaxis(true)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .rightYaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
@@ -497,7 +503,9 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
+                        .onRightYaxis(true)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .rightYaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
@@ -525,6 +533,7 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
+                        .onRightYaxis(true)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarker()
