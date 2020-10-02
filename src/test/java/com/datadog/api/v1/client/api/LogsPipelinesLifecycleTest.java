@@ -72,7 +72,8 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .addSourcesItem("source")
                 .sourceType("tag")
                 .target("target")
-                .targetType("tag")
+                .targetType("attribute")
+                .targetFormat(TargetFormatType.STRING)
                 .preserveSource(true)
                 .overrideOnConflict(true)
                 .name("log message remapper"));
