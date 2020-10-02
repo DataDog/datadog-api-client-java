@@ -34,6 +34,7 @@ import com.datadog.api.v1.client.model.LogsTraceRemapper;
 import com.datadog.api.v1.client.model.LogsTraceRemapperType;
 import com.datadog.api.v1.client.model.LogsURLParser;
 import com.datadog.api.v1.client.model.LogsUserAgentParser;
+import com.datadog.api.v1.client.model.TargetFormatType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
