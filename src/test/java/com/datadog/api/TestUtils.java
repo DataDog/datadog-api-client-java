@@ -319,7 +319,7 @@ public class TestUtils {
                 localRootSpan.setTag("ci.pipeline.number", System.getenv("SYSTEM_DEFINITIONID"));
                 localRootSpan.setTag("git.repository_url", System.getenv("BUILD_REPOSITORY_URI"));
                 localRootSpan.setTag("git.commit_sha", System.getenv("BUILD_SOURCEVERSION"));
-                localRootSpan.setTag("git.branch", System.getenv("BUILD_SOURCEBRANCH"));
+                localRootSpan.setTag("git.branch", System.getenv("SYSTEM_PULLREQUEST_SOURCEBRANCH"));
             }
         }
 
