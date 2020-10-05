@@ -11,6 +11,7 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v2.client.model.APIErrorResponse;
 import com.datadog.api.v2.client.model.LogsArchive;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequest;
+import com.datadog.api.v2.client.model.LogsArchiveOrder;
 import com.datadog.api.v2.client.model.LogsArchives;
 import com.datadog.api.v2.client.model.RelationshipToRole;
 import com.datadog.api.v2.client.model.RolesResponse;
@@ -477,6 +478,95 @@ private ApiResponse<LogsArchive> getLogsArchiveWithHttpInfo(String archiveId) th
     return new APIgetLogsArchiveRequest(archiveId);
   }
 
+private ApiResponse<LogsArchiveOrder> getLogsArchiveOrderWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/config/archive-order";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsArchiveOrder");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<LogsArchiveOrder> localVarReturnType = new GenericType<LogsArchiveOrder>() {};
+
+    return apiClient.invokeAPI("LogsArchivesApi.getLogsArchiveOrder", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetLogsArchiveOrderRequest {
+
+    private APIgetLogsArchiveOrderRequest() {
+    }
+
+    /**
+     * Execute getLogsArchiveOrder request
+     * @return LogsArchiveOrder
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public LogsArchiveOrder execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getLogsArchiveOrder request with HTTP info returned
+     * @return ApiResponse&lt;LogsArchiveOrder&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<LogsArchiveOrder> executeWithHttpInfo() throws ApiException {
+      return getLogsArchiveOrderWithHttpInfo();
+    }
+  }
+
+  /**
+   * Get archive order
+   * Get the current order of your archives. This endpoint takes no JSON arguments.
+   * @return getLogsArchiveOrderRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetLogsArchiveOrderRequest getLogsArchiveOrder() throws ApiException {
+    return new APIgetLogsArchiveOrderRequest();
+  }
+
 private ApiResponse<RolesResponse> listArchiveReadRolesWithHttpInfo(String archiveId) throws ApiException {
     Object localVarPostBody = null;
     
@@ -907,5 +997,114 @@ private ApiResponse<LogsArchive> updateLogsArchiveWithHttpInfo(String archiveId,
    */
   public APIupdateLogsArchiveRequest updateLogsArchive(String archiveId) throws ApiException {
     return new APIupdateLogsArchiveRequest(archiveId);
+  }
+
+private ApiResponse<LogsArchiveOrder> updateLogsArchiveOrderWithHttpInfo(LogsArchiveOrder body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateLogsArchiveOrder");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/config/archive-order";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsArchiveOrder");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<LogsArchiveOrder> localVarReturnType = new GenericType<LogsArchiveOrder>() {};
+
+    return apiClient.invokeAPI("LogsArchivesApi.updateLogsArchiveOrder", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIupdateLogsArchiveOrderRequest {
+    private LogsArchiveOrder body;
+
+    private APIupdateLogsArchiveOrderRequest() {
+    }
+
+    /**
+     * Set body
+     * @param body An object containing the new ordered list of archive IDs. (required)
+     * @return APIupdateLogsArchiveOrderRequest
+     */
+    public APIupdateLogsArchiveOrderRequest body(LogsArchiveOrder body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute updateLogsArchiveOrder request
+     * @return LogsArchiveOrder
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public LogsArchiveOrder execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateLogsArchiveOrder request with HTTP info returned
+     * @return ApiResponse&lt;LogsArchiveOrder&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<LogsArchiveOrder> executeWithHttpInfo() throws ApiException {
+      return updateLogsArchiveOrderWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Update archive order
+   * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change the structure and content of the data processed by other archives.  **Note**: Using the &#x60;PUT&#x60; method updates your archive&#39;s order by replacing the current order with the new one.
+   * @return updateLogsArchiveOrderRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIupdateLogsArchiveOrderRequest updateLogsArchiveOrder() throws ApiException {
+    return new APIupdateLogsArchiveOrderRequest();
   }
 }
