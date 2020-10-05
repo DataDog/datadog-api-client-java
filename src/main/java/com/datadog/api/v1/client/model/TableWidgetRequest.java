@@ -19,6 +19,7 @@ import com.datadog.api.v1.client.model.ApmStatsQueryDefinition;
 import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
+import com.datadog.api.v1.client.model.TableWidgetCellDisplayMode;
 import com.datadog.api.v1.client.model.WidgetAggregator;
 import com.datadog.api.v1.client.model.WidgetConditionalFormat;
 import com.datadog.api.v1.client.model.WidgetSort;
@@ -70,43 +71,8 @@ public class TableWidgetRequest {
   public static final String JSON_PROPERTY_APM_STATS_QUERY = "apm_stats_query";
   private ApmStatsQueryDefinition apmStatsQuery;
 
-  /**
-   * Define a display mode for the table cell.
-   */
-  public enum CellDisplayModeEnum {
-    NUMBER("number"),
-    
-    BAR("bar");
-
-    private String value;
-
-    CellDisplayModeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static CellDisplayModeEnum fromValue(String value) {
-      for (CellDisplayModeEnum b : CellDisplayModeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_CELL_DISPLAY_MODE = "cell_display_mode";
-  private List<CellDisplayModeEnum> cellDisplayMode = null;
+  private List<TableWidgetCellDisplayMode> cellDisplayMode = null;
 
   public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
   private List<WidgetConditionalFormat> conditionalFormats = null;
@@ -235,12 +201,12 @@ public class TableWidgetRequest {
   }
 
 
-  public TableWidgetRequest cellDisplayMode(List<CellDisplayModeEnum> cellDisplayMode) {
+  public TableWidgetRequest cellDisplayMode(List<TableWidgetCellDisplayMode> cellDisplayMode) {
     this.cellDisplayMode = cellDisplayMode;
     return this;
   }
 
-  public TableWidgetRequest addCellDisplayModeItem(CellDisplayModeEnum cellDisplayModeItem) {
+  public TableWidgetRequest addCellDisplayModeItem(TableWidgetCellDisplayMode cellDisplayModeItem) {
     if (this.cellDisplayMode == null) {
       this.cellDisplayMode = new ArrayList<>();
     }
@@ -257,12 +223,12 @@ public class TableWidgetRequest {
   @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<CellDisplayModeEnum> getCellDisplayMode() {
+  public List<TableWidgetCellDisplayMode> getCellDisplayMode() {
     return cellDisplayMode;
   }
 
 
-  public void setCellDisplayMode(List<CellDisplayModeEnum> cellDisplayMode) {
+  public void setCellDisplayMode(List<TableWidgetCellDisplayMode> cellDisplayMode) {
     this.cellDisplayMode = cellDisplayMode;
   }
 

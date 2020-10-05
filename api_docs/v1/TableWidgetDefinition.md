@@ -8,23 +8,13 @@ The table visualization is available on timeboards and screenboards. It displays
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **customLinks** | [**List&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md) | List of custom links. |  [optional]
-**hasSearchBar** | [**HasSearchBarEnum**](#HasSearchBarEnum) | Controls the display of the search bar. |  [optional]
+**hasSearchBar** | [**TableWidgetHasSearchBar**](TableWidgetHasSearchBar.md) |  |  [optional]
 **requests** | [**List&lt;TableWidgetRequest&gt;**](TableWidgetRequest.md) | Widget definition. | 
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]
 **titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
 **type** | [**TableWidgetDefinitionType**](TableWidgetDefinitionType.md) |  | 
-
-
-
-## Enum: HasSearchBarEnum
-
-Name | Value
----- | -----
-ALWAYS | &quot;always&quot;
-NEVER | &quot;never&quot;
-AUTO | &quot;auto&quot;
 
 
 

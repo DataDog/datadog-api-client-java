@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.TableWidgetDefinitionType;
+import com.datadog.api.v1.client.model.TableWidgetHasSearchBar;
 import com.datadog.api.v1.client.model.TableWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -52,45 +53,8 @@ public class TableWidgetDefinition {
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
-  /**
-   * Controls the display of the search bar.
-   */
-  public enum HasSearchBarEnum {
-    ALWAYS("always"),
-    
-    NEVER("never"),
-    
-    AUTO("auto");
-
-    private String value;
-
-    HasSearchBarEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static HasSearchBarEnum fromValue(String value) {
-      for (HasSearchBarEnum b : HasSearchBarEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_HAS_SEARCH_BAR = "has_search_bar";
-  private HasSearchBarEnum hasSearchBar = HasSearchBarEnum.AUTO;
+  private TableWidgetHasSearchBar hasSearchBar = TableWidgetHasSearchBar.AUTO;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<TableWidgetRequest> requests = new ArrayList<>();
@@ -143,26 +107,26 @@ public class TableWidgetDefinition {
   }
 
 
-  public TableWidgetDefinition hasSearchBar(HasSearchBarEnum hasSearchBar) {
+  public TableWidgetDefinition hasSearchBar(TableWidgetHasSearchBar hasSearchBar) {
     this.hasSearchBar = hasSearchBar;
     return this;
   }
 
    /**
-   * Controls the display of the search bar.
+   * Get hasSearchBar
    * @return hasSearchBar
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "auto", value = "Controls the display of the search bar.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HAS_SEARCH_BAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public HasSearchBarEnum getHasSearchBar() {
+  public TableWidgetHasSearchBar getHasSearchBar() {
     return hasSearchBar;
   }
 
 
-  public void setHasSearchBar(HasSearchBarEnum hasSearchBar) {
+  public void setHasSearchBar(TableWidgetHasSearchBar hasSearchBar) {
     this.hasSearchBar = hasSearchBar;
   }
 
