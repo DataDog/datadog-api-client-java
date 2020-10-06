@@ -70,7 +70,7 @@ public class LogsAttributeRemapper {
   private String target;
 
   public static final String JSON_PROPERTY_TARGET_FORMAT = "target_format";
-  private TargetFormatType targetFormat = TargetFormatType.AUTO;
+  private TargetFormatType targetFormat;
 
   public static final String JSON_PROPERTY_TARGET_TYPE = "target_type";
   private String targetType = "attribute";

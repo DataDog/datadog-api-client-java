@@ -68,7 +68,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         LogsProcessor logMessageRemapper = new LogsProcessor(new LogsMessageRemapper()
                 .addSourcesItem("source")
                 .name("log message remapper"));
-        LogsProcessor remapper = new LogsProcessor(new LogsAttributeRemapper()
+        LogsProcessor remapperToAttribute = new LogsProcessor(new LogsAttributeRemapper()
                 .addSourcesItem("source")
                 .sourceType("tag")
                 .target("target")
@@ -76,7 +76,15 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .targetFormat(TargetFormatType.STRING)
                 .preserveSource(true)
                 .overrideOnConflict(true)
-                .name("log message remapper"));
+                .name("log message remapper to attribute target type"));
+        LogsProcessor remapperToTag = new LogsProcessor(new LogsAttributeRemapper()
+                .addSourcesItem("source")
+                .sourceType("tag")
+                .target("target")
+                .targetType("tag")
+                .preserveSource(true)
+                .overrideOnConflict(true)
+                .name("log message remapper to tag target type"));
         LogsProcessor urlParser = new LogsProcessor(new LogsURLParser()
                 .addSourcesItem("source")
                 .target("target")
@@ -130,7 +138,8 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .addProcessorsItem(logStatusRemapper)
                 .addProcessorsItem(serviceRemapper)
                 .addProcessorsItem(logMessageRemapper)
-                .addProcessorsItem(remapper)
+                .addProcessorsItem(remapperToAttribute)
+                .addProcessorsItem(remapperToTag)
                 .addProcessorsItem(urlParser)
                 .addProcessorsItem(userAgentParser)
                 .addProcessorsItem(categoryProcessor)
@@ -151,19 +160,20 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertEquals(logStatusRemapper, createdPipeline.getProcessors().get(2));
         assertEquals(serviceRemapper, createdPipeline.getProcessors().get(3));
         assertEquals(logMessageRemapper, createdPipeline.getProcessors().get(4));
-        assertEquals(remapper, createdPipeline.getProcessors().get(5));
-        assertEquals(urlParser, createdPipeline.getProcessors().get(6));
-        assertEquals(userAgentParser, createdPipeline.getProcessors().get(7));
-        assertEquals(categoryProcessor, createdPipeline.getProcessors().get(8));
-        assertEquals(arithmeticProcessor, createdPipeline.getProcessors().get(9));
-        assertEquals(stringBuilderProcessor, createdPipeline.getProcessors().get(10));
-        assertEquals(geoIPParser, createdPipeline.getProcessors().get(11));
-        assertEquals(lookupProcessor, createdPipeline.getProcessors().get(12));
-        assertEquals(traceRemapper, createdPipeline.getProcessors().get(13));
-        assertEquals(pipelineProcessor, createdPipeline.getProcessors().get(14));
+        assertEquals(remapperToAttribute, createdPipeline.getProcessors().get(5));
+        assertEquals(remapperToTag, createdPipeline.getProcessors().get(6));
+        assertEquals(urlParser, createdPipeline.getProcessors().get(7));
+        assertEquals(userAgentParser, createdPipeline.getProcessors().get(8));
+        assertEquals(categoryProcessor, createdPipeline.getProcessors().get(9));
+        assertEquals(arithmeticProcessor, createdPipeline.getProcessors().get(10));
+        assertEquals(stringBuilderProcessor, createdPipeline.getProcessors().get(11));
+        assertEquals(geoIPParser, createdPipeline.getProcessors().get(12));
+        assertEquals(lookupProcessor, createdPipeline.getProcessors().get(13));
+        assertEquals(traceRemapper, createdPipeline.getProcessors().get(14));
+        assertEquals(pipelineProcessor, createdPipeline.getProcessors().get(15));
 
         // Nested Pipeline Assertions
-        LogsPipelineProcessor nestedPipelineProcessor = (LogsPipelineProcessor) createdPipeline.getProcessors().get(14).getActualInstance();
+        LogsPipelineProcessor nestedPipelineProcessor = (LogsPipelineProcessor) createdPipeline.getProcessors().get(15).getActualInstance();
         assertEquals("query", nestedPipelineProcessor.getFilter().getQuery());
         assertEquals(grokParser, nestedPipelineProcessor.getProcessors().get(0));
         assertEquals(logDateRemapper, nestedPipelineProcessor.getProcessors().get(1));
@@ -193,21 +203,22 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertEquals(name + "-updated", updatedPipeline.getName());
         assertFalse(updatedPipeline.getIsEnabled());
         assertEquals("updated query", updatedPipeline.getFilter().getQuery());
-        assertEquals(grokParser, updatedPipeline.getProcessors().get(14));
-        assertEquals(pipelineProcessor, updatedPipeline.getProcessors().get(13));
+        assertEquals(grokParser, updatedPipeline.getProcessors().get(15));
+        assertEquals(pipelineProcessor, updatedPipeline.getProcessors().get(14));
         assertEquals(logDateRemapper, updatedPipeline.getProcessors().get(0));
         assertEquals(logStatusRemapper, updatedPipeline.getProcessors().get(1));
         assertEquals(serviceRemapper, updatedPipeline.getProcessors().get(2));
         assertEquals(logMessageRemapper, updatedPipeline.getProcessors().get(3));
-        assertEquals(remapper, updatedPipeline.getProcessors().get(4));
-        assertEquals(urlParser, updatedPipeline.getProcessors().get(5));
-        assertEquals(userAgentParser, updatedPipeline.getProcessors().get(6));
-        assertEquals(categoryProcessor, updatedPipeline.getProcessors().get(7));
-        assertEquals(arithmeticProcessor, updatedPipeline.getProcessors().get(8));
-        assertEquals(stringBuilderProcessor, updatedPipeline.getProcessors().get(9));
-        assertEquals(geoIPParser, updatedPipeline.getProcessors().get(10));
-        assertEquals(lookupProcessor, updatedPipeline.getProcessors().get(11));
-        assertEquals(traceRemapper, updatedPipeline.getProcessors().get(12));
+        assertEquals(remapperToAttribute, updatedPipeline.getProcessors().get(4));
+        assertEquals(remapperToTag, updatedPipeline.getProcessors().get(5));
+        assertEquals(urlParser, updatedPipeline.getProcessors().get(6));
+        assertEquals(userAgentParser, updatedPipeline.getProcessors().get(7));
+        assertEquals(categoryProcessor, updatedPipeline.getProcessors().get(8));
+        assertEquals(arithmeticProcessor, updatedPipeline.getProcessors().get(9));
+        assertEquals(stringBuilderProcessor, updatedPipeline.getProcessors().get(10));
+        assertEquals(geoIPParser, updatedPipeline.getProcessors().get(11));
+        assertEquals(lookupProcessor, updatedPipeline.getProcessors().get(12));
+        assertEquals(traceRemapper, updatedPipeline.getProcessors().get(13));
 
         // Delete the pipeline
         api.deleteLogsPipeline(createdPipeline.getId()).execute();
