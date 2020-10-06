@@ -84,7 +84,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .targetType("tag")
                 .preserveSource(true)
                 .overrideOnConflict(true)
-                .name("log message remapper1"));
+                .name("log message remapper2"));
         LogsProcessor urlParser = new LogsProcessor(new LogsURLParser()
                 .addSourcesItem("source")
                 .target("target")
