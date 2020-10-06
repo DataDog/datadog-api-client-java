@@ -139,7 +139,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .addProcessorsItem(serviceRemapper)
                 .addProcessorsItem(logMessageRemapper)
                 .addProcessorsItem(remapperToAttribute)
-//                .addProcessorsItem(remapperToTag)
+                .addProcessorsItem(remapperToTag)
                 .addProcessorsItem(urlParser)
                 .addProcessorsItem(userAgentParser)
                 .addProcessorsItem(categoryProcessor)
