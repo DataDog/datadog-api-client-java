@@ -49,6 +49,10 @@ docs/LogsArchiveDestinationS3Type.md
 docs/LogsArchiveIntegrationAzure.md
 docs/LogsArchiveIntegrationGCS.md
 docs/LogsArchiveIntegrationS3.md
+docs/LogsArchiveOrder.md
+docs/LogsArchiveOrderAttributes.md
+docs/LogsArchiveOrderDefinition.md
+docs/LogsArchiveOrderDefinitionType.md
 docs/LogsArchiveState.md
 docs/LogsArchives.md
 docs/LogsArchivesApi.md
@@ -266,6 +270,10 @@ src/main/java/com/datadog/api/v2/client/model/LogsArchiveDestinationS3Type.java
 src/main/java/com/datadog/api/v2/client/model/LogsArchiveIntegrationAzure.java
 src/main/java/com/datadog/api/v2/client/model/LogsArchiveIntegrationGCS.java
 src/main/java/com/datadog/api/v2/client/model/LogsArchiveIntegrationS3.java
+src/main/java/com/datadog/api/v2/client/model/LogsArchiveOrder.java
+src/main/java/com/datadog/api/v2/client/model/LogsArchiveOrderAttributes.java
+src/main/java/com/datadog/api/v2/client/model/LogsArchiveOrderDefinition.java
+src/main/java/com/datadog/api/v2/client/model/LogsArchiveOrderDefinitionType.java
 src/main/java/com/datadog/api/v2/client/model/LogsArchiveState.java
 src/main/java/com/datadog/api/v2/client/model/LogsArchives.java
 src/main/java/com/datadog/api/v2/client/model/LogsCompute.java
@@ -444,6 +452,10 @@ src/test/java/com/datadog/api/v2/client/model/LogsArchiveDestinationTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsArchiveIntegrationAzureTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsArchiveIntegrationGCSTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsArchiveIntegrationS3Test.java
+src/test/java/com/datadog/api/v2/client/model/LogsArchiveOrderAttributesTest.java
+src/test/java/com/datadog/api/v2/client/model/LogsArchiveOrderDefinitionTest.java
+src/test/java/com/datadog/api/v2/client/model/LogsArchiveOrderDefinitionTypeTest.java
+src/test/java/com/datadog/api/v2/client/model/LogsArchiveOrderTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsArchiveStateTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsArchiveTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsArchivesTest.java
