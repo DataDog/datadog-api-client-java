@@ -68,7 +68,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         LogsProcessor logMessageRemapper = new LogsProcessor(new LogsMessageRemapper()
                 .addSourcesItem("source")
                 .name("log message remapper"));
-        LogsProcessor remapper1 = new LogsProcessor(new LogsAttributeRemapper()
+        LogsProcessor remapperToAttribute = new LogsProcessor(new LogsAttributeRemapper()
                 .addSourcesItem("source")
                 .sourceType("tag")
                 .target("target")
@@ -76,15 +76,15 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .targetFormat(TargetFormatType.STRING)
                 .preserveSource(true)
                 .overrideOnConflict(true)
-                .name("log message remapper1"));
-        LogsProcessor remapper2 = new LogsProcessor(new LogsAttributeRemapper()
+                .name("log message remapper to attribute target type"));
+        LogsProcessor remapperToTag = new LogsProcessor(new LogsAttributeRemapper()
                 .addSourcesItem("source")
                 .sourceType("tag")
                 .target("target")
                 .targetType("tag")
                 .preserveSource(true)
                 .overrideOnConflict(true)
-                .name("log message remapper2"));
+                .name("log message remapper to tag target type"));
         LogsProcessor urlParser = new LogsProcessor(new LogsURLParser()
                 .addSourcesItem("source")
                 .target("target")
@@ -138,8 +138,8 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .addProcessorsItem(logStatusRemapper)
                 .addProcessorsItem(serviceRemapper)
                 .addProcessorsItem(logMessageRemapper)
-                .addProcessorsItem(remapper1)
-                .addProcessorsItem(remapper2)
+                .addProcessorsItem(remapperToAttribute)
+//                .addProcessorsItem(remapperToTag)
                 .addProcessorsItem(urlParser)
                 .addProcessorsItem(userAgentParser)
                 .addProcessorsItem(categoryProcessor)
@@ -160,8 +160,8 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertEquals(logStatusRemapper, createdPipeline.getProcessors().get(2));
         assertEquals(serviceRemapper, createdPipeline.getProcessors().get(3));
         assertEquals(logMessageRemapper, createdPipeline.getProcessors().get(4));
-        assertEquals(remapper1, createdPipeline.getProcessors().get(5));
-        assertEquals(remapper2, createdPipeline.getProcessors().get(6));
+        assertEquals(remapperToAttribute, createdPipeline.getProcessors().get(5));
+        assertEquals(remapperToTag, createdPipeline.getProcessors().get(6));
         assertEquals(urlParser, createdPipeline.getProcessors().get(7));
         assertEquals(userAgentParser, createdPipeline.getProcessors().get(8));
         assertEquals(categoryProcessor, createdPipeline.getProcessors().get(9));
@@ -209,8 +209,8 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
         assertEquals(logStatusRemapper, updatedPipeline.getProcessors().get(1));
         assertEquals(serviceRemapper, updatedPipeline.getProcessors().get(2));
         assertEquals(logMessageRemapper, updatedPipeline.getProcessors().get(3));
-        assertEquals(remapper1, updatedPipeline.getProcessors().get(4));
-        assertEquals(remapper2, updatedPipeline.getProcessors().get(5));
+        assertEquals(remapperToAttribute, updatedPipeline.getProcessors().get(4));
+        assertEquals(remapperToTag, updatedPipeline.getProcessors().get(5));
         assertEquals(urlParser, updatedPipeline.getProcessors().get(6));
         assertEquals(userAgentParser, updatedPipeline.getProcessors().get(7));
         assertEquals(categoryProcessor, updatedPipeline.getProcessors().get(8));
