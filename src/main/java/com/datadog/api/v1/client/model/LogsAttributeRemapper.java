@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsAttributeRemapperType;
+import com.datadog.api.v1.client.model.TargetFormatType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,6 +42,7 @@ import com.datadog.api.v1.client.JSON;
   LogsAttributeRemapper.JSON_PROPERTY_SOURCE_TYPE,
   LogsAttributeRemapper.JSON_PROPERTY_SOURCES,
   LogsAttributeRemapper.JSON_PROPERTY_TARGET,
+  LogsAttributeRemapper.JSON_PROPERTY_TARGET_FORMAT,
   LogsAttributeRemapper.JSON_PROPERTY_TARGET_TYPE,
   LogsAttributeRemapper.JSON_PROPERTY_TYPE
 })
@@ -66,6 +68,9 @@ public class LogsAttributeRemapper {
 
   public static final String JSON_PROPERTY_TARGET = "target";
   private String target;
+
+  public static final String JSON_PROPERTY_TARGET_FORMAT = "target_format";
+  private TargetFormatType targetFormat;
 
   public static final String JSON_PROPERTY_TARGET_TYPE = "target_type";
   private String targetType = "attribute";
@@ -245,6 +250,30 @@ public class LogsAttributeRemapper {
   }
 
 
+  public LogsAttributeRemapper targetFormat(TargetFormatType targetFormat) {
+    this.targetFormat = targetFormat;
+    return this;
+  }
+
+   /**
+   * Get targetFormat
+   * @return targetFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TARGET_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TargetFormatType getTargetFormat() {
+    return targetFormat;
+  }
+
+
+  public void setTargetFormat(TargetFormatType targetFormat) {
+    this.targetFormat = targetFormat;
+  }
+
+
   public LogsAttributeRemapper targetType(String targetType) {
     this.targetType = targetType;
     return this;
@@ -311,13 +340,14 @@ public class LogsAttributeRemapper {
         Objects.equals(this.sourceType, logsAttributeRemapper.sourceType) &&
         Objects.equals(this.sources, logsAttributeRemapper.sources) &&
         Objects.equals(this.target, logsAttributeRemapper.target) &&
+        Objects.equals(this.targetFormat, logsAttributeRemapper.targetFormat) &&
         Objects.equals(this.targetType, logsAttributeRemapper.targetType) &&
         Objects.equals(this.type, logsAttributeRemapper.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isEnabled, name, overrideOnConflict, preserveSource, sourceType, sources, target, targetType, type);
+    return Objects.hash(isEnabled, name, overrideOnConflict, preserveSource, sourceType, sources, target, targetFormat, targetType, type);
   }
 
 
@@ -332,6 +362,7 @@ public class LogsAttributeRemapper {
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    targetFormat: ").append(toIndentedString(targetFormat)).append("\n");
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

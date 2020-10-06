@@ -367,15 +367,31 @@ components:
         api_key:
           $ref: '#/components/schemas/ApiKey'
       type: object
+    ApmStatsQueryColumnType:
+      description: Column properties.
+      properties:
+        alias:
+          description: A user-assigned alias for the column.
+          example: Requests
+          type: string
+        cell_display_mode:
+          $ref: '#/components/schemas/TableWidgetCellDisplayMode'
+        name:
+          description: Column name.
+          example: Reqs
+          type: string
+        order:
+          $ref: '#/components/schemas/WidgetSort'
+      required:
+      - name
+      type: object
     ApmStatsQueryDefinition:
       description: The APM stats query for table and distributions widgets.
       properties:
         columns:
-          description: Column names used by front end for display.
+          description: Column properties used by the front end for display.
           items:
-            description: Column header.
-            example: MeanLatency
-            type: string
+            $ref: '#/components/schemas/ApmStatsQueryColumnType'
           type: array
         env:
           description: Environment name.
@@ -2514,6 +2530,8 @@ components:
           description: Final attribute or tag name to remap the sources to.
           example: operation_id
           type: string
+        target_format:
+          $ref: '#/components/schemas/TargetFormatType'
         target_type:
           default: attribute
           description: Defines if the final attribute or tag name is from log `attribute`
@@ -6817,6 +6835,17 @@ components:
       type: string
       x-enum-varnames:
       - USER_LOCATOR
+    TableWidgetCellDisplayMode:
+      default: number
+      description: Define a display mode for the table cell.
+      enum:
+      - number
+      - bar
+      example: number
+      type: string
+      x-enum-varnames:
+      - NUMBER
+      - BAR
     TableWidgetDefinition:
       description: The table visualization is available on timeboards and screenboards.
         It displays columns of metrics grouped by tag key.
@@ -6826,6 +6855,8 @@ components:
           items:
             $ref: '#/components/schemas/WidgetCustomLink'
           type: array
+        has_search_bar:
+          $ref: '#/components/schemas/TableWidgetHasSearchBar'
         requests:
           description: Widget definition.
           example:
@@ -6858,6 +6889,19 @@ components:
       type: string
       x-enum-varnames:
       - QUERY_TABLE
+    TableWidgetHasSearchBar:
+      default: auto
+      description: Controls the display of the search bar.
+      enum:
+      - always
+      - never
+      - auto
+      example: auto
+      type: string
+      x-enum-varnames:
+      - ALWAYS
+      - NEVER
+      - AUTO
     TableWidgetRequest:
       description: Updated table widget.
       properties:
@@ -6870,6 +6914,11 @@ components:
           $ref: '#/components/schemas/LogQueryDefinition'
         apm_stats_query:
           $ref: '#/components/schemas/ApmStatsQueryDefinition'
+        cell_display_mode:
+          description: A list of display modes for each table cell.
+          items:
+            $ref: '#/components/schemas/TableWidgetCellDisplayMode'
+          type: array
         conditional_formats:
           description: List of conditional formats.
           items:
@@ -6913,6 +6962,23 @@ components:
           description: A list of tags to apply to the host.
           type: object
       type: object
+    TargetFormatType:
+      description: 'If the target of the remapper is an attribute, try to cast the
+        value to a new specific type.
+
+        If the cast is not possible, the original type is kept. `string`, `integer`,
+        or `double` are the possible types.'
+      enum:
+      - auto
+      - string
+      - integer
+      - double
+      type: string
+      x-enum-varnames:
+      - AUTO
+      - STRING
+      - INTEGER
+      - DOUBLE
     TimeseriesWidgetDefinition:
       description: The timeseries visualization allows you to display the evolution
         of one or more metrics, log events, or Analyzed Spans over time.
