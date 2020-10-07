@@ -35,7 +35,6 @@ import org.mockserver.model.LogEventRequestAndResponse;
 import org.mockserver.model.Parameter;
 import org.mockserver.socket.tls.KeyStoreFactory;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
@@ -51,9 +50,10 @@ import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
+import java.util.function.BooleanSupplier;
 import java.util.HashMap;
 import java.util.List;
-import java.util.function.BooleanSupplier;
+import javax.net.ssl.HttpsURLConnection;
 
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static com.github.tomakehurst.wiremock.client.WireMock.reset;

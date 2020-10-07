@@ -1,0 +1,39 @@
+{
+  "id" : "3915b410-e7e2-48ea-84a8-642163e52928",
+  "name" : "api_v2_roles_a20d4d24-2da1-11eb-84bc-17624b1f53dd_users",
+  "request" : {
+    "url" : "/api/v2/roles/a20d4d24-2da1-11eb-84bc-17624b1f53dd/users",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"data\":{\"id\":\"a2332896-2da1-11eb-84bc-bb483839bbd5\",\"type\":\"users\"}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"meta\":{\"page\":{\"total_count\":1}},\"data\":[{\"type\":\"users\",\"id\":\"a2332896-2da1-11eb-84bc-bb483839bbd5\",\"attributes\":{\"name\":\"java-remove_a_user_from_a-1606145779\",\"handle\":\"java-remove_a_user_from_a-1606145779@datadoghq.com\",\"created_at\":\"2020-11-23T15:36:19.915905+00:00\",\"email\":\"java-remove_a_user_from_a-1606145779@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/5894dd7b5245018403dff2fcff61376e?s=48&d=retro\",\"title\":null,\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[{\"type\":\"roles\",\"id\":\"a20d4d24-2da1-11eb-84bc-17624b1f53dd\"}]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}]}",
+    "headers" : {
+      "Date" : "Mon, 23 Nov 2020 15:36:20 GMT",
+      "Content-Type" : "application/json",
+      "Vary" : "Accept-Encoding",
+      "Pragma" : "no-cache",
+      "Cache-Control" : "no-cache",
+      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 30-Nov-2020 15:36:20 GMT; secure; HttpOnly",
+      "X-DD-VERSION" : "35.3417154",
+      "X-RateLimit-Limit" : "500",
+      "X-RateLimit-Period" : "60",
+      "X-RateLimit-Reset" : "40",
+      "X-RateLimit-Remaining" : "495",
+      "X-DD-Debug" : "mkUBxR9AT7fES9d8jomGHhjQo+QS6q6R/gxmujd5IzTAGUw8Yw9FrdECMNXXfuHz",
+      "DD-POOL" : "dogweb",
+      "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "X-Content-Type-Options" : "nosniff",
+      "Strict-Transport-Security" : "max-age=15724800;"
+    }
+  },
+  "uuid" : "3915b410-e7e2-48ea-84a8-642163e52928",
+  "persistent" : true,
+  "insertionIndex" : 7
+}

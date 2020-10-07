@@ -1,0 +1,33 @@
+{
+  "id" : "b9cc97db-cf41-42c4-bd60-6f3f1c4b8375",
+  "name" : "api_v2_logs_events",
+  "request" : {
+    "url" : "/api/v2/logs/events?filter%5Bquery%5D=datadog-agent&filter%5Bindex%5D=main&filter%5Bfrom%5D=2020-09-17T10%3A48%3A36Z&filter%5Bto%5D=2020-09-17T11%3A48%3A36Z&page%5Blimit%5D=5",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"data\":[]}",
+    "headers" : {
+      "Date" : "Fri, 16 Oct 2020 12:21:36 GMT",
+      "Content-Type" : "application/json",
+      "Pragma" : "no-cache",
+      "Cache-Control" : "no-cache",
+      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 23-Oct-2020 12:21:36 GMT; secure; HttpOnly",
+      "X-DD-VERSION" : "35.3205344",
+      "X-RateLimit-Limit" : "300",
+      "X-RateLimit-Period" : "3600",
+      "X-RateLimit-Reset" : "2304",
+      "X-RateLimit-Remaining" : "234",
+      "X-DD-Debug" : "oqlClNgBffXSYxjxM4MXW8YBCUkTvkeEyGekJFD2ia4zlDKNcD3ROot7wMYW8Xj+",
+      "DD-POOL" : "dogweb",
+      "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "X-Content-Type-Options" : "nosniff",
+      "Strict-Transport-Security" : "max-age=15724800;"
+    }
+  },
+  "uuid" : "b9cc97db-cf41-42c4-bd60-6f3f1c4b8375",
+  "persistent" : true,
+  "insertionIndex" : 2
+}

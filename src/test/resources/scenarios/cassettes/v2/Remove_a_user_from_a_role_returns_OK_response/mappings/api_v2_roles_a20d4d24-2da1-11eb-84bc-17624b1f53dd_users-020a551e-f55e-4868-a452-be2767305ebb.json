@@ -1,0 +1,36 @@
+{
+  "id" : "020a551e-f55e-4868-a452-be2767305ebb",
+  "name" : "api_v2_roles_a20d4d24-2da1-11eb-84bc-17624b1f53dd_users",
+  "request" : {
+    "url" : "/api/v2/roles/a20d4d24-2da1-11eb-84bc-17624b1f53dd/users",
+    "method" : "DELETE",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"data\":{\"id\":\"a2332896-2da1-11eb-84bc-bb483839bbd5\",\"type\":\"users\"}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 400,
+    "body" : "{\"errors\": [\"API input validation failed: Expecting value: line 1 column 1 (char 0)\"]}",
+    "headers" : {
+      "Date" : "Mon, 23 Nov 2020 15:36:20 GMT",
+      "Content-Type" : "application/json",
+      "Pragma" : "no-cache",
+      "Cache-Control" : "no-cache",
+      "X-RateLimit-Limit" : "500",
+      "X-RateLimit-Period" : "60",
+      "X-RateLimit-Reset" : "40",
+      "X-RateLimit-Remaining" : "494",
+      "X-DD-VERSION" : "35.3417154",
+      "DD-POOL" : "dogweb",
+      "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "X-Content-Type-Options" : "nosniff",
+      "Strict-Transport-Security" : "max-age=15724800;"
+    }
+  },
+  "uuid" : "020a551e-f55e-4868-a452-be2767305ebb",
+  "persistent" : true,
+  "insertionIndex" : 8
+}

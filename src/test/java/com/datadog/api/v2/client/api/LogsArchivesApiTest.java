@@ -326,7 +326,4 @@ public class LogsArchivesApiTest extends V2APITest {
                 .includeTags(true);
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
-
-
-
 }

@@ -1,0 +1,29 @@
+{
+  "id" : "cbe93e36-ba71-45f8-98db-98e539604ec6",
+  "name" : "",
+  "request" : {
+    "url" : "/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "-cbe93e36-ba71-45f8-98db-98e539604ec6.json",
+    "headers" : {
+      "Content-Type" : "application/json",
+      "Last-Modified" : "Thu, 27 Aug 2020 12:58:04 GMT",
+      "Accept-Ranges" : "bytes",
+      "Server" : "AmazonS3",
+      "Date" : "Fri, 16 Oct 2020 12:16:58 GMT",
+      "ETag" : "\"a10a4e3f85ed8c2509855388e149972a\"",
+      "Vary" : "Accept-Encoding",
+      "X-Cache" : "Hit from cloudfront",
+      "Via" : "1.1 95f1b7018f5640d0a596bfddfbb25f68.cloudfront.net (CloudFront)",
+      "X-Amz-Cf-Pop" : "MAD50-C1",
+      "X-Amz-Cf-Id" : "Hp_OJETJroyxRKzBtQz82LD_rHE2zUH-_ouXMEUDAJ2pHTZ2QoAJeQ==",
+      "Age" : "277"
+    }
+  },
+  "uuid" : "cbe93e36-ba71-45f8-98db-98e539604ec6",
+  "persistent" : true,
+  "insertionIndex" : 3
+}
