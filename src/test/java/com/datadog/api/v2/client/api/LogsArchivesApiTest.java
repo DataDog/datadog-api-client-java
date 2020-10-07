@@ -39,6 +39,7 @@ import com.datadog.api.v2.client.model.LogsArchives;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.util.Arrays;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
