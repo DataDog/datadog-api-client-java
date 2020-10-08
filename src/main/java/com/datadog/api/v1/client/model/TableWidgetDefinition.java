@@ -54,7 +54,7 @@ public class TableWidgetDefinition {
   private List<WidgetCustomLink> customLinks = null;
 
   public static final String JSON_PROPERTY_HAS_SEARCH_BAR = "has_search_bar";
-  private TableWidgetHasSearchBar hasSearchBar = TableWidgetHasSearchBar.AUTO;
+  private TableWidgetHasSearchBar hasSearchBar;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<TableWidgetRequest> requests = new ArrayList<>();
