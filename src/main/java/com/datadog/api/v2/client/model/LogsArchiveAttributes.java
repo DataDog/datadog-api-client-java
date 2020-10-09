@@ -24,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v2.client.JSON;
 
@@ -36,6 +38,7 @@ import com.datadog.api.v2.client.JSON;
   LogsArchiveAttributes.JSON_PROPERTY_DESTINATION,
   LogsArchiveAttributes.JSON_PROPERTY_NAME,
   LogsArchiveAttributes.JSON_PROPERTY_QUERY,
+  LogsArchiveAttributes.JSON_PROPERTY_REHYDRATION_TAGS,
   LogsArchiveAttributes.JSON_PROPERTY_STATE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -48,6 +51,9 @@ public class LogsArchiveAttributes {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_REHYDRATION_TAGS = "rehydration_tags";
+  private List<String> rehydrationTags = null;
 
   public static final String JSON_PROPERTY_STATE = "state";
   private LogsArchiveState state;
@@ -123,6 +129,38 @@ public class LogsArchiveAttributes {
   }
 
 
+  public LogsArchiveAttributes rehydrationTags(List<String> rehydrationTags) {
+    this.rehydrationTags = rehydrationTags;
+    return this;
+  }
+
+  public LogsArchiveAttributes addRehydrationTagsItem(String rehydrationTagsItem) {
+    if (this.rehydrationTags == null) {
+      this.rehydrationTags = new ArrayList<>();
+    }
+    this.rehydrationTags.add(rehydrationTagsItem);
+    return this;
+  }
+
+   /**
+   * An array of tags to add to rehydrated logs from an archive.
+   * @return rehydrationTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "[\"team:intake\",\"team:app\"]", value = "An array of tags to add to rehydrated logs from an archive.")
+  @JsonProperty(JSON_PROPERTY_REHYDRATION_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getRehydrationTags() {
+    return rehydrationTags;
+  }
+
+
+  public void setRehydrationTags(List<String> rehydrationTags) {
+    this.rehydrationTags = rehydrationTags;
+  }
+
+
   public LogsArchiveAttributes state(LogsArchiveState state) {
     this.state = state;
     return this;
@@ -162,12 +200,13 @@ public class LogsArchiveAttributes {
     return Objects.equals(this.destination, logsArchiveAttributes.destination) &&
         Objects.equals(this.name, logsArchiveAttributes.name) &&
         Objects.equals(this.query, logsArchiveAttributes.query) &&
+        Objects.equals(this.rehydrationTags, logsArchiveAttributes.rehydrationTags) &&
         Objects.equals(this.state, logsArchiveAttributes.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, name, query, state);
+    return Objects.hash(destination, name, query, rehydrationTags, state);
   }
 
 
@@ -178,6 +217,7 @@ public class LogsArchiveAttributes {
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    rehydrationTags: ").append(toIndentedString(rehydrationTags)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();

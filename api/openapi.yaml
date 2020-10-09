@@ -3365,6 +3365,9 @@ components:
       example:
         data:
           attributes:
+            rehydration_tags:
+            - team:intake
+            - team:app
             query: source:nginx
             name: Nginx Archive
             state: WORKING
@@ -3377,6 +3380,9 @@ components:
     LogsArchiveAttributes:
       description: The attributes associated with the archive.
       example:
+        rehydration_tags:
+        - team:intake
+        - team:app
         query: source:nginx
         name: Nginx Archive
         state: WORKING
@@ -3392,6 +3398,15 @@ components:
             in the archive.
           example: source:nginx
           type: string
+        rehydration_tags:
+          description: An array of tags to add to rehydrated logs from an archive.
+          example:
+          - team:intake
+          - team:app
+          items:
+            description: A given tag in the `<KEY>:<VALUE>` format.
+            type: string
+          type: array
         state:
           $ref: '#/components/schemas/LogsArchiveState'
       required:
@@ -3404,6 +3419,9 @@ components:
       example:
         data:
           attributes:
+            rehydration_tags:
+            - team:intake
+            - team:app
             query: source:nginx
             name: Nginx Archive
           type: archives
@@ -3414,6 +3432,9 @@ components:
     LogsArchiveCreateRequestAttributes:
       description: The attributes associated with the archive.
       example:
+        rehydration_tags:
+        - team:intake
+        - team:app
         query: source:nginx
         name: Nginx Archive
       properties:
@@ -3428,6 +3449,15 @@ components:
             in the archive.
           example: source:nginx
           type: string
+        rehydration_tags:
+          description: An array of tags to add to rehydrated logs from an archive.
+          example:
+          - team:intake
+          - team:app
+          items:
+            description: A given tag in the `<KEY>:<VALUE>` format.
+            type: string
+          type: array
       required:
       - destination
       - name
@@ -3437,6 +3467,9 @@ components:
       description: The definition of an archive.
       example:
         attributes:
+          rehydration_tags:
+          - team:intake
+          - team:app
           query: source:nginx
           name: Nginx Archive
         type: archives
@@ -3465,6 +3498,9 @@ components:
       description: The definition of an archive.
       example:
         attributes:
+          rehydration_tags:
+          - team:intake
+          - team:app
           query: source:nginx
           name: Nginx Archive
           state: WORKING
@@ -3718,12 +3754,18 @@ components:
       example:
         data:
         - attributes:
+            rehydration_tags:
+            - team:intake
+            - team:app
             query: source:nginx
             name: Nginx Archive
             state: WORKING
           id: a2zcMylnM4OCHpYusxIi3g
           type: archives
         - attributes:
+            rehydration_tags:
+            - team:intake
+            - team:app
             query: source:nginx
             name: Nginx Archive
             state: WORKING
