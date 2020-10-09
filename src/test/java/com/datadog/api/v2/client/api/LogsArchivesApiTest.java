@@ -35,14 +35,11 @@ import com.datadog.api.v2.client.model.LogsArchiveDestinationS3Type;
 import com.datadog.api.v2.client.model.LogsArchiveIntegrationAzure;
 import com.datadog.api.v2.client.model.LogsArchiveIntegrationGCS;
 import com.datadog.api.v2.client.model.LogsArchiveIntegrationS3;
-import com.datadog.api.v2.client.model.LogsArchiveOrder;
-import com.datadog.api.v2.client.model.LogsArchiveOrderAttributes;
-import com.datadog.api.v2.client.model.LogsArchiveOrderDefinition;
 import com.datadog.api.v2.client.model.LogsArchives;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.util.List;
+import java.util.Arrays;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -232,57 +229,9 @@ public class LogsArchivesApiTest extends V2APITest {
         LogsArchiveCreateRequestAttributes attributes = new LogsArchiveCreateRequestAttributes()
                 .destination(new LogsArchiveCreateRequestDestination(destination))
                 .name("datadog-api-client-go Tests Archive")
-                .query("service:toto");
+                .query("service:toto")
+                .rehydrationTags(Arrays.asList("team:intake", "team:app"));
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
-    }
-
-    /**
-     * Get an ordered list of archive IDs
-     */
-    @Test
-    public void getArchiveOrderTest() throws ApiException, IOException {
-        String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, "archive_order",  "default.json"));
-        stubFor(get(urlPathEqualTo(String.format("%s", apiUriForArchiveOrder)))
-                .willReturn(okJson(outputData).withStatus(200)));
-
-
-        LogsArchiveOrder response = api.getLogsArchiveOrder().execute();
-        assertEquals(objectMapper.readValue(outputData, LogsArchiveOrder.class), response);
-    }
-
-    /**
-     * update the order of archives
-     */
-    @Test
-    public void updateArchiveOrderTest() throws ApiException, IOException {
-        LogsArchiveOrder input = createUpdatedLogsArchiveOrder();
-        String outputData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, "archive_order",  "updated.json"));
-        stubFor(put(urlPathEqualTo(String.format("%s", apiUriForArchiveOrder)))
-                .withRequestBody(equalToJson(objectMapper.writeValueAsString(input)))
-                .willReturn(okJson(outputData).withStatus(200))
-        );
-
-        LogsArchiveOrder response = api.updateLogsArchiveOrder().body(input).execute();
-        assertEquals(objectMapper.readValue(outputData, LogsArchiveOrder.class), response);
-
-    }
-
-    private LogsArchiveOrder createUpdatedLogsArchiveOrder() throws IOException {
-        String getDefaultData = TestUtils.getFixture(String.format("%s/%s/out/%s", fixturePrefix, "archive_order",  "default.json"));
-        LogsArchiveOrder oldArchiveOrder = objectMapper.readValue(getDefaultData, LogsArchiveOrder.class);
-        assert oldArchiveOrder.getData() != null;
-        assert oldArchiveOrder.getData().getAttributes() != null;
-        List<String> newArchiveIds = oldArchiveOrder.getData().getAttributes().getArchiveIds();
-        newArchiveIds.add(newArchiveIds.get(0));
-        newArchiveIds.remove(0);
-        LogsArchiveOrderAttributes archiveOrderAttributes = new LogsArchiveOrderAttributes();
-        archiveOrderAttributes.setArchiveIds(newArchiveIds);
-        LogsArchiveOrderDefinition archiveOrderDefinition = new LogsArchiveOrderDefinition();
-        archiveOrderDefinition.setAttributes(archiveOrderAttributes);
-        LogsArchiveOrder logsArchiveOrder = new LogsArchiveOrder();
-        logsArchiveOrder.setData(archiveOrderDefinition);
-
-        return logsArchiveOrder;
     }
 
     private LogsArchiveCreateRequest createLogsArchiveCreateRequestAzure() {
@@ -300,7 +249,8 @@ public class LogsArchivesApiTest extends V2APITest {
         LogsArchiveCreateRequestAttributes attributes = new LogsArchiveCreateRequestAttributes()
                 .destination(new LogsArchiveCreateRequestDestination(destination))
                 .name("datadog-api-client-go Tests Archive")
-                .query("service:toto");
+                .query("service:toto")
+                .rehydrationTags(Arrays.asList("team:intake", "team:app"));
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
@@ -316,7 +266,8 @@ public class LogsArchivesApiTest extends V2APITest {
         LogsArchiveCreateRequestAttributes attributes = new LogsArchiveCreateRequestAttributes()
                 .destination(new LogsArchiveCreateRequestDestination(destination))
                 .name("datadog-api-client-go Tests Archive")
-                .query("service:toto");
+                .query("service:toto")
+                .rehydrationTags(Arrays.asList("team:intake", "team:app"));
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
