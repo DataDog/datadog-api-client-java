@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * If the target of the remapper is an attribute, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. &#x60;string&#x60;, &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types.
+ * If the &#x60;target_type&#x60; of the remapper is &#x60;attribute&#x60;, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. &#x60;string&#x60;, &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types. If the &#x60;target_type&#x60; is &#x60;tag&#x60;, this parameter may not be specified.
  */
 public enum TargetFormatType {
   
