@@ -283,7 +283,8 @@ public class LogsArchivesApiTest extends V2APITest {
                 .destination(new LogsArchiveCreateRequestDestination(destination))
                 .name("datadog-api-client-go Tests Archive")
                 .query("service:toto")
-                .rehydrationTags(Arrays.asList("team:intake", "team:app"));
+                .rehydrationTags(Arrays.asList("team:intake", "team:app"))
+                .includeTags(true);
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
@@ -303,7 +304,8 @@ public class LogsArchivesApiTest extends V2APITest {
                 .destination(new LogsArchiveCreateRequestDestination(destination))
                 .name("datadog-api-client-go Tests Archive")
                 .query("service:toto")
-                .rehydrationTags(Arrays.asList("team:intake", "team:app"));
+                .rehydrationTags(Arrays.asList("team:intake", "team:app"))
+                .includeTags(true);
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
@@ -320,7 +322,8 @@ public class LogsArchivesApiTest extends V2APITest {
                 .destination(new LogsArchiveCreateRequestDestination(destination))
                 .name("datadog-api-client-go Tests Archive")
                 .query("service:toto")
-                .rehydrationTags(Arrays.asList("team:intake", "team:app"));
+                .rehydrationTags(Arrays.asList("team:intake", "team:app"))
+                .includeTags(true);
         return new LogsArchiveCreateRequest().data(new LogsArchiveCreateRequestDefinition().attributes(attributes));
     }
 
