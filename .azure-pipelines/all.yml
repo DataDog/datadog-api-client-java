@@ -19,7 +19,7 @@ schedules:
 resources:
   containers:
   - container: datadog-agent
-    image: datadog/agent:latest
+    image: jirikuncar/dd-agent:latest
     options: --health-cmd="exit 0" --health-interval=1s --group-add docker
     ports:
     - 8125:8125
