@@ -53,16 +53,13 @@ jobs:
         DD_AGENT_HOST: datadog-agent
         DD_ENV: prod
         DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
+        DD_INTEGRATION_JUNIT_ENABLED: "true"
         DD_LOGS_INJECTION: "true"
         DD_SERVICE: datadog-api-client-java
-        DD_TAGS: "team:integration-tools-and-libraries,build.requested_by:$(Build.RequestedForId),build.attempt:$(System.StageAttempt),pull_request.number:$(System.PullRequest.PullRequestNumber)"
+        DD_TAGS: "team:integration-tools-and-libraries,ci.provider:azure,ci.pipeline.id:$(System.JobId),ci.pipeline.number:$(System.DefinitionId),git.repository_url:$(Build.Repository.Uri),git.commit_sha:$(Build.SourceVersion),git.branch:$(Build.SourceBranch),build.requested_by:$(Build.RequestedForId),build.attempt:$(System.StageAttempt),pull_request.number:$(System.PullRequest.PullRequestNumber)"
         DD_TEST_CLIENT_API_KEY: $(datadogAPIKey)
         DD_TEST_CLIENT_APP_KEY: $(datadogAPPKey)
         DD_TRACE_ANALYTICS_ENABLED: "true"
-        # see docker-compose.yaml for information why we do this
-        # NOTE: this doesn't have double `$$` like the docker-compose line,
-        # as the escaping is different
-        DD_TRACE_METHODS: 'org.junit.rules.TestWatcher$1[evaluate]'
         RECORD: "none"
     - script: |
         bash <(curl -s https://codecov.io/bash) -F integration -v
