@@ -299,6 +299,75 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /api/v2/logs/config/archive-order:
+    get:
+      description: |-
+        Get the current order of your archives.
+        This endpoint takes no JSON arguments.
+      operationId: GetLogsArchiveOrder
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogsArchiveOrder'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+      summary: Get archive order
+      tags:
+      - Logs Archives
+      x-accepts: application/json
+    put:
+      description: |-
+        Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
+        the structure and content of the data processed by other archives.
+
+        **Note**: Using the `PUT` method updates your archive's order by replacing the current order
+        with the new one.
+      operationId: UpdateLogsArchiveOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogsArchiveOrder'
+        description: An object containing the new ordered list of archive IDs.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogsArchiveOrder'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Unprocessable Entity
+      summary: Update archive order
+      tags:
+      - Logs Archives
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /api/v2/logs/config/archives:
     get:
       description: Get the list of configured logs archives with their definitions.
@@ -3296,6 +3365,9 @@ components:
       example:
         data:
           attributes:
+            rehydration_tags:
+            - team:intake
+            - team:app
             query: source:nginx
             name: Nginx Archive
             state: WORKING
@@ -3308,6 +3380,9 @@ components:
     LogsArchiveAttributes:
       description: The attributes associated with the archive.
       example:
+        rehydration_tags:
+        - team:intake
+        - team:app
         query: source:nginx
         name: Nginx Archive
         state: WORKING
@@ -3323,6 +3398,15 @@ components:
             in the archive.
           example: source:nginx
           type: string
+        rehydration_tags:
+          description: An array of tags to add to rehydrated logs from an archive.
+          example:
+          - team:intake
+          - team:app
+          items:
+            description: A given tag in the `<KEY>:<VALUE>` format.
+            type: string
+          type: array
         state:
           $ref: '#/components/schemas/LogsArchiveState'
       required:
@@ -3335,6 +3419,9 @@ components:
       example:
         data:
           attributes:
+            rehydration_tags:
+            - team:intake
+            - team:app
             query: source:nginx
             name: Nginx Archive
           type: archives
@@ -3345,6 +3432,9 @@ components:
     LogsArchiveCreateRequestAttributes:
       description: The attributes associated with the archive.
       example:
+        rehydration_tags:
+        - team:intake
+        - team:app
         query: source:nginx
         name: Nginx Archive
       properties:
@@ -3359,6 +3449,15 @@ components:
             in the archive.
           example: source:nginx
           type: string
+        rehydration_tags:
+          description: An array of tags to add to rehydrated logs from an archive.
+          example:
+          - team:intake
+          - team:app
+          items:
+            description: A given tag in the `<KEY>:<VALUE>` format.
+            type: string
+          type: array
       required:
       - destination
       - name
@@ -3368,6 +3467,9 @@ components:
       description: The definition of an archive.
       example:
         attributes:
+          rehydration_tags:
+          - team:intake
+          - team:app
           query: source:nginx
           name: Nginx Archive
         type: archives
@@ -3396,6 +3498,9 @@ components:
       description: The definition of an archive.
       example:
         attributes:
+          rehydration_tags:
+          - team:intake
+          - team:app
           query: source:nginx
           name: Nginx Archive
           state: WORKING
@@ -3566,6 +3671,70 @@ components:
       - account_id
       - role_name
       type: object
+    LogsArchiveOrder:
+      description: A ordered list of archive IDs.
+      example:
+        data:
+          attributes:
+            archive_ids:
+            - a2zcMylnM4OCHpYusxIi1g
+            - a2zcMylnM4OCHpYusxIi2g
+            - a2zcMylnM4OCHpYusxIi3g
+          type: archive_order
+      properties:
+        data:
+          $ref: '#/components/schemas/LogsArchiveOrderDefinition'
+      type: object
+    LogsArchiveOrderAttributes:
+      description: The attributes associated with the archive order.
+      example:
+        archive_ids:
+        - a2zcMylnM4OCHpYusxIi1g
+        - a2zcMylnM4OCHpYusxIi2g
+        - a2zcMylnM4OCHpYusxIi3g
+      properties:
+        archive_ids:
+          description: |-
+            An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array
+            define the overall archives order for Datadog.
+          example:
+          - a2zcMylnM4OCHpYusxIi1g
+          - a2zcMylnM4OCHpYusxIi2g
+          - a2zcMylnM4OCHpYusxIi3g
+          items:
+            description: A given archive ID.
+            type: string
+          type: array
+      required:
+      - archive_ids
+      type: object
+    LogsArchiveOrderDefinition:
+      description: The definition of an archive order.
+      example:
+        attributes:
+          archive_ids:
+          - a2zcMylnM4OCHpYusxIi1g
+          - a2zcMylnM4OCHpYusxIi2g
+          - a2zcMylnM4OCHpYusxIi3g
+        type: archive_order
+      properties:
+        attributes:
+          $ref: '#/components/schemas/LogsArchiveOrderAttributes'
+        type:
+          $ref: '#/components/schemas/LogsArchiveOrderDefinitionType'
+      required:
+      - attributes
+      - type
+      type: object
+    LogsArchiveOrderDefinitionType:
+      default: archive_order
+      description: Type of the archive order definition.
+      enum:
+      - archive_order
+      example: archive_order
+      type: string
+      x-enum-varnames:
+      - ARCHIVE_ORDER
     LogsArchiveState:
       description: The state of the archive.
       enum:
@@ -3585,12 +3754,18 @@ components:
       example:
         data:
         - attributes:
+            rehydration_tags:
+            - team:intake
+            - team:app
             query: source:nginx
             name: Nginx Archive
             state: WORKING
           id: a2zcMylnM4OCHpYusxIi3g
           type: archives
         - attributes:
+            rehydration_tags:
+            - team:intake
+            - team:app
             query: source:nginx
             name: Nginx Archive
             state: WORKING

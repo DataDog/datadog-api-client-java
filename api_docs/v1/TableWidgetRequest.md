@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **alias** | **String** | The column name (defaults to the metric name). |  [optional]
 **apmQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **apmStatsQuery** | [**ApmStatsQueryDefinition**](ApmStatsQueryDefinition.md) |  |  [optional]
+**cellDisplayMode** | [**List&lt;TableWidgetCellDisplayMode&gt;**](TableWidgetCellDisplayMode.md) | A list of display modes for each table cell. |  [optional]
 **conditionalFormats** | [**List&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | List of conditional formats. |  [optional]
 **eventQuery** | [**EventQueryDefinition**](EventQueryDefinition.md) |  |  [optional]
 **limit** | **Long** | For metric queries, the number of lines to show in the table. Only one request should have this property. |  [optional]

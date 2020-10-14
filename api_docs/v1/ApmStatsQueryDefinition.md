@@ -7,7 +7,7 @@ The APM stats query for table and distributions widgets.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**columns** | **List&lt;String&gt;** | Column names used by front end for display. |  [optional]
+**columns** | [**List&lt;ApmStatsQueryColumnType&gt;**](ApmStatsQueryColumnType.md) | Column properties used by the front end for display. |  [optional]
 **env** | **String** | Environment name. | 
 **name** | **String** | Operation name associated with service. | 
 **primaryTag** | **String** | The organization&#39;s host group name and value. | 

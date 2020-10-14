@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v1.client.model.ApmStatsQueryColumnType;
 import com.datadog.api.v1.client.model.ApmStatsQueryRowType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -45,7 +46,7 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApmStatsQueryDefinition {
   public static final String JSON_PROPERTY_COLUMNS = "columns";
-  private List<String> columns = null;
+  private List<ApmStatsQueryColumnType> columns = null;
 
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
@@ -66,12 +67,12 @@ public class ApmStatsQueryDefinition {
   private String service;
 
 
-  public ApmStatsQueryDefinition columns(List<String> columns) {
+  public ApmStatsQueryDefinition columns(List<ApmStatsQueryColumnType> columns) {
     this.columns = columns;
     return this;
   }
 
-  public ApmStatsQueryDefinition addColumnsItem(String columnsItem) {
+  public ApmStatsQueryDefinition addColumnsItem(ApmStatsQueryColumnType columnsItem) {
     if (this.columns == null) {
       this.columns = new ArrayList<>();
     }
@@ -80,20 +81,20 @@ public class ApmStatsQueryDefinition {
   }
 
    /**
-   * Column names used by front end for display.
+   * Column properties used by the front end for display.
    * @return columns
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Column names used by front end for display.")
+  @ApiModelProperty(value = "Column properties used by the front end for display.")
   @JsonProperty(JSON_PROPERTY_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getColumns() {
+  public List<ApmStatsQueryColumnType> getColumns() {
     return columns;
   }
 
 
-  public void setColumns(List<String> columns) {
+  public void setColumns(List<ApmStatsQueryColumnType> columns) {
     this.columns = columns;
   }
 

@@ -38,6 +38,7 @@ import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinition;
 import com.datadog.api.v1.client.model.ServiceMapWidgetDefinition;
 import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinition;
 import com.datadog.api.v1.client.model.TableWidgetDefinition;
+import com.datadog.api.v1.client.model.TableWidgetHasSearchBar;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
 import com.datadog.api.v1.client.model.ToplistWidgetDefinition;
 import com.datadog.api.v1.client.model.ToplistWidgetDefinitionType;

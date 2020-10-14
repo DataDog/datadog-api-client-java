@@ -24,21 +24,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * If the &#x60;target_type&#x60; of the remapper is &#x60;attribute&#x60;, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. &#x60;string&#x60;, &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types. If the &#x60;target_type&#x60; is &#x60;tag&#x60;, this parameter may not be specified.
+ * Controls the display of the search bar.
  */
-public enum TargetFormatType {
+public enum TableWidgetHasSearchBar {
   
-  AUTO("auto"),
+  ALWAYS("always"),
   
-  STRING("string"),
+  NEVER("never"),
   
-  INTEGER("integer"),
-  
-  DOUBLE("double");
+  AUTO("auto");
 
   private String value;
 
-  TargetFormatType(String value) {
+  TableWidgetHasSearchBar(String value) {
     this.value = value;
   }
 
@@ -53,8 +51,8 @@ public enum TargetFormatType {
   }
 
   @JsonCreator
-  public static TargetFormatType fromValue(String value) {
-    for (TargetFormatType b : TargetFormatType.values()) {
+  public static TableWidgetHasSearchBar fromValue(String value) {
+    for (TableWidgetHasSearchBar b : TableWidgetHasSearchBar.values()) {
       if (b.value.equals(value)) {
         return b;
       }

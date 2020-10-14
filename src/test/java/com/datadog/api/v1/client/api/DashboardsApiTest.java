@@ -413,10 +413,12 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .customFgColor("black")
                                 .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
                         )
+                        .addCellDisplayModeItem(TableWidgetCellDisplayMode.NUMBER)
                 ).title("Test Table Widget").titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
                 .addCustomLinksItem(new WidgetCustomLink()
                         .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
-                );
+                )
+                .hasSearchBar(TableWidgetHasSearchBar.AUTO);
         Widget tableWidget = new Widget().definition(new WidgetDefinition(tableWidgetDefinition));
         orderedWidgetList.add(tableWidget);
 
