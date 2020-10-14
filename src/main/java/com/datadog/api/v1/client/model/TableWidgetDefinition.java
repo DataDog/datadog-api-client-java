@@ -13,25 +13,34 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.TableWidgetDefinitionType;
+import com.datadog.api.v1.client.model.TableWidgetHasSearchBar;
 import com.datadog.api.v1.client.model.TableWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
  */
 @ApiModel(description = "The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.")
 @JsonPropertyOrder({
+  TableWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  TableWidgetDefinition.JSON_PROPERTY_HAS_SEARCH_BAR,
   TableWidgetDefinition.JSON_PROPERTY_REQUESTS,
   TableWidgetDefinition.JSON_PROPERTY_TIME,
   TableWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -39,8 +48,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TableWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   TableWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TableWidgetDefinition {
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_HAS_SEARCH_BAR = "has_search_bar";
+  private TableWidgetHasSearchBar hasSearchBar;
+
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<TableWidgetRequest> requests = new ArrayList<>();
 
@@ -60,8 +75,63 @@ public class TableWidgetDefinition {
   private TableWidgetDefinitionType type = TableWidgetDefinitionType.QUERY_TABLE;
 
 
+  public TableWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public TableWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
+
+
+  public TableWidgetDefinition hasSearchBar(TableWidgetHasSearchBar hasSearchBar) {
+    this.hasSearchBar = hasSearchBar;
+    return this;
+  }
+
+   /**
+   * Get hasSearchBar
+   * @return hasSearchBar
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HAS_SEARCH_BAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TableWidgetHasSearchBar getHasSearchBar() {
+    return hasSearchBar;
+  }
+
+
+  public void setHasSearchBar(TableWidgetHasSearchBar hasSearchBar) {
+    this.hasSearchBar = hasSearchBar;
+  }
+
+
   public TableWidgetDefinition requests(List<TableWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -90,7 +160,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -115,7 +184,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -140,7 +208,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -165,7 +232,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -190,7 +256,6 @@ public class TableWidgetDefinition {
 
 
   public TableWidgetDefinition type(TableWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -213,8 +278,11 @@ public class TableWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this TableWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -222,7 +290,9 @@ public class TableWidgetDefinition {
       return false;
     }
     TableWidgetDefinition tableWidgetDefinition = (TableWidgetDefinition) o;
-    return Objects.equals(this.requests, tableWidgetDefinition.requests) &&
+    return Objects.equals(this.customLinks, tableWidgetDefinition.customLinks) &&
+        Objects.equals(this.hasSearchBar, tableWidgetDefinition.hasSearchBar) &&
+        Objects.equals(this.requests, tableWidgetDefinition.requests) &&
         Objects.equals(this.time, tableWidgetDefinition.time) &&
         Objects.equals(this.title, tableWidgetDefinition.title) &&
         Objects.equals(this.titleAlign, tableWidgetDefinition.titleAlign) &&
@@ -232,7 +302,7 @@ public class TableWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests, time, title, titleAlign, titleSize, type);
+    return Objects.hash(customLinks, hasSearchBar, requests, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -240,6 +310,8 @@ public class TableWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    hasSearchBar: ").append(toIndentedString(hasSearchBar)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
@@ -254,7 +326,7 @@ public class TableWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

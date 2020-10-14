@@ -13,14 +13,19 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Attributes of the organization.
@@ -36,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrganizationAttributes.JSON_PROPERTY_SHARING,
   OrganizationAttributes.JSON_PROPERTY_URL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -64,7 +69,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -89,7 +93,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -114,7 +117,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes disabled(Boolean disabled) {
-    
     this.disabled = disabled;
     return this;
   }
@@ -139,7 +141,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes modifiedAt(OffsetDateTime modifiedAt) {
-    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -164,7 +165,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -189,7 +189,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes publicId(String publicId) {
-    
     this.publicId = publicId;
     return this;
   }
@@ -214,7 +213,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes sharing(String sharing) {
-    
     this.sharing = sharing;
     return this;
   }
@@ -239,7 +237,6 @@ public class OrganizationAttributes {
 
 
   public OrganizationAttributes url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -263,8 +260,11 @@ public class OrganizationAttributes {
   }
 
 
+  /**
+   * Return true if this OrganizationAttributes object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -308,7 +308,7 @@ public class OrganizationAttributes {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

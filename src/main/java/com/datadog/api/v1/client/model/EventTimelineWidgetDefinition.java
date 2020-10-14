@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventTimelineWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The event timeline is a widget version of the timeline that appears at the top of the Event Stream view. Only available on FREE layout dashboards.
@@ -37,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   EventTimelineWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventTimelineWidgetDefinition {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
@@ -62,7 +67,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -86,7 +90,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition tagsExecution(String tagsExecution) {
-    
     this.tagsExecution = tagsExecution;
     return this;
   }
@@ -111,7 +114,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -136,7 +138,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -161,7 +162,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -186,7 +186,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -211,7 +210,6 @@ public class EventTimelineWidgetDefinition {
 
 
   public EventTimelineWidgetDefinition type(EventTimelineWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -234,8 +232,11 @@ public class EventTimelineWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this EventTimelineWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -277,7 +278,7 @@ public class EventTimelineWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

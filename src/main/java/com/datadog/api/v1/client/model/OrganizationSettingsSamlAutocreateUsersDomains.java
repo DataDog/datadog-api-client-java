@@ -13,15 +13,20 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Has two properties, &#x60;enabled&#x60; (boolean) and &#x60;domains&#x60;, which is a list of domains without the @ symbol.
@@ -31,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrganizationSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_DOMAINS,
   OrganizationSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_ENABLED
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSettingsSamlAutocreateUsersDomains {
   public static final String JSON_PROPERTY_DOMAINS = "domains";
   private List<String> domains = null;
@@ -41,7 +46,6 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
 
 
   public OrganizationSettingsSamlAutocreateUsersDomains domains(List<String> domains) {
-    
     this.domains = domains;
     return this;
   }
@@ -74,7 +78,6 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
 
 
   public OrganizationSettingsSamlAutocreateUsersDomains enabled(Boolean enabled) {
-    
     this.enabled = enabled;
     return this;
   }
@@ -98,8 +101,11 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
   }
 
 
+  /**
+   * Return true if this Organization_settings_saml_autocreate_users_domains object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -131,7 +137,7 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

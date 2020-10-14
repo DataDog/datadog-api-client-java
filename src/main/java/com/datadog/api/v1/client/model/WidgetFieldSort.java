@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Which column and order to sort by
@@ -30,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   WidgetFieldSort.JSON_PROPERTY_COLUMN,
   WidgetFieldSort.JSON_PROPERTY_ORDER
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetFieldSort {
   public static final String JSON_PROPERTY_COLUMN = "column";
   private String column;
@@ -40,7 +45,6 @@ public class WidgetFieldSort {
 
 
   public WidgetFieldSort column(String column) {
-    
     this.column = column;
     return this;
   }
@@ -64,7 +68,6 @@ public class WidgetFieldSort {
 
 
   public WidgetFieldSort order(WidgetSort order) {
-    
     this.order = order;
     return this;
   }
@@ -87,8 +90,11 @@ public class WidgetFieldSort {
   }
 
 
+  /**
+   * Return true if this WidgetFieldSort object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -120,7 +126,7 @@ public class WidgetFieldSort {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

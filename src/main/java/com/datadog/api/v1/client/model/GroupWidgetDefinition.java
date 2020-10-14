@@ -13,18 +13,23 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.GroupWidgetDefinitionType;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetLayoutType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
@@ -36,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GroupWidgetDefinition.JSON_PROPERTY_TYPE,
   GroupWidgetDefinition.JSON_PROPERTY_WIDGETS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GroupWidgetDefinition {
   public static final String JSON_PROPERTY_LAYOUT_TYPE = "layout_type";
   private WidgetLayoutType layoutType;
@@ -52,7 +57,6 @@ public class GroupWidgetDefinition {
 
 
   public GroupWidgetDefinition layoutType(WidgetLayoutType layoutType) {
-    
     this.layoutType = layoutType;
     return this;
   }
@@ -76,7 +80,6 @@ public class GroupWidgetDefinition {
 
 
   public GroupWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -101,7 +104,6 @@ public class GroupWidgetDefinition {
 
 
   public GroupWidgetDefinition type(GroupWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -125,7 +127,6 @@ public class GroupWidgetDefinition {
 
 
   public GroupWidgetDefinition widgets(List<Widget> widgets) {
-    
     this.widgets = widgets;
     return this;
   }
@@ -153,8 +154,11 @@ public class GroupWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this GroupWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -190,7 +194,7 @@ public class GroupWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,15 +13,20 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsListRequestTime;
 import com.datadog.api.v1.client.model.LogsSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object to send with the request to retrieve a list of logs from your Organization.
@@ -35,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsListRequest.JSON_PROPERTY_START_AT,
   LogsListRequest.JSON_PROPERTY_TIME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsListRequest {
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
@@ -57,7 +62,6 @@ public class LogsListRequest {
 
 
   public LogsListRequest index(String index) {
-    
     this.index = index;
     return this;
   }
@@ -82,7 +86,6 @@ public class LogsListRequest {
 
 
   public LogsListRequest limit(Integer limit) {
-    
     this.limit = limit;
     return this;
   }
@@ -108,7 +111,6 @@ public class LogsListRequest {
 
 
   public LogsListRequest query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -132,7 +134,6 @@ public class LogsListRequest {
 
 
   public LogsListRequest sort(LogsSort sort) {
-    
     this.sort = sort;
     return this;
   }
@@ -157,7 +158,6 @@ public class LogsListRequest {
 
 
   public LogsListRequest startAt(String startAt) {
-    
     this.startAt = startAt;
     return this;
   }
@@ -182,7 +182,6 @@ public class LogsListRequest {
 
 
   public LogsListRequest time(LogsListRequestTime time) {
-    
     this.time = time;
     return this;
   }
@@ -205,8 +204,11 @@ public class LogsListRequest {
   }
 
 
+  /**
+   * Return true if this LogsListRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -246,7 +248,7 @@ public class LogsListRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

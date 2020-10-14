@@ -35,7 +35,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -119,7 +119,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -203,7 +203,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -284,7 +284,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -363,7 +363,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK for get role |  -  |
+| **200** | OK |  -  |
 | **403** | Authentication error |  -  |
 | **404** | Not found |  -  |
 
@@ -443,7 +443,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -493,7 +493,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, applcation/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -519,7 +519,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -599,7 +599,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -691,7 +691,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -755,7 +755,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, applcation/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -780,7 +780,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -864,7 +864,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {
@@ -948,7 +948,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
 public class Example {

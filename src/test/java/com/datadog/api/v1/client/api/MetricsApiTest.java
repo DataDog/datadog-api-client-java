@@ -23,7 +23,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.*;
 
 /**
  * API tests for MetricsApi
@@ -39,6 +39,11 @@ public class MetricsApiTest extends V1ApiTest {
 
     private final String fixturePrefix = "v1/client/api/metrics_fixtures";
     private final String apiUri = "/api/v1/metrics";
+
+    @Override
+    public String getTracingEndpoint() {
+        return "metrics";
+    }
 
     @BeforeClass
     public static void initApi() {
@@ -57,14 +62,22 @@ public class MetricsApiTest extends V1ApiTest {
         String testMetric = getUniqueEntityName().replace('-', '_');
         String testHost = "java-client-test-host";
         String testQuery = String.format("avg:%s{bar:baz}by{host}", testMetric);
-
+        // use TreeMap, as it's sorted and will always serialize in the same way
+        Map<String, Object> payload = new TreeMap<String, Object>() {{
+           put("series", Arrays.asList(
+               new TreeMap<String, Object>() {{
+                   put("host", testHost);
+                   put("metric", testMetric);
+                   put("type", "rate");
+                   put("points", Arrays.asList(Arrays.asList((double) nowSeconds - 60, 10.5), Arrays.asList((double) nowSeconds, 11.0)));
+                   put("tags", Arrays.asList("tag:foo", "bar:baz"));
+               }}
+           ));
+        }};
         ApiResponse<String> response = sendRequest(
                 "POST",
                 "/api/v1/series",
-                String.format(
-                        "{\"series\":[{\"host\":\"%s\",\"metric\":\"%s\",\"points\":[[%f,10.5],[%f,11.0]],\"tags\":[\"tag:foo\", \"bar:baz\"],\"type\":\"rate\"}]}",
-                        testHost, testMetric, (double) nowSeconds - 60, (double) nowSeconds
-                ),
+                payload,
                 new GenericType<String>(String.class)
         );
         assertEquals("{\"status\": \"ok\"}", response.getData());

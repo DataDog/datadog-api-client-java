@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Hour usage for logs.
@@ -32,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UsageLogsHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT,
   UsageLogsHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageLogsHour {
   public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES = "billable_ingested_bytes";
   private Long billableIngestedBytes;
@@ -48,7 +53,6 @@ public class UsageLogsHour {
 
 
   public UsageLogsHour billableIngestedBytes(Long billableIngestedBytes) {
-    
     this.billableIngestedBytes = billableIngestedBytes;
     return this;
   }
@@ -73,7 +77,6 @@ public class UsageLogsHour {
 
 
   public UsageLogsHour hour(OffsetDateTime hour) {
-    
     this.hour = hour;
     return this;
   }
@@ -98,7 +101,6 @@ public class UsageLogsHour {
 
 
   public UsageLogsHour indexedEventsCount(Long indexedEventsCount) {
-    
     this.indexedEventsCount = indexedEventsCount;
     return this;
   }
@@ -123,7 +125,6 @@ public class UsageLogsHour {
 
 
   public UsageLogsHour ingestedEventsBytes(Long ingestedEventsBytes) {
-    
     this.ingestedEventsBytes = ingestedEventsBytes;
     return this;
   }
@@ -147,8 +148,11 @@ public class UsageLogsHour {
   }
 
 
+  /**
+   * Return true if this UsageLogsHour object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -184,7 +188,7 @@ public class UsageLogsHour {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

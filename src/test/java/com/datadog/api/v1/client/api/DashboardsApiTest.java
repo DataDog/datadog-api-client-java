@@ -58,6 +58,11 @@ public class DashboardsApiTest extends V1ApiTest{
                  .denominator("default(sum:non_existant_metric{*}.as_count(), 2)")
             );
 
+    @Override
+    public String getTracingEndpoint() {
+        return "dashboards";
+    }
+
     @BeforeClass
     public static void initAPI() {
         api = new DashboardsApi(generalApiClient);
@@ -67,12 +72,12 @@ public class DashboardsApiTest extends V1ApiTest{
 
     @After
     public void cleanupDash() throws ApiException {
-        try {
-            for(String id: cleanupDashIDs) {
+        for (String id: cleanupDashIDs) {
+            try {
                 api.deleteDashboard(id).execute();
+            } catch (ApiException e) {
+                System.out.printf("Error deleting dashboard, it may have already been deleted by a test: %s", e.getMessage());
             }
-        } catch (ApiException e) {
-            System.out.printf("Error deleting dashboard, it may have already been deleted by a test: %s", e.getMessage());
         }
         cleanupDashIDs = new ArrayList<>();
         if (deleteSLO != null) {
@@ -132,6 +137,9 @@ public class DashboardsApiTest extends V1ApiTest{
         ChangeWidgetDefinition changeWidgetDefinition = new ChangeWidgetDefinition()
                 .title("Test Change Widget")
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                )
                 .addRequestsItem(new ChangeWidgetRequest().q("avg:system.load.1{*}").changeType(
                         WidgetChangeType.ABSOLUTE)
                         .compareTo(WidgetCompareTo.HOUR_BEFORE)
@@ -209,7 +217,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addEventsItem(new WidgetEvent().q("Build succeeded").tagsExecution("tags"))
                 .title("Test Headmap Widget").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.FOUR);
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                )
+                .showLegend(true).legendSize("4");
         Widget heatMapWidget = new Widget().definition(new WidgetDefinition(heatMapWidgetDefinition));
         orderedWidgetList.add(heatMapWidget);
 
@@ -227,7 +238,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .style(new HostMapWidgetDefinitionStyle()
                         .palette("dog_classic").paletteFlip(true).fillMin("0").fillMax("100"))
                 .title("Test HostMap Widget")
-                .titleAlign(WidgetTextAlign.CENTER).titleSize("16");
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
         Widget hostMapWidget = new Widget().definition(new WidgetDefinition(hostMapWidgetDefinition));
         orderedWidgetList.add(hostMapWidget);
 
@@ -313,7 +327,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .precision(2L)
                 .textAlign(WidgetTextAlign.CENTER)
                 .title("Test Query Value Widget")
-                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
         Widget queryValueWidget = new Widget().definition(new WidgetDefinition(queryValueWidgetDefinition));
         orderedWidgetList.add(queryValueWidget);
 
@@ -332,7 +349,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .yaxis(new WidgetAxis().scale("linear").min("0").max("100").includeZero(true))
                 .addColorByGroupsItem("env")
                 .title("Test ScatterPlot Widget")
-                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
         Widget scatterPlotWidget = new Widget().definition(new WidgetDefinition(scatterPlotWidgetDefinition));
         orderedWidgetList.add(scatterPlotWidget);
 
@@ -352,7 +372,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addFiltersItem("*")
                 .service("1234")
                 .title("Test Service Map Widget")
-                .titleAlign(WidgetTextAlign.CENTER).titleSize("16");
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
         Widget serviceMapWidget = new Widget().definition(new WidgetDefinition(serviceMapWidgetDefinition));
         orderedWidgetList.add(serviceMapWidget);
 
@@ -368,7 +391,8 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Service Summary Widget")
                 .titleSize("16")
                 .titleAlign(WidgetTextAlign.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_HOUR));
+                .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_HOUR))
+                ;
         Widget serviceSummaryWidget = new Widget().definition(new WidgetDefinition(serviceSummaryWidgetDefinition))
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(serviceSummaryWidget);
@@ -389,7 +413,12 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .customFgColor("black")
                                 .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
                         )
-                ).title("Test Table Widget").titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                        .addCellDisplayModeItem(TableWidgetCellDisplayMode.NUMBER)
+                ).title("Test Table Widget").titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                )
+                .hasSearchBar(TableWidgetHasSearchBar.AUTO);
         Widget tableWidget = new Widget().definition(new WidgetDefinition(tableWidgetDefinition));
         orderedWidgetList.add(tableWidget);
 
@@ -404,7 +433,9 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
+                        .onRightYaxis(true)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear").label("Widget Scale"))
+                .rightYaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear").label("Widget Scale"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
@@ -412,7 +443,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Timeseries Widget").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+                .showLegend(true).legendSize("16")
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
         Widget timeseriesWidget = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinition));
         orderedWidgetList.add(timeseriesWidget);
 
@@ -433,7 +467,9 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
+                        .onRightYaxis(true)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .rightYaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
@@ -441,7 +477,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Timeseries Widget with Process Query").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+                .showLegend(true).legendSize("16")
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
         Widget timeseriesWidgetProcessQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionProcessQuery));
         orderedWidgetList.add(timeseriesWidgetProcessQuery);
 
@@ -464,7 +503,9 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
+                        .onRightYaxis(true)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .rightYaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarker()
                         .value("y=15").displayType("error dashed").label("error threshold")
@@ -472,7 +513,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Timeseries Widget with Log Query").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+                .showLegend(true).legendSize("16")
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
         Widget timeseriesWidgetLogQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionLogQuery));
         orderedWidgetList.add(timeseriesWidgetLogQuery);
 
@@ -489,6 +533,7 @@ public class DashboardsApiTest extends V1ApiTest{
                         ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
+                        .onRightYaxis(true)
                 ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
                 .addEventsItem(new WidgetEvent().q("Build succeeded"))
                 .addMarkersItem(new WidgetMarker()
@@ -497,7 +542,10 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Timeseries Widget with Event Query").showLegend(true)
                 .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
                 .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize(WidgetLegendSize.SIXTEEN);
+                .showLegend(true).legendSize("16")
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
         Widget timeseriesWidgetEventQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionEventQuery));
         orderedWidgetList.add(timeseriesWidgetEventQuery);
 
@@ -514,7 +562,10 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
                         )
                 ).title("Test Toplist Widget")
-                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
         Widget toplistWidget = new Widget().definition(new WidgetDefinition(toplistWidgetDefinition));
         orderedWidgetList.add(toplistWidget);
 

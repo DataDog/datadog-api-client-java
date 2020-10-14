@@ -20,6 +20,11 @@ import static org.junit.Assert.assertEquals;
 public class LogsPipelinesOrderTest extends V1ApiTest {
     private static LogsPipelinesApi api;
 
+    @Override
+    public String getTracingEndpoint() {
+        return "logs-pipelines";
+    }
+
     @BeforeClass
     public static void initApi() {
         api = new LogsPipelinesApi(generalApiClient);

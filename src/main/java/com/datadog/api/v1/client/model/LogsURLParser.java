@@ -13,10 +13,13 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsURLParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * This processor extracts query parameters and other important parameters from a URL.
@@ -39,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsURLParser.JSON_PROPERTY_TARGET,
   LogsURLParser.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsURLParser {
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
@@ -61,7 +66,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -86,7 +90,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -112,7 +115,6 @@ public class LogsURLParser {
 
   public LogsURLParser normalizeEndingSlashes(Boolean normalizeEndingSlashes) {
     this.normalizeEndingSlashes = JsonNullable.<Boolean>of(normalizeEndingSlashes);
-    
     return this;
   }
 
@@ -146,7 +148,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -175,7 +176,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -199,7 +199,6 @@ public class LogsURLParser {
 
 
   public LogsURLParser type(LogsURLParserType type) {
-    
     this.type = type;
     return this;
   }
@@ -222,8 +221,11 @@ public class LogsURLParser {
   }
 
 
+  /**
+   * Return true if this LogsURLParser object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -263,7 +265,7 @@ public class LogsURLParser {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,17 +13,22 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOBulkDeleteResponseData;
 import com.datadog.api.v1.client.model.SLOBulkDeleteResponseErrors;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions succeeded and failed.
@@ -33,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SLOBulkDeleteResponse.JSON_PROPERTY_DATA,
   SLOBulkDeleteResponse.JSON_PROPERTY_ERRORS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOBulkDeleteResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private SLOBulkDeleteResponseData data;
@@ -43,7 +48,6 @@ public class SLOBulkDeleteResponse {
 
 
   public SLOBulkDeleteResponse data(SLOBulkDeleteResponseData data) {
-    
     this.data = data;
     return this;
   }
@@ -68,7 +72,6 @@ public class SLOBulkDeleteResponse {
 
 
   public SLOBulkDeleteResponse errors(List<SLOBulkDeleteResponseErrors> errors) {
-    
     this.errors = errors;
     return this;
   }
@@ -100,8 +103,11 @@ public class SLOBulkDeleteResponse {
   }
 
 
+  /**
+   * Return true if this SLOBulkDeleteResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -133,7 +139,7 @@ public class SLOBulkDeleteResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

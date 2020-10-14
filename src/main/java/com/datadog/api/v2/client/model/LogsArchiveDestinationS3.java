@@ -13,15 +13,20 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationS3Type;
 import com.datadog.api.v2.client.model.LogsArchiveIntegrationS3;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The S3 archive destination.
@@ -33,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsArchiveDestinationS3.JSON_PROPERTY_PATH,
   LogsArchiveDestinationS3.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveDestinationS3 {
   public static final String JSON_PROPERTY_BUCKET = "bucket";
   private String bucket;
@@ -49,7 +54,6 @@ public class LogsArchiveDestinationS3 {
 
 
   public LogsArchiveDestinationS3 bucket(String bucket) {
-    
     this.bucket = bucket;
     return this;
   }
@@ -73,7 +77,6 @@ public class LogsArchiveDestinationS3 {
 
 
   public LogsArchiveDestinationS3 integration(LogsArchiveIntegrationS3 integration) {
-    
     this.integration = integration;
     return this;
   }
@@ -97,7 +100,6 @@ public class LogsArchiveDestinationS3 {
 
 
   public LogsArchiveDestinationS3 path(String path) {
-    
     this.path = path;
     return this;
   }
@@ -122,7 +124,6 @@ public class LogsArchiveDestinationS3 {
 
 
   public LogsArchiveDestinationS3 type(LogsArchiveDestinationS3Type type) {
-    
     this.type = type;
     return this;
   }
@@ -145,8 +146,11 @@ public class LogsArchiveDestinationS3 {
   }
 
 
+  /**
+   * Return true if this LogsArchiveDestinationS3 object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -182,7 +186,7 @@ public class LogsArchiveDestinationS3 {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

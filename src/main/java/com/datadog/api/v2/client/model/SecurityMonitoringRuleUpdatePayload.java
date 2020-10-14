@@ -13,18 +13,23 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCase;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQuery;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Update an existing rule.
@@ -32,20 +37,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "Update an existing rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_CASES,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_ENABLED,
+  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_IS_ENABLED,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_MESSAGE,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_QUERIES,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_TAGS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleUpdatePayload {
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
 
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private Boolean enabled;
+  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -64,7 +69,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload cases(List<SecurityMonitoringRuleCase> cases) {
-    
     this.cases = cases;
     return this;
   }
@@ -96,33 +100,31 @@ public class SecurityMonitoringRuleUpdatePayload {
   }
 
 
-  public SecurityMonitoringRuleUpdatePayload enabled(Boolean enabled) {
-    
-    this.enabled = enabled;
+  public SecurityMonitoringRuleUpdatePayload isEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
     return this;
   }
 
    /**
    * Whether the rule is enabled.
-   * @return enabled
+   * @return isEnabled
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether the rule is enabled.")
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getEnabled() {
-    return enabled;
+  public Boolean getIsEnabled() {
+    return isEnabled;
   }
 
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
   }
 
 
   public SecurityMonitoringRuleUpdatePayload message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -147,7 +149,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -172,7 +173,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload options(SecurityMonitoringRuleOptions options) {
-    
     this.options = options;
     return this;
   }
@@ -197,7 +197,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload queries(List<SecurityMonitoringRuleQuery> queries) {
-    
     this.queries = queries;
     return this;
   }
@@ -230,7 +229,6 @@ public class SecurityMonitoringRuleUpdatePayload {
 
 
   public SecurityMonitoringRuleUpdatePayload tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -262,8 +260,11 @@ public class SecurityMonitoringRuleUpdatePayload {
   }
 
 
+  /**
+   * Return true if this SecurityMonitoringRuleUpdatePayload object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -272,7 +273,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     }
     SecurityMonitoringRuleUpdatePayload securityMonitoringRuleUpdatePayload = (SecurityMonitoringRuleUpdatePayload) o;
     return Objects.equals(this.cases, securityMonitoringRuleUpdatePayload.cases) &&
-        Objects.equals(this.enabled, securityMonitoringRuleUpdatePayload.enabled) &&
+        Objects.equals(this.isEnabled, securityMonitoringRuleUpdatePayload.isEnabled) &&
         Objects.equals(this.message, securityMonitoringRuleUpdatePayload.message) &&
         Objects.equals(this.name, securityMonitoringRuleUpdatePayload.name) &&
         Objects.equals(this.options, securityMonitoringRuleUpdatePayload.options) &&
@@ -282,7 +283,7 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cases, enabled, message, name, options, queries, tags);
+    return Objects.hash(cases, isEnabled, message, name, options, queries, tags);
   }
 
 
@@ -291,7 +292,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleUpdatePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
@@ -305,7 +306,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

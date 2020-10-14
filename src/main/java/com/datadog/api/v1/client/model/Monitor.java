@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.MonitorOptions;
 import com.datadog.api.v1.client.model.MonitorOverallStates;
@@ -21,6 +23,7 @@ import com.datadog.api.v1.client.model.MonitorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -31,6 +34,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing a monitor.
@@ -52,7 +57,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Monitor.JSON_PROPERTY_TAGS,
   Monitor.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Monitor {
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
@@ -114,7 +119,6 @@ public class Monitor {
 
 
   public Monitor creator(Creator creator) {
-    
     this.creator = creator;
     return this;
   }
@@ -185,7 +189,6 @@ public class Monitor {
 
 
   public Monitor message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -242,7 +245,6 @@ public class Monitor {
 
 
   public Monitor name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -267,7 +269,6 @@ public class Monitor {
 
 
   public Monitor options(MonitorOptions options) {
-    
     this.options = options;
     return this;
   }
@@ -292,7 +293,6 @@ public class Monitor {
 
 
   public Monitor overallState(MonitorOverallStates overallState) {
-    
     this.overallState = overallState;
     return this;
   }
@@ -317,7 +317,6 @@ public class Monitor {
 
 
   public Monitor query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -342,7 +341,6 @@ public class Monitor {
 
 
   public Monitor state(MonitorState state) {
-    
     this.state = state;
     return this;
   }
@@ -367,7 +365,6 @@ public class Monitor {
 
 
   public Monitor tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -400,7 +397,6 @@ public class Monitor {
 
 
   public Monitor type(MonitorType type) {
-    
     this.type = type;
     return this;
   }
@@ -424,8 +420,11 @@ public class Monitor {
   }
 
 
+  /**
+   * Return true if this Monitor object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -481,7 +480,7 @@ public class Monitor {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -7,8 +7,8 @@ Relationship to user object.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | ID of the user. |  [optional]
-**type** | **String** | Users type. |  [optional] [readonly]
+**id** | **String** | A unique identifier that represents the user. | 
+**type** | [**UsersType**](UsersType.md) |  | 
 
 
 

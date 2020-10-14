@@ -13,15 +13,20 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Your Google Cloud Platform Account.
@@ -42,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GCPAccount.JSON_PROPERTY_TOKEN_URI,
   GCPAccount.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GCPAccount {
   public static final String JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL = "auth_provider_x509_cert_url";
   private String authProviderX509CertUrl;
@@ -85,7 +90,6 @@ public class GCPAccount {
 
 
   public GCPAccount authProviderX509CertUrl(String authProviderX509CertUrl) {
-    
     this.authProviderX509CertUrl = authProviderX509CertUrl;
     return this;
   }
@@ -110,7 +114,6 @@ public class GCPAccount {
 
 
   public GCPAccount authUri(String authUri) {
-    
     this.authUri = authUri;
     return this;
   }
@@ -135,7 +138,6 @@ public class GCPAccount {
 
 
   public GCPAccount automute(Boolean automute) {
-    
     this.automute = automute;
     return this;
   }
@@ -160,7 +162,6 @@ public class GCPAccount {
 
 
   public GCPAccount clientEmail(String clientEmail) {
-    
     this.clientEmail = clientEmail;
     return this;
   }
@@ -185,7 +186,6 @@ public class GCPAccount {
 
 
   public GCPAccount clientId(String clientId) {
-    
     this.clientId = clientId;
     return this;
   }
@@ -210,7 +210,6 @@ public class GCPAccount {
 
 
   public GCPAccount clientX509CertUrl(String clientX509CertUrl) {
-    
     this.clientX509CertUrl = clientX509CertUrl;
     return this;
   }
@@ -235,7 +234,6 @@ public class GCPAccount {
 
 
   public GCPAccount errors(List<String> errors) {
-    
     this.errors = errors;
     return this;
   }
@@ -268,7 +266,6 @@ public class GCPAccount {
 
 
   public GCPAccount hostFilters(String hostFilters) {
-    
     this.hostFilters = hostFilters;
     return this;
   }
@@ -293,7 +290,6 @@ public class GCPAccount {
 
 
   public GCPAccount privateKey(String privateKey) {
-    
     this.privateKey = privateKey;
     return this;
   }
@@ -318,7 +314,6 @@ public class GCPAccount {
 
 
   public GCPAccount privateKeyId(String privateKeyId) {
-    
     this.privateKeyId = privateKeyId;
     return this;
   }
@@ -343,7 +338,6 @@ public class GCPAccount {
 
 
   public GCPAccount projectId(String projectId) {
-    
     this.projectId = projectId;
     return this;
   }
@@ -368,7 +362,6 @@ public class GCPAccount {
 
 
   public GCPAccount tokenUri(String tokenUri) {
-    
     this.tokenUri = tokenUri;
     return this;
   }
@@ -393,7 +386,6 @@ public class GCPAccount {
 
 
   public GCPAccount type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -417,8 +409,11 @@ public class GCPAccount {
   }
 
 
+  /**
+   * Return true if this GCPAccount object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -472,7 +467,7 @@ public class GCPAccount {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

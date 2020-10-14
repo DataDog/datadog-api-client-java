@@ -140,7 +140,7 @@ public abstract class V1ApiTest extends TestUtils.APITest {
         stubFor(stub);
     }
 
-    public <T> ApiResponse<T> sendRequest(String method, String url, String payload, GenericType<T> responseType) throws ApiException {
+    public <T> ApiResponse<T> sendRequest(String method, String url, Object payload, GenericType<T> responseType) throws ApiException {
         String originalBasePath = generalApiClient.getBasePath();
         Integer originalServerIndex = generalApiClient.getServerIndex();
         if (url.startsWith("https://")) {
@@ -163,7 +163,7 @@ public abstract class V1ApiTest extends TestUtils.APITest {
                     "application/json",
                     new String[]{"apiKeyAuth", "appKeyAuth"},
                     responseType,
-                    null
+                    false
             );
         } finally {
             generalApiClient.setBasePath(originalBasePath);

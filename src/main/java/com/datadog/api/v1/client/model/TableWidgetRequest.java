@@ -13,21 +13,28 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.ApmStatsQueryDefinition;
 import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
+import com.datadog.api.v1.client.model.TableWidgetCellDisplayMode;
 import com.datadog.api.v1.client.model.WidgetAggregator;
 import com.datadog.api.v1.client.model.WidgetConditionalFormat;
 import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Updated table widget.
@@ -37,6 +44,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TableWidgetRequest.JSON_PROPERTY_AGGREGATOR,
   TableWidgetRequest.JSON_PROPERTY_ALIAS,
   TableWidgetRequest.JSON_PROPERTY_APM_QUERY,
+  TableWidgetRequest.JSON_PROPERTY_APM_STATS_QUERY,
+  TableWidgetRequest.JSON_PROPERTY_CELL_DISPLAY_MODE,
   TableWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
   TableWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
   TableWidgetRequest.JSON_PROPERTY_LIMIT,
@@ -45,9 +54,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TableWidgetRequest.JSON_PROPERTY_ORDER,
   TableWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   TableWidgetRequest.JSON_PROPERTY_Q,
-  TableWidgetRequest.JSON_PROPERTY_RUM_QUERY
+  TableWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  TableWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TableWidgetRequest {
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private WidgetAggregator aggregator;
@@ -57,6 +67,12 @@ public class TableWidgetRequest {
 
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
+
+  public static final String JSON_PROPERTY_APM_STATS_QUERY = "apm_stats_query";
+  private ApmStatsQueryDefinition apmStatsQuery;
+
+  public static final String JSON_PROPERTY_CELL_DISPLAY_MODE = "cell_display_mode";
+  private List<TableWidgetCellDisplayMode> cellDisplayMode = null;
 
   public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
   private List<WidgetConditionalFormat> conditionalFormats = null;
@@ -85,9 +101,11 @@ public class TableWidgetRequest {
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
 
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
+
 
   public TableWidgetRequest aggregator(WidgetAggregator aggregator) {
-    
     this.aggregator = aggregator;
     return this;
   }
@@ -112,7 +130,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest alias(String alias) {
-    
     this.alias = alias;
     return this;
   }
@@ -137,7 +154,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
-    
     this.apmQuery = apmQuery;
     return this;
   }
@@ -161,8 +177,63 @@ public class TableWidgetRequest {
   }
 
 
+  public TableWidgetRequest apmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
+    this.apmStatsQuery = apmStatsQuery;
+    return this;
+  }
+
+   /**
+   * Get apmStatsQuery
+   * @return apmStatsQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_APM_STATS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ApmStatsQueryDefinition getApmStatsQuery() {
+    return apmStatsQuery;
+  }
+
+
+  public void setApmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
+    this.apmStatsQuery = apmStatsQuery;
+  }
+
+
+  public TableWidgetRequest cellDisplayMode(List<TableWidgetCellDisplayMode> cellDisplayMode) {
+    this.cellDisplayMode = cellDisplayMode;
+    return this;
+  }
+
+  public TableWidgetRequest addCellDisplayModeItem(TableWidgetCellDisplayMode cellDisplayModeItem) {
+    if (this.cellDisplayMode == null) {
+      this.cellDisplayMode = new ArrayList<>();
+    }
+    this.cellDisplayMode.add(cellDisplayModeItem);
+    return this;
+  }
+
+   /**
+   * A list of display modes for each table cell.
+   * @return cellDisplayMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of display modes for each table cell.")
+  @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<TableWidgetCellDisplayMode> getCellDisplayMode() {
+    return cellDisplayMode;
+  }
+
+
+  public void setCellDisplayMode(List<TableWidgetCellDisplayMode> cellDisplayMode) {
+    this.cellDisplayMode = cellDisplayMode;
+  }
+
+
   public TableWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
-    
     this.conditionalFormats = conditionalFormats;
     return this;
   }
@@ -195,7 +266,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
-    
     this.eventQuery = eventQuery;
     return this;
   }
@@ -220,7 +290,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest limit(Long limit) {
-    
     this.limit = limit;
     return this;
   }
@@ -245,7 +314,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest logQuery(LogQueryDefinition logQuery) {
-    
     this.logQuery = logQuery;
     return this;
   }
@@ -270,7 +338,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
-    
     this.networkQuery = networkQuery;
     return this;
   }
@@ -295,7 +362,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest order(WidgetSort order) {
-    
     this.order = order;
     return this;
   }
@@ -320,7 +386,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
-    
     this.processQuery = processQuery;
     return this;
   }
@@ -345,7 +410,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest q(String q) {
-    
     this.q = q;
     return this;
   }
@@ -370,7 +434,6 @@ public class TableWidgetRequest {
 
 
   public TableWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
-    
     this.rumQuery = rumQuery;
     return this;
   }
@@ -394,8 +457,35 @@ public class TableWidgetRequest {
   }
 
 
+  public TableWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
+  /**
+   * Return true if this TableWidgetRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -406,6 +496,8 @@ public class TableWidgetRequest {
     return Objects.equals(this.aggregator, tableWidgetRequest.aggregator) &&
         Objects.equals(this.alias, tableWidgetRequest.alias) &&
         Objects.equals(this.apmQuery, tableWidgetRequest.apmQuery) &&
+        Objects.equals(this.apmStatsQuery, tableWidgetRequest.apmStatsQuery) &&
+        Objects.equals(this.cellDisplayMode, tableWidgetRequest.cellDisplayMode) &&
         Objects.equals(this.conditionalFormats, tableWidgetRequest.conditionalFormats) &&
         Objects.equals(this.eventQuery, tableWidgetRequest.eventQuery) &&
         Objects.equals(this.limit, tableWidgetRequest.limit) &&
@@ -414,12 +506,13 @@ public class TableWidgetRequest {
         Objects.equals(this.order, tableWidgetRequest.order) &&
         Objects.equals(this.processQuery, tableWidgetRequest.processQuery) &&
         Objects.equals(this.q, tableWidgetRequest.q) &&
-        Objects.equals(this.rumQuery, tableWidgetRequest.rumQuery);
+        Objects.equals(this.rumQuery, tableWidgetRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, tableWidgetRequest.securityQuery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, alias, apmQuery, conditionalFormats, eventQuery, limit, logQuery, networkQuery, order, processQuery, q, rumQuery);
+    return Objects.hash(aggregator, alias, apmQuery, apmStatsQuery, cellDisplayMode, conditionalFormats, eventQuery, limit, logQuery, networkQuery, order, processQuery, q, rumQuery, securityQuery);
   }
 
 
@@ -430,6 +523,8 @@ public class TableWidgetRequest {
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
     sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
+    sb.append("    apmStatsQuery: ").append(toIndentedString(apmStatsQuery)).append("\n");
+    sb.append("    cellDisplayMode: ").append(toIndentedString(cellDisplayMode)).append("\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
@@ -439,6 +534,7 @@ public class TableWidgetRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -447,7 +543,7 @@ public class TableWidgetRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

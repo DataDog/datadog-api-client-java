@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the issuer of a SSL certificate.
@@ -33,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_O_U,
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_S_T
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsSSLCertificateIssuer {
   public static final String JSON_PROPERTY_C = "C";
   private String C;
@@ -55,7 +60,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer C(String C) {
-    
     this.C = C;
     return this;
   }
@@ -80,7 +84,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer CN(String CN) {
-    
     this.CN = CN;
     return this;
   }
@@ -105,7 +108,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer L(String L) {
-    
     this.L = L;
     return this;
   }
@@ -130,7 +132,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer O(String O) {
-    
     this.O = O;
     return this;
   }
@@ -155,7 +156,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer OU(String OU) {
-    
     this.OU = OU;
     return this;
   }
@@ -180,7 +180,6 @@ public class SyntheticsSSLCertificateIssuer {
 
 
   public SyntheticsSSLCertificateIssuer ST(String ST) {
-    
     this.ST = ST;
     return this;
   }
@@ -204,8 +203,11 @@ public class SyntheticsSSLCertificateIssuer {
   }
 
 
+  /**
+   * Return true if this SyntheticsSSLCertificate_issuer object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -245,7 +247,7 @@ public class SyntheticsSSLCertificateIssuer {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

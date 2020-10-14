@@ -23,6 +23,9 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * API tests for HostsApi
@@ -37,6 +40,11 @@ public class HostsApiTest extends V1ApiTest {
 
     // ObjectMapper instance configure to not fail when encountering unknown properties
     private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    @Override
+    public String getTracingEndpoint() {
+        return "hosts";
+    }
 
     @BeforeClass
     public static void initAPI() {
@@ -62,14 +70,22 @@ public class HostsApiTest extends V1ApiTest {
     public void hostsTest() throws ApiException, TestUtils.RetryException {
         long nowMillis = now.toInstant().toEpochMilli()/1000;
         String hostname = getUniqueEntityName();
+        // use TreeMap, as it's sorted and will always serialize in the same way
+        Map<String, Object> payload = new TreeMap<String, Object>() {{
+           put("series", Arrays.asList(
+               new TreeMap<String, Object>() {{
+                   put("host", hostname);
+                   put("metric", "java.client.test.metric");
+                   put("points", Arrays.asList(Arrays.asList((double)nowMillis), 0.0));
+                   put("type", "gauge");
+               }}
+           ));
+        }};
 
         ApiResponse<String> response = sendRequest(
                 "POST",
                 "/api/v1/series",
-                String.format(
-                        "{\"series\":[{\"host\":\"%s\",\"metric\":\"java.client.test.metric\",\"points\":[[%f,0.0]],\"type\":\"gauge\"}]}",
-                        hostname, (double)nowMillis
-                ),
+                payload,
                 new GenericType<String>(String.class)
         );
         assertEquals("{\"status\": \"ok\"}", response.getData());
@@ -272,5 +288,175 @@ public class HostsApiTest extends V1ApiTest {
             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
             assertNotNull(error.getErrors());
         }
+    }
+
+    @Test
+    public void hostsSearchMockedTestIncludeMutedHostsDataFalse() throws ApiException, IOException {
+        String fixtureData = TestUtils.getFixture("v1/client/api/hosts_fixtures/host_search.json");
+        stubFor(get(urlPathEqualTo("/api/v1/hosts"))
+                .withQueryParam("filter", equalTo("filter string"))
+                .withQueryParam("count", equalTo("4"))
+                .withQueryParam("from", equalTo("123"))
+                .withQueryParam("sort_dir", equalTo("asc"))
+                .withQueryParam("sort_field", equalTo("status"))
+                .withQueryParam("start", equalTo("3"))
+                .withQueryParam("include_muted_hosts_data", equalTo("false"))
+                .willReturn(okJson(fixtureData))
+        );
+
+        ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
+        HostListResponse response = unitAPI.listHosts()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L)
+                .includeMutedHostsData(false).execute();
+        HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
+
+        assertEquals(expected, response);
+    }
+
+    @Test
+    public void hostsSearchMockedTestIncludeMutedHostsDataTrue() throws ApiException, IOException {
+        String fixtureData = TestUtils.getFixture("v1/client/api/hosts_fixtures/host_search_with_mutes.json");
+        stubFor(get(urlPathEqualTo("/api/v1/hosts"))
+                .withQueryParam("filter", equalTo("filter string"))
+                .withQueryParam("count", equalTo("4"))
+                .withQueryParam("from", equalTo("123"))
+                .withQueryParam("sort_dir", equalTo("asc"))
+                .withQueryParam("sort_field", equalTo("status"))
+                .withQueryParam("start", equalTo("3"))
+                .withQueryParam("include_muted_hosts_data", equalTo("true"))
+                .willReturn(okJson(fixtureData))
+        );
+
+        ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
+        HostListResponse response = unitAPI.listHosts()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L)
+                .includeMutedHostsData(true).execute();
+        HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
+
+        assertEquals(expected, response);
+    }
+
+    @Test
+    public void hostsSearchMockedTestIncludeMutedHostsDataDefault() throws ApiException, IOException {
+        String fixtureData = TestUtils.getFixture("v1/client/api/hosts_fixtures/host_search_with_mutes.json");
+        stubFor(get(urlPathEqualTo("/api/v1/hosts"))
+                .withQueryParam("filter", equalTo("filter string"))
+                .withQueryParam("count", equalTo("4"))
+                .withQueryParam("from", equalTo("123"))
+                .withQueryParam("sort_dir", equalTo("asc"))
+                .withQueryParam("sort_field", equalTo("status"))
+                .withQueryParam("start", equalTo("3"))
+                .willReturn(okJson(fixtureData))
+        );
+
+        ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
+        HostListResponse response = unitAPI.listHosts()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L).execute();
+        HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
+
+        assertEquals(expected, response);
+    }
+
+    @Test
+    public void hostsSearchMockedTestIncludeHostsMetadataFalse() throws ApiException, IOException {
+        String fixtureData = TestUtils.getFixture("v1/client/api/hosts_fixtures/host_search.json");
+        stubFor(get(urlPathEqualTo("/api/v1/hosts"))
+                .withQueryParam("filter", equalTo("filter string"))
+                .withQueryParam("count", equalTo("4"))
+                .withQueryParam("from", equalTo("123"))
+                .withQueryParam("sort_dir", equalTo("asc"))
+                .withQueryParam("sort_field", equalTo("status"))
+                .withQueryParam("start", equalTo("3"))
+                .withQueryParam("include_hosts_metadata", equalTo("false"))
+                .willReturn(okJson(fixtureData))
+        );
+
+        ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
+        HostListResponse response = unitAPI.listHosts()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L)
+                .includeHostsMetadata(false).execute();
+        HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
+
+        assertEquals(expected, response);
+    }
+
+    @Test
+    public void hostsSearchMockedTestIncludeHostsMetadataTrue() throws ApiException, IOException {
+        String fixtureData = TestUtils.getFixture("v1/client/api/hosts_fixtures/host_search_with_metadata.json");
+        stubFor(get(urlPathEqualTo("/api/v1/hosts"))
+                .withQueryParam("filter", equalTo("filter string"))
+                .withQueryParam("count", equalTo("4"))
+                .withQueryParam("from", equalTo("123"))
+                .withQueryParam("sort_dir", equalTo("asc"))
+                .withQueryParam("sort_field", equalTo("status"))
+                .withQueryParam("start", equalTo("3"))
+                .withQueryParam("include_hosts_metadata", equalTo("true"))
+                .willReturn(okJson(fixtureData))
+        );
+
+        ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
+        HostListResponse response = unitAPI.listHosts()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L)
+                .includeHostsMetadata(true).execute();
+        HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
+
+        assertEquals(expected, response);
+    }
+
+    @Test
+    public void hostsSearchMockedTestIncludeHostsMetadataDefault() throws ApiException, IOException {
+        String fixtureData = TestUtils.getFixture("v1/client/api/hosts_fixtures/host_search_with_metadata.json");
+        stubFor(get(urlPathEqualTo("/api/v1/hosts"))
+                .withQueryParam("filter", equalTo("filter string"))
+                .withQueryParam("count", equalTo("4"))
+                .withQueryParam("from", equalTo("123"))
+                .withQueryParam("sort_dir", equalTo("asc"))
+                .withQueryParam("sort_field", equalTo("status"))
+                .withQueryParam("start", equalTo("3"))
+                .willReturn(okJson(fixtureData))
+        );
+
+        ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
+        HostListResponse response = unitAPI.listHosts()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L).execute();
+        HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
+
+        assertEquals(expected, response);
     }
 }

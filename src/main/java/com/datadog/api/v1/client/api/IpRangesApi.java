@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IpRangesApi {
   private ApiClient apiClient;
 
@@ -81,7 +81,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
 
     return apiClient.invokeAPI("IpRangesApi.getIPRanges", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetIPRangesRequest {
@@ -96,7 +96,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> List of IP ranges. </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        </table>
      
      */
@@ -112,7 +112,7 @@ private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> List of IP ranges. </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        </table>
 
      */

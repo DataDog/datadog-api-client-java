@@ -13,13 +13,18 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Attributes of the created user.
@@ -30,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UserCreateAttributes.JSON_PROPERTY_NAME,
   UserCreateAttributes.JSON_PROPERTY_TITLE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserCreateAttributes {
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
@@ -43,7 +48,6 @@ public class UserCreateAttributes {
 
 
   public UserCreateAttributes email(String email) {
-    
     this.email = email;
     return this;
   }
@@ -52,10 +56,9 @@ public class UserCreateAttributes {
    * The email of the user.
    * @return email
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The email of the user.")
+  @ApiModelProperty(example = "joe.doe@example.com", required = true, value = "The email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmail() {
     return email;
@@ -68,7 +71,6 @@ public class UserCreateAttributes {
 
 
   public UserCreateAttributes name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -93,7 +95,6 @@ public class UserCreateAttributes {
 
 
   public UserCreateAttributes title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -117,8 +118,11 @@ public class UserCreateAttributes {
   }
 
 
+  /**
+   * Return true if this UserCreateAttributes object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -152,7 +156,7 @@ public class UserCreateAttributes {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,8 +13,12 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import io.swagger.annotations.ApiModel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -34,13 +38,17 @@ public enum SyntheticsAssertionOperator {
   
   LESS_THAN("lessThan"),
   
+  MORE_THAN("moreThan"),
+  
   MATCHES("matches"),
   
   DOES_NOT_MATCH("doesNotMatch"),
   
   VALIDATES("validates"),
   
-  IS_IN_MORE_DAYS_THAN("isInMoreThan");
+  IS_IN_MORE_DAYS_THAN("isInMoreThan"),
+  
+  IS_IN_LESS_DAYS_THAN("isInLessThan");
 
   private String value;
 

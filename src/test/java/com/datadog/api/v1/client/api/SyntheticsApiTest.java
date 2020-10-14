@@ -38,15 +38,19 @@ public class SyntheticsApiTest extends V1ApiTest {
     private SyntheticsTestDetails apiTestConfig = new SyntheticsTestDetails()
             .config(new SyntheticsTestConfig()
                     .assertions(Arrays.asList(
-                            new SyntheticsAssertion()
-                                    .operator(SyntheticsAssertionOperator.IS)
-                                    .property("content-type")
-                                    .target("text/html")
-                                    .type(SyntheticsAssertionType.HEADER),
-                            new SyntheticsAssertion()
-                                    .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                    .target(2000)
-                                    .type(SyntheticsAssertionType.RESPONSE_TIME)
+                            new SyntheticsAssertion(
+                                    new SyntheticsAssertionTarget()
+                                            .operator(SyntheticsAssertionOperator.IS)
+                                            .property("content-type")
+                                            .target("text/html")
+                                            .type(SyntheticsAssertionType.HEADER)
+                        ),
+                            new SyntheticsAssertion(
+                                    new SyntheticsAssertionTarget()
+                                            .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                            .target(2000)
+                                            .type(SyntheticsAssertionType.RESPONSE_TIME)
+                        )
                     ))
                     .request(new SyntheticsTestRequest()
                             .headers(new HashMap<String, String>() {{put("testingJavaClient", "true");}})
@@ -62,7 +66,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                     .allowInsecure(true)
                     .followRedirects(true)
                     .minFailureDuration(10L)
-                    .minLocationFailed(10L)
+                    .minLocationFailed(1L)
                     .retry(new SyntheticsTestOptionsRetry()
                             .count(3L)
                             .interval(10.0)
@@ -71,6 +75,29 @@ public class SyntheticsApiTest extends V1ApiTest {
             )
             .subtype(SyntheticsTestDetailsSubType.HTTP)
             .tags(Arrays.asList("testing:api"))
+            .type(SyntheticsTestDetailsType.API);
+    private SyntheticsTestDetails subtypeTcpApiTestConfig = new SyntheticsTestDetails()
+            .config(new SyntheticsTestConfig()
+                    .assertions(Arrays.asList(
+                            new SyntheticsAssertion(
+                                    new SyntheticsAssertionTarget()
+                                            .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                            .target(2000)
+                                            .type(SyntheticsAssertionType.RESPONSE_TIME)
+                            )
+                    ))
+                    .request(new SyntheticsTestRequest()
+                            .host("agent-intake.logs.datadoghq.com")
+                            .port(443L)
+                    )
+            )
+            .locations(Arrays.asList("aws:us-east-2"))
+            .message("testing Synthetics API test Subtype TCP - this is message")
+            .options(new SyntheticsTestOptions()
+                    .tickEvery(SyntheticsTickInterval.MINUTE)
+            )
+            .subtype(SyntheticsTestDetailsSubType.TCP)
+            .tags(Arrays.asList("testing:api-tcp"))
             .type(SyntheticsTestDetailsType.API);
     private SyntheticsTestDetails browserTestConfig = new SyntheticsTestDetails()
             .config(new SyntheticsTestConfig()
@@ -88,7 +115,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                     .deviceIds(Arrays.asList(SyntheticsDeviceID.TABLET))
                     .followRedirects(true)
                     .minFailureDuration(10L)
-                    .minLocationFailed(10L)
+                    .minLocationFailed(1L)
                     .retry(new SyntheticsTestOptionsRetry()
                             .count(3L)
                             .interval(10.0)
@@ -97,6 +124,11 @@ public class SyntheticsApiTest extends V1ApiTest {
             )
             .tags(Arrays.asList("testing:browser"))
             .type(SyntheticsTestDetailsType.BROWSER);
+
+    @Override
+    public String getTracingEndpoint() {
+        return "synthetics";
+    }
 
     @Before
     public void resetDeleteSyntheticsTests() {
@@ -212,6 +244,98 @@ public class SyntheticsApiTest extends V1ApiTest {
         assertEquals(result.getCheckTime(), Double.valueOf("1580204310361"));
         assertEquals(result.getCheckVersion().intValue(), 2);
         assertEquals(result.getResultId(), "7761116396307201795");
+        assertEquals(result.getResult().getEventType(), SyntheticsTestProcessStatus.FINISHED);
+
+        // Delete API test
+        api.deleteTests().body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId))).execute();
+    }
+
+    @Test
+    public void testSyntheticsSubtypeTcpAPILifecycle() throws ApiException, IOException {
+        SyntheticsTestDetails synt;
+        String publicId;
+        Boolean pauseStatus;
+        SyntheticsGetAPITestLatestResultsResponse latestResults;
+        SyntheticsAPITestResultFull singleResult;
+        File recentResultsFixture = new File(getClass()
+                .getResource("synthetics_fixtures/api_test_subtype_tcp_recent_results.json").getFile());
+        File singleResultFixture = new File(getClass()
+                .getResource("synthetics_fixtures/api_test_subtype_tcp_single_result.json").getFile());
+
+        // Create API test
+        String apiTestName = getUniqueEntityName();
+        subtypeTcpApiTestConfig.setName(apiTestName);
+        synt = api.createTest().body(subtypeTcpApiTestConfig).execute();
+        publicId = synt.getPublicId();
+        deleteSyntheticsTests.add(publicId);
+        assertEquals(apiTestName, synt.getName());
+
+        // Update API test
+        synt.setName(subtypeTcpApiTestConfig.getName() + "-updated");
+        // if we want to reuse the entity returned by the API, we must set these fields to null, as they can't be sent back
+        synt.setMonitorId(null);
+        synt.setPublicId(null);
+        synt = api.updateTest(publicId).body(synt).execute();
+        assertEquals(subtypeTcpApiTestConfig.getName() + "-updated", synt.getName());
+
+        assertEquals(1, synt.getConfig().getAssertions().size());
+
+        // Get API test
+        synt = api.getTest(publicId).execute();
+        assertEquals(subtypeTcpApiTestConfig.getName() + "-updated", synt.getName());
+
+        // NOTE: API tests are started by default, so we have to stop it first
+        // Stop API test
+        pauseStatus = api.updateTestPauseStatus(publicId)
+                .body(new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.PAUSED))
+                .execute();
+        assertEquals(true, pauseStatus);
+
+        // Start API test
+        pauseStatus = api.updateTestPauseStatus(publicId)
+                .body(new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE))
+                .execute();
+        assertEquals(true, pauseStatus);
+
+        // Get the most recent API test results
+        latestResults = api.getAPITestLatestResults(publicId)
+                .fromTs(0L)
+                .toTs(now.toInstant().toEpochMilli())
+                .probeDc(Arrays.asList("aws:us-east-2"))
+                .execute();
+        // API tests sometimes have a delay before getting first result, so we use a mock response to verify
+        // that deserialization works properly
+        try {
+            generalApiClient
+                    .getJSON()
+                    .getContext(null)
+                    .readValue(recentResultsFixture, SyntheticsGetAPITestLatestResultsResponse.class);
+        } catch (Exception e) {
+            assertNull(e);
+        }
+
+        // Get a specific API test result
+        // Again, using a mock response to just test deserialization
+        try {
+            generalApiClient
+                    .getJSON()
+                    .getContext(null)
+                    .readValue(singleResultFixture, SyntheticsAPITestResultFull.class);
+        } catch (Exception e) {
+            assertNull(e);
+        }
+
+        // Retrieve a single result. Use a mock as it takes time for a result to be available
+        stubFor(get(urlPathEqualTo("/api/v1/synthetics/tests/test-synthetics-id/results/test-result-id"))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/synthetics_fixtures/api_test_subtype_tcp_single_result.json")))
+        );
+        SyntheticsAPITestResultFull result = unitApi.getAPITestResult("test-synthetics-id", "test-result-id").execute();
+
+        // Assert a few of the returned attributes unmarshall properly
+        assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.UNTRIGGERED);
+        assertEquals(result.getCheckTime(), Double.valueOf("1594759676042"));
+        assertEquals(result.getCheckVersion().intValue(), 2);
+        assertEquals(result.getResultId(), "8846149531307597251");
         assertEquals(result.getResult().getEventType(), SyntheticsTestProcessStatus.FINISHED);
 
         // Delete API test

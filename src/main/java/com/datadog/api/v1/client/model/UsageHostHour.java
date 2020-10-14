@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Number of hosts/containers recorded for each hour for a given organization.
@@ -37,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UsageHostHour.JSON_PROPERTY_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_HOUR
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageHostHour {
   public static final String JSON_PROPERTY_AGENT_HOST_COUNT = "agent_host_count";
   private Long agentHostCount;
@@ -68,7 +73,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour agentHostCount(Long agentHostCount) {
-    
     this.agentHostCount = agentHostCount;
     return this;
   }
@@ -93,7 +97,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour alibabaHostCount(Long alibabaHostCount) {
-    
     this.alibabaHostCount = alibabaHostCount;
     return this;
   }
@@ -118,7 +121,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour apmHostCount(Long apmHostCount) {
-    
     this.apmHostCount = apmHostCount;
     return this;
   }
@@ -143,7 +145,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour awsHostCount(Long awsHostCount) {
-    
     this.awsHostCount = awsHostCount;
     return this;
   }
@@ -168,7 +169,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour azureHostCount(Long azureHostCount) {
-    
     this.azureHostCount = azureHostCount;
     return this;
   }
@@ -193,17 +193,16 @@ public class UsageHostHour {
 
 
   public UsageHostHour containerCount(Long containerCount) {
-    
     this.containerCount = containerCount;
     return this;
   }
 
    /**
-   * Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of &#x60;agent_host_count&#x60;, &#x60;aws_host_count&#x60;, and &#x60;gcp_host_count&#x60;.
+   * Shows the total number of containers reported by the Docker integration during the hour.
    * @return containerCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.")
+  @ApiModelProperty(value = "Shows the total number of containers reported by the Docker integration during the hour.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -218,7 +217,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour gcpHostCount(Long gcpHostCount) {
-    
     this.gcpHostCount = gcpHostCount;
     return this;
   }
@@ -243,17 +241,16 @@ public class UsageHostHour {
 
 
   public UsageHostHour hostCount(Long hostCount) {
-    
     this.hostCount = hostCount;
     return this;
   }
 
    /**
-   * Shows the total number of containers reporting via the Docker integration during the hour.
+   * Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of &#x60;agent_host_count&#x60;, &#x60;aws_host_count&#x60;, and &#x60;gcp_host_count&#x60;.
    * @return hostCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the total number of containers reporting via the Docker integration during the hour.")
+  @ApiModelProperty(value = "Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.")
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -268,7 +265,6 @@ public class UsageHostHour {
 
 
   public UsageHostHour hour(OffsetDateTime hour) {
-    
     this.hour = hour;
     return this;
   }
@@ -292,8 +288,11 @@ public class UsageHostHour {
   }
 
 
+  /**
+   * Return true if this UsageHostHour object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -339,7 +338,7 @@ public class UsageHostHour {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOHistoryMetricsSeries;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A &#x60;metric&#x60; based SLO history response.
@@ -38,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SLOHistoryMetrics.JSON_PROPERTY_RESP_VERSION,
   SLOHistoryMetrics.JSON_PROPERTY_TIMES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryMetrics {
   public static final String JSON_PROPERTY_DENOMINATOR = "denominator";
   private SLOHistoryMetricsSeries denominator;
@@ -66,7 +71,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics denominator(SLOHistoryMetricsSeries denominator) {
-    
     this.denominator = denominator;
     return this;
   }
@@ -90,7 +94,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics interval(Long interval) {
-    
     this.interval = interval;
     return this;
   }
@@ -114,7 +117,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -139,7 +141,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics numerator(SLOHistoryMetricsSeries numerator) {
-    
     this.numerator = numerator;
     return this;
   }
@@ -163,7 +164,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -187,7 +187,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics resType(String resType) {
-    
     this.resType = resType;
     return this;
   }
@@ -211,7 +210,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics respVersion(Long respVersion) {
-    
     this.respVersion = respVersion;
     return this;
   }
@@ -235,7 +233,6 @@ public class SLOHistoryMetrics {
 
 
   public SLOHistoryMetrics times(List<Double> times) {
-    
     this.times = times;
     return this;
   }
@@ -263,8 +260,11 @@ public class SLOHistoryMetrics {
   }
 
 
+  /**
+   * Return true if this SLOHistoryMetrics object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -308,7 +308,7 @@ public class SLOHistoryMetrics {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

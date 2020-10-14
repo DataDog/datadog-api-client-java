@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The number of synthetics tests run for each hour for a given organization.
@@ -30,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UsageSyntheticsHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
   UsageSyntheticsHour.JSON_PROPERTY_HOUR
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSyntheticsHour {
   public static final String JSON_PROPERTY_CHECK_CALLS_COUNT = "check_calls_count";
   private Long checkCallsCount;
@@ -40,7 +45,6 @@ public class UsageSyntheticsHour {
 
 
   public UsageSyntheticsHour checkCallsCount(Long checkCallsCount) {
-    
     this.checkCallsCount = checkCallsCount;
     return this;
   }
@@ -65,7 +69,6 @@ public class UsageSyntheticsHour {
 
 
   public UsageSyntheticsHour hour(OffsetDateTime hour) {
-    
     this.hour = hour;
     return this;
   }
@@ -89,8 +92,11 @@ public class UsageSyntheticsHour {
   }
 
 
+  /**
+   * Return true if this UsageSyntheticsHour object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -122,7 +128,7 @@ public class UsageSyntheticsHour {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

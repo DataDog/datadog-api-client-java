@@ -13,11 +13,14 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsSSLCertificateIssuer;
 import com.datadog.api.v1.client.model.SyntheticsSSLCertificateSubject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,6 +28,8 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the SSL certificate used for a Synthetic test.
@@ -44,7 +49,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsSSLCertificate.JSON_PROPERTY_VALID_FROM,
   SyntheticsSSLCertificate.JSON_PROPERTY_VALID_TO
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsSSLCertificate {
   public static final String JSON_PROPERTY_CIPHER = "cipher";
   private String cipher;
@@ -84,7 +89,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate cipher(String cipher) {
-    
     this.cipher = cipher;
     return this;
   }
@@ -109,7 +113,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate exponent(Double exponent) {
-    
     this.exponent = exponent;
     return this;
   }
@@ -134,7 +137,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate extKeyUsage(List<String> extKeyUsage) {
-    
     this.extKeyUsage = extKeyUsage;
     return this;
   }
@@ -167,7 +169,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate fingerprint(String fingerprint) {
-    
     this.fingerprint = fingerprint;
     return this;
   }
@@ -192,7 +193,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate fingerprint256(String fingerprint256) {
-    
     this.fingerprint256 = fingerprint256;
     return this;
   }
@@ -217,7 +217,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate issuer(SyntheticsSSLCertificateIssuer issuer) {
-    
     this.issuer = issuer;
     return this;
   }
@@ -242,7 +241,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate modulus(String modulus) {
-    
     this.modulus = modulus;
     return this;
   }
@@ -267,7 +265,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate protocol(String protocol) {
-    
     this.protocol = protocol;
     return this;
   }
@@ -292,7 +289,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate serialNumber(String serialNumber) {
-    
     this.serialNumber = serialNumber;
     return this;
   }
@@ -317,7 +313,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate subject(SyntheticsSSLCertificateSubject subject) {
-    
     this.subject = subject;
     return this;
   }
@@ -342,7 +337,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate validFrom(OffsetDateTime validFrom) {
-    
     this.validFrom = validFrom;
     return this;
   }
@@ -367,7 +361,6 @@ public class SyntheticsSSLCertificate {
 
 
   public SyntheticsSSLCertificate validTo(OffsetDateTime validTo) {
-    
     this.validTo = validTo;
     return this;
   }
@@ -391,8 +384,11 @@ public class SyntheticsSSLCertificate {
   }
 
 
+  /**
+   * Return true if this SyntheticsSSLCertificate object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -444,7 +440,7 @@ public class SyntheticsSSLCertificate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

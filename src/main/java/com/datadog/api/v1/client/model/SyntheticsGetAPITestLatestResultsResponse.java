@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsAPITestResultShort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object with the latest Synthetic API test run.
@@ -32,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_RESULTS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsGetAPITestLatestResultsResponse {
   public static final String JSON_PROPERTY_LAST_TIMESTAMP_FETCHED = "last_timestamp_fetched";
   private Long lastTimestampFetched;
@@ -42,7 +47,6 @@ public class SyntheticsGetAPITestLatestResultsResponse {
 
 
   public SyntheticsGetAPITestLatestResultsResponse lastTimestampFetched(Long lastTimestampFetched) {
-    
     this.lastTimestampFetched = lastTimestampFetched;
     return this;
   }
@@ -67,7 +71,6 @@ public class SyntheticsGetAPITestLatestResultsResponse {
 
 
   public SyntheticsGetAPITestLatestResultsResponse results(List<SyntheticsAPITestResultShort> results) {
-    
     this.results = results;
     return this;
   }
@@ -99,8 +102,11 @@ public class SyntheticsGetAPITestLatestResultsResponse {
   }
 
 
+  /**
+   * Return true if this SyntheticsGetAPITestLatestResultsResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -132,7 +138,7 @@ public class SyntheticsGetAPITestLatestResultsResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

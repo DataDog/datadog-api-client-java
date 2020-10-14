@@ -13,14 +13,19 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Attributes of the created role.
@@ -31,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RoleCreateAttributes.JSON_PROPERTY_MODIFIED_AT,
   RoleCreateAttributes.JSON_PROPERTY_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleCreateAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -76,7 +81,6 @@ public class RoleCreateAttributes {
 
 
   public RoleCreateAttributes name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -85,10 +89,9 @@ public class RoleCreateAttributes {
    * Name of the role.
    * @return name
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the role.")
+  @ApiModelProperty(example = "developers", required = true, value = "Name of the role.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -100,8 +103,11 @@ public class RoleCreateAttributes {
   }
 
 
+  /**
+   * Return true if this RoleCreateAttributes object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -135,7 +141,7 @@ public class RoleCreateAttributes {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

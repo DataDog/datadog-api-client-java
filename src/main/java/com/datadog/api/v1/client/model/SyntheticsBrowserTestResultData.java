@@ -13,17 +13,22 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsDevice;
 import com.datadog.api.v1.client.model.SyntheticsStepDetail;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object containing results for your Synthetic browser test.
@@ -42,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsBrowserTestResultData.JSON_PROPERTY_THUMBNAILS_BUCKET_KEY,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_TIME_TO_INTERACTIVE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserTestResultData {
   public static final String JSON_PROPERTY_BROWSER_TYPE = "browserType";
   private String browserType;
@@ -79,7 +84,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData browserType(String browserType) {
-    
     this.browserType = browserType;
     return this;
   }
@@ -104,7 +108,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData browserVersion(String browserVersion) {
-    
     this.browserVersion = browserVersion;
     return this;
   }
@@ -129,7 +132,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData device(SyntheticsDevice device) {
-    
     this.device = device;
     return this;
   }
@@ -154,7 +156,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData duration(Double duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -179,7 +180,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData error(String error) {
-    
     this.error = error;
     return this;
   }
@@ -204,7 +204,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData passed(Boolean passed) {
-    
     this.passed = passed;
     return this;
   }
@@ -229,7 +228,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData receivedEmailCount(Long receivedEmailCount) {
-    
     this.receivedEmailCount = receivedEmailCount;
     return this;
   }
@@ -254,7 +252,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData startUrl(String startUrl) {
-    
     this.startUrl = startUrl;
     return this;
   }
@@ -279,7 +276,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData stepDetails(List<SyntheticsStepDetail> stepDetails) {
-    
     this.stepDetails = stepDetails;
     return this;
   }
@@ -312,7 +308,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData thumbnailsBucketKey(Boolean thumbnailsBucketKey) {
-    
     this.thumbnailsBucketKey = thumbnailsBucketKey;
     return this;
   }
@@ -337,7 +332,6 @@ public class SyntheticsBrowserTestResultData {
 
 
   public SyntheticsBrowserTestResultData timeToInteractive(Double timeToInteractive) {
-    
     this.timeToInteractive = timeToInteractive;
     return this;
   }
@@ -361,8 +355,11 @@ public class SyntheticsBrowserTestResultData {
   }
 
 
+  /**
+   * Return true if this SyntheticsBrowserTestResultData object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -412,7 +409,7 @@ public class SyntheticsBrowserTestResultData {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

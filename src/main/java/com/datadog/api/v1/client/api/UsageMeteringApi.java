@@ -11,6 +11,8 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import java.time.OffsetDateTime;
 import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
+import com.datadog.api.v1.client.model.UsageBillableSummaryResponse;
+import com.datadog.api.v1.client.model.UsageCustomReportsResponse;
 import com.datadog.api.v1.client.model.UsageFargateResponse;
 import com.datadog.api.v1.client.model.UsageHostsResponse;
 import com.datadog.api.v1.client.model.UsageLambdaResponse;
@@ -18,8 +20,12 @@ import com.datadog.api.v1.client.model.UsageLogsByIndexResponse;
 import com.datadog.api.v1.client.model.UsageLogsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkFlowsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkHostsResponse;
+import com.datadog.api.v1.client.model.UsageProfilingResponse;
 import com.datadog.api.v1.client.model.UsageRumSessionsResponse;
 import com.datadog.api.v1.client.model.UsageSNMPResponse;
+import com.datadog.api.v1.client.model.UsageSort;
+import com.datadog.api.v1.client.model.UsageSortDirection;
+import com.datadog.api.v1.client.model.UsageSpecifiedCustomReportsResponse;
 import com.datadog.api.v1.client.model.UsageSummaryResponse;
 import com.datadog.api.v1.client.model.UsageSyntheticsAPIResponse;
 import com.datadog.api.v1.client.model.UsageSyntheticsBrowserResponse;
@@ -27,13 +33,14 @@ import com.datadog.api.v1.client.model.UsageSyntheticsResponse;
 import com.datadog.api.v1.client.model.UsageTimeseriesResponse;
 import com.datadog.api.v1.client.model.UsageTopAvgMetricsResponse;
 import com.datadog.api.v1.client.model.UsageTraceResponse;
+import com.datadog.api.v1.client.model.UsageTracingWithoutLimitsResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageMeteringApi {
   private ApiClient apiClient;
 
@@ -63,6 +70,626 @@ public class UsageMeteringApi {
     this.apiClient = apiClient;
   }
 
+
+private ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInfo(Long pageSize, Long pageNumber, UsageSortDirection sortDir, UsageSort sort) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/daily_custom_reports";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getDailyCustomReports");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageCustomReportsResponse> localVarReturnType = new GenericType<UsageCustomReportsResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getDailyCustomReports", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetDailyCustomReportsRequest {
+    private Long pageSize;
+    private Long pageNumber;
+    private UsageSortDirection sortDir;
+    private UsageSort sort;
+
+    private APIgetDailyCustomReportsRequest() {
+    }
+
+    /**
+     * Set pageSize
+     * @param pageSize The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;. (optional)
+     * @return APIgetDailyCustomReportsRequest
+     */
+    public APIgetDailyCustomReportsRequest pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber
+     * @param pageNumber The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. (optional)
+     * @return APIgetDailyCustomReportsRequest
+     */
+    public APIgetDailyCustomReportsRequest pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set sortDir
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to desc)
+     * @return APIgetDailyCustomReportsRequest
+     */
+    public APIgetDailyCustomReportsRequest sortDir(UsageSortDirection sortDir) {
+      this.sortDir = sortDir;
+      return this;
+    }
+
+    /**
+     * Set sort
+     * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. (optional, default to start_date)
+     * @return APIgetDailyCustomReportsRequest
+     */
+    public APIgetDailyCustomReportsRequest sort(UsageSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Execute getDailyCustomReports request
+     * @return UsageCustomReportsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageCustomReportsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getDailyCustomReports request with HTTP info returned
+     * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageCustomReportsResponse> executeWithHttpInfo() throws ApiException {
+      return getDailyCustomReportsWithHttpInfo(pageSize, pageNumber, sortDir, sort);
+    }
+  }
+
+  /**
+   * Get the list of available daily custom reports
+   * Get daily custom reports.
+   * @return getDailyCustomReportsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetDailyCustomReportsRequest getDailyCustomReports() throws ApiException {
+    String operationId = "getDailyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIgetDailyCustomReportsRequest();
+  }
+
+private ApiResponse<UsageCustomReportsResponse> getMonthlyCustomReportsWithHttpInfo(Long pageSize, Long pageNumber, UsageSortDirection sortDir, UsageSort sort) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/monthly_custom_reports";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyCustomReports");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageCustomReportsResponse> localVarReturnType = new GenericType<UsageCustomReportsResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getMonthlyCustomReports", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetMonthlyCustomReportsRequest {
+    private Long pageSize;
+    private Long pageNumber;
+    private UsageSortDirection sortDir;
+    private UsageSort sort;
+
+    private APIgetMonthlyCustomReportsRequest() {
+    }
+
+    /**
+     * Set pageSize
+     * @param pageSize The number of files to return in the response &#x60;[default&#x3D;60].&#x60; (optional)
+     * @return APIgetMonthlyCustomReportsRequest
+     */
+    public APIgetMonthlyCustomReportsRequest pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber
+     * @param pageNumber The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. (optional)
+     * @return APIgetMonthlyCustomReportsRequest
+     */
+    public APIgetMonthlyCustomReportsRequest pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set sortDir
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to desc)
+     * @return APIgetMonthlyCustomReportsRequest
+     */
+    public APIgetMonthlyCustomReportsRequest sortDir(UsageSortDirection sortDir) {
+      this.sortDir = sortDir;
+      return this;
+    }
+
+    /**
+     * Set sort
+     * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. (optional, default to start_date)
+     * @return APIgetMonthlyCustomReportsRequest
+     */
+    public APIgetMonthlyCustomReportsRequest sort(UsageSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Execute getMonthlyCustomReports request
+     * @return UsageCustomReportsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageCustomReportsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getMonthlyCustomReports request with HTTP info returned
+     * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageCustomReportsResponse> executeWithHttpInfo() throws ApiException {
+      return getMonthlyCustomReportsWithHttpInfo(pageSize, pageNumber, sortDir, sort);
+    }
+  }
+
+  /**
+   * Get the list of available monthly custom reports
+   * Get monthly custom reports.
+   * @return getMonthlyCustomReportsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetMonthlyCustomReportsRequest getMonthlyCustomReports() throws ApiException {
+    String operationId = "getMonthlyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIgetMonthlyCustomReportsRequest();
+  }
+
+private ApiResponse<UsageSpecifiedCustomReportsResponse> getSpecifiedDailyCustomReportsWithHttpInfo(String reportId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'reportId' is set
+    if (reportId == null) {
+      throw new ApiException(400, "Missing the required parameter 'reportId' when calling getSpecifiedDailyCustomReports");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/daily_custom_reports/{report_id}"
+      .replaceAll("\\{" + "report_id" + "\\}", apiClient.escapeString(reportId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedDailyCustomReports");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageSpecifiedCustomReportsResponse> localVarReturnType = new GenericType<UsageSpecifiedCustomReportsResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getSpecifiedDailyCustomReports", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetSpecifiedDailyCustomReportsRequest {
+    private String reportId;
+
+    private APIgetSpecifiedDailyCustomReportsRequest(String reportId) {
+      this.reportId = reportId;
+    }
+
+    /**
+     * Execute getSpecifiedDailyCustomReports request
+     * @return UsageSpecifiedCustomReportsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageSpecifiedCustomReportsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getSpecifiedDailyCustomReports request with HTTP info returned
+     * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageSpecifiedCustomReportsResponse> executeWithHttpInfo() throws ApiException {
+      return getSpecifiedDailyCustomReportsWithHttpInfo(reportId);
+    }
+  }
+
+  /**
+   * Get specified daily custom reports
+   * Get specified daily custom reports.
+   * @param reportId The specified ID to search results for. (required)
+   * @return getSpecifiedDailyCustomReportsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetSpecifiedDailyCustomReportsRequest getSpecifiedDailyCustomReports(String reportId) throws ApiException {
+    String operationId = "getSpecifiedDailyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIgetSpecifiedDailyCustomReportsRequest(reportId);
+  }
+
+private ApiResponse<UsageSpecifiedCustomReportsResponse> getSpecifiedMonthlyCustomReportsWithHttpInfo(String reportId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'reportId' is set
+    if (reportId == null) {
+      throw new ApiException(400, "Missing the required parameter 'reportId' when calling getSpecifiedMonthlyCustomReports");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/monthly_custom_reports/{report_id}"
+      .replaceAll("\\{" + "report_id" + "\\}", apiClient.escapeString(reportId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedMonthlyCustomReports");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageSpecifiedCustomReportsResponse> localVarReturnType = new GenericType<UsageSpecifiedCustomReportsResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getSpecifiedMonthlyCustomReports", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetSpecifiedMonthlyCustomReportsRequest {
+    private String reportId;
+
+    private APIgetSpecifiedMonthlyCustomReportsRequest(String reportId) {
+      this.reportId = reportId;
+    }
+
+    /**
+     * Execute getSpecifiedMonthlyCustomReports request
+     * @return UsageSpecifiedCustomReportsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageSpecifiedCustomReportsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getSpecifiedMonthlyCustomReports request with HTTP info returned
+     * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageSpecifiedCustomReportsResponse> executeWithHttpInfo() throws ApiException {
+      return getSpecifiedMonthlyCustomReportsWithHttpInfo(reportId);
+    }
+  }
+
+  /**
+   * Get specified monthly custom reports
+   * Get specified monthly custom reports.
+   * @param reportId The specified ID to search results for. (required)
+   * @return getSpecifiedMonthlyCustomReportsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetSpecifiedMonthlyCustomReportsRequest getSpecifiedMonthlyCustomReports(String reportId) throws ApiException {
+    String operationId = "getSpecifiedMonthlyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIgetSpecifiedMonthlyCustomReportsRequest(reportId);
+  }
+
+private ApiResponse<UsageTracingWithoutLimitsResponse> getTracingWithoutLimitsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(400, "Missing the required parameter 'startHr' when calling getTracingWithoutLimits");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/tracing-without-limits";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getTracingWithoutLimits");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageTracingWithoutLimitsResponse> localVarReturnType = new GenericType<UsageTracingWithoutLimitsResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getTracingWithoutLimits", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetTracingWithoutLimitsRequest {
+    private OffsetDateTime startHr;
+    private OffsetDateTime endHr;
+
+    private APIgetTracingWithoutLimitsRequest() {
+    }
+
+    /**
+     * Set startHr
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. (required)
+     * @return APIgetTracingWithoutLimitsRequest
+     */
+    public APIgetTracingWithoutLimitsRequest startHr(OffsetDateTime startHr) {
+      this.startHr = startHr;
+      return this;
+    }
+
+    /**
+     * Set endHr
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. (optional)
+     * @return APIgetTracingWithoutLimitsRequest
+     */
+    public APIgetTracingWithoutLimitsRequest endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Execute getTracingWithoutLimits request
+     * @return UsageTracingWithoutLimitsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageTracingWithoutLimitsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getTracingWithoutLimits request with HTTP info returned
+     * @return ApiResponse&lt;UsageTracingWithoutLimitsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageTracingWithoutLimitsResponse> executeWithHttpInfo() throws ApiException {
+      return getTracingWithoutLimitsWithHttpInfo(startHr, endHr);
+    }
+  }
+
+  /**
+   * Get hourly usage for tracing without limits
+   * Get hourly usage for tracing without limits.
+   * @return getTracingWithoutLimitsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetTracingWithoutLimitsRequest getTracingWithoutLimits() throws ApiException {
+    return new APIgetTracingWithoutLimitsRequest();
+  }
 
 private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
     Object localVarPostBody = null;
@@ -106,7 +733,7 @@ private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageAnalyzedLogs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageAnalyzedLogsRequest {
@@ -145,7 +772,7 @@ private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -163,7 +790,7 @@ private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -182,6 +809,109 @@ private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
    */
   public APIgetUsageAnalyzedLogsRequest getUsageAnalyzedLogs() throws ApiException {
     return new APIgetUsageAnalyzedLogsRequest();
+  }
+
+private ApiResponse<UsageBillableSummaryResponse> getUsageBillableSummaryWithHttpInfo(OffsetDateTime month) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/billable-summary";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageBillableSummary");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageBillableSummaryResponse> localVarReturnType = new GenericType<UsageBillableSummaryResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageBillableSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetUsageBillableSummaryRequest {
+    private OffsetDateTime month;
+
+    private APIgetUsageBillableSummaryRequest() {
+    }
+
+    /**
+     * Set month
+     * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month. (optional)
+     * @return APIgetUsageBillableSummaryRequest
+     */
+    public APIgetUsageBillableSummaryRequest month(OffsetDateTime month) {
+      this.month = month;
+      return this;
+    }
+
+    /**
+     * Execute getUsageBillableSummary request
+     * @return UsageBillableSummaryResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageBillableSummaryResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getUsageBillableSummary request with HTTP info returned
+     * @return ApiResponse&lt;UsageBillableSummaryResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageBillableSummaryResponse> executeWithHttpInfo() throws ApiException {
+      return getUsageBillableSummaryWithHttpInfo(month);
+    }
+  }
+
+  /**
+   * Get billable usage across your multi-org account
+   * Get billable usage across your multi-org account.
+   * @return getUsageBillableSummaryRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetUsageBillableSummaryRequest getUsageBillableSummary() throws ApiException {
+    return new APIgetUsageBillableSummaryRequest();
   }
 
 private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
@@ -226,7 +956,7 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageFargate", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageFargateRequest {
@@ -265,7 +995,7 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -283,7 +1013,7 @@ private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(OffsetDate
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -346,7 +1076,7 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageHostsRequest {
@@ -385,7 +1115,7 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -403,7 +1133,7 @@ private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(OffsetDateTime
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -466,7 +1196,7 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageLambda", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageLambdaRequest {
@@ -505,7 +1235,7 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -523,7 +1253,7 @@ private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTi
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -586,7 +1316,7 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageLogs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageLogsRequest {
@@ -625,7 +1355,7 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -643,7 +1373,7 @@ private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(OffsetDateTime s
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -707,7 +1437,7 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageLogsByIndex", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageLogsByIndexRequest {
@@ -757,7 +1487,7 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -775,7 +1505,7 @@ private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(Of
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -838,7 +1568,7 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageNetworkFlows", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageNetworkFlowsRequest {
@@ -877,7 +1607,7 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -895,7 +1625,7 @@ private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -958,7 +1688,7 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageNetworkHosts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageNetworkHostsRequest {
@@ -997,7 +1727,7 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1015,7 +1745,7 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -1036,7 +1766,127 @@ private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
     return new APIgetUsageNetworkHostsRequest();
   }
 
-private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+private ApiResponse<UsageProfilingResponse> getUsageProfilingWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(400, "Missing the required parameter 'startHr' when calling getUsageProfiling");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/profiling";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageProfiling");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageProfilingResponse> localVarReturnType = new GenericType<UsageProfilingResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageProfiling", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetUsageProfilingRequest {
+    private OffsetDateTime startHr;
+    private OffsetDateTime endHr;
+
+    private APIgetUsageProfilingRequest() {
+    }
+
+    /**
+     * Set startHr
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. (required)
+     * @return APIgetUsageProfilingRequest
+     */
+    public APIgetUsageProfilingRequest startHr(OffsetDateTime startHr) {
+      this.startHr = startHr;
+      return this;
+    }
+
+    /**
+     * Set endHr
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. (optional)
+     * @return APIgetUsageProfilingRequest
+     */
+    public APIgetUsageProfilingRequest endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Execute getUsageProfiling request
+     * @return UsageProfilingResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageProfilingResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getUsageProfiling request with HTTP info returned
+     * @return ApiResponse&lt;UsageProfilingResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageProfilingResponse> executeWithHttpInfo() throws ApiException {
+      return getUsageProfilingWithHttpInfo(startHr, endHr);
+    }
+  }
+
+  /**
+   * Get hourly usage for profiled hosts
+   * Get hourly usage for profiled hosts.
+   * @return getUsageProfilingRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetUsageProfilingRequest getUsageProfiling() throws ApiException {
+    return new APIgetUsageProfilingRequest();
+  }
+
+private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr, String type) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'startHr' is set
@@ -1055,6 +1905,7 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "type", type));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumSessions");
@@ -1078,12 +1929,13 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageRumSessions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageRumSessionsRequest {
     private OffsetDateTime startHr;
     private OffsetDateTime endHr;
+    private String type;
 
     private APIgetUsageRumSessionsRequest() {
     }
@@ -1109,6 +1961,16 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
     }
 
     /**
+     * Set type
+     * @param type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;. (optional)
+     * @return APIgetUsageRumSessionsRequest
+     */
+    public APIgetUsageRumSessionsRequest type(String type) {
+      this.type = type;
+      return this;
+    }
+
+    /**
      * Execute getUsageRumSessions request
      * @return UsageRumSessionsResponse
      * @throws ApiException if fails to make API call
@@ -1117,7 +1979,7 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1135,12 +1997,12 @@ private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(Of
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
     public ApiResponse<UsageRumSessionsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageRumSessionsWithHttpInfo(startHr, endHr);
+      return getUsageRumSessionsWithHttpInfo(startHr, endHr, type);
     }
   }
 
@@ -1198,7 +2060,7 @@ private ApiResponse<UsageSNMPResponse> getUsageSNMPWithHttpInfo(OffsetDateTime s
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSNMP", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageSNMPRequest {
@@ -1237,7 +2099,7 @@ private ApiResponse<UsageSNMPResponse> getUsageSNMPWithHttpInfo(OffsetDateTime s
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1255,7 +2117,7 @@ private ApiResponse<UsageSNMPResponse> getUsageSNMPWithHttpInfo(OffsetDateTime s
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -1319,7 +2181,7 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageSummaryRequest {
@@ -1369,7 +2231,7 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1387,7 +2249,7 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -1450,7 +2312,7 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSynthetics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageSyntheticsRequest {
@@ -1489,7 +2351,7 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      * @deprecated
      */
@@ -1507,7 +2369,7 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      * @deprecated
      */
@@ -1518,8 +2380,8 @@ private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(Offs
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks
-   * Get hourly usage for [Synthetics API checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics Checks
+   * Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
    * @return getUsageSyntheticsRequest
    * @throws ApiException if fails to make API call
    * @deprecated
@@ -1572,7 +2434,7 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSyntheticsAPI", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageSyntheticsAPIRequest {
@@ -1611,7 +2473,7 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1629,7 +2491,7 @@ private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInf
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -1692,7 +2554,7 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageSyntheticsBrowser", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageSyntheticsBrowserRequest {
@@ -1731,7 +2593,7 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1749,7 +2611,7 @@ private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWit
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -1812,7 +2674,7 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageTimeseries", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageTimeseriesRequest {
@@ -1851,7 +2713,7 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1869,7 +2731,7 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -1932,7 +2794,7 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageTopAvgMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageTopAvgMetricsRequest {
@@ -1971,7 +2833,7 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -1989,7 +2851,7 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */
@@ -2052,7 +2914,7 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
 
     return apiClient.invokeAPI("UsageMeteringApi.getUsageTrace", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUsageTraceRequest {
@@ -2091,7 +2953,7 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
      
      */
@@ -2109,7 +2971,7 @@ private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(OffsetDateTime
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
        </table>
 
      */

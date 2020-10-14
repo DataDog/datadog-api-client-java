@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Event overlay control options.  See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to learn how to build the &#x60;&lt;EVENTS_SCHEMA&gt;&#x60;.
@@ -29,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   WidgetEvent.JSON_PROPERTY_Q,
   WidgetEvent.JSON_PROPERTY_TAGS_EXECUTION
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetEvent {
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
@@ -39,7 +44,6 @@ public class WidgetEvent {
 
 
   public WidgetEvent q(String q) {
-    
     this.q = q;
     return this;
   }
@@ -63,7 +67,6 @@ public class WidgetEvent {
 
 
   public WidgetEvent tagsExecution(String tagsExecution) {
-    
     this.tagsExecution = tagsExecution;
     return this;
   }
@@ -87,8 +90,11 @@ public class WidgetEvent {
   }
 
 
+  /**
+   * Return true if this WidgetEvent object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -120,7 +126,7 @@ public class WidgetEvent {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

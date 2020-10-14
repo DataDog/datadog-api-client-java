@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTimeWindows;
@@ -20,12 +22,15 @@ import com.datadog.api.v1.client.model.WidgetViewMode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
@@ -42,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SLOWidgetDefinition.JSON_PROPERTY_VIEW_MODE,
   SLOWidgetDefinition.JSON_PROPERTY_VIEW_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOWidgetDefinition {
   public static final String JSON_PROPERTY_SHOW_ERROR_BUDGET = "show_error_budget";
   private Boolean showErrorBudget;
@@ -73,7 +78,6 @@ public class SLOWidgetDefinition {
 
 
   public SLOWidgetDefinition showErrorBudget(Boolean showErrorBudget) {
-    
     this.showErrorBudget = showErrorBudget;
     return this;
   }
@@ -98,7 +102,6 @@ public class SLOWidgetDefinition {
 
 
   public SLOWidgetDefinition sloId(String sloId) {
-    
     this.sloId = sloId;
     return this;
   }
@@ -123,7 +126,6 @@ public class SLOWidgetDefinition {
 
 
   public SLOWidgetDefinition timeWindows(List<WidgetTimeWindows> timeWindows) {
-    
     this.timeWindows = timeWindows;
     return this;
   }
@@ -156,7 +158,6 @@ public class SLOWidgetDefinition {
 
 
   public SLOWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -181,7 +182,6 @@ public class SLOWidgetDefinition {
 
 
   public SLOWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -206,7 +206,6 @@ public class SLOWidgetDefinition {
 
 
   public SLOWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -231,7 +230,6 @@ public class SLOWidgetDefinition {
 
 
   public SLOWidgetDefinition type(SLOWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -255,7 +253,6 @@ public class SLOWidgetDefinition {
 
 
   public SLOWidgetDefinition viewMode(WidgetViewMode viewMode) {
-    
     this.viewMode = viewMode;
     return this;
   }
@@ -280,7 +277,6 @@ public class SLOWidgetDefinition {
 
 
   public SLOWidgetDefinition viewType(String viewType) {
-    
     this.viewType = viewType;
     return this;
   }
@@ -303,8 +299,11 @@ public class SLOWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this SLOWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -350,7 +349,7 @@ public class SLOWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

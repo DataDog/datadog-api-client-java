@@ -13,15 +13,20 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsStepType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The steps used in a Synthetics browser test.
@@ -34,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsStep.JSON_PROPERTY_TIMEOUT,
   SyntheticsStep.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsStep {
   public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
   private Boolean allowFailure;
@@ -53,7 +58,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep allowFailure(Boolean allowFailure) {
-    
     this.allowFailure = allowFailure;
     return this;
   }
@@ -78,7 +82,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -103,7 +106,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep params(Object params) {
-    
     this.params = params;
     return this;
   }
@@ -128,7 +130,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep timeout(BigDecimal timeout) {
-    
     this.timeout = timeout;
     return this;
   }
@@ -153,7 +154,6 @@ public class SyntheticsStep {
 
 
   public SyntheticsStep type(SyntheticsStepType type) {
-    
     this.type = type;
     return this;
   }
@@ -177,8 +177,11 @@ public class SyntheticsStep {
   }
 
 
+  /**
+   * Return true if this SyntheticsStep object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -216,7 +219,7 @@ public class SyntheticsStep {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

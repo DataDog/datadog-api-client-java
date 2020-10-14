@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsUserAgentParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
@@ -36,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsUserAgentParser.JSON_PROPERTY_TARGET,
   LogsUserAgentParser.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsUserAgentParser {
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
@@ -58,7 +63,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -83,7 +87,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser isEncoded(Boolean isEncoded) {
-    
     this.isEncoded = isEncoded;
     return this;
   }
@@ -108,7 +111,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -133,7 +135,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -162,7 +163,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -186,7 +186,6 @@ public class LogsUserAgentParser {
 
 
   public LogsUserAgentParser type(LogsUserAgentParserType type) {
-    
     this.type = type;
     return this;
   }
@@ -209,8 +208,11 @@ public class LogsUserAgentParser {
   }
 
 
+  /**
+   * Return true if this LogsUserAgentParser object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -250,7 +252,7 @@ public class LogsUserAgentParser {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

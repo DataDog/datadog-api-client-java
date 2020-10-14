@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.datadog.api.v1.client.model.DashboardTemplateVariablePreset;
 import com.datadog.api.v1.client.model.DashboardTemplateVariables;
@@ -20,6 +22,7 @@ import com.datadog.api.v1.client.model.Widget;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,6 +33,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.
@@ -50,7 +55,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Dashboard.JSON_PROPERTY_URL,
   Dashboard.JSON_PROPERTY_WIDGETS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Dashboard {
   public static final String JSON_PROPERTY_AUTHOR_HANDLE = "author_handle";
   private String authorHandle;
@@ -126,7 +131,6 @@ public class Dashboard {
 
   public Dashboard description(String description) {
     this.description = JsonNullable.<String>of(description);
-    
     return this;
   }
 
@@ -176,7 +180,6 @@ public class Dashboard {
 
 
   public Dashboard isReadOnly(Boolean isReadOnly) {
-    
     this.isReadOnly = isReadOnly;
     return this;
   }
@@ -201,7 +204,6 @@ public class Dashboard {
 
 
   public Dashboard layoutType(DashboardLayoutType layoutType) {
-    
     this.layoutType = layoutType;
     return this;
   }
@@ -242,7 +244,6 @@ public class Dashboard {
 
   public Dashboard notifyList(List<String> notifyList) {
     this.notifyList = JsonNullable.<List<String>>of(notifyList);
-    
     return this;
   }
 
@@ -289,7 +290,6 @@ public class Dashboard {
 
   public Dashboard templateVariablePresets(List<DashboardTemplateVariablePreset> templateVariablePresets) {
     this.templateVariablePresets = JsonNullable.<List<DashboardTemplateVariablePreset>>of(templateVariablePresets);
-    
     return this;
   }
 
@@ -336,7 +336,6 @@ public class Dashboard {
 
   public Dashboard templateVariables(List<DashboardTemplateVariables> templateVariables) {
     this.templateVariables = JsonNullable.<List<DashboardTemplateVariables>>of(templateVariables);
-    
     return this;
   }
 
@@ -382,7 +381,6 @@ public class Dashboard {
 
 
   public Dashboard title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -422,7 +420,6 @@ public class Dashboard {
 
 
   public Dashboard widgets(List<Widget> widgets) {
-    
     this.widgets = widgets;
     return this;
   }
@@ -450,8 +447,11 @@ public class Dashboard {
   }
 
 
+  /**
+   * Return true if this Dashboard object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -505,7 +505,7 @@ public class Dashboard {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

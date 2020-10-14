@@ -13,15 +13,20 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.OrganizationBilling;
 import com.datadog.api.v1.client.model.OrganizationSubscription;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing an organization to create.
@@ -32,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrganizationCreateBody.JSON_PROPERTY_NAME,
   OrganizationCreateBody.JSON_PROPERTY_SUBSCRIPTION
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationCreateBody {
   public static final String JSON_PROPERTY_BILLING = "billing";
   private OrganizationBilling billing;
@@ -45,7 +50,6 @@ public class OrganizationCreateBody {
 
 
   public OrganizationCreateBody billing(OrganizationBilling billing) {
-    
     this.billing = billing;
     return this;
   }
@@ -69,7 +73,6 @@ public class OrganizationCreateBody {
 
 
   public OrganizationCreateBody name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -94,7 +97,6 @@ public class OrganizationCreateBody {
 
 
   public OrganizationCreateBody subscription(OrganizationSubscription subscription) {
-    
     this.subscription = subscription;
     return this;
   }
@@ -117,8 +119,11 @@ public class OrganizationCreateBody {
   }
 
 
+  /**
+   * Return true if this OrganizationCreateBody object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -152,7 +157,7 @@ public class OrganizationCreateBody {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.UsageLambdaHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Response containing the number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
@@ -31,14 +36,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   UsageLambdaResponse.JSON_PROPERTY_USAGE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageLambdaResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageLambdaHour> usage = null;
 
 
   public UsageLambdaResponse usage(List<UsageLambdaHour> usage) {
-    
     this.usage = usage;
     return this;
   }
@@ -70,8 +74,11 @@ public class UsageLambdaResponse {
   }
 
 
+  /**
+   * Return true if this UsageLambdaResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -101,7 +108,7 @@ public class UsageLambdaResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

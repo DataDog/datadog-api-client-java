@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Number of indexed logs for each hour and index for a given organization.
@@ -33,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UsageLogsByIndexHour.JSON_PROPERTY_INDEX_NAME,
   UsageLogsByIndexHour.JSON_PROPERTY_RETENTION
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageLogsByIndexHour {
   public static final String JSON_PROPERTY_EVENT_COUNT = "event_count";
   private Long eventCount;
@@ -52,7 +57,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour eventCount(Long eventCount) {
-    
     this.eventCount = eventCount;
     return this;
   }
@@ -77,7 +81,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour hour(OffsetDateTime hour) {
-    
     this.hour = hour;
     return this;
   }
@@ -102,7 +105,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour indexId(String indexId) {
-    
     this.indexId = indexId;
     return this;
   }
@@ -127,7 +129,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour indexName(String indexName) {
-    
     this.indexName = indexName;
     return this;
   }
@@ -152,7 +153,6 @@ public class UsageLogsByIndexHour {
 
 
   public UsageLogsByIndexHour retention(Long retention) {
-    
     this.retention = retention;
     return this;
   }
@@ -176,8 +176,11 @@ public class UsageLogsByIndexHour {
   }
 
 
+  /**
+   * Return true if this UsageLogsByIndexHour object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -215,7 +218,7 @@ public class UsageLogsByIndexHour {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

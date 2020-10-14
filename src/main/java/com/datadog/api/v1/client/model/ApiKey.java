@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Datadog API key.
@@ -31,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ApiKey.JSON_PROPERTY_KEY,
   ApiKey.JSON_PROPERTY_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiKey {
   public static final String JSON_PROPERTY_CREATED = "created";
   private String created;
@@ -95,7 +100,6 @@ public class ApiKey {
 
 
   public ApiKey name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -119,8 +123,11 @@ public class ApiKey {
   }
 
 
+  /**
+   * Return true if this ApiKey object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -156,7 +163,7 @@ public class ApiKey {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

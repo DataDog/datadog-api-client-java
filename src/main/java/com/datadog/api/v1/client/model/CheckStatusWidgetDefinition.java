@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.CheckStatusWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetGrouping;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -20,12 +22,15 @@ import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Check status shows the current status or number of results for any check performed.
@@ -43,7 +48,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CheckStatusWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   CheckStatusWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CheckStatusWidgetDefinition {
   public static final String JSON_PROPERTY_CHECK = "check";
   private String check;
@@ -77,7 +82,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition check(String check) {
-    
     this.check = check;
     return this;
   }
@@ -101,7 +105,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition group(String group) {
-    
     this.group = group;
     return this;
   }
@@ -126,7 +129,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition groupBy(List<String> groupBy) {
-    
     this.groupBy = groupBy;
     return this;
   }
@@ -159,7 +161,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition grouping(WidgetGrouping grouping) {
-    
     this.grouping = grouping;
     return this;
   }
@@ -183,7 +184,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -216,7 +216,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -241,7 +240,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -266,7 +264,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -291,7 +288,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -316,7 +312,6 @@ public class CheckStatusWidgetDefinition {
 
 
   public CheckStatusWidgetDefinition type(CheckStatusWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -339,8 +334,11 @@ public class CheckStatusWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this CheckStatusWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -388,7 +386,7 @@ public class CheckStatusWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

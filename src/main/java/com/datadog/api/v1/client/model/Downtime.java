@@ -13,10 +13,13 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.DowntimeRecurrence;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Downtiming gives you greater control over monitor notifications by allowing you to globally exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times, prevent all alerting related to specified Datadog tags.
@@ -49,7 +54,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Downtime.JSON_PROPERTY_TIMEZONE,
   Downtime.JSON_PROPERTY_UPDATER_ID
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Downtime {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
@@ -164,7 +169,6 @@ public class Downtime {
 
 
   public Downtime disabled(Boolean disabled) {
-    
     this.disabled = disabled;
     return this;
   }
@@ -207,7 +211,6 @@ public class Downtime {
 
   public Downtime end(Long end) {
     this.end = JsonNullable.<Long>of(end);
-    
     return this;
   }
 
@@ -257,7 +260,6 @@ public class Downtime {
 
 
   public Downtime message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -283,7 +285,6 @@ public class Downtime {
 
   public Downtime monitorId(Long monitorId) {
     this.monitorId = JsonNullable.<Long>of(monitorId);
-    
     return this;
   }
 
@@ -317,7 +318,6 @@ public class Downtime {
 
 
   public Downtime monitorTags(List<String> monitorTags) {
-    
     this.monitorTags = monitorTags;
     return this;
   }
@@ -351,7 +351,6 @@ public class Downtime {
 
   public Downtime parentId(Long parentId) {
     this.parentId = JsonNullable.<Long>of(parentId);
-    
     return this;
   }
 
@@ -386,7 +385,6 @@ public class Downtime {
 
   public Downtime recurrence(DowntimeRecurrence recurrence) {
     this.recurrence = JsonNullable.<DowntimeRecurrence>of(recurrence);
-    
     return this;
   }
 
@@ -420,7 +418,6 @@ public class Downtime {
 
 
   public Downtime scope(List<String> scope) {
-    
     this.scope = scope;
     return this;
   }
@@ -453,7 +450,6 @@ public class Downtime {
 
 
   public Downtime start(Long start) {
-    
     this.start = start;
     return this;
   }
@@ -478,7 +474,6 @@ public class Downtime {
 
 
   public Downtime timezone(String timezone) {
-    
     this.timezone = timezone;
     return this;
   }
@@ -533,8 +528,11 @@ public class Downtime {
 
 
 
+  /**
+   * Return true if this Downtime object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -594,7 +592,7 @@ public class Downtime {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

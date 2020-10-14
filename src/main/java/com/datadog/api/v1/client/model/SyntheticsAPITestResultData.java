@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsErrorCode;
 import com.datadog.api.v1.client.model.SyntheticsSSLCertificate;
 import com.datadog.api.v1.client.model.SyntheticsTestProcessStatus;
@@ -20,6 +22,7 @@ import com.datadog.api.v1.client.model.SyntheticsTiming;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,6 +30,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object containing results for your Synthetic API test.
@@ -44,7 +49,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_SIZE,
   SyntheticsAPITestResultData.JSON_PROPERTY_TIMINGS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestResultData {
   public static final String JSON_PROPERTY_CERT = "cert";
   private SyntheticsSSLCertificate cert;
@@ -78,7 +83,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData cert(SyntheticsSSLCertificate cert) {
-    
     this.cert = cert;
     return this;
   }
@@ -103,7 +107,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData errorCode(SyntheticsErrorCode errorCode) {
-    
     this.errorCode = errorCode;
     return this;
   }
@@ -128,7 +131,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData errorMessage(String errorMessage) {
-    
     this.errorMessage = errorMessage;
     return this;
   }
@@ -153,7 +155,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData eventType(SyntheticsTestProcessStatus eventType) {
-    
     this.eventType = eventType;
     return this;
   }
@@ -178,7 +179,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData httpStatusCode(Long httpStatusCode) {
-    
     this.httpStatusCode = httpStatusCode;
     return this;
   }
@@ -203,7 +203,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData requestHeaders(Map<String, Object> requestHeaders) {
-    
     this.requestHeaders = requestHeaders;
     return this;
   }
@@ -236,7 +235,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData responseBody(String responseBody) {
-    
     this.responseBody = responseBody;
     return this;
   }
@@ -261,7 +259,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData responseHeaders(Map<String, Object> responseHeaders) {
-    
     this.responseHeaders = responseHeaders;
     return this;
   }
@@ -294,7 +291,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData responseSize(Long responseSize) {
-    
     this.responseSize = responseSize;
     return this;
   }
@@ -319,7 +315,6 @@ public class SyntheticsAPITestResultData {
 
 
   public SyntheticsAPITestResultData timings(SyntheticsTiming timings) {
-    
     this.timings = timings;
     return this;
   }
@@ -343,8 +338,11 @@ public class SyntheticsAPITestResultData {
   }
 
 
+  /**
+   * Return true if this SyntheticsAPITestResultData object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -392,7 +390,7 @@ public class SyntheticsAPITestResultData {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

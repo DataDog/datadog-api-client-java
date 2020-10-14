@@ -13,13 +13,19 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.UsersType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Relationship to user object.
@@ -29,29 +35,27 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RelationshipToUserData.JSON_PROPERTY_ID,
   RelationshipToUserData.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelationshipToUserData {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "users";
+  private UsersType type = UsersType.USERS;
 
 
   public RelationshipToUserData id(String id) {
-    
     this.id = id;
     return this;
   }
 
    /**
-   * ID of the user.
+   * A unique identifier that represents the user.
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the user.")
+  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "A unique identifier that represents the user.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
     return id;
@@ -63,24 +67,34 @@ public class RelationshipToUserData {
   }
 
 
+  public RelationshipToUserData type(UsersType type) {
+    this.type = type;
+    return this;
+  }
+
    /**
-   * Users type.
+   * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Users type.")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public UsersType getType() {
     return type;
   }
 
 
+  public void setType(UsersType type) {
+    this.type = type;
+  }
 
 
+  /**
+   * Return true if this RelationshipToUserData object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -112,7 +126,7 @@ public class RelationshipToUserData {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

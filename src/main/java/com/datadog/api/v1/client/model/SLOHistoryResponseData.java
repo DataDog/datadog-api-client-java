@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOHistoryMetrics;
 import com.datadog.api.v1.client.model.SLOHistorySLIData;
 import com.datadog.api.v1.client.model.SLOThreshold;
@@ -21,6 +23,7 @@ import com.datadog.api.v1.client.model.SLOTypeNumeric;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,6 +31,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * An array of service level objective objects.
@@ -43,7 +48,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SLOHistoryResponseData.JSON_PROPERTY_TYPE,
   SLOHistoryResponseData.JSON_PROPERTY_TYPE_ID
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryResponseData {
   public static final String JSON_PROPERTY_FROM_TS = "from_ts";
   private Long fromTs;
@@ -71,7 +76,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData fromTs(Long fromTs) {
-    
     this.fromTs = fromTs;
     return this;
   }
@@ -96,7 +100,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData groups(SLOHistorySLIData groups) {
-    
     this.groups = groups;
     return this;
   }
@@ -121,7 +124,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData overall(SLOHistorySLIData overall) {
-    
     this.overall = overall;
     return this;
   }
@@ -146,7 +148,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData series(SLOHistoryMetrics series) {
-    
     this.series = series;
     return this;
   }
@@ -171,7 +172,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData thresholds(Map<String, SLOThreshold> thresholds) {
-    
     this.thresholds = thresholds;
     return this;
   }
@@ -204,7 +204,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData toTs(Long toTs) {
-    
     this.toTs = toTs;
     return this;
   }
@@ -229,7 +228,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData type(SLOType type) {
-    
     this.type = type;
     return this;
   }
@@ -254,7 +252,6 @@ public class SLOHistoryResponseData {
 
 
   public SLOHistoryResponseData typeId(SLOTypeNumeric typeId) {
-    
     this.typeId = typeId;
     return this;
   }
@@ -278,8 +275,11 @@ public class SLOHistoryResponseData {
   }
 
 
+  /**
+   * Return true if this SLOHistoryResponse_data object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -323,7 +323,7 @@ public class SLOHistoryResponseData {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

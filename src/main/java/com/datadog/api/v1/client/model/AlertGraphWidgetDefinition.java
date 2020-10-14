@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AlertGraphWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
@@ -20,10 +22,13 @@ import com.datadog.api.v1.client.model.WidgetVizType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
@@ -38,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AlertGraphWidgetDefinition.JSON_PROPERTY_TYPE,
   AlertGraphWidgetDefinition.JSON_PROPERTY_VIZ_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AlertGraphWidgetDefinition {
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
@@ -63,7 +68,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition alertId(String alertId) {
-    
     this.alertId = alertId;
     return this;
   }
@@ -87,7 +91,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -112,7 +115,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -137,7 +139,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -162,7 +163,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -187,7 +187,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition type(AlertGraphWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -211,7 +210,6 @@ public class AlertGraphWidgetDefinition {
 
 
   public AlertGraphWidgetDefinition vizType(WidgetVizType vizType) {
-    
     this.vizType = vizType;
     return this;
   }
@@ -234,8 +232,11 @@ public class AlertGraphWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this AlertGraphWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -277,7 +278,7 @@ public class AlertGraphWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,23 +13,28 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCase;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQuery;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
- * Detection rule
+ * Detection rule.
  */
-@ApiModel(description = "Detection rule")
+@ApiModel(description = "Detection rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CREATED_AT,
@@ -45,7 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SecurityMonitoringRuleResponse.JSON_PROPERTY_TAGS,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_VERSION
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleResponse {
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
@@ -88,7 +93,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse cases(List<SecurityMonitoringRuleCase> cases) {
-    
     this.cases = cases;
     return this;
   }
@@ -121,7 +125,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse createdAt(Long createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -146,7 +149,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse creationAuthorId(Long creationAuthorId) {
-    
     this.creationAuthorId = creationAuthorId;
     return this;
   }
@@ -171,7 +173,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -196,7 +197,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse isDefault(Boolean isDefault) {
-    
     this.isDefault = isDefault;
     return this;
   }
@@ -221,7 +221,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse isDeleted(Boolean isDeleted) {
-    
     this.isDeleted = isDeleted;
     return this;
   }
@@ -246,7 +245,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -271,7 +269,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -296,7 +293,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -321,7 +317,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse options(SecurityMonitoringRuleOptions options) {
-    
     this.options = options;
     return this;
   }
@@ -346,7 +341,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse queries(List<SecurityMonitoringRuleQuery> queries) {
-    
     this.queries = queries;
     return this;
   }
@@ -379,7 +373,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -412,7 +405,6 @@ public class SecurityMonitoringRuleResponse {
 
 
   public SecurityMonitoringRuleResponse version(Long version) {
-    
     this.version = version;
     return this;
   }
@@ -436,8 +428,11 @@ public class SecurityMonitoringRuleResponse {
   }
 
 
+  /**
+   * Return true if this SecurityMonitoringRuleResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -491,7 +486,7 @@ public class SecurityMonitoringRuleResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

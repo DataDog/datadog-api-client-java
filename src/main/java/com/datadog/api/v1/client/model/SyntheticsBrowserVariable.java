@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsBrowserVariableType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
@@ -33,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsBrowserVariable.JSON_PROPERTY_PATTERN,
   SyntheticsBrowserVariable.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserVariable {
   public static final String JSON_PROPERTY_EXAMPLE = "example";
   private String example;
@@ -52,7 +57,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable example(String example) {
-    
     this.example = example;
     return this;
   }
@@ -77,7 +81,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -102,7 +105,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -126,7 +128,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable pattern(String pattern) {
-    
     this.pattern = pattern;
     return this;
   }
@@ -151,7 +152,6 @@ public class SyntheticsBrowserVariable {
 
 
   public SyntheticsBrowserVariable type(SyntheticsBrowserVariableType type) {
-    
     this.type = type;
     return this;
   }
@@ -174,8 +174,11 @@ public class SyntheticsBrowserVariable {
   }
 
 
+  /**
+   * Return true if this SyntheticsBrowserVariable object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -213,7 +216,7 @@ public class SyntheticsBrowserVariable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.ServiceLevelObjective;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A service level objective response containing a single service level objective.
@@ -32,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SLOResponse.JSON_PROPERTY_DATA,
   SLOResponse.JSON_PROPERTY_ERRORS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private ServiceLevelObjective data;
@@ -42,7 +47,6 @@ public class SLOResponse {
 
 
   public SLOResponse data(ServiceLevelObjective data) {
-    
     this.data = data;
     return this;
   }
@@ -67,7 +71,6 @@ public class SLOResponse {
 
 
   public SLOResponse errors(List<String> errors) {
-    
     this.errors = errors;
     return this;
   }
@@ -99,8 +102,11 @@ public class SLOResponse {
   }
 
 
+  /**
+   * Return true if this SLOResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -132,7 +138,7 @@ public class SLOResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

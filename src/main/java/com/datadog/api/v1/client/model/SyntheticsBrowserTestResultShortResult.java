@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsDevice;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object with the result of the last browser test run.
@@ -33,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_STEP_COUNT_COMPLETED,
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_STEP_COUNT_TOTAL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserTestResultShortResult {
   public static final String JSON_PROPERTY_DEVICE = "device";
   private SyntheticsDevice device;
@@ -52,7 +57,6 @@ public class SyntheticsBrowserTestResultShortResult {
 
 
   public SyntheticsBrowserTestResultShortResult device(SyntheticsDevice device) {
-    
     this.device = device;
     return this;
   }
@@ -77,7 +81,6 @@ public class SyntheticsBrowserTestResultShortResult {
 
 
   public SyntheticsBrowserTestResultShortResult duration(Double duration) {
-    
     this.duration = duration;
     return this;
   }
@@ -102,7 +105,6 @@ public class SyntheticsBrowserTestResultShortResult {
 
 
   public SyntheticsBrowserTestResultShortResult errorCount(Long errorCount) {
-    
     this.errorCount = errorCount;
     return this;
   }
@@ -127,7 +129,6 @@ public class SyntheticsBrowserTestResultShortResult {
 
 
   public SyntheticsBrowserTestResultShortResult stepCountCompleted(Long stepCountCompleted) {
-    
     this.stepCountCompleted = stepCountCompleted;
     return this;
   }
@@ -152,7 +153,6 @@ public class SyntheticsBrowserTestResultShortResult {
 
 
   public SyntheticsBrowserTestResultShortResult stepCountTotal(Long stepCountTotal) {
-    
     this.stepCountTotal = stepCountTotal;
     return this;
   }
@@ -176,8 +176,11 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
 
+  /**
+   * Return true if this SyntheticsBrowserTestResultShort_result object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -215,7 +218,7 @@ public class SyntheticsBrowserTestResultShortResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,9 +13,12 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * List of the different monitor threshold available.
@@ -36,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   MonitorThresholds.JSON_PROPERTY_WARNING,
   MonitorThresholds.JSON_PROPERTY_WARNING_RECOVERY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorThresholds {
   public static final String JSON_PROPERTY_CRITICAL = "critical";
   private Double critical;
@@ -58,7 +63,6 @@ public class MonitorThresholds {
 
 
   public MonitorThresholds critical(Double critical) {
-    
     this.critical = critical;
     return this;
   }
@@ -84,7 +88,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds criticalRecovery(Double criticalRecovery) {
     this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
-    
     return this;
   }
 
@@ -119,7 +122,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds ok(Double ok) {
     this.ok = JsonNullable.<Double>of(ok);
-    
     return this;
   }
 
@@ -154,7 +156,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds unknown(Double unknown) {
     this.unknown = JsonNullable.<Double>of(unknown);
-    
     return this;
   }
 
@@ -189,7 +190,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds warning(Double warning) {
     this.warning = JsonNullable.<Double>of(warning);
-    
     return this;
   }
 
@@ -224,7 +224,6 @@ public class MonitorThresholds {
 
   public MonitorThresholds warningRecovery(Double warningRecovery) {
     this.warningRecovery = JsonNullable.<Double>of(warningRecovery);
-    
     return this;
   }
 
@@ -257,8 +256,11 @@ public class MonitorThresholds {
   }
 
 
+  /**
+   * Return true if this MonitorThresholds object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -298,7 +300,7 @@ public class MonitorThresholds {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,18 +13,23 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleCase;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleQuery;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryCreate;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Create a new rule.
@@ -32,20 +37,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "Create a new rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_CASES,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_ENABLED,
+  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_IS_ENABLED,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_MESSAGE,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_QUERIES,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TAGS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleCreatePayload {
   public static final String JSON_PROPERTY_CASES = "cases";
-  private List<SecurityMonitoringRuleCase> cases = new ArrayList<>();
+  private List<SecurityMonitoringRuleCaseCreate> cases = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private Boolean enabled;
+  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -57,19 +62,18 @@ public class SecurityMonitoringRuleCreatePayload {
   private SecurityMonitoringRuleOptions options;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
-  private List<SecurityMonitoringRuleQuery> queries = new ArrayList<>();
+  private List<SecurityMonitoringRuleQueryCreate> queries = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = new ArrayList<>();
+  private List<String> tags = null;
 
 
-  public SecurityMonitoringRuleCreatePayload cases(List<SecurityMonitoringRuleCase> cases) {
-    
+  public SecurityMonitoringRuleCreatePayload cases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
     return this;
   }
 
-  public SecurityMonitoringRuleCreatePayload addCasesItem(SecurityMonitoringRuleCase casesItem) {
+  public SecurityMonitoringRuleCreatePayload addCasesItem(SecurityMonitoringRuleCaseCreate casesItem) {
     this.cases.add(casesItem);
     return this;
   }
@@ -82,42 +86,40 @@ public class SecurityMonitoringRuleCreatePayload {
   @JsonProperty(JSON_PROPERTY_CASES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<SecurityMonitoringRuleCase> getCases() {
+  public List<SecurityMonitoringRuleCaseCreate> getCases() {
     return cases;
   }
 
 
-  public void setCases(List<SecurityMonitoringRuleCase> cases) {
+  public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
   }
 
 
-  public SecurityMonitoringRuleCreatePayload enabled(Boolean enabled) {
-    
-    this.enabled = enabled;
+  public SecurityMonitoringRuleCreatePayload isEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
     return this;
   }
 
    /**
    * Whether the rule is enabled.
-   * @return enabled
+   * @return isEnabled
   **/
   @ApiModelProperty(example = "true", required = true, value = "Whether the rule is enabled.")
-  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Boolean getEnabled() {
-    return enabled;
+  public Boolean getIsEnabled() {
+    return isEnabled;
   }
 
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
   }
 
 
   public SecurityMonitoringRuleCreatePayload message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -141,16 +143,15 @@ public class SecurityMonitoringRuleCreatePayload {
 
 
   public SecurityMonitoringRuleCreatePayload name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * The name of the rule
+   * The name of the rule.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "The name of the rule")
+  @ApiModelProperty(required = true, value = "The name of the rule.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -165,7 +166,6 @@ public class SecurityMonitoringRuleCreatePayload {
 
 
   public SecurityMonitoringRuleCreatePayload options(SecurityMonitoringRuleOptions options) {
-    
     this.options = options;
     return this;
   }
@@ -188,13 +188,12 @@ public class SecurityMonitoringRuleCreatePayload {
   }
 
 
-  public SecurityMonitoringRuleCreatePayload queries(List<SecurityMonitoringRuleQuery> queries) {
-    
+  public SecurityMonitoringRuleCreatePayload queries(List<SecurityMonitoringRuleQueryCreate> queries) {
     this.queries = queries;
     return this;
   }
 
-  public SecurityMonitoringRuleCreatePayload addQueriesItem(SecurityMonitoringRuleQuery queriesItem) {
+  public SecurityMonitoringRuleCreatePayload addQueriesItem(SecurityMonitoringRuleQueryCreate queriesItem) {
     this.queries.add(queriesItem);
     return this;
   }
@@ -207,23 +206,25 @@ public class SecurityMonitoringRuleCreatePayload {
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<SecurityMonitoringRuleQuery> getQueries() {
+  public List<SecurityMonitoringRuleQueryCreate> getQueries() {
     return queries;
   }
 
 
-  public void setQueries(List<SecurityMonitoringRuleQuery> queries) {
+  public void setQueries(List<SecurityMonitoringRuleQueryCreate> queries) {
     this.queries = queries;
   }
 
 
   public SecurityMonitoringRuleCreatePayload tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
 
   public SecurityMonitoringRuleCreatePayload addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -232,9 +233,10 @@ public class SecurityMonitoringRuleCreatePayload {
    * Tags for generated signals.
    * @return tags
   **/
-  @ApiModelProperty(example = "[\"env:prod\",\"team:security\"]", required = true, value = "Tags for generated signals.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "[\"env:prod\",\"team:security\"]", value = "Tags for generated signals.")
   @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getTags() {
     return tags;
@@ -246,8 +248,11 @@ public class SecurityMonitoringRuleCreatePayload {
   }
 
 
+  /**
+   * Return true if this SecurityMonitoringRuleCreatePayload object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -256,7 +261,7 @@ public class SecurityMonitoringRuleCreatePayload {
     }
     SecurityMonitoringRuleCreatePayload securityMonitoringRuleCreatePayload = (SecurityMonitoringRuleCreatePayload) o;
     return Objects.equals(this.cases, securityMonitoringRuleCreatePayload.cases) &&
-        Objects.equals(this.enabled, securityMonitoringRuleCreatePayload.enabled) &&
+        Objects.equals(this.isEnabled, securityMonitoringRuleCreatePayload.isEnabled) &&
         Objects.equals(this.message, securityMonitoringRuleCreatePayload.message) &&
         Objects.equals(this.name, securityMonitoringRuleCreatePayload.name) &&
         Objects.equals(this.options, securityMonitoringRuleCreatePayload.options) &&
@@ -266,7 +271,7 @@ public class SecurityMonitoringRuleCreatePayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cases, enabled, message, name, options, queries, tags);
+    return Objects.hash(cases, isEnabled, message, name, options, queries, tags);
   }
 
 
@@ -275,7 +280,7 @@ public class SecurityMonitoringRuleCreatePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleCreatePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
@@ -289,7 +294,7 @@ public class SecurityMonitoringRuleCreatePayload {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

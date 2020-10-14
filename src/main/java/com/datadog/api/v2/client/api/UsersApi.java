@@ -11,12 +11,12 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v2.client.model.APIErrorResponse;
 import com.datadog.api.v2.client.model.PermissionsResponse;
 import com.datadog.api.v2.client.model.QuerySortOrder;
-import com.datadog.api.v2.client.model.UserCreatePayload;
-import com.datadog.api.v2.client.model.UserInvitationPayload;
+import com.datadog.api.v2.client.model.UserCreateRequest;
 import com.datadog.api.v2.client.model.UserInvitationResponse;
+import com.datadog.api.v2.client.model.UserInvitationsRequest;
 import com.datadog.api.v2.client.model.UserInvitationsResponse;
 import com.datadog.api.v2.client.model.UserResponse;
-import com.datadog.api.v2.client.model.UserUpdatePayload;
+import com.datadog.api.v2.client.model.UserUpdateRequest;
 import com.datadog.api.v2.client.model.UsersResponse;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsersApi {
   private ApiClient apiClient;
 
@@ -55,7 +55,7 @@ public class UsersApi {
   }
 
 
-private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreatePayload body) throws ApiException {
+private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // create path and map variables
@@ -90,11 +90,11 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreatePayload body)
 
     return apiClient.invokeAPI("UsersApi.createUser", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateUserRequest {
-    private UserCreatePayload body;
+    private UserCreateRequest body;
 
     private APIcreateUserRequest() {
     }
@@ -104,7 +104,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreatePayload body)
      * @param body  (optional)
      * @return APIcreateUserRequest
      */
-    public APIcreateUserRequest body(UserCreatePayload body) {
+    public APIcreateUserRequest body(UserCreateRequest body) {
       this.body = body;
       return this;
     }
@@ -196,7 +196,7 @@ private ApiResponse<Void> disableUserWithHttpInfo(String userId) throws ApiExcep
 
     return apiClient.invokeAPI("UsersApi.disableUser", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, null, false);
   }
 
   public class APIdisableUserRequest {
@@ -296,7 +296,7 @@ private ApiResponse<UserInvitationResponse> getInvitationWithHttpInfo(String use
 
     return apiClient.invokeAPI("UsersApi.getInvitation", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetInvitationRequest {
@@ -396,7 +396,7 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userId) throws ApiE
 
     return apiClient.invokeAPI("UsersApi.getUser", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetUserRequest {
@@ -443,7 +443,7 @@ private ApiResponse<UserResponse> getUserWithHttpInfo(String userId) throws ApiE
   }
 
   /**
-   * Get a user
+   * Get user details
    * Get a user in the organization specified by the user’s &#x60;user_id&#x60;.
    * @param userId The ID of the user. (required)
    * @return getUserRequest
@@ -496,7 +496,7 @@ private ApiResponse<UserResponse> listUserOrganizationsWithHttpInfo(String userI
 
     return apiClient.invokeAPI("UsersApi.listUserOrganizations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistUserOrganizationsRequest {
@@ -596,7 +596,7 @@ private ApiResponse<PermissionsResponse> listUserPermissionsWithHttpInfo(String 
 
     return apiClient.invokeAPI("UsersApi.listUserPermissions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistUserPermissionsRequest {
@@ -681,7 +681,7 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
     
     
     final String[] localVarAccepts = {
-      "application/json", "applcation/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -696,7 +696,7 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
 
     return apiClient.invokeAPI("UsersApi.listUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistUsersRequest {
@@ -808,7 +808,7 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
 
   /**
    * List all users
-   * Get the list of all users in the organization. This list includes all users even if they are disabled or unverified.
+   * Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
    * @return listUsersRequest
    * @throws ApiException if fails to make API call
    
@@ -818,7 +818,7 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
     return new APIlistUsersRequest();
   }
 
-private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInvitationPayload body) throws ApiException {
+private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInvitationsRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // create path and map variables
@@ -853,11 +853,11 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
 
     return apiClient.invokeAPI("UsersApi.sendInvitations", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIsendInvitationsRequest {
-    private UserInvitationPayload body;
+    private UserInvitationsRequest body;
 
     private APIsendInvitationsRequest() {
     }
@@ -867,7 +867,7 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
      * @param body  (optional)
      * @return APIsendInvitationsRequest
      */
-    public APIsendInvitationsRequest body(UserInvitationPayload body) {
+    public APIsendInvitationsRequest body(UserInvitationsRequest body) {
       this.body = body;
       return this;
     }
@@ -920,7 +920,7 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
     return new APIsendInvitationsRequest();
   }
 
-private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayload body) throws ApiException {
+private ApiResponse<UserResponse> updateUserWithHttpInfo(String userId, UserUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'userId' is set
@@ -957,14 +957,16 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayloa
 
     String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
 
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
+
     return apiClient.invokeAPI("UsersApi.updateUser", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateUserRequest {
     private String userId;
-    private UserUpdatePayload body;
+    private UserUpdateRequest body;
 
     private APIupdateUserRequest(String userId) {
       this.userId = userId;
@@ -975,19 +977,19 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayloa
      * @param body  (optional)
      * @return APIupdateUserRequest
      */
-    public APIupdateUserRequest body(UserUpdatePayload body) {
+    public APIupdateUserRequest body(UserUpdateRequest body) {
       this.body = body;
       return this;
     }
 
     /**
      * Execute updateUser request
-     
+     * @return UserResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
@@ -996,18 +998,18 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayloa
      
      */
     
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
+    public UserResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute updateUser request with HTTP info returned
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;UserResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
@@ -1015,7 +1017,7 @@ private ApiResponse<Void> updateUserWithHttpInfo(String userId, UserUpdatePayloa
        </table>
 
      */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<UserResponse> executeWithHttpInfo() throws ApiException {
       return updateUserWithHttpInfo(userId, body);
     }
   }

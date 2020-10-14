@@ -13,9 +13,12 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,6 +28,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * An object defining the recurrence of the downtime.
@@ -32,15 +37,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @ApiModel(description = "An object defining the recurrence of the downtime.")
 @JsonPropertyOrder({
   DowntimeRecurrence.JSON_PROPERTY_PERIOD,
+  DowntimeRecurrence.JSON_PROPERTY_RRULE,
   DowntimeRecurrence.JSON_PROPERTY_TYPE,
   DowntimeRecurrence.JSON_PROPERTY_UNTIL_DATE,
   DowntimeRecurrence.JSON_PROPERTY_UNTIL_OCCURRENCES,
   DowntimeRecurrence.JSON_PROPERTY_WEEK_DAYS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DowntimeRecurrence {
   public static final String JSON_PROPERTY_PERIOD = "period";
   private Integer period;
+
+  public static final String JSON_PROPERTY_RRULE = "rrule";
+  private String rrule;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -56,7 +65,6 @@ public class DowntimeRecurrence {
 
 
   public DowntimeRecurrence period(Integer period) {
-    
     this.period = period;
     return this;
   }
@@ -81,8 +89,31 @@ public class DowntimeRecurrence {
   }
 
 
+  public DowntimeRecurrence rrule(String rrule) {
+    this.rrule = rrule;
+    return this;
+  }
+
+   /**
+   * The &#x60;RRULE&#x60; standard for defining recurring events. For example, to have a recurring event on the first day of each month, select a type of &#x60;rrule&#x60; and set the &#x60;FREQ&#x60; to &#x60;MONTHLY&#x60; and &#x60;BYMONTHDAY&#x60; to &#x60;1&#x60;. Most common &#x60;rrule&#x60; options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in &#x60;RRULE&#x60; are not supported (for example, &#x60;DTSTART&#x60;, &#x60;DTEND&#x60;, &#x60;DURATION&#x60;).
+   * @return rrule
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1", value = "The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, select a type of `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).")
+  @JsonProperty(JSON_PROPERTY_RRULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getRrule() {
+    return rrule;
+  }
+
+
+  public void setRrule(String rrule) {
+    this.rrule = rrule;
+  }
+
+
   public DowntimeRecurrence type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -108,7 +139,6 @@ public class DowntimeRecurrence {
 
   public DowntimeRecurrence untilDate(Long untilDate) {
     this.untilDate = JsonNullable.<Long>of(untilDate);
-    
     return this;
   }
 
@@ -143,7 +173,6 @@ public class DowntimeRecurrence {
 
   public DowntimeRecurrence untilOccurrences(Integer untilOccurrences) {
     this.untilOccurrences = JsonNullable.<Integer>of(untilOccurrences);
-    
     return this;
   }
 
@@ -178,7 +207,6 @@ public class DowntimeRecurrence {
 
 
   public DowntimeRecurrence weekDays(List<String> weekDays) {
-    
     this.weekDays = weekDays;
     return this;
   }
@@ -210,8 +238,11 @@ public class DowntimeRecurrence {
   }
 
 
+  /**
+   * Return true if this DowntimeRecurrence object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -220,6 +251,7 @@ public class DowntimeRecurrence {
     }
     DowntimeRecurrence downtimeRecurrence = (DowntimeRecurrence) o;
     return Objects.equals(this.period, downtimeRecurrence.period) &&
+        Objects.equals(this.rrule, downtimeRecurrence.rrule) &&
         Objects.equals(this.type, downtimeRecurrence.type) &&
         Objects.equals(this.untilDate, downtimeRecurrence.untilDate) &&
         Objects.equals(this.untilOccurrences, downtimeRecurrence.untilOccurrences) &&
@@ -228,7 +260,7 @@ public class DowntimeRecurrence {
 
   @Override
   public int hashCode() {
-    return Objects.hash(period, type, untilDate, untilOccurrences, weekDays);
+    return Objects.hash(period, rrule, type, untilDate, untilOccurrences, weekDays);
   }
 
 
@@ -237,6 +269,7 @@ public class DowntimeRecurrence {
     StringBuilder sb = new StringBuilder();
     sb.append("class DowntimeRecurrence {\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    untilDate: ").append(toIndentedString(untilDate)).append("\n");
     sb.append("    untilOccurrences: ").append(toIndentedString(untilOccurrences)).append("\n");
@@ -249,7 +282,7 @@ public class DowntimeRecurrence {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

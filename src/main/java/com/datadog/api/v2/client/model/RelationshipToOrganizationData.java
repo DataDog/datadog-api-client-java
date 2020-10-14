@@ -13,14 +13,19 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.OrganizationsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Relationship to organization object.
@@ -30,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RelationshipToOrganizationData.JSON_PROPERTY_ID,
   RelationshipToOrganizationData.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelationshipToOrganizationData {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -40,7 +45,6 @@ public class RelationshipToOrganizationData {
 
 
   public RelationshipToOrganizationData id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -49,10 +53,9 @@ public class RelationshipToOrganizationData {
    * ID of the organization.
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the organization.")
+  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "ID of the organization.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
     return id;
@@ -65,7 +68,6 @@ public class RelationshipToOrganizationData {
 
 
   public RelationshipToOrganizationData type(OrganizationsType type) {
-    
     this.type = type;
     return this;
   }
@@ -74,10 +76,9 @@ public class RelationshipToOrganizationData {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OrganizationsType getType() {
     return type;
@@ -89,8 +90,11 @@ public class RelationshipToOrganizationData {
   }
 
 
+  /**
+   * Return true if this RelationshipToOrganizationData object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -122,7 +126,7 @@ public class RelationshipToOrganizationData {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

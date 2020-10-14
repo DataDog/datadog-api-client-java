@@ -13,16 +13,22 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsAttributeRemapperType;
+import com.datadog.api.v1.client.model.TargetFormatType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The remapper processor remaps any source attribute(s) or tag to another target attribute or tag. Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice). Some additional constraints are applied as &#x60;:&#x60; or &#x60;,&#x60; are not allowed in the target tag/attribute name.
@@ -36,10 +42,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsAttributeRemapper.JSON_PROPERTY_SOURCE_TYPE,
   LogsAttributeRemapper.JSON_PROPERTY_SOURCES,
   LogsAttributeRemapper.JSON_PROPERTY_TARGET,
+  LogsAttributeRemapper.JSON_PROPERTY_TARGET_FORMAT,
   LogsAttributeRemapper.JSON_PROPERTY_TARGET_TYPE,
   LogsAttributeRemapper.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAttributeRemapper {
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
@@ -62,6 +69,9 @@ public class LogsAttributeRemapper {
   public static final String JSON_PROPERTY_TARGET = "target";
   private String target;
 
+  public static final String JSON_PROPERTY_TARGET_FORMAT = "target_format";
+  private TargetFormatType targetFormat;
+
   public static final String JSON_PROPERTY_TARGET_TYPE = "target_type";
   private String targetType = "attribute";
 
@@ -70,7 +80,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -95,7 +104,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -120,7 +128,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper overrideOnConflict(Boolean overrideOnConflict) {
-    
     this.overrideOnConflict = overrideOnConflict;
     return this;
   }
@@ -145,7 +152,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper preserveSource(Boolean preserveSource) {
-    
     this.preserveSource = preserveSource;
     return this;
   }
@@ -170,7 +176,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper sourceType(String sourceType) {
-    
     this.sourceType = sourceType;
     return this;
   }
@@ -195,7 +200,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -224,7 +228,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -247,18 +250,41 @@ public class LogsAttributeRemapper {
   }
 
 
+  public LogsAttributeRemapper targetFormat(TargetFormatType targetFormat) {
+    this.targetFormat = targetFormat;
+    return this;
+  }
+
+   /**
+   * Get targetFormat
+   * @return targetFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TARGET_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TargetFormatType getTargetFormat() {
+    return targetFormat;
+  }
+
+
+  public void setTargetFormat(TargetFormatType targetFormat) {
+    this.targetFormat = targetFormat;
+  }
+
+
   public LogsAttributeRemapper targetType(String targetType) {
-    
     this.targetType = targetType;
     return this;
   }
 
    /**
-   * Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;.
+   * Defines if the final attribute or tag name is from log &#x60;attribute&#x60; or &#x60;tag&#x60;.
    * @return targetType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Defines if the sources are from log `attribute` or `tag`.")
+  @ApiModelProperty(value = "Defines if the final attribute or tag name is from log `attribute` or `tag`.")
   @JsonProperty(JSON_PROPERTY_TARGET_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -273,7 +299,6 @@ public class LogsAttributeRemapper {
 
 
   public LogsAttributeRemapper type(LogsAttributeRemapperType type) {
-    
     this.type = type;
     return this;
   }
@@ -296,8 +321,11 @@ public class LogsAttributeRemapper {
   }
 
 
+  /**
+   * Return true if this LogsAttributeRemapper object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -312,13 +340,14 @@ public class LogsAttributeRemapper {
         Objects.equals(this.sourceType, logsAttributeRemapper.sourceType) &&
         Objects.equals(this.sources, logsAttributeRemapper.sources) &&
         Objects.equals(this.target, logsAttributeRemapper.target) &&
+        Objects.equals(this.targetFormat, logsAttributeRemapper.targetFormat) &&
         Objects.equals(this.targetType, logsAttributeRemapper.targetType) &&
         Objects.equals(this.type, logsAttributeRemapper.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isEnabled, name, overrideOnConflict, preserveSource, sourceType, sources, target, targetType, type);
+    return Objects.hash(isEnabled, name, overrideOnConflict, preserveSource, sourceType, sources, target, targetFormat, targetType, type);
   }
 
 
@@ -333,6 +362,7 @@ public class LogsAttributeRemapper {
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    targetFormat: ").append(toIndentedString(targetFormat)).append("\n");
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -343,7 +373,7 @@ public class LogsAttributeRemapper {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

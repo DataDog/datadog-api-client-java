@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Host Metrics collected.
@@ -30,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   HostMetrics.JSON_PROPERTY_IOWAIT,
   HostMetrics.JSON_PROPERTY_LOAD
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMetrics {
   public static final String JSON_PROPERTY_CPU = "cpu";
   private Double cpu;
@@ -43,7 +48,6 @@ public class HostMetrics {
 
 
   public HostMetrics cpu(Double cpu) {
-    
     this.cpu = cpu;
     return this;
   }
@@ -68,7 +72,6 @@ public class HostMetrics {
 
 
   public HostMetrics iowait(Double iowait) {
-    
     this.iowait = iowait;
     return this;
   }
@@ -93,7 +96,6 @@ public class HostMetrics {
 
 
   public HostMetrics load(Double load) {
-    
     this.load = load;
     return this;
   }
@@ -117,8 +119,11 @@ public class HostMetrics {
   }
 
 
+  /**
+   * Return true if this Host_metrics object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -152,7 +157,7 @@ public class HostMetrics {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

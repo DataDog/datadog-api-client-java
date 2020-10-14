@@ -6,6 +6,10 @@
   "container_hwm_sum": 1,
   "custom_ts_sum": 4,
   "rum_session_count_agg_sum": 5,
+  "profiling_host_count_top99p_sum": 6,
+  "profiling_container_agent_count_avg": 7,
+  "twol_ingested_events_bytes_agg_sum": 8,
+  "mobile_rum_session_count_agg_sum": 9,
   "usage": [
     {
       "date": "2020-02-02T23:00:00+00:00",
@@ -17,6 +21,9 @@
       "gcp_host_top99p": 7,
       "infra_host_top99p": 8,
       "rum_session_count_sum": 9,
+      "profiling_host_top99p": 10,
+      "twol_ingested_events_bytes_sum": 11,
+      "mobile_rum_session_count_sum": 12,
       "orgs": [
         {
           "id": "1b",
@@ -28,7 +35,10 @@
           "custom_ts_avg": 6,
           "gcp_host_top99p": 7,
           "infra_host_top99p": 8,
-          "rum_session_count_sum": 9
+          "rum_session_count_sum": 9,
+          "profiling_host_top99p": 10,
+          "twol_ingested_events_bytes_sum": 11,
+          "mobile_rum_session_count_sum": 12
         }
       ]
     }

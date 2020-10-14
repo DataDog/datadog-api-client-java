@@ -13,13 +13,18 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The S3 Archive&#39;s integration destination.
@@ -29,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsArchiveIntegrationS3.JSON_PROPERTY_ACCOUNT_ID,
   LogsArchiveIntegrationS3.JSON_PROPERTY_ROLE_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveIntegrationS3 {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -39,7 +44,6 @@ public class LogsArchiveIntegrationS3 {
 
 
   public LogsArchiveIntegrationS3 accountId(String accountId) {
-    
     this.accountId = accountId;
     return this;
   }
@@ -63,7 +67,6 @@ public class LogsArchiveIntegrationS3 {
 
 
   public LogsArchiveIntegrationS3 roleName(String roleName) {
-    
     this.roleName = roleName;
     return this;
   }
@@ -86,8 +89,11 @@ public class LogsArchiveIntegrationS3 {
   }
 
 
+  /**
+   * Return true if this LogsArchiveIntegrationS3 object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -119,7 +125,7 @@ public class LogsArchiveIntegrationS3 {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

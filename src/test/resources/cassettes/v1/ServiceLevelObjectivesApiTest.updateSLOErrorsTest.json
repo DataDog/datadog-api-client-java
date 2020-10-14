@@ -1,5 +1,5 @@
 [{
-  "id" : "a0174bc3-f362-4b86-81a5-2f432141d56e",
+  "id" : "0599558f-0853-49a1-a36f-be69c6ce6880",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/slo/id",
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:24 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:24:00 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "56" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,7 +44,7 @@
     "body" : "{\"errors\": [\"Invalid payload: 'name' should be string\"]}"
   }
 }, {
-  "id" : "71987ccd-655c-49eb-b39e-9a3f4f33e1cd",
+  "id" : "0007c078-19a8-440f-b9e5-cf60f5bea52d",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/slo/id",
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:24 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:24:01 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -83,7 +83,7 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "43b81443-2812-4494-8adb-07f15f528e7b",
+  "id" : "835491d8-095d-4579-a4c2-2f31b0ced47d",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/slo/id",
@@ -99,7 +99,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"description\":\"Updated - Track the uptime of host foo which is critical to us.\",\"name\":\"java-updateSLOErrorsTest-local-1591010063\",\"tags\":[\"app:core\",\"kpi\"],\"thresholds\":[{\"target\":95.0,\"timeframe\":\"30d\",\"warning\":98.0}],\"type\":\"monitor\"}"
+      "json" : "{\"description\":\"Updated - Track the uptime of host foo which is critical to us.\",\"name\":\"java-updateSLOErrorsTest-local-1595946239\",\"tags\":[\"app:core\",\"kpi\"],\"thresholds\":[{\"target\":95.0,\"timeframe\":\"30d\",\"warning\":98.0}],\"type\":\"monitor\"}"
     }
   },
   "times" : {
@@ -112,13 +112,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:25 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:24:02 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

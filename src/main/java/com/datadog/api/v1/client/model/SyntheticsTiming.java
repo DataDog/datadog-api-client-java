@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object containing all metrics and their values collected for a Synthetic API test. Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
@@ -36,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsTiming.JSON_PROPERTY_TOTAL,
   SyntheticsTiming.JSON_PROPERTY_WAIT
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTiming {
   public static final String JSON_PROPERTY_DNS = "dns";
   private Double dns;
@@ -67,7 +72,6 @@ public class SyntheticsTiming {
 
 
   public SyntheticsTiming dns(Double dns) {
-    
     this.dns = dns;
     return this;
   }
@@ -92,7 +96,6 @@ public class SyntheticsTiming {
 
 
   public SyntheticsTiming download(Double download) {
-    
     this.download = download;
     return this;
   }
@@ -117,7 +120,6 @@ public class SyntheticsTiming {
 
 
   public SyntheticsTiming firstByte(Double firstByte) {
-    
     this.firstByte = firstByte;
     return this;
   }
@@ -142,7 +144,6 @@ public class SyntheticsTiming {
 
 
   public SyntheticsTiming handshake(Double handshake) {
-    
     this.handshake = handshake;
     return this;
   }
@@ -167,7 +168,6 @@ public class SyntheticsTiming {
 
 
   public SyntheticsTiming redirect(Double redirect) {
-    
     this.redirect = redirect;
     return this;
   }
@@ -192,7 +192,6 @@ public class SyntheticsTiming {
 
 
   public SyntheticsTiming ssl(Double ssl) {
-    
     this.ssl = ssl;
     return this;
   }
@@ -217,7 +216,6 @@ public class SyntheticsTiming {
 
 
   public SyntheticsTiming tcp(Double tcp) {
-    
     this.tcp = tcp;
     return this;
   }
@@ -242,7 +240,6 @@ public class SyntheticsTiming {
 
 
   public SyntheticsTiming total(Double total) {
-    
     this.total = total;
     return this;
   }
@@ -267,7 +264,6 @@ public class SyntheticsTiming {
 
 
   public SyntheticsTiming wait(Double wait) {
-    
     this.wait = wait;
     return this;
   }
@@ -291,8 +287,11 @@ public class SyntheticsTiming {
   }
 
 
+  /**
+   * Return true if this SyntheticsTiming object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -338,7 +337,7 @@ public class SyntheticsTiming {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogQueryDefinitionSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Defined items in the group.
@@ -31,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogQueryDefinitionGroupBy.JSON_PROPERTY_LIMIT,
   LogQueryDefinitionGroupBy.JSON_PROPERTY_SORT
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogQueryDefinitionGroupBy {
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
@@ -44,7 +49,6 @@ public class LogQueryDefinitionGroupBy {
 
 
   public LogQueryDefinitionGroupBy facet(String facet) {
-    
     this.facet = facet;
     return this;
   }
@@ -68,7 +72,6 @@ public class LogQueryDefinitionGroupBy {
 
 
   public LogQueryDefinitionGroupBy limit(Long limit) {
-    
     this.limit = limit;
     return this;
   }
@@ -93,7 +96,6 @@ public class LogQueryDefinitionGroupBy {
 
 
   public LogQueryDefinitionGroupBy sort(LogQueryDefinitionSort sort) {
-    
     this.sort = sort;
     return this;
   }
@@ -117,8 +119,11 @@ public class LogQueryDefinitionGroupBy {
   }
 
 
+  /**
+   * Return true if this LogQueryDefinition_group_by object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -152,7 +157,7 @@ public class LogQueryDefinitionGroupBy {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

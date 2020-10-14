@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.MonitorOverallStates;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Monitor state for a single group.
@@ -34,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   MonitorStateGroup.JSON_PROPERTY_NAME,
   MonitorStateGroup.JSON_PROPERTY_STATUS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorStateGroup {
   public static final String JSON_PROPERTY_LAST_NODATA_TS = "last_nodata_ts";
   private Long lastNodataTs;
@@ -56,7 +61,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup lastNodataTs(Long lastNodataTs) {
-    
     this.lastNodataTs = lastNodataTs;
     return this;
   }
@@ -81,7 +85,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup lastNotifiedTs(Long lastNotifiedTs) {
-    
     this.lastNotifiedTs = lastNotifiedTs;
     return this;
   }
@@ -106,7 +109,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup lastResolvedTs(Long lastResolvedTs) {
-    
     this.lastResolvedTs = lastResolvedTs;
     return this;
   }
@@ -131,7 +133,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup lastTriggeredTs(Long lastTriggeredTs) {
-    
     this.lastTriggeredTs = lastTriggeredTs;
     return this;
   }
@@ -156,7 +157,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -181,7 +181,6 @@ public class MonitorStateGroup {
 
 
   public MonitorStateGroup status(MonitorOverallStates status) {
-    
     this.status = status;
     return this;
   }
@@ -205,8 +204,11 @@ public class MonitorStateGroup {
   }
 
 
+  /**
+   * Return true if this MonitorStateGroup object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -246,7 +248,7 @@ public class MonitorStateGroup {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

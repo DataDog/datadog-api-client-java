@@ -13,11 +13,14 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.HTTPMethod;
-import com.datadog.api.v1.client.model.SyntheticsTestRequestBasicAuth;
+import com.datadog.api.v1.client.model.SyntheticsBasicAuth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,6 +28,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the Synthetic test request.
@@ -41,10 +46,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
   SyntheticsTestRequest.JSON_PROPERTY_URL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_BASIC_AUTH = "basicAuth";
-  private SyntheticsTestRequestBasicAuth basicAuth;
+  private SyntheticsBasicAuth basicAuth;
 
   public static final String JSON_PROPERTY_BODY = "body";
   private String body;
@@ -71,8 +76,7 @@ public class SyntheticsTestRequest {
   private String url;
 
 
-  public SyntheticsTestRequest basicAuth(SyntheticsTestRequestBasicAuth basicAuth) {
-    
+  public SyntheticsTestRequest basicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
     return this;
   }
@@ -86,18 +90,17 @@ public class SyntheticsTestRequest {
   @JsonProperty(JSON_PROPERTY_BASIC_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SyntheticsTestRequestBasicAuth getBasicAuth() {
+  public SyntheticsBasicAuth getBasicAuth() {
     return basicAuth;
   }
 
 
-  public void setBasicAuth(SyntheticsTestRequestBasicAuth basicAuth) {
+  public void setBasicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
   }
 
 
   public SyntheticsTestRequest body(String body) {
-    
     this.body = body;
     return this;
   }
@@ -122,7 +125,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest headers(Map<String, String> headers) {
-    
     this.headers = headers;
     return this;
   }
@@ -155,7 +157,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest host(String host) {
-    
     this.host = host;
     return this;
   }
@@ -180,7 +181,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest method(HTTPMethod method) {
-    
     this.method = method;
     return this;
   }
@@ -205,7 +205,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest port(Long port) {
-    
     this.port = port;
     return this;
   }
@@ -230,7 +229,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest query(Object query) {
-    
     this.query = query;
     return this;
   }
@@ -255,17 +253,16 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest timeout(Double timeout) {
-    
     this.timeout = timeout;
     return this;
   }
 
    /**
-   * Timeout in millisecond for the test.
+   * Timeout in seconds for the test.
    * @return timeout
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timeout in millisecond for the test.")
+  @ApiModelProperty(value = "Timeout in seconds for the test.")
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -280,7 +277,6 @@ public class SyntheticsTestRequest {
 
 
   public SyntheticsTestRequest url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -304,8 +300,11 @@ public class SyntheticsTestRequest {
   }
 
 
+  /**
+   * Return true if this SyntheticsTestRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -351,7 +350,7 @@ public class SyntheticsTestRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,17 +13,22 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsGrokParserRules;
 import com.datadog.api.v1.client.model.LogsGrokParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Create custom grok rules to parse the full message or [a specific attribute of your raw event](https://docs.datadoghq.com/logs/processing/parsing/#advanced-settings). For more information, see the [parsing section](https://docs.datadoghq.com/logs/processing/parsing).
@@ -37,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsGrokParser.JSON_PROPERTY_SOURCE,
   LogsGrokParser.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsGrokParser {
   public static final String JSON_PROPERTY_GROK = "grok";
   private LogsGrokParserRules grok;
@@ -59,7 +64,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser grok(LogsGrokParserRules grok) {
-    
     this.grok = grok;
     return this;
   }
@@ -83,7 +87,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -108,7 +111,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -133,7 +135,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser samples(List<String> samples) {
-    
     this.samples = samples;
     return this;
   }
@@ -166,7 +167,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser source(String source) {
-    
     this.source = source;
     return this;
   }
@@ -190,7 +190,6 @@ public class LogsGrokParser {
 
 
   public LogsGrokParser type(LogsGrokParserType type) {
-    
     this.type = type;
     return this;
   }
@@ -213,8 +212,11 @@ public class LogsGrokParser {
   }
 
 
+  /**
+   * Return true if this LogsGrokParser object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -254,7 +256,7 @@ public class LogsGrokParser {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

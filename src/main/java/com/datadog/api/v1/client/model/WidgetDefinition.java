@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AlertGraphWidgetDefinition;
 import com.datadog.api.v1.client.model.AlertValueWidgetDefinition;
 import com.datadog.api.v1.client.model.ChangeWidgetDefinition;
@@ -36,6 +38,7 @@ import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinition;
 import com.datadog.api.v1.client.model.ServiceMapWidgetDefinition;
 import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinition;
 import com.datadog.api.v1.client.model.TableWidgetDefinition;
+import com.datadog.api.v1.client.model.TableWidgetHasSearchBar;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
 import com.datadog.api.v1.client.model.ToplistWidgetDefinition;
 import com.datadog.api.v1.client.model.ToplistWidgetDefinitionType;
@@ -43,12 +46,12 @@ import com.datadog.api.v1.client.model.ToplistWidgetRequest;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetAxis;
 import com.datadog.api.v1.client.model.WidgetColorPreference;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetEvent;
 import com.datadog.api.v1.client.model.WidgetEventSize;
 import com.datadog.api.v1.client.model.WidgetGrouping;
 import com.datadog.api.v1.client.model.WidgetImageSizing;
 import com.datadog.api.v1.client.model.WidgetLayoutType;
-import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetMargin;
 import com.datadog.api.v1.client.model.WidgetMarker;
 import com.datadog.api.v1.client.model.WidgetMessageDisplay;
@@ -66,30 +69,63 @@ import com.datadog.api.v1.client.model.WidgetVizType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collections;
+import java.util.HashSet;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.datadog.api.v1.client.JSON;
 
-
-@JsonDeserialize(using=WidgetDefinition.WidgetDefinitionDeserializer.class)
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonDeserialize(using = WidgetDefinition.WidgetDefinitionDeserializer.class)
+@JsonSerialize(using = WidgetDefinition.WidgetDefinitionSerializer.class)
 public class WidgetDefinition extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(WidgetDefinition.class.getName());
+
+    public static class WidgetDefinitionSerializer extends StdSerializer<WidgetDefinition> {
+        public WidgetDefinitionSerializer(Class<WidgetDefinition> t) {
+            super(t);
+        }
+
+        public WidgetDefinitionSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(WidgetDefinition value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
     public static class WidgetDefinitionDeserializer extends StdDeserializer<WidgetDefinition> {
         public WidgetDefinitionDeserializer() {
             this(WidgetDefinition.class);
@@ -102,199 +138,632 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         @Override
         public WidgetDefinition deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
-
-            int match = 0;
             Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
             // deserialize AlertGraphWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertGraphWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (AlertGraphWidgetDefinition.class.equals(Integer.class) || AlertGraphWidgetDefinition.class.equals(Long.class) || AlertGraphWidgetDefinition.class.equals(Float.class) || AlertGraphWidgetDefinition.class.equals(Double.class) || AlertGraphWidgetDefinition.class.equals(Boolean.class) || AlertGraphWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((AlertGraphWidgetDefinition.class.equals(Integer.class) || AlertGraphWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((AlertGraphWidgetDefinition.class.equals(Float.class) || AlertGraphWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (AlertGraphWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (AlertGraphWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertGraphWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'AlertGraphWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AlertGraphWidgetDefinition'", e);
             }
 
             // deserialize AlertValueWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertValueWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (AlertValueWidgetDefinition.class.equals(Integer.class) || AlertValueWidgetDefinition.class.equals(Long.class) || AlertValueWidgetDefinition.class.equals(Float.class) || AlertValueWidgetDefinition.class.equals(Double.class) || AlertValueWidgetDefinition.class.equals(Boolean.class) || AlertValueWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((AlertValueWidgetDefinition.class.equals(Integer.class) || AlertValueWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((AlertValueWidgetDefinition.class.equals(Float.class) || AlertValueWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (AlertValueWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (AlertValueWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(AlertValueWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'AlertValueWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AlertValueWidgetDefinition'", e);
             }
 
             // deserialize ChangeWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(ChangeWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ChangeWidgetDefinition.class.equals(Integer.class) || ChangeWidgetDefinition.class.equals(Long.class) || ChangeWidgetDefinition.class.equals(Float.class) || ChangeWidgetDefinition.class.equals(Double.class) || ChangeWidgetDefinition.class.equals(Boolean.class) || ChangeWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ChangeWidgetDefinition.class.equals(Integer.class) || ChangeWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ChangeWidgetDefinition.class.equals(Float.class) || ChangeWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ChangeWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ChangeWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ChangeWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ChangeWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ChangeWidgetDefinition'", e);
             }
 
             // deserialize CheckStatusWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckStatusWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CheckStatusWidgetDefinition.class.equals(Integer.class) || CheckStatusWidgetDefinition.class.equals(Long.class) || CheckStatusWidgetDefinition.class.equals(Float.class) || CheckStatusWidgetDefinition.class.equals(Double.class) || CheckStatusWidgetDefinition.class.equals(Boolean.class) || CheckStatusWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CheckStatusWidgetDefinition.class.equals(Integer.class) || CheckStatusWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CheckStatusWidgetDefinition.class.equals(Float.class) || CheckStatusWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CheckStatusWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CheckStatusWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckStatusWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CheckStatusWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CheckStatusWidgetDefinition'", e);
             }
 
             // deserialize DistributionWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(DistributionWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (DistributionWidgetDefinition.class.equals(Integer.class) || DistributionWidgetDefinition.class.equals(Long.class) || DistributionWidgetDefinition.class.equals(Float.class) || DistributionWidgetDefinition.class.equals(Double.class) || DistributionWidgetDefinition.class.equals(Boolean.class) || DistributionWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((DistributionWidgetDefinition.class.equals(Integer.class) || DistributionWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((DistributionWidgetDefinition.class.equals(Float.class) || DistributionWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (DistributionWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (DistributionWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(DistributionWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'DistributionWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'DistributionWidgetDefinition'", e);
             }
 
             // deserialize EventStreamWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(EventStreamWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (EventStreamWidgetDefinition.class.equals(Integer.class) || EventStreamWidgetDefinition.class.equals(Long.class) || EventStreamWidgetDefinition.class.equals(Float.class) || EventStreamWidgetDefinition.class.equals(Double.class) || EventStreamWidgetDefinition.class.equals(Boolean.class) || EventStreamWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((EventStreamWidgetDefinition.class.equals(Integer.class) || EventStreamWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((EventStreamWidgetDefinition.class.equals(Float.class) || EventStreamWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (EventStreamWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (EventStreamWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(EventStreamWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'EventStreamWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'EventStreamWidgetDefinition'", e);
             }
 
             // deserialize EventTimelineWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(EventTimelineWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (EventTimelineWidgetDefinition.class.equals(Integer.class) || EventTimelineWidgetDefinition.class.equals(Long.class) || EventTimelineWidgetDefinition.class.equals(Float.class) || EventTimelineWidgetDefinition.class.equals(Double.class) || EventTimelineWidgetDefinition.class.equals(Boolean.class) || EventTimelineWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((EventTimelineWidgetDefinition.class.equals(Integer.class) || EventTimelineWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((EventTimelineWidgetDefinition.class.equals(Float.class) || EventTimelineWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (EventTimelineWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (EventTimelineWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(EventTimelineWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'EventTimelineWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'EventTimelineWidgetDefinition'", e);
             }
 
             // deserialize FreeTextWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(FreeTextWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (FreeTextWidgetDefinition.class.equals(Integer.class) || FreeTextWidgetDefinition.class.equals(Long.class) || FreeTextWidgetDefinition.class.equals(Float.class) || FreeTextWidgetDefinition.class.equals(Double.class) || FreeTextWidgetDefinition.class.equals(Boolean.class) || FreeTextWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((FreeTextWidgetDefinition.class.equals(Integer.class) || FreeTextWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((FreeTextWidgetDefinition.class.equals(Float.class) || FreeTextWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (FreeTextWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (FreeTextWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(FreeTextWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'FreeTextWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'FreeTextWidgetDefinition'", e);
             }
 
             // deserialize GroupWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(GroupWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (GroupWidgetDefinition.class.equals(Integer.class) || GroupWidgetDefinition.class.equals(Long.class) || GroupWidgetDefinition.class.equals(Float.class) || GroupWidgetDefinition.class.equals(Double.class) || GroupWidgetDefinition.class.equals(Boolean.class) || GroupWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((GroupWidgetDefinition.class.equals(Integer.class) || GroupWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((GroupWidgetDefinition.class.equals(Float.class) || GroupWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (GroupWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (GroupWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(GroupWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'GroupWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'GroupWidgetDefinition'", e);
             }
 
             // deserialize HeatMapWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(HeatMapWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (HeatMapWidgetDefinition.class.equals(Integer.class) || HeatMapWidgetDefinition.class.equals(Long.class) || HeatMapWidgetDefinition.class.equals(Float.class) || HeatMapWidgetDefinition.class.equals(Double.class) || HeatMapWidgetDefinition.class.equals(Boolean.class) || HeatMapWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((HeatMapWidgetDefinition.class.equals(Integer.class) || HeatMapWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((HeatMapWidgetDefinition.class.equals(Float.class) || HeatMapWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (HeatMapWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (HeatMapWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(HeatMapWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'HeatMapWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'HeatMapWidgetDefinition'", e);
             }
 
             // deserialize HostMapWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(HostMapWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (HostMapWidgetDefinition.class.equals(Integer.class) || HostMapWidgetDefinition.class.equals(Long.class) || HostMapWidgetDefinition.class.equals(Float.class) || HostMapWidgetDefinition.class.equals(Double.class) || HostMapWidgetDefinition.class.equals(Boolean.class) || HostMapWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((HostMapWidgetDefinition.class.equals(Integer.class) || HostMapWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((HostMapWidgetDefinition.class.equals(Float.class) || HostMapWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (HostMapWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (HostMapWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(HostMapWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'HostMapWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'HostMapWidgetDefinition'", e);
             }
 
             // deserialize IFrameWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(IFrameWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (IFrameWidgetDefinition.class.equals(Integer.class) || IFrameWidgetDefinition.class.equals(Long.class) || IFrameWidgetDefinition.class.equals(Float.class) || IFrameWidgetDefinition.class.equals(Double.class) || IFrameWidgetDefinition.class.equals(Boolean.class) || IFrameWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((IFrameWidgetDefinition.class.equals(Integer.class) || IFrameWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((IFrameWidgetDefinition.class.equals(Float.class) || IFrameWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (IFrameWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (IFrameWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(IFrameWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'IFrameWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'IFrameWidgetDefinition'", e);
             }
 
             // deserialize ImageWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(ImageWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ImageWidgetDefinition.class.equals(Integer.class) || ImageWidgetDefinition.class.equals(Long.class) || ImageWidgetDefinition.class.equals(Float.class) || ImageWidgetDefinition.class.equals(Double.class) || ImageWidgetDefinition.class.equals(Boolean.class) || ImageWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ImageWidgetDefinition.class.equals(Integer.class) || ImageWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ImageWidgetDefinition.class.equals(Float.class) || ImageWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ImageWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ImageWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ImageWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ImageWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ImageWidgetDefinition'", e);
             }
 
             // deserialize LogStreamWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogStreamWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogStreamWidgetDefinition.class.equals(Integer.class) || LogStreamWidgetDefinition.class.equals(Long.class) || LogStreamWidgetDefinition.class.equals(Float.class) || LogStreamWidgetDefinition.class.equals(Double.class) || LogStreamWidgetDefinition.class.equals(Boolean.class) || LogStreamWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogStreamWidgetDefinition.class.equals(Integer.class) || LogStreamWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogStreamWidgetDefinition.class.equals(Float.class) || LogStreamWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogStreamWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogStreamWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogStreamWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogStreamWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogStreamWidgetDefinition'", e);
             }
 
             // deserialize MonitorSummaryWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(MonitorSummaryWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (MonitorSummaryWidgetDefinition.class.equals(Integer.class) || MonitorSummaryWidgetDefinition.class.equals(Long.class) || MonitorSummaryWidgetDefinition.class.equals(Float.class) || MonitorSummaryWidgetDefinition.class.equals(Double.class) || MonitorSummaryWidgetDefinition.class.equals(Boolean.class) || MonitorSummaryWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((MonitorSummaryWidgetDefinition.class.equals(Integer.class) || MonitorSummaryWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((MonitorSummaryWidgetDefinition.class.equals(Float.class) || MonitorSummaryWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (MonitorSummaryWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (MonitorSummaryWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(MonitorSummaryWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'MonitorSummaryWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'MonitorSummaryWidgetDefinition'", e);
             }
 
             // deserialize NoteWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(NoteWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (NoteWidgetDefinition.class.equals(Integer.class) || NoteWidgetDefinition.class.equals(Long.class) || NoteWidgetDefinition.class.equals(Float.class) || NoteWidgetDefinition.class.equals(Double.class) || NoteWidgetDefinition.class.equals(Boolean.class) || NoteWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((NoteWidgetDefinition.class.equals(Integer.class) || NoteWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((NoteWidgetDefinition.class.equals(Float.class) || NoteWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (NoteWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (NoteWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(NoteWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'NoteWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'NoteWidgetDefinition'", e);
             }
 
             // deserialize QueryValueWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(QueryValueWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (QueryValueWidgetDefinition.class.equals(Integer.class) || QueryValueWidgetDefinition.class.equals(Long.class) || QueryValueWidgetDefinition.class.equals(Float.class) || QueryValueWidgetDefinition.class.equals(Double.class) || QueryValueWidgetDefinition.class.equals(Boolean.class) || QueryValueWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((QueryValueWidgetDefinition.class.equals(Integer.class) || QueryValueWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((QueryValueWidgetDefinition.class.equals(Float.class) || QueryValueWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (QueryValueWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (QueryValueWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(QueryValueWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'QueryValueWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'QueryValueWidgetDefinition'", e);
             }
 
             // deserialize SLOWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(SLOWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (SLOWidgetDefinition.class.equals(Integer.class) || SLOWidgetDefinition.class.equals(Long.class) || SLOWidgetDefinition.class.equals(Float.class) || SLOWidgetDefinition.class.equals(Double.class) || SLOWidgetDefinition.class.equals(Boolean.class) || SLOWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((SLOWidgetDefinition.class.equals(Integer.class) || SLOWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((SLOWidgetDefinition.class.equals(Float.class) || SLOWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (SLOWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (SLOWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(SLOWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'SLOWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'SLOWidgetDefinition'", e);
             }
 
             // deserialize ScatterPlotWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(ScatterPlotWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ScatterPlotWidgetDefinition.class.equals(Integer.class) || ScatterPlotWidgetDefinition.class.equals(Long.class) || ScatterPlotWidgetDefinition.class.equals(Float.class) || ScatterPlotWidgetDefinition.class.equals(Double.class) || ScatterPlotWidgetDefinition.class.equals(Boolean.class) || ScatterPlotWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ScatterPlotWidgetDefinition.class.equals(Integer.class) || ScatterPlotWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ScatterPlotWidgetDefinition.class.equals(Float.class) || ScatterPlotWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ScatterPlotWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ScatterPlotWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ScatterPlotWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ScatterPlotWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ScatterPlotWidgetDefinition'", e);
             }
 
             // deserialize ServiceMapWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceMapWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ServiceMapWidgetDefinition.class.equals(Integer.class) || ServiceMapWidgetDefinition.class.equals(Long.class) || ServiceMapWidgetDefinition.class.equals(Float.class) || ServiceMapWidgetDefinition.class.equals(Double.class) || ServiceMapWidgetDefinition.class.equals(Boolean.class) || ServiceMapWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ServiceMapWidgetDefinition.class.equals(Integer.class) || ServiceMapWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ServiceMapWidgetDefinition.class.equals(Float.class) || ServiceMapWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ServiceMapWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ServiceMapWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceMapWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ServiceMapWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ServiceMapWidgetDefinition'", e);
             }
 
             // deserialize ServiceSummaryWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceSummaryWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ServiceSummaryWidgetDefinition.class.equals(Integer.class) || ServiceSummaryWidgetDefinition.class.equals(Long.class) || ServiceSummaryWidgetDefinition.class.equals(Float.class) || ServiceSummaryWidgetDefinition.class.equals(Double.class) || ServiceSummaryWidgetDefinition.class.equals(Boolean.class) || ServiceSummaryWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ServiceSummaryWidgetDefinition.class.equals(Integer.class) || ServiceSummaryWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ServiceSummaryWidgetDefinition.class.equals(Float.class) || ServiceSummaryWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ServiceSummaryWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ServiceSummaryWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ServiceSummaryWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ServiceSummaryWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ServiceSummaryWidgetDefinition'", e);
             }
 
             // deserialize TableWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(TableWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (TableWidgetDefinition.class.equals(Integer.class) || TableWidgetDefinition.class.equals(Long.class) || TableWidgetDefinition.class.equals(Float.class) || TableWidgetDefinition.class.equals(Double.class) || TableWidgetDefinition.class.equals(Boolean.class) || TableWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((TableWidgetDefinition.class.equals(Integer.class) || TableWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((TableWidgetDefinition.class.equals(Float.class) || TableWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (TableWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (TableWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TableWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'TableWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'TableWidgetDefinition'", e);
             }
 
             // deserialize TimeseriesWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeseriesWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (TimeseriesWidgetDefinition.class.equals(Integer.class) || TimeseriesWidgetDefinition.class.equals(Long.class) || TimeseriesWidgetDefinition.class.equals(Float.class) || TimeseriesWidgetDefinition.class.equals(Double.class) || TimeseriesWidgetDefinition.class.equals(Boolean.class) || TimeseriesWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((TimeseriesWidgetDefinition.class.equals(Integer.class) || TimeseriesWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((TimeseriesWidgetDefinition.class.equals(Float.class) || TimeseriesWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (TimeseriesWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (TimeseriesWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeseriesWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'TimeseriesWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'TimeseriesWidgetDefinition'", e);
             }
 
             // deserialize ToplistWidgetDefinition
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(ToplistWidgetDefinition.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ToplistWidgetDefinition.class.equals(Integer.class) || ToplistWidgetDefinition.class.equals(Long.class) || ToplistWidgetDefinition.class.equals(Float.class) || ToplistWidgetDefinition.class.equals(Double.class) || ToplistWidgetDefinition.class.equals(Boolean.class) || ToplistWidgetDefinition.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ToplistWidgetDefinition.class.equals(Integer.class) || ToplistWidgetDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ToplistWidgetDefinition.class.equals(Float.class) || ToplistWidgetDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ToplistWidgetDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ToplistWidgetDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ToplistWidgetDefinition.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ToplistWidgetDefinition'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ToplistWidgetDefinition'", e);
             }
 
             if (match == 1) {
@@ -303,6 +772,14 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
                 return ret;
             }
             throw new IOException(String.format("Failed deserialization for WidgetDefinition: %d classes match result, expected 1", match));
+        }
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public WidgetDefinition getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "WidgetDefinition cannot be null");
         }
     }
 
@@ -482,6 +959,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         });
         schemas.put("ToplistWidgetDefinition", new GenericType<ToplistWidgetDefinition>() {
         });
+        JSON.registerDescendants(WidgetDefinition.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -489,124 +967,132 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         return WidgetDefinition.schemas;
     }
 
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * AlertGraphWidgetDefinition, AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
+     */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof AlertGraphWidgetDefinition) {
+        if (JSON.isInstanceOf(AlertGraphWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AlertValueWidgetDefinition) {
+        if (JSON.isInstanceOf(AlertValueWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ChangeWidgetDefinition) {
+        if (JSON.isInstanceOf(ChangeWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CheckStatusWidgetDefinition) {
+        if (JSON.isInstanceOf(CheckStatusWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof DistributionWidgetDefinition) {
+        if (JSON.isInstanceOf(DistributionWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof EventStreamWidgetDefinition) {
+        if (JSON.isInstanceOf(EventStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof EventTimelineWidgetDefinition) {
+        if (JSON.isInstanceOf(EventTimelineWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof FreeTextWidgetDefinition) {
+        if (JSON.isInstanceOf(FreeTextWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof GroupWidgetDefinition) {
+        if (JSON.isInstanceOf(GroupWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof HeatMapWidgetDefinition) {
+        if (JSON.isInstanceOf(HeatMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof HostMapWidgetDefinition) {
+        if (JSON.isInstanceOf(HostMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof IFrameWidgetDefinition) {
+        if (JSON.isInstanceOf(IFrameWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ImageWidgetDefinition) {
+        if (JSON.isInstanceOf(ImageWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogStreamWidgetDefinition) {
+        if (JSON.isInstanceOf(LogStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof MonitorSummaryWidgetDefinition) {
+        if (JSON.isInstanceOf(MonitorSummaryWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof NoteWidgetDefinition) {
+        if (JSON.isInstanceOf(NoteWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof QueryValueWidgetDefinition) {
+        if (JSON.isInstanceOf(QueryValueWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof SLOWidgetDefinition) {
+        if (JSON.isInstanceOf(SLOWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ScatterPlotWidgetDefinition) {
+        if (JSON.isInstanceOf(ScatterPlotWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ServiceMapWidgetDefinition) {
+        if (JSON.isInstanceOf(ServiceMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ServiceSummaryWidgetDefinition) {
+        if (JSON.isInstanceOf(ServiceSummaryWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof TableWidgetDefinition) {
+        if (JSON.isInstanceOf(TableWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof TimeseriesWidgetDefinition) {
+        if (JSON.isInstanceOf(TimeseriesWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ToplistWidgetDefinition) {
+        if (JSON.isInstanceOf(ToplistWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -614,7 +1100,280 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         throw new RuntimeException("Invalid instance type. Must be AlertGraphWidgetDefinition, AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition");
     }
 
+    /**
+     * Get the actual instance, which can be the following:
+     * AlertGraphWidgetDefinition, AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition
+     *
+     * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
 
+    /**
+     * Get the actual instance of `AlertGraphWidgetDefinition`. If the actual instanct is not `AlertGraphWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AlertGraphWidgetDefinition`
+     * @throws ClassCastException if the instance is not `AlertGraphWidgetDefinition`
+     */
+    public AlertGraphWidgetDefinition getAlertGraphWidgetDefinition() throws ClassCastException {
+        return (AlertGraphWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AlertValueWidgetDefinition`. If the actual instanct is not `AlertValueWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AlertValueWidgetDefinition`
+     * @throws ClassCastException if the instance is not `AlertValueWidgetDefinition`
+     */
+    public AlertValueWidgetDefinition getAlertValueWidgetDefinition() throws ClassCastException {
+        return (AlertValueWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ChangeWidgetDefinition`. If the actual instanct is not `ChangeWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ChangeWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ChangeWidgetDefinition`
+     */
+    public ChangeWidgetDefinition getChangeWidgetDefinition() throws ClassCastException {
+        return (ChangeWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CheckStatusWidgetDefinition`. If the actual instanct is not `CheckStatusWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CheckStatusWidgetDefinition`
+     * @throws ClassCastException if the instance is not `CheckStatusWidgetDefinition`
+     */
+    public CheckStatusWidgetDefinition getCheckStatusWidgetDefinition() throws ClassCastException {
+        return (CheckStatusWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `DistributionWidgetDefinition`. If the actual instanct is not `DistributionWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `DistributionWidgetDefinition`
+     * @throws ClassCastException if the instance is not `DistributionWidgetDefinition`
+     */
+    public DistributionWidgetDefinition getDistributionWidgetDefinition() throws ClassCastException {
+        return (DistributionWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EventStreamWidgetDefinition`. If the actual instanct is not `EventStreamWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EventStreamWidgetDefinition`
+     * @throws ClassCastException if the instance is not `EventStreamWidgetDefinition`
+     */
+    public EventStreamWidgetDefinition getEventStreamWidgetDefinition() throws ClassCastException {
+        return (EventStreamWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EventTimelineWidgetDefinition`. If the actual instanct is not `EventTimelineWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EventTimelineWidgetDefinition`
+     * @throws ClassCastException if the instance is not `EventTimelineWidgetDefinition`
+     */
+    public EventTimelineWidgetDefinition getEventTimelineWidgetDefinition() throws ClassCastException {
+        return (EventTimelineWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `FreeTextWidgetDefinition`. If the actual instanct is not `FreeTextWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `FreeTextWidgetDefinition`
+     * @throws ClassCastException if the instance is not `FreeTextWidgetDefinition`
+     */
+    public FreeTextWidgetDefinition getFreeTextWidgetDefinition() throws ClassCastException {
+        return (FreeTextWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `GroupWidgetDefinition`. If the actual instanct is not `GroupWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `GroupWidgetDefinition`
+     * @throws ClassCastException if the instance is not `GroupWidgetDefinition`
+     */
+    public GroupWidgetDefinition getGroupWidgetDefinition() throws ClassCastException {
+        return (GroupWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `HeatMapWidgetDefinition`. If the actual instanct is not `HeatMapWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `HeatMapWidgetDefinition`
+     * @throws ClassCastException if the instance is not `HeatMapWidgetDefinition`
+     */
+    public HeatMapWidgetDefinition getHeatMapWidgetDefinition() throws ClassCastException {
+        return (HeatMapWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `HostMapWidgetDefinition`. If the actual instanct is not `HostMapWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `HostMapWidgetDefinition`
+     * @throws ClassCastException if the instance is not `HostMapWidgetDefinition`
+     */
+    public HostMapWidgetDefinition getHostMapWidgetDefinition() throws ClassCastException {
+        return (HostMapWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `IFrameWidgetDefinition`. If the actual instanct is not `IFrameWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `IFrameWidgetDefinition`
+     * @throws ClassCastException if the instance is not `IFrameWidgetDefinition`
+     */
+    public IFrameWidgetDefinition getIFrameWidgetDefinition() throws ClassCastException {
+        return (IFrameWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ImageWidgetDefinition`. If the actual instanct is not `ImageWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ImageWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ImageWidgetDefinition`
+     */
+    public ImageWidgetDefinition getImageWidgetDefinition() throws ClassCastException {
+        return (ImageWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogStreamWidgetDefinition`. If the actual instanct is not `LogStreamWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogStreamWidgetDefinition`
+     * @throws ClassCastException if the instance is not `LogStreamWidgetDefinition`
+     */
+    public LogStreamWidgetDefinition getLogStreamWidgetDefinition() throws ClassCastException {
+        return (LogStreamWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `MonitorSummaryWidgetDefinition`. If the actual instanct is not `MonitorSummaryWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `MonitorSummaryWidgetDefinition`
+     * @throws ClassCastException if the instance is not `MonitorSummaryWidgetDefinition`
+     */
+    public MonitorSummaryWidgetDefinition getMonitorSummaryWidgetDefinition() throws ClassCastException {
+        return (MonitorSummaryWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `NoteWidgetDefinition`. If the actual instanct is not `NoteWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `NoteWidgetDefinition`
+     * @throws ClassCastException if the instance is not `NoteWidgetDefinition`
+     */
+    public NoteWidgetDefinition getNoteWidgetDefinition() throws ClassCastException {
+        return (NoteWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `QueryValueWidgetDefinition`. If the actual instanct is not `QueryValueWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `QueryValueWidgetDefinition`
+     * @throws ClassCastException if the instance is not `QueryValueWidgetDefinition`
+     */
+    public QueryValueWidgetDefinition getQueryValueWidgetDefinition() throws ClassCastException {
+        return (QueryValueWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `SLOWidgetDefinition`. If the actual instanct is not `SLOWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `SLOWidgetDefinition`
+     * @throws ClassCastException if the instance is not `SLOWidgetDefinition`
+     */
+    public SLOWidgetDefinition getSLOWidgetDefinition() throws ClassCastException {
+        return (SLOWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ScatterPlotWidgetDefinition`. If the actual instanct is not `ScatterPlotWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ScatterPlotWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ScatterPlotWidgetDefinition`
+     */
+    public ScatterPlotWidgetDefinition getScatterPlotWidgetDefinition() throws ClassCastException {
+        return (ScatterPlotWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ServiceMapWidgetDefinition`. If the actual instanct is not `ServiceMapWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ServiceMapWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ServiceMapWidgetDefinition`
+     */
+    public ServiceMapWidgetDefinition getServiceMapWidgetDefinition() throws ClassCastException {
+        return (ServiceMapWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ServiceSummaryWidgetDefinition`. If the actual instanct is not `ServiceSummaryWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ServiceSummaryWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ServiceSummaryWidgetDefinition`
+     */
+    public ServiceSummaryWidgetDefinition getServiceSummaryWidgetDefinition() throws ClassCastException {
+        return (ServiceSummaryWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `TableWidgetDefinition`. If the actual instanct is not `TableWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TableWidgetDefinition`
+     * @throws ClassCastException if the instance is not `TableWidgetDefinition`
+     */
+    public TableWidgetDefinition getTableWidgetDefinition() throws ClassCastException {
+        return (TableWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `TimeseriesWidgetDefinition`. If the actual instanct is not `TimeseriesWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TimeseriesWidgetDefinition`
+     * @throws ClassCastException if the instance is not `TimeseriesWidgetDefinition`
+     */
+    public TimeseriesWidgetDefinition getTimeseriesWidgetDefinition() throws ClassCastException {
+        return (TimeseriesWidgetDefinition)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ToplistWidgetDefinition`. If the actual instanct is not `ToplistWidgetDefinition`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ToplistWidgetDefinition`
+     * @throws ClassCastException if the instance is not `ToplistWidgetDefinition`
+     */
+    public ToplistWidgetDefinition getToplistWidgetDefinition() throws ClassCastException {
+        return (ToplistWidgetDefinition)super.getActualInstance();
+    }
 
 }
 

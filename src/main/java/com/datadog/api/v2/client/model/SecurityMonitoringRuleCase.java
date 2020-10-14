@@ -13,16 +13,21 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Case when signal is generated.
@@ -34,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SecurityMonitoringRuleCase.JSON_PROPERTY_NOTIFICATIONS,
   SecurityMonitoringRuleCase.JSON_PROPERTY_STATUS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleCase {
   public static final String JSON_PROPERTY_CONDITION = "condition";
   private String condition;
@@ -50,17 +55,16 @@ public class SecurityMonitoringRuleCase {
 
 
   public SecurityMonitoringRuleCase condition(String condition) {
-    
     this.condition = condition;
     return this;
   }
 
    /**
-   * A rule case contains logical operations (&gt;, &gt;&#x3D;, &amp;&amp;, ||) to determine if a signal should be generated based on the event counts in the previously defined queries.
+   * A rule case contains logical operations (&#x60;&gt;&#x60;,&#x60;&gt;&#x3D;&#x60;, &#x60;&amp;&amp;&#x60;, &#x60;||&#x60;) to determine if a signal should be generated based on the event counts in the previously defined queries.
    * @return condition
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A rule case contains logical operations (>, >=, &&, ||) to determine if a signal should be generated based on the event counts in the previously defined queries.")
+  @ApiModelProperty(value = "A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.")
   @JsonProperty(JSON_PROPERTY_CONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -75,7 +79,6 @@ public class SecurityMonitoringRuleCase {
 
 
   public SecurityMonitoringRuleCase name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -100,7 +103,6 @@ public class SecurityMonitoringRuleCase {
 
 
   public SecurityMonitoringRuleCase notifications(List<String> notifications) {
-    
     this.notifications = notifications;
     return this;
   }
@@ -114,11 +116,11 @@ public class SecurityMonitoringRuleCase {
   }
 
    /**
-   * Notification targets for each rule case
+   * Notification targets for each rule case.
    * @return notifications
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Notification targets for each rule case")
+  @ApiModelProperty(value = "Notification targets for each rule case.")
   @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -133,7 +135,6 @@ public class SecurityMonitoringRuleCase {
 
 
   public SecurityMonitoringRuleCase status(SecurityMonitoringRuleSeverity status) {
-    
     this.status = status;
     return this;
   }
@@ -157,8 +158,11 @@ public class SecurityMonitoringRuleCase {
   }
 
 
+  /**
+   * Return true if this SecurityMonitoringRuleCase object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -194,7 +198,7 @@ public class SecurityMonitoringRuleCase {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

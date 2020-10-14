@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsGeoIPParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country, Subdivision, and City information in the target attribute path.
@@ -35,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsGeoIPParser.JSON_PROPERTY_TARGET,
   LogsGeoIPParser.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsGeoIPParser {
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
@@ -54,7 +59,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -79,7 +83,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -104,7 +107,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -133,7 +135,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -157,7 +158,6 @@ public class LogsGeoIPParser {
 
 
   public LogsGeoIPParser type(LogsGeoIPParserType type) {
-    
     this.type = type;
     return this;
   }
@@ -180,8 +180,11 @@ public class LogsGeoIPParser {
   }
 
 
+  /**
+   * Return true if this LogsGeoIPParser object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -219,7 +222,7 @@ public class LogsGeoIPParser {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PagerDutyIntegrationApi {
   private ApiClient apiClient;
 
@@ -89,7 +89,7 @@ private ApiResponse<PagerDutyServiceName> createPagerDutyIntegrationServiceWithH
 
     return apiClient.invokeAPI("PagerDutyIntegrationApi.createPagerDutyIntegrationService", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreatePagerDutyIntegrationServiceRequest {
@@ -195,7 +195,7 @@ private ApiResponse<Void> deletePagerDutyIntegrationServiceWithHttpInfo(String s
 
     return apiClient.invokeAPI("PagerDutyIntegrationApi.deletePagerDutyIntegrationService", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, null, false);
   }
 
   public class APIdeletePagerDutyIntegrationServiceRequest {
@@ -295,7 +295,7 @@ private ApiResponse<PagerDutyServiceName> getPagerDutyIntegrationServiceWithHttp
 
     return apiClient.invokeAPI("PagerDutyIntegrationApi.getPagerDutyIntegrationService", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetPagerDutyIntegrationServiceRequest {
@@ -398,7 +398,7 @@ private ApiResponse<Void> updatePagerDutyIntegrationServiceWithHttpInfo(String s
 
     return apiClient.invokeAPI("PagerDutyIntegrationApi.updatePagerDutyIntegrationService", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, null, false);
   }
 
   public class APIupdatePagerDutyIntegrationServiceRequest {

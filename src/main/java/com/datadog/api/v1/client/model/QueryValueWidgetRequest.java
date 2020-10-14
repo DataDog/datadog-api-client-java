@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
@@ -21,12 +23,15 @@ import com.datadog.api.v1.client.model.WidgetConditionalFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Updated query value widget.
@@ -41,9 +46,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   QueryValueWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
   QueryValueWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   QueryValueWidgetRequest.JSON_PROPERTY_Q,
-  QueryValueWidgetRequest.JSON_PROPERTY_RUM_QUERY
+  QueryValueWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  QueryValueWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryValueWidgetRequest {
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private WidgetAggregator aggregator;
@@ -72,9 +78,11 @@ public class QueryValueWidgetRequest {
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
 
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
+
 
   public QueryValueWidgetRequest aggregator(WidgetAggregator aggregator) {
-    
     this.aggregator = aggregator;
     return this;
   }
@@ -99,7 +107,6 @@ public class QueryValueWidgetRequest {
 
 
   public QueryValueWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
-    
     this.apmQuery = apmQuery;
     return this;
   }
@@ -124,7 +131,6 @@ public class QueryValueWidgetRequest {
 
 
   public QueryValueWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
-    
     this.conditionalFormats = conditionalFormats;
     return this;
   }
@@ -157,7 +163,6 @@ public class QueryValueWidgetRequest {
 
 
   public QueryValueWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
-    
     this.eventQuery = eventQuery;
     return this;
   }
@@ -182,7 +187,6 @@ public class QueryValueWidgetRequest {
 
 
   public QueryValueWidgetRequest logQuery(LogQueryDefinition logQuery) {
-    
     this.logQuery = logQuery;
     return this;
   }
@@ -207,7 +211,6 @@ public class QueryValueWidgetRequest {
 
 
   public QueryValueWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
-    
     this.networkQuery = networkQuery;
     return this;
   }
@@ -232,7 +235,6 @@ public class QueryValueWidgetRequest {
 
 
   public QueryValueWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
-    
     this.processQuery = processQuery;
     return this;
   }
@@ -257,7 +259,6 @@ public class QueryValueWidgetRequest {
 
 
   public QueryValueWidgetRequest q(String q) {
-    
     this.q = q;
     return this;
   }
@@ -282,7 +283,6 @@ public class QueryValueWidgetRequest {
 
 
   public QueryValueWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
-    
     this.rumQuery = rumQuery;
     return this;
   }
@@ -306,8 +306,35 @@ public class QueryValueWidgetRequest {
   }
 
 
+  public QueryValueWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
+  /**
+   * Return true if this QueryValueWidgetRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -323,12 +350,13 @@ public class QueryValueWidgetRequest {
         Objects.equals(this.networkQuery, queryValueWidgetRequest.networkQuery) &&
         Objects.equals(this.processQuery, queryValueWidgetRequest.processQuery) &&
         Objects.equals(this.q, queryValueWidgetRequest.q) &&
-        Objects.equals(this.rumQuery, queryValueWidgetRequest.rumQuery);
+        Objects.equals(this.rumQuery, queryValueWidgetRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, queryValueWidgetRequest.securityQuery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, apmQuery, conditionalFormats, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery);
+    return Objects.hash(aggregator, apmQuery, conditionalFormats, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery, securityQuery);
   }
 
 
@@ -345,6 +373,7 @@ public class QueryValueWidgetRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -353,7 +382,7 @@ public class QueryValueWidgetRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

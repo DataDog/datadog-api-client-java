@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AzureIntegrationApi {
   private ApiClient apiClient;
 
@@ -87,7 +87,7 @@ private ApiResponse<Object> createAzureIntegrationWithHttpInfo(AzureAccount body
 
     return apiClient.invokeAPI("AzureIntegrationApi.createAzureIntegration", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateAzureIntegrationRequest {
@@ -194,7 +194,7 @@ private ApiResponse<Object> deleteAzureIntegrationWithHttpInfo(AzureAccount body
 
     return apiClient.invokeAPI("AzureIntegrationApi.deleteAzureIntegration", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIdeleteAzureIntegrationRequest {
@@ -296,7 +296,7 @@ private ApiResponse<List<AzureAccount>> listAzureIntegrationWithHttpInfo() throw
 
     return apiClient.invokeAPI("AzureIntegrationApi.listAzureIntegration", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistAzureIntegrationRequest {
@@ -392,7 +392,7 @@ private ApiResponse<Object> updateAzureHostFiltersWithHttpInfo(AzureAccount body
 
     return apiClient.invokeAPI("AzureIntegrationApi.updateAzureHostFilters", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateAzureHostFiltersRequest {
@@ -499,7 +499,7 @@ private ApiResponse<Object> updateAzureIntegrationWithHttpInfo(AzureAccount body
 
     return apiClient.invokeAPI("AzureIntegrationApi.updateAzureIntegration", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateAzureIntegrationRequest {

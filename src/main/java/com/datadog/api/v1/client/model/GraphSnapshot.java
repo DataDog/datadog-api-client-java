@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object representing a graph snapshot.
@@ -30,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GraphSnapshot.JSON_PROPERTY_METRIC_QUERY,
   GraphSnapshot.JSON_PROPERTY_SNAPSHOT_URL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GraphSnapshot {
   public static final String JSON_PROPERTY_GRAPH_DEF = "graph_def";
   private String graphDef;
@@ -43,7 +48,6 @@ public class GraphSnapshot {
 
 
   public GraphSnapshot graphDef(String graphDef) {
-    
     this.graphDef = graphDef;
     return this;
   }
@@ -68,7 +72,6 @@ public class GraphSnapshot {
 
 
   public GraphSnapshot metricQuery(String metricQuery) {
-    
     this.metricQuery = metricQuery;
     return this;
   }
@@ -93,7 +96,6 @@ public class GraphSnapshot {
 
 
   public GraphSnapshot snapshotUrl(String snapshotUrl) {
-    
     this.snapshotUrl = snapshotUrl;
     return this;
   }
@@ -117,8 +119,11 @@ public class GraphSnapshot {
   }
 
 
+  /**
+   * Return true if this GraphSnapshot object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -152,7 +157,7 @@ public class GraphSnapshot {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

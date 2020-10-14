@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsStatusRemapperType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Use this Processor if you want to assign some attributes as the official status.  Each incoming status value is mapped as follows.    - Integers from 0 to 7 map to the Syslog severity standards   - Strings beginning with &#x60;emerg&#x60; or f (case-insensitive) map to &#x60;emerg&#x60; (0)   - Strings beginning with &#x60;a&#x60; (case-insensitive) map to &#x60;alert&#x60; (1)   - Strings beginning with &#x60;c&#x60; (case-insensitive) map to &#x60;critical&#x60; (2)   - Strings beginning with &#x60;err&#x60; (case-insensitive) map to &#x60;error&#x60; (3)   - Strings beginning with &#x60;w&#x60; (case-insensitive) map to &#x60;warning&#x60; (4)   - Strings beginning with &#x60;n&#x60; (case-insensitive) map to &#x60;notice&#x60; (5)   - Strings beginning with &#x60;i&#x60; (case-insensitive) map to &#x60;info&#x60; (6)   - Strings beginning with &#x60;d&#x60;, &#x60;trace&#x60; or &#x60;verbose&#x60; (case-insensitive) map to &#x60;debug&#x60; (7)   - Strings beginning with &#x60;o&#x60; or matching &#x60;OK&#x60; or &#x60;Success&#x60; (case-insensitive) map to OK   - All others map to &#x60;info&#x60; (6)    **Note:** If multiple log status remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.
@@ -34,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsStatusRemapper.JSON_PROPERTY_SOURCES,
   LogsStatusRemapper.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsStatusRemapper {
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
@@ -50,7 +55,6 @@ public class LogsStatusRemapper {
 
 
   public LogsStatusRemapper isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -75,7 +79,6 @@ public class LogsStatusRemapper {
 
 
   public LogsStatusRemapper name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -100,7 +103,6 @@ public class LogsStatusRemapper {
 
 
   public LogsStatusRemapper sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -129,7 +131,6 @@ public class LogsStatusRemapper {
 
 
   public LogsStatusRemapper type(LogsStatusRemapperType type) {
-    
     this.type = type;
     return this;
   }
@@ -152,8 +153,11 @@ public class LogsStatusRemapper {
   }
 
 
+  /**
+   * Return true if this LogsStatusRemapper object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -189,7 +193,7 @@ public class LogsStatusRemapper {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

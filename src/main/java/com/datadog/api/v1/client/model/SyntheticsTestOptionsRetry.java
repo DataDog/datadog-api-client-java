@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the retry strategy to apply to a Synthetic test.
@@ -29,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
   SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestOptionsRetry {
   public static final String JSON_PROPERTY_COUNT = "count";
   private Long count;
@@ -39,17 +44,16 @@ public class SyntheticsTestOptionsRetry {
 
 
   public SyntheticsTestOptionsRetry count(Long count) {
-    
     this.count = count;
     return this;
   }
 
    /**
-   * The amount of location that needs to fail for the test to be retried.
+   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
    * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The amount of location that needs to fail for the test to be retried.")
+  @ApiModelProperty(value = "Number of times a test needs to be retried before marking a location as failed. Defaults to 0.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -64,17 +68,16 @@ public class SyntheticsTestOptionsRetry {
 
 
   public SyntheticsTestOptionsRetry interval(Double interval) {
-    
     this.interval = interval;
     return this;
   }
 
    /**
-   * The interval over which the amount of location needed to fail for the test to be retried.
+   * Time interval between retries (in milliseconds). Defaults to 300ms.
    * @return interval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The interval over which the amount of location needed to fail for the test to be retried.")
+  @ApiModelProperty(value = "Time interval between retries (in milliseconds). Defaults to 300ms.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -88,8 +91,11 @@ public class SyntheticsTestOptionsRetry {
   }
 
 
+  /**
+   * Return true if this SyntheticsTestOptionsRetry object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -121,7 +127,7 @@ public class SyntheticsTestOptionsRetry {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

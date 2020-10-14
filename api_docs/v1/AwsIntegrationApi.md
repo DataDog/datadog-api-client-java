@@ -22,6 +22,7 @@ Create an AWS integration
 Create a Datadog-Amazon Web Services integration.
 Using the `POST` method updates your integration configuration
 by adding your new configuration to the existing one in your Datadog organization.
+A unique AWS Account ID for role based authentication.
 
 ### Example
 
@@ -31,7 +32,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -94,6 +95,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication Error |  -  |
+| **409** | Conflict Error |  -  |
 
 
 ## createNewAWSExternalID
@@ -112,7 +114,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -193,7 +195,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -256,6 +258,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication Error |  -  |
+| **409** | Conflict Error |  -  |
 
 
 ## listAWSAccounts
@@ -274,7 +277,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -361,7 +364,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -436,7 +439,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
 public class Example {
@@ -508,4 +511,5 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication Error |  -  |
+| **409** | Conflict Error |  -  |
 

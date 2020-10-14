@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
@@ -23,10 +25,13 @@ import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Updated change widget.
@@ -45,9 +50,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ChangeWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_Q,
   ChangeWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  ChangeWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_SHOW_PRESENT
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ChangeWidgetRequest {
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
@@ -85,12 +91,14 @@ public class ChangeWidgetRequest {
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
 
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
+
   public static final String JSON_PROPERTY_SHOW_PRESENT = "show_present";
   private Boolean showPresent;
 
 
   public ChangeWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
-    
     this.apmQuery = apmQuery;
     return this;
   }
@@ -115,7 +123,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest changeType(WidgetChangeType changeType) {
-    
     this.changeType = changeType;
     return this;
   }
@@ -140,7 +147,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest compareTo(WidgetCompareTo compareTo) {
-    
     this.compareTo = compareTo;
     return this;
   }
@@ -165,7 +171,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
-    
     this.eventQuery = eventQuery;
     return this;
   }
@@ -190,7 +195,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest increaseGood(Boolean increaseGood) {
-    
     this.increaseGood = increaseGood;
     return this;
   }
@@ -215,7 +219,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest logQuery(LogQueryDefinition logQuery) {
-    
     this.logQuery = logQuery;
     return this;
   }
@@ -240,7 +243,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
-    
     this.networkQuery = networkQuery;
     return this;
   }
@@ -265,7 +267,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest orderBy(WidgetOrderBy orderBy) {
-    
     this.orderBy = orderBy;
     return this;
   }
@@ -290,7 +291,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest orderDir(WidgetSort orderDir) {
-    
     this.orderDir = orderDir;
     return this;
   }
@@ -315,7 +315,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
-    
     this.processQuery = processQuery;
     return this;
   }
@@ -340,7 +339,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest q(String q) {
-    
     this.q = q;
     return this;
   }
@@ -365,7 +363,6 @@ public class ChangeWidgetRequest {
 
 
   public ChangeWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
-    
     this.rumQuery = rumQuery;
     return this;
   }
@@ -389,8 +386,31 @@ public class ChangeWidgetRequest {
   }
 
 
+  public ChangeWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+   /**
+   * Get securityQuery
+   * @return securityQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+
   public ChangeWidgetRequest showPresent(Boolean showPresent) {
-    
     this.showPresent = showPresent;
     return this;
   }
@@ -414,8 +434,11 @@ public class ChangeWidgetRequest {
   }
 
 
+  /**
+   * Return true if this ChangeWidgetRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -435,12 +458,13 @@ public class ChangeWidgetRequest {
         Objects.equals(this.processQuery, changeWidgetRequest.processQuery) &&
         Objects.equals(this.q, changeWidgetRequest.q) &&
         Objects.equals(this.rumQuery, changeWidgetRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, changeWidgetRequest.securityQuery) &&
         Objects.equals(this.showPresent, changeWidgetRequest.showPresent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, changeType, compareTo, eventQuery, increaseGood, logQuery, networkQuery, orderBy, orderDir, processQuery, q, rumQuery, showPresent);
+    return Objects.hash(apmQuery, changeType, compareTo, eventQuery, increaseGood, logQuery, networkQuery, orderBy, orderDir, processQuery, q, rumQuery, securityQuery, showPresent);
   }
 
 
@@ -460,6 +484,7 @@ public class ChangeWidgetRequest {
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    showPresent: ").append(toIndentedString(showPresent)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -469,7 +494,7 @@ public class ChangeWidgetRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

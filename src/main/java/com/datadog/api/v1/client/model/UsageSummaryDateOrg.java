@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Global hourly report of all data billed by Datadog for a given organization.
@@ -42,16 +47,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UsageSummaryDateOrg.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NAME,
   UsageSummaryDateOrg.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NPM_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PUBLIC_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
-  UsageSummaryDateOrg.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM
+  UsageSummaryDateOrg.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P = "agent_host_top99p";
   private Long agentHostTop99p;
@@ -101,6 +109,9 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM = "ingested_events_bytes_sum";
   private Long ingestedEventsBytesSum;
 
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM = "mobile_rum_session_count_sum";
+  private Long mobileRumSessionCountSum;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -109,6 +120,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P = "npm_host_top99p";
   private Long npmHostTop99p;
+
+  public static final String JSON_PROPERTY_PROFILING_HOST_TOP99P = "profiling_host_top99p";
+  private Long profilingHostTop99p;
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
@@ -125,9 +139,11 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM = "trace_search_indexed_events_count_sum";
   private Long traceSearchIndexedEventsCountSum;
 
+  public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM = "twol_ingested_events_bytes_sum";
+  private Long twolIngestedEventsBytesSum;
+
 
   public UsageSummaryDateOrg agentHostTop99p(Long agentHostTop99p) {
-    
     this.agentHostTop99p = agentHostTop99p;
     return this;
   }
@@ -152,7 +168,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg apmHostTop99p(Long apmHostTop99p) {
-    
     this.apmHostTop99p = apmHostTop99p;
     return this;
   }
@@ -177,7 +192,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg awsHostTop99p(Long awsHostTop99p) {
-    
     this.awsHostTop99p = awsHostTop99p;
     return this;
   }
@@ -202,7 +216,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg awsLambdaFuncCount(Long awsLambdaFuncCount) {
-    
     this.awsLambdaFuncCount = awsLambdaFuncCount;
     return this;
   }
@@ -227,7 +240,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg awsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
-    
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
     return this;
   }
@@ -252,7 +264,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg billableIngestedBytesSum(Long billableIngestedBytesSum) {
-    
     this.billableIngestedBytesSum = billableIngestedBytesSum;
     return this;
   }
@@ -277,7 +288,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg containerAvg(Long containerAvg) {
-    
     this.containerAvg = containerAvg;
     return this;
   }
@@ -302,7 +312,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg containerHwm(Long containerHwm) {
-    
     this.containerHwm = containerHwm;
     return this;
   }
@@ -327,7 +336,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg customTsAvg(Long customTsAvg) {
-    
     this.customTsAvg = customTsAvg;
     return this;
   }
@@ -352,7 +360,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg fargateTasksCountAvg(Long fargateTasksCountAvg) {
-    
     this.fargateTasksCountAvg = fargateTasksCountAvg;
     return this;
   }
@@ -377,7 +384,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg fargateTasksCountHwm(Long fargateTasksCountHwm) {
-    
     this.fargateTasksCountHwm = fargateTasksCountHwm;
     return this;
   }
@@ -402,7 +408,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg gcpHostTop99p(Long gcpHostTop99p) {
-    
     this.gcpHostTop99p = gcpHostTop99p;
     return this;
   }
@@ -427,7 +432,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -452,7 +456,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg indexedEventsCountSum(Long indexedEventsCountSum) {
-    
     this.indexedEventsCountSum = indexedEventsCountSum;
     return this;
   }
@@ -477,7 +480,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg infraHostTop99p(Long infraHostTop99p) {
-    
     this.infraHostTop99p = infraHostTop99p;
     return this;
   }
@@ -502,7 +504,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg ingestedEventsBytesSum(Long ingestedEventsBytesSum) {
-    
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
     return this;
   }
@@ -526,8 +527,31 @@ public class UsageSummaryDateOrg {
   }
 
 
+  public UsageSummaryDateOrg mobileRumSessionCountSum(Long mobileRumSessionCountSum) {
+    this.mobileRumSessionCountSum = mobileRumSessionCountSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all mobile RUM Sessions over all hours in the current date for the given org.
+   * @return mobileRumSessionCountSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMobileRumSessionCountSum() {
+    return mobileRumSessionCountSum;
+  }
+
+
+  public void setMobileRumSessionCountSum(Long mobileRumSessionCountSum) {
+    this.mobileRumSessionCountSum = mobileRumSessionCountSum;
+  }
+
+
   public UsageSummaryDateOrg name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -552,7 +576,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg netflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
-    
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
     return this;
   }
@@ -577,7 +600,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg npmHostTop99p(Long npmHostTop99p) {
-    
     this.npmHostTop99p = npmHostTop99p;
     return this;
   }
@@ -601,8 +623,31 @@ public class UsageSummaryDateOrg {
   }
 
 
+  public UsageSummaryDateOrg profilingHostTop99p(Long profilingHostTop99p) {
+    this.profilingHostTop99p = profilingHostTop99p;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org.
+   * @return profilingHostTop99p
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_PROFILING_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getProfilingHostTop99p() {
+    return profilingHostTop99p;
+  }
+
+
+  public void setProfilingHostTop99p(Long profilingHostTop99p) {
+    this.profilingHostTop99p = profilingHostTop99p;
+  }
+
+
   public UsageSummaryDateOrg publicId(String publicId) {
-    
     this.publicId = publicId;
     return this;
   }
@@ -627,17 +672,16 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg rumSessionCountSum(Long rumSessionCountSum) {
-    
     this.rumSessionCountSum = rumSessionCountSum;
     return this;
   }
 
    /**
-   * Shows the sum of all RUM Sessions over all hours in the current date for the given org.
+   * Shows the sum of all browser RUM Sessions over all hours in the current date for the given org.
    * @return rumSessionCountSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all RUM Sessions over all hours in the current date for the given org.")
+  @ApiModelProperty(value = "Shows the sum of all browser RUM Sessions over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -652,7 +696,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg syntheticsBrowserCheckCallsCountSum(Long syntheticsBrowserCheckCallsCountSum) {
-    
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
     return this;
   }
@@ -677,7 +720,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg syntheticsCheckCallsCountSum(Long syntheticsCheckCallsCountSum) {
-    
     this.syntheticsCheckCallsCountSum = syntheticsCheckCallsCountSum;
     return this;
   }
@@ -702,7 +744,6 @@ public class UsageSummaryDateOrg {
 
 
   public UsageSummaryDateOrg traceSearchIndexedEventsCountSum(Long traceSearchIndexedEventsCountSum) {
-    
     this.traceSearchIndexedEventsCountSum = traceSearchIndexedEventsCountSum;
     return this;
   }
@@ -726,8 +767,35 @@ public class UsageSummaryDateOrg {
   }
 
 
+  public UsageSummaryDateOrg twolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
+    this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org.
+   * @return twolIngestedEventsBytesSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getTwolIngestedEventsBytesSum() {
+    return twolIngestedEventsBytesSum;
+  }
+
+
+  public void setTwolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
+    this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
+  }
+
+
+  /**
+   * Return true if this UsageSummaryDateOrg object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -751,19 +819,22 @@ public class UsageSummaryDateOrg {
         Objects.equals(this.indexedEventsCountSum, usageSummaryDateOrg.indexedEventsCountSum) &&
         Objects.equals(this.infraHostTop99p, usageSummaryDateOrg.infraHostTop99p) &&
         Objects.equals(this.ingestedEventsBytesSum, usageSummaryDateOrg.ingestedEventsBytesSum) &&
+        Objects.equals(this.mobileRumSessionCountSum, usageSummaryDateOrg.mobileRumSessionCountSum) &&
         Objects.equals(this.name, usageSummaryDateOrg.name) &&
         Objects.equals(this.netflowIndexedEventsCountSum, usageSummaryDateOrg.netflowIndexedEventsCountSum) &&
         Objects.equals(this.npmHostTop99p, usageSummaryDateOrg.npmHostTop99p) &&
+        Objects.equals(this.profilingHostTop99p, usageSummaryDateOrg.profilingHostTop99p) &&
         Objects.equals(this.publicId, usageSummaryDateOrg.publicId) &&
         Objects.equals(this.rumSessionCountSum, usageSummaryDateOrg.rumSessionCountSum) &&
         Objects.equals(this.syntheticsBrowserCheckCallsCountSum, usageSummaryDateOrg.syntheticsBrowserCheckCallsCountSum) &&
         Objects.equals(this.syntheticsCheckCallsCountSum, usageSummaryDateOrg.syntheticsCheckCallsCountSum) &&
-        Objects.equals(this.traceSearchIndexedEventsCountSum, usageSummaryDateOrg.traceSearchIndexedEventsCountSum);
+        Objects.equals(this.traceSearchIndexedEventsCountSum, usageSummaryDateOrg.traceSearchIndexedEventsCountSum) &&
+        Objects.equals(this.twolIngestedEventsBytesSum, usageSummaryDateOrg.twolIngestedEventsBytesSum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, name, netflowIndexedEventsCountSum, npmHostTop99p, publicId, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum);
+    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, mobileRumSessionCountSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
   }
 
 
@@ -787,14 +858,17 @@ public class UsageSummaryDateOrg {
     sb.append("    indexedEventsCountSum: ").append(toIndentedString(indexedEventsCountSum)).append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
     sb.append("    ingestedEventsBytesSum: ").append(toIndentedString(ingestedEventsBytesSum)).append("\n");
+    sb.append("    mobileRumSessionCountSum: ").append(toIndentedString(mobileRumSessionCountSum)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    netflowIndexedEventsCountSum: ").append(toIndentedString(netflowIndexedEventsCountSum)).append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
+    sb.append("    profilingHostTop99p: ").append(toIndentedString(profilingHostTop99p)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountSum)).append("\n");
     sb.append("    syntheticsCheckCallsCountSum: ").append(toIndentedString(syntheticsCheckCallsCountSum)).append("\n");
     sb.append("    traceSearchIndexedEventsCountSum: ").append(toIndentedString(traceSearchIndexedEventsCountSum)).append("\n");
+    sb.append("    twolIngestedEventsBytesSum: ").append(toIndentedString(twolIngestedEventsBytesSum)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -803,7 +877,7 @@ public class UsageSummaryDateOrg {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

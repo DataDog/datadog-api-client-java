@@ -13,15 +13,20 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AlertValueWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Alert values are query values showing the current value of the metric in any monitor defined on your system.
@@ -37,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AlertValueWidgetDefinition.JSON_PROPERTY_TYPE,
   AlertValueWidgetDefinition.JSON_PROPERTY_UNIT
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AlertValueWidgetDefinition {
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
@@ -65,7 +70,6 @@ public class AlertValueWidgetDefinition {
 
 
   public AlertValueWidgetDefinition alertId(String alertId) {
-    
     this.alertId = alertId;
     return this;
   }
@@ -89,7 +93,6 @@ public class AlertValueWidgetDefinition {
 
 
   public AlertValueWidgetDefinition precision(Long precision) {
-    
     this.precision = precision;
     return this;
   }
@@ -114,7 +117,6 @@ public class AlertValueWidgetDefinition {
 
 
   public AlertValueWidgetDefinition textAlign(WidgetTextAlign textAlign) {
-    
     this.textAlign = textAlign;
     return this;
   }
@@ -139,7 +141,6 @@ public class AlertValueWidgetDefinition {
 
 
   public AlertValueWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -164,7 +165,6 @@ public class AlertValueWidgetDefinition {
 
 
   public AlertValueWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -189,7 +189,6 @@ public class AlertValueWidgetDefinition {
 
 
   public AlertValueWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -214,7 +213,6 @@ public class AlertValueWidgetDefinition {
 
 
   public AlertValueWidgetDefinition type(AlertValueWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -238,7 +236,6 @@ public class AlertValueWidgetDefinition {
 
 
   public AlertValueWidgetDefinition unit(String unit) {
-    
     this.unit = unit;
     return this;
   }
@@ -262,8 +259,11 @@ public class AlertValueWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this AlertValueWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -307,7 +307,7 @@ public class AlertValueWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

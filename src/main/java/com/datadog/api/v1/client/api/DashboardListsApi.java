@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListsApi {
   private ApiClient apiClient;
 
@@ -89,7 +89,7 @@ private ApiResponse<DashboardList> createDashboardListWithHttpInfo(DashboardList
 
     return apiClient.invokeAPI("DashboardListsApi.createDashboardList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateDashboardListRequest {
@@ -197,7 +197,7 @@ private ApiResponse<DashboardListDeleteResponse> deleteDashboardListWithHttpInfo
 
     return apiClient.invokeAPI("DashboardListsApi.deleteDashboardList", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIdeleteDashboardListRequest {
@@ -297,7 +297,7 @@ private ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) thr
 
     return apiClient.invokeAPI("DashboardListsApi.getDashboardList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetDashboardListRequest {
@@ -391,7 +391,7 @@ private ApiResponse<DashboardListListResponse> listDashboardListsWithHttpInfo() 
 
     return apiClient.invokeAPI("DashboardListsApi.listDashboardLists", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistDashboardListsRequest {
@@ -491,7 +491,7 @@ private ApiResponse<DashboardList> updateDashboardListWithHttpInfo(Long listId, 
 
     return apiClient.invokeAPI("DashboardListsApi.updateDashboardList", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateDashboardListRequest {

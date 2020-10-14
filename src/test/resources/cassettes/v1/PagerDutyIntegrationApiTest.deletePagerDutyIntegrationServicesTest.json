@@ -1,22 +1,18 @@
 [{
-  "id" : "9c45ddf3-1f18-456b-99c6-4eab93bcc571",
+  "id" : "a3969ac2-339c-406f-928f-9c19bc4505c3",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/java-deletePagerDutyIntegrationServicesTest-local-1591009833",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-deletePagerDutyIntegrationServicesTest-local-1595946547",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "deletePagerDutyIntegrationServicesTest" ],
       "DD-OPERATION-ID" : [ "deletePagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "256" ]
+      "Content-Length" : [ "0" ]
     },
     "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"entity\":\"\",\"variant\":{\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}},\"annotations\":[],\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}}"
-    }
+    "secure" : true
   },
   "times" : {
     "remainingTimes" : 1
@@ -28,7 +24,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:33 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:29:09 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
@@ -38,24 +34,20 @@
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "c561d54c-c1e3-45c9-8931-e3d4d615b37c",
+  "id" : "8e08999b-3644-4590-95eb-66523a517ffb",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v1/integration/pagerduty/configuration/services/java-deletePagerDutyIntegrationServicesTest-local-1591009833",
+    "path" : "/api/v1/integration/pagerduty/configuration/services/java-deletePagerDutyIntegrationServicesTest-local-1595946547",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "deletePagerDutyIntegrationServicesTest" ],
       "DD-OPERATION-ID" : [ "deletePagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "256" ]
+      "Content-Length" : [ "0" ]
     },
     "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"entity\":\"\",\"variant\":{\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}},\"annotations\":[],\"mediaType\":{\"type\":\"text\",\"subtype\":\"plain\",\"parameters\":{},\"wildcardType\":false,\"wildcardSubtype\":false}}"
-    }
+    "secure" : true
   },
   "times" : {
     "remainingTimes" : 1
@@ -67,13 +59,13 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:34 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:29:10 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Vary" : [ "Accept-Encoding" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],

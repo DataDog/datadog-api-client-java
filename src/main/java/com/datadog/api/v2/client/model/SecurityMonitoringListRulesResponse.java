@@ -13,27 +13,32 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.ResponseMetaAttributes;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
- * List of rules
+ * List of rules.
  */
-@ApiModel(description = "List of rules")
+@ApiModel(description = "List of rules.")
 @JsonPropertyOrder({
   SecurityMonitoringListRulesResponse.JSON_PROPERTY_DATA,
   SecurityMonitoringListRulesResponse.JSON_PROPERTY_META
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringListRulesResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<SecurityMonitoringRuleResponse> data = null;
@@ -43,7 +48,6 @@ public class SecurityMonitoringListRulesResponse {
 
 
   public SecurityMonitoringListRulesResponse data(List<SecurityMonitoringRuleResponse> data) {
-    
     this.data = data;
     return this;
   }
@@ -76,7 +80,6 @@ public class SecurityMonitoringListRulesResponse {
 
 
   public SecurityMonitoringListRulesResponse meta(ResponseMetaAttributes meta) {
-    
     this.meta = meta;
     return this;
   }
@@ -100,8 +103,11 @@ public class SecurityMonitoringListRulesResponse {
   }
 
 
+  /**
+   * Return true if this SecurityMonitoringListRulesResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -133,7 +139,7 @@ public class SecurityMonitoringListRulesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

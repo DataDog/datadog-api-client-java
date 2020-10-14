@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AccessRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Create, edit, and disable users.
@@ -35,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   User.JSON_PROPERTY_NAME,
   User.JSON_PROPERTY_VERIFIED
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class User {
   public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";
   private AccessRole accessRole = AccessRole.STANDARD;
@@ -60,7 +65,6 @@ public class User {
 
 
   public User accessRole(AccessRole accessRole) {
-    
     this.accessRole = accessRole;
     return this;
   }
@@ -85,7 +89,6 @@ public class User {
 
 
   public User disabled(Boolean disabled) {
-    
     this.disabled = disabled;
     return this;
   }
@@ -110,7 +113,6 @@ public class User {
 
 
   public User email(String email) {
-    
     this.email = email;
     return this;
   }
@@ -135,7 +137,6 @@ public class User {
 
 
   public User handle(String handle) {
-    
     this.handle = handle;
     return this;
   }
@@ -176,7 +177,6 @@ public class User {
 
 
   public User name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -216,8 +216,11 @@ public class User {
 
 
 
+  /**
+   * Return true if this User object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -259,7 +262,7 @@ public class User {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

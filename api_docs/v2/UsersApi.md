@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create a user
 [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable a user
 [**getInvitation**](UsersApi.md#getInvitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
-[**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{user_id} | Get a user
+[**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{user_id} | Get user details
 [**listUserOrganizations**](UsersApi.md#listUserOrganizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization
 [**listUserPermissions**](UsersApi.md#listUserPermissions) | **GET** /api/v2/users/{user_id}/permissions | Get a user permissions
 [**listUsers**](UsersApi.md#listUsers) | **GET** /api/v2/users | List all users
@@ -32,7 +32,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
 public class Example {
@@ -52,7 +52,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        UserCreatePayload body = new UserCreatePayload(); // UserCreatePayload | 
+        UserCreateRequest body = new UserCreateRequest(); // UserCreateRequest | 
         try {
             UserResponse result = api.createUser()
                 .body(body)
@@ -74,7 +74,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserCreatePayload**](UserCreatePayload.md)|  | [optional]
+ **body** | [**UserCreateRequest**](UserCreateRequest.md)|  | [optional]
 
 ### Return type
 
@@ -103,7 +103,8 @@ Name | Type | Description  | Notes
 
 Disable a user
 
-Disable a user. Can only be used with an application key belonging to an administrator user.
+Disable a user. Can only be used with an application key belonging
+to an administrator user.
 
 ### Example
 
@@ -113,7 +114,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
 public class Example {
@@ -192,7 +193,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
 public class Example {
@@ -260,7 +261,7 @@ Name | Type | Description  | Notes
 
 > UserResponse getUser(userId).execute();
 
-Get a user
+Get user details
 
 Get a user in the organization specified by the user’s `user_id`.
 
@@ -272,7 +273,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
 public class Example {
@@ -342,7 +343,8 @@ Name | Type | Description  | Notes
 
 Get a user organization
 
-Get a user organization. Returns the user information and all organizations joined by this user.
+Get a user organization. Returns the user information and all organizations
+joined by this user.
 
 ### Example
 
@@ -352,7 +354,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
 public class Example {
@@ -422,7 +424,8 @@ Name | Type | Description  | Notes
 
 Get a user permissions
 
-Get a user permission set. Returns a list of the user’s permissions granted by the associated user's roles.
+Get a user permission set. Returns a list of the user’s permissions
+granted by the associated user's roles.
 
 ### Example
 
@@ -432,7 +435,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
 public class Example {
@@ -502,7 +505,8 @@ Name | Type | Description  | Notes
 
 List all users
 
-Get the list of all users in the organization. This list includes all users even if they are disabled or unverified.
+Get the list of all users in the organization. This list includes
+all users even if they are deactivated or unverified.
 
 ### Example
 
@@ -512,7 +516,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
 public class Example {
@@ -582,7 +586,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, applcation/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -608,7 +612,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
 public class Example {
@@ -628,7 +632,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        UserInvitationPayload body = new UserInvitationPayload(); // UserInvitationPayload | 
+        UserInvitationsRequest body = new UserInvitationsRequest(); // UserInvitationsRequest | 
         try {
             UserInvitationsResponse result = api.sendInvitations()
                 .body(body)
@@ -650,7 +654,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserInvitationPayload**](UserInvitationPayload.md)|  | [optional]
+ **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -675,11 +679,12 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-> updateUser(userId).body(body).execute();
+> UserResponse updateUser(userId).body(body).execute();
 
 Update a user
 
-Edit a user. Can only be used with an application key belonging to an administrator user.
+Edit a user. Can only be used with an application key belonging
+to an administrator user.
 
 ### Example
 
@@ -689,7 +694,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.models.*;
+import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
 public class Example {
@@ -710,11 +715,12 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
-        UserUpdatePayload body = new UserUpdatePayload(); // UserUpdatePayload | 
+        UserUpdateRequest body = new UserUpdateRequest(); // UserUpdateRequest | 
         try {
-            api.updateUser(userId)
+            UserResponse result = api.updateUser(userId)
                 .body(body)
                 .execute();
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#updateUser");
             System.err.println("Status code: " + e.getCode());
@@ -732,11 +738,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The ID of the user. |
- **body** | [**UserUpdatePayload**](UserUpdatePayload.md)|  | [optional]
+ **body** | [**UserUpdateRequest**](UserUpdateRequest.md)|  | [optional]
 
 ### Return type
 
-null (empty response body)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -750,7 +756,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | OK |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Authentication error |  -  |
 | **404** | Not found |  -  |

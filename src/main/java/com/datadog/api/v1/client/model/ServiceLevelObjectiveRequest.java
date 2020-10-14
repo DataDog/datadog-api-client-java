@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.Creator;
 import com.datadog.api.v1.client.model.SLOThreshold;
 import com.datadog.api.v1.client.model.SLOType;
@@ -20,6 +22,7 @@ import com.datadog.api.v1.client.model.ServiceLevelObjectiveQuery;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -29,6 +32,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (&#x60;name&#x60;, &#x60;description&#x60;, &#x60;tags&#x60;, etc.).
@@ -48,7 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ServiceLevelObjectiveRequest.JSON_PROPERTY_THRESHOLDS,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceLevelObjectiveRequest {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private Long createdAt;
@@ -104,7 +109,6 @@ public class ServiceLevelObjectiveRequest {
 
 
   public ServiceLevelObjectiveRequest creator(Creator creator) {
-    
     this.creator = creator;
     return this;
   }
@@ -130,7 +134,6 @@ public class ServiceLevelObjectiveRequest {
 
   public ServiceLevelObjectiveRequest description(String description) {
     this.description = JsonNullable.<String>of(description);
-    
     return this;
   }
 
@@ -164,7 +167,6 @@ public class ServiceLevelObjectiveRequest {
 
 
   public ServiceLevelObjectiveRequest groups(List<String> groups) {
-    
     this.groups = groups;
     return this;
   }
@@ -229,7 +231,6 @@ public class ServiceLevelObjectiveRequest {
 
 
   public ServiceLevelObjectiveRequest monitorIds(List<Long> monitorIds) {
-    
     this.monitorIds = monitorIds;
     return this;
   }
@@ -262,7 +263,6 @@ public class ServiceLevelObjectiveRequest {
 
 
   public ServiceLevelObjectiveRequest name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -286,7 +286,6 @@ public class ServiceLevelObjectiveRequest {
 
 
   public ServiceLevelObjectiveRequest query(ServiceLevelObjectiveQuery query) {
-    
     this.query = query;
     return this;
   }
@@ -311,7 +310,6 @@ public class ServiceLevelObjectiveRequest {
 
 
   public ServiceLevelObjectiveRequest tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -344,7 +342,6 @@ public class ServiceLevelObjectiveRequest {
 
 
   public ServiceLevelObjectiveRequest thresholds(List<SLOThreshold> thresholds) {
-    
     this.thresholds = thresholds;
     return this;
   }
@@ -373,7 +370,6 @@ public class ServiceLevelObjectiveRequest {
 
 
   public ServiceLevelObjectiveRequest type(SLOType type) {
-    
     this.type = type;
     return this;
   }
@@ -396,8 +392,11 @@ public class ServiceLevelObjectiveRequest {
   }
 
 
+  /**
+   * Return true if this ServiceLevelObjectiveRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -449,7 +448,7 @@ public class ServiceLevelObjectiveRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

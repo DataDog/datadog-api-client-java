@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Axis controls for the widget.
@@ -32,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   WidgetAxis.JSON_PROPERTY_MIN,
   WidgetAxis.JSON_PROPERTY_SCALE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetAxis {
   public static final String JSON_PROPERTY_INCLUDE_ZERO = "include_zero";
   private Boolean includeZero;
@@ -51,7 +56,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis includeZero(Boolean includeZero) {
-    
     this.includeZero = includeZero;
     return this;
   }
@@ -76,7 +80,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis label(String label) {
-    
     this.label = label;
     return this;
   }
@@ -101,7 +104,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis max(String max) {
-    
     this.max = max;
     return this;
   }
@@ -126,7 +128,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis min(String min) {
-    
     this.min = min;
     return this;
   }
@@ -151,7 +152,6 @@ public class WidgetAxis {
 
 
   public WidgetAxis scale(String scale) {
-    
     this.scale = scale;
     return this;
   }
@@ -175,8 +175,11 @@ public class WidgetAxis {
   }
 
 
+  /**
+   * Return true if this WidgetAxis object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -214,7 +217,7 @@ public class WidgetAxis {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

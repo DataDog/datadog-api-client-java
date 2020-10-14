@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardsApi {
   private ApiClient apiClient;
 
@@ -89,7 +89,7 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
 
     return apiClient.invokeAPI("DashboardsApi.createDashboard", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateDashboardRequest {
@@ -197,7 +197,7 @@ private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String 
 
     return apiClient.invokeAPI("DashboardsApi.deleteDashboard", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIdeleteDashboardRequest {
@@ -297,7 +297,7 @@ private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) thro
 
     return apiClient.invokeAPI("DashboardsApi.getDashboard", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetDashboardRequest {
@@ -391,7 +391,7 @@ private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiExc
 
     return apiClient.invokeAPI("DashboardsApi.listDashboards", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistDashboardsRequest {
@@ -435,7 +435,7 @@ private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiExc
 
   /**
    * Get all dashboards
-   * Get all dashboards.
+   * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
    * @return listDashboardsRequest
    * @throws ApiException if fails to make API call
    
@@ -491,7 +491,7 @@ private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, D
 
     return apiClient.invokeAPI("DashboardsApi.updateDashboard", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateDashboardRequest {

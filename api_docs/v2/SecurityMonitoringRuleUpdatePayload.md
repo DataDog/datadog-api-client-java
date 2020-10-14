@@ -8,7 +8,7 @@ Update an existing rule.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cases** | [**List&lt;SecurityMonitoringRuleCase&gt;**](SecurityMonitoringRuleCase.md) | Cases for generating signals. |  [optional]
-**enabled** | **Boolean** | Whether the rule is enabled. |  [optional]
+**isEnabled** | **Boolean** | Whether the rule is enabled. |  [optional]
 **message** | **String** | Message for generated signals. |  [optional]
 **name** | **String** | Name of the rule. |  [optional]
 **options** | [**SecurityMonitoringRuleOptions**](SecurityMonitoringRuleOptions.md) |  |  [optional]

@@ -13,24 +13,28 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventAlertType;
 import com.datadog.api.v1.client.model.EventPriority;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object representing an event.
  */
 @ApiModel(description = "Object representing an event.")
 @JsonPropertyOrder({
-  Event.JSON_PROPERTY_AGGREGATION_KEY,
   Event.JSON_PROPERTY_ALERT_TYPE,
   Event.JSON_PROPERTY_DATE_HAPPENED,
   Event.JSON_PROPERTY_DEVICE_NAME,
@@ -38,18 +42,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Event.JSON_PROPERTY_ID,
   Event.JSON_PROPERTY_PAYLOAD,
   Event.JSON_PROPERTY_PRIORITY,
-  Event.JSON_PROPERTY_RELATED_EVENT_ID,
   Event.JSON_PROPERTY_SOURCE_TYPE_NAME,
   Event.JSON_PROPERTY_TAGS,
   Event.JSON_PROPERTY_TEXT,
   Event.JSON_PROPERTY_TITLE,
   Event.JSON_PROPERTY_URL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Event {
-  public static final String JSON_PROPERTY_AGGREGATION_KEY = "aggregation_key";
-  private String aggregationKey;
-
   public static final String JSON_PROPERTY_ALERT_TYPE = "alert_type";
   private EventAlertType alertType;
 
@@ -57,7 +57,7 @@ public class Event {
   private Long dateHappened;
 
   public static final String JSON_PROPERTY_DEVICE_NAME = "device_name";
-  private List<String> deviceName = null;
+  private String deviceName;
 
   public static final String JSON_PROPERTY_HOST = "host";
   private String host;
@@ -70,9 +70,6 @@ public class Event {
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private EventPriority priority;
-
-  public static final String JSON_PROPERTY_RELATED_EVENT_ID = "related_event_id";
-  private Long relatedEventId;
 
   public static final String JSON_PROPERTY_SOURCE_TYPE_NAME = "source_type_name";
   private String sourceTypeName;
@@ -90,33 +87,7 @@ public class Event {
   private String url;
 
 
-  public Event aggregationKey(String aggregationKey) {
-    
-    this.aggregationKey = aggregationKey;
-    return this;
-  }
-
-   /**
-   * An arbitrary string to use for aggregation. Limited to 100 characters. If you specify a key, all events using that key are grouped together in the Event Stream.
-   * @return aggregationKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "An arbitrary string to use for aggregation. Limited to 100 characters. If you specify a key, all events using that key are grouped together in the Event Stream.")
-  @JsonProperty(JSON_PROPERTY_AGGREGATION_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getAggregationKey() {
-    return aggregationKey;
-  }
-
-
-  public void setAggregationKey(String aggregationKey) {
-    this.aggregationKey = aggregationKey;
-  }
-
-
   public Event alertType(EventAlertType alertType) {
-    
     this.alertType = alertType;
     return this;
   }
@@ -141,17 +112,16 @@ public class Event {
 
 
   public Event dateHappened(Long dateHappened) {
-    
     this.dateHappened = dateHappened;
     return this;
   }
 
    /**
-   * POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 1 year, 24 days (389 days).
+   * POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 7 days.
    * @return dateHappened
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 1 year, 24 days (389 days).")
+  @ApiModelProperty(value = "POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no older than 7 days.")
   @JsonProperty(JSON_PROPERTY_DATE_HAPPENED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -165,41 +135,31 @@ public class Event {
   }
 
 
-  public Event deviceName(List<String> deviceName) {
-    
+  public Event deviceName(String deviceName) {
     this.deviceName = deviceName;
     return this;
   }
 
-  public Event addDeviceNameItem(String deviceNameItem) {
-    if (this.deviceName == null) {
-      this.deviceName = new ArrayList<>();
-    }
-    this.deviceName.add(deviceNameItem);
-    return this;
-  }
-
    /**
-   * A list of device names to post the event with.
+   * A device name.
    * @return deviceName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of device names to post the event with.")
+  @ApiModelProperty(value = "A device name.")
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getDeviceName() {
+  public String getDeviceName() {
     return deviceName;
   }
 
 
-  public void setDeviceName(List<String> deviceName) {
+  public void setDeviceName(String deviceName) {
     this.deviceName = deviceName;
   }
 
 
   public Event host(String host) {
-    
     this.host = host;
     return this;
   }
@@ -256,7 +216,6 @@ public class Event {
 
 
   public Event priority(EventPriority priority) {
-    
     this.priority = priority;
     return this;
   }
@@ -280,33 +239,7 @@ public class Event {
   }
 
 
-  public Event relatedEventId(Long relatedEventId) {
-    
-    this.relatedEventId = relatedEventId;
-    return this;
-  }
-
-   /**
-   * ID of the parent event. Must be sent as an integer (i.e. no quotes).
-   * @return relatedEventId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the parent event. Must be sent as an integer (i.e. no quotes).")
-  @JsonProperty(JSON_PROPERTY_RELATED_EVENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getRelatedEventId() {
-    return relatedEventId;
-  }
-
-
-  public void setRelatedEventId(Long relatedEventId) {
-    this.relatedEventId = relatedEventId;
-  }
-
-
   public Event sourceTypeName(String sourceTypeName) {
-    
     this.sourceTypeName = sourceTypeName;
     return this;
   }
@@ -331,7 +264,6 @@ public class Event {
 
 
   public Event tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -364,7 +296,6 @@ public class Event {
 
 
   public Event text(String text) {
-    
     this.text = text;
     return this;
   }
@@ -373,9 +304,10 @@ public class Event {
    * The body of the event. Limited to 4000 characters. The text supports markdown. Use &#x60;msg_text&#x60; with the Datadog Ruby library.
    * @return text
   **/
-  @ApiModelProperty(example = "Oh boy!", required = true, value = "The body of the event. Limited to 4000 characters. The text supports markdown. Use `msg_text` with the Datadog Ruby library.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Oh boy!", value = "The body of the event. Limited to 4000 characters. The text supports markdown. Use `msg_text` with the Datadog Ruby library.")
   @JsonProperty(JSON_PROPERTY_TEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getText() {
     return text;
@@ -388,7 +320,6 @@ public class Event {
 
 
   public Event title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -397,9 +328,10 @@ public class Event {
    * The event title. Limited to 100 characters. Use &#x60;msg_title&#x60; with the Datadog Ruby library.
    * @return title
   **/
-  @ApiModelProperty(example = "Did you hear the news today?", required = true, value = "The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby library.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Did you hear the news today?", value = "The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby library.")
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
     return title;
@@ -427,8 +359,11 @@ public class Event {
 
 
 
+  /**
+   * Return true if this Event object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -436,15 +371,13 @@ public class Event {
       return false;
     }
     Event event = (Event) o;
-    return Objects.equals(this.aggregationKey, event.aggregationKey) &&
-        Objects.equals(this.alertType, event.alertType) &&
+    return Objects.equals(this.alertType, event.alertType) &&
         Objects.equals(this.dateHappened, event.dateHappened) &&
         Objects.equals(this.deviceName, event.deviceName) &&
         Objects.equals(this.host, event.host) &&
         Objects.equals(this.id, event.id) &&
         Objects.equals(this.payload, event.payload) &&
         Objects.equals(this.priority, event.priority) &&
-        Objects.equals(this.relatedEventId, event.relatedEventId) &&
         Objects.equals(this.sourceTypeName, event.sourceTypeName) &&
         Objects.equals(this.tags, event.tags) &&
         Objects.equals(this.text, event.text) &&
@@ -454,7 +387,7 @@ public class Event {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregationKey, alertType, dateHappened, deviceName, host, id, payload, priority, relatedEventId, sourceTypeName, tags, text, title, url);
+    return Objects.hash(alertType, dateHappened, deviceName, host, id, payload, priority, sourceTypeName, tags, text, title, url);
   }
 
 
@@ -462,7 +395,6 @@ public class Event {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Event {\n");
-    sb.append("    aggregationKey: ").append(toIndentedString(aggregationKey)).append("\n");
     sb.append("    alertType: ").append(toIndentedString(alertType)).append("\n");
     sb.append("    dateHappened: ").append(toIndentedString(dateHappened)).append("\n");
     sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
@@ -470,7 +402,6 @@ public class Event {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    relatedEventId: ").append(toIndentedString(relatedEventId)).append("\n");
     sb.append("    sourceTypeName: ").append(toIndentedString(sourceTypeName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
@@ -484,7 +415,7 @@ public class Event {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

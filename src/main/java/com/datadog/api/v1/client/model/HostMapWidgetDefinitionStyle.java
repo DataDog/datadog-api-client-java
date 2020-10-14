@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The style to apply to the widget.
@@ -31,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE,
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE_FLIP
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMapWidgetDefinitionStyle {
   public static final String JSON_PROPERTY_FILL_MAX = "fill_max";
   private String fillMax;
@@ -47,7 +52,6 @@ public class HostMapWidgetDefinitionStyle {
 
 
   public HostMapWidgetDefinitionStyle fillMax(String fillMax) {
-    
     this.fillMax = fillMax;
     return this;
   }
@@ -72,7 +76,6 @@ public class HostMapWidgetDefinitionStyle {
 
 
   public HostMapWidgetDefinitionStyle fillMin(String fillMin) {
-    
     this.fillMin = fillMin;
     return this;
   }
@@ -97,7 +100,6 @@ public class HostMapWidgetDefinitionStyle {
 
 
   public HostMapWidgetDefinitionStyle palette(String palette) {
-    
     this.palette = palette;
     return this;
   }
@@ -122,7 +124,6 @@ public class HostMapWidgetDefinitionStyle {
 
 
   public HostMapWidgetDefinitionStyle paletteFlip(Boolean paletteFlip) {
-    
     this.paletteFlip = paletteFlip;
     return this;
   }
@@ -146,8 +147,11 @@ public class HostMapWidgetDefinitionStyle {
   }
 
 
+  /**
+   * Return true if this HostMapWidgetDefinition_style object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -183,7 +187,7 @@ public class HostMapWidgetDefinitionStyle {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

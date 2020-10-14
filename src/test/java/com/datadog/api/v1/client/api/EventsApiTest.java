@@ -20,7 +20,7 @@ import org.junit.Test;
 import javax.ws.rs.core.GenericType;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.Assert.*;
@@ -35,6 +35,11 @@ public class EventsApiTest extends V1ApiTest {
 
     // ObjectMapper instance configure to not fail when encountering unknown properties
     private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    @Override
+    public String getTracingEndpoint() {
+        return "events";
+    }
 
     @BeforeClass
     public static void initApi() {
@@ -51,14 +56,19 @@ public class EventsApiTest extends V1ApiTest {
     public void eventLifecycleTest() throws ApiException, TestUtils.RetryException {
         String eventTitle = getUniqueEntityName();
         String eventText = "example text";
+        // use TreeMap, as it's sorted and will always serialize in the same way
+        Map<String, Object> payload = new TreeMap<String, Object>() {{
+           put("priority", "normal");
+           put("source_type_name", "datadog-api-client-java");
+           put("tags", Arrays.asList("test", "client:java"));
+           put("text", eventText);
+           put("title", eventTitle);
+        }};
 
         ApiResponse<EventResponse> response = sendRequest(
                 "POST",
                 "/api/v1/events",
-                String.format(
-                        "{\"priority\":\"normal\",\"source_type_name\":\"datadog-api-client-java\",\"tags\":[\"test\",\"client:java\"],\"text\":\"%s\",\"title\":\"%s\"}",
-                        eventText, eventTitle
-                ),
+                payload,
                 new GenericType<EventResponse>(EventResponse.class)
         );
 

@@ -1,5 +1,5 @@
 [{
-  "id" : "17f8df10-645a-49b1-952b-02a879976a24",
+  "id" : "3deb3870-39dd-4324-80ee-7e39c226a752",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/application_key",
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:23 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:22:42 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "52" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,7 +44,7 @@
     "body" : "{\"errors\": [\"Required parameter 'name' is missing\"]}"
   }
 }, {
-  "id" : "66ca4681-3cca-4986-a8ca-7ce18921765c",
+  "id" : "fc288843-4ab9-4083-949a-cb6c412a149d",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/application_key",
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:10:23 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:22:43 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

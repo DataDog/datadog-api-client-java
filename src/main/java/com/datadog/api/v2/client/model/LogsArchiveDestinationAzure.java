@@ -13,15 +13,20 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationAzureType;
 import com.datadog.api.v2.client.model.LogsArchiveIntegrationAzure;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The Azure archive destination.
@@ -35,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsArchiveDestinationAzure.JSON_PROPERTY_STORAGE_ACCOUNT,
   LogsArchiveDestinationAzure.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveDestinationAzure {
   public static final String JSON_PROPERTY_CONTAINER = "container";
   private String container;
@@ -57,7 +62,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure container(String container) {
-    
     this.container = container;
     return this;
   }
@@ -81,7 +85,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure integration(LogsArchiveIntegrationAzure integration) {
-    
     this.integration = integration;
     return this;
   }
@@ -105,7 +108,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure path(String path) {
-    
     this.path = path;
     return this;
   }
@@ -130,7 +132,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure region(String region) {
-    
     this.region = region;
     return this;
   }
@@ -155,7 +156,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure storageAccount(String storageAccount) {
-    
     this.storageAccount = storageAccount;
     return this;
   }
@@ -179,7 +179,6 @@ public class LogsArchiveDestinationAzure {
 
 
   public LogsArchiveDestinationAzure type(LogsArchiveDestinationAzureType type) {
-    
     this.type = type;
     return this;
   }
@@ -202,8 +201,11 @@ public class LogsArchiveDestinationAzure {
   }
 
 
+  /**
+   * Return true if this LogsArchiveDestinationAzure object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -243,7 +245,7 @@ public class LogsArchiveDestinationAzure {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

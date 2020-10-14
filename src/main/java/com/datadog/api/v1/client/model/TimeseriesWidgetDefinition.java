@@ -13,33 +13,40 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
 import com.datadog.api.v1.client.model.WidgetAxis;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetEvent;
-import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetMarker;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Analyzed Spans over time.
  */
 @ApiModel(description = "The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Analyzed Spans over time.")
 @JsonPropertyOrder({
+  TimeseriesWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_EVENTS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   TimeseriesWidgetDefinition.JSON_PROPERTY_MARKERS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_REQUESTS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_RIGHT_YAXIS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_SHOW_LEGEND,
   TimeseriesWidgetDefinition.JSON_PROPERTY_TIME,
   TimeseriesWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -48,19 +55,25 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TimeseriesWidgetDefinition.JSON_PROPERTY_TYPE,
   TimeseriesWidgetDefinition.JSON_PROPERTY_YAXIS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TimeseriesWidgetDefinition {
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<WidgetEvent> events = null;
 
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
-  private WidgetLegendSize legendSize;
+  private String legendSize;
 
   public static final String JSON_PROPERTY_MARKERS = "markers";
   private List<WidgetMarker> markers = null;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<TimeseriesWidgetRequest> requests = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_RIGHT_YAXIS = "right_yaxis";
+  private WidgetAxis rightYaxis;
 
   public static final String JSON_PROPERTY_SHOW_LEGEND = "show_legend";
   private Boolean showLegend;
@@ -84,8 +97,39 @@ public class TimeseriesWidgetDefinition {
   private WidgetAxis yaxis;
 
 
+  public TimeseriesWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public TimeseriesWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
+
+
   public TimeseriesWidgetDefinition events(List<WidgetEvent> events) {
-    
     this.events = events;
     return this;
   }
@@ -117,33 +161,31 @@ public class TimeseriesWidgetDefinition {
   }
 
 
-  public TimeseriesWidgetDefinition legendSize(WidgetLegendSize legendSize) {
-    
+  public TimeseriesWidgetDefinition legendSize(String legendSize) {
     this.legendSize = legendSize;
     return this;
   }
 
    /**
-   * Get legendSize
+   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
    * @return legendSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public WidgetLegendSize getLegendSize() {
+  public String getLegendSize() {
     return legendSize;
   }
 
 
-  public void setLegendSize(WidgetLegendSize legendSize) {
+  public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
   }
 
 
   public TimeseriesWidgetDefinition markers(List<WidgetMarker> markers) {
-    
     this.markers = markers;
     return this;
   }
@@ -176,7 +218,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition requests(List<TimeseriesWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -204,8 +245,31 @@ public class TimeseriesWidgetDefinition {
   }
 
 
+  public TimeseriesWidgetDefinition rightYaxis(WidgetAxis rightYaxis) {
+    this.rightYaxis = rightYaxis;
+    return this;
+  }
+
+   /**
+   * Get rightYaxis
+   * @return rightYaxis
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RIGHT_YAXIS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WidgetAxis getRightYaxis() {
+    return rightYaxis;
+  }
+
+
+  public void setRightYaxis(WidgetAxis rightYaxis) {
+    this.rightYaxis = rightYaxis;
+  }
+
+
   public TimeseriesWidgetDefinition showLegend(Boolean showLegend) {
-    
     this.showLegend = showLegend;
     return this;
   }
@@ -230,7 +294,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -255,7 +318,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -280,7 +342,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -305,7 +366,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -330,7 +390,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition type(TimeseriesWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -354,7 +413,6 @@ public class TimeseriesWidgetDefinition {
 
 
   public TimeseriesWidgetDefinition yaxis(WidgetAxis yaxis) {
-    
     this.yaxis = yaxis;
     return this;
   }
@@ -378,8 +436,11 @@ public class TimeseriesWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this TimeseriesWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -387,10 +448,12 @@ public class TimeseriesWidgetDefinition {
       return false;
     }
     TimeseriesWidgetDefinition timeseriesWidgetDefinition = (TimeseriesWidgetDefinition) o;
-    return Objects.equals(this.events, timeseriesWidgetDefinition.events) &&
+    return Objects.equals(this.customLinks, timeseriesWidgetDefinition.customLinks) &&
+        Objects.equals(this.events, timeseriesWidgetDefinition.events) &&
         Objects.equals(this.legendSize, timeseriesWidgetDefinition.legendSize) &&
         Objects.equals(this.markers, timeseriesWidgetDefinition.markers) &&
         Objects.equals(this.requests, timeseriesWidgetDefinition.requests) &&
+        Objects.equals(this.rightYaxis, timeseriesWidgetDefinition.rightYaxis) &&
         Objects.equals(this.showLegend, timeseriesWidgetDefinition.showLegend) &&
         Objects.equals(this.time, timeseriesWidgetDefinition.time) &&
         Objects.equals(this.title, timeseriesWidgetDefinition.title) &&
@@ -402,7 +465,7 @@ public class TimeseriesWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, legendSize, markers, requests, showLegend, time, title, titleAlign, titleSize, type, yaxis);
+    return Objects.hash(customLinks, events, legendSize, markers, requests, rightYaxis, showLegend, time, title, titleAlign, titleSize, type, yaxis);
   }
 
 
@@ -410,10 +473,12 @@ public class TimeseriesWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeseriesWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    markers: ").append(toIndentedString(markers)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
+    sb.append("    rightYaxis: ").append(toIndentedString(rightYaxis)).append("\n");
     sb.append("    showLegend: ").append(toIndentedString(showLegend)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
@@ -429,7 +494,7 @@ public class TimeseriesWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

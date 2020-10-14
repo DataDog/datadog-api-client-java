@@ -7,8 +7,8 @@ Object describing the retry strategy to apply to a Synthetic test.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Long** | The amount of location that needs to fail for the test to be retried. |  [optional]
-**interval** | **Double** | The interval over which the amount of location needed to fail for the test to be retried. |  [optional]
+**count** | **Long** | Number of times a test needs to be retried before marking a location as failed. Defaults to 0. |  [optional]
+**interval** | **Double** | Time interval between retries (in milliseconds). Defaults to 300ms. |  [optional]
 
 
 

@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOErrorTimeframe;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the error.
@@ -31,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SLOBulkDeleteResponseErrors.JSON_PROPERTY_MESSAGE,
   SLOBulkDeleteResponseErrors.JSON_PROPERTY_TIMEFRAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOBulkDeleteResponseErrors {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -44,7 +49,6 @@ public class SLOBulkDeleteResponseErrors {
 
 
   public SLOBulkDeleteResponseErrors id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -68,7 +72,6 @@ public class SLOBulkDeleteResponseErrors {
 
 
   public SLOBulkDeleteResponseErrors message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -92,7 +95,6 @@ public class SLOBulkDeleteResponseErrors {
 
 
   public SLOBulkDeleteResponseErrors timeframe(SLOErrorTimeframe timeframe) {
-    
     this.timeframe = timeframe;
     return this;
   }
@@ -115,8 +117,11 @@ public class SLOBulkDeleteResponseErrors {
   }
 
 
+  /**
+   * Return true if this SLOBulkDeleteResponse_errors object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -150,7 +155,7 @@ public class SLOBulkDeleteResponseErrors {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

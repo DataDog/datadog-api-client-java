@@ -1,5 +1,5 @@
 [{
-  "id" : "284d4b79-48de-4c4f-a19c-87004933512d",
+  "id" : "63940235-426b-4fad-88ad-43c46a45df13",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/logs/config/pipelines",
@@ -28,7 +28,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:42 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:28:34 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "155" ],
       "Connection" : [ "keep-alive" ],
@@ -36,9 +36,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "100" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2718" ],
-      "X-RateLimit-Remaining" : [ "83" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-RateLimit-Reset" : [ "1886" ],
+      "X-RateLimit-Remaining" : [ "99" ],
+      "X-DD-VERSION" : [ "35.2796999" ],
       "DD-POOL" : [ "dogweb" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,7 +48,7 @@
     "body" : "{\"error\":{\"code\":\"InvalidArgument\",\"message\":\"Invalid Pipeline\",\"details\":[{\"code\":\"InvalidArgument\",\"message\":\"Invalid Pipeline: name is not provided\"}]}}"
   }
 }, {
-  "id" : "eee7fedf-6aa4-426a-be20-fda69d2a8fdc",
+  "id" : "2565dd8c-2006-4bcc-99f5-d385d78775de",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/logs/config/pipelines",
@@ -77,7 +77,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:43 GMT" ],
+      "Date" : [ "Tue, 28 Jul 2020 14:28:35 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

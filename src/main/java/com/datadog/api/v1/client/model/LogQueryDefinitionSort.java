@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Define a sorting method.
@@ -31,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogQueryDefinitionSort.JSON_PROPERTY_FACET,
   LogQueryDefinitionSort.JSON_PROPERTY_ORDER
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogQueryDefinitionSort {
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private String aggregation;
@@ -44,7 +49,6 @@ public class LogQueryDefinitionSort {
 
 
   public LogQueryDefinitionSort aggregation(String aggregation) {
-    
     this.aggregation = aggregation;
     return this;
   }
@@ -68,7 +72,6 @@ public class LogQueryDefinitionSort {
 
 
   public LogQueryDefinitionSort facet(String facet) {
-    
     this.facet = facet;
     return this;
   }
@@ -93,7 +96,6 @@ public class LogQueryDefinitionSort {
 
 
   public LogQueryDefinitionSort order(WidgetSort order) {
-    
     this.order = order;
     return this;
   }
@@ -116,8 +118,11 @@ public class LogQueryDefinitionSort {
   }
 
 
+  /**
+   * Return true if this LogQueryDefinition_sort object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -151,7 +156,7 @@ public class LogQueryDefinitionSort {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

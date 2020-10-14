@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SLOHistoryMetricsSeriesMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A representation of &#x60;metric&#x60; based SLO time series for the provided queries. This is the same response type from &#x60;batch_query&#x60; endpoint.
@@ -34,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SLOHistoryMetricsSeries.JSON_PROPERTY_SUM,
   SLOHistoryMetricsSeries.JSON_PROPERTY_VALUES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryMetricsSeries {
   public static final String JSON_PROPERTY_COUNT = "count";
   private Long count;
@@ -50,7 +55,6 @@ public class SLOHistoryMetricsSeries {
 
 
   public SLOHistoryMetricsSeries count(Long count) {
-    
     this.count = count;
     return this;
   }
@@ -74,7 +78,6 @@ public class SLOHistoryMetricsSeries {
 
 
   public SLOHistoryMetricsSeries metadata(SLOHistoryMetricsSeriesMetadata metadata) {
-    
     this.metadata = metadata;
     return this;
   }
@@ -98,7 +101,6 @@ public class SLOHistoryMetricsSeries {
 
 
   public SLOHistoryMetricsSeries sum(Double sum) {
-    
     this.sum = sum;
     return this;
   }
@@ -122,7 +124,6 @@ public class SLOHistoryMetricsSeries {
 
 
   public SLOHistoryMetricsSeries values(List<Double> values) {
-    
     this.values = values;
     return this;
   }
@@ -150,8 +151,11 @@ public class SLOHistoryMetricsSeries {
   }
 
 
+  /**
+   * Return true if this SLOHistoryMetricsSeries object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -187,7 +191,7 @@ public class SLOHistoryMetricsSeries {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

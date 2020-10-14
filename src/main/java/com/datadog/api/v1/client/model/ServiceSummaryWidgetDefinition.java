@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetServiceSummaryDisplayFormat;
 import com.datadog.api.v1.client.model.WidgetSizeFormat;
@@ -21,10 +23,13 @@ import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards.
@@ -48,7 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceSummaryWidgetDefinition {
   public static final String JSON_PROPERTY_DISPLAY_FORMAT = "display_format";
   private WidgetServiceSummaryDisplayFormat displayFormat;
@@ -100,7 +105,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition displayFormat(WidgetServiceSummaryDisplayFormat displayFormat) {
-    
     this.displayFormat = displayFormat;
     return this;
   }
@@ -125,7 +129,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition env(String env) {
-    
     this.env = env;
     return this;
   }
@@ -149,7 +152,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition service(String service) {
-    
     this.service = service;
     return this;
   }
@@ -173,7 +175,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition showBreakdown(Boolean showBreakdown) {
-    
     this.showBreakdown = showBreakdown;
     return this;
   }
@@ -198,7 +199,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition showDistribution(Boolean showDistribution) {
-    
     this.showDistribution = showDistribution;
     return this;
   }
@@ -223,7 +223,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition showErrors(Boolean showErrors) {
-    
     this.showErrors = showErrors;
     return this;
   }
@@ -248,7 +247,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition showHits(Boolean showHits) {
-    
     this.showHits = showHits;
     return this;
   }
@@ -273,7 +271,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition showLatency(Boolean showLatency) {
-    
     this.showLatency = showLatency;
     return this;
   }
@@ -298,7 +295,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition showResourceList(Boolean showResourceList) {
-    
     this.showResourceList = showResourceList;
     return this;
   }
@@ -323,7 +319,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition sizeFormat(WidgetSizeFormat sizeFormat) {
-    
     this.sizeFormat = sizeFormat;
     return this;
   }
@@ -348,7 +343,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition spanName(String spanName) {
-    
     this.spanName = spanName;
     return this;
   }
@@ -372,7 +366,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -397,7 +390,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -422,7 +414,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -447,7 +438,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -472,7 +462,6 @@ public class ServiceSummaryWidgetDefinition {
 
 
   public ServiceSummaryWidgetDefinition type(ServiceSummaryWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -495,8 +484,11 @@ public class ServiceSummaryWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this ServiceSummaryWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -556,7 +548,7 @@ public class ServiceSummaryWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,16 +13,21 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.Creator;
 import com.datadog.api.v2.client.model.DashboardType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * A dashboard within a list.
@@ -42,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DashboardListItem.JSON_PROPERTY_TYPE,
   DashboardListItem.JSON_PROPERTY_URL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListItem {
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private Creator author;
@@ -82,7 +87,6 @@ public class DashboardListItem {
 
 
   public DashboardListItem author(Creator author) {
-    
     this.author = author;
     return this;
   }
@@ -139,7 +143,6 @@ public class DashboardListItem {
 
 
   public DashboardListItem id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -260,7 +263,6 @@ public class DashboardListItem {
 
 
   public DashboardListItem type(DashboardType type) {
-    
     this.type = type;
     return this;
   }
@@ -299,8 +301,11 @@ public class DashboardListItem {
 
 
 
+  /**
+   * Return true if this DashboardListItem object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -352,7 +357,7 @@ public class DashboardListItem {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,14 +13,21 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDestination;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * The attributes associated with the archive.
@@ -29,9 +36,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_DESTINATION,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_NAME,
-  LogsArchiveCreateRequestAttributes.JSON_PROPERTY_QUERY
+  LogsArchiveCreateRequestAttributes.JSON_PROPERTY_QUERY,
+  LogsArchiveCreateRequestAttributes.JSON_PROPERTY_REHYDRATION_TAGS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveCreateRequestAttributes {
   public static final String JSON_PROPERTY_DESTINATION = "destination";
   private LogsArchiveCreateRequestDestination destination;
@@ -42,9 +50,11 @@ public class LogsArchiveCreateRequestAttributes {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
+  public static final String JSON_PROPERTY_REHYDRATION_TAGS = "rehydration_tags";
+  private List<String> rehydrationTags = null;
+
 
   public LogsArchiveCreateRequestAttributes destination(LogsArchiveCreateRequestDestination destination) {
-    
     this.destination = destination;
     return this;
   }
@@ -68,7 +78,6 @@ public class LogsArchiveCreateRequestAttributes {
 
 
   public LogsArchiveCreateRequestAttributes name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -92,7 +101,6 @@ public class LogsArchiveCreateRequestAttributes {
 
 
   public LogsArchiveCreateRequestAttributes query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -115,8 +123,43 @@ public class LogsArchiveCreateRequestAttributes {
   }
 
 
+  public LogsArchiveCreateRequestAttributes rehydrationTags(List<String> rehydrationTags) {
+    this.rehydrationTags = rehydrationTags;
+    return this;
+  }
+
+  public LogsArchiveCreateRequestAttributes addRehydrationTagsItem(String rehydrationTagsItem) {
+    if (this.rehydrationTags == null) {
+      this.rehydrationTags = new ArrayList<>();
+    }
+    this.rehydrationTags.add(rehydrationTagsItem);
+    return this;
+  }
+
+   /**
+   * An array of tags to add to rehydrated logs from an archive.
+   * @return rehydrationTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "[\"team:intake\",\"team:app\"]", value = "An array of tags to add to rehydrated logs from an archive.")
+  @JsonProperty(JSON_PROPERTY_REHYDRATION_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getRehydrationTags() {
+    return rehydrationTags;
+  }
+
+
+  public void setRehydrationTags(List<String> rehydrationTags) {
+    this.rehydrationTags = rehydrationTags;
+  }
+
+
+  /**
+   * Return true if this LogsArchiveCreateRequestAttributes object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -126,12 +169,13 @@ public class LogsArchiveCreateRequestAttributes {
     LogsArchiveCreateRequestAttributes logsArchiveCreateRequestAttributes = (LogsArchiveCreateRequestAttributes) o;
     return Objects.equals(this.destination, logsArchiveCreateRequestAttributes.destination) &&
         Objects.equals(this.name, logsArchiveCreateRequestAttributes.name) &&
-        Objects.equals(this.query, logsArchiveCreateRequestAttributes.query);
+        Objects.equals(this.query, logsArchiveCreateRequestAttributes.query) &&
+        Objects.equals(this.rehydrationTags, logsArchiveCreateRequestAttributes.rehydrationTags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, name, query);
+    return Objects.hash(destination, name, query, rehydrationTags);
   }
 
 
@@ -142,6 +186,7 @@ public class LogsArchiveCreateRequestAttributes {
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    rehydrationTags: ").append(toIndentedString(rehydrationTags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,7 +195,7 @@ public class LogsArchiveCreateRequestAttributes {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

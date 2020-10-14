@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object
@@ -39,14 +39,14 @@ public abstract class AbstractOpenApiSchema {
         this.isNullable = isNullable;
     }
 
-    /***
-     * Get the list of schemas allowed to be stored in this object
+    /**
+     * Get the list of oneOf/anyOf composed schemas allowed to be stored in this object
      *
      * @return an instance of the actual schema/object
      */
     public abstract Map<String, GenericType> getSchemas();
 
-    /***
+    /**
      * Get the actual instance
      *
      * @return an instance of the actual schema/object
@@ -54,14 +54,33 @@ public abstract class AbstractOpenApiSchema {
     @JsonValue
     public Object getActualInstance() {return instance;}
 
-    /***
+    /**
      * Set the actual instance
      *
      * @param instance the actual instance of the schema/object
      */
     public void setActualInstance(Object instance) {this.instance = instance;}
 
-    /***
+    /**
+     * Get the instant recursively when the schemas defined in oneOf/anyof happen to be oneOf/anyOf schema as well
+     *
+     * @return an instance of the actual schema/object
+     */
+    public Object getActualInstanceRecursively() {
+        return getActualInstanceRecursively(this);
+    }
+
+    private Object getActualInstanceRecursively(AbstractOpenApiSchema object) {
+        if (object.getActualInstance() == null) {
+            return null;
+        } else if (object.getActualInstance() instanceof AbstractOpenApiSchema) {
+            return getActualInstanceRecursively((AbstractOpenApiSchema)object.getActualInstance());
+        } else {
+            return object.getActualInstance();
+        }
+    }
+
+    /**
      * Get the schema type (e.g. anyOf, oneOf)
      *
      * @return the schema type
@@ -85,7 +104,7 @@ public abstract class AbstractOpenApiSchema {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }
@@ -110,7 +129,7 @@ public abstract class AbstractOpenApiSchema {
         return Objects.hash(instance, isNullable, schemaType);
     }
 
-    /***
+    /**
      * Is nullalble
      *
      * @return true if it's nullable
@@ -122,4 +141,7 @@ public abstract class AbstractOpenApiSchema {
             return Boolean.FALSE;
         }
     }
+
+
+
 }

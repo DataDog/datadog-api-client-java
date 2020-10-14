@@ -13,15 +13,20 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.OrganizationAttributes;
 import com.datadog.api.v2.client.model.OrganizationsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Organization object.
@@ -32,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Organization.JSON_PROPERTY_ID,
   Organization.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Organization {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private OrganizationAttributes attributes;
@@ -45,7 +50,6 @@ public class Organization {
 
 
   public Organization attributes(OrganizationAttributes attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -70,7 +74,6 @@ public class Organization {
 
 
   public Organization id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -95,7 +98,6 @@ public class Organization {
 
 
   public Organization type(OrganizationsType type) {
-    
     this.type = type;
     return this;
   }
@@ -118,8 +120,11 @@ public class Organization {
   }
 
 
+  /**
+   * Return true if this Organization object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -153,7 +158,7 @@ public class Organization {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

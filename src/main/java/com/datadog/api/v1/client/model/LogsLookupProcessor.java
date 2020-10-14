@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsLookupProcessorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Use the Lookup Processor to define a mapping between a log attribute and a human readable value saved in the processors mapping table. For example, you can use the Lookup Processor to map an internal service ID into a human readable service name. Alternatively, you could also use it to check if the MAC address that just attempted to connect to the production environment belongs to your list of stolen machines.
@@ -37,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsLookupProcessor.JSON_PROPERTY_TARGET,
   LogsLookupProcessor.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsLookupProcessor {
   public static final String JSON_PROPERTY_DEFAULT_LOOKUP = "default_lookup";
   private String defaultLookup;
@@ -62,7 +67,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor defaultLookup(String defaultLookup) {
-    
     this.defaultLookup = defaultLookup;
     return this;
   }
@@ -87,7 +91,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -112,7 +115,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor lookupTable(List<String> lookupTable) {
-    
     this.lookupTable = lookupTable;
     return this;
   }
@@ -141,7 +143,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -166,7 +167,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor source(String source) {
-    
     this.source = source;
     return this;
   }
@@ -190,7 +190,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor target(String target) {
-    
     this.target = target;
     return this;
   }
@@ -214,7 +213,6 @@ public class LogsLookupProcessor {
 
 
   public LogsLookupProcessor type(LogsLookupProcessorType type) {
-    
     this.type = type;
     return this;
   }
@@ -237,8 +235,11 @@ public class LogsLookupProcessor {
   }
 
 
+  /**
+   * Return true if this LogsLookupProcessor object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -280,7 +281,7 @@ public class LogsLookupProcessor {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

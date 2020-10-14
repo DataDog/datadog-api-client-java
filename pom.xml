@@ -4,7 +4,7 @@
     <artifactId>datadog-api-client</artifactId>
     <packaging>jar</packaging>
     <name>datadog-api-client</name>
-    <version>1.0.0-beta.5-SNAPSHOT</version>
+    <version>1.0.0-beta.8-SNAPSHOT</version>
     <url>https://github.com/DataDog/datadog-api-client-java</url>
     <description>Java client library for Datadog API</description>
     <scm>
@@ -78,7 +78,7 @@
                 <configuration>
                     <runOrder>random</runOrder>
                     <!-- We don't use threads, as that would complicate cassette recording, plus keystore used by tests isn't thread safe. -->
-                    <!-- FIXME 
+                    <!-- FIXME
                     <forkCount>2</forkCount>
                     <reuseForks>true</reuseForks>
                     <threadCount>1</threadCount>
@@ -353,18 +353,30 @@
             <version>${dd-java-agent-version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.opentracing</groupId>
+            <artifactId>opentracing-util</artifactId>
+            <version>0.33.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.opentracing</groupId>
+            <artifactId>opentracing-api</artifactId>
+            <version>0.33.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.5.22</swagger-annotations-version>
         <jersey-version>2.27</jersey-version>
-        <jackson-version>2.9.10</jackson-version>
-        <jackson-databind-version>2.9.10.4</jackson-databind-version>
+        <jackson-version>2.10.4</jackson-version>
+        <jackson-databind-version>2.10.4</jackson-databind-version>
         <jackson-databind-nullable-version>0.2.0</jackson-databind-nullable-version>
         <http-signature-version>1.3</http-signature-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
-        <junit-version>4.12</junit-version>
-        <dd-java-agent-version>0.52.0</dd-java-agent-version>
+        <junit-version>4.13.1</junit-version>
+        <dd-java-agent-version>0.64.0</dd-java-agent-version>
         <bintray.repo>datadog/datadog-maven</bintray.repo>
         <bintray.package>datadog-api-client</bintray.package>
     </properties>

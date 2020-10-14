@@ -13,9 +13,12 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,6 +28,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * JSON object containing all log attributes and their associated values.
@@ -38,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogContent.JSON_PROPERTY_TAGS,
   LogContent.JSON_PROPERTY_TIMESTAMP
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogContent {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, Object> attributes = null;
@@ -60,7 +65,6 @@ public class LogContent {
 
 
   public LogContent attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -93,7 +97,6 @@ public class LogContent {
 
 
   public LogContent host(String host) {
-    
     this.host = host;
     return this;
   }
@@ -118,7 +121,6 @@ public class LogContent {
 
 
   public LogContent message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -143,7 +145,6 @@ public class LogContent {
 
 
   public LogContent service(String service) {
-    
     this.service = service;
     return this;
   }
@@ -168,7 +169,6 @@ public class LogContent {
 
 
   public LogContent tags(List<Object> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -201,7 +201,6 @@ public class LogContent {
 
 
   public LogContent timestamp(OffsetDateTime timestamp) {
-    
     this.timestamp = timestamp;
     return this;
   }
@@ -225,8 +224,11 @@ public class LogContent {
   }
 
 
+  /**
+   * Return true if this Log_content object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -266,7 +268,7 @@ public class LogContent {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,20 +13,24 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.DistributionWidgetDefinitionType;
 import com.datadog.api.v1.client.model.DistributionWidgetRequest;
-import com.datadog.api.v1.client.model.WidgetLegendSize;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
@@ -42,10 +46,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DistributionWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   DistributionWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DistributionWidgetDefinition {
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
-  private WidgetLegendSize legendSize;
+  private String legendSize;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<DistributionWidgetRequest> requests = new ArrayList<>();
@@ -69,33 +73,31 @@ public class DistributionWidgetDefinition {
   private DistributionWidgetDefinitionType type = DistributionWidgetDefinitionType.DISTRIBUTION;
 
 
-  public DistributionWidgetDefinition legendSize(WidgetLegendSize legendSize) {
-    
+  public DistributionWidgetDefinition legendSize(String legendSize) {
     this.legendSize = legendSize;
     return this;
   }
 
    /**
-   * Get legendSize
+   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
    * @return legendSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public WidgetLegendSize getLegendSize() {
+  public String getLegendSize() {
     return legendSize;
   }
 
 
-  public void setLegendSize(WidgetLegendSize legendSize) {
+  public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
   }
 
 
   public DistributionWidgetDefinition requests(List<DistributionWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -124,7 +126,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition showLegend(Boolean showLegend) {
-    
     this.showLegend = showLegend;
     return this;
   }
@@ -149,7 +150,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -174,7 +174,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -199,7 +198,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -224,7 +222,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -249,7 +246,6 @@ public class DistributionWidgetDefinition {
 
 
   public DistributionWidgetDefinition type(DistributionWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -272,8 +268,11 @@ public class DistributionWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this DistributionWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -317,7 +316,7 @@ public class DistributionWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,25 +13,32 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.ChangeWidgetDefinitionType;
 import com.datadog.api.v1.client.model.ChangeWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The Change graph shows you the change in a value over the time period chosen.
  */
 @ApiModel(description = "The Change graph shows you the change in a value over the time period chosen.")
 @JsonPropertyOrder({
+  ChangeWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ChangeWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ChangeWidgetDefinition.JSON_PROPERTY_TIME,
   ChangeWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -39,8 +46,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ChangeWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ChangeWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ChangeWidgetDefinition {
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<ChangeWidgetRequest> requests = new ArrayList<>();
 
@@ -60,8 +70,39 @@ public class ChangeWidgetDefinition {
   private ChangeWidgetDefinitionType type = ChangeWidgetDefinitionType.CHANGE;
 
 
+  public ChangeWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    return this;
+  }
+
+  public ChangeWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    return this;
+  }
+
+   /**
+   * List of custom links.
+   * @return customLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
+
+
   public ChangeWidgetDefinition requests(List<ChangeWidgetRequest> requests) {
-    
     this.requests = requests;
     return this;
   }
@@ -90,7 +131,6 @@ public class ChangeWidgetDefinition {
 
 
   public ChangeWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -115,7 +155,6 @@ public class ChangeWidgetDefinition {
 
 
   public ChangeWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -140,7 +179,6 @@ public class ChangeWidgetDefinition {
 
 
   public ChangeWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -165,7 +203,6 @@ public class ChangeWidgetDefinition {
 
 
   public ChangeWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -190,7 +227,6 @@ public class ChangeWidgetDefinition {
 
 
   public ChangeWidgetDefinition type(ChangeWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -213,8 +249,11 @@ public class ChangeWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this ChangeWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -222,7 +261,8 @@ public class ChangeWidgetDefinition {
       return false;
     }
     ChangeWidgetDefinition changeWidgetDefinition = (ChangeWidgetDefinition) o;
-    return Objects.equals(this.requests, changeWidgetDefinition.requests) &&
+    return Objects.equals(this.customLinks, changeWidgetDefinition.customLinks) &&
+        Objects.equals(this.requests, changeWidgetDefinition.requests) &&
         Objects.equals(this.time, changeWidgetDefinition.time) &&
         Objects.equals(this.title, changeWidgetDefinition.title) &&
         Objects.equals(this.titleAlign, changeWidgetDefinition.titleAlign) &&
@@ -232,7 +272,7 @@ public class ChangeWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests, time, title, titleAlign, titleSize, type);
+    return Objects.hash(customLinks, requests, time, title, titleAlign, titleSize, type);
   }
 
 
@@ -240,6 +280,7 @@ public class ChangeWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChangeWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
@@ -254,7 +295,7 @@ public class ChangeWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

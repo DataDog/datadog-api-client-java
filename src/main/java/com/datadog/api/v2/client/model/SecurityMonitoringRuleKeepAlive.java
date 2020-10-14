@@ -13,8 +13,12 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import io.swagger.annotations.ApiModel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -38,7 +42,11 @@ public enum SecurityMonitoringRuleKeepAlive {
   
   ONE_HOUR(3600),
   
-  TWO_HOURS(7200);
+  TWO_HOURS(7200),
+  
+  THREE_HOURS(10800),
+  
+  SIX_HOURS(21600);
 
   private Integer value;
 

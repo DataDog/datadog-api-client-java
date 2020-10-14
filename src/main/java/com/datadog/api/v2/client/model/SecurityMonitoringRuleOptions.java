@@ -13,16 +13,21 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleEvaluationWindow;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleMaxSignalDuration;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Options on rules.
@@ -33,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleOptions {
   public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluationWindow";
   private SecurityMonitoringRuleEvaluationWindow evaluationWindow;
@@ -46,7 +51,6 @@ public class SecurityMonitoringRuleOptions {
 
 
   public SecurityMonitoringRuleOptions evaluationWindow(SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
-    
     this.evaluationWindow = evaluationWindow;
     return this;
   }
@@ -71,7 +75,6 @@ public class SecurityMonitoringRuleOptions {
 
 
   public SecurityMonitoringRuleOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
-    
     this.keepAlive = keepAlive;
     return this;
   }
@@ -96,7 +99,6 @@ public class SecurityMonitoringRuleOptions {
 
 
   public SecurityMonitoringRuleOptions maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
-    
     this.maxSignalDuration = maxSignalDuration;
     return this;
   }
@@ -120,8 +122,11 @@ public class SecurityMonitoringRuleOptions {
   }
 
 
+  /**
+   * Return true if this SecurityMonitoringRuleOptions object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -155,7 +160,7 @@ public class SecurityMonitoringRuleOptions {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

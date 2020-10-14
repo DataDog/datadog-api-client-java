@@ -27,7 +27,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.GcpIntegrationApi;
 
 public class Example {
@@ -47,7 +47,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
-        GCPAccount body = new GCPAccount(); // GCPAccount | Create a Datadog-Azure integration.
+        GCPAccount body = new GCPAccount(); // GCPAccount | Create a Datadog-GCP integration.
         try {
             Object result = api.createGCPIntegration()
                 .body(body)
@@ -69,7 +69,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GCPAccount**](GCPAccount.md)| Create a Datadog-Azure integration. |
+ **body** | [**GCPAccount**](GCPAccount.md)| Create a Datadog-GCP integration. |
 
 ### Return type
 
@@ -108,7 +108,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.GcpIntegrationApi;
 
 public class Example {
@@ -189,7 +189,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.GcpIntegrationApi;
 
 public class Example {
@@ -268,7 +268,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.models.*;
+import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.GcpIntegrationApi;
 
 public class Example {

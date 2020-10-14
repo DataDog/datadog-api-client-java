@@ -13,23 +13,28 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogQueryDefinitionGroupBy;
 import com.datadog.api.v1.client.model.LogQueryDefinitionSearch;
 import com.datadog.api.v1.client.model.LogsQueryCompute;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * List of logs.
+ * The log query.
  */
-@ApiModel(description = "List of logs.")
+@ApiModel(description = "The log query.")
 @JsonPropertyOrder({
   LogQueryDefinition.JSON_PROPERTY_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_GROUP_BY,
@@ -37,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogQueryDefinition.JSON_PROPERTY_MULTI_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_SEARCH
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogQueryDefinition {
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private LogsQueryCompute compute;
@@ -56,7 +61,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition compute(LogsQueryCompute compute) {
-    
     this.compute = compute;
     return this;
   }
@@ -81,7 +85,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition groupBy(List<LogQueryDefinitionGroupBy> groupBy) {
-    
     this.groupBy = groupBy;
     return this;
   }
@@ -114,7 +117,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition index(String index) {
-    
     this.index = index;
     return this;
   }
@@ -139,7 +141,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition multiCompute(List<LogsQueryCompute> multiCompute) {
-    
     this.multiCompute = multiCompute;
     return this;
   }
@@ -172,7 +173,6 @@ public class LogQueryDefinition {
 
 
   public LogQueryDefinition search(LogQueryDefinitionSearch search) {
-    
     this.search = search;
     return this;
   }
@@ -196,8 +196,11 @@ public class LogQueryDefinition {
   }
 
 
+  /**
+   * Return true if this LogQueryDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -235,7 +238,7 @@ public class LogQueryDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

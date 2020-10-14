@@ -13,16 +13,21 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.DashboardListItemResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Response containing a list of updated dashboards.
@@ -31,14 +36,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   DashboardListUpdateItemsResponse.JSON_PROPERTY_DASHBOARDS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListUpdateItemsResponse {
   public static final String JSON_PROPERTY_DASHBOARDS = "dashboards";
   private List<DashboardListItemResponse> dashboards = null;
 
 
   public DashboardListUpdateItemsResponse dashboards(List<DashboardListItemResponse> dashboards) {
-    
     this.dashboards = dashboards;
     return this;
   }
@@ -70,8 +74,11 @@ public class DashboardListUpdateItemsResponse {
   }
 
 
+  /**
+   * Return true if this DashboardListUpdateItemsResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -101,7 +108,7 @@ public class DashboardListUpdateItemsResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

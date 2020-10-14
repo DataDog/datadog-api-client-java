@@ -1,10 +1,10 @@
 [{
-  "id" : "5dca081f-68e2-49d7-b9a4-6817ca0bd16b",
+  "id" : "6fd62718-ecec-4c42-9d00-58a4405f9ab2",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/hosts/totals",
     "queryStringParameters" : {
-      "from" : [ "1591009993" ]
+      "from" : [ "1596011308" ]
     },
     "headers" : {
       "Accept" : [ "application/json" ],
@@ -26,13 +26,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:14 GMT" ],
+      "Date" : [ "Wed, 29 Jul 2020 08:27:30 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "66" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.2801846" ],
       "DD-POOL" : [ "dogweb_query" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -42,12 +42,12 @@
     "body" : "{\"errors\": [\"The value provided for parameter 'from' is invalid\"]}"
   }
 }, {
-  "id" : "e941184a-f95c-4775-bbe5-71babdb8a06f",
+  "id" : "1eaa253f-43ab-45d3-8260-cbbcfa9fa848",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/hosts/totals",
     "queryStringParameters" : {
-      "from" : [ "1591009993" ]
+      "from" : [ "1596011308" ]
     },
     "headers" : {
       "Accept" : [ "application/json" ],
@@ -69,7 +69,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:14 GMT" ],
+      "Date" : [ "Wed, 29 Jul 2020 08:27:31 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],

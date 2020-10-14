@@ -8,6 +8,8 @@ package com.datadog.api.v1.client.api;
 
 
 import com.datadog.api.TestUtils;
+import com.datadog.api.RecordingMode;
+import static org.junit.Assume.assumeFalse;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -18,8 +20,10 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
@@ -47,6 +51,11 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     private final String apiUri = "/api/v1/usage";
     private final String fixturePrefix = "v1/client/api/usage_fixtures";
+
+    @Override
+    public String getTracingEndpoint() {
+        return "usage-metering";
+    }
 
     @BeforeClass
     public static void initApi() {
@@ -96,8 +105,27 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageMobileRumSessionsTest() throws ApiException {
+        UsageRumSessionsResponse response = api.getUsageRumSessions()
+                .startHr(startHr)
+                .endHr(endHr)
+                .type("mobile")
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
     public void getUsageHostsTest() throws ApiException {
         UsageHostsResponse response = api.getUsageHosts()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageProfilingTest() throws ApiException {
+        UsageProfilingResponse response = api.getUsageProfiling()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -151,6 +179,116 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageTracingWithoutLimitsTest() throws ApiException {
+        UsageTracingWithoutLimitsResponse response = api.getTracingWithoutLimits()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageBillableSummaryTest() throws ApiException, IOException {
+        stubFor(get(urlPathEqualTo("/api/v1/usage/billable-summary"))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/usage_fixtures/usage_billable_summary.json")))
+        );
+
+        UsageBillableSummaryResponse usage = unitApi.getUsageBillableSummary().execute();
+
+        assertNotNull(usage.getUsage());
+        UsageBillableSummaryHour usageItem = usage.getUsage().get(0);
+        assertEquals(usageItem.getOrgName(), "API - Test");
+        assertEquals(usageItem.getBillingPlan(), "Pro");
+        assertEquals(usageItem.getPublicId(), "123abcxyz");
+        OffsetDateTime startDateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 06, 01, 00, 00),
+                ZoneOffset.ofHoursMinutes(0, 0));
+        OffsetDateTime endDateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 06, 28, 23, 00),
+                ZoneOffset.ofHoursMinutes(0, 0));
+        assertEquals(usageItem.getStartDate(), startDateExpected);
+        assertEquals(usageItem.getEndDate(), endDateExpected);
+        assertEquals(usageItem.getRatioInMonth().intValue(), 1);
+        assertEquals(usageItem.getNumOrgs().intValue(), 235);
+
+        UsageBillableSummaryKeys usageKeys = usageItem.getUsage();
+        UsageBillableSummaryBody logsIndexedSum = usageKeys.getLogsIndexedSum();
+
+        assertEquals(logsIndexedSum.getOrgBillableUsage().intValue(), 14514687);
+        assertEquals(logsIndexedSum.getUsageUnit(), "logs");
+        assertEquals(logsIndexedSum.getAccountBillableUsage().intValue(), 1611132837);
+        assertEquals(logsIndexedSum.getFirstBillableUsageHour(), startDateExpected);
+        assertEquals(logsIndexedSum.getElapsedUsageHours().intValue(), 672);
+        assertEquals(logsIndexedSum.getLastBillableUsageHour(), endDateExpected);
+        assertEquals(logsIndexedSum.getPercentageInAccount().doubleValue(), 0.9, 0);
+    }
+
+    @Test
+    public void getSpecifiedDailyCustomReportsTest() throws ApiException {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String reportID = FORMATTER.format(date.minusDays(1)); // Only have report from previous day
+        generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
+        try{
+            UsageSpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID).execute();
+            assertNotNull(response.getMeta());
+            assertNotNull(response.getData());
+        } catch (ApiException e) {
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
+            || e.getCode() == 404 || e.getCode() == 403) {
+                System.out.println("\nNo reports are available yet or this org is forbidden\n");
+            }
+        }
+    }
+
+    @Test
+    public void getSpecifiedMonthlyCustomReportsTest() throws ApiException {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String reportID = FORMATTER.format(date.minusDays(1)); //Reports will only be generated on this 2020-08-15 for this org
+        generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
+        try {
+            UsageSpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID).execute();
+            assertNotNull(response.getMeta());
+            assertNotNull(response.getData());
+        } catch (ApiException e) {
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
+            || e.getCode() == 404 || e.getCode() == 403) {
+                System.out.println("\nNo reports are available yet or this org is forbidden\n");
+            }
+        }
+    }
+
+
+    @Test
+    public void getDailyCustomReportsTest() throws ApiException {
+        generalApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
+        try {
+            UsageCustomReportsResponse response = api.getDailyCustomReports().execute();
+            assertNotNull(response.getMeta());
+            assertNotNull(response.getData());
+        } catch (ApiException e) {
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
+            || e.getCode() == 404 || e.getCode() == 403) {
+                System.out.println("\nNo reports are available yet or this org is forbidden\n");
+            }
+        }
+    }
+
+    @Test
+    public void getMonthlyCustomReportsTest() throws ApiException {
+        generalApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
+        try {
+            UsageCustomReportsResponse response = api.getMonthlyCustomReports().execute();
+            assertNotNull(response.getMeta());
+            assertNotNull(response.getData());
+        } catch (ApiException e) {
+            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING) == false
+            || e.getCode() == 404 || e.getCode() == 403) {
+                System.out.println("\nNo reports are available yet or this org is forbidden\n");
+            }
+        }
+    }
+
+    @Test
     public void getUsageSummaryTest() throws ApiException, IOException {
         Boolean includeOrgDetails = true;
         OffsetDateTime startMonth = OffsetDateTime.now();
@@ -181,6 +319,10 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getContainerHwmSum().longValue(), 1L);
         assertEquals(usage.getCustomTsSum().longValue(), 4L);
         assertEquals(usage.getRumSessionCountAggSum().longValue(), 5L);
+        assertEquals(usage.getProfilingHostCountTop99pSum().longValue(), 6L);
+        assertEquals(usage.getProfilingContainerAgentCountAvg().longValue(), 7L);
+        assertEquals(usage.getTwolIngestedEventsBytesAggSum().longValue(), 8L);
+        assertEquals(usage.getMobileRumSessionCountAggSum().longValue(), 9L);
 
         // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
         OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
@@ -195,6 +337,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageItem.getGcpHostTop99p().longValue(), 7L);
         assertEquals(usageItem.getInfraHostTop99p().longValue(), 8L);
         assertEquals(usageItem.getRumSessionCountSum().longValue(), 9L);
+        assertEquals(usageItem.getProfilingHostTop99p().longValue(), 10L);
+        assertEquals(usageItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
+        assertEquals(usageItem.getMobileRumSessionCountSum().longValue(), 12L);
 
         UsageSummaryDateOrg usageOrgItem = usageItem.getOrgs().get(0);
         assertEquals(usageOrgItem.getId(), "1b");
@@ -207,6 +352,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageOrgItem.getGcpHostTop99p().longValue(), 7L);
         assertEquals(usageOrgItem.getInfraHostTop99p().longValue(), 8L);
         assertEquals(usageOrgItem.getRumSessionCountSum().longValue(), 9L);
+        assertEquals(usageOrgItem.getProfilingHostTop99p().longValue(), 10L);
+        assertEquals(usageOrgItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
+        assertEquals(usageOrgItem.getMobileRumSessionCountSum().longValue(), 12L);
     }
 
     @Test
@@ -307,6 +455,27 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
         try {
             fakeAuthApi.getUsageHosts().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getUsageProfilingErrorsTest() throws IOException {
+        try {
+            api.getUsageProfiling().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getUsageProfiling().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
@@ -538,6 +707,19 @@ public class UsageMeteringApiTest extends V1ApiTest {
         }
 
         try {
+            api.getUsageRumSessions()
+                    .startHr(startHr)
+                    .endHr(endHr)
+                    .type("invalid")
+                    .execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
             fakeAuthApi.getUsageRumSessions().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
@@ -605,6 +787,142 @@ public class UsageMeteringApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getUsageTracingWithoutLimitsErrorsTest()throws IOException  {
+        try {
+            api.getTracingWithoutLimits().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getTracingWithoutLimits().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getUsageBillableSummaryErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getUsageBillableSummary().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getSpecifiedDailyCustomReportsErrorsTest()throws IOException  {
+        try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
+            fakeAuthApi.getSpecifiedDailyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
+            api.getSpecifiedDailyCustomReports("2010-01-01").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getSpecifiedMonthlyCustomReportsErrorsTest()throws IOException  {
+        try {
+            generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
+            api.getSpecifiedMonthlyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
+            fakeAuthApi.getSpecifiedMonthlyCustomReports("whatever").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+
+    @Test
+    public void getSpecifiedMonthlyCustomReports404ErrorTest() throws IOException {
+        try {
+            generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
+            api.getSpecifiedMonthlyCustomReports("2010-01-01").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getDailyCustomReportsErrorsTest() throws IOException {
+        try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
+            fakeAuthApi.getDailyCustomReports().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getMonthlyCustomReportsErrorsTest() throws IOException {        
+        try {
+            generalFakeAuthApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
+            fakeAuthApi.getMonthlyCustomReports().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+    
+    @Test
+    public void getUsageBillableSummary400ErrorTest() throws IOException {
+        String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_400.json");
+        stubFor(get(urlPathEqualTo(apiUri + "/billable-summary"))
+                .willReturn(okJson(fixtureData).withStatus(400))
+        );
+        // Mocked as this call must be made from the parent organization
+        try {
+            unitApi.getUsageBillableSummary().execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
             assertNotNull(error.getErrors());
         }

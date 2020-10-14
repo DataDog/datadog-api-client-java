@@ -3,87 +3,235 @@
 # WidgetDefinition
 
 [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
-## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**alertId** | **String** | ID of the alert to use in the widget. | 
-**time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
-**title** | **String** | Title of your widget. |  [optional]
-**titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**titleSize** | **String** | Size of the title. |  [optional]
-**type** | [**ToplistWidgetDefinitionType**](ToplistWidgetDefinitionType.md) |  | 
-**vizType** | [**WidgetVizType**](WidgetVizType.md) |  | 
-**precision** | **Long** | Number of decimals to show. If not defined, the widget uses the raw value. |  [optional]
-**textAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**unit** | **String** | Unit to display with the value. |  [optional]
-**requests** | [**List&lt;ToplistWidgetRequest&gt;**](ToplistWidgetRequest.md) | List of top list widget requests. | 
-**check** | **String** | Name of the check to use in the widget. | 
-**group** | **List&lt;String&gt;** | List of tag prefixes to group by. |  [optional]
-**groupBy** | **List&lt;String&gt;** | List of tag prefixes to group by in the case of a cluster check. |  [optional]
-**grouping** | [**WidgetGrouping**](WidgetGrouping.md) |  | 
-**tags** | **List&lt;String&gt;** | List of tags used to filter the groups reporting a cluster check. |  [optional]
-**legendSize** | [**WidgetLegendSize**](WidgetLegendSize.md) |  |  [optional]
-**showLegend** | **Boolean** | (screenboard only) Show the legend for this widget. |  [optional]
-**eventSize** | [**WidgetEventSize**](WidgetEventSize.md) |  |  [optional]
-**query** | **String** | Query to filter the monitors with. | 
-**tagsExecution** | **String** | The execution method for multi-value filters. Can be either and or or. |  [optional]
-**color** | **String** | Color of the text. |  [optional]
-**fontSize** | **String** | Size of the text. |  [optional]
-**text** | **String** | Text to display. | 
-**layoutType** | [**WidgetLayoutType**](WidgetLayoutType.md) |  | 
-**widgets** | [**List&lt;Widget&gt;**](Widget.md) | List of widget groups. | 
-**events** | [**List&lt;WidgetEvent&gt;**](WidgetEvent.md) | List of widget events. |  [optional]
-**yaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
-**noGroupHosts** | **Boolean** | Whether to show the hosts that don’t fit in a group. |  [optional]
-**noMetricHosts** | **Boolean** | Whether to show the hosts with no metrics. |  [optional]
-**nodeType** | [**WidgetNodeType**](WidgetNodeType.md) |  |  [optional]
-**notes** | **String** | Notes on the title. |  [optional]
-**scope** | **List&lt;String&gt;** | List of tags used to filter the map. |  [optional]
-**style** | [**HostMapWidgetDefinitionStyle**](HostMapWidgetDefinitionStyle.md) |  |  [optional]
-**url** | **String** | URL of the image. | 
-**margin** | [**WidgetMargin**](WidgetMargin.md) |  |  [optional]
-**sizing** | [**WidgetImageSizing**](WidgetImageSizing.md) |  |  [optional]
-**columns** | **List&lt;String&gt;** | Which columns to display on the widget. |  [optional]
-**indexes** | **List&lt;String&gt;** | An array of index names to query in the stream. Use [] to query all indexes at once. |  [optional]
-**logset** | **String** | ID of the log set to use. |  [optional]
-**messageDisplay** | [**WidgetMessageDisplay**](WidgetMessageDisplay.md) |  |  [optional]
-**showDateColumn** | **Boolean** | Whether to show the date column or not |  [optional]
-**showMessageColumn** | **Boolean** | Whether to show the message column or not |  [optional]
-**sort** | [**WidgetMonitorSummarySort**](WidgetMonitorSummarySort.md) |  |  [optional]
-**colorPreference** | [**WidgetColorPreference**](WidgetColorPreference.md) |  |  [optional]
-**count** | **Long** | The number of monitors to display. |  [optional]
-**displayFormat** | [**WidgetServiceSummaryDisplayFormat**](WidgetServiceSummaryDisplayFormat.md) |  |  [optional]
-**hideZeroCounts** | **Boolean** | Whether to show counts of 0 or not. |  [optional]
-**showLastTriggered** | **Boolean** | Whether to show the time that has elapsed since the monitor/group triggered. |  [optional]
-**start** | **Long** | The start of the list. Typically 0. |  [optional]
-**summaryType** | [**WidgetSummaryType**](WidgetSummaryType.md) |  |  [optional]
-**backgroundColor** | **String** | Background color of the note. |  [optional]
-**content** | **String** | Content of the note. | 
-**showTick** | **Boolean** | Whether to show a tick or not. |  [optional]
-**tickEdge** | [**WidgetTickEdge**](WidgetTickEdge.md) |  |  [optional]
-**tickPos** | **String** | Where to position the tick on an edge. |  [optional]
-**autoscale** | **Boolean** | Whether to use auto-scaling or not. |  [optional]
-**customUnit** | **String** | Display a unit of your choice on the widget. |  [optional]
-**colorByGroups** | **List&lt;String&gt;** | List of groups used for colors. |  [optional]
-**xaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
-**showErrorBudget** | **Boolean** | Defined error budget. |  [optional]
-**sloId** | **String** | ID of the SLO displayed. |  [optional]
-**timeWindows** | [**List&lt;WidgetTimeWindows&gt;**](WidgetTimeWindows.md) | Times being monitored. |  [optional]
-**viewMode** | [**WidgetViewMode**](WidgetViewMode.md) |  |  [optional]
-**viewType** | **String** | Type of view displayed by the widget. | 
-**filters** | **List&lt;String&gt;** | Your environment and primary tag (or * if enabled for your account). | 
-**service** | **String** | APM service. | 
-**env** | **String** | APM environment. | 
-**showBreakdown** | **Boolean** | Whether to show the latency breakdown or not. |  [optional]
-**showDistribution** | **Boolean** | Whether to show the latency distribution or not. |  [optional]
-**showErrors** | **Boolean** | Whether to show the error metrics or not. |  [optional]
-**showHits** | **Boolean** | Whether to show the hits metrics or not. |  [optional]
-**showLatency** | **Boolean** | Whether to show the latency metrics or not. |  [optional]
-**showResourceList** | **Boolean** | Whether to show the resource list or not. |  [optional]
-**sizeFormat** | [**WidgetSizeFormat**](WidgetSizeFormat.md) |  |  [optional]
-**spanName** | **String** | APM span name. | 
-**markers** | [**List&lt;WidgetMarker&gt;**](WidgetMarker.md) | List of markers. |  [optional]
+## oneOf schemas
+* [AlertGraphWidgetDefinition](AlertGraphWidgetDefinition.md)
+* [AlertValueWidgetDefinition](AlertValueWidgetDefinition.md)
+* [ChangeWidgetDefinition](ChangeWidgetDefinition.md)
+* [CheckStatusWidgetDefinition](CheckStatusWidgetDefinition.md)
+* [DistributionWidgetDefinition](DistributionWidgetDefinition.md)
+* [EventStreamWidgetDefinition](EventStreamWidgetDefinition.md)
+* [EventTimelineWidgetDefinition](EventTimelineWidgetDefinition.md)
+* [FreeTextWidgetDefinition](FreeTextWidgetDefinition.md)
+* [GroupWidgetDefinition](GroupWidgetDefinition.md)
+* [HeatMapWidgetDefinition](HeatMapWidgetDefinition.md)
+* [HostMapWidgetDefinition](HostMapWidgetDefinition.md)
+* [IFrameWidgetDefinition](IFrameWidgetDefinition.md)
+* [ImageWidgetDefinition](ImageWidgetDefinition.md)
+* [LogStreamWidgetDefinition](LogStreamWidgetDefinition.md)
+* [MonitorSummaryWidgetDefinition](MonitorSummaryWidgetDefinition.md)
+* [NoteWidgetDefinition](NoteWidgetDefinition.md)
+* [QueryValueWidgetDefinition](QueryValueWidgetDefinition.md)
+* [SLOWidgetDefinition](SLOWidgetDefinition.md)
+* [ScatterPlotWidgetDefinition](ScatterPlotWidgetDefinition.md)
+* [ServiceMapWidgetDefinition](ServiceMapWidgetDefinition.md)
+* [ServiceSummaryWidgetDefinition](ServiceSummaryWidgetDefinition.md)
+* [TableWidgetDefinition](TableWidgetDefinition.md)
+* [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
+* [ToplistWidgetDefinition](ToplistWidgetDefinition.md)
 
+## Example
+```java
+// Import classes:
+import com.datadog.api.v1.client.model.WidgetDefinition;
+import com.datadog.api.v1.client.model.AlertGraphWidgetDefinition;
+import com.datadog.api.v1.client.model.AlertValueWidgetDefinition;
+import com.datadog.api.v1.client.model.ChangeWidgetDefinition;
+import com.datadog.api.v1.client.model.CheckStatusWidgetDefinition;
+import com.datadog.api.v1.client.model.DistributionWidgetDefinition;
+import com.datadog.api.v1.client.model.EventStreamWidgetDefinition;
+import com.datadog.api.v1.client.model.EventTimelineWidgetDefinition;
+import com.datadog.api.v1.client.model.FreeTextWidgetDefinition;
+import com.datadog.api.v1.client.model.GroupWidgetDefinition;
+import com.datadog.api.v1.client.model.HeatMapWidgetDefinition;
+import com.datadog.api.v1.client.model.HostMapWidgetDefinition;
+import com.datadog.api.v1.client.model.IFrameWidgetDefinition;
+import com.datadog.api.v1.client.model.ImageWidgetDefinition;
+import com.datadog.api.v1.client.model.LogStreamWidgetDefinition;
+import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinition;
+import com.datadog.api.v1.client.model.NoteWidgetDefinition;
+import com.datadog.api.v1.client.model.QueryValueWidgetDefinition;
+import com.datadog.api.v1.client.model.SLOWidgetDefinition;
+import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinition;
+import com.datadog.api.v1.client.model.ServiceMapWidgetDefinition;
+import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinition;
+import com.datadog.api.v1.client.model.TableWidgetDefinition;
+import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
+import com.datadog.api.v1.client.model.ToplistWidgetDefinition;
+
+public class Example {
+    public static void main(String[] args) {
+        WidgetDefinition exampleWidgetDefinition = new WidgetDefinition();
+
+        // create a new AlertGraphWidgetDefinition
+        AlertGraphWidgetDefinition exampleAlertGraphWidgetDefinition = new AlertGraphWidgetDefinition();
+        // set WidgetDefinition to AlertGraphWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleAlertGraphWidgetDefinition);
+        // to get back the AlertGraphWidgetDefinition set earlier
+        AlertGraphWidgetDefinition testAlertGraphWidgetDefinition = (AlertGraphWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new AlertValueWidgetDefinition
+        AlertValueWidgetDefinition exampleAlertValueWidgetDefinition = new AlertValueWidgetDefinition();
+        // set WidgetDefinition to AlertValueWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleAlertValueWidgetDefinition);
+        // to get back the AlertValueWidgetDefinition set earlier
+        AlertValueWidgetDefinition testAlertValueWidgetDefinition = (AlertValueWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new ChangeWidgetDefinition
+        ChangeWidgetDefinition exampleChangeWidgetDefinition = new ChangeWidgetDefinition();
+        // set WidgetDefinition to ChangeWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleChangeWidgetDefinition);
+        // to get back the ChangeWidgetDefinition set earlier
+        ChangeWidgetDefinition testChangeWidgetDefinition = (ChangeWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new CheckStatusWidgetDefinition
+        CheckStatusWidgetDefinition exampleCheckStatusWidgetDefinition = new CheckStatusWidgetDefinition();
+        // set WidgetDefinition to CheckStatusWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleCheckStatusWidgetDefinition);
+        // to get back the CheckStatusWidgetDefinition set earlier
+        CheckStatusWidgetDefinition testCheckStatusWidgetDefinition = (CheckStatusWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new DistributionWidgetDefinition
+        DistributionWidgetDefinition exampleDistributionWidgetDefinition = new DistributionWidgetDefinition();
+        // set WidgetDefinition to DistributionWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleDistributionWidgetDefinition);
+        // to get back the DistributionWidgetDefinition set earlier
+        DistributionWidgetDefinition testDistributionWidgetDefinition = (DistributionWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new EventStreamWidgetDefinition
+        EventStreamWidgetDefinition exampleEventStreamWidgetDefinition = new EventStreamWidgetDefinition();
+        // set WidgetDefinition to EventStreamWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleEventStreamWidgetDefinition);
+        // to get back the EventStreamWidgetDefinition set earlier
+        EventStreamWidgetDefinition testEventStreamWidgetDefinition = (EventStreamWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new EventTimelineWidgetDefinition
+        EventTimelineWidgetDefinition exampleEventTimelineWidgetDefinition = new EventTimelineWidgetDefinition();
+        // set WidgetDefinition to EventTimelineWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleEventTimelineWidgetDefinition);
+        // to get back the EventTimelineWidgetDefinition set earlier
+        EventTimelineWidgetDefinition testEventTimelineWidgetDefinition = (EventTimelineWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new FreeTextWidgetDefinition
+        FreeTextWidgetDefinition exampleFreeTextWidgetDefinition = new FreeTextWidgetDefinition();
+        // set WidgetDefinition to FreeTextWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleFreeTextWidgetDefinition);
+        // to get back the FreeTextWidgetDefinition set earlier
+        FreeTextWidgetDefinition testFreeTextWidgetDefinition = (FreeTextWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new GroupWidgetDefinition
+        GroupWidgetDefinition exampleGroupWidgetDefinition = new GroupWidgetDefinition();
+        // set WidgetDefinition to GroupWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleGroupWidgetDefinition);
+        // to get back the GroupWidgetDefinition set earlier
+        GroupWidgetDefinition testGroupWidgetDefinition = (GroupWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new HeatMapWidgetDefinition
+        HeatMapWidgetDefinition exampleHeatMapWidgetDefinition = new HeatMapWidgetDefinition();
+        // set WidgetDefinition to HeatMapWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleHeatMapWidgetDefinition);
+        // to get back the HeatMapWidgetDefinition set earlier
+        HeatMapWidgetDefinition testHeatMapWidgetDefinition = (HeatMapWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new HostMapWidgetDefinition
+        HostMapWidgetDefinition exampleHostMapWidgetDefinition = new HostMapWidgetDefinition();
+        // set WidgetDefinition to HostMapWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleHostMapWidgetDefinition);
+        // to get back the HostMapWidgetDefinition set earlier
+        HostMapWidgetDefinition testHostMapWidgetDefinition = (HostMapWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new IFrameWidgetDefinition
+        IFrameWidgetDefinition exampleIFrameWidgetDefinition = new IFrameWidgetDefinition();
+        // set WidgetDefinition to IFrameWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleIFrameWidgetDefinition);
+        // to get back the IFrameWidgetDefinition set earlier
+        IFrameWidgetDefinition testIFrameWidgetDefinition = (IFrameWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new ImageWidgetDefinition
+        ImageWidgetDefinition exampleImageWidgetDefinition = new ImageWidgetDefinition();
+        // set WidgetDefinition to ImageWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleImageWidgetDefinition);
+        // to get back the ImageWidgetDefinition set earlier
+        ImageWidgetDefinition testImageWidgetDefinition = (ImageWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new LogStreamWidgetDefinition
+        LogStreamWidgetDefinition exampleLogStreamWidgetDefinition = new LogStreamWidgetDefinition();
+        // set WidgetDefinition to LogStreamWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleLogStreamWidgetDefinition);
+        // to get back the LogStreamWidgetDefinition set earlier
+        LogStreamWidgetDefinition testLogStreamWidgetDefinition = (LogStreamWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new MonitorSummaryWidgetDefinition
+        MonitorSummaryWidgetDefinition exampleMonitorSummaryWidgetDefinition = new MonitorSummaryWidgetDefinition();
+        // set WidgetDefinition to MonitorSummaryWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleMonitorSummaryWidgetDefinition);
+        // to get back the MonitorSummaryWidgetDefinition set earlier
+        MonitorSummaryWidgetDefinition testMonitorSummaryWidgetDefinition = (MonitorSummaryWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new NoteWidgetDefinition
+        NoteWidgetDefinition exampleNoteWidgetDefinition = new NoteWidgetDefinition();
+        // set WidgetDefinition to NoteWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleNoteWidgetDefinition);
+        // to get back the NoteWidgetDefinition set earlier
+        NoteWidgetDefinition testNoteWidgetDefinition = (NoteWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new QueryValueWidgetDefinition
+        QueryValueWidgetDefinition exampleQueryValueWidgetDefinition = new QueryValueWidgetDefinition();
+        // set WidgetDefinition to QueryValueWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleQueryValueWidgetDefinition);
+        // to get back the QueryValueWidgetDefinition set earlier
+        QueryValueWidgetDefinition testQueryValueWidgetDefinition = (QueryValueWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new SLOWidgetDefinition
+        SLOWidgetDefinition exampleSLOWidgetDefinition = new SLOWidgetDefinition();
+        // set WidgetDefinition to SLOWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleSLOWidgetDefinition);
+        // to get back the SLOWidgetDefinition set earlier
+        SLOWidgetDefinition testSLOWidgetDefinition = (SLOWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new ScatterPlotWidgetDefinition
+        ScatterPlotWidgetDefinition exampleScatterPlotWidgetDefinition = new ScatterPlotWidgetDefinition();
+        // set WidgetDefinition to ScatterPlotWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleScatterPlotWidgetDefinition);
+        // to get back the ScatterPlotWidgetDefinition set earlier
+        ScatterPlotWidgetDefinition testScatterPlotWidgetDefinition = (ScatterPlotWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new ServiceMapWidgetDefinition
+        ServiceMapWidgetDefinition exampleServiceMapWidgetDefinition = new ServiceMapWidgetDefinition();
+        // set WidgetDefinition to ServiceMapWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleServiceMapWidgetDefinition);
+        // to get back the ServiceMapWidgetDefinition set earlier
+        ServiceMapWidgetDefinition testServiceMapWidgetDefinition = (ServiceMapWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new ServiceSummaryWidgetDefinition
+        ServiceSummaryWidgetDefinition exampleServiceSummaryWidgetDefinition = new ServiceSummaryWidgetDefinition();
+        // set WidgetDefinition to ServiceSummaryWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleServiceSummaryWidgetDefinition);
+        // to get back the ServiceSummaryWidgetDefinition set earlier
+        ServiceSummaryWidgetDefinition testServiceSummaryWidgetDefinition = (ServiceSummaryWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new TableWidgetDefinition
+        TableWidgetDefinition exampleTableWidgetDefinition = new TableWidgetDefinition();
+        // set WidgetDefinition to TableWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleTableWidgetDefinition);
+        // to get back the TableWidgetDefinition set earlier
+        TableWidgetDefinition testTableWidgetDefinition = (TableWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new TimeseriesWidgetDefinition
+        TimeseriesWidgetDefinition exampleTimeseriesWidgetDefinition = new TimeseriesWidgetDefinition();
+        // set WidgetDefinition to TimeseriesWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleTimeseriesWidgetDefinition);
+        // to get back the TimeseriesWidgetDefinition set earlier
+        TimeseriesWidgetDefinition testTimeseriesWidgetDefinition = (TimeseriesWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new ToplistWidgetDefinition
+        ToplistWidgetDefinition exampleToplistWidgetDefinition = new ToplistWidgetDefinition();
+        // set WidgetDefinition to ToplistWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleToplistWidgetDefinition);
+        // to get back the ToplistWidgetDefinition set earlier
+        ToplistWidgetDefinition testToplistWidgetDefinition = (ToplistWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+    }
+}
+```
 
 

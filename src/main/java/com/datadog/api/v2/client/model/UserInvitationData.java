@@ -13,15 +13,20 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v2.client.model.UserInvitationRelationships;
 import com.datadog.api.v2.client.model.UserInvitationsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Object to create a user invitation.
@@ -31,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UserInvitationData.JSON_PROPERTY_RELATIONSHIPS,
   UserInvitationData.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserInvitationData {
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private UserInvitationRelationships relationships;
@@ -41,7 +46,6 @@ public class UserInvitationData {
 
 
   public UserInvitationData relationships(UserInvitationRelationships relationships) {
-    
     this.relationships = relationships;
     return this;
   }
@@ -50,10 +54,9 @@ public class UserInvitationData {
    * Get relationships
    * @return relationships
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UserInvitationRelationships getRelationships() {
     return relationships;
@@ -66,7 +69,6 @@ public class UserInvitationData {
 
 
   public UserInvitationData type(UserInvitationsType type) {
-    
     this.type = type;
     return this;
   }
@@ -75,10 +77,9 @@ public class UserInvitationData {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UserInvitationsType getType() {
     return type;
@@ -90,8 +91,11 @@ public class UserInvitationData {
   }
 
 
+  /**
+   * Return true if this UserInvitationData object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -123,7 +127,7 @@ public class UserInvitationData {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

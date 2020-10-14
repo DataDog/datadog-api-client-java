@@ -13,15 +13,20 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.FreeTextWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
@@ -34,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   FreeTextWidgetDefinition.JSON_PROPERTY_TEXT_ALIGN,
   FreeTextWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FreeTextWidgetDefinition {
   public static final String JSON_PROPERTY_COLOR = "color";
   private String color;
@@ -53,7 +58,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition color(String color) {
-    
     this.color = color;
     return this;
   }
@@ -78,7 +82,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition fontSize(String fontSize) {
-    
     this.fontSize = fontSize;
     return this;
   }
@@ -103,7 +106,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition text(String text) {
-    
     this.text = text;
     return this;
   }
@@ -127,7 +129,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition textAlign(WidgetTextAlign textAlign) {
-    
     this.textAlign = textAlign;
     return this;
   }
@@ -152,7 +153,6 @@ public class FreeTextWidgetDefinition {
 
 
   public FreeTextWidgetDefinition type(FreeTextWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -175,8 +175,11 @@ public class FreeTextWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this FreeTextWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -214,7 +217,7 @@ public class FreeTextWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

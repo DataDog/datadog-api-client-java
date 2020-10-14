@@ -14,6 +14,7 @@ package com.datadog.api.v2.client.api;
 
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.model.*;
+import org.glassfish.jersey.message.internal.MessageBodyProviderNotFoundException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -32,6 +33,11 @@ public class UsersApiTest extends V2APITest {
     private static UsersApi api = new UsersApi();
     private final String testingUserTitle = "Big boss";
     private ArrayList<String> disableUsers = null;
+
+    @Override
+    public String getTracingEndpoint() {
+        return "users";
+    }
 
     @BeforeClass
     public static void initApi() {
@@ -59,15 +65,15 @@ public class UsersApiTest extends V2APITest {
     public void userLifecycleTest() throws ApiException {
         // TODO: test roles, permissions when we can
         // first, test creating a user
-        final String testingUserName = getUniqueEntityName();
+        final String testingUserName = getUniqueEntityName().toLowerCase();
         final String testingUserHandle = testingUserName + "@datadoghq.com";
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
                 .name(testingUserName)
                 .title(testingUserTitle);
         UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreatePayload ucp = new UserCreatePayload().data(ucd);
-        UserResponse ur = api.createUser().body(ucp).execute();
+        UserCreateRequest ucr = new UserCreateRequest().data(ucd);
+        UserResponse ur = api.createUser().body(ucr).execute();
         String uid = ur.getData().getId();
         disableUsers.add(uid);
 
@@ -78,9 +84,10 @@ public class UsersApiTest extends V2APITest {
         // now, test updating it
         UserUpdateAttributes uua = new UserUpdateAttributes().disabled(false).name("Joe Doe");
         UserUpdateData uud = new UserUpdateData().attributes(uua).id(uid);
-        UserUpdatePayload uup = new UserUpdatePayload().data(uud);
-        // no response payload; we're ok if it didn't throw exception
-        api.updateUser(uid).body(uup).execute();
+        UserUpdateRequest uur = new UserUpdateRequest().data(uud);
+
+        // empty response payload, if the call doesn't raise an exception, we're ok
+        api.updateUser(uid).body(uur).execute();
 
         // now, test getting it
         UserResponse urp = api.getUser(uid).execute();
@@ -89,7 +96,7 @@ public class UsersApiTest extends V2APITest {
         assertFalse(urp.getData().getAttributes().getDisabled());
 
         // now, test disabling it
-        // no response payload; we're of it it didn't throw exception
+        // no response payload; we're ok it it didn't throw exception
         api.disableUser(uid).execute();
 
         // now, test filtering for it in the list call
@@ -112,16 +119,17 @@ public class UsersApiTest extends V2APITest {
 
     @Test
     public void userInvitationTest() throws ApiException {
-        final String testingUserName = getUniqueEntityName();
+        final String testingUserName = getUniqueEntityName().toLowerCase();
         final String testingUserHandle = testingUserName + "@datadoghq.com";
         UserCreateAttributes uca = new UserCreateAttributes()
                 .email(testingUserHandle)
                 .name(testingUserName)
                 .title(testingUserTitle);
         UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreatePayload ucp = new UserCreatePayload().data(ucd);
-        UserResponse ur = api.createUser().body(ucp).execute();
+        UserCreateRequest ucr = new UserCreateRequest().data(ucd);
+        UserResponse ur = api.createUser().body(ucr).execute();
         String id = ur.getData().getId();
+        disableUsers.add(id);
 
         // first, create the user invitation
         RelationshipToUserData rtud = new RelationshipToUserData().id(id);
@@ -130,9 +138,9 @@ public class UsersApiTest extends V2APITest {
         UserInvitationData uid = new UserInvitationData().relationships(uir);
         List<UserInvitationData> luid = new ArrayList<>();
         luid.add(uid);
-        UserInvitationPayload uip = new UserInvitationPayload().data(luid);
+        UserInvitationsRequest uireq = new UserInvitationsRequest().data(luid);
 
-        UserInvitationsResponse resp = api.sendInvitations().body(uip).execute();
+        UserInvitationsResponse resp = api.sendInvitations().body(uireq).execute();
         String respId = resp.getData().get(0).getId();
 
         // now, test getting the invitation

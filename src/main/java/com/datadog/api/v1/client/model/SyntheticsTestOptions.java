@@ -13,18 +13,24 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsDeviceID;
+import com.datadog.api.v1.client.model.SyntheticsTestOptionsMonitorOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.v1.client.model.SyntheticsTickInterval;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object describing the extra options for a Synthetic test.
@@ -37,10 +43,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
+  SyntheticsTestOptions.JSON_PROPERTY_MONITOR_OPTIONS,
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_ACCEPT_SELF_SIGNED = "accept_self_signed";
   private Boolean acceptSelfSigned;
@@ -60,6 +67,9 @@ public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_MIN_LOCATION_FAILED = "min_location_failed";
   private Long minLocationFailed;
 
+  public static final String JSON_PROPERTY_MONITOR_OPTIONS = "monitor_options";
+  private SyntheticsTestOptionsMonitorOptions monitorOptions;
+
   public static final String JSON_PROPERTY_RETRY = "retry";
   private SyntheticsTestOptionsRetry retry;
 
@@ -68,17 +78,16 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions acceptSelfSigned(Boolean acceptSelfSigned) {
-    
     this.acceptSelfSigned = acceptSelfSigned;
     return this;
   }
 
    /**
-   * For browser test, whether or not the test should allow self signed certificate.
+   * For SSL test, whether or not the test should allow self signed certificates.
    * @return acceptSelfSigned
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For browser test, whether or not the test should allow self signed certificate.")
+  @ApiModelProperty(value = "For SSL test, whether or not the test should allow self signed certificates.")
   @JsonProperty(JSON_PROPERTY_ACCEPT_SELF_SIGNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -93,7 +102,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions allowInsecure(Boolean allowInsecure) {
-    
     this.allowInsecure = allowInsecure;
     return this;
   }
@@ -118,7 +126,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions deviceIds(List<SyntheticsDeviceID> deviceIds) {
-    
     this.deviceIds = deviceIds;
     return this;
   }
@@ -132,11 +139,11 @@ public class SyntheticsTestOptions {
   }
 
    /**
-   * Array with the different device IDs used to run the test.
+   * For browser test, array with the different device IDs used to run the test.
    * @return deviceIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array with the different device IDs used to run the test.")
+  @ApiModelProperty(value = "For browser test, array with the different device IDs used to run the test.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,17 +158,16 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions followRedirects(Boolean followRedirects) {
-    
     this.followRedirects = followRedirects;
     return this;
   }
 
    /**
-   * For API SSL test, whether or not the test should follow redirects.
+   * For API HTTP test, whether or not the test should follow redirects.
    * @return followRedirects
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For API SSL test, whether or not the test should follow redirects.")
+  @ApiModelProperty(value = "For API HTTP test, whether or not the test should follow redirects.")
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -176,17 +182,16 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions minFailureDuration(Long minFailureDuration) {
-    
     this.minFailureDuration = minFailureDuration;
     return this;
   }
 
    /**
-   * Minimum amount of time before declaring the test has failed.
+   * Minimum amount of time in failure required to trigger an alert.
    * @return minFailureDuration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum amount of time before declaring the test has failed.")
+  @ApiModelProperty(value = "Minimum amount of time in failure required to trigger an alert.")
   @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -201,17 +206,16 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions minLocationFailed(Long minLocationFailed) {
-    
     this.minLocationFailed = minLocationFailed;
     return this;
   }
 
    /**
-   * Minimum amount of locations that are allowed to fail for the test.
+   * Minimum number of locations in failure required to trigger an alert.
    * @return minLocationFailed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum amount of locations that are allowed to fail for the test.")
+  @ApiModelProperty(value = "Minimum number of locations in failure required to trigger an alert.")
   @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -225,8 +229,31 @@ public class SyntheticsTestOptions {
   }
 
 
+  public SyntheticsTestOptions monitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
+    this.monitorOptions = monitorOptions;
+    return this;
+  }
+
+   /**
+   * Get monitorOptions
+   * @return monitorOptions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MONITOR_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SyntheticsTestOptionsMonitorOptions getMonitorOptions() {
+    return monitorOptions;
+  }
+
+
+  public void setMonitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
+    this.monitorOptions = monitorOptions;
+  }
+
+
   public SyntheticsTestOptions retry(SyntheticsTestOptionsRetry retry) {
-    
     this.retry = retry;
     return this;
   }
@@ -251,7 +278,6 @@ public class SyntheticsTestOptions {
 
 
   public SyntheticsTestOptions tickEvery(SyntheticsTickInterval tickEvery) {
-    
     this.tickEvery = tickEvery;
     return this;
   }
@@ -275,8 +301,11 @@ public class SyntheticsTestOptions {
   }
 
 
+  /**
+   * Return true if this SyntheticsTestOptions object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -290,13 +319,14 @@ public class SyntheticsTestOptions {
         Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects) &&
         Objects.equals(this.minFailureDuration, syntheticsTestOptions.minFailureDuration) &&
         Objects.equals(this.minLocationFailed, syntheticsTestOptions.minLocationFailed) &&
+        Objects.equals(this.monitorOptions, syntheticsTestOptions.monitorOptions) &&
         Objects.equals(this.retry, syntheticsTestOptions.retry) &&
         Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptSelfSigned, allowInsecure, deviceIds, followRedirects, minFailureDuration, minLocationFailed, retry, tickEvery);
+    return Objects.hash(acceptSelfSigned, allowInsecure, deviceIds, followRedirects, minFailureDuration, minLocationFailed, monitorOptions, retry, tickEvery);
   }
 
 
@@ -310,6 +340,7 @@ public class SyntheticsTestOptions {
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
     sb.append("    minFailureDuration: ").append(toIndentedString(minFailureDuration)).append("\n");
     sb.append("    minLocationFailed: ").append(toIndentedString(minLocationFailed)).append("\n");
+    sb.append("    monitorOptions: ").append(toIndentedString(monitorOptions)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    tickEvery: ").append(toIndentedString(tickEvery)).append("\n");
     sb.append("}");
@@ -320,7 +351,7 @@ public class SyntheticsTestOptions {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

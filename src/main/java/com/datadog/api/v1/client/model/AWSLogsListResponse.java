@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.AWSLogsListResponseLambdas;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A list of all Datadog-AWS logs integrations available in your Datadog organization.
@@ -33,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AWSLogsListResponse.JSON_PROPERTY_LAMBDAS,
   AWSLogsListResponse.JSON_PROPERTY_SERVICES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsListResponse {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -46,7 +51,6 @@ public class AWSLogsListResponse {
 
 
   public AWSLogsListResponse accountId(String accountId) {
-    
     this.accountId = accountId;
     return this;
   }
@@ -71,7 +75,6 @@ public class AWSLogsListResponse {
 
 
   public AWSLogsListResponse lambdas(List<AWSLogsListResponseLambdas> lambdas) {
-    
     this.lambdas = lambdas;
     return this;
   }
@@ -104,7 +107,6 @@ public class AWSLogsListResponse {
 
 
   public AWSLogsListResponse services(List<String> services) {
-    
     this.services = services;
     return this;
   }
@@ -136,8 +138,11 @@ public class AWSLogsListResponse {
   }
 
 
+  /**
+   * Return true if this AWSLogsListResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -171,7 +176,7 @@ public class AWSLogsListResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

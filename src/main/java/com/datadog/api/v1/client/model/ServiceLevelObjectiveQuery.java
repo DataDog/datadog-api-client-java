@@ -13,13 +13,18 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * A metric SLI query. **Required if type is &#x60;metric&#x60;**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
@@ -29,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ServiceLevelObjectiveQuery.JSON_PROPERTY_DENOMINATOR,
   ServiceLevelObjectiveQuery.JSON_PROPERTY_NUMERATOR
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceLevelObjectiveQuery {
   public static final String JSON_PROPERTY_DENOMINATOR = "denominator";
   private String denominator;
@@ -39,7 +44,6 @@ public class ServiceLevelObjectiveQuery {
 
 
   public ServiceLevelObjectiveQuery denominator(String denominator) {
-    
     this.denominator = denominator;
     return this;
   }
@@ -63,7 +67,6 @@ public class ServiceLevelObjectiveQuery {
 
 
   public ServiceLevelObjectiveQuery numerator(String numerator) {
-    
     this.numerator = numerator;
     return this;
   }
@@ -86,8 +89,11 @@ public class ServiceLevelObjectiveQuery {
   }
 
 
+  /**
+   * Return true if this ServiceLevelObjectiveQuery object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -119,7 +125,7 @@ public class ServiceLevelObjectiveQuery {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

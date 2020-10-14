@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.EventStreamWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetEventSize;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
@@ -20,10 +22,13 @@ import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.
@@ -39,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   EventStreamWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   EventStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventStreamWidgetDefinition {
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
   private WidgetEventSize eventSize;
@@ -67,7 +72,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition eventSize(WidgetEventSize eventSize) {
-    
     this.eventSize = eventSize;
     return this;
   }
@@ -92,7 +96,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -116,7 +119,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition tagsExecution(String tagsExecution) {
-    
     this.tagsExecution = tagsExecution;
     return this;
   }
@@ -141,7 +143,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition time(WidgetTime time) {
-    
     this.time = time;
     return this;
   }
@@ -166,7 +167,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -191,7 +191,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    
     this.titleAlign = titleAlign;
     return this;
   }
@@ -216,7 +215,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition titleSize(String titleSize) {
-    
     this.titleSize = titleSize;
     return this;
   }
@@ -241,7 +239,6 @@ public class EventStreamWidgetDefinition {
 
 
   public EventStreamWidgetDefinition type(EventStreamWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -264,8 +261,11 @@ public class EventStreamWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this EventStreamWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -309,7 +309,7 @@ public class EventStreamWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

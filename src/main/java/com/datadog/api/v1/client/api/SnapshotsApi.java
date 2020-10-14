@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SnapshotsApi {
   private ApiClient apiClient;
 
@@ -98,7 +98,7 @@ private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(Long start, Long
 
     return apiClient.invokeAPI("SnapshotsApi.getGraphSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetGraphSnapshotRequest {

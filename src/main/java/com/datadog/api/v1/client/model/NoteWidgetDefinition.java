@@ -13,16 +13,21 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.NoteWidgetDefinitionType;
 import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.datadog.api.v1.client.model.WidgetTickEdge;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * The notes and links widget is similar to free text widget, but allows for more formatting options.
@@ -38,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   NoteWidgetDefinition.JSON_PROPERTY_TICK_POS,
   NoteWidgetDefinition.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NoteWidgetDefinition {
   public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
   private String backgroundColor;
@@ -66,7 +71,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition backgroundColor(String backgroundColor) {
-    
     this.backgroundColor = backgroundColor;
     return this;
   }
@@ -91,7 +95,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition content(String content) {
-    
     this.content = content;
     return this;
   }
@@ -115,7 +118,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition fontSize(String fontSize) {
-    
     this.fontSize = fontSize;
     return this;
   }
@@ -140,7 +142,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition showTick(Boolean showTick) {
-    
     this.showTick = showTick;
     return this;
   }
@@ -165,7 +166,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition textAlign(WidgetTextAlign textAlign) {
-    
     this.textAlign = textAlign;
     return this;
   }
@@ -190,7 +190,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition tickEdge(WidgetTickEdge tickEdge) {
-    
     this.tickEdge = tickEdge;
     return this;
   }
@@ -215,7 +214,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition tickPos(String tickPos) {
-    
     this.tickPos = tickPos;
     return this;
   }
@@ -240,7 +238,6 @@ public class NoteWidgetDefinition {
 
 
   public NoteWidgetDefinition type(NoteWidgetDefinitionType type) {
-    
     this.type = type;
     return this;
   }
@@ -263,8 +260,11 @@ public class NoteWidgetDefinition {
   }
 
 
+  /**
+   * Return true if this NoteWidgetDefinition object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -308,7 +308,7 @@ public class NoteWidgetDefinition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

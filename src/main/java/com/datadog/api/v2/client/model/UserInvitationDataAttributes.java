@@ -13,14 +13,19 @@ package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v2.client.JSON;
+
 
 /**
  * Attributes of a user invitation.
@@ -32,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UserInvitationDataAttributes.JSON_PROPERTY_INVITE_TYPE,
   UserInvitationDataAttributes.JSON_PROPERTY_UUID
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserInvitationDataAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -48,7 +53,6 @@ public class UserInvitationDataAttributes {
 
 
   public UserInvitationDataAttributes createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -73,7 +77,6 @@ public class UserInvitationDataAttributes {
 
 
   public UserInvitationDataAttributes expiresAt(OffsetDateTime expiresAt) {
-    
     this.expiresAt = expiresAt;
     return this;
   }
@@ -98,7 +101,6 @@ public class UserInvitationDataAttributes {
 
 
   public UserInvitationDataAttributes inviteType(String inviteType) {
-    
     this.inviteType = inviteType;
     return this;
   }
@@ -123,7 +125,6 @@ public class UserInvitationDataAttributes {
 
 
   public UserInvitationDataAttributes uuid(String uuid) {
-    
     this.uuid = uuid;
     return this;
   }
@@ -147,8 +148,11 @@ public class UserInvitationDataAttributes {
   }
 
 
+  /**
+   * Return true if this UserInvitationDataAttributes object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -184,7 +188,7 @@ public class UserInvitationDataAttributes {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

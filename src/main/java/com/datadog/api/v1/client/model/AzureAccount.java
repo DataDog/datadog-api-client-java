@@ -13,15 +13,20 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Datadog-Azure integrations configured for your organization.
@@ -36,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AzureAccount.JSON_PROPERTY_NEW_TENANT_NAME,
   AzureAccount.JSON_PROPERTY_TENANT_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AzureAccount {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
@@ -61,7 +66,6 @@ public class AzureAccount {
 
 
   public AzureAccount clientId(String clientId) {
-    
     this.clientId = clientId;
     return this;
   }
@@ -86,7 +90,6 @@ public class AzureAccount {
 
 
   public AzureAccount clientSecret(String clientSecret) {
-    
     this.clientSecret = clientSecret;
     return this;
   }
@@ -111,7 +114,6 @@ public class AzureAccount {
 
 
   public AzureAccount errors(List<String> errors) {
-    
     this.errors = errors;
     return this;
   }
@@ -144,7 +146,6 @@ public class AzureAccount {
 
 
   public AzureAccount hostFilters(String hostFilters) {
-    
     this.hostFilters = hostFilters;
     return this;
   }
@@ -169,7 +170,6 @@ public class AzureAccount {
 
 
   public AzureAccount newClientId(String newClientId) {
-    
     this.newClientId = newClientId;
     return this;
   }
@@ -194,7 +194,6 @@ public class AzureAccount {
 
 
   public AzureAccount newTenantName(String newTenantName) {
-    
     this.newTenantName = newTenantName;
     return this;
   }
@@ -219,7 +218,6 @@ public class AzureAccount {
 
 
   public AzureAccount tenantName(String tenantName) {
-    
     this.tenantName = tenantName;
     return this;
   }
@@ -243,8 +241,11 @@ public class AzureAccount {
   }
 
 
+  /**
+   * Return true if this AzureAccount object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -286,7 +287,7 @@ public class AzureAccount {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

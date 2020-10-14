@@ -7,9 +7,12 @@ Query for matching rule.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**aggregation** | [**SecurityMonitoringRuleQueryAggregation**](SecurityMonitoringRuleQueryAggregation.md) |  |  [optional]
+**distinctFields** | **List&lt;String&gt;** | Field for which the cardinality is measured. Sent as an array. |  [optional]
 **groupByFields** | **List&lt;String&gt;** | Fields to group by. |  [optional]
-**name** | **String** | Name of the query |  [optional]
-**query** | **String** | Query to run on logs |  [optional]
+**metric** | **String** | The target field to aggregate over when using the sum or max aggregations. |  [optional]
+**name** | **String** | Name of the query. |  [optional]
+**query** | **String** | Query to run on logs. |  [optional]
 
 
 

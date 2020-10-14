@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsStep;
 import com.datadog.api.v1.client.model.SyntheticsTestConfig;
 import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
@@ -22,12 +24,15 @@ import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object containing details about your Synthetic test.
@@ -47,7 +52,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SyntheticsTestDetails.JSON_PROPERTY_TAGS,
   SyntheticsTestDetails.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestDetails {
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsTestConfig config;
@@ -87,7 +92,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails config(SyntheticsTestConfig config) {
-    
     this.config = config;
     return this;
   }
@@ -112,7 +116,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails locations(List<String> locations) {
-    
     this.locations = locations;
     return this;
   }
@@ -145,7 +148,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails message(String message) {
-    
     this.message = message;
     return this;
   }
@@ -170,7 +172,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails monitorId(Long monitorId) {
-    
     this.monitorId = monitorId;
     return this;
   }
@@ -195,7 +196,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -220,7 +220,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails options(SyntheticsTestOptions options) {
-    
     this.options = options;
     return this;
   }
@@ -245,7 +244,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails publicId(String publicId) {
-    
     this.publicId = publicId;
     return this;
   }
@@ -270,7 +268,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails status(SyntheticsTestPauseStatus status) {
-    
     this.status = status;
     return this;
   }
@@ -295,7 +292,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails steps(List<SyntheticsStep> steps) {
-    
     this.steps = steps;
     return this;
   }
@@ -309,11 +305,11 @@ public class SyntheticsTestDetails {
   }
 
    /**
-   * The steps of the test (only for browser tests).
+   * For browser test, the steps of the test.
    * @return steps
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The steps of the test (only for browser tests).")
+  @ApiModelProperty(value = "For browser test, the steps of the test.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -328,7 +324,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails subtype(SyntheticsTestDetailsSubType subtype) {
-    
     this.subtype = subtype;
     return this;
   }
@@ -353,7 +348,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails tags(List<String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -386,7 +380,6 @@ public class SyntheticsTestDetails {
 
 
   public SyntheticsTestDetails type(SyntheticsTestDetailsType type) {
-    
     this.type = type;
     return this;
   }
@@ -410,8 +403,11 @@ public class SyntheticsTestDetails {
   }
 
 
+  /**
+   * Return true if this SyntheticsTestDetails object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -463,7 +459,7 @@ public class SyntheticsTestDetails {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

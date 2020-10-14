@@ -13,17 +13,22 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsFilter;
 import com.datadog.api.v1.client.model.LogsProcessor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Pipelines and processors operate on incoming logs, parsing and transforming them into structured attributes for easier querying.  **Note**: These endpoints are only available for admin users. Make sure to use an application key created by an admin.
@@ -38,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsPipeline.JSON_PROPERTY_PROCESSORS,
   LogsPipeline.JSON_PROPERTY_TYPE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsPipeline {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsFilter filter;
@@ -63,7 +68,6 @@ public class LogsPipeline {
 
 
   public LogsPipeline filter(LogsFilter filter) {
-    
     this.filter = filter;
     return this;
   }
@@ -104,7 +108,6 @@ public class LogsPipeline {
 
 
   public LogsPipeline isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -145,7 +148,6 @@ public class LogsPipeline {
 
 
   public LogsPipeline name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -169,7 +171,6 @@ public class LogsPipeline {
 
 
   public LogsPipeline processors(List<LogsProcessor> processors) {
-    
     this.processors = processors;
     return this;
   }
@@ -217,8 +218,11 @@ public class LogsPipeline {
 
 
 
+  /**
+   * Return true if this LogsPipeline object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -260,7 +264,7 @@ public class LogsPipeline {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

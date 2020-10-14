@@ -13,15 +13,20 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Dashboard definition.
@@ -38,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DashboardSummaryDashboards.JSON_PROPERTY_TITLE,
   DashboardSummaryDashboards.JSON_PROPERTY_URL
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardSummaryDashboards {
   public static final String JSON_PROPERTY_AUTHOR_HANDLE = "author_handle";
   private String authorHandle;
@@ -69,7 +74,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards authorHandle(String authorHandle) {
-    
     this.authorHandle = authorHandle;
     return this;
   }
@@ -94,7 +98,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -119,7 +122,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -144,7 +146,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -169,7 +170,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards isReadOnly(Boolean isReadOnly) {
-    
     this.isReadOnly = isReadOnly;
     return this;
   }
@@ -194,7 +194,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards layoutType(DashboardLayoutType layoutType) {
-    
     this.layoutType = layoutType;
     return this;
   }
@@ -219,7 +218,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards modifiedAt(OffsetDateTime modifiedAt) {
-    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -244,7 +242,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -269,7 +266,6 @@ public class DashboardSummaryDashboards {
 
 
   public DashboardSummaryDashboards url(String url) {
-    
     this.url = url;
     return this;
   }
@@ -293,8 +289,11 @@ public class DashboardSummaryDashboards {
   }
 
 
+  /**
+   * Return true if this DashboardSummary_dashboards object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -340,7 +339,7 @@ public class DashboardSummaryDashboards {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

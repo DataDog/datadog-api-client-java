@@ -13,14 +13,19 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsExclusionFilter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Represents the index exclusion filter object from configuration API.
@@ -31,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LogsExclusion.JSON_PROPERTY_IS_ENABLED,
   LogsExclusion.JSON_PROPERTY_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsExclusion {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsExclusionFilter filter;
@@ -44,7 +49,6 @@ public class LogsExclusion {
 
 
   public LogsExclusion filter(LogsExclusionFilter filter) {
-    
     this.filter = filter;
     return this;
   }
@@ -69,7 +73,6 @@ public class LogsExclusion {
 
 
   public LogsExclusion isEnabled(Boolean isEnabled) {
-    
     this.isEnabled = isEnabled;
     return this;
   }
@@ -94,7 +97,6 @@ public class LogsExclusion {
 
 
   public LogsExclusion name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -117,8 +119,11 @@ public class LogsExclusion {
   }
 
 
+  /**
+   * Return true if this LogsExclusion object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -152,7 +157,7 @@ public class LogsExclusion {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

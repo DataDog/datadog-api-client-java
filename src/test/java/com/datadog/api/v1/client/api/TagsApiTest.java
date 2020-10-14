@@ -23,7 +23,7 @@ import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * API tests for TagsApi
@@ -37,6 +37,10 @@ public class TagsApiTest extends V1ApiTest {
     // ObjectMapper instance configure to not fail when encountering unknown properties
     private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+    @Override
+    public String getTracingEndpoint() {
+        return "tags";
+    }
 
     @BeforeClass
     public static void initAPI() {
@@ -50,15 +54,20 @@ public class TagsApiTest extends V1ApiTest {
         String commonHostTag = "test:client_java";
         long nowSeconds = now.toEpochSecond();
         String hostname = getUniqueEntityName();
-
+        // use TreeMap, as it's sorted and will always serialize in the same way
+        Map<String, Object> payload = new TreeMap<String, Object>() {{
+           put("series", Arrays.asList(new TreeMap<String, Object>() {{
+               put("host", hostname);
+               put("metric", "java.client.test.metric");
+               put("points", Arrays.asList(Arrays.asList((double) nowSeconds, 0.0)));
+               put("type", "gauge");
+           }}));
+        }};
         // create host by sending a metric
         ApiResponse<String> response = sendRequest(
                 "POST",
                 "/api/v1/series",
-                String.format(
-                        "{\"series\":[{\"host\":\"%s\",\"metric\":\"java.client.test.metric\",\"points\":[[%f,0.0]],\"type\":\"gauge\"}]}",
-                        hostname, (double)nowSeconds
-                ),
+                payload,
                 new GenericType<String>(String.class)
         );
         assertEquals("{\"status\": \"ok\"}", response.getData());

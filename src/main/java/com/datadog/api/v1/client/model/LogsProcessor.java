@@ -13,6 +13,8 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsArithmeticProcessor;
 import com.datadog.api.v1.client.model.LogsAttributeRemapper;
 import com.datadog.api.v1.client.model.LogsCategoryProcessor;
@@ -32,9 +34,11 @@ import com.datadog.api.v1.client.model.LogsTraceRemapper;
 import com.datadog.api.v1.client.model.LogsTraceRemapperType;
 import com.datadog.api.v1.client.model.LogsURLParser;
 import com.datadog.api.v1.client.model.LogsUserAgentParser;
+import com.datadog.api.v1.client.model.TargetFormatType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -44,24 +48,56 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collections;
+import java.util.HashSet;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.datadog.api.v1.client.JSON;
 
-
-@JsonDeserialize(using=LogsProcessor.LogsProcessorDeserializer.class)
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonDeserialize(using = LogsProcessor.LogsProcessorDeserializer.class)
+@JsonSerialize(using = LogsProcessor.LogsProcessorSerializer.class)
 public class LogsProcessor extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(LogsProcessor.class.getName());
+
+    public static class LogsProcessorSerializer extends StdSerializer<LogsProcessor> {
+        public LogsProcessorSerializer(Class<LogsProcessor> t) {
+            super(t);
+        }
+
+        public LogsProcessorSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(LogsProcessor value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
     public static class LogsProcessorDeserializer extends StdDeserializer<LogsProcessor> {
         public LogsProcessorDeserializer() {
             this(LogsProcessor.class);
@@ -74,127 +110,398 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         @Override
         public LogsProcessor deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
-
-            int match = 0;
             Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
             // deserialize LogsArithmeticProcessor
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArithmeticProcessor.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsArithmeticProcessor.class.equals(Integer.class) || LogsArithmeticProcessor.class.equals(Long.class) || LogsArithmeticProcessor.class.equals(Float.class) || LogsArithmeticProcessor.class.equals(Double.class) || LogsArithmeticProcessor.class.equals(Boolean.class) || LogsArithmeticProcessor.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsArithmeticProcessor.class.equals(Integer.class) || LogsArithmeticProcessor.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsArithmeticProcessor.class.equals(Float.class) || LogsArithmeticProcessor.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsArithmeticProcessor.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsArithmeticProcessor.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsArithmeticProcessor.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsArithmeticProcessor'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsArithmeticProcessor'", e);
             }
 
             // deserialize LogsAttributeRemapper
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsAttributeRemapper.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsAttributeRemapper.class.equals(Integer.class) || LogsAttributeRemapper.class.equals(Long.class) || LogsAttributeRemapper.class.equals(Float.class) || LogsAttributeRemapper.class.equals(Double.class) || LogsAttributeRemapper.class.equals(Boolean.class) || LogsAttributeRemapper.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsAttributeRemapper.class.equals(Integer.class) || LogsAttributeRemapper.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsAttributeRemapper.class.equals(Float.class) || LogsAttributeRemapper.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsAttributeRemapper.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsAttributeRemapper.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsAttributeRemapper.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsAttributeRemapper'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsAttributeRemapper'", e);
             }
 
             // deserialize LogsCategoryProcessor
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsCategoryProcessor.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsCategoryProcessor.class.equals(Integer.class) || LogsCategoryProcessor.class.equals(Long.class) || LogsCategoryProcessor.class.equals(Float.class) || LogsCategoryProcessor.class.equals(Double.class) || LogsCategoryProcessor.class.equals(Boolean.class) || LogsCategoryProcessor.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsCategoryProcessor.class.equals(Integer.class) || LogsCategoryProcessor.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsCategoryProcessor.class.equals(Float.class) || LogsCategoryProcessor.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsCategoryProcessor.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsCategoryProcessor.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsCategoryProcessor.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsCategoryProcessor'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsCategoryProcessor'", e);
             }
 
             // deserialize LogsDateRemapper
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsDateRemapper.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsDateRemapper.class.equals(Integer.class) || LogsDateRemapper.class.equals(Long.class) || LogsDateRemapper.class.equals(Float.class) || LogsDateRemapper.class.equals(Double.class) || LogsDateRemapper.class.equals(Boolean.class) || LogsDateRemapper.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsDateRemapper.class.equals(Integer.class) || LogsDateRemapper.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsDateRemapper.class.equals(Float.class) || LogsDateRemapper.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsDateRemapper.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsDateRemapper.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsDateRemapper.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsDateRemapper'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsDateRemapper'", e);
             }
 
             // deserialize LogsGeoIPParser
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGeoIPParser.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsGeoIPParser.class.equals(Integer.class) || LogsGeoIPParser.class.equals(Long.class) || LogsGeoIPParser.class.equals(Float.class) || LogsGeoIPParser.class.equals(Double.class) || LogsGeoIPParser.class.equals(Boolean.class) || LogsGeoIPParser.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsGeoIPParser.class.equals(Integer.class) || LogsGeoIPParser.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsGeoIPParser.class.equals(Float.class) || LogsGeoIPParser.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsGeoIPParser.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsGeoIPParser.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGeoIPParser.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsGeoIPParser'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsGeoIPParser'", e);
             }
 
             // deserialize LogsGrokParser
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGrokParser.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsGrokParser.class.equals(Integer.class) || LogsGrokParser.class.equals(Long.class) || LogsGrokParser.class.equals(Float.class) || LogsGrokParser.class.equals(Double.class) || LogsGrokParser.class.equals(Boolean.class) || LogsGrokParser.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsGrokParser.class.equals(Integer.class) || LogsGrokParser.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsGrokParser.class.equals(Float.class) || LogsGrokParser.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsGrokParser.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsGrokParser.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsGrokParser.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsGrokParser'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsGrokParser'", e);
             }
 
             // deserialize LogsLookupProcessor
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsLookupProcessor.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsLookupProcessor.class.equals(Integer.class) || LogsLookupProcessor.class.equals(Long.class) || LogsLookupProcessor.class.equals(Float.class) || LogsLookupProcessor.class.equals(Double.class) || LogsLookupProcessor.class.equals(Boolean.class) || LogsLookupProcessor.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsLookupProcessor.class.equals(Integer.class) || LogsLookupProcessor.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsLookupProcessor.class.equals(Float.class) || LogsLookupProcessor.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsLookupProcessor.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsLookupProcessor.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsLookupProcessor.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsLookupProcessor'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsLookupProcessor'", e);
             }
 
             // deserialize LogsMessageRemapper
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsMessageRemapper.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsMessageRemapper.class.equals(Integer.class) || LogsMessageRemapper.class.equals(Long.class) || LogsMessageRemapper.class.equals(Float.class) || LogsMessageRemapper.class.equals(Double.class) || LogsMessageRemapper.class.equals(Boolean.class) || LogsMessageRemapper.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsMessageRemapper.class.equals(Integer.class) || LogsMessageRemapper.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsMessageRemapper.class.equals(Float.class) || LogsMessageRemapper.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsMessageRemapper.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsMessageRemapper.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsMessageRemapper.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsMessageRemapper'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsMessageRemapper'", e);
             }
 
             // deserialize LogsPipelineProcessor
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsPipelineProcessor.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsPipelineProcessor.class.equals(Integer.class) || LogsPipelineProcessor.class.equals(Long.class) || LogsPipelineProcessor.class.equals(Float.class) || LogsPipelineProcessor.class.equals(Double.class) || LogsPipelineProcessor.class.equals(Boolean.class) || LogsPipelineProcessor.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsPipelineProcessor.class.equals(Integer.class) || LogsPipelineProcessor.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsPipelineProcessor.class.equals(Float.class) || LogsPipelineProcessor.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsPipelineProcessor.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsPipelineProcessor.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsPipelineProcessor.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsPipelineProcessor'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsPipelineProcessor'", e);
             }
 
             // deserialize LogsServiceRemapper
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsServiceRemapper.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsServiceRemapper.class.equals(Integer.class) || LogsServiceRemapper.class.equals(Long.class) || LogsServiceRemapper.class.equals(Float.class) || LogsServiceRemapper.class.equals(Double.class) || LogsServiceRemapper.class.equals(Boolean.class) || LogsServiceRemapper.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsServiceRemapper.class.equals(Integer.class) || LogsServiceRemapper.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsServiceRemapper.class.equals(Float.class) || LogsServiceRemapper.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsServiceRemapper.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsServiceRemapper.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsServiceRemapper.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsServiceRemapper'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsServiceRemapper'", e);
             }
 
             // deserialize LogsStatusRemapper
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStatusRemapper.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsStatusRemapper.class.equals(Integer.class) || LogsStatusRemapper.class.equals(Long.class) || LogsStatusRemapper.class.equals(Float.class) || LogsStatusRemapper.class.equals(Double.class) || LogsStatusRemapper.class.equals(Boolean.class) || LogsStatusRemapper.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsStatusRemapper.class.equals(Integer.class) || LogsStatusRemapper.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsStatusRemapper.class.equals(Float.class) || LogsStatusRemapper.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsStatusRemapper.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsStatusRemapper.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStatusRemapper.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsStatusRemapper'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsStatusRemapper'", e);
             }
 
             // deserialize LogsStringBuilderProcessor
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStringBuilderProcessor.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsStringBuilderProcessor.class.equals(Integer.class) || LogsStringBuilderProcessor.class.equals(Long.class) || LogsStringBuilderProcessor.class.equals(Float.class) || LogsStringBuilderProcessor.class.equals(Double.class) || LogsStringBuilderProcessor.class.equals(Boolean.class) || LogsStringBuilderProcessor.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsStringBuilderProcessor.class.equals(Integer.class) || LogsStringBuilderProcessor.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsStringBuilderProcessor.class.equals(Float.class) || LogsStringBuilderProcessor.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsStringBuilderProcessor.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsStringBuilderProcessor.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsStringBuilderProcessor.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsStringBuilderProcessor'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsStringBuilderProcessor'", e);
             }
 
             // deserialize LogsTraceRemapper
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsTraceRemapper.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsTraceRemapper.class.equals(Integer.class) || LogsTraceRemapper.class.equals(Long.class) || LogsTraceRemapper.class.equals(Float.class) || LogsTraceRemapper.class.equals(Double.class) || LogsTraceRemapper.class.equals(Boolean.class) || LogsTraceRemapper.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsTraceRemapper.class.equals(Integer.class) || LogsTraceRemapper.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsTraceRemapper.class.equals(Float.class) || LogsTraceRemapper.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsTraceRemapper.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsTraceRemapper.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsTraceRemapper.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsTraceRemapper'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsTraceRemapper'", e);
             }
 
             // deserialize LogsURLParser
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsURLParser.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsURLParser.class.equals(Integer.class) || LogsURLParser.class.equals(Long.class) || LogsURLParser.class.equals(Float.class) || LogsURLParser.class.equals(Double.class) || LogsURLParser.class.equals(Boolean.class) || LogsURLParser.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsURLParser.class.equals(Integer.class) || LogsURLParser.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsURLParser.class.equals(Float.class) || LogsURLParser.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsURLParser.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsURLParser.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsURLParser.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsURLParser'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsURLParser'", e);
             }
 
             // deserialize LogsUserAgentParser
             try {
-                deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsUserAgentParser.class);
-                match++;
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LogsUserAgentParser.class.equals(Integer.class) || LogsUserAgentParser.class.equals(Long.class) || LogsUserAgentParser.class.equals(Float.class) || LogsUserAgentParser.class.equals(Double.class) || LogsUserAgentParser.class.equals(Boolean.class) || LogsUserAgentParser.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LogsUserAgentParser.class.equals(Integer.class) || LogsUserAgentParser.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LogsUserAgentParser.class.equals(Float.class) || LogsUserAgentParser.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LogsUserAgentParser.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LogsUserAgentParser.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LogsUserAgentParser.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LogsUserAgentParser'");
+                }
             } catch (Exception e) {
                 // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LogsUserAgentParser'", e);
             }
 
             if (match == 1) {
@@ -203,6 +510,14 @@ public class LogsProcessor extends AbstractOpenApiSchema {
                 return ret;
             }
             throw new IOException(String.format("Failed deserialization for LogsProcessor: %d classes match result, expected 1", match));
+        }
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public LogsProcessor getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "LogsProcessor cannot be null");
         }
     }
 
@@ -319,6 +634,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         });
         schemas.put("LogsUserAgentParser", new GenericType<LogsUserAgentParser>() {
         });
+        JSON.registerDescendants(LogsProcessor.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -326,79 +642,87 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         return LogsProcessor.schemas;
     }
 
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * LogsArithmeticProcessor, LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
+     */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof LogsArithmeticProcessor) {
+        if (JSON.isInstanceOf(LogsArithmeticProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsAttributeRemapper) {
+        if (JSON.isInstanceOf(LogsAttributeRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsCategoryProcessor) {
+        if (JSON.isInstanceOf(LogsCategoryProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsDateRemapper) {
+        if (JSON.isInstanceOf(LogsDateRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsGeoIPParser) {
+        if (JSON.isInstanceOf(LogsGeoIPParser.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsGrokParser) {
+        if (JSON.isInstanceOf(LogsGrokParser.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsLookupProcessor) {
+        if (JSON.isInstanceOf(LogsLookupProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsMessageRemapper) {
+        if (JSON.isInstanceOf(LogsMessageRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsPipelineProcessor) {
+        if (JSON.isInstanceOf(LogsPipelineProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsServiceRemapper) {
+        if (JSON.isInstanceOf(LogsServiceRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsStatusRemapper) {
+        if (JSON.isInstanceOf(LogsStatusRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsStringBuilderProcessor) {
+        if (JSON.isInstanceOf(LogsStringBuilderProcessor.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsTraceRemapper) {
+        if (JSON.isInstanceOf(LogsTraceRemapper.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsURLParser) {
+        if (JSON.isInstanceOf(LogsURLParser.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof LogsUserAgentParser) {
+        if (JSON.isInstanceOf(LogsUserAgentParser.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -406,7 +730,181 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         throw new RuntimeException("Invalid instance type. Must be LogsArithmeticProcessor, LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser");
     }
 
+    /**
+     * Get the actual instance, which can be the following:
+     * LogsArithmeticProcessor, LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser
+     *
+     * @return The actual instance (LogsArithmeticProcessor, LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
 
+    /**
+     * Get the actual instance of `LogsArithmeticProcessor`. If the actual instanct is not `LogsArithmeticProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsArithmeticProcessor`
+     * @throws ClassCastException if the instance is not `LogsArithmeticProcessor`
+     */
+    public LogsArithmeticProcessor getLogsArithmeticProcessor() throws ClassCastException {
+        return (LogsArithmeticProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsAttributeRemapper`. If the actual instanct is not `LogsAttributeRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsAttributeRemapper`
+     * @throws ClassCastException if the instance is not `LogsAttributeRemapper`
+     */
+    public LogsAttributeRemapper getLogsAttributeRemapper() throws ClassCastException {
+        return (LogsAttributeRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsCategoryProcessor`. If the actual instanct is not `LogsCategoryProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsCategoryProcessor`
+     * @throws ClassCastException if the instance is not `LogsCategoryProcessor`
+     */
+    public LogsCategoryProcessor getLogsCategoryProcessor() throws ClassCastException {
+        return (LogsCategoryProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsDateRemapper`. If the actual instanct is not `LogsDateRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsDateRemapper`
+     * @throws ClassCastException if the instance is not `LogsDateRemapper`
+     */
+    public LogsDateRemapper getLogsDateRemapper() throws ClassCastException {
+        return (LogsDateRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsGeoIPParser`. If the actual instanct is not `LogsGeoIPParser`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsGeoIPParser`
+     * @throws ClassCastException if the instance is not `LogsGeoIPParser`
+     */
+    public LogsGeoIPParser getLogsGeoIPParser() throws ClassCastException {
+        return (LogsGeoIPParser)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsGrokParser`. If the actual instanct is not `LogsGrokParser`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsGrokParser`
+     * @throws ClassCastException if the instance is not `LogsGrokParser`
+     */
+    public LogsGrokParser getLogsGrokParser() throws ClassCastException {
+        return (LogsGrokParser)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsLookupProcessor`. If the actual instanct is not `LogsLookupProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsLookupProcessor`
+     * @throws ClassCastException if the instance is not `LogsLookupProcessor`
+     */
+    public LogsLookupProcessor getLogsLookupProcessor() throws ClassCastException {
+        return (LogsLookupProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsMessageRemapper`. If the actual instanct is not `LogsMessageRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsMessageRemapper`
+     * @throws ClassCastException if the instance is not `LogsMessageRemapper`
+     */
+    public LogsMessageRemapper getLogsMessageRemapper() throws ClassCastException {
+        return (LogsMessageRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsPipelineProcessor`. If the actual instanct is not `LogsPipelineProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsPipelineProcessor`
+     * @throws ClassCastException if the instance is not `LogsPipelineProcessor`
+     */
+    public LogsPipelineProcessor getLogsPipelineProcessor() throws ClassCastException {
+        return (LogsPipelineProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsServiceRemapper`. If the actual instanct is not `LogsServiceRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsServiceRemapper`
+     * @throws ClassCastException if the instance is not `LogsServiceRemapper`
+     */
+    public LogsServiceRemapper getLogsServiceRemapper() throws ClassCastException {
+        return (LogsServiceRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsStatusRemapper`. If the actual instanct is not `LogsStatusRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsStatusRemapper`
+     * @throws ClassCastException if the instance is not `LogsStatusRemapper`
+     */
+    public LogsStatusRemapper getLogsStatusRemapper() throws ClassCastException {
+        return (LogsStatusRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsStringBuilderProcessor`. If the actual instanct is not `LogsStringBuilderProcessor`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsStringBuilderProcessor`
+     * @throws ClassCastException if the instance is not `LogsStringBuilderProcessor`
+     */
+    public LogsStringBuilderProcessor getLogsStringBuilderProcessor() throws ClassCastException {
+        return (LogsStringBuilderProcessor)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsTraceRemapper`. If the actual instanct is not `LogsTraceRemapper`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsTraceRemapper`
+     * @throws ClassCastException if the instance is not `LogsTraceRemapper`
+     */
+    public LogsTraceRemapper getLogsTraceRemapper() throws ClassCastException {
+        return (LogsTraceRemapper)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsURLParser`. If the actual instanct is not `LogsURLParser`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsURLParser`
+     * @throws ClassCastException if the instance is not `LogsURLParser`
+     */
+    public LogsURLParser getLogsURLParser() throws ClassCastException {
+        return (LogsURLParser)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `LogsUserAgentParser`. If the actual instanct is not `LogsUserAgentParser`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LogsUserAgentParser`
+     * @throws ClassCastException if the instance is not `LogsUserAgentParser`
+     */
+    public LogsUserAgentParser getLogsUserAgentParser() throws ClassCastException {
+        return (LogsUserAgentParser)super.getActualInstance();
+    }
 
 }
 

@@ -13,9 +13,12 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -24,6 +27,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Returns the AWS account associated with this integration.
@@ -39,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AWSAccount.JSON_PROPERTY_ROLE_NAME,
   AWSAccount.JSON_PROPERTY_SECRET_ACCESS_KEY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSAccount {
   public static final String JSON_PROPERTY_ACCESS_KEY_ID = "access_key_id";
   private String accessKeyId;
@@ -67,7 +72,6 @@ public class AWSAccount {
 
 
   public AWSAccount accessKeyId(String accessKeyId) {
-    
     this.accessKeyId = accessKeyId;
     return this;
   }
@@ -92,7 +96,6 @@ public class AWSAccount {
 
 
   public AWSAccount accountId(String accountId) {
-    
     this.accountId = accountId;
     return this;
   }
@@ -117,7 +120,6 @@ public class AWSAccount {
 
 
   public AWSAccount accountSpecificNamespaceRules(Map<String, Boolean> accountSpecificNamespaceRules) {
-    
     this.accountSpecificNamespaceRules = accountSpecificNamespaceRules;
     return this;
   }
@@ -150,7 +152,6 @@ public class AWSAccount {
 
 
   public AWSAccount excludedRegions(List<String> excludedRegions) {
-    
     this.excludedRegions = excludedRegions;
     return this;
   }
@@ -183,7 +184,6 @@ public class AWSAccount {
 
 
   public AWSAccount filterTags(List<String> filterTags) {
-    
     this.filterTags = filterTags;
     return this;
   }
@@ -216,7 +216,6 @@ public class AWSAccount {
 
 
   public AWSAccount hostTags(List<String> hostTags) {
-    
     this.hostTags = hostTags;
     return this;
   }
@@ -249,7 +248,6 @@ public class AWSAccount {
 
 
   public AWSAccount roleName(String roleName) {
-    
     this.roleName = roleName;
     return this;
   }
@@ -274,7 +272,6 @@ public class AWSAccount {
 
 
   public AWSAccount secretAccessKey(String secretAccessKey) {
-    
     this.secretAccessKey = secretAccessKey;
     return this;
   }
@@ -298,8 +295,11 @@ public class AWSAccount {
   }
 
 
+  /**
+   * Return true if this AWSAccount object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -343,7 +343,7 @@ public class AWSAccount {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

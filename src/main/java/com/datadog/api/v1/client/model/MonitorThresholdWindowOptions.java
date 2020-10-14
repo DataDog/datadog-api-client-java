@@ -13,9 +13,12 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Alerting time window options.
@@ -32,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   MonitorThresholdWindowOptions.JSON_PROPERTY_RECOVERY_WINDOW,
   MonitorThresholdWindowOptions.JSON_PROPERTY_TRIGGER_WINDOW
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorThresholdWindowOptions {
   public static final String JSON_PROPERTY_RECOVERY_WINDOW = "recovery_window";
   private JsonNullable<String> recoveryWindow = JsonNullable.<String>undefined();
@@ -43,7 +48,6 @@ public class MonitorThresholdWindowOptions {
 
   public MonitorThresholdWindowOptions recoveryWindow(String recoveryWindow) {
     this.recoveryWindow = JsonNullable.<String>of(recoveryWindow);
-    
     return this;
   }
 
@@ -78,7 +82,6 @@ public class MonitorThresholdWindowOptions {
 
   public MonitorThresholdWindowOptions triggerWindow(String triggerWindow) {
     this.triggerWindow = JsonNullable.<String>of(triggerWindow);
-    
     return this;
   }
 
@@ -111,8 +114,11 @@ public class MonitorThresholdWindowOptions {
   }
 
 
+  /**
+   * Return true if this MonitorThresholdWindowOptions object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -144,7 +150,7 @@ public class MonitorThresholdWindowOptions {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

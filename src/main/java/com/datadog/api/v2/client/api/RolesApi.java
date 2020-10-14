@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RolesApi {
   private ApiClient apiClient;
 
@@ -98,7 +98,7 @@ private ApiResponse<PermissionsResponse> addPermissionToRoleWithHttpInfo(String 
 
     return apiClient.invokeAPI("RolesApi.addPermissionToRole", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIaddPermissionToRoleRequest {
@@ -211,7 +211,7 @@ private ApiResponse<UsersResponse> addUserToRoleWithHttpInfo(String roleId, Rela
 
     return apiClient.invokeAPI("RolesApi.addUserToRole", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIaddUserToRoleRequest {
@@ -318,7 +318,7 @@ private ApiResponse<RoleCreateResponse> createRoleWithHttpInfo(RoleCreateRequest
 
     return apiClient.invokeAPI("RolesApi.createRole", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIcreateRoleRequest {
@@ -424,7 +424,7 @@ private ApiResponse<Void> deleteRoleWithHttpInfo(String roleId) throws ApiExcept
 
     return apiClient.invokeAPI("RolesApi.deleteRole", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, null);
+                               localVarAuthNames, null, false);
   }
 
   public class APIdeleteRoleRequest {
@@ -524,7 +524,7 @@ private ApiResponse<RoleResponse> getRoleWithHttpInfo(String roleId) throws ApiE
 
     return apiClient.invokeAPI("RolesApi.getRole", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIgetRoleRequest {
@@ -541,7 +541,7 @@ private ApiResponse<RoleResponse> getRoleWithHttpInfo(String roleId) throws ApiE
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK for get role </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        </table>
@@ -559,7 +559,7 @@ private ApiResponse<RoleResponse> getRoleWithHttpInfo(String roleId) throws ApiE
      * @http.response.details
        <table summary="Response Details" border="1">
          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK for get role </td><td>  -  </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        </table>
@@ -603,7 +603,7 @@ private ApiResponse<PermissionsResponse> listPermissionsWithHttpInfo() throws Ap
     
     
     final String[] localVarAccepts = {
-      "application/json", "applcation/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -618,7 +618,7 @@ private ApiResponse<PermissionsResponse> listPermissionsWithHttpInfo() throws Ap
 
     return apiClient.invokeAPI("RolesApi.listPermissions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistPermissionsRequest {
@@ -715,7 +715,7 @@ private ApiResponse<PermissionsResponse> listRolePermissionsWithHttpInfo(String 
 
     return apiClient.invokeAPI("RolesApi.listRolePermissions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistRolePermissionsRequest {
@@ -819,7 +819,7 @@ private ApiResponse<UsersResponse> listRoleUsersWithHttpInfo(String roleId, Long
 
     return apiClient.invokeAPI("RolesApi.listRoleUsers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistRoleUsersRequest {
@@ -946,7 +946,7 @@ private ApiResponse<RolesResponse> listRolesWithHttpInfo(Long pageSize, Long pag
     
     
     final String[] localVarAccepts = {
-      "application/json", "applcation/json"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -961,7 +961,7 @@ private ApiResponse<RolesResponse> listRolesWithHttpInfo(Long pageSize, Long pag
 
     return apiClient.invokeAPI("RolesApi.listRoles", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIlistRolesRequest {
@@ -1100,7 +1100,7 @@ private ApiResponse<PermissionsResponse> removePermissionFromRoleWithHttpInfo(St
 
     return apiClient.invokeAPI("RolesApi.removePermissionFromRole", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIremovePermissionFromRoleRequest {
@@ -1213,7 +1213,7 @@ private ApiResponse<UsersResponse> removeUserFromRoleWithHttpInfo(String roleId,
 
     return apiClient.invokeAPI("RolesApi.removeUserFromRole", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIremoveUserFromRoleRequest {
@@ -1326,7 +1326,7 @@ private ApiResponse<RoleUpdateResponse> updateRoleWithHttpInfo(String roleId, Ro
 
     return apiClient.invokeAPI("RolesApi.updateRole", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, null);
+                               localVarAuthNames, localVarReturnType, false);
   }
 
   public class APIupdateRoleRequest {

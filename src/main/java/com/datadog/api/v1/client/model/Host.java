@@ -13,11 +13,14 @@ package com.datadog.api.v1.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.datadog.api.v1.client.model.HostMeta;
 import com.datadog.api.v1.client.model.HostMetrics;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
  * Object representing a host.
@@ -47,7 +52,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Host.JSON_PROPERTY_TAGS_BY_SOURCE,
   Host.JSON_PROPERTY_UP
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Host {
   public static final String JSON_PROPERTY_ALIASES = "aliases";
   private List<String> aliases = null;
@@ -93,7 +98,6 @@ public class Host {
 
 
   public Host aliases(List<String> aliases) {
-    
     this.aliases = aliases;
     return this;
   }
@@ -126,7 +130,6 @@ public class Host {
 
 
   public Host apps(List<String> apps) {
-    
     this.apps = apps;
     return this;
   }
@@ -159,7 +162,6 @@ public class Host {
 
 
   public Host awsName(String awsName) {
-    
     this.awsName = awsName;
     return this;
   }
@@ -184,7 +186,6 @@ public class Host {
 
 
   public Host hostName(String hostName) {
-    
     this.hostName = hostName;
     return this;
   }
@@ -209,7 +210,6 @@ public class Host {
 
 
   public Host id(Long id) {
-    
     this.id = id;
     return this;
   }
@@ -234,7 +234,6 @@ public class Host {
 
 
   public Host isMuted(Boolean isMuted) {
-    
     this.isMuted = isMuted;
     return this;
   }
@@ -259,7 +258,6 @@ public class Host {
 
 
   public Host lastReportedTime(Long lastReportedTime) {
-    
     this.lastReportedTime = lastReportedTime;
     return this;
   }
@@ -284,7 +282,6 @@ public class Host {
 
 
   public Host meta(HostMeta meta) {
-    
     this.meta = meta;
     return this;
   }
@@ -309,7 +306,6 @@ public class Host {
 
 
   public Host metrics(HostMetrics metrics) {
-    
     this.metrics = metrics;
     return this;
   }
@@ -334,7 +330,6 @@ public class Host {
 
 
   public Host muteTimeout(Long muteTimeout) {
-    
     this.muteTimeout = muteTimeout;
     return this;
   }
@@ -359,7 +354,6 @@ public class Host {
 
 
   public Host name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -384,7 +378,6 @@ public class Host {
 
 
   public Host sources(List<String> sources) {
-    
     this.sources = sources;
     return this;
   }
@@ -417,7 +410,6 @@ public class Host {
 
 
   public Host tagsBySource(Map<String, List<String>> tagsBySource) {
-    
     this.tagsBySource = tagsBySource;
     return this;
   }
@@ -450,7 +442,6 @@ public class Host {
 
 
   public Host up(Boolean up) {
-    
     this.up = up;
     return this;
   }
@@ -474,8 +465,11 @@ public class Host {
   }
 
 
+  /**
+   * Return true if this Host object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -531,7 +525,7 @@ public class Host {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
