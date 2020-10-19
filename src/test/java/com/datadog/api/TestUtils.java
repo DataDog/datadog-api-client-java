@@ -305,13 +305,9 @@ public class TestUtils {
                 // if the agent container is not running, span is null
                 MutableSpan localRootSpan = ((MutableSpan) span).getLocalRootSpan();
                 localRootSpan.setTag(TRACING_TAG_ENDPOINT, getTracingEndpoint());
-                // we need to set both resourceName and the `resource.name` tag, which is what's displayed in the UI
-                // similar for spanType + `span.type` (which also has to be set as operationName)
-                // localRootSpan.setResourceName(getQualifiedTestcaseName());
                 localRootSpan.setOperationName(TRACING_SPAN_TYPE);
                 localRootSpan.setSpanType(TRACING_SPAN_TYPE);
                 localRootSpan.setTag(DDTags.ANALYTICS_SAMPLE_RATE, 1.0f);
-                // localRootSpan.setTag(DDTags.RESOURCE_NAME, getQualifiedTestcaseName());
                 localRootSpan.setTag(DDTags.SPAN_TYPE, TRACING_SPAN_TYPE);
             }
         }
