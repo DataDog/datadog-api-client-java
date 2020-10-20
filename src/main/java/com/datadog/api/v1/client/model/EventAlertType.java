@@ -35,6 +35,8 @@ public enum EventAlertType {
   INFO("info"),
   
   SUCCESS("success");
+  
+  USER_UPDATE("user_update");
 
   private String value;
 
