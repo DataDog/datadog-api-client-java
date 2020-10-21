@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **rumSessionCountSum** | **Long** | Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations |  [optional]
 **syntheticsBrowserCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations. |  [optional]
 **syntheticsCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current date for all organizations. |  [optional]
-**traceSearchIndexedEventsCountSum** | **Long** | Shows the sum of all analyzed spans indexed over all hours in the current date for all organizations. |  [optional]
+**traceSearchIndexedEventsCountSum** | **Long** | Shows the sum of all Indexed Spans indexed over all hours in the current date for all organizations. |  [optional]
 **twolIngestedEventsBytesSum** | **Long** | Shows the sum of all tracing without limits bytes ingested over all hours in the current date for all organizations. |  [optional]
 
 
