@@ -67,11 +67,11 @@ public class LogsListRequest {
   }
 
    /**
-   * For multi-index organizations, the log index in which the request is performed. Default to &#39;*&#39; (all indexes).
+   * The log index on which the request is performed. For multi-index organizations, the default is all live indexes. Historical indexes of rehydrated logs must be specified.
    * @return index
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "retention-3,retention-15", value = "For multi-index organizations, the log index in which the request is performed. Default to '*' (all indexes).")
+  @ApiModelProperty(example = "retention-3,retention-15", value = "The log index on which the request is performed. For multi-index organizations, the default is all live indexes. Historical indexes of rehydrated logs must be specified.")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
