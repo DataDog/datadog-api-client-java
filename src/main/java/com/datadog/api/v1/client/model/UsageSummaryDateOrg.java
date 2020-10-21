@@ -749,11 +749,11 @@ public class UsageSummaryDateOrg {
   }
 
    /**
-   * Shows the sum of all analyzed spans indexed over all hours in the current date for the given org.
+   * Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org.
    * @return traceSearchIndexedEventsCountSum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all analyzed spans indexed over all hours in the current date for the given org.")
+  @ApiModelProperty(value = "Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

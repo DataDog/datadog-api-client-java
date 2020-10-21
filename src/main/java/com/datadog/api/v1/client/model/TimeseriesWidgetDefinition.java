@@ -37,9 +37,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Analyzed Spans over time.
+ * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
  */
-@ApiModel(description = "The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Analyzed Spans over time.")
+@ApiModel(description = "The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.")
 @JsonPropertyOrder({
   TimeseriesWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_EVENTS,
