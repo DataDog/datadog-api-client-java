@@ -25,6 +25,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -33,6 +34,7 @@ import java.util.List;
 public class MonitorsApiTest extends V1ApiTest {
 
     private static MonitorsApi api;
+    private static SyntheticsApi syntheticsApi;
     private static MonitorsApi fakeAuthApi;
     private static MonitorsApi unitApi;
     private ArrayList<Long> deleteMonitors = null;
@@ -46,6 +48,49 @@ public class MonitorsApiTest extends V1ApiTest {
 
     private final String fixturePrefix = "v1/client/api/monitors_fixtures";
     private final String apiUri = "/api/v1/monitor";
+
+    private SyntheticsTestDetails apiTestConfig = new SyntheticsTestDetails()
+            .config(new SyntheticsTestConfig()
+                    .assertions(Arrays.asList(
+                            new SyntheticsAssertion(
+                                    new SyntheticsAssertionTarget()
+                                            .operator(SyntheticsAssertionOperator.IS)
+                                            .property("content-type")
+                                            .target("text/html")
+                                            .type(SyntheticsAssertionType.HEADER)
+                            ),
+                            new SyntheticsAssertion(
+                                    new SyntheticsAssertionTarget()
+                                            .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                            .target(2000)
+                                            .type(SyntheticsAssertionType.RESPONSE_TIME)
+                            )
+                    ))
+                    .request(new SyntheticsTestRequest()
+                            .headers(new HashMap<String, String>() {{put("testingJavaClient", "true");}})
+                            .method(HTTPMethod.GET)
+                            .timeout(10.0)
+                            .url("https://datadoghq.com")
+                    )
+            )
+            .locations(Arrays.asList("aws:us-east-2"))
+            .message("testing Synthetics API test - this is message")
+            .options(new SyntheticsTestOptions()
+                    .acceptSelfSigned(false)
+                    .allowInsecure(true)
+                    .followRedirects(true)
+                    .minFailureDuration(10L)
+                    .minLocationFailed(1L)
+                    .retry(new SyntheticsTestOptionsRetry()
+                            .count(3L)
+                            .interval(10.0)
+                    )
+                    .tickEvery(SyntheticsTickInterval.MINUTE)
+            )
+            .subtype(SyntheticsTestDetailsSubType.HTTP)
+            .tags(Arrays.asList("testing:api"))
+            .type(SyntheticsTestDetailsType.API);
+
 
     // ObjectMapper instance configure to not fail when encountering unknown properties
     private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -63,6 +108,7 @@ public class MonitorsApiTest extends V1ApiTest {
     @BeforeClass
     public static void initApi() {
         api = new MonitorsApi(generalApiClient);
+        syntheticsApi = new SyntheticsApi(generalApiClient);
         fakeAuthApi = new MonitorsApi(generalFakeAuthApiClient);
         unitApi = new MonitorsApi(generalApiUnitTestClient);
     }
@@ -193,6 +239,30 @@ public class MonitorsApiTest extends V1ApiTest {
             assertTrue(false);
         } catch (ApiException e) {
             // noop
+        }
+    }
+
+    @Test
+    public void monitorGetSyntheticsTest() throws ApiException {
+        // Create a synthetics API test to retrieve its corresponding monitor via GetMonitor
+        SyntheticsTestDetails synt;
+        String apiTestName = getUniqueEntityName();
+        apiTestConfig.setName(apiTestName);
+        synt = syntheticsApi.createTest().body(apiTestConfig).execute();
+
+        // Retrieve the corresponding synthetics test monitor
+        Monitor obtained = api.getMonitor(synt.getMonitorId()).execute();
+        assertEquals(synt.getPublicId(), obtained.getOptions().getSyntheticsCheckId());
+
+        // Delete synthetics test
+        try {
+            syntheticsApi.deleteTests().body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(synt.getPublicId()))).execute();
+        } catch (ApiException e) {
+            if (e.getCode() == 404) {
+                // doesn't exist => ok
+            } else {
+                throw e;
+            }
         }
     }
 
