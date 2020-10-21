@@ -84,11 +84,11 @@ public class LogsAggregateSort {
   }
 
    /**
-   * The metric to sort by (only used for type&#x3D;metric)
+   * The metric to sort by (only used for &#x60;type&#x3D;measure&#x60;)
    * @return metric
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "@duration", value = "The metric to sort by (only used for type=metric)")
+  @ApiModelProperty(example = "@duration", value = "The metric to sort by (only used for `type=measure`)")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

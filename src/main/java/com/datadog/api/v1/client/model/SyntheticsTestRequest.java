@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.HTTPMethod;
 import com.datadog.api.v1.client.model.SyntheticsBasicAuth;
+import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificate;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,6 +39,8 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   SyntheticsTestRequest.JSON_PROPERTY_BASIC_AUTH,
   SyntheticsTestRequest.JSON_PROPERTY_BODY,
+  SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE,
+  SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
@@ -53,6 +56,12 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_BODY = "body";
   private String body;
+
+  public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
+  private SyntheticsTestRequestCertificate certificate;
+
+  public static final String JSON_PROPERTY_DNS_SERVER = "dnsServer";
+  private String dnsServer;
 
   public static final String JSON_PROPERTY_HEADERS = "headers";
   private Map<String, String> headers = null;
@@ -121,6 +130,54 @@ public class SyntheticsTestRequest {
 
   public void setBody(String body) {
     this.body = body;
+  }
+
+
+  public SyntheticsTestRequest certificate(SyntheticsTestRequestCertificate certificate) {
+    this.certificate = certificate;
+    return this;
+  }
+
+   /**
+   * Get certificate
+   * @return certificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SyntheticsTestRequestCertificate getCertificate() {
+    return certificate;
+  }
+
+
+  public void setCertificate(SyntheticsTestRequestCertificate certificate) {
+    this.certificate = certificate;
+  }
+
+
+  public SyntheticsTestRequest dnsServer(String dnsServer) {
+    this.dnsServer = dnsServer;
+    return this;
+  }
+
+   /**
+   * DNS server to use for DNS tests.
+   * @return dnsServer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "DNS server to use for DNS tests.")
+  @JsonProperty(JSON_PROPERTY_DNS_SERVER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDnsServer() {
+    return dnsServer;
+  }
+
+
+  public void setDnsServer(String dnsServer) {
+    this.dnsServer = dnsServer;
   }
 
 
@@ -314,6 +371,8 @@ public class SyntheticsTestRequest {
     SyntheticsTestRequest syntheticsTestRequest = (SyntheticsTestRequest) o;
     return Objects.equals(this.basicAuth, syntheticsTestRequest.basicAuth) &&
         Objects.equals(this.body, syntheticsTestRequest.body) &&
+        Objects.equals(this.certificate, syntheticsTestRequest.certificate) &&
+        Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer) &&
         Objects.equals(this.headers, syntheticsTestRequest.headers) &&
         Objects.equals(this.host, syntheticsTestRequest.host) &&
         Objects.equals(this.method, syntheticsTestRequest.method) &&
@@ -325,7 +384,7 @@ public class SyntheticsTestRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicAuth, body, headers, host, method, port, query, timeout, url);
+    return Objects.hash(basicAuth, body, certificate, dnsServer, headers, host, method, port, query, timeout, url);
   }
 
 
@@ -335,6 +394,8 @@ public class SyntheticsTestRequest {
     sb.append("class SyntheticsTestRequest {\n");
     sb.append("    basicAuth: ").append(toIndentedString(basicAuth)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+    sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");

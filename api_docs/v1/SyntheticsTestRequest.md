@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **basicAuth** | [**SyntheticsBasicAuth**](SyntheticsBasicAuth.md) |  |  [optional]
 **body** | **String** | Body to include in the test. |  [optional]
+**certificate** | [**SyntheticsTestRequestCertificate**](SyntheticsTestRequestCertificate.md) |  |  [optional]
+**dnsServer** | **String** | DNS server to use for DNS tests. |  [optional]
 **headers** | **Map&lt;String, String&gt;** | Headers to include when performing the test. |  [optional]
 **host** | **String** | Host name to perform the test with. |  [optional]
 **method** | [**HTTPMethod**](HTTPMethod.md) |  |  [optional]

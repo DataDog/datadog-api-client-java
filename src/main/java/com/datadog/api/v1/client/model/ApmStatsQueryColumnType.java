@@ -44,7 +44,7 @@ public class ApmStatsQueryColumnType {
   private String alias;
 
   public static final String JSON_PROPERTY_CELL_DISPLAY_MODE = "cell_display_mode";
-  private TableWidgetCellDisplayMode cellDisplayMode = TableWidgetCellDisplayMode.NUMBER;
+  private TableWidgetCellDisplayMode cellDisplayMode;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
