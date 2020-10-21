@@ -114,7 +114,7 @@ public class MonitorOptions {
   private Map<String, Long> silenced = null;
 
   public static final String JSON_PROPERTY_SYNTHETICS_CHECK_ID = "synthetics_check_id";
-  private JsonNullable<Long> syntheticsCheckId = JsonNullable.<Long>undefined();
+  private JsonNullable<String> syntheticsCheckId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_THRESHOLD_WINDOWS = "threshold_windows";
   private MonitorThresholdWindowOptions thresholdWindows;
@@ -572,8 +572,8 @@ public class MonitorOptions {
   }
 
 
-  public MonitorOptions syntheticsCheckId(Long syntheticsCheckId) {
-    this.syntheticsCheckId = JsonNullable.<Long>of(syntheticsCheckId);
+  public MonitorOptions syntheticsCheckId(String syntheticsCheckId) {
+    this.syntheticsCheckId = JsonNullable.<String>of(syntheticsCheckId);
     return this;
   }
 
@@ -585,24 +585,24 @@ public class MonitorOptions {
   @ApiModelProperty(value = "ID of the corresponding Synthetic check.")
   @JsonIgnore
 
-  public Long getSyntheticsCheckId() {
+  public String getSyntheticsCheckId() {
         return syntheticsCheckId.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Long> getSyntheticsCheckId_JsonNullable() {
+  public JsonNullable<String> getSyntheticsCheckId_JsonNullable() {
     return syntheticsCheckId;
   }
   
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
-  public void setSyntheticsCheckId_JsonNullable(JsonNullable<Long> syntheticsCheckId) {
+  public void setSyntheticsCheckId_JsonNullable(JsonNullable<String> syntheticsCheckId) {
     this.syntheticsCheckId = syntheticsCheckId;
   }
 
-  public void setSyntheticsCheckId(Long syntheticsCheckId) {
-    this.syntheticsCheckId = JsonNullable.<Long>of(syntheticsCheckId);
+  public void setSyntheticsCheckId(String syntheticsCheckId) {
+    this.syntheticsCheckId = JsonNullable.<String>of(syntheticsCheckId);
   }
 
 
