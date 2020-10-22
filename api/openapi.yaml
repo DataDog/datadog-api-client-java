@@ -3370,6 +3370,7 @@ components:
             - team:app
             query: source:nginx
             name: Nginx Archive
+            include_tags: false
             state: WORKING
           id: a2zcMylnM4OCHpYusxIi3g
           type: archives
@@ -3385,10 +3386,18 @@ components:
         - team:app
         query: source:nginx
         name: Nginx Archive
+        include_tags: false
         state: WORKING
       properties:
         destination:
           $ref: '#/components/schemas/LogsArchiveDestination'
+        include_tags:
+          default: false
+          description: |-
+            To store the tags in the archive, set the value "true".
+            If it is set to "false", the tags will be deleted when the logs are sent to the archive.
+          example: false
+          type: boolean
         name:
           description: The archive name.
           example: Nginx Archive
@@ -3424,6 +3433,7 @@ components:
             - team:app
             query: source:nginx
             name: Nginx Archive
+            include_tags: false
           type: archives
       properties:
         data:
@@ -3437,9 +3447,17 @@ components:
         - team:app
         query: source:nginx
         name: Nginx Archive
+        include_tags: false
       properties:
         destination:
           $ref: '#/components/schemas/LogsArchiveCreateRequestDestination'
+        include_tags:
+          default: false
+          description: |-
+            To store the tags in the archive, set the value "true".
+            If it is set to "false", the tags will be deleted when the logs are sent to the archive.
+          example: false
+          type: boolean
         name:
           description: The archive name.
           example: Nginx Archive
@@ -3472,6 +3490,7 @@ components:
           - team:app
           query: source:nginx
           name: Nginx Archive
+          include_tags: false
         type: archives
       properties:
         attributes:
@@ -3503,6 +3522,7 @@ components:
           - team:app
           query: source:nginx
           name: Nginx Archive
+          include_tags: false
           state: WORKING
         id: a2zcMylnM4OCHpYusxIi3g
         type: archives
@@ -3759,6 +3779,7 @@ components:
             - team:app
             query: source:nginx
             name: Nginx Archive
+            include_tags: false
             state: WORKING
           id: a2zcMylnM4OCHpYusxIi3g
           type: archives
@@ -3768,6 +3789,7 @@ components:
             - team:app
             query: source:nginx
             name: Nginx Archive
+            include_tags: false
             state: WORKING
           id: a2zcMylnM4OCHpYusxIi3g
           type: archives
