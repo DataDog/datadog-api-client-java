@@ -36,6 +36,7 @@ import com.datadog.api.v2.client.JSON;
 @ApiModel(description = "The attributes associated with the archive.")
 @JsonPropertyOrder({
   LogsArchiveAttributes.JSON_PROPERTY_DESTINATION,
+  LogsArchiveAttributes.JSON_PROPERTY_INCLUDE_TAGS,
   LogsArchiveAttributes.JSON_PROPERTY_NAME,
   LogsArchiveAttributes.JSON_PROPERTY_QUERY,
   LogsArchiveAttributes.JSON_PROPERTY_REHYDRATION_TAGS,
@@ -45,6 +46,9 @@ import com.datadog.api.v2.client.JSON;
 public class LogsArchiveAttributes {
   public static final String JSON_PROPERTY_DESTINATION = "destination";
   private LogsArchiveDestination destination;
+
+  public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
+  private Boolean includeTags = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -80,6 +84,30 @@ public class LogsArchiveAttributes {
 
   public void setDestination(LogsArchiveDestination destination) {
     this.destination = destination;
+  }
+
+
+  public LogsArchiveAttributes includeTags(Boolean includeTags) {
+    this.includeTags = includeTags;
+    return this;
+  }
+
+   /**
+   * To store the tags in the archive, set the value \&quot;true\&quot;. If it is set to \&quot;false\&quot;, the tags will be deleted when the logs are sent to the archive.
+   * @return includeTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "To store the tags in the archive, set the value \"true\". If it is set to \"false\", the tags will be deleted when the logs are sent to the archive.")
+  @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIncludeTags() {
+    return includeTags;
+  }
+
+
+  public void setIncludeTags(Boolean includeTags) {
+    this.includeTags = includeTags;
   }
 
 
@@ -198,6 +226,7 @@ public class LogsArchiveAttributes {
     }
     LogsArchiveAttributes logsArchiveAttributes = (LogsArchiveAttributes) o;
     return Objects.equals(this.destination, logsArchiveAttributes.destination) &&
+        Objects.equals(this.includeTags, logsArchiveAttributes.includeTags) &&
         Objects.equals(this.name, logsArchiveAttributes.name) &&
         Objects.equals(this.query, logsArchiveAttributes.query) &&
         Objects.equals(this.rehydrationTags, logsArchiveAttributes.rehydrationTags) &&
@@ -206,7 +235,7 @@ public class LogsArchiveAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, name, query, rehydrationTags, state);
+    return Objects.hash(destination, includeTags, name, query, rehydrationTags, state);
   }
 
 
@@ -215,6 +244,7 @@ public class LogsArchiveAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsArchiveAttributes {\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    includeTags: ").append(toIndentedString(includeTags)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    rehydrationTags: ").append(toIndentedString(rehydrationTags)).append("\n");
