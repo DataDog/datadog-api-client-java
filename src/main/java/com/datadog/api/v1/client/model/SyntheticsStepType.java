@@ -30,17 +30,25 @@ public enum SyntheticsStepType {
   
   ASSERT_CURRENT_URL("assertCurrentUrl"),
   
+  ASSERT_ELEMENT_ATTRIBUTE("assertElementAttribute"),
+  
   ASSERT_ELEMENT_CONTENT("assertElementContent"),
   
   ASSERT_ELEMENT_PRESENT("assertElementPresent"),
   
   ASSERT_EMAIL("assertEmail"),
   
+  ASSERT_FILE_DOWNLOAD("assertFileDownload"),
+  
+  ASSERT_FROM_JAVASCRIPT("assertFromJavascript"),
+  
   ASSERT_PAGE_CONTAINS("assertPageContains"),
   
   ASSERT_PAGE_LACKS("assertPageLacks"),
   
   CLICK("click"),
+  
+  EXTRACT_FROM_JAVASCRIPT("extractFromJavascript"),
   
   EXTRACT_VARIABLE("extractVariable"),
   
@@ -57,6 +65,10 @@ public enum SyntheticsStepType {
   PRESS_KEY("pressKey"),
   
   REFRESH("refresh"),
+  
+  RUN_API_TEST("runApiTest"),
+  
+  SCROLL("scroll"),
   
   SELECT_OPTION("selectOption"),
   
