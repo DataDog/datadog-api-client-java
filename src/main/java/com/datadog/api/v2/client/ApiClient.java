@@ -133,6 +133,16 @@ public class ApiClient extends JavaTimeFormatter {
 
   protected DateFormat dateFormat;
   protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {{
+    put("createIncidentService", false);
+    put("deleteIncidentService", false);
+    put("getIncidentService", false);
+    put("getIncidentServices", false);
+    put("updateIncidentService", false);
+    put("createIncidentTeam", false);
+    put("deleteIncidentTeam", false);
+    put("getIncidentTeam", false);
+    put("getIncidentTeams", false);
+    put("updateIncidentTeam", false);
     put("listLogs", false);
     put("listLogsGet", false);
     put("addReadRoleToArchive", false);
@@ -140,16 +150,6 @@ public class ApiClient extends JavaTimeFormatter {
     put("removeRoleFromArchive", false);
     put("listSecurityMonitoringSignals", false);
     put("searchSecurityMonitoringSignals", false);
-    put("createService", false);
-    put("deleteService", false);
-    put("getService", false);
-    put("getServices", false);
-    put("updateService", false);
-    put("createTeam", false);
-    put("deleteTeam", false);
-    put("getTeam", false);
-    put("getTeams", false);
-    put("updateTeam", false);
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
