@@ -36,6 +36,10 @@ RERUN_COUNT=$([ "$CI" == "true" ] && echo "1" || echo "0")
 set +e
 mvn --show-version --batch-mode -Dsurefire.rerunFailingTestsCount=${RERUN_COUNT} test
 RESULT=$?
+if [ "$RESULT" -ne 0 -a ! -d "target/surefire-reports" ]; then
+    # No surefire reports and error means compilation error, don't try to rerun
+    exit $RESULT
+fi
 if [ "$RERECORD_FAILED_TESTS" == "true" -a "$RESULT" -ne 0 ]; then
     set -e
     python3 -m pip install -U pip setuptools
