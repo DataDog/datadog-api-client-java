@@ -1,0 +1,436 @@
+# IncidentServicesApi
+
+All URIs are relative to *https://api.datadoghq.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createIncidentService**](IncidentServicesApi.md#createIncidentService) | **POST** /api/v2/services | Create a new incident service
+[**deleteIncidentService**](IncidentServicesApi.md#deleteIncidentService) | **DELETE** /api/v2/services/{service_id} | Delete an existing incident service
+[**getIncidentService**](IncidentServicesApi.md#getIncidentService) | **GET** /api/v2/services/{service_id} | Get details of an incident service
+[**getIncidentServices**](IncidentServicesApi.md#getIncidentServices) | **GET** /api/v2/services | Get a list of all incident services
+[**updateIncidentService**](IncidentServicesApi.md#updateIncidentService) | **PATCH** /api/v2/services/{service_id} | Update an existing incident service
+
+
+
+## createIncidentService
+
+> IncidentServiceResponse createIncidentService().body(body).execute();
+
+Create a new incident service
+
+Creates a new incident service.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentServicesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
+        IncidentServiceCreateRequest body = new IncidentServiceCreateRequest(); // IncidentServiceCreateRequest | Incident Service Payload.
+        try {
+            IncidentServiceResponse result = api.createIncidentService()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IncidentServicesApi#createIncidentService");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**IncidentServiceCreateRequest**](IncidentServiceCreateRequest.md)| Incident Service Payload. |
+
+### Return type
+
+[**IncidentServiceResponse**](IncidentServiceResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | CREATED |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## deleteIncidentService
+
+> deleteIncidentService(serviceId).execute();
+
+Delete an existing incident service
+
+Deletes an existing incident service.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentServicesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
+        String serviceId = "serviceId_example"; // String | The ID of the incident service.
+        try {
+            api.deleteIncidentService(serviceId)
+                .execute();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IncidentServicesApi#deleteIncidentService");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceId** | **String**| The ID of the incident service. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## getIncidentService
+
+> IncidentServiceResponse getIncidentService(serviceId).include(include).execute();
+
+Get details of an incident service
+
+Get details of an incident service. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentServicesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
+        String serviceId = "serviceId_example"; // String | The ID of the incident service.
+        String include = "include_example"; // String | Specifies which types of related objects should be included in the response.
+        try {
+            IncidentServiceResponse result = api.getIncidentService(serviceId)
+                .include(include)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IncidentServicesApi#getIncidentService");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceId** | **String**| The ID of the incident service. |
+ **include** | **String**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+
+### Return type
+
+[**IncidentServiceResponse**](IncidentServiceResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## getIncidentServices
+
+> IncidentServicesResponse getIncidentServices().include(include).pageSize(pageSize).pageOffset(pageOffset).execute();
+
+Get a list of all incident services
+
+Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentServicesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
+        String include = "include_example"; // String | Specifies which types of related objects should be included in the response.
+        Long pageSize = 10lL; // Long | Size for a given page.
+        Long pageOffset = 0lL; // Long | Specific offset to use as the beginning of the returned page.
+        try {
+            IncidentServicesResponse result = api.getIncidentServices()
+                .include(include)
+                .pageSize(pageSize)
+                .pageOffset(pageOffset)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IncidentServicesApi#getIncidentServices");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **include** | **String**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
+ **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0l]
+
+### Return type
+
+[**IncidentServicesResponse**](IncidentServicesResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## updateIncidentService
+
+> IncidentServiceResponse updateIncidentService(serviceId).body(body).execute();
+
+Update an existing incident service
+
+Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentServicesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
+        String serviceId = "serviceId_example"; // String | The ID of the incident service.
+        IncidentServiceUpdateRequest body = new IncidentServiceUpdateRequest(); // IncidentServiceUpdateRequest | Incident Service Payload.
+        try {
+            IncidentServiceResponse result = api.updateIncidentService(serviceId)
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IncidentServicesApi#updateIncidentService");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceId** | **String**| The ID of the incident service. |
+ **body** | [**IncidentServiceUpdateRequest**](IncidentServiceUpdateRequest.md)| Incident Service Payload. |
+
+### Return type
+
+[**IncidentServiceResponse**](IncidentServiceResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
