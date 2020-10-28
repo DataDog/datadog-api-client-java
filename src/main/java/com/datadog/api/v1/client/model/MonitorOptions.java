@@ -108,7 +108,7 @@ public class MonitorOptions {
   private JsonNullable<Long> renotifyInterval = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
-  private Boolean requireFullWindow = true;
+  private Boolean requireFullWindow;
 
   public static final String JSON_PROPERTY_SILENCED = "silenced";
   private Map<String, Long> silenced = null;
@@ -522,11 +522,11 @@ public class MonitorOptions {
   }
 
    /**
-   * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. &#x60;False&#x60; otherwise.
+   * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. Default is false.
    * @return requireFullWindow
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. `False` otherwise.")
+  @ApiModelProperty(value = "A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. Default is false.")
   @JsonProperty(JSON_PROPERTY_REQUIRE_FULL_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
