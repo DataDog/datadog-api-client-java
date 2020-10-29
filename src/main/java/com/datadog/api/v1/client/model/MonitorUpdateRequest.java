@@ -52,6 +52,7 @@ import com.datadog.api.v1.client.JSON;
   MonitorUpdateRequest.JSON_PROPERTY_NAME,
   MonitorUpdateRequest.JSON_PROPERTY_OPTIONS,
   MonitorUpdateRequest.JSON_PROPERTY_OVERALL_STATE,
+  MonitorUpdateRequest.JSON_PROPERTY_PRIORITY,
   MonitorUpdateRequest.JSON_PROPERTY_QUERY,
   MonitorUpdateRequest.JSON_PROPERTY_STATE,
   MonitorUpdateRequest.JSON_PROPERTY_TAGS,
@@ -88,6 +89,9 @@ public class MonitorUpdateRequest {
 
   public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
   private MonitorOverallStates overallState;
+
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  private Long priority;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
@@ -316,6 +320,32 @@ public class MonitorUpdateRequest {
   }
 
 
+  public MonitorUpdateRequest priority(Long priority) {
+    this.priority = priority;
+    return this;
+  }
+
+   /**
+   * Integer from 1 (high) to 5 (low) indicating alert severity.
+   * minimum: 1
+   * maximum: 5
+   * @return priority
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Integer from 1 (high) to 5 (low) indicating alert severity.")
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getPriority() {
+    return priority;
+  }
+
+
+  public void setPriority(Long priority) {
+    this.priority = priority;
+  }
+
+
   public MonitorUpdateRequest query(String query) {
     this.query = query;
     return this;
@@ -442,6 +472,7 @@ public class MonitorUpdateRequest {
         Objects.equals(this.name, monitorUpdateRequest.name) &&
         Objects.equals(this.options, monitorUpdateRequest.options) &&
         Objects.equals(this.overallState, monitorUpdateRequest.overallState) &&
+        Objects.equals(this.priority, monitorUpdateRequest.priority) &&
         Objects.equals(this.query, monitorUpdateRequest.query) &&
         Objects.equals(this.state, monitorUpdateRequest.state) &&
         Objects.equals(this.tags, monitorUpdateRequest.tags) &&
@@ -450,7 +481,7 @@ public class MonitorUpdateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, creator, deleted, id, message, modified, multi, name, options, overallState, query, state, tags, type);
+    return Objects.hash(created, creator, deleted, id, message, modified, multi, name, options, overallState, priority, query, state, tags, type);
   }
 
 
@@ -468,6 +499,7 @@ public class MonitorUpdateRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    overallState: ").append(toIndentedString(overallState)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

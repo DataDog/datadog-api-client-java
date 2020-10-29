@@ -52,6 +52,7 @@ import com.datadog.api.v1.client.JSON;
   Monitor.JSON_PROPERTY_NAME,
   Monitor.JSON_PROPERTY_OPTIONS,
   Monitor.JSON_PROPERTY_OVERALL_STATE,
+  Monitor.JSON_PROPERTY_PRIORITY,
   Monitor.JSON_PROPERTY_QUERY,
   Monitor.JSON_PROPERTY_STATE,
   Monitor.JSON_PROPERTY_TAGS,
@@ -88,6 +89,9 @@ public class Monitor {
 
   public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
   private MonitorOverallStates overallState;
+
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  private Long priority;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
@@ -316,6 +320,32 @@ public class Monitor {
   }
 
 
+  public Monitor priority(Long priority) {
+    this.priority = priority;
+    return this;
+  }
+
+   /**
+   * Integer from 1 (high) to 5 (low) indicating alert severity.
+   * minimum: 1
+   * maximum: 5
+   * @return priority
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Integer from 1 (high) to 5 (low) indicating alert severity.")
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getPriority() {
+    return priority;
+  }
+
+
+  public void setPriority(Long priority) {
+    this.priority = priority;
+  }
+
+
   public Monitor query(String query) {
     this.query = query;
     return this;
@@ -442,6 +472,7 @@ public class Monitor {
         Objects.equals(this.name, monitor.name) &&
         Objects.equals(this.options, monitor.options) &&
         Objects.equals(this.overallState, monitor.overallState) &&
+        Objects.equals(this.priority, monitor.priority) &&
         Objects.equals(this.query, monitor.query) &&
         Objects.equals(this.state, monitor.state) &&
         Objects.equals(this.tags, monitor.tags) &&
@@ -450,7 +481,7 @@ public class Monitor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, creator, deleted, id, message, modified, multi, name, options, overallState, query, state, tags, type);
+    return Objects.hash(created, creator, deleted, id, message, modified, multi, name, options, overallState, priority, query, state, tags, type);
   }
 
 
@@ -468,6 +499,7 @@ public class Monitor {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    overallState: ").append(toIndentedString(overallState)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
