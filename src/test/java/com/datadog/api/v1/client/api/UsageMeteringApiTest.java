@@ -179,8 +179,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getUsageTracingWithoutLimitsTest() throws ApiException {
-        UsageTracingWithoutLimitsResponse response = api.getTracingWithoutLimits()
+    public void getUsageIngestedSpansTest() throws ApiException {
+        UsageIngestedSpansResponse response = api.getIngestedSpans()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -404,8 +404,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getUsageTraceTest() throws ApiException {
-        UsageTraceResponse response = api.getUsageTrace()
+    public void getUsageIndexedSpansTest() throws ApiException {
+        UsageIndexedSpansResponse response = api.getUsageIndexedSpans()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -569,9 +569,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getUsageTraceErrorsTest() throws IOException {
+    public void getUsageIndexedSpansErrorsTest() throws IOException {
         try {
-            api.getUsageTrace().startHr(futureStartHr).execute();
+            api.getUsageIndexedSpans().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
@@ -580,7 +580,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         }
 
         try {
-            fakeAuthApi.getUsageTrace().startHr(futureStartHr).execute();
+            fakeAuthApi.getUsageIndexedSpans().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
@@ -784,27 +784,6 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
         try {
             fakeAuthApi.getUsageSNMP().startHr(futureStartHr).execute();
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            assertEquals(403, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-    }
-
-    @Test
-    public void getUsageTracingWithoutLimitsErrorsTest()throws IOException  {
-        try {
-            api.getTracingWithoutLimits().startHr(futureStartHr).execute();
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-
-        try {
-            fakeAuthApi.getTracingWithoutLimits().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
