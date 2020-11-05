@@ -37,5 +37,11 @@
 
 * `YELLOW_ON_WHITE` (value: `"yellow_on_white"`)
 
+* `BLACK_ON_LIGHT_YELLOW` (value: `"black_on_light_yellow"`)
+
+* `BLACK_ON_LIGHT_GREEN` (value: `"black_on_light_green"`)
+
+* `BLACK_ON_LIGHT_RED` (value: `"black_on_light_red"`)
+
 
 
