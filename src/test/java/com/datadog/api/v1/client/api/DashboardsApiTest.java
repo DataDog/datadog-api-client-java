@@ -484,7 +484,7 @@ public class DashboardsApiTest extends V1ApiTest{
         Widget timeseriesWidgetProcessQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionProcessQuery));
         orderedWidgetList.add(timeseriesWidgetProcessQuery);
 
-        // Timeseries Widget with Log query (APM/Log/Network/Rum share schemas, so only test one)
+        // Timeseries Widget with Log query (APM/Log/Network/Rum/Event share schemas, so only test one)
         TimeseriesWidgetDefinition timeseriesWidgetDefinitionLogQuery = new TimeseriesWidgetDefinition()
                 .addRequestsItem(new TimeseriesWidgetRequest()
                         .logQuery(
@@ -520,10 +520,10 @@ public class DashboardsApiTest extends V1ApiTest{
         Widget timeseriesWidgetLogQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionLogQuery));
         orderedWidgetList.add(timeseriesWidgetLogQuery);
 
-        // Timeseries Widget with Event query
+        // Timeseries Widget with Legacy Event query
         TimeseriesWidgetDefinition timeseriesWidgetDefinitionEventQuery = new TimeseriesWidgetDefinition()
                 .addRequestsItem(new TimeseriesWidgetRequest()
-                        .eventQuery(new EventQueryDefinition()
+                        .legacyEventQuery(new EventQueryDefinition()
                                 .search("Build failure").tagsExecution("build")
                         )
                         .style(new WidgetRequestStyle()
