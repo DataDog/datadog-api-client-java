@@ -58,7 +58,13 @@ public enum WidgetPalette {
   
   WHITE_ON_YELLOW("white_on_yellow"),
   
-  YELLOW_ON_WHITE("yellow_on_white");
+  YELLOW_ON_WHITE("yellow_on_white"),
+  
+  BLACK_ON_LIGHT_YELLOW("black_on_light_yellow"),
+  
+  BLACK_ON_LIGHT_GREEN("black_on_light_green"),
+  
+  BLACK_ON_LIGHT_RED("black_on_light_red");
 
   private String value;
 
