@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**createIncidentTeam**](IncidentTeamsApi.md#createIncidentTeam) | **POST** /api/v2/teams | Create a new incident team
 [**deleteIncidentTeam**](IncidentTeamsApi.md#deleteIncidentTeam) | **DELETE** /api/v2/teams/{team_id} | Delete an existing incident team
 [**getIncidentTeam**](IncidentTeamsApi.md#getIncidentTeam) | **GET** /api/v2/teams/{team_id} | Get details of an incident team
-[**getIncidentTeams**](IncidentTeamsApi.md#getIncidentTeams) | **GET** /api/v2/teams | Get a list of all incident teams
+[**listIncidentTeams**](IncidentTeamsApi.md#listIncidentTeams) | **GET** /api/v2/teams | Get a list of all incident teams
 [**updateIncidentTeam**](IncidentTeamsApi.md#updateIncidentTeam) | **PATCH** /api/v2/teams/{team_id} | Update an existing incident team
 
 
@@ -261,9 +261,9 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 
-## getIncidentTeams
+## listIncidentTeams
 
-> IncidentTeamsResponse getIncidentTeams().include(include).pageSize(pageSize).pageOffset(pageOffset).execute();
+> IncidentTeamsResponse listIncidentTeams().include(include).pageSize(pageSize).pageOffset(pageOffset).filter(filter).execute();
 
 Get a list of all incident teams
 
@@ -300,15 +300,17 @@ public class Example {
         String include = "include_example"; // String | Specifies which types of related objects should be included in the response.
         Long pageSize = 10lL; // Long | Size for a given page.
         Long pageOffset = 0lL; // Long | Specific offset to use as the beginning of the returned page.
+        String filter = ExampleTeamName; // String | A search query that filters teams by name.
         try {
-            IncidentTeamsResponse result = api.getIncidentTeams()
+            IncidentTeamsResponse result = api.listIncidentTeams()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset)
+                .filter(filter)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling IncidentTeamsApi#getIncidentTeams");
+            System.err.println("Exception when calling IncidentTeamsApi#listIncidentTeams");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -326,6 +328,7 @@ Name | Type | Description  | Notes
  **include** | **String**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
  **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0l]
+ **filter** | **String**| A search query that filters teams by name. | [optional]
 
 ### Return type
 
