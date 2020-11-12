@@ -520,35 +520,6 @@ public class DashboardsApiTest extends V1ApiTest{
         Widget timeseriesWidgetLogQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionLogQuery));
         orderedWidgetList.add(timeseriesWidgetLogQuery);
 
-        // Timeseries Widget with Legacy Event query
-        TimeseriesWidgetDefinition timeseriesWidgetDefinitionEventQuery = new TimeseriesWidgetDefinition()
-                .addRequestsItem(new TimeseriesWidgetRequest()
-                        .legacyEventQuery(new EventQueryDefinition()
-                                .search("Build failure").tagsExecution("build")
-                        )
-                        .style(new WidgetRequestStyle()
-                                .palette("dog_classic")
-                                .lineType(WidgetLineType.DASHED)
-                                .lineWidth(WidgetLineWidth.THICK)
-                        ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
-                                .expression("avg:system.load.1{*}").aliasName("Aliased metric")
-                        ).displayType(WidgetDisplayType.LINE)
-                        .onRightYaxis(true)
-                ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
-                .addEventsItem(new WidgetEvent().q("Build succeeded"))
-                .addMarkersItem(new WidgetMarker()
-                        .value("y=15").displayType("error dashed").label("error threshold")
-                        .time(WidgetLiveSpan.PAST_FOUR_HOURS.toString()))
-                .title("Test Timeseries Widget with Event Query").showLegend(true)
-                .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
-                .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
-                .showLegend(true).legendSize("16")
-                .addCustomLinksItem(new WidgetCustomLink()
-                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
-                );
-        Widget timeseriesWidgetEventQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionEventQuery));
-        orderedWidgetList.add(timeseriesWidgetEventQuery);
-
         // Toplist Widget
         ToplistWidgetDefinition toplistWidgetDefinition = new ToplistWidgetDefinition()
                 .addRequestsItem(new ToplistWidgetRequest()
@@ -601,7 +572,6 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(timeseriesWidget)
                 .addWidgetsItem(timeseriesWidgetProcessQuery)
                 .addWidgetsItem(timeseriesWidgetLogQuery)
-                .addWidgetsItem(timeseriesWidgetEventQuery)
                 .addWidgetsItem(toplistWidget)
                 .title(getUniqueEntityName("ordered"))
                 .description("Test dashboard for Java client")
