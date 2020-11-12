@@ -397,7 +397,7 @@ private ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(String tea
     return new APIgetIncidentTeamRequest(teamId);
   }
 
-private ApiResponse<IncidentTeamsResponse> getIncidentTeamsWithHttpInfo(String include, Long pageSize, Long pageOffset) throws ApiException {
+private ApiResponse<IncidentTeamsResponse> listIncidentTeamsWithHttpInfo(String include, Long pageSize, Long pageOffset, String filter) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -412,9 +412,10 @@ private ApiResponse<IncidentTeamsResponse> getIncidentTeamsWithHttpInfo(String i
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentTeams");
+    localVarHeaderParams.put("DD-OPERATION-ID", "listIncidentTeams");
 
     
     
@@ -433,25 +434,26 @@ private ApiResponse<IncidentTeamsResponse> getIncidentTeamsWithHttpInfo(String i
 
     GenericType<IncidentTeamsResponse> localVarReturnType = new GenericType<IncidentTeamsResponse>() {};
 
-    return apiClient.invokeAPI("IncidentTeamsApi.getIncidentTeams", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    return apiClient.invokeAPI("IncidentTeamsApi.listIncidentTeams", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
 
-  public class APIgetIncidentTeamsRequest {
+  public class APIlistIncidentTeamsRequest {
     private String include;
     private Long pageSize;
     private Long pageOffset;
+    private String filter;
 
-    private APIgetIncidentTeamsRequest() {
+    private APIlistIncidentTeamsRequest() {
     }
 
     /**
      * Set include
      * @param include Specifies which types of related objects should be included in the response. (optional)
-     * @return APIgetIncidentTeamsRequest
+     * @return APIlistIncidentTeamsRequest
      */
-    public APIgetIncidentTeamsRequest include(String include) {
+    public APIlistIncidentTeamsRequest include(String include) {
       this.include = include;
       return this;
     }
@@ -459,9 +461,9 @@ private ApiResponse<IncidentTeamsResponse> getIncidentTeamsWithHttpInfo(String i
     /**
      * Set pageSize
      * @param pageSize Size for a given page. (optional, default to 10l)
-     * @return APIgetIncidentTeamsRequest
+     * @return APIlistIncidentTeamsRequest
      */
-    public APIgetIncidentTeamsRequest pageSize(Long pageSize) {
+    public APIlistIncidentTeamsRequest pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -469,15 +471,25 @@ private ApiResponse<IncidentTeamsResponse> getIncidentTeamsWithHttpInfo(String i
     /**
      * Set pageOffset
      * @param pageOffset Specific offset to use as the beginning of the returned page. (optional, default to 0l)
-     * @return APIgetIncidentTeamsRequest
+     * @return APIlistIncidentTeamsRequest
      */
-    public APIgetIncidentTeamsRequest pageOffset(Long pageOffset) {
+    public APIlistIncidentTeamsRequest pageOffset(Long pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
 
     /**
-     * Execute getIncidentTeams request
+     * Set filter
+     * @param filter A search query that filters teams by name. (optional)
+     * @return APIlistIncidentTeamsRequest
+     */
+    public APIlistIncidentTeamsRequest filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+
+    /**
+     * Execute listIncidentTeams request
      * @return IncidentTeamsResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -497,7 +509,7 @@ private ApiResponse<IncidentTeamsResponse> getIncidentTeamsWithHttpInfo(String i
     }
 
     /**
-     * Execute getIncidentTeams request with HTTP info returned
+     * Execute listIncidentTeams request with HTTP info returned
      * @return ApiResponse&lt;IncidentTeamsResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -512,26 +524,26 @@ private ApiResponse<IncidentTeamsResponse> getIncidentTeamsWithHttpInfo(String i
 
      */
     public ApiResponse<IncidentTeamsResponse> executeWithHttpInfo() throws ApiException {
-      return getIncidentTeamsWithHttpInfo(include, pageSize, pageOffset);
+      return listIncidentTeamsWithHttpInfo(include, pageSize, pageOffset, filter);
     }
   }
 
   /**
    * Get a list of all incident teams
    * Get all incident teams for the requesting user&#39;s organization. If the &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the users related to these incident teams.
-   * @return getIncidentTeamsRequest
+   * @return listIncidentTeamsRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  public APIgetIncidentTeamsRequest getIncidentTeams() throws ApiException {
-    String operationId = "getIncidentTeams";
+  public APIlistIncidentTeamsRequest listIncidentTeams() throws ApiException {
+    String operationId = "listIncidentTeams";
     if (apiClient.isUnstableOperationEnabled(operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
-    return new APIgetIncidentTeamsRequest();
+    return new APIlistIncidentTeamsRequest();
   }
 
 private ApiResponse<IncidentTeamResponse> updateIncidentTeamWithHttpInfo(String teamId, IncidentTeamUpdateRequest body) throws ApiException {

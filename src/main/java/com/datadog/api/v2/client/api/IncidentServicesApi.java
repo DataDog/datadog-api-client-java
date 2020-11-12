@@ -397,7 +397,7 @@ private ApiResponse<IncidentServiceResponse> getIncidentServiceWithHttpInfo(Stri
     return new APIgetIncidentServiceRequest(serviceId);
   }
 
-private ApiResponse<IncidentServicesResponse> getIncidentServicesWithHttpInfo(String include, Long pageSize, Long pageOffset) throws ApiException {
+private ApiResponse<IncidentServicesResponse> listIncidentServicesWithHttpInfo(String include, Long pageSize, Long pageOffset, String filter) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -412,9 +412,10 @@ private ApiResponse<IncidentServicesResponse> getIncidentServicesWithHttpInfo(St
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentServices");
+    localVarHeaderParams.put("DD-OPERATION-ID", "listIncidentServices");
 
     
     
@@ -433,25 +434,26 @@ private ApiResponse<IncidentServicesResponse> getIncidentServicesWithHttpInfo(St
 
     GenericType<IncidentServicesResponse> localVarReturnType = new GenericType<IncidentServicesResponse>() {};
 
-    return apiClient.invokeAPI("IncidentServicesApi.getIncidentServices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    return apiClient.invokeAPI("IncidentServicesApi.listIncidentServices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
 
-  public class APIgetIncidentServicesRequest {
+  public class APIlistIncidentServicesRequest {
     private String include;
     private Long pageSize;
     private Long pageOffset;
+    private String filter;
 
-    private APIgetIncidentServicesRequest() {
+    private APIlistIncidentServicesRequest() {
     }
 
     /**
      * Set include
      * @param include Specifies which types of related objects should be included in the response. (optional)
-     * @return APIgetIncidentServicesRequest
+     * @return APIlistIncidentServicesRequest
      */
-    public APIgetIncidentServicesRequest include(String include) {
+    public APIlistIncidentServicesRequest include(String include) {
       this.include = include;
       return this;
     }
@@ -459,9 +461,9 @@ private ApiResponse<IncidentServicesResponse> getIncidentServicesWithHttpInfo(St
     /**
      * Set pageSize
      * @param pageSize Size for a given page. (optional, default to 10l)
-     * @return APIgetIncidentServicesRequest
+     * @return APIlistIncidentServicesRequest
      */
-    public APIgetIncidentServicesRequest pageSize(Long pageSize) {
+    public APIlistIncidentServicesRequest pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -469,15 +471,25 @@ private ApiResponse<IncidentServicesResponse> getIncidentServicesWithHttpInfo(St
     /**
      * Set pageOffset
      * @param pageOffset Specific offset to use as the beginning of the returned page. (optional, default to 0l)
-     * @return APIgetIncidentServicesRequest
+     * @return APIlistIncidentServicesRequest
      */
-    public APIgetIncidentServicesRequest pageOffset(Long pageOffset) {
+    public APIlistIncidentServicesRequest pageOffset(Long pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
 
     /**
-     * Execute getIncidentServices request
+     * Set filter
+     * @param filter A search query that filters services by name. (optional)
+     * @return APIlistIncidentServicesRequest
+     */
+    public APIlistIncidentServicesRequest filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+
+    /**
+     * Execute listIncidentServices request
      * @return IncidentServicesResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -497,7 +509,7 @@ private ApiResponse<IncidentServicesResponse> getIncidentServicesWithHttpInfo(St
     }
 
     /**
-     * Execute getIncidentServices request with HTTP info returned
+     * Execute listIncidentServices request with HTTP info returned
      * @return ApiResponse&lt;IncidentServicesResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -512,26 +524,26 @@ private ApiResponse<IncidentServicesResponse> getIncidentServicesWithHttpInfo(St
 
      */
     public ApiResponse<IncidentServicesResponse> executeWithHttpInfo() throws ApiException {
-      return getIncidentServicesWithHttpInfo(include, pageSize, pageOffset);
+      return listIncidentServicesWithHttpInfo(include, pageSize, pageOffset, filter);
     }
   }
 
   /**
    * Get a list of all incident services
    * Get all incident services uploaded for the requesting user&#39;s organization. If the &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the users related to these incident services.
-   * @return getIncidentServicesRequest
+   * @return listIncidentServicesRequest
    * @throws ApiException if fails to make API call
    
    
    */
-  public APIgetIncidentServicesRequest getIncidentServices() throws ApiException {
-    String operationId = "getIncidentServices";
+  public APIlistIncidentServicesRequest listIncidentServices() throws ApiException {
+    String operationId = "listIncidentServices";
     if (apiClient.isUnstableOperationEnabled(operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
-    return new APIgetIncidentServicesRequest();
+    return new APIlistIncidentServicesRequest();
   }
 
 private ApiResponse<IncidentServiceResponse> updateIncidentServiceWithHttpInfo(String serviceId, IncidentServiceUpdateRequest body) throws ApiException {

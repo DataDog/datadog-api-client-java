@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**createIncidentService**](IncidentServicesApi.md#createIncidentService) | **POST** /api/v2/services | Create a new incident service
 [**deleteIncidentService**](IncidentServicesApi.md#deleteIncidentService) | **DELETE** /api/v2/services/{service_id} | Delete an existing incident service
 [**getIncidentService**](IncidentServicesApi.md#getIncidentService) | **GET** /api/v2/services/{service_id} | Get details of an incident service
-[**getIncidentServices**](IncidentServicesApi.md#getIncidentServices) | **GET** /api/v2/services | Get a list of all incident services
+[**listIncidentServices**](IncidentServicesApi.md#listIncidentServices) | **GET** /api/v2/services | Get a list of all incident services
 [**updateIncidentService**](IncidentServicesApi.md#updateIncidentService) | **PATCH** /api/v2/services/{service_id} | Update an existing incident service
 
 
@@ -261,9 +261,9 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 
 
-## getIncidentServices
+## listIncidentServices
 
-> IncidentServicesResponse getIncidentServices().include(include).pageSize(pageSize).pageOffset(pageOffset).execute();
+> IncidentServicesResponse listIncidentServices().include(include).pageSize(pageSize).pageOffset(pageOffset).filter(filter).execute();
 
 Get a list of all incident services
 
@@ -300,15 +300,17 @@ public class Example {
         String include = "include_example"; // String | Specifies which types of related objects should be included in the response.
         Long pageSize = 10lL; // Long | Size for a given page.
         Long pageOffset = 0lL; // Long | Specific offset to use as the beginning of the returned page.
+        String filter = ExampleServiceName; // String | A search query that filters services by name.
         try {
-            IncidentServicesResponse result = api.getIncidentServices()
+            IncidentServicesResponse result = api.listIncidentServices()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset)
+                .filter(filter)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling IncidentServicesApi#getIncidentServices");
+            System.err.println("Exception when calling IncidentServicesApi#listIncidentServices");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -326,6 +328,7 @@ Name | Type | Description  | Notes
  **include** | **String**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
  **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0l]
+ **filter** | **String**| A search query that filters services by name. | [optional]
 
 ### Return type
 
