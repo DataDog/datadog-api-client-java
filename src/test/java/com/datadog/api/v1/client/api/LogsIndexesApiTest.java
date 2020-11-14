@@ -151,7 +151,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
             .filter(new LogsExclusionFilter().query("*").sampleRate(1.0));
         exclusionFilters.add(exclusion);
 
-        LogsIndex body = new LogsIndex()
+        LogsIndexUpdateRequest body = new LogsIndexUpdateRequest()
             .filter(orig.getFilter())
             .exclusionFilters(exclusionFilters);
 
@@ -229,7 +229,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     @Test
     public void logsIndexesUpdateErrorsTest() throws IOException {
         try {
-            api.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
+            api.updateLogsIndex("shrugs").body(new LogsIndexUpdateRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
@@ -238,7 +238,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
         }
 
         try {
-            fakeAuthApi.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
+            fakeAuthApi.updateLogsIndex("shrugs").body(new LogsIndexUpdateRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
@@ -256,7 +256,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
         );
         // Mock the 429 response
         try {
-            unitApi.updateLogsIndex("shrugs").body(new LogsIndex()).execute();
+            unitApi.updateLogsIndex("shrugs").body(new LogsIndexUpdateRequest()).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(429, e.getCode());
