@@ -12,6 +12,7 @@ import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.LogsAPIErrorResponse;
 import com.datadog.api.v1.client.model.LogsIndex;
 import com.datadog.api.v1.client.model.LogsIndexListResponse;
+import com.datadog.api.v1.client.model.LogsIndexUpdateRequest;
 import com.datadog.api.v1.client.model.LogsIndexesOrder;
 
 import java.util.ArrayList;
@@ -346,7 +347,7 @@ private ApiResponse<LogsIndexListResponse> listLogIndexesWithHttpInfo() throws A
     return new APIlistLogIndexesRequest();
   }
 
-private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsIndex body) throws ApiException {
+private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsIndexUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'name' is set
@@ -392,7 +393,7 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
 
   public class APIupdateLogsIndexRequest {
     private String name;
-    private LogsIndex body;
+    private LogsIndexUpdateRequest body;
 
     private APIupdateLogsIndexRequest(String name) {
       this.name = name;
@@ -400,10 +401,10 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
 
     /**
      * Set body
-     * @param body Object containing the new &#x60;LogsIndex&#x60;. (optional)
+     * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (optional)
      * @return APIupdateLogsIndexRequest
      */
-    public APIupdateLogsIndexRequest body(LogsIndex body) {
+    public APIupdateLogsIndexRequest body(LogsIndexUpdateRequest body) {
       this.body = body;
       return this;
     }
