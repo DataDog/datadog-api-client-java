@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **notifyNoData** | **Boolean** | A Boolean indicating whether this monitor notifies when data stops reporting. |  [optional]
 **renotifyInterval** | **Long** | The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved. |  [optional]
 **requireFullWindow** | **Boolean** | A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. Default is false. |  [optional]
+**restrictedRoles** | **List&lt;String&gt;** | A list of role identifiers that can be pulled from the Roles API. Cannot be used with &#x60;locked&#x60;. |  [optional]
 **silenced** | **Map&lt;String, Long&gt;** | Information about the downtime applied to the monitor. |  [optional]
 **syntheticsCheckId** | **String** | ID of the corresponding Synthetic check. |  [optional]
 **thresholdWindows** | [**MonitorThresholdWindowOptions**](MonitorThresholdWindowOptions.md) |  |  [optional]

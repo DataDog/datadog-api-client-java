@@ -23,7 +23,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v1.client.JSON;
 
@@ -34,15 +36,23 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "Available prefix information for the Synthetics endpoints.")
 @JsonPropertyOrder({
   IPPrefixesSynthetics.JSON_PROPERTY_PREFIXES_IPV4,
-  IPPrefixesSynthetics.JSON_PROPERTY_PREFIXES_IPV6
+  IPPrefixesSynthetics.JSON_PROPERTY_PREFIXES_IPV4_BY_LOCATION,
+  IPPrefixesSynthetics.JSON_PROPERTY_PREFIXES_IPV6,
+  IPPrefixesSynthetics.JSON_PROPERTY_PREFIXES_IPV6_BY_LOCATION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IPPrefixesSynthetics {
   public static final String JSON_PROPERTY_PREFIXES_IPV4 = "prefixes_ipv4";
   private List<String> prefixesIpv4 = null;
 
+  public static final String JSON_PROPERTY_PREFIXES_IPV4_BY_LOCATION = "prefixes_ipv4_by_location";
+  private Map<String, List<String>> prefixesIpv4ByLocation = null;
+
   public static final String JSON_PROPERTY_PREFIXES_IPV6 = "prefixes_ipv6";
   private List<String> prefixesIpv6 = null;
+
+  public static final String JSON_PROPERTY_PREFIXES_IPV6_BY_LOCATION = "prefixes_ipv6_by_location";
+  private Map<String, List<String>> prefixesIpv6ByLocation = null;
 
 
   public IPPrefixesSynthetics prefixesIpv4(List<String> prefixesIpv4) {
@@ -74,6 +84,38 @@ public class IPPrefixesSynthetics {
 
   public void setPrefixesIpv4(List<String> prefixesIpv4) {
     this.prefixesIpv4 = prefixesIpv4;
+  }
+
+
+  public IPPrefixesSynthetics prefixesIpv4ByLocation(Map<String, List<String>> prefixesIpv4ByLocation) {
+    this.prefixesIpv4ByLocation = prefixesIpv4ByLocation;
+    return this;
+  }
+
+  public IPPrefixesSynthetics putPrefixesIpv4ByLocationItem(String key, List<String> prefixesIpv4ByLocationItem) {
+    if (this.prefixesIpv4ByLocation == null) {
+      this.prefixesIpv4ByLocation = new HashMap<>();
+    }
+    this.prefixesIpv4ByLocation.put(key, prefixesIpv4ByLocationItem);
+    return this;
+  }
+
+   /**
+   * List of IPv4 prefixes by location.
+   * @return prefixesIpv4ByLocation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of IPv4 prefixes by location.")
+  @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4_BY_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, List<String>> getPrefixesIpv4ByLocation() {
+    return prefixesIpv4ByLocation;
+  }
+
+
+  public void setPrefixesIpv4ByLocation(Map<String, List<String>> prefixesIpv4ByLocation) {
+    this.prefixesIpv4ByLocation = prefixesIpv4ByLocation;
   }
 
 
@@ -109,6 +151,38 @@ public class IPPrefixesSynthetics {
   }
 
 
+  public IPPrefixesSynthetics prefixesIpv6ByLocation(Map<String, List<String>> prefixesIpv6ByLocation) {
+    this.prefixesIpv6ByLocation = prefixesIpv6ByLocation;
+    return this;
+  }
+
+  public IPPrefixesSynthetics putPrefixesIpv6ByLocationItem(String key, List<String> prefixesIpv6ByLocationItem) {
+    if (this.prefixesIpv6ByLocation == null) {
+      this.prefixesIpv6ByLocation = new HashMap<>();
+    }
+    this.prefixesIpv6ByLocation.put(key, prefixesIpv6ByLocationItem);
+    return this;
+  }
+
+   /**
+   * List of IPv6 prefixes by location.
+   * @return prefixesIpv6ByLocation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of IPv6 prefixes by location.")
+  @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6_BY_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, List<String>> getPrefixesIpv6ByLocation() {
+    return prefixesIpv6ByLocation;
+  }
+
+
+  public void setPrefixesIpv6ByLocation(Map<String, List<String>> prefixesIpv6ByLocation) {
+    this.prefixesIpv6ByLocation = prefixesIpv6ByLocation;
+  }
+
+
   /**
    * Return true if this IPPrefixesSynthetics object is equal to o.
    */
@@ -122,12 +196,14 @@ public class IPPrefixesSynthetics {
     }
     IPPrefixesSynthetics ipPrefixesSynthetics = (IPPrefixesSynthetics) o;
     return Objects.equals(this.prefixesIpv4, ipPrefixesSynthetics.prefixesIpv4) &&
-        Objects.equals(this.prefixesIpv6, ipPrefixesSynthetics.prefixesIpv6);
+        Objects.equals(this.prefixesIpv4ByLocation, ipPrefixesSynthetics.prefixesIpv4ByLocation) &&
+        Objects.equals(this.prefixesIpv6, ipPrefixesSynthetics.prefixesIpv6) &&
+        Objects.equals(this.prefixesIpv6ByLocation, ipPrefixesSynthetics.prefixesIpv6ByLocation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(prefixesIpv4, prefixesIpv6);
+    return Objects.hash(prefixesIpv4, prefixesIpv4ByLocation, prefixesIpv6, prefixesIpv6ByLocation);
   }
 
 
@@ -136,7 +212,9 @@ public class IPPrefixesSynthetics {
     StringBuilder sb = new StringBuilder();
     sb.append("class IPPrefixesSynthetics {\n");
     sb.append("    prefixesIpv4: ").append(toIndentedString(prefixesIpv4)).append("\n");
+    sb.append("    prefixesIpv4ByLocation: ").append(toIndentedString(prefixesIpv4ByLocation)).append("\n");
     sb.append("    prefixesIpv6: ").append(toIndentedString(prefixesIpv6)).append("\n");
+    sb.append("    prefixesIpv6ByLocation: ").append(toIndentedString(prefixesIpv6ByLocation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
