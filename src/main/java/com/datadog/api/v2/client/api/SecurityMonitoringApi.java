@@ -625,12 +625,12 @@ private ApiResponse<SecurityMonitoringSignalsListResponse> listSecurityMonitorin
    
    */
   public APIlistSecurityMonitoringSignalsRequest listSecurityMonitoringSignals() throws ApiException {
-    String operationId = "listSecurityMonitoringSignals";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "listSecurityMonitoringSignals";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIlistSecurityMonitoringSignalsRequest();
   }
 
@@ -733,12 +733,12 @@ private ApiResponse<SecurityMonitoringSignalsListResponse> searchSecurityMonitor
    
    */
   public APIsearchSecurityMonitoringSignalsRequest searchSecurityMonitoringSignals() throws ApiException {
-    String operationId = "searchSecurityMonitoringSignals";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "searchSecurityMonitoringSignals";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIsearchSecurityMonitoringSignalsRequest();
   }
 

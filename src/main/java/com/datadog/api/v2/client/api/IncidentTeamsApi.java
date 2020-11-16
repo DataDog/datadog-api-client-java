@@ -158,12 +158,12 @@ private ApiResponse<IncidentTeamResponse> createIncidentTeamWithHttpInfo(Inciden
    
    */
   public APIcreateIncidentTeamRequest createIncidentTeam() throws ApiException {
-    String operationId = "createIncidentTeam";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "createIncidentTeam";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIcreateIncidentTeamRequest();
   }
 
@@ -266,12 +266,12 @@ private ApiResponse<Void> deleteIncidentTeamWithHttpInfo(String teamId) throws A
    
    */
   public APIdeleteIncidentTeamRequest deleteIncidentTeam(String teamId) throws ApiException {
-    String operationId = "deleteIncidentTeam";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "deleteIncidentTeam";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIdeleteIncidentTeamRequest(teamId);
   }
 
@@ -388,12 +388,12 @@ private ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(String tea
    
    */
   public APIgetIncidentTeamRequest getIncidentTeam(String teamId) throws ApiException {
-    String operationId = "getIncidentTeam";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "getIncidentTeam";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIgetIncidentTeamRequest(teamId);
   }
 
@@ -537,12 +537,12 @@ private ApiResponse<IncidentTeamsResponse> listIncidentTeamsWithHttpInfo(String 
    
    */
   public APIlistIncidentTeamsRequest listIncidentTeams() throws ApiException {
-    String operationId = "listIncidentTeams";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "listIncidentTeams";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIlistIncidentTeamsRequest();
   }
 
@@ -663,12 +663,12 @@ private ApiResponse<IncidentTeamResponse> updateIncidentTeamWithHttpInfo(String 
    
    */
   public APIupdateIncidentTeamRequest updateIncidentTeam(String teamId) throws ApiException {
-    String operationId = "updateIncidentTeam";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "updateIncidentTeam";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIupdateIncidentTeamRequest(teamId);
   }
 }

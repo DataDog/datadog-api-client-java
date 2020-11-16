@@ -158,12 +158,12 @@ private ApiResponse<IncidentServiceResponse> createIncidentServiceWithHttpInfo(I
    
    */
   public APIcreateIncidentServiceRequest createIncidentService() throws ApiException {
-    String operationId = "createIncidentService";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "createIncidentService";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIcreateIncidentServiceRequest();
   }
 
@@ -266,12 +266,12 @@ private ApiResponse<Void> deleteIncidentServiceWithHttpInfo(String serviceId) th
    
    */
   public APIdeleteIncidentServiceRequest deleteIncidentService(String serviceId) throws ApiException {
-    String operationId = "deleteIncidentService";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "deleteIncidentService";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIdeleteIncidentServiceRequest(serviceId);
   }
 
@@ -388,12 +388,12 @@ private ApiResponse<IncidentServiceResponse> getIncidentServiceWithHttpInfo(Stri
    
    */
   public APIgetIncidentServiceRequest getIncidentService(String serviceId) throws ApiException {
-    String operationId = "getIncidentService";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "getIncidentService";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIgetIncidentServiceRequest(serviceId);
   }
 
@@ -537,12 +537,12 @@ private ApiResponse<IncidentServicesResponse> listIncidentServicesWithHttpInfo(S
    
    */
   public APIlistIncidentServicesRequest listIncidentServices() throws ApiException {
-    String operationId = "listIncidentServices";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "listIncidentServices";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIlistIncidentServicesRequest();
   }
 
@@ -663,12 +663,12 @@ private ApiResponse<IncidentServiceResponse> updateIncidentServiceWithHttpInfo(S
    
    */
   public APIupdateIncidentServiceRequest updateIncidentService(String serviceId) throws ApiException {
-    String operationId = "updateIncidentService";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "updateIncidentService";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIupdateIncidentServiceRequest(serviceId);
   }
 }

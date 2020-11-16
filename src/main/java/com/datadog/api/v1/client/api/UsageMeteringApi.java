@@ -207,12 +207,12 @@ private ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInf
    
    */
   public APIgetDailyCustomReportsRequest getDailyCustomReports() throws ApiException {
-    String operationId = "getDailyCustomReports";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "getDailyCustomReports";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIgetDailyCustomReportsRequest();
   }
 
@@ -470,12 +470,12 @@ private ApiResponse<UsageCustomReportsResponse> getMonthlyCustomReportsWithHttpI
    
    */
   public APIgetMonthlyCustomReportsRequest getMonthlyCustomReports() throws ApiException {
-    String operationId = "getMonthlyCustomReports";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "getMonthlyCustomReports";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIgetMonthlyCustomReportsRequest();
   }
 
@@ -576,12 +576,12 @@ private ApiResponse<UsageSpecifiedCustomReportsResponse> getSpecifiedDailyCustom
    
    */
   public APIgetSpecifiedDailyCustomReportsRequest getSpecifiedDailyCustomReports(String reportId) throws ApiException {
-    String operationId = "getSpecifiedDailyCustomReports";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "getSpecifiedDailyCustomReports";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIgetSpecifiedDailyCustomReportsRequest(reportId);
   }
 
@@ -684,12 +684,12 @@ private ApiResponse<UsageSpecifiedCustomReportsResponse> getSpecifiedMonthlyCust
    
    */
   public APIgetSpecifiedMonthlyCustomReportsRequest getSpecifiedMonthlyCustomReports(String reportId) throws ApiException {
-    String operationId = "getSpecifiedMonthlyCustomReports";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "getSpecifiedMonthlyCustomReports";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIgetSpecifiedMonthlyCustomReportsRequest(reportId);
   }
 

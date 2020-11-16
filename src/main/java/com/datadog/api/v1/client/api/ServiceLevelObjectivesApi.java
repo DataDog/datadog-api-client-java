@@ -726,12 +726,12 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
    
    */
   public APIgetSLOHistoryRequest getSLOHistory(String sloId) throws ApiException {
-    String operationId = "getSLOHistory";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+     String operationId = "getSLOHistory";
+     if (apiClient.isUnstableOperationEnabled(operationId)) {
+       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+     } else {
+       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+     }
     return new APIgetSLOHistoryRequest(sloId);
   }
 
