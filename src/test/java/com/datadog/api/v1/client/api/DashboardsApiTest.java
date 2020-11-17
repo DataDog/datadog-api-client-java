@@ -278,7 +278,7 @@ public class DashboardsApiTest extends V1ApiTest{
                         new WidgetFieldSort()
                                 .column("Route")
                                 .order(WidgetSort.ASCENDING)
-                );;
+                );
         Widget logStreamWidget = new Widget().definition(new WidgetDefinition(logStreamWidgetDefinition))
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(logStreamWidget);
@@ -391,8 +391,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .title("Test Service Summary Widget")
                 .titleSize("16")
                 .titleAlign(WidgetTextAlign.CENTER)
-                .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_HOUR))
-                ;
+                .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_HOUR));
         Widget serviceSummaryWidget = new Widget().definition(new WidgetDefinition(serviceSummaryWidgetDefinition))
                 .layout(new WidgetLayout().height(10L).width(10L).x(0L).y(0L));
         freeWidgetList.add(serviceSummaryWidget);
@@ -413,8 +412,9 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .customFgColor("black")
                                 .imageUrl("https://docs.datadoghq.com/images/dashboards/widgets/image/image.mp4")
                         )
-                        .addCellDisplayModeItem(TableWidgetCellDisplayMode.NUMBER)
-                ).title("Test Table Widget").titleAlign(WidgetTextAlign.CENTER).titleSize("16").time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+                        .addCellDisplayModeItem(TableWidgetCellDisplayMode.NUMBER))
+                .title("Test Table Widget").titleAlign(WidgetTextAlign.CENTER).titleSize("16")
+                .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
                 .addCustomLinksItem(new WidgetCustomLink()
                         .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
                 )
@@ -483,6 +483,40 @@ public class DashboardsApiTest extends V1ApiTest{
                 );
         Widget timeseriesWidgetProcessQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionProcessQuery));
         orderedWidgetList.add(timeseriesWidgetProcessQuery);
+
+        // Timeseries Widget with Event query
+        TimeseriesWidgetDefinition timeseriesWidgetDefinitionEventQuery = new TimeseriesWidgetDefinition()
+                .addRequestsItem(new TimeseriesWidgetRequest()
+                        .eventQuery(new LogQueryDefinition()
+                                .index("*")
+                                .compute(new LogsQueryCompute().aggregation("count").facet("host").interval(10L))
+                                .search(new LogQueryDefinitionSearch().query("source:kubernetes"))
+                                .addGroupByItem(new LogQueryDefinitionGroupBy().facet("host").limit(5L).sort(
+                                        new LogQueryDefinitionSort().aggregation("count").order(WidgetSort.ASCENDING)
+                                ))
+                        )
+                        .style(new WidgetRequestStyle()
+                                .palette("dog_classic")
+                                .lineType(WidgetLineType.DASHED)
+                                .lineWidth(WidgetLineWidth.THICK)
+                        ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
+                                .expression("avg:system.load.1{*}").aliasName("Aliased metric")
+                        ).displayType(WidgetDisplayType.LINE)
+                        .onRightYaxis(true)
+                ).yaxis(new WidgetAxis().includeZero(true).min("0").max("100").scale("linear"))
+                .addEventsItem(new WidgetEvent().q("Build succeeded"))
+                .addMarkersItem(new WidgetMarker()
+                        .value("y=15").displayType("error dashed").label("error threshold")
+                        .time(WidgetLiveSpan.PAST_FOUR_HOURS.toString()))
+                .title("Test Timeseries Widget with Event Query").showLegend(true)
+                .titleAlign(WidgetTextAlign.CENTER).titleSize("16")
+                .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+                .showLegend(true).legendSize("16")
+                .addCustomLinksItem(new WidgetCustomLink()
+                        .label("Test Custom Link label").link("https://app.datadoghq.com/dashboard/lists")
+                );
+        Widget timeseriesWidgetEventQuery = new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinitionEventQuery));
+        orderedWidgetList.add(timeseriesWidgetEventQuery);
 
         // Timeseries Widget with Log query (APM/Log/Network/Rum/Event share schemas, so only test one)
         TimeseriesWidgetDefinition timeseriesWidgetDefinitionLogQuery = new TimeseriesWidgetDefinition()
@@ -572,6 +606,7 @@ public class DashboardsApiTest extends V1ApiTest{
                 .addWidgetsItem(timeseriesWidget)
                 .addWidgetsItem(timeseriesWidgetProcessQuery)
                 .addWidgetsItem(timeseriesWidgetLogQuery)
+                .addWidgetsItem(timeseriesWidgetEventQuery)
                 .addWidgetsItem(toplistWidget)
                 .title(getUniqueEntityName("ordered"))
                 .description("Test dashboard for Java client")
@@ -629,12 +664,12 @@ public class DashboardsApiTest extends V1ApiTest{
         // assertEquals(templateVariablePresets, response.getTemplateVariablePresets());
 
         // Assert each individual widget but first remove the readOnly field `id`
-        for(Widget checkWidget: response.getWidgets()) {
+        for (Widget checkWidget : response.getWidgets()) {
             assertNotNull(checkWidget.getId());
             checkWidget.setId(null);
             // Unset the `id` from the sub widgets definitions of the group widget
             if (checkWidget.getDefinition().getActualInstance() instanceof GroupWidgetDefinition) {
-                for(Widget subWidget: ((GroupWidgetDefinition) checkWidget.getDefinition().getActualInstance()).getWidgets()) {
+                for (Widget subWidget : ((GroupWidgetDefinition) checkWidget.getDefinition().getActualInstance()).getWidgets()) {
                     subWidget.id(null);
                 }
             }
@@ -642,7 +677,7 @@ public class DashboardsApiTest extends V1ApiTest{
         assertEquals(new HashSet<>(response.getWidgets()), orderedWidgetList);
 
         // Assert the same for the free dashboard widgets
-        for(Widget checkWidget: getFreeResponse.getWidgets()) {
+        for (Widget checkWidget : getFreeResponse.getWidgets()) {
             assertNotNull(checkWidget.getId());
             checkWidget.id(null);
         }
@@ -666,7 +701,7 @@ public class DashboardsApiTest extends V1ApiTest{
         assertEquals(dashboard.getTitle(), updateResponse.getTitle());
         assertEquals(dashboard.getWidgets().get(0), updateResponse.getWidgets().get(0).id(null));
         Boolean foundWidget = false;
-        for (Widget noteWidgetResponse: updateResponse.getWidgets()) {
+        for (Widget noteWidgetResponse : updateResponse.getWidgets()) {
             if (noteWidgetResponse.getDefinition().getActualInstance() instanceof NoteWidgetDefinition) {
                 NoteWidgetDefinition def = (NoteWidgetDefinition) noteWidgetResponse.getDefinition().getActualInstance();
                 foundWidget = true;
