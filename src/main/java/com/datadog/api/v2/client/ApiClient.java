@@ -144,6 +144,11 @@ public class ApiClient extends JavaTimeFormatter {
     put("getIncidentTeam", false);
     put("listIncidentTeams", false);
     put("updateIncidentTeam", false);
+    put("createIncident", false);
+    put("deleteIncident", false);
+    put("getIncident", false);
+    put("listIncidents", false);
+    put("updateIncident", false);
     put("listLogs", false);
     put("listLogsGet", false);
     put("addReadRoleToArchive", false);
