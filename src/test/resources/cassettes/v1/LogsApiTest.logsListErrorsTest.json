@@ -1,5 +1,5 @@
 [{
-  "id" : "9b118609-83fc-4cac-a6c8-913f86193888",
+  "id" : "b8f18dbb-d0e7-4fdc-aa63-387ca2f080e9",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/logs-queries/list",
@@ -9,13 +9,13 @@
       "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "115" ]
+      "Content-Length" : [ "102" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"query\":null,\"startAt\":\"notanid\",\"time\":{\"from\":\"2020-07-29T07:29:07.616462Z\",\"to\":\"2020-07-29T08:29:07.616462Z\"}}"
+      "json" : "{\"startAt\":\"notanid\",\"time\":{\"from\":\"2020-11-18T13:36:15.601164Z\",\"to\":\"2020-11-18T14:36:15.601164Z\"}}"
     }
   },
   "times" : {
@@ -28,7 +28,7 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Wed, 29 Jul 2020 08:29:10 GMT" ],
+      "Date" : [ "Wed, 18 Nov 2020 14:36:18 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "75" ],
       "Connection" : [ "keep-alive" ],
@@ -36,9 +36,9 @@
       "Cache-Control" : [ "no-cache" ],
       "X-RateLimit-Limit" : [ "300" ],
       "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "1851" ],
-      "X-RateLimit-Remaining" : [ "268" ],
-      "X-DD-VERSION" : [ "35.2801846" ],
+      "X-RateLimit-Reset" : [ "1422" ],
+      "X-RateLimit-Remaining" : [ "181" ],
+      "X-DD-VERSION" : [ "35.3389891" ],
       "DD-POOL" : [ "dogweb_query" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -48,7 +48,7 @@
     "body" : "{\"error\":{\"message\":\"Invalid event id 'notanid'\",\"code\":\"InvalidArgument\"}}"
   }
 }, {
-  "id" : "3f29e612-76a8-4282-b227-8f4736f83a77",
+  "id" : "58de2350-d5a9-4e75-8b99-dbfb68e2f9a3",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/logs-queries/list",
@@ -58,13 +58,13 @@
       "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "115" ]
+      "Content-Length" : [ "102" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"query\":null,\"startAt\":\"notanid\",\"time\":{\"from\":\"2020-07-29T07:29:07.616462Z\",\"to\":\"2020-07-29T08:29:07.616462Z\"}}"
+      "json" : "{\"startAt\":\"notanid\",\"time\":{\"from\":\"2020-11-18T13:36:15.601164Z\",\"to\":\"2020-11-18T14:36:15.601164Z\"}}"
     }
   },
   "times" : {
@@ -77,7 +77,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 29 Jul 2020 08:29:10 GMT" ],
+      "Date" : [ "Wed, 18 Nov 2020 14:36:18 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
