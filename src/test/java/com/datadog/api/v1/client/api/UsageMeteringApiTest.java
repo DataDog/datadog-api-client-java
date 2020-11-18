@@ -422,6 +422,15 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageAttributionTest() throws ApiException {
+        UsageAttributionResponse response = api.getUsageAttribution()
+                .startMonth(startMonth)
+                .fields("*")
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
     public void getUsageAnalyzedLogsErrorsTest() throws IOException {
         try {
             api.getUsageAnalyzedLogs().startHr(futureStartHr).execute();
