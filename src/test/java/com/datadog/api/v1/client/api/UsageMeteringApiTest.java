@@ -972,4 +972,16 @@ public class UsageMeteringApiTest extends V1ApiTest {
             assertNotNull(error.getErrors());
         }
     }
+
+    @Test
+    public void getUsageAttributionErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getUsageAttribution().startMonth(startMonth).fields("*").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
 }
