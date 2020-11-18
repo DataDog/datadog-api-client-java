@@ -8,7 +8,7 @@ Updated distribution widget.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apmQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
-**eventQuery** | [**EventQueryDefinition**](EventQueryDefinition.md) |  |  [optional]
+**eventQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **logQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **networkQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
