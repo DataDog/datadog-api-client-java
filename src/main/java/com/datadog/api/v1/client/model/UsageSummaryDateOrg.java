@@ -44,6 +44,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_GCP_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_ID,
+  UsageSummaryDateOrg.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
@@ -99,6 +100,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM = "incident_management_monthly_active_users_hwm";
+  private Long incidentManagementMonthlyActiveUsersHwm;
 
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM = "indexed_events_count_sum";
   private Long indexedEventsCountSum;
@@ -317,11 +321,11 @@ public class UsageSummaryDateOrg {
   }
 
    /**
-   * Shows the high watermark of all distinct containers over all hours in the current date for the given org.
+   * Shows the high-water mark of all distinct containers over all hours in the current date for the given org.
    * @return containerHwm
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the high watermark of all distinct containers over all hours in the current date for the given org.")
+  @ApiModelProperty(value = "Shows the high-water mark of all distinct containers over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -389,11 +393,11 @@ public class UsageSummaryDateOrg {
   }
 
    /**
-   * Shows the high watermark of all Fargate tasks over all hours in the current date for the given org.
+   * Shows the high-water mark of all Fargate tasks over all hours in the current date for the given org.
    * @return fargateTasksCountHwm
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the high watermark of all Fargate tasks over all hours in the current date for the given org.")
+  @ApiModelProperty(value = "Shows the high-water mark of all Fargate tasks over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -452,6 +456,30 @@ public class UsageSummaryDateOrg {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public UsageSummaryDateOrg incidentManagementMonthlyActiveUsersHwm(Long incidentManagementMonthlyActiveUsersHwm) {
+    this.incidentManagementMonthlyActiveUsersHwm = incidentManagementMonthlyActiveUsersHwm;
+    return this;
+  }
+
+   /**
+   * Shows the high-water mark of incident management monthly active users over all hours in the current date for the given org.
+   * @return incidentManagementMonthlyActiveUsersHwm
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the high-water mark of incident management monthly active users over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getIncidentManagementMonthlyActiveUsersHwm() {
+    return incidentManagementMonthlyActiveUsersHwm;
+  }
+
+
+  public void setIncidentManagementMonthlyActiveUsersHwm(Long incidentManagementMonthlyActiveUsersHwm) {
+    this.incidentManagementMonthlyActiveUsersHwm = incidentManagementMonthlyActiveUsersHwm;
   }
 
 
@@ -816,6 +844,7 @@ public class UsageSummaryDateOrg {
         Objects.equals(this.fargateTasksCountHwm, usageSummaryDateOrg.fargateTasksCountHwm) &&
         Objects.equals(this.gcpHostTop99p, usageSummaryDateOrg.gcpHostTop99p) &&
         Objects.equals(this.id, usageSummaryDateOrg.id) &&
+        Objects.equals(this.incidentManagementMonthlyActiveUsersHwm, usageSummaryDateOrg.incidentManagementMonthlyActiveUsersHwm) &&
         Objects.equals(this.indexedEventsCountSum, usageSummaryDateOrg.indexedEventsCountSum) &&
         Objects.equals(this.infraHostTop99p, usageSummaryDateOrg.infraHostTop99p) &&
         Objects.equals(this.ingestedEventsBytesSum, usageSummaryDateOrg.ingestedEventsBytesSum) &&
@@ -834,7 +863,7 @@ public class UsageSummaryDateOrg {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, mobileRumSessionCountSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
+    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, incidentManagementMonthlyActiveUsersHwm, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, mobileRumSessionCountSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
   }
 
 
@@ -855,6 +884,7 @@ public class UsageSummaryDateOrg {
     sb.append("    fargateTasksCountHwm: ").append(toIndentedString(fargateTasksCountHwm)).append("\n");
     sb.append("    gcpHostTop99p: ").append(toIndentedString(gcpHostTop99p)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    incidentManagementMonthlyActiveUsersHwm: ").append(toIndentedString(incidentManagementMonthlyActiveUsersHwm)).append("\n");
     sb.append("    indexedEventsCountSum: ").append(toIndentedString(indexedEventsCountSum)).append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
     sb.append("    ingestedEventsBytesSum: ").append(toIndentedString(ingestedEventsBytesSum)).append("\n");
