@@ -15,7 +15,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
 import com.datadog.api.v1.client.model.WidgetChangeType;
@@ -65,7 +64,7 @@ public class ChangeWidgetRequest {
   private WidgetCompareTo compareTo;
 
   public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
-  private EventQueryDefinition eventQuery;
+  private LogQueryDefinition eventQuery;
 
   public static final String JSON_PROPERTY_INCREASE_GOOD = "increase_good";
   private Boolean increaseGood;
@@ -170,7 +169,7 @@ public class ChangeWidgetRequest {
   }
 
 
-  public ChangeWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
+  public ChangeWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     return this;
   }
@@ -184,12 +183,12 @@ public class ChangeWidgetRequest {
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EventQueryDefinition getEventQuery() {
+  public LogQueryDefinition getEventQuery() {
     return eventQuery;
   }
 
 
-  public void setEventQuery(EventQueryDefinition eventQuery) {
+  public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
   }
 

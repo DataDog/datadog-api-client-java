@@ -15,7 +15,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
 import com.datadog.api.v1.client.model.WidgetAggregator;
@@ -61,7 +60,7 @@ public class QueryValueWidgetRequest {
   private List<WidgetConditionalFormat> conditionalFormats = null;
 
   public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
-  private EventQueryDefinition eventQuery;
+  private LogQueryDefinition eventQuery;
 
   public static final String JSON_PROPERTY_LOG_QUERY = "log_query";
   private LogQueryDefinition logQuery;
@@ -162,7 +161,7 @@ public class QueryValueWidgetRequest {
   }
 
 
-  public QueryValueWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
+  public QueryValueWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     return this;
   }
@@ -176,12 +175,12 @@ public class QueryValueWidgetRequest {
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EventQueryDefinition getEventQuery() {
+  public LogQueryDefinition getEventQuery() {
     return eventQuery;
   }
 
 
-  public void setEventQuery(EventQueryDefinition eventQuery) {
+  public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
   }
 
