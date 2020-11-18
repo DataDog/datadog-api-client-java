@@ -1,35 +1,35 @@
-# LogsIndexesApi
+# IncidentsApi
 
 All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getLogsIndex**](LogsIndexesApi.md#getLogsIndex) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
-[**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get indexes order
-[**listLogIndexes**](LogsIndexesApi.md#listLogIndexes) | **GET** /api/v1/logs/config/indexes | Get all indexes
-[**updateLogsIndex**](LogsIndexesApi.md#updateLogsIndex) | **PUT** /api/v1/logs/config/indexes/{name} | Update an index
-[**updateLogsIndexOrder**](LogsIndexesApi.md#updateLogsIndexOrder) | **PUT** /api/v1/logs/config/index-order | Update indexes order
+[**createIncident**](IncidentsApi.md#createIncident) | **POST** /api/v2/incidents | Create an incident
+[**deleteIncident**](IncidentsApi.md#deleteIncident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident
+[**getIncident**](IncidentsApi.md#getIncident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident
+[**listIncidents**](IncidentsApi.md#listIncidents) | **GET** /api/v2/incidents | Get a list of incidents
+[**updateIncident**](IncidentsApi.md#updateIncident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident
 
 
 
-## getLogsIndex
+## createIncident
 
-> LogsIndex getLogsIndex(name).execute();
+> IncidentResponse createIncident().body(body).execute();
 
-Get an index
+Create an incident
 
-Get one log index from your organization. This endpoint takes no JSON arguments.
+Create an incident.
 
 ### Example
 
 ```java
 // Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.LogsIndexesApi;
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -47,251 +47,15 @@ public class Example {
         secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
         defaultClient.configureApiKeys(secrets);
 
-        LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
-        String name = "name_example"; // String | Name of the log index.
+        IncidentsApi apiInstance = new IncidentsApi(defaultClient);
+        IncidentCreateRequest body = new IncidentCreateRequest(); // IncidentCreateRequest | Incident payload.
         try {
-            LogsIndex result = api.getLogsIndex(name)
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling LogsIndexesApi#getLogsIndex");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the log index. |
-
-### Return type
-
-[**LogsIndex**](LogsIndex.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-
-
-## getLogsIndexOrder
-
-> LogsIndexesOrder getLogsIndexOrder().execute();
-
-Get indexes order
-
-Get the current order of your log indexes. This endpoint takes no JSON arguments.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.LogsIndexesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
-
-        LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
-        try {
-            LogsIndexesOrder result = api.getLogsIndexOrder()
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling LogsIndexesApi#getLogsIndexOrder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**LogsIndexesOrder**](LogsIndexesOrder.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-
-
-## listLogIndexes
-
-> LogsIndexListResponse listLogIndexes().execute();
-
-Get all indexes
-
-The Index object describes the configuration of a log index.
-This endpoint returns an array of the `LogIndex` objects of your organization.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.LogsIndexesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
-
-        LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
-        try {
-            LogsIndexListResponse result = api.listLogIndexes()
-                .execute();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling LogsIndexesApi#listLogIndexes");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**LogsIndexListResponse**](LogsIndexListResponse.md)
-
-### Authorization
-
-[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-
-
-## updateLogsIndex
-
-> LogsIndex updateLogsIndex(name).body(body).execute();
-
-Update an index
-
-Update an index as identified by its name.
-Returns the Index object passed in the request body when the request is successful.
-
-Using the `PUT` method updates your index’s configuration by **replacing**
-your current configuration with the new one sent to your Datadog organization.
-
-### Example
-
-```java
-// Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.LogsIndexesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
-
-        LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
-        String name = "name_example"; // String | Name of the log index.
-        LogsIndexUpdateRequest body = new LogsIndexUpdateRequest(); // LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
-        try {
-            LogsIndex result = api.updateLogsIndex(name)
+            IncidentResponse result = api.createIncident()
                 .body(body)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling LogsIndexesApi#updateLogsIndex");
+            System.err.println("Exception when calling IncidentsApi#createIncident");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -306,12 +70,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the log index. |
- **body** | [**LogsIndexUpdateRequest**](LogsIndexUpdateRequest.md)| Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. | [optional]
+ **body** | [**IncidentCreateRequest**](IncidentCreateRequest.md)| Incident payload. |
 
 ### Return type
 
-[**LogsIndex**](LogsIndex.md)
+[**IncidentResponse**](IncidentResponse.md)
 
 ### Authorization
 
@@ -325,31 +88,31 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Invalid Parameter Error |  -  |
+| **201** | CREATED |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
+| **404** | Not Found |  -  |
 
 
-## updateLogsIndexOrder
+## deleteIncident
 
-> LogsIndexesOrder updateLogsIndexOrder().body(body).execute();
+> deleteIncident(incidentId).execute();
 
-Update indexes order
+Delete an existing incident
 
-This endpoint updates the index order of your organization.
-It returns the index order object passed in the request body when the request is successful.
+Deletes an existing incident from the users organization.
 
 ### Example
 
 ```java
 // Import classes:
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.LogsIndexesApi;
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -367,15 +130,13 @@ public class Example {
         secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
         defaultClient.configureApiKeys(secrets);
 
-        LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
-        LogsIndexesOrder body = new LogsIndexesOrder(); // LogsIndexesOrder | Object containing the new ordered list of index names
+        IncidentsApi apiInstance = new IncidentsApi(defaultClient);
+        String incidentId = "incidentId_example"; // String | The UUID the incident.
         try {
-            LogsIndexesOrder result = api.updateLogsIndexOrder()
-                .body(body)
+            api.deleteIncident(incidentId)
                 .execute();
-            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling LogsIndexesApi#updateLogsIndexOrder");
+            System.err.println("Exception when calling IncidentsApi#deleteIncident");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -390,11 +151,270 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LogsIndexesOrder**](LogsIndexesOrder.md)| Object containing the new ordered list of index names | [optional]
+ **incidentId** | **String**| The UUID the incident. |
 
 ### Return type
 
-[**LogsIndexesOrder**](LogsIndexesOrder.md)
+null (empty response body)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## getIncident
+
+> IncidentResponse getIncident(incidentId).include(include).execute();
+
+Get the details of an incident
+
+Get the details of an incident by `incident_id`.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        IncidentsApi apiInstance = new IncidentsApi(defaultClient);
+        String incidentId = "incidentId_example"; // String | The UUID the incident.
+        List<String> include = Arrays.asList(); // List<String> | Specifies which types of related objects should be included in the response.
+        try {
+            IncidentResponse result = api.getIncident(incidentId)
+                .include(include)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IncidentsApi#getIncident");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **incidentId** | **String**| The UUID the incident. |
+ **include** | [**List&lt;String&gt;**](String.md)| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+
+### Return type
+
+[**IncidentResponse**](IncidentResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## listIncidents
+
+> IncidentsResponse listIncidents().include(include).pageSize(pageSize).pageOffset(pageOffset).execute();
+
+Get a list of incidents
+
+Get all incidents for the user's organization.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        IncidentsApi apiInstance = new IncidentsApi(defaultClient);
+        List<String> include = Arrays.asList(); // List<String> | Specifies which types of related objects should be included in the response.
+        Long pageSize = 10lL; // Long | Size for a given page.
+        Long pageOffset = 0lL; // Long | Specific offset to use as the beginning of the returned page.
+        try {
+            IncidentsResponse result = api.listIncidents()
+                .include(include)
+                .pageSize(pageSize)
+                .pageOffset(pageOffset)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IncidentsApi#listIncidents");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **include** | [**List&lt;String&gt;**](String.md)| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
+ **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0l]
+
+### Return type
+
+[**IncidentsResponse**](IncidentsResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth), [appKeyAuth](../README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+
+## updateIncident
+
+> IncidentResponse updateIncident(incidentId).body(body).execute();
+
+Update an existing incident
+
+Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
+
+### Example
+
+```java
+// Import classes:
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.IncidentsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        IncidentsApi apiInstance = new IncidentsApi(defaultClient);
+        String incidentId = "incidentId_example"; // String | The UUID the incident.
+        IncidentUpdateRequest body = new IncidentUpdateRequest(); // IncidentUpdateRequest | Incident Payload.
+        try {
+            IncidentResponse result = api.updateIncident(incidentId)
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IncidentsApi#updateIncident");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **incidentId** | **String**| The UUID the incident. |
+ **body** | [**IncidentUpdateRequest**](IncidentUpdateRequest.md)| Incident Payload. |
+
+### Return type
+
+[**IncidentResponse**](IncidentResponse.md)
 
 ### Authorization
 
@@ -410,5 +430,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
