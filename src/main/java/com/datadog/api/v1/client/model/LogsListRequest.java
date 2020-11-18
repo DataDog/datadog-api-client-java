@@ -119,9 +119,10 @@ public class LogsListRequest {
    * The search query - following the log search syntax.
    * @return query
   **/
-  @ApiModelProperty(example = "service:web* AND @http.status_code:[200 TO 299]", required = true, value = "The search query - following the log search syntax.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "service:web* AND @http.status_code:[200 TO 299]", value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getQuery() {
     return query;
