@@ -442,32 +442,6 @@ public class UsageMeteringApiTest extends V1ApiTest {
         
         assertNotNull(usage.getUsage());
         assertNotNull(usage.getMetadata());
-
-        UsageAttributionBody usageItem = usage.getUsage().get(3);
-        OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 9, 01, 00, 00),
-        ZoneOffset.ofHoursMinutes(0, 0));
-        assertEquals(usageItem.getMonth(), dateExpected);
-        assertEquals(usageItem.getPublicId(), "fasjyydbcgwwc2uc");
-        assertEquals(usageItem.getUpdatedAt(), "2020-10-01T15");
-        assertTrue(usageItem.getTags().keySet().contains("project"));
-        assertEquals(usageItem.getTags().get("project").get(0), "datadog-integrations-lab");
-
-        UsageAttributionValues values = usageItem.getValues();
-        assertEquals(values.getApiPercentage().doubleValue(), 0.0, 0);
-        assertEquals(values.getSnmpUsage().doubleValue(), 0.0, 0);
-        assertEquals(values.getLambdaPercentage().doubleValue(), 0.0, 0);
-
-        UsageAttributionMetadata metadata = usage.getMetadata();
-        UsageAttributionPagination pagination = metadata.getPagination();
-        assertEquals(pagination.getTotalNumberOfRecords().intValue(), 6);
-        assertEquals(pagination.getLimit().intValue(), 5000);
-        assertEquals(pagination.getOffset().intValue(), 0);
-        assertEquals(pagination.getSortName(), "custom_timeseries_usage");
-        assertEquals(pagination.getSortDirection(), "DESC");
-        UsageAttributionAggregatesBody aggregates = metadata.getAggregates().get(2);
-        assertEquals(aggregates.getAggType(), "sum");
-        assertEquals(aggregates.getField(), "snmp_percentage");
-        assertEquals(aggregates.getValue().doubleValue(), 0.0, 0);
     }
 
     @Test
