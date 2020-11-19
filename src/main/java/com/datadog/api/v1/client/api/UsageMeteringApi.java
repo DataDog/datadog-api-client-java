@@ -11,10 +11,13 @@ import javax.ws.rs.core.GenericType;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import java.time.OffsetDateTime;
 import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
+import com.datadog.api.v1.client.model.UsageAttributionResponse;
+import com.datadog.api.v1.client.model.UsageAttributionSort;
 import com.datadog.api.v1.client.model.UsageBillableSummaryResponse;
 import com.datadog.api.v1.client.model.UsageCustomReportsResponse;
 import com.datadog.api.v1.client.model.UsageFargateResponse;
 import com.datadog.api.v1.client.model.UsageHostsResponse;
+import com.datadog.api.v1.client.model.UsageIncidentManagementResponse;
 import com.datadog.api.v1.client.model.UsageIndexedSpansResponse;
 import com.datadog.api.v1.client.model.UsageIngestedSpansResponse;
 import com.datadog.api.v1.client.model.UsageLambdaResponse;
@@ -214,6 +217,126 @@ private ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInf
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     return new APIgetDailyCustomReportsRequest();
+  }
+
+private ApiResponse<UsageIncidentManagementResponse> getIncidentManagementWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(400, "Missing the required parameter 'startHr' when calling getIncidentManagement");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/incident-management";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentManagement");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageIncidentManagementResponse> localVarReturnType = new GenericType<UsageIncidentManagementResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getIncidentManagement", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetIncidentManagementRequest {
+    private OffsetDateTime startHr;
+    private OffsetDateTime endHr;
+
+    private APIgetIncidentManagementRequest() {
+    }
+
+    /**
+     * Set startHr
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. (required)
+     * @return APIgetIncidentManagementRequest
+     */
+    public APIgetIncidentManagementRequest startHr(OffsetDateTime startHr) {
+      this.startHr = startHr;
+      return this;
+    }
+
+    /**
+     * Set endHr
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. (optional)
+     * @return APIgetIncidentManagementRequest
+     */
+    public APIgetIncidentManagementRequest endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Execute getIncidentManagement request
+     * @return UsageIncidentManagementResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageIncidentManagementResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getIncidentManagement request with HTTP info returned
+     * @return ApiResponse&lt;UsageIncidentManagementResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageIncidentManagementResponse> executeWithHttpInfo() throws ApiException {
+      return getIncidentManagementWithHttpInfo(startHr, endHr);
+    }
+  }
+
+  /**
+   * Get hourly usage for incident management
+   * Get hourly usage for incident management.
+   * @return getIncidentManagementRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetIncidentManagementRequest getIncidentManagement() throws ApiException {
+    return new APIgetIncidentManagementRequest();
   }
 
 private ApiResponse<UsageIngestedSpansResponse> getIngestedSpansWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
@@ -933,6 +1056,177 @@ private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
    */
   public APIgetUsageAnalyzedLogsRequest getUsageAnalyzedLogs() throws ApiException {
     return new APIgetUsageAnalyzedLogsRequest();
+  }
+
+private ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(OffsetDateTime startMonth, String fields, OffsetDateTime endMonth, Long orgId, UsageSortDirection sortDirection, UsageAttributionSort sortName) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startMonth' is set
+    if (startMonth == null) {
+      throw new ApiException(400, "Missing the required parameter 'startMonth' when calling getUsageAttribution");
+    }
+    
+    // verify the required parameter 'fields' is set
+    if (fields == null) {
+      throw new ApiException(400, "Missing the required parameter 'fields' when calling getUsageAttribution");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/attribution";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "org_id", orgId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAttribution");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageAttributionResponse> localVarReturnType = new GenericType<UsageAttributionResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageAttribution", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetUsageAttributionRequest {
+    private OffsetDateTime startMonth;
+    private String fields;
+    private OffsetDateTime endMonth;
+    private Long orgId;
+    private UsageSortDirection sortDirection;
+    private UsageAttributionSort sortName;
+
+    private APIgetUsageAttributionRequest() {
+    }
+
+    /**
+     * Set startMonth
+     * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. (required)
+     * @return APIgetUsageAttributionRequest
+     */
+    public APIgetUsageAttributionRequest startMonth(OffsetDateTime startMonth) {
+      this.startMonth = startMonth;
+      return this;
+    }
+
+    /**
+     * Set fields
+     * @param fields The specified field to search results for. (required)
+     * @return APIgetUsageAttributionRequest
+     */
+    public APIgetUsageAttributionRequest fields(String fields) {
+      this.fields = fields;
+      return this;
+    }
+
+    /**
+     * Set endMonth
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. (optional)
+     * @return APIgetUsageAttributionRequest
+     */
+    public APIgetUsageAttributionRequest endMonth(OffsetDateTime endMonth) {
+      this.endMonth = endMonth;
+      return this;
+    }
+
+    /**
+     * Set orgId
+     * @param orgId Include usage summaries for each sub-org. (optional)
+     * @return APIgetUsageAttributionRequest
+     */
+    public APIgetUsageAttributionRequest orgId(Long orgId) {
+      this.orgId = orgId;
+      return this;
+    }
+
+    /**
+     * Set sortDirection
+     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to desc)
+     * @return APIgetUsageAttributionRequest
+     */
+    public APIgetUsageAttributionRequest sortDirection(UsageSortDirection sortDirection) {
+      this.sortDirection = sortDirection;
+      return this;
+    }
+
+    /**
+     * Set sortName
+     * @param sortName The field to sort by. (optional, default to custom_timeseries_usage)
+     * @return APIgetUsageAttributionRequest
+     */
+    public APIgetUsageAttributionRequest sortName(UsageAttributionSort sortName) {
+      this.sortName = sortName;
+      return this;
+    }
+
+    /**
+     * Execute getUsageAttribution request
+     * @return UsageAttributionResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageAttributionResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getUsageAttribution request with HTTP info returned
+     * @return ApiResponse&lt;UsageAttributionResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageAttributionResponse> executeWithHttpInfo() throws ApiException {
+      return getUsageAttributionWithHttpInfo(startMonth, fields, endMonth, orgId, sortDirection, sortName);
+    }
+  }
+
+  /**
+   * Get Usage Attribution
+   * Get Usage Attribution.
+   * @return getUsageAttributionRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetUsageAttributionRequest getUsageAttribution() throws ApiException {
+    return new APIgetUsageAttributionRequest();
   }
 
 private ApiResponse<UsageBillableSummaryResponse> getUsageBillableSummaryWithHttpInfo(OffsetDateTime month) throws ApiException {
