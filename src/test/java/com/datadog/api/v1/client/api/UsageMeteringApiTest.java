@@ -434,6 +434,17 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
+    public void getUsageAttributionTest() throws ApiException {
+        UsageAttributionResponse usage = api.getUsageAttribution()
+                .startMonth(startMonth)
+                .fields("*")
+                .execute();
+        
+        assertNotNull(usage.getUsage());
+        assertNotNull(usage.getMetadata());
+    }
+
+    @Test
     public void getUsageAnalyzedLogsErrorsTest() throws IOException {
         try {
             api.getUsageAnalyzedLogs().startHr(futureStartHr).execute();
@@ -969,4 +980,15 @@ public class UsageMeteringApiTest extends V1ApiTest {
         }
     }
 
+    @Test
+    public void getUsageAttributionErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getUsageAttribution().startMonth(startMonth).fields("*").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
 }

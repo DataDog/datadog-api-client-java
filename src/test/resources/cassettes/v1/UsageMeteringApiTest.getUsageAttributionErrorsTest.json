@@ -1,0 +1,39 @@
+[{
+  "id" : "50136420-54ae-4419-9e70-3ffaad16c233",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/usage/attribution",
+    "queryStringParameters" : {
+      "start_month" : [ "2020-09-01T00:00:00Z" ],
+      "fields" : [ "*" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json;datetime-format=rfc3339" ],
+      "JAVA-TEST-NAME" : [ "getUsageAttributionErrorsTest" ],
+      "DD-OPERATION-ID" : [ "getUsageAttribution" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 403,
+    "reasonPhrase" : "Forbidden",
+    "headers" : {
+      "Date" : [ "Wed, 18 Nov 2020 18:38:05 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+}]
