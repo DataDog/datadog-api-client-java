@@ -1,4 +1,5 @@
 .travis.yml
+README.md
 api/openapi.yaml
 build.gradle
 build.sbt
