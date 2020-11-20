@@ -179,8 +179,17 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getUsageTracingWithoutLimitsTest() throws ApiException {
-        UsageTracingWithoutLimitsResponse response = api.getTracingWithoutLimits()
+    public void getUsageIngestedSpansTest() throws ApiException {
+        UsageIngestedSpansResponse response = api.getIngestedSpans()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
+        assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageIncidentManagementTest() throws ApiException {
+        UsageIncidentManagementResponse response = api.getIncidentManagement()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -323,6 +332,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getProfilingContainerAgentCountAvg().longValue(), 7L);
         assertEquals(usage.getTwolIngestedEventsBytesAggSum().longValue(), 8L);
         assertEquals(usage.getMobileRumSessionCountAggSum().longValue(), 9L);
+        assertEquals(usage.getIncidentManagementMonthlyActiveUsersHwmSum().longValue(), 10L);
 
         // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
         OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
@@ -340,6 +350,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageItem.getProfilingHostTop99p().longValue(), 10L);
         assertEquals(usageItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
         assertEquals(usageItem.getMobileRumSessionCountSum().longValue(), 12L);
+        assertEquals(usageItem.getIncidentManagementMonthlyActiveUsersHwm().longValue(), 13L);
 
         UsageSummaryDateOrg usageOrgItem = usageItem.getOrgs().get(0);
         assertEquals(usageOrgItem.getId(), "1b");
@@ -355,6 +366,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageOrgItem.getProfilingHostTop99p().longValue(), 10L);
         assertEquals(usageOrgItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
         assertEquals(usageOrgItem.getMobileRumSessionCountSum().longValue(), 12L);
+        assertEquals(usageOrgItem.getIncidentManagementMonthlyActiveUsersHwm().longValue(), 13L);
     }
 
     @Test
@@ -404,8 +416,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getUsageTraceTest() throws ApiException {
-        UsageTraceResponse response = api.getUsageTrace()
+    public void getUsageIndexedSpansTest() throws ApiException {
+        UsageIndexedSpansResponse response = api.getUsageIndexedSpans()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -419,6 +431,17 @@ public class UsageMeteringApiTest extends V1ApiTest {
                 .endHr(endHr)
                 .execute();
         assertNotNull(response.getUsage());
+    }
+
+    @Test
+    public void getUsageAttributionTest() throws ApiException {
+        UsageAttributionResponse usage = api.getUsageAttribution()
+                .startMonth(startMonth)
+                .fields("*")
+                .execute();
+        
+        assertNotNull(usage.getUsage());
+        assertNotNull(usage.getMetadata());
     }
 
     @Test
@@ -569,9 +592,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getUsageTraceErrorsTest() throws IOException {
+    public void getUsageIndexedSpansErrorsTest() throws IOException {
         try {
-            api.getUsageTrace().startHr(futureStartHr).execute();
+            api.getUsageIndexedSpans().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
@@ -580,7 +603,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         }
 
         try {
-            fakeAuthApi.getUsageTrace().startHr(futureStartHr).execute();
+            fakeAuthApi.getUsageIndexedSpans().startHr(futureStartHr).execute();
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(403, e.getCode());
@@ -793,27 +816,6 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     @Test
-    public void getUsageTracingWithoutLimitsErrorsTest()throws IOException  {
-        try {
-            api.getTracingWithoutLimits().startHr(futureStartHr).execute();
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-
-        try {
-            fakeAuthApi.getTracingWithoutLimits().startHr(futureStartHr).execute();
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            assertEquals(403, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-    }
-
-    @Test
     public void getUsageBillableSummaryErrorsTest() throws IOException {
         try {
             fakeAuthApi.getUsageBillableSummary().execute();
@@ -952,6 +954,39 @@ public class UsageMeteringApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getUsageIncidentManagementErrorsTest()throws IOException  {
+        try {
+            api.getIncidentManagement().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+
+        try {
+            fakeAuthApi.getIncidentManagement().startHr(futureStartHr).execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
+            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+            assertNotNull(error.getErrors());
+        }
+    }
+
+    @Test
+    public void getUsageAttributionErrorsTest() throws IOException {
+        try {
+            fakeAuthApi.getUsageAttribution().startMonth(startMonth).fields("*").execute();
+            fail("Expected ApiException not thrown");
+        } catch (ApiException e) {
+            assertEquals(403, e.getCode());
             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
             assertNotNull(error.getErrors());
         }

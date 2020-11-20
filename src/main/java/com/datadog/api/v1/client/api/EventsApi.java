@@ -312,7 +312,7 @@ private ApiResponse<EventListResponse> listEventsWithHttpInfo(Long start, Long e
 
   /**
    * Query the event stream
-   * The event stream can be queried and filtered by time, priority, sources and tags.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as %,\\,n in your output.
+   * The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.  - This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the last timestamp of the last result and set that as the &#x60;end&#x60; query time to paginate the results.
    * @return listEventsRequest
    * @throws ApiException if fails to make API call
    

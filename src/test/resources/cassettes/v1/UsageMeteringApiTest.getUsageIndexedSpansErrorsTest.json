@@ -1,0 +1,85 @@
+[{
+  "id" : "e125f5b2-7656-4ef5-b5f5-b4f04c1c44fa",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/usage/indexed-spans",
+    "queryStringParameters" : {
+      "start_hr" : [ "2020-11-04T04:49:00Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json;datetime-format=rfc3339" ],
+      "JAVA-TEST-NAME" : [ "getUsageIndexedSpansErrorsTest" ],
+      "DD-OPERATION-ID" : [ "getUsageIndexedSpans" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Tue, 03 Nov 2020 23:49:07 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "48" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "X-RateLimit-Limit" : [ "400" ],
+      "X-RateLimit-Period" : [ "3600" ],
+      "X-RateLimit-Reset" : [ "653" ],
+      "X-RateLimit-Remaining" : [ "397" ],
+      "X-DD-VERSION" : [ "35.3308756" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "body" : "{\"errors\": [\"start_hr cannot be in the future\"]}"
+  }
+}, {
+  "id" : "ef00485e-34a3-4594-a9a3-59cece4a1912",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/usage/indexed-spans",
+    "queryStringParameters" : {
+      "start_hr" : [ "2020-11-04T04:49:00Z" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json;datetime-format=rfc3339" ],
+      "JAVA-TEST-NAME" : [ "getUsageIndexedSpansErrorsTest" ],
+      "DD-OPERATION-ID" : [ "getUsageIndexedSpans" ],
+      "Connection" : [ "close" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 403,
+    "reasonPhrase" : "Forbidden",
+    "headers" : {
+      "Date" : [ "Tue, 03 Nov 2020 23:49:08 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Via" : [ "1.1 haproxy" ],
+      "content-length" : [ "170" ]
+    },
+    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+  }
+}]

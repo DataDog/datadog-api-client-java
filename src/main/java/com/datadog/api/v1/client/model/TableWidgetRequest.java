@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.ApmStatsQueryDefinition;
-import com.datadog.api.v1.client.model.EventQueryDefinition;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
 import com.datadog.api.v1.client.model.TableWidgetCellDisplayMode;
@@ -78,7 +77,7 @@ public class TableWidgetRequest {
   private List<WidgetConditionalFormat> conditionalFormats = null;
 
   public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
-  private EventQueryDefinition eventQuery;
+  private LogQueryDefinition eventQuery;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Long limit;
@@ -265,7 +264,7 @@ public class TableWidgetRequest {
   }
 
 
-  public TableWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
+  public TableWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     return this;
   }
@@ -279,12 +278,12 @@ public class TableWidgetRequest {
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EventQueryDefinition getEventQuery() {
+  public LogQueryDefinition getEventQuery() {
     return eventQuery;
   }
 
 
-  public void setEventQuery(EventQueryDefinition eventQuery) {
+  public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
   }
 

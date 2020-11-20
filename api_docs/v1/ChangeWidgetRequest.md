@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **apmQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **changeType** | [**WidgetChangeType**](WidgetChangeType.md) |  |  [optional]
 **compareTo** | [**WidgetCompareTo**](WidgetCompareTo.md) |  |  [optional]
-**eventQuery** | [**EventQueryDefinition**](EventQueryDefinition.md) |  |  [optional]
+**eventQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **increaseGood** | **Boolean** | Whether to show increase as good. |  [optional]
 **logQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **networkQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]

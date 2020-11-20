@@ -57,6 +57,7 @@ import com.datadog.api.v1.client.JSON;
   MonitorOptions.JSON_PROPERTY_NOTIFY_NO_DATA,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL,
   MonitorOptions.JSON_PROPERTY_REQUIRE_FULL_WINDOW,
+  MonitorOptions.JSON_PROPERTY_RESTRICTED_ROLES,
   MonitorOptions.JSON_PROPERTY_SILENCED,
   MonitorOptions.JSON_PROPERTY_SYNTHETICS_CHECK_ID,
   MonitorOptions.JSON_PROPERTY_THRESHOLD_WINDOWS,
@@ -108,13 +109,16 @@ public class MonitorOptions {
   private JsonNullable<Long> renotifyInterval = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
-  private Boolean requireFullWindow = true;
+  private Boolean requireFullWindow;
+
+  public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
+  private List<String> restrictedRoles = null;
 
   public static final String JSON_PROPERTY_SILENCED = "silenced";
   private Map<String, Long> silenced = null;
 
   public static final String JSON_PROPERTY_SYNTHETICS_CHECK_ID = "synthetics_check_id";
-  private JsonNullable<Long> syntheticsCheckId = JsonNullable.<Long>undefined();
+  private JsonNullable<String> syntheticsCheckId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_THRESHOLD_WINDOWS = "threshold_windows";
   private MonitorThresholdWindowOptions thresholdWindows;
@@ -522,11 +526,11 @@ public class MonitorOptions {
   }
 
    /**
-   * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. &#x60;False&#x60; otherwise.
+   * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some evaluations are skipped. Default is false.
    * @return requireFullWindow
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. For “on average” “at all times” and “in total” aggregation, default is true. `False` otherwise.")
+  @ApiModelProperty(value = "A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. Default is false.")
   @JsonProperty(JSON_PROPERTY_REQUIRE_FULL_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -537,6 +541,38 @@ public class MonitorOptions {
 
   public void setRequireFullWindow(Boolean requireFullWindow) {
     this.requireFullWindow = requireFullWindow;
+  }
+
+
+  public MonitorOptions restrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
+    return this;
+  }
+
+  public MonitorOptions addRestrictedRolesItem(String restrictedRolesItem) {
+    if (this.restrictedRoles == null) {
+      this.restrictedRoles = new ArrayList<>();
+    }
+    this.restrictedRoles.add(restrictedRolesItem);
+    return this;
+  }
+
+   /**
+   * A list of role identifiers that can be pulled from the Roles API. Cannot be used with &#x60;locked&#x60;.
+   * @return restrictedRoles
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked`.")
+  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getRestrictedRoles() {
+    return restrictedRoles;
+  }
+
+
+  public void setRestrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
   }
 
 
@@ -572,8 +608,8 @@ public class MonitorOptions {
   }
 
 
-  public MonitorOptions syntheticsCheckId(Long syntheticsCheckId) {
-    this.syntheticsCheckId = JsonNullable.<Long>of(syntheticsCheckId);
+  public MonitorOptions syntheticsCheckId(String syntheticsCheckId) {
+    this.syntheticsCheckId = JsonNullable.<String>of(syntheticsCheckId);
     return this;
   }
 
@@ -585,24 +621,24 @@ public class MonitorOptions {
   @ApiModelProperty(value = "ID of the corresponding Synthetic check.")
   @JsonIgnore
 
-  public Long getSyntheticsCheckId() {
+  public String getSyntheticsCheckId() {
         return syntheticsCheckId.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Long> getSyntheticsCheckId_JsonNullable() {
+  public JsonNullable<String> getSyntheticsCheckId_JsonNullable() {
     return syntheticsCheckId;
   }
   
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
-  public void setSyntheticsCheckId_JsonNullable(JsonNullable<Long> syntheticsCheckId) {
+  public void setSyntheticsCheckId_JsonNullable(JsonNullable<String> syntheticsCheckId) {
     this.syntheticsCheckId = syntheticsCheckId;
   }
 
-  public void setSyntheticsCheckId(Long syntheticsCheckId) {
-    this.syntheticsCheckId = JsonNullable.<Long>of(syntheticsCheckId);
+  public void setSyntheticsCheckId(String syntheticsCheckId) {
+    this.syntheticsCheckId = JsonNullable.<String>of(syntheticsCheckId);
   }
 
 
@@ -715,6 +751,7 @@ public class MonitorOptions {
         Objects.equals(this.notifyNoData, monitorOptions.notifyNoData) &&
         Objects.equals(this.renotifyInterval, monitorOptions.renotifyInterval) &&
         Objects.equals(this.requireFullWindow, monitorOptions.requireFullWindow) &&
+        Objects.equals(this.restrictedRoles, monitorOptions.restrictedRoles) &&
         Objects.equals(this.silenced, monitorOptions.silenced) &&
         Objects.equals(this.syntheticsCheckId, monitorOptions.syntheticsCheckId) &&
         Objects.equals(this.thresholdWindows, monitorOptions.thresholdWindows) &&
@@ -724,7 +761,7 @@ public class MonitorOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, deviceIds, enableLogsSample, escalationMessage, evaluationDelay, includeTags, locked, minFailureDuration, minLocationFailed, newHostDelay, noDataTimeframe, notifyAudit, notifyNoData, renotifyInterval, requireFullWindow, silenced, syntheticsCheckId, thresholdWindows, thresholds, timeoutH);
+    return Objects.hash(aggregation, deviceIds, enableLogsSample, escalationMessage, evaluationDelay, includeTags, locked, minFailureDuration, minLocationFailed, newHostDelay, noDataTimeframe, notifyAudit, notifyNoData, renotifyInterval, requireFullWindow, restrictedRoles, silenced, syntheticsCheckId, thresholdWindows, thresholds, timeoutH);
   }
 
 
@@ -747,6 +784,7 @@ public class MonitorOptions {
     sb.append("    notifyNoData: ").append(toIndentedString(notifyNoData)).append("\n");
     sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
     sb.append("    requireFullWindow: ").append(toIndentedString(requireFullWindow)).append("\n");
+    sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
     sb.append("    silenced: ").append(toIndentedString(silenced)).append("\n");
     sb.append("    syntheticsCheckId: ").append(toIndentedString(syntheticsCheckId)).append("\n");
     sb.append("    thresholdWindows: ").append(toIndentedString(thresholdWindows)).append("\n");

@@ -63,6 +63,11 @@ public class LogsIndex {
   private Long numRetentionDays;
 
 
+  public LogsIndex dailyLimit(Long dailyLimit) {
+    this.dailyLimit = dailyLimit;
+    return this;
+  }
+
    /**
    * The number of log events you can send in this index per day before you are rate-limited.
    * @return dailyLimit
@@ -77,6 +82,9 @@ public class LogsIndex {
   }
 
 
+  public void setDailyLimit(Long dailyLimit) {
+    this.dailyLimit = dailyLimit;
+  }
 
 
   public LogsIndex exclusionFilters(List<LogsExclusion> exclusionFilters) {
@@ -166,12 +174,17 @@ public class LogsIndex {
 
 
 
+  public LogsIndex numRetentionDays(Long numRetentionDays) {
+    this.numRetentionDays = numRetentionDays;
+    return this;
+  }
+
    /**
-   * The number of days before logs are deleted from this index.
+   * The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization&#39;s contract/subscriptions.
    * @return numRetentionDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of days before logs are deleted from this index.")
+  @ApiModelProperty(value = "The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.")
   @JsonProperty(JSON_PROPERTY_NUM_RETENTION_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -180,6 +193,9 @@ public class LogsIndex {
   }
 
 
+  public void setNumRetentionDays(Long numRetentionDays) {
+    this.numRetentionDays = numRetentionDays;
+  }
 
 
   /**

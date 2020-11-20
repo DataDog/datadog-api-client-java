@@ -74,11 +74,11 @@ public class UsageTraceHour {
   }
 
    /**
-   * Contains the number of Analyzed Spans indexed.
+   * Contains the number of Indexed Spans indexed.
    * @return indexedEventsCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of Analyzed Spans indexed.")
+  @ApiModelProperty(value = "Contains the number of Indexed Spans indexed.")
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

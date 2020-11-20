@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **name** | **String** | The monitor name. |  [optional]
 **options** | [**MonitorOptions**](MonitorOptions.md) |  |  [optional]
 **overallState** | [**MonitorOverallStates**](MonitorOverallStates.md) |  |  [optional]
+**priority** | **Long** | Integer from 1 (high) to 5 (low) indicating alert severity. |  [optional]
 **query** | **String** | The monitor query. |  [optional]
 **state** | [**MonitorState**](MonitorState.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** | Tags associated to your monitor. |  [optional]

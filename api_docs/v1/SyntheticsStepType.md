@@ -7,17 +7,25 @@
 
 * `ASSERT_CURRENT_URL` (value: `"assertCurrentUrl"`)
 
+* `ASSERT_ELEMENT_ATTRIBUTE` (value: `"assertElementAttribute"`)
+
 * `ASSERT_ELEMENT_CONTENT` (value: `"assertElementContent"`)
 
 * `ASSERT_ELEMENT_PRESENT` (value: `"assertElementPresent"`)
 
 * `ASSERT_EMAIL` (value: `"assertEmail"`)
 
+* `ASSERT_FILE_DOWNLOAD` (value: `"assertFileDownload"`)
+
+* `ASSERT_FROM_JAVASCRIPT` (value: `"assertFromJavascript"`)
+
 * `ASSERT_PAGE_CONTAINS` (value: `"assertPageContains"`)
 
 * `ASSERT_PAGE_LACKS` (value: `"assertPageLacks"`)
 
 * `CLICK` (value: `"click"`)
+
+* `EXTRACT_FROM_JAVASCRIPT` (value: `"extractFromJavascript"`)
 
 * `EXTRACT_VARIABLE` (value: `"extractVariable"`)
 
@@ -34,6 +42,10 @@
 * `PRESS_KEY` (value: `"pressKey"`)
 
 * `REFRESH` (value: `"refresh"`)
+
+* `RUN_API_TEST` (value: `"runApiTest"`)
+
+* `SCROLL` (value: `"scroll"`)
 
 * `SELECT_OPTION` (value: `"selectOption"`)
 
