@@ -13,5 +13,11 @@
 
 * `SUCCESS` (value: `"success"`)
 
+* `USER_UPDATE` (value: `"user_update"`)
+
+* `RECOMMENDATION` (value: `"recommendation"`)
+
+* `SNAPSHOT` (value: `"snapshot"`)
+
 
 
