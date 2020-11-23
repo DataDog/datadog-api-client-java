@@ -1,28 +1,28 @@
 {
-  "id" : "020a551e-f55e-4868-a452-be2767305ebb",
-  "name" : "api_v2_roles_a20d4d24-2da1-11eb-84bc-17624b1f53dd_users",
+  "id" : "3fc1969c-0559-4b10-a6b5-54d799dbf578",
+  "name" : "api_v2_roles_a7ad7156-2daa-11eb-84bc-971bf2b6a630_users",
   "request" : {
-    "url" : "/api/v2/roles/a20d4d24-2da1-11eb-84bc-17624b1f53dd/users",
+    "url" : "/api/v2/roles/a7ad7156-2daa-11eb-84bc-971bf2b6a630/users",
     "method" : "DELETE",
     "bodyPatterns" : [ {
-      "equalToJson" : "{\"data\":{\"id\":\"a2332896-2da1-11eb-84bc-bb483839bbd5\",\"type\":\"users\"}}",
+      "equalToJson" : "{\"data\":{\"id\":\"a7d557c0-2daa-11eb-84bc-db2308cf4f2b\",\"type\":\"users\"}}",
       "ignoreArrayOrder" : true,
       "ignoreExtraElements" : true
     } ]
   },
   "response" : {
-    "status" : 400,
-    "body" : "{\"errors\": [\"API input validation failed: Expecting value: line 1 column 1 (char 0)\"]}",
+    "status" : 200,
+    "body" : "",
     "headers" : {
-      "Date" : "Mon, 23 Nov 2020 15:36:20 GMT",
+      "Date" : "Mon, 23 Nov 2020 16:40:55 GMT",
       "Content-Type" : "application/json",
       "Pragma" : "no-cache",
       "Cache-Control" : "no-cache",
       "X-RateLimit-Limit" : "500",
       "X-RateLimit-Period" : "60",
-      "X-RateLimit-Reset" : "40",
-      "X-RateLimit-Remaining" : "494",
-      "X-DD-VERSION" : "35.3417154",
+      "X-RateLimit-Reset" : "5",
+      "X-RateLimit-Remaining" : "489",
+      "X-DD-VERSION" : "35.3417671",
       "DD-POOL" : "dogweb",
       "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
       "X-Frame-Options" : "SAMEORIGIN",
@@ -30,7 +30,7 @@
       "Strict-Transport-Security" : "max-age=15724800;"
     }
   },
-  "uuid" : "020a551e-f55e-4868-a452-be2767305ebb",
+  "uuid" : "3fc1969c-0559-4b10-a6b5-54d799dbf578",
   "persistent" : true,
-  "insertionIndex" : 8
+  "insertionIndex" : 4
 }
