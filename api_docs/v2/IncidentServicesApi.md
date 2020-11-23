@@ -24,6 +24,7 @@ Creates a new incident service.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -50,7 +51,7 @@ public class Example {
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         IncidentServiceCreateRequest body = new IncidentServiceCreateRequest(); // IncidentServiceCreateRequest | Incident Service Payload.
         try {
-            IncidentServiceResponse result = api.createIncidentService()
+            IncidentServiceResponse result = apiInstance.createIncidentService()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -107,6 +108,7 @@ Deletes an existing incident service.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -133,7 +135,7 @@ public class Example {
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
         try {
-            api.deleteIncidentService(serviceId)
+            apiInstance.deleteIncidentService(serviceId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentServicesApi#deleteIncidentService");
@@ -188,6 +190,7 @@ Get details of an incident service. If the `include[users]` query parameter is p
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -215,7 +218,7 @@ public class Example {
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
         String include = "include_example"; // String | Specifies which types of related objects should be included in the response.
         try {
-            IncidentServiceResponse result = api.getIncidentService(serviceId)
+            IncidentServiceResponse result = apiInstance.getIncidentService(serviceId)
                 .include(include)
                 .execute();
             System.out.println(result);
@@ -273,6 +276,7 @@ Get all incident services uploaded for the requesting user's organization. If th
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -302,7 +306,7 @@ public class Example {
         Long pageOffset = 0lL; // Long | Specific offset to use as the beginning of the returned page.
         String filter = ExampleServiceName; // String | A search query that filters services by name.
         try {
-            IncidentServicesResponse result = api.listIncidentServices()
+            IncidentServicesResponse result = apiInstance.listIncidentServices()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset)
@@ -365,6 +369,7 @@ Updates an existing incident service. Only provide the attributes which should b
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -392,7 +397,7 @@ public class Example {
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
         IncidentServiceUpdateRequest body = new IncidentServiceUpdateRequest(); // IncidentServiceUpdateRequest | Incident Service Payload.
         try {
-            IncidentServiceResponse result = api.updateIncidentService(serviceId)
+            IncidentServiceResponse result = apiInstance.updateIncidentService(serviceId)
                 .body(body)
                 .execute();
             System.out.println(result);

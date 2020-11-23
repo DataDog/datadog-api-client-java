@@ -22,6 +22,7 @@ The API endpoint to aggregate events into buckets and compute metrics and timese
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -48,7 +49,7 @@ public class Example {
         LogsApi apiInstance = new LogsApi(defaultClient);
         LogsAggregateRequest body = new LogsAggregateRequest(); // LogsAggregateRequest | 
         try {
-            LogsAggregateResponse result = api.aggregateLogs()
+            LogsAggregateResponse result = apiInstance.aggregateLogs()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -114,6 +115,7 @@ See [Datadog Logs Archive documentation][2].**
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -140,7 +142,7 @@ public class Example {
         LogsApi apiInstance = new LogsApi(defaultClient);
         LogsListRequest body = new LogsListRequest(); // LogsListRequest | 
         try {
-            LogsListResponse result = api.listLogs()
+            LogsListResponse result = apiInstance.listLogs()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -206,6 +208,7 @@ See [Datadog Logs Archive documentation][2].**
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -238,7 +241,7 @@ public class Example {
         String pageCursor = eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==; // String | List following results with a cursor provided in the previous query.
         Integer pageLimit = 25; // Integer | Maximum number of logs in the response.
         try {
-            LogsListResponse result = api.listLogsGet()
+            LogsListResponse result = apiInstance.listLogsGet()
                 .filterQuery(filterQuery)
                 .filterIndex(filterIndex)
                 .filterFrom(filterFrom)

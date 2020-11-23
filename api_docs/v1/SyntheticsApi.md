@@ -36,6 +36,7 @@ Create a Synthetics global variable.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -62,7 +63,7 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsGlobalVariable body = new SyntheticsGlobalVariable(); // SyntheticsGlobalVariable | Details of the global variable to create.
         try {
-            SyntheticsGlobalVariable result = api.createGlobalVariable()
+            SyntheticsGlobalVariable result = apiInstance.createGlobalVariable()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -117,6 +118,7 @@ Create a Synthetic test.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -143,7 +145,7 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | Details of the test to create.
         try {
-            SyntheticsTestDetails result = api.createTest()
+            SyntheticsTestDetails result = apiInstance.createTest()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -199,6 +201,7 @@ Delete a Synthetics global variable.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -225,7 +228,7 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String variableId = "variableId_example"; // String | The ID of the global variable.
         try {
-            api.deleteGlobalVariable(variableId)
+            apiInstance.deleteGlobalVariable(variableId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#deleteGlobalVariable");
@@ -279,6 +282,7 @@ Delete multiple Synthetic tests by ID.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -305,7 +309,7 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsDeleteTestsPayload body = new SyntheticsDeleteTestsPayload(); // SyntheticsDeleteTestsPayload | Public ID list of the Synthetic tests to be deleted.
         try {
-            SyntheticsDeleteTestsResponse result = api.deleteTests()
+            SyntheticsDeleteTestsResponse result = apiInstance.deleteTests()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -361,6 +365,7 @@ Edit a Synthetics global variable.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -388,7 +393,7 @@ public class Example {
         String variableId = "variableId_example"; // String | The ID of the global variable.
         SyntheticsGlobalVariable body = new SyntheticsGlobalVariable(); // SyntheticsGlobalVariable | Details of the global variable to update.
         try {
-            SyntheticsGlobalVariable result = api.editGlobalVariable(variableId)
+            SyntheticsGlobalVariable result = apiInstance.editGlobalVariable(variableId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -444,6 +449,7 @@ Get the last 50 test results summaries for a given Synthetics API test.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -473,7 +479,7 @@ public class Example {
         Long toTs = 56L; // Long | Timestamp up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
-            SyntheticsGetAPITestLatestResultsResponse result = api.getAPITestLatestResults(publicId)
+            SyntheticsGetAPITestLatestResultsResponse result = apiInstance.getAPITestLatestResults(publicId)
                 .fromTs(fromTs)
                 .toTs(toTs)
                 .probeDc(probeDc)
@@ -533,6 +539,7 @@ Get a specific full result from a given (API) Synthetic test.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -560,7 +567,7 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the API test to which the target result belongs.
         String resultId = "resultId_example"; // String | The ID of the result to get.
         try {
-            SyntheticsAPITestResultFull result = api.getAPITestResult(publicId, resultId)
+            SyntheticsAPITestResultFull result = apiInstance.getAPITestResult(publicId, resultId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -616,6 +623,7 @@ a Synthetic browser test.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -642,7 +650,7 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         try {
-            SyntheticsTestDetails result = api.getBrowserTest(publicId)
+            SyntheticsTestDetails result = apiInstance.getBrowserTest(publicId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -696,6 +704,7 @@ Get the last 50 test results summaries for a given Synthetics Browser test.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -725,7 +734,7 @@ public class Example {
         Long toTs = 56L; // Long | Timestamp up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
-            SyntheticsGetBrowserTestLatestResultsResponse result = api.getBrowserTestLatestResults(publicId)
+            SyntheticsGetBrowserTestLatestResultsResponse result = apiInstance.getBrowserTestLatestResults(publicId)
                 .fromTs(fromTs)
                 .toTs(toTs)
                 .probeDc(probeDc)
@@ -785,6 +794,7 @@ Get a specific full result from a given (browser) Synthetic test.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -812,7 +822,7 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the browser test to which the target result belongs.
         String resultId = "resultId_example"; // String | The ID of the result to get.
         try {
-            SyntheticsBrowserTestResultFull result = api.getBrowserTestResult(publicId, resultId)
+            SyntheticsBrowserTestResultFull result = apiInstance.getBrowserTestResult(publicId, resultId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -867,6 +877,7 @@ Get the detailed configuration of a global variable.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -893,7 +904,7 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String variableId = "variableId_example"; // String | The ID of the global variable.
         try {
-            SyntheticsGlobalVariable result = api.getGlobalVariable(variableId)
+            SyntheticsGlobalVariable result = apiInstance.getGlobalVariable(variableId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -947,6 +958,7 @@ Get the detailed configuration associated with a Synthetics test.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -973,7 +985,7 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         try {
-            SyntheticsTestDetails result = api.getTest(publicId)
+            SyntheticsTestDetails result = apiInstance.getTest(publicId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -1028,6 +1040,7 @@ tests. No arguments required.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1053,7 +1066,7 @@ public class Example {
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         try {
-            SyntheticsLocations result = api.listLocations()
+            SyntheticsLocations result = apiInstance.listLocations()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -1102,6 +1115,7 @@ Get the list of all Synthetic tests.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1127,7 +1141,7 @@ public class Example {
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         try {
-            SyntheticsListTestsResponse result = api.listTests()
+            SyntheticsListTestsResponse result = apiInstance.listTests()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -1178,6 +1192,7 @@ Trigger a set of Synthetics tests for continuous integration
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1204,7 +1219,7 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsCITestBody body = new SyntheticsCITestBody(); // SyntheticsCITestBody | Details of the test to trigger.
         try {
-            SyntheticsTriggerCITestsResponse result = api.triggerCITests()
+            SyntheticsTriggerCITestsResponse result = apiInstance.triggerCITests()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -1258,6 +1273,7 @@ Edit the configuration of a Synthetic test.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1285,7 +1301,7 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | New test details to be saved.
         try {
-            SyntheticsTestDetails result = api.updateTest(publicId)
+            SyntheticsTestDetails result = apiInstance.updateTest(publicId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -1342,6 +1358,7 @@ Pause or start a Synthetics test by changing the status.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1369,7 +1386,7 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the Synthetic test to update.
         SyntheticsUpdateTestPauseStatusPayload body = new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload | Status to set the given Synthetic test to.
         try {
-            Boolean result = api.updateTestPauseStatus(publicId)
+            Boolean result = apiInstance.updateTestPauseStatus(publicId)
                 .body(body)
                 .execute();
             System.out.println(result);

@@ -26,6 +26,7 @@ Check if the given monitors can be deleted.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -52,7 +53,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         List<Long> monitorIds = Arrays.asList(); // List<Long> | The IDs of the monitor to check.
         try {
-            CheckCanDeleteMonitorResponse result = api.checkCanDeleteMonitor()
+            CheckCanDeleteMonitorResponse result = apiInstance.checkCanDeleteMonitor()
                 .monitorIds(monitorIds)
                 .execute();
             System.out.println(result);
@@ -212,6 +213,7 @@ It is only available via the API and isn't visible or editable in the Datadog UI
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -238,7 +240,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Monitor body = new Monitor(); // Monitor | Create a monitor request body.
         try {
-            Monitor result = api.createMonitor()
+            Monitor result = apiInstance.createMonitor()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -293,6 +295,7 @@ Delete the specified monitor
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -320,7 +323,7 @@ public class Example {
         Long monitorId = 56L; // Long | The ID of the monitor.
         String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
-            DeletedMonitor result = api.deleteMonitor(monitorId)
+            DeletedMonitor result = apiInstance.deleteMonitor(monitorId)
                 .force(force)
                 .execute();
             System.out.println(result);
@@ -378,6 +381,7 @@ Get details about the specified monitor from your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -405,7 +409,7 @@ public class Example {
         Long monitorId = 56L; // Long | The ID of the monitor
         String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
         try {
-            Monitor result = api.getMonitor(monitorId)
+            Monitor result = apiInstance.getMonitor(monitorId)
                 .groupStates(groupStates)
                 .execute();
             System.out.println(result);
@@ -462,6 +466,7 @@ Get details about the specified monitor from your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -495,7 +500,7 @@ public class Example {
         Long page = 56L; // Long | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
         Integer pageSize = 56; // Integer | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
         try {
-            List<Monitor> result = api.listMonitors()
+            List<Monitor> result = apiInstance.listMonitors()
                 .groupStates(groupStates)
                 .name(name)
                 .tags(tags)
@@ -564,6 +569,7 @@ Edit the specified monitor.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -591,7 +597,7 @@ public class Example {
         Long monitorId = 56L; // Long | The ID of the monitor.
         MonitorUpdateRequest body = new MonitorUpdateRequest(); // MonitorUpdateRequest | Edit a monitor request body.
         try {
-            Monitor result = api.updateMonitor(monitorId)
+            Monitor result = apiInstance.updateMonitor(monitorId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -649,6 +655,7 @@ Validate the monitor provided in the request.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -675,7 +682,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Monitor body = new Monitor(); // Monitor | Monitor request object
         try {
-            Monitor result = api.validateMonitor()
+            Monitor result = apiInstance.validateMonitor()
                 .body(body)
                 .execute();
             System.out.println(result);

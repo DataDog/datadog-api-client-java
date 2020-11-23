@@ -29,6 +29,7 @@ Creates an API key with a given name.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -55,7 +56,7 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         ApiKey body = new ApiKey(); // ApiKey | 
         try {
-            ApiKeyResponse result = api.createAPIKey()
+            ApiKeyResponse result = apiInstance.createAPIKey()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -110,6 +111,7 @@ Create an application key with a given name.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -136,7 +138,7 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
         try {
-            ApplicationKeyResponse result = api.createApplicationKey()
+            ApplicationKeyResponse result = apiInstance.createApplicationKey()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -192,6 +194,7 @@ Delete a given API key.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -218,7 +221,7 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific API key you are working with.
         try {
-            ApiKeyResponse result = api.deleteAPIKey(key)
+            ApiKeyResponse result = apiInstance.deleteAPIKey(key)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -273,6 +276,7 @@ Delete a given application key.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -299,7 +303,7 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific APP key you are working with.
         try {
-            ApplicationKeyResponse result = api.deleteApplicationKey(key)
+            ApplicationKeyResponse result = apiInstance.deleteApplicationKey(key)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -353,6 +357,7 @@ Get a given API key.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -379,7 +384,7 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific API key you are working with.
         try {
-            ApiKeyResponse result = api.getAPIKey(key)
+            ApiKeyResponse result = apiInstance.getAPIKey(key)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -433,6 +438,7 @@ Get a given application key.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -459,7 +465,7 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific APP key you are working with.
         try {
-            ApplicationKeyResponse result = api.getApplicationKey(key)
+            ApplicationKeyResponse result = apiInstance.getApplicationKey(key)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -513,6 +519,7 @@ Get all API keys available for your account.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -538,7 +545,7 @@ public class Example {
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         try {
-            ApiKeyListResponse result = api.listAPIKeys()
+            ApiKeyListResponse result = apiInstance.listAPIKeys()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -588,6 +595,7 @@ Get all application keys available for your Datadog account.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -613,7 +621,7 @@ public class Example {
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         try {
-            ApplicationKeyListResponse result = api.listApplicationKeys()
+            ApplicationKeyListResponse result = apiInstance.listApplicationKeys()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -663,6 +671,7 @@ Edit an API key name.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -690,7 +699,7 @@ public class Example {
         String key = "key_example"; // String | The specific API key you are working with.
         ApiKey body = new ApiKey(); // ApiKey | 
         try {
-            ApiKeyResponse result = api.updateAPIKey(key)
+            ApiKeyResponse result = apiInstance.updateAPIKey(key)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -747,6 +756,7 @@ Edit an application key name.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -774,7 +784,7 @@ public class Example {
         String key = "key_example"; // String | The specific APP key you are working with.
         ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
         try {
-            ApplicationKeyResponse result = api.updateApplicationKey(key)
+            ApplicationKeyResponse result = apiInstance.updateApplicationKey(key)
                 .body(body)
                 .execute();
             System.out.println(result);

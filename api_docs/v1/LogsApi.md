@@ -28,6 +28,7 @@ See [Datadog Logs Archive documentation][2].**
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -54,7 +55,7 @@ public class Example {
         LogsApi apiInstance = new LogsApi(defaultClient);
         LogsListRequest body = new LogsListRequest(); // LogsListRequest | Logs filter
         try {
-            LogsListResponse result = api.listLogs()
+            LogsListResponse result = apiInstance.listLogs()
                 .body(body)
                 .execute();
             System.out.println(result);

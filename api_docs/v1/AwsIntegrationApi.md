@@ -28,6 +28,7 @@ A unique AWS Account ID for role based authentication.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -54,7 +55,7 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount body = new AWSAccount(); // AWSAccount | AWS Request Object
         try {
-            AWSAccountCreateResponse result = api.createAWSAccount()
+            AWSAccountCreateResponse result = apiInstance.createAWSAccount()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -110,6 +111,7 @@ Generate a new AWS external ID for a given AWS account ID and role name pair.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -136,7 +138,7 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount body = new AWSAccount(); // AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
         try {
-            AWSAccountCreateResponse result = api.createNewAWSExternalID()
+            AWSAccountCreateResponse result = apiInstance.createNewAWSExternalID()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -191,6 +193,7 @@ Delete a Datadog-AWS integration matching the specified `account_id` and `role_n
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -217,7 +220,7 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
         try {
-            Object result = api.deleteAWSAccount()
+            Object result = apiInstance.deleteAWSAccount()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -273,6 +276,7 @@ List all Datadog-AWS integrations available in your Datadog organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -301,7 +305,7 @@ public class Example {
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this `access_key_id`.
         try {
-            AWSAccountListResponse result = api.listAWSAccounts()
+            AWSAccountListResponse result = apiInstance.listAWSAccounts()
                 .accountId(accountId)
                 .roleName(roleName)
                 .accessKeyId(accessKeyId)
@@ -360,6 +364,7 @@ List all namespace rules for a given Datadog-AWS integration. This endpoint take
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -385,7 +390,7 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         try {
-            List<String> result = api.listAvailableAWSNamespaces()
+            List<String> result = apiInstance.listAvailableAWSNamespaces()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -435,6 +440,7 @@ Update a Datadog-Amazon Web Services integration.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -464,7 +470,7 @@ public class Example {
         String roleName = "roleName_example"; // String | Only return AWS accounts that match this `role_name`. Required if `account_id` is specified.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this `access_key_id`. Required if none of the other two options are specified.
         try {
-            Object result = api.updateAWSAccount()
+            Object result = apiInstance.updateAWSAccount()
                 .body(body)
                 .accountId(accountId)
                 .roleName(roleName)

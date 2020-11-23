@@ -24,6 +24,7 @@ Get one log index from your organization. This endpoint takes no JSON arguments.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -50,7 +51,7 @@ public class Example {
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         String name = "name_example"; // String | Name of the log index.
         try {
-            LogsIndex result = api.getLogsIndex(name)
+            LogsIndex result = apiInstance.getLogsIndex(name)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -104,6 +105,7 @@ Get the current order of your log indexes. This endpoint takes no JSON arguments
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -129,7 +131,7 @@ public class Example {
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         try {
-            LogsIndexesOrder result = api.getLogsIndexOrder()
+            LogsIndexesOrder result = apiInstance.getLogsIndexOrder()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -180,6 +182,7 @@ This endpoint returns an array of the `LogIndex` objects of your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -205,7 +208,7 @@ public class Example {
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         try {
-            LogsIndexListResponse result = api.listLogIndexes()
+            LogsIndexListResponse result = apiInstance.listLogIndexes()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -259,6 +262,7 @@ your current configuration with the new one sent to your Datadog organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -286,7 +290,7 @@ public class Example {
         String name = "name_example"; // String | Name of the log index.
         LogsIndexUpdateRequest body = new LogsIndexUpdateRequest(); // LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
         try {
-            LogsIndex result = api.updateLogsIndex(name)
+            LogsIndex result = apiInstance.updateLogsIndex(name)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -344,6 +348,7 @@ It returns the index order object passed in the request body when the request is
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -370,7 +375,7 @@ public class Example {
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         LogsIndexesOrder body = new LogsIndexesOrder(); // LogsIndexesOrder | Object containing the new ordered list of index names
         try {
-            LogsIndexesOrder result = api.updateLogsIndexOrder()
+            LogsIndexesOrder result = apiInstance.updateLogsIndexOrder()
                 .body(body)
                 .execute();
             System.out.println(result);

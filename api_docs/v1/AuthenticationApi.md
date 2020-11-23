@@ -20,6 +20,7 @@ Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -44,7 +45,7 @@ public class Example {
 
         AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
         try {
-            AuthenticationValidationResponse result = api.validate()
+            AuthenticationValidationResponse result = apiInstance.validate()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {

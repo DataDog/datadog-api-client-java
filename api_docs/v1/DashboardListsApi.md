@@ -24,6 +24,7 @@ Create an empty dashboard list.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -50,7 +51,7 @@ public class Example {
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         DashboardList body = new DashboardList(); // DashboardList | Create a dashboard list request body.
         try {
-            DashboardList result = api.createDashboardList()
+            DashboardList result = apiInstance.createDashboardList()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -105,6 +106,7 @@ Delete a dashboard list.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -131,7 +133,7 @@ public class Example {
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long listId = 56L; // Long | ID of the dashboard list to delete.
         try {
-            DashboardListDeleteResponse result = api.deleteDashboardList(listId)
+            DashboardListDeleteResponse result = apiInstance.deleteDashboardList(listId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -185,6 +187,7 @@ Fetch an existing dashboard list's definition.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -211,7 +214,7 @@ public class Example {
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long listId = 56L; // Long | ID of the dashboard list to fetch.
         try {
-            DashboardList result = api.getDashboardList(listId)
+            DashboardList result = apiInstance.getDashboardList(listId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -265,6 +268,7 @@ Fetch all of your existing dashboard list definitions.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -290,7 +294,7 @@ public class Example {
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         try {
-            DashboardListListResponse result = api.listDashboardLists()
+            DashboardListListResponse result = apiInstance.listDashboardLists()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -340,6 +344,7 @@ Update the name of a dashboard list.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -367,7 +372,7 @@ public class Example {
         Long listId = 56L; // Long | ID of the dashboard list to update.
         DashboardList body = new DashboardList(); // DashboardList | Update a dashboard list request body.
         try {
-            DashboardList result = api.updateDashboardList(listId)
+            DashboardList result = apiInstance.updateDashboardList(listId)
                 .body(body)
                 .execute();
             System.out.println(result);

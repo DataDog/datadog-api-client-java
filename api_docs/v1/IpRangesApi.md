@@ -20,6 +20,7 @@ Get information about Datadog IP ranges.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -42,7 +43,7 @@ public class Example {
 
         IpRangesApi apiInstance = new IpRangesApi(defaultClient);
         try {
-            IPRanges result = api.getIPRanges()
+            IPRanges result = apiInstance.getIPRanges()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {

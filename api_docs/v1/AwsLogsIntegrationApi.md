@@ -33,6 +33,7 @@ endpoint can be polled intermittently instead of blocking.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -59,7 +60,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
         try {
-            AWSLogsAsyncResponse result = api.checkAWSLogsLambdaAsync()
+            AWSLogsAsyncResponse result = apiInstance.checkAWSLogsLambdaAsync()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -123,6 +124,7 @@ the async request completes.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -149,7 +151,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Check AWS Logs Async Services request body.
         try {
-            AWSLogsAsyncResponse result = api.checkAWSLogsServicesAsync()
+            AWSLogsAsyncResponse result = apiInstance.checkAWSLogsServicesAsync()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -204,6 +206,7 @@ Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection t
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -230,7 +233,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
         try {
-            Object result = api.createAWSLambdaARN()
+            Object result = apiInstance.createAWSLambdaARN()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -285,6 +288,7 @@ Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN asso
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -311,7 +315,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Delete AWS Lambda ARN request body.
         try {
-            Object result = api.deleteAWSLambdaARN()
+            Object result = apiInstance.deleteAWSLambdaARN()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -366,6 +370,7 @@ Enable automatic log collection for a list of services. This should be run after
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -392,7 +397,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Enable AWS Log Services request body.
         try {
-            Object result = api.enableAWSLogServices()
+            Object result = apiInstance.enableAWSLogServices()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -447,6 +452,7 @@ List all Datadog-AWS Logs integrations configured in your Datadog account.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -472,7 +478,7 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         try {
-            List<AWSLogsListResponse> result = api.listAWSLogsIntegrations()
+            List<AWSLogsListResponse> result = apiInstance.listAWSLogsIntegrations()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -523,6 +529,7 @@ Get the list of current AWS services that Datadog offers automatic log collectio
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -548,7 +555,7 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         try {
-            List<AWSLogsListServicesResponse> result = api.listAWSLogsServices()
+            List<AWSLogsListServicesResponse> result = apiInstance.listAWSLogsServices()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {

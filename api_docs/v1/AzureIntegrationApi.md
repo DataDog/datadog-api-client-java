@@ -30,6 +30,7 @@ current configuration with the new one sent to your Datadog organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -56,7 +57,7 @@ public class Example {
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         AzureAccount body = new AzureAccount(); // AzureAccount | Create a Datadog-Azure integration for your Datadog account request body.
         try {
-            Object result = api.createAzureIntegration()
+            Object result = apiInstance.createAzureIntegration()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -111,6 +112,7 @@ Delete a given Datadog-Azure integration from your Datadog account.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -137,7 +139,7 @@ public class Example {
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         AzureAccount body = new AzureAccount(); // AzureAccount | Delete a given Datadog-Azure integration request body.
         try {
-            Object result = api.deleteAzureIntegration()
+            Object result = apiInstance.deleteAzureIntegration()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -192,6 +194,7 @@ List all Datadog-Azure integrations configured in your Datadog account.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -217,7 +220,7 @@ public class Example {
 
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         try {
-            List<AzureAccount> result = api.listAzureIntegration()
+            List<AzureAccount> result = apiInstance.listAzureIntegration()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -268,6 +271,7 @@ Update the defined list of host filters for a given Datadog-Azure integration.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -294,7 +298,7 @@ public class Example {
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         AzureAccount body = new AzureAccount(); // AzureAccount | Update a Datadog-Azure integration's host filters request body.
         try {
-            Object result = api.updateAzureHostFilters()
+            Object result = apiInstance.updateAzureHostFilters()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -351,6 +355,7 @@ use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not su
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -377,7 +382,7 @@ public class Example {
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         AzureAccount body = new AzureAccount(); // AzureAccount | Update a Datadog-Azure integration request body.
         try {
-            Object result = api.updateAzureIntegration()
+            Object result = apiInstance.updateAzureIntegration()
                 .body(body)
                 .execute();
             System.out.println(result);
