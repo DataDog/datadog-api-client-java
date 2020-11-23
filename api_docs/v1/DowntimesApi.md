@@ -25,6 +25,7 @@ Cancel a downtime.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -51,7 +52,7 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Long downtimeId = 123456; // Long | ID of the downtime to cancel.
         try {
-            api.cancelDowntime(downtimeId)
+            apiInstance.cancelDowntime(downtimeId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling DowntimesApi#cancelDowntime");
@@ -104,6 +105,7 @@ Delete all downtimes that match the scope of `X`.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -130,7 +132,7 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         CancelDowntimesByScopeRequest body = new CancelDowntimesByScopeRequest(); // CancelDowntimesByScopeRequest | Scope to cancel downtimes for.
         try {
-            CanceledDowntimesIds result = api.cancelDowntimesByScope()
+            CanceledDowntimesIds result = apiInstance.cancelDowntimesByScope()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -186,6 +188,7 @@ Schedule a downtime.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -212,7 +215,7 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Downtime body = new Downtime(); // Downtime | Schedule a downtime request body.
         try {
-            Downtime result = api.createDowntime()
+            Downtime result = apiInstance.createDowntime()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -267,6 +270,7 @@ Get downtime detail by `downtime_id`.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -293,7 +297,7 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Long downtimeId = 123456; // Long | ID of the downtime to fetch.
         try {
-            Downtime result = api.getDowntime(downtimeId)
+            Downtime result = apiInstance.getDowntime(downtimeId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -347,6 +351,7 @@ Get all scheduled downtimes.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -373,7 +378,7 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Boolean currentOnly = true; // Boolean | Only return downtimes that are active when the request is made.
         try {
-            List<Downtime> result = api.listDowntimes()
+            List<Downtime> result = apiInstance.listDowntimes()
                 .currentOnly(currentOnly)
                 .execute();
             System.out.println(result);
@@ -427,6 +432,7 @@ Update a single downtime by `downtime_id`.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -454,7 +460,7 @@ public class Example {
         Long downtimeId = 123456; // Long | ID of the downtime to update.
         Downtime body = new Downtime(); // Downtime | Update a downtime request body.
         try {
-            Downtime result = api.updateDowntime(downtimeId)
+            Downtime result = apiInstance.updateDowntime(downtimeId)
                 .body(body)
                 .execute();
             System.out.println(result);

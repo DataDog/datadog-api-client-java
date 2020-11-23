@@ -47,6 +47,7 @@ Get daily custom reports.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -76,7 +77,7 @@ public class Example {
         UsageSortDirection sortDir = new UsageSortDirection(); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageSort sort = new UsageSort(); // UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
         try {
-            UsageCustomReportsResponse result = api.getDailyCustomReports()
+            UsageCustomReportsResponse result = apiInstance.getDailyCustomReports()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sortDir(sortDir)
@@ -136,6 +137,7 @@ Get hourly usage for incident management.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -163,7 +165,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-            UsageIncidentManagementResponse result = api.getIncidentManagement()
+            UsageIncidentManagementResponse result = apiInstance.getIncidentManagement()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -220,6 +222,7 @@ Get hourly usage for ingested spans.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -247,7 +250,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-            UsageIngestedSpansResponse result = api.getIngestedSpans()
+            UsageIngestedSpansResponse result = apiInstance.getIngestedSpans()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -304,6 +307,7 @@ Get monthly custom reports.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -333,7 +337,7 @@ public class Example {
         UsageSortDirection sortDir = new UsageSortDirection(); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageSort sort = new UsageSort(); // UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
         try {
-            UsageCustomReportsResponse result = api.getMonthlyCustomReports()
+            UsageCustomReportsResponse result = apiInstance.getMonthlyCustomReports()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sortDir(sortDir)
@@ -393,6 +397,7 @@ Get specified daily custom reports.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -419,7 +424,7 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         String reportId = "reportId_example"; // String | The specified ID to search results for.
         try {
-            UsageSpecifiedCustomReportsResponse result = api.getSpecifiedDailyCustomReports(reportId)
+            UsageSpecifiedCustomReportsResponse result = apiInstance.getSpecifiedDailyCustomReports(reportId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -473,6 +478,7 @@ Get specified monthly custom reports.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -499,7 +505,7 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         String reportId = "reportId_example"; // String | The specified ID to search results for.
         try {
-            UsageSpecifiedCustomReportsResponse result = api.getSpecifiedMonthlyCustomReports(reportId)
+            UsageSpecifiedCustomReportsResponse result = apiInstance.getSpecifiedMonthlyCustomReports(reportId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -556,6 +562,7 @@ Get hourly usage for tracing without limits.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -583,7 +590,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-            UsageTracingWithoutLimitsResponse result = api.getTracingWithoutLimits()
+            UsageTracingWithoutLimitsResponse result = apiInstance.getTracingWithoutLimits()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -640,6 +647,7 @@ Get hourly usage for analyzed logs (Security Monitoring).
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -667,7 +675,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-            UsageAnalyzedLogsResponse result = api.getUsageAnalyzedLogs()
+            UsageAnalyzedLogsResponse result = apiInstance.getUsageAnalyzedLogs()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -724,6 +732,7 @@ Get Usage Attribution.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -755,7 +764,7 @@ public class Example {
         UsageSortDirection sortDirection = new UsageSortDirection(); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageAttributionSort sortName = new UsageAttributionSort(); // UsageAttributionSort | The field to sort by.
         try {
-            UsageAttributionResponse result = api.getUsageAttribution()
+            UsageAttributionResponse result = apiInstance.getUsageAttribution()
                 .startMonth(startMonth)
                 .fields(fields)
                 .endMonth(endMonth)
@@ -819,6 +828,7 @@ Get billable usage across your multi-org account.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -845,7 +855,7 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         OffsetDateTime month = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
         try {
-            UsageBillableSummaryResponse result = api.getUsageBillableSummary()
+            UsageBillableSummaryResponse result = apiInstance.getUsageBillableSummary()
                 .month(month)
                 .execute();
             System.out.println(result);
@@ -900,6 +910,7 @@ Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_farga
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -927,7 +938,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageFargateResponse result = api.getUsageFargate()
+            UsageFargateResponse result = apiInstance.getUsageFargate()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -984,6 +995,7 @@ Get hourly usage for hosts and containers.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1011,7 +1023,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageHostsResponse result = api.getUsageHosts()
+            UsageHostsResponse result = apiInstance.getUsageHosts()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -1068,6 +1080,7 @@ Get hourly usage for indexed spans.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1095,7 +1108,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-            UsageIndexedSpansResponse result = api.getUsageIndexedSpans()
+            UsageIndexedSpansResponse result = apiInstance.getUsageIndexedSpans()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -1152,6 +1165,7 @@ Get hourly usage for lambda.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1179,7 +1193,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageLambdaResponse result = api.getUsageLambda()
+            UsageLambdaResponse result = apiInstance.getUsageLambda()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -1236,6 +1250,7 @@ Get hourly usage for logs.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1263,7 +1278,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageLogsResponse result = api.getUsageLogs()
+            UsageLogsResponse result = apiInstance.getUsageLogs()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -1320,6 +1335,7 @@ Get hourly usage for logs by index.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1348,7 +1364,7 @@ public class Example {
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         List<String> indexName = Arrays.asList(); // List<String> | Comma-separated list of log index names.
         try {
-            UsageLogsByIndexResponse result = api.getUsageLogsByIndex()
+            UsageLogsByIndexResponse result = apiInstance.getUsageLogsByIndex()
                 .startHr(startHr)
                 .endHr(endHr)
                 .indexName(indexName)
@@ -1407,6 +1423,7 @@ Get hourly usage for network flows.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1434,7 +1451,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-            UsageNetworkFlowsResponse result = api.getUsageNetworkFlows()
+            UsageNetworkFlowsResponse result = apiInstance.getUsageNetworkFlows()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -1491,6 +1508,7 @@ Get hourly usage for network hosts.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1518,7 +1536,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageNetworkHostsResponse result = api.getUsageNetworkHosts()
+            UsageNetworkHostsResponse result = apiInstance.getUsageNetworkHosts()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -1575,6 +1593,7 @@ Get hourly usage for profiled hosts.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1602,7 +1621,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-            UsageProfilingResponse result = api.getUsageProfiling()
+            UsageProfilingResponse result = apiInstance.getUsageProfiling()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -1659,6 +1678,7 @@ Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Ses
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1687,7 +1707,7 @@ public class Example {
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         String type = "type_example"; // String | RUM type: `[browser, mobile]`. Defaults to `browser`.
         try {
-            UsageRumSessionsResponse result = api.getUsageRumSessions()
+            UsageRumSessionsResponse result = apiInstance.getUsageRumSessions()
                 .startHr(startHr)
                 .endHr(endHr)
                 .type(type)
@@ -1746,6 +1766,7 @@ Get hourly usage for SNMP devices.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1773,7 +1794,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-            UsageSNMPResponse result = api.getUsageSNMP()
+            UsageSNMPResponse result = apiInstance.getUsageSNMP()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -1830,6 +1851,7 @@ Get usage across your multi-org account.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1858,7 +1880,7 @@ public class Example {
         OffsetDateTime endMonth = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
         Boolean includeOrgDetails = true; // Boolean | Include usage summaries for each sub-org.
         try {
-            UsageSummaryResponse result = api.getUsageSummary()
+            UsageSummaryResponse result = apiInstance.getUsageSummary()
                 .startMonth(startMonth)
                 .endMonth(endMonth)
                 .includeOrgDetails(includeOrgDetails)
@@ -1917,6 +1939,7 @@ Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/)
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -1944,7 +1967,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageSyntheticsResponse result = api.getUsageSynthetics()
+            UsageSyntheticsResponse result = apiInstance.getUsageSynthetics()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -2001,6 +2024,7 @@ Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/syntheti
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -2028,7 +2052,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageSyntheticsAPIResponse result = api.getUsageSyntheticsAPI()
+            UsageSyntheticsAPIResponse result = apiInstance.getUsageSyntheticsAPI()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -2085,6 +2109,7 @@ Get hourly usage for synthetics browser checks.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -2112,7 +2137,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageSyntheticsBrowserResponse result = api.getUsageSyntheticsBrowser()
+            UsageSyntheticsBrowserResponse result = apiInstance.getUsageSyntheticsBrowser()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -2169,6 +2194,7 @@ Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metr
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -2196,7 +2222,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageTimeseriesResponse result = api.getUsageTimeseries()
+            UsageTimeseriesResponse result = apiInstance.getUsageTimeseries()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();
@@ -2253,6 +2279,7 @@ Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_me
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -2280,7 +2307,7 @@ public class Example {
         OffsetDateTime month = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
         List<String> names = Arrays.asList(); // List<String> | Comma-separated list of metric names.
         try {
-            UsageTopAvgMetricsResponse result = api.getUsageTopAvgMetrics()
+            UsageTopAvgMetricsResponse result = apiInstance.getUsageTopAvgMetrics()
                 .month(month)
                 .names(names)
                 .execute();
@@ -2339,6 +2366,7 @@ Get hourly usage for trace search.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -2366,7 +2394,7 @@ public class Example {
         OffsetDateTime startHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-            UsageTraceResponse result = api.getUsageTrace()
+            UsageTraceResponse result = apiInstance.getUsageTrace()
                 .startHr(startHr)
                 .endHr(endHr)
                 .execute();

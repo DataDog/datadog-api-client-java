@@ -24,6 +24,7 @@ Get metadata about a specific metric.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -50,7 +51,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "metricName_example"; // String | Name of the metric for which to get metadata.
         try {
-            MetricMetadata result = api.getMetricMetadata(metricName)
+            MetricMetadata result = apiInstance.getMetricMetadata(metricName)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -104,6 +105,7 @@ Get the list of actively reporting metrics from a given time until now.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -131,7 +133,7 @@ public class Example {
         Long from = 56L; // Long | Seconds since the Unix epoch.
         String host = "host_example"; // String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
         try {
-            MetricsListResponse result = api.listActiveMetrics()
+            MetricsListResponse result = apiInstance.listActiveMetrics()
                 .from(from)
                 .host(host)
                 .execute();
@@ -188,6 +190,7 @@ Search for metrics from the last 24 hours in Datadog.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -214,7 +217,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String q = "q_example"; // String | Query string to search metrics upon. Must be prefixed with `metrics:`.
         try {
-            MetricSearchResponse result = api.listMetrics()
+            MetricSearchResponse result = apiInstance.listMetrics()
                 .q(q)
                 .execute();
             System.out.println(result);
@@ -269,6 +272,7 @@ Query timeseries points.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -297,7 +301,7 @@ public class Example {
         Long to = 56L; // Long | End of the queried time period, seconds since the Unix epoch.
         String query = "query_example"; // String | Query string.
         try {
-            MetricsQueryResponse result = api.queryMetrics()
+            MetricsQueryResponse result = apiInstance.queryMetrics()
                 .from(from)
                 .to(to)
                 .query(query)
@@ -356,6 +360,7 @@ Edit metadata of a specific metric. Find out more about [supported types](https:
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -383,7 +388,7 @@ public class Example {
         String metricName = "metricName_example"; // String | Name of the metric for which to edit metadata.
         MetricMetadata body = new MetricMetadata(); // MetricMetadata | New metadata.
         try {
-            MetricMetadata result = api.updateMetricMetadata(metricName)
+            MetricMetadata result = apiInstance.updateMetricMetadata(metricName)
                 .body(body)
                 .execute();
             System.out.println(result);

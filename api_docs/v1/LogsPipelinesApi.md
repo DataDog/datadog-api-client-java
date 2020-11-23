@@ -26,6 +26,7 @@ Create a pipeline in your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -52,7 +53,7 @@ public class Example {
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         LogsPipeline body = new LogsPipeline(); // LogsPipeline | Definition of the new pipeline.
         try {
-            LogsPipeline result = api.createLogsPipeline()
+            LogsPipeline result = apiInstance.createLogsPipeline()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -108,6 +109,7 @@ This endpoint takes no JSON arguments.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -134,7 +136,7 @@ public class Example {
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
         try {
-            api.deleteLogsPipeline(pipelineId)
+            apiInstance.deleteLogsPipeline(pipelineId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsPipelinesApi#deleteLogsPipeline");
@@ -188,6 +190,7 @@ This endpoint takes no JSON arguments.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -214,7 +217,7 @@ public class Example {
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         String pipelineId = "pipelineId_example"; // String | ID of the pipeline to get.
         try {
-            LogsPipeline result = api.getLogsPipeline(pipelineId)
+            LogsPipeline result = apiInstance.getLogsPipeline(pipelineId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -269,6 +272,7 @@ This endpoint takes no JSON arguments.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -294,7 +298,7 @@ public class Example {
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         try {
-            LogsPipelinesOrder result = api.getLogsPipelineOrder()
+            LogsPipelinesOrder result = apiInstance.getLogsPipelineOrder()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -345,6 +349,7 @@ This endpoint takes no JSON arguments.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -370,7 +375,7 @@ public class Example {
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         try {
-            List<LogsPipeline> result = api.listLogsPipelines()
+            List<LogsPipeline> result = apiInstance.listLogsPipelines()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -423,6 +428,7 @@ your current configuration with the new one sent to your Datadog organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -450,7 +456,7 @@ public class Example {
         String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
         LogsPipeline body = new LogsPipeline(); // LogsPipeline | New definition of the pipeline.
         try {
-            LogsPipeline result = api.updateLogsPipeline(pipelineId)
+            LogsPipeline result = apiInstance.updateLogsPipeline(pipelineId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -510,6 +516,7 @@ with the new one sent to your Datadog organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -536,7 +543,7 @@ public class Example {
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         LogsPipelinesOrder body = new LogsPipelinesOrder(); // LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs.
         try {
-            LogsPipelinesOrder result = api.updateLogsPipelineOrder()
+            LogsPipelinesOrder result = apiInstance.updateLogsPipelineOrder()
                 .body(body)
                 .execute();
             System.out.println(result);

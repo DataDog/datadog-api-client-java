@@ -24,6 +24,7 @@ you may see characters such as `%`,`\`,`n` in your output.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -50,7 +51,7 @@ public class Example {
         EventsApi apiInstance = new EventsApi(defaultClient);
         Long eventId = 56L; // Long | The ID of the event.
         try {
-            EventResponse result = api.getEvent(eventId)
+            EventResponse result = apiInstance.getEvent(eventId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -112,6 +113,7 @@ paginate the results.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -143,7 +145,7 @@ public class Example {
         String tags = host:host0; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
         Boolean unaggregated = true; // Boolean | Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won't be available in the output.
         try {
-            EventListResponse result = api.listEvents()
+            EventListResponse result = apiInstance.listEvents()
                 .start(start)
                 .end(end)
                 .priority(priority)

@@ -33,6 +33,7 @@ by using the `org.public_id`, `pi_key.key`, and
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -59,7 +60,7 @@ public class Example {
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
         OrganizationCreateBody body = new OrganizationCreateBody(); // OrganizationCreateBody | Organization object that needs to be created
         try {
-            OrganizationCreateResponse result = api.createChildOrg()
+            OrganizationCreateResponse result = apiInstance.createChildOrg()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -114,6 +115,7 @@ Get organization information.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -140,7 +142,7 @@ public class Example {
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
         String publicId = abc123; // String | The `public_id` of the organization you are operating within.
         try {
-            OrganizationResponse result = api.getOrg(publicId)
+            OrganizationResponse result = apiInstance.getOrg(publicId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -194,6 +196,7 @@ List your managed organizations.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -219,7 +222,7 @@ public class Example {
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
         try {
-            OrganizationListResponse result = api.listOrgs()
+            OrganizationListResponse result = apiInstance.listOrgs()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -269,6 +272,7 @@ Update your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -296,7 +300,7 @@ public class Example {
         String publicId = abc123; // String | The `public_id` of the organization you are operating within.
         Organization body = new Organization(); // Organization | 
         try {
-            OrganizationResponse result = api.updateOrg(publicId)
+            OrganizationResponse result = apiInstance.updateOrg(publicId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -357,6 +361,7 @@ metadata from your SAML IdP.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -384,7 +389,7 @@ public class Example {
         String publicId = abc123; // String | The `public_id` of the organization you are operating with
         File idpFile = new File("/path/to/file"); // File | The path to the XML metadata file you wish to upload.
         try {
-            IdpResponse result = api.uploadIdPForOrg(publicId)
+            IdpResponse result = apiInstance.uploadIdPForOrg(publicId)
                 .idpFile(idpFile)
                 .execute();
             System.out.println(result);

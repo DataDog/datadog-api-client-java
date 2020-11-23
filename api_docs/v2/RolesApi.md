@@ -31,6 +31,7 @@ Adds a permission to a role.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -58,7 +59,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RelationshipToPermission body = new RelationshipToPermission(); // RelationshipToPermission | 
         try {
-            PermissionsResponse result = api.addPermissionToRole(roleId)
+            PermissionsResponse result = apiInstance.addPermissionToRole(roleId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -115,6 +116,7 @@ Adds a user to a role.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -142,7 +144,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RelationshipToUser body = new RelationshipToUser(); // RelationshipToUser | 
         try {
-            UsersResponse result = api.addUserToRole(roleId)
+            UsersResponse result = apiInstance.addUserToRole(roleId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -199,6 +201,7 @@ Create a new role for your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -225,7 +228,7 @@ public class Example {
         RolesApi apiInstance = new RolesApi(defaultClient);
         RoleCreateRequest body = new RoleCreateRequest(); // RoleCreateRequest | 
         try {
-            RoleCreateResponse result = api.createRole()
+            RoleCreateResponse result = apiInstance.createRole()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -280,6 +283,7 @@ Disables a role.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -306,7 +310,7 @@ public class Example {
         RolesApi apiInstance = new RolesApi(defaultClient);
         String roleId = "roleId_example"; // String | The ID of the role.
         try {
-            api.deleteRole(roleId)
+            apiInstance.deleteRole(roleId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#deleteRole");
@@ -359,6 +363,7 @@ Get a role in the organization specified by the role’s `role_id`.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -385,7 +390,7 @@ public class Example {
         RolesApi apiInstance = new RolesApi(defaultClient);
         String roleId = "roleId_example"; // String | The ID of the role.
         try {
-            RoleResponse result = api.getRole(roleId)
+            RoleResponse result = apiInstance.getRole(roleId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -439,6 +444,7 @@ Returns a list of all permissions, including name, description, and ID.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -464,7 +470,7 @@ public class Example {
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         try {
-            PermissionsResponse result = api.listPermissions()
+            PermissionsResponse result = apiInstance.listPermissions()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -515,6 +521,7 @@ Returns a list of all permissions for a single role.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -541,7 +548,7 @@ public class Example {
         RolesApi apiInstance = new RolesApi(defaultClient);
         String roleId = "roleId_example"; // String | The ID of the role.
         try {
-            PermissionsResponse result = api.listRolePermissions(roleId)
+            PermissionsResponse result = apiInstance.listRolePermissions(roleId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -595,6 +602,7 @@ Gets all users of a role.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -625,7 +633,7 @@ public class Example {
         String sort = "\"name\""; // String | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
         try {
-            UsersResponse result = api.listRoleUsers(roleId)
+            UsersResponse result = apiInstance.listRoleUsers(roleId)
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
@@ -687,6 +695,7 @@ Returns all roles, including their names and IDs.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -716,7 +725,7 @@ public class Example {
         RolesSort sort = new RolesSort(); // RolesSort | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
         String filter = "filter_example"; // String | Filter all roles by the given string.
         try {
-            RolesResponse result = api.listRoles()
+            RolesResponse result = apiInstance.listRoles()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
@@ -776,6 +785,7 @@ Removes a permission from a role.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -803,7 +813,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RelationshipToPermission body = new RelationshipToPermission(); // RelationshipToPermission | 
         try {
-            PermissionsResponse result = api.removePermissionFromRole(roleId)
+            PermissionsResponse result = apiInstance.removePermissionFromRole(roleId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -860,6 +870,7 @@ Removes a user from a role.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -887,7 +898,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RelationshipToUser body = new RelationshipToUser(); // RelationshipToUser | 
         try {
-            UsersResponse result = api.removeUserFromRole(roleId)
+            UsersResponse result = apiInstance.removeUserFromRole(roleId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -944,6 +955,7 @@ Edit a role. Can only be used with application keys belonging to administrators.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -971,7 +983,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RoleUpdateRequest body = new RoleUpdateRequest(); // RoleUpdateRequest | 
         try {
-            RoleUpdateResponse result = api.updateRole(roleId)
+            RoleUpdateResponse result = apiInstance.updateRole(roleId)
                 .body(body)
                 .execute();
             System.out.println(result);

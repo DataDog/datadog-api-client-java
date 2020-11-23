@@ -28,6 +28,7 @@ Create a user for your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -54,7 +55,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         UserCreateRequest body = new UserCreateRequest(); // UserCreateRequest | 
         try {
-            UserResponse result = api.createUser()
+            UserResponse result = apiInstance.createUser()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -110,6 +111,7 @@ to an administrator user.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -136,7 +138,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
         try {
-            api.disableUser(userId)
+            apiInstance.disableUser(userId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#disableUser");
@@ -189,6 +191,7 @@ Returns a single user invitation by its UUID.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -215,7 +218,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userInvitationUuid = "userInvitationUuid_example"; // String | The UUID of the user invitation.
         try {
-            UserInvitationResponse result = api.getInvitation(userInvitationUuid)
+            UserInvitationResponse result = apiInstance.getInvitation(userInvitationUuid)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -269,6 +272,7 @@ Get a user in the organization specified by the user’s `user_id`.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -295,7 +299,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
         try {
-            UserResponse result = api.getUser(userId)
+            UserResponse result = apiInstance.getUser(userId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -350,6 +354,7 @@ joined by this user.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -376,7 +381,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
         try {
-            UserResponse result = api.listUserOrganizations(userId)
+            UserResponse result = apiInstance.listUserOrganizations(userId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -431,6 +436,7 @@ granted by the associated user's roles.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -457,7 +463,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
         try {
-            PermissionsResponse result = api.listUserPermissions(userId)
+            PermissionsResponse result = apiInstance.listUserPermissions(userId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -512,6 +518,7 @@ all users even if they are deactivated or unverified.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -543,7 +550,7 @@ public class Example {
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
         String filterStatus = "filterStatus_example"; // String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
         try {
-            UsersResponse result = api.listUsers()
+            UsersResponse result = apiInstance.listUsers()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
@@ -608,6 +615,7 @@ Sends emails to one or more users inviting them to join the organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -634,7 +642,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         UserInvitationsRequest body = new UserInvitationsRequest(); // UserInvitationsRequest | 
         try {
-            UserInvitationsResponse result = api.sendInvitations()
+            UserInvitationsResponse result = apiInstance.sendInvitations()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -690,6 +698,7 @@ to an administrator user.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -717,7 +726,7 @@ public class Example {
         String userId = "userId_example"; // String | The ID of the user.
         UserUpdateRequest body = new UserUpdateRequest(); // UserUpdateRequest | 
         try {
-            UserResponse result = api.updateUser(userId)
+            UserResponse result = apiInstance.updateUser(userId)
                 .body(body)
                 .execute();
             System.out.println(result);

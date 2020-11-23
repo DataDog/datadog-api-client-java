@@ -23,6 +23,7 @@ Create a Datadog-GCP integration.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -49,7 +50,7 @@ public class Example {
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         GCPAccount body = new GCPAccount(); // GCPAccount | Create a Datadog-GCP integration.
         try {
-            Object result = api.createGCPIntegration()
+            Object result = apiInstance.createGCPIntegration()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -104,6 +105,7 @@ Delete a given Datadog-GCP integration.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -130,7 +132,7 @@ public class Example {
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         GCPAccount body = new GCPAccount(); // GCPAccount | Delete a given Datadog-GCP integration.
         try {
-            Object result = api.deleteGCPIntegration()
+            Object result = apiInstance.deleteGCPIntegration()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -185,6 +187,7 @@ List all Datadog-GCP integrations configured in your Datadog account.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -210,7 +213,7 @@ public class Example {
 
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         try {
-            List<GCPAccount> result = api.listGCPIntegration()
+            List<GCPAccount> result = apiInstance.listGCPIntegration()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -264,6 +267,7 @@ The unspecified fields will keep their original values.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -290,7 +294,7 @@ public class Example {
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         GCPAccount body = new GCPAccount(); // GCPAccount | Update a Datadog-GCP integration.
         try {
-            Object result = api.updateGCPIntegration()
+            Object result = apiInstance.updateGCPIntegration()
                 .body(body)
                 .execute();
             System.out.println(result);

@@ -28,6 +28,7 @@ assure an SLO can be deleted without disrupting a dashboard.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -54,7 +55,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String ids = id1, id2, id3; // String | A comma separated list of the IDs of the service level objectives objects.
         try {
-            CheckCanDeleteSLOResponse result = api.checkCanDeleteSLO()
+            CheckCanDeleteSLOResponse result = apiInstance.checkCanDeleteSLO()
                 .ids(ids)
                 .execute();
             System.out.println(result);
@@ -110,6 +111,7 @@ Create a service level objective object.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -136,7 +138,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         ServiceLevelObjectiveRequest body = new ServiceLevelObjectiveRequest(); // ServiceLevelObjectiveRequest | Service level objective request object.
         try {
-            SLOListResponse result = api.createSLO()
+            SLOListResponse result = apiInstance.createSLO()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -194,6 +196,7 @@ a 409 conflict error because the SLO is referenced in a dashboard.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -221,7 +224,7 @@ public class Example {
         String sloId = "sloId_example"; // String | The ID of the service level objective.
         String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
-            SLODeleteResponse result = api.deleteSLO(sloId)
+            SLODeleteResponse result = apiInstance.deleteSLO(sloId)
                 .force(force)
                 .execute();
             System.out.println(result);
@@ -282,6 +285,7 @@ objective object is deleted as well.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -308,7 +312,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Delete multiple service level objective objects request body.
         try {
-            SLOBulkDeleteResponse result = api.deleteSLOTimeframeInBulk()
+            SLOBulkDeleteResponse result = apiInstance.deleteSLOTimeframeInBulk()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -363,6 +367,7 @@ Get a service level objective object.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -389,7 +394,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
         try {
-            SLOResponse result = api.getSLO(sloId)
+            SLOResponse result = apiInstance.getSLO(sloId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -450,6 +455,7 @@ Examples of both are shown.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -478,7 +484,7 @@ public class Example {
         Long fromTs = 56L; // Long | The `from` timestamp for the query window in epoch seconds.
         Long toTs = 56L; // Long | The `to` timestamp for the query window in epoch seconds.
         try {
-            SLOHistoryResponse result = api.getSLOHistory(sloId)
+            SLOHistoryResponse result = apiInstance.getSLOHistory(sloId)
                 .fromTs(fromTs)
                 .toTs(toTs)
                 .execute();
@@ -537,6 +543,7 @@ Get multiple service level objective objects by their IDs.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -563,7 +570,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String ids = id1, id2, id3; // String | A comma separated list of the IDs of the service level objectives objects.
         try {
-            SLOListResponse result = api.listSLOs()
+            SLOListResponse result = apiInstance.listSLOs()
                 .ids(ids)
                 .execute();
             System.out.println(result);
@@ -619,6 +626,7 @@ Update the specified service level objective object.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -646,7 +654,7 @@ public class Example {
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
         ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | The edited service level objective request object.
         try {
-            SLOListResponse result = api.updateSLO(sloId)
+            SLOListResponse result = apiInstance.updateSLO(sloId)
                 .body(body)
                 .execute();
             System.out.println(result);

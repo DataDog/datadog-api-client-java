@@ -26,6 +26,7 @@ Create a detection rule.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -52,7 +53,7 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         SecurityMonitoringRuleCreatePayload body = new SecurityMonitoringRuleCreatePayload(); // SecurityMonitoringRuleCreatePayload | 
         try {
-            SecurityMonitoringRuleResponse result = api.createSecurityMonitoringRule()
+            SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -107,6 +108,7 @@ Delete an existing rule. Default rules cannot be deleted.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -133,7 +135,7 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         String ruleId = "ruleId_example"; // String | The ID of the rule.
         try {
-            api.deleteSecurityMonitoringRule(ruleId)
+            apiInstance.deleteSecurityMonitoringRule(ruleId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityMonitoringApi#deleteSecurityMonitoringRule");
@@ -186,6 +188,7 @@ Get a rule's details.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -212,7 +215,7 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         String ruleId = "ruleId_example"; // String | The ID of the rule.
         try {
-            SecurityMonitoringRuleResponse result = api.getSecurityMonitoringRule(ruleId)
+            SecurityMonitoringRuleResponse result = apiInstance.getSecurityMonitoringRule(ruleId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -265,6 +268,7 @@ List rules.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -292,7 +296,7 @@ public class Example {
         Long pageSize = 10lL; // Long | Size for a given page.
         Long pageNumber = 0lL; // Long | Specific page number to return.
         try {
-            SecurityMonitoringListRulesResponse result = api.listSecurityMonitoringRules()
+            SecurityMonitoringListRulesResponse result = apiInstance.listSecurityMonitoringRules()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .execute();
@@ -350,6 +354,7 @@ security signals.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -381,7 +386,7 @@ public class Example {
         String pageCursor = eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==; // String | A list of results using the cursor provided in the previous query.
         Integer pageLimit = 25; // Integer | The maximum number of security signals in the response.
         try {
-            SecurityMonitoringSignalsListResponse result = api.listSecurityMonitoringSignals()
+            SecurityMonitoringSignalsListResponse result = apiInstance.listSecurityMonitoringSignals()
                 .filterQuery(filterQuery)
                 .filterFrom(filterFrom)
                 .filterTo(filterTo)
@@ -448,6 +453,7 @@ security signals.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -474,7 +480,7 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         SecurityMonitoringSignalListRequest body = new SecurityMonitoringSignalListRequest(); // SecurityMonitoringSignalListRequest | 
         try {
-            SecurityMonitoringSignalsListResponse result = api.searchSecurityMonitoringSignals()
+            SecurityMonitoringSignalsListResponse result = apiInstance.searchSecurityMonitoringSignals()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -531,6 +537,7 @@ Default rules can only be updated to be enabled and to change notifications.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -558,7 +565,7 @@ public class Example {
         String ruleId = "ruleId_example"; // String | The ID of the rule.
         SecurityMonitoringRuleUpdatePayload body = new SecurityMonitoringRuleUpdatePayload(); // SecurityMonitoringRuleUpdatePayload | 
         try {
-            SecurityMonitoringRuleResponse result = api.updateSecurityMonitoringRule(ruleId)
+            SecurityMonitoringRuleResponse result = apiInstance.updateSecurityMonitoringRule(ruleId)
                 .body(body)
                 .execute();
             System.out.println(result);

@@ -25,6 +25,7 @@ optionally specifying where these tags come from.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -53,7 +54,7 @@ public class Example {
         HostTags body = new HostTags(); // HostTags | Update host tags request body.
         String source = chef; // String | The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
         try {
-            HostTags result = api.createHostTags(hostName)
+            HostTags result = apiInstance.createHostTags(hostName)
                 .body(body)
                 .source(source)
                 .execute();
@@ -112,6 +113,7 @@ for a single host.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -139,7 +141,7 @@ public class Example {
         String hostName = "hostName_example"; // String | This endpoint allows you to remove all user-assigned tags for a single host.
         String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
         try {
-            api.deleteHostTags(hostName)
+            apiInstance.deleteHostTags(hostName)
                 .source(source)
                 .execute();
         } catch (ApiException e) {
@@ -194,6 +196,7 @@ Return the list of tags that apply to a given host.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -221,7 +224,7 @@ public class Example {
         String hostName = "hostName_example"; // String | When specified, filters list of tags to those tags with the specified source.
         String source = "source_example"; // String | Source to filter.
         try {
-            HostTags result = api.getHostTags(hostName)
+            HostTags result = apiInstance.getHostTags(hostName)
                 .source(source)
                 .execute();
             System.out.println(result);
@@ -277,6 +280,7 @@ Return a mapping of tags to hosts for your whole infrastructure.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -303,7 +307,7 @@ public class Example {
         TagsApi apiInstance = new TagsApi(defaultClient);
         String source = "source_example"; // String | When specified, filters host list to those tags with the specified source.
         try {
-            TagToHosts result = api.listHostTags()
+            TagToHosts result = apiInstance.listHostTags()
                 .source(source)
                 .execute();
             System.out.println(result);
@@ -359,6 +363,7 @@ an integration source with those supplied in the request.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -387,7 +392,7 @@ public class Example {
         HostTags body = new HostTags(); // HostTags | Add tags to host
         String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
         try {
-            HostTags result = api.updateHostTags(hostName)
+            HostTags result = apiInstance.updateHostTags(hostName)
                 .body(body)
                 .source(source)
                 .execute();

@@ -24,6 +24,7 @@ Active means the host has reported in the past hour, and up means it has reporte
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -50,7 +51,7 @@ public class Example {
         HostsApi apiInstance = new HostsApi(defaultClient);
         Long from = 56L; // Long | Number of seconds from which you want to get total number of active hosts.
         try {
-            HostTotals result = api.getHostTotals()
+            HostTotals result = apiInstance.getHostTotals()
                 .from(from)
                 .execute();
             System.out.println(result);
@@ -108,6 +109,7 @@ Results are paginated with a max of 1000 results at a time.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -141,7 +143,7 @@ public class Example {
         Boolean includeMutedHostsData = true; // Boolean | Include information on the muted status of hosts and when the mute expires.
         Boolean includeHostsMetadata = true; // Boolean | Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
         try {
-            HostListResponse result = api.listHosts()
+            HostListResponse result = apiInstance.listHosts()
                 .filter(filter)
                 .sortField(sortField)
                 .sortDir(sortDir)
@@ -210,6 +212,7 @@ Mute a host.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -237,7 +240,7 @@ public class Example {
         String hostName = "hostName_example"; // String | Name of the host to mute.
         HostMuteSettings body = new HostMuteSettings(); // HostMuteSettings | Mute a host request body.
         try {
-            HostMuteResponse result = api.muteHost(hostName)
+            HostMuteResponse result = apiInstance.muteHost(hostName)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -293,6 +296,7 @@ Unmutes a host. This endpoint takes no JSON arguments.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -319,7 +323,7 @@ public class Example {
         HostsApi apiInstance = new HostsApi(defaultClient);
         String hostName = "hostName_example"; // String | Name of the host to unmute.
         try {
-            HostMuteResponse result = api.unmuteHost(hostName)
+            HostMuteResponse result = apiInstance.unmuteHost(hostName)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {

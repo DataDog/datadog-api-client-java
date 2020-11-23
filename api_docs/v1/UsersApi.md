@@ -27,6 +27,7 @@ if application keys belong to administrators.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -53,7 +54,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         User body = new User(); // User | User object that needs to be created.
         try {
-            UserResponse result = api.createUser()
+            UserResponse result = apiInstance.createUser()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -112,6 +113,7 @@ administrators.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -138,7 +140,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The handle of the user.
         try {
-            UserDisableResponse result = api.disableUser(userHandle)
+            UserDisableResponse result = apiInstance.disableUser(userHandle)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -193,6 +195,7 @@ Get a user's details.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -219,7 +222,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userHandle = test@datadoghq.com; // String | The ID of the user.
         try {
-            UserResponse result = api.getUser(userHandle)
+            UserResponse result = apiInstance.getUser(userHandle)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -273,6 +276,7 @@ List all users for your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -298,7 +302,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         try {
-            UserListResponse result = api.listUsers()
+            UserListResponse result = apiInstance.listUsers()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -350,6 +354,7 @@ Update a user information.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -377,7 +382,7 @@ public class Example {
         String userHandle = test@datadoghq.com; // String | The ID of the user.
         User body = new User(); // User | Description of the update.
         try {
-            UserResponse result = api.updateUser(userHandle)
+            UserResponse result = apiInstance.updateUser(userHandle)
                 .body(body)
                 .execute();
             System.out.println(result);

@@ -29,6 +29,7 @@ Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -56,7 +57,7 @@ public class Example {
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         RelationshipToRole body = new RelationshipToRole(); // RelationshipToRole | 
         try {
-            api.addReadRoleToArchive(archiveId)
+            apiInstance.addReadRoleToArchive(archiveId)
                 .body(body)
                 .execute();
         } catch (ApiException e) {
@@ -112,6 +113,7 @@ Create an archive in your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -138,7 +140,7 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         LogsArchiveCreateRequest body = new LogsArchiveCreateRequest(); // LogsArchiveCreateRequest | The definition of the new archive.
         try {
-            LogsArchive result = api.createLogsArchive()
+            LogsArchive result = apiInstance.createLogsArchive()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -193,6 +195,7 @@ Delete a given archive from your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -219,7 +222,7 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         try {
-            api.deleteLogsArchive(archiveId)
+            apiInstance.deleteLogsArchive(archiveId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#deleteLogsArchive");
@@ -273,6 +276,7 @@ Get a specific archive from your organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -299,7 +303,7 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         try {
-            LogsArchive result = api.getLogsArchive(archiveId)
+            LogsArchive result = apiInstance.getLogsArchive(archiveId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -355,6 +359,7 @@ This endpoint takes no JSON arguments.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -380,7 +385,7 @@ public class Example {
 
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         try {
-            LogsArchiveOrder result = api.getLogsArchiveOrder()
+            LogsArchiveOrder result = apiInstance.getLogsArchiveOrder()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -430,6 +435,7 @@ Returns all read roles a given archive is restricted to.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -456,7 +462,7 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         try {
-            RolesResponse result = api.listArchiveReadRoles(archiveId)
+            RolesResponse result = apiInstance.listArchiveReadRoles(archiveId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -511,6 +517,7 @@ Get the list of configured logs archives with their definitions.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -536,7 +543,7 @@ public class Example {
 
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         try {
-            LogsArchives result = api.listLogsArchives()
+            LogsArchives result = apiInstance.listLogsArchives()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -586,6 +593,7 @@ Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -613,7 +621,7 @@ public class Example {
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         RelationshipToRole body = new RelationshipToRole(); // RelationshipToRole | 
         try {
-            api.removeRoleFromArchive(archiveId)
+            apiInstance.removeRoleFromArchive(archiveId)
                 .body(body)
                 .execute();
         } catch (ApiException e) {
@@ -672,6 +680,7 @@ your current configuration with the new one sent to your Datadog organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -699,7 +708,7 @@ public class Example {
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         LogsArchiveCreateRequest body = new LogsArchiveCreateRequest(); // LogsArchiveCreateRequest | New definition of the archive.
         try {
-            LogsArchive result = api.updateLogsArchive(archiveId)
+            LogsArchive result = apiInstance.updateLogsArchive(archiveId)
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -760,6 +769,7 @@ with the new one.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -786,7 +796,7 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         LogsArchiveOrder body = new LogsArchiveOrder(); // LogsArchiveOrder | An object containing the new ordered list of archive IDs.
         try {
-            LogsArchiveOrder result = api.updateLogsArchiveOrder()
+            LogsArchiveOrder result = apiInstance.updateLogsArchiveOrder()
                 .body(body)
                 .execute();
             System.out.println(result);

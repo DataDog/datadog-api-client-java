@@ -24,6 +24,7 @@ Create a dashboard using the specified options.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -50,7 +51,7 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         Dashboard body = new Dashboard(); // Dashboard | Create a dashboard request body.
         try {
-            Dashboard result = api.createDashboard()
+            Dashboard result = apiInstance.createDashboard()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -105,6 +106,7 @@ Delete a dashboard using the specified ID.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -131,7 +133,7 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
         try {
-            DashboardDeleteResponse result = api.deleteDashboard(dashboardId)
+            DashboardDeleteResponse result = apiInstance.deleteDashboard(dashboardId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -185,6 +187,7 @@ Get a dashboard using the specified ID.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -211,7 +214,7 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
         try {
-            Dashboard result = api.getDashboard(dashboardId)
+            Dashboard result = apiInstance.getDashboard(dashboardId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -268,6 +271,7 @@ This query will not return preset dashboards.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -293,7 +297,7 @@ public class Example {
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         try {
-            DashboardSummary result = api.listDashboards()
+            DashboardSummary result = apiInstance.listDashboards()
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -343,6 +347,7 @@ Update a dashboard using the specified ID.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -370,7 +375,7 @@ public class Example {
         String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
         Dashboard body = new Dashboard(); // Dashboard | Update Dashboard request body.
         try {
-            Dashboard result = api.updateDashboard(dashboardId)
+            Dashboard result = apiInstance.updateDashboard(dashboardId)
                 .body(body)
                 .execute();
             System.out.println(result);

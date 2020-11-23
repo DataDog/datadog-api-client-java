@@ -23,6 +23,7 @@ Create a new service object in the PagerDuty integration.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -49,7 +50,7 @@ public class Example {
         PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
         PagerDutyService body = new PagerDutyService(); // PagerDutyService | Create a new service object request body.
         try {
-            PagerDutyServiceName result = api.createPagerDutyIntegrationService()
+            PagerDutyServiceName result = apiInstance.createPagerDutyIntegrationService()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -104,6 +105,7 @@ Delete a single service object in the Datadog-PagerDuty integration.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -130,7 +132,7 @@ public class Example {
         PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
         String serviceName = "serviceName_example"; // String | The service name
         try {
-            api.deletePagerDutyIntegrationService(serviceName)
+            apiInstance.deletePagerDutyIntegrationService(serviceName)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling PagerDutyIntegrationApi#deletePagerDutyIntegrationService");
@@ -183,6 +185,7 @@ Get service name in the Datadog-PagerDuty integration.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -209,7 +212,7 @@ public class Example {
         PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
         String serviceName = "serviceName_example"; // String | The service name.
         try {
-            PagerDutyServiceName result = api.getPagerDutyIntegrationService(serviceName)
+            PagerDutyServiceName result = apiInstance.getPagerDutyIntegrationService(serviceName)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -263,6 +266,7 @@ Update a single service object in the Datadog-PagerDuty integration.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -290,7 +294,7 @@ public class Example {
         String serviceName = "serviceName_example"; // String | The service name
         PagerDutyServiceKey body = new PagerDutyServiceKey(); // PagerDutyServiceKey | Update an existing service object request body.
         try {
-            api.updatePagerDutyIntegrationService(serviceName)
+            apiInstance.updatePagerDutyIntegrationService(serviceName)
                 .body(body)
                 .execute();
         } catch (ApiException e) {

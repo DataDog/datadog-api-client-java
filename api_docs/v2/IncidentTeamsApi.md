@@ -24,6 +24,7 @@ Creates a new incident team.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -50,7 +51,7 @@ public class Example {
         IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
         IncidentTeamCreateRequest body = new IncidentTeamCreateRequest(); // IncidentTeamCreateRequest | Incident Team Payload.
         try {
-            IncidentTeamResponse result = api.createIncidentTeam()
+            IncidentTeamResponse result = apiInstance.createIncidentTeam()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -107,6 +108,7 @@ Deletes an existing incident team.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -133,7 +135,7 @@ public class Example {
         IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
         String teamId = "teamId_example"; // String | The ID of the incident team.
         try {
-            api.deleteIncidentTeam(teamId)
+            apiInstance.deleteIncidentTeam(teamId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentTeamsApi#deleteIncidentTeam");
@@ -188,6 +190,7 @@ Get details of an incident team. If the `include[users]` query parameter is prov
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -215,7 +218,7 @@ public class Example {
         String teamId = "teamId_example"; // String | The ID of the incident team.
         String include = "include_example"; // String | Specifies which types of related objects should be included in the response.
         try {
-            IncidentTeamResponse result = api.getIncidentTeam(teamId)
+            IncidentTeamResponse result = apiInstance.getIncidentTeam(teamId)
                 .include(include)
                 .execute();
             System.out.println(result);
@@ -273,6 +276,7 @@ Get all incident teams for the requesting user's organization. If the `include[u
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -302,7 +306,7 @@ public class Example {
         Long pageOffset = 0lL; // Long | Specific offset to use as the beginning of the returned page.
         String filter = ExampleTeamName; // String | A search query that filters teams by name.
         try {
-            IncidentTeamsResponse result = api.listIncidentTeams()
+            IncidentTeamsResponse result = apiInstance.listIncidentTeams()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset)
@@ -365,6 +369,7 @@ Updates an existing incident team. Only provide the attributes which should be u
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -392,7 +397,7 @@ public class Example {
         String teamId = "teamId_example"; // String | The ID of the incident team.
         IncidentTeamUpdateRequest body = new IncidentTeamUpdateRequest(); // IncidentTeamUpdateRequest | Incident Team Payload.
         try {
-            IncidentTeamResponse result = api.updateIncidentTeam(teamId)
+            IncidentTeamResponse result = apiInstance.updateIncidentTeam(teamId)
                 .body(body)
                 .execute();
             System.out.println(result);

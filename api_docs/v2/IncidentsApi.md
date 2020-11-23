@@ -24,6 +24,7 @@ Create an incident.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -50,7 +51,7 @@ public class Example {
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
         IncidentCreateRequest body = new IncidentCreateRequest(); // IncidentCreateRequest | Incident payload.
         try {
-            IncidentResponse result = api.createIncident()
+            IncidentResponse result = apiInstance.createIncident()
                 .body(body)
                 .execute();
             System.out.println(result);
@@ -107,6 +108,7 @@ Deletes an existing incident from the users organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -133,7 +135,7 @@ public class Example {
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
         String incidentId = "incidentId_example"; // String | The UUID the incident.
         try {
-            api.deleteIncident(incidentId)
+            apiInstance.deleteIncident(incidentId)
                 .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentsApi#deleteIncident");
@@ -188,6 +190,7 @@ Get the details of an incident by `incident_id`.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -215,7 +218,7 @@ public class Example {
         String incidentId = "incidentId_example"; // String | The UUID the incident.
         List<String> include = Arrays.asList(); // List<String> | Specifies which types of related objects should be included in the response.
         try {
-            IncidentResponse result = api.getIncident(incidentId)
+            IncidentResponse result = apiInstance.getIncident(incidentId)
                 .include(include)
                 .execute();
             System.out.println(result);
@@ -273,6 +276,7 @@ Get all incidents for the user's organization.
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -301,7 +305,7 @@ public class Example {
         Long pageSize = 10lL; // Long | Size for a given page.
         Long pageOffset = 0lL; // Long | Specific offset to use as the beginning of the returned page.
         try {
-            IncidentsResponse result = api.listIncidents()
+            IncidentsResponse result = apiInstance.listIncidents()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset)
@@ -362,6 +366,7 @@ Updates an incident. Provide only the attributes that should be updated as this 
 
 ```java
 // Import classes:
+import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
@@ -389,7 +394,7 @@ public class Example {
         String incidentId = "incidentId_example"; // String | The UUID the incident.
         IncidentUpdateRequest body = new IncidentUpdateRequest(); // IncidentUpdateRequest | Incident Payload.
         try {
-            IncidentResponse result = api.updateIncident(incidentId)
+            IncidentResponse result = apiInstance.updateIncident(incidentId)
                 .body(body)
                 .execute();
             System.out.println(result);
