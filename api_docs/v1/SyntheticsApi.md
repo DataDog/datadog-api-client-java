@@ -5,8 +5,10 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createGlobalVariable**](SyntheticsApi.md#createGlobalVariable) | **POST** /api/v1/synthetics/variables | Create a global variable
+[**createPrivateLocation**](SyntheticsApi.md#createPrivateLocation) | **POST** /api/v1/synthetics/private-locations | Create a private location
 [**createTest**](SyntheticsApi.md#createTest) | **POST** /api/v1/synthetics/tests | Create a test
 [**deleteGlobalVariable**](SyntheticsApi.md#deleteGlobalVariable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
+[**deletePrivateLocation**](SyntheticsApi.md#deletePrivateLocation) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 [**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 [**editGlobalVariable**](SyntheticsApi.md#editGlobalVariable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
 [**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
@@ -15,10 +17,12 @@ Method | HTTP request | Description
 [**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test&#39;s latest results summaries (browser)
 [**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
 [**getGlobalVariable**](SyntheticsApi.md#getGlobalVariable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
+[**getPrivateLocation**](SyntheticsApi.md#getPrivateLocation) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
 [**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 [**listLocations**](SyntheticsApi.md#listLocations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 [**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
 [**triggerCITests**](SyntheticsApi.md#triggerCITests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
+[**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
 [**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 [**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
 
@@ -104,6 +108,88 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Invalid request |  -  |
 | **403** | Forbidden |  -  |
+
+
+## createPrivateLocation
+
+> SyntheticsPrivateLocationCreationResponse createPrivateLocation().body(body).execute();
+
+Create a private location
+
+Create a new Synthetics private location.
+
+### Example
+
+```java
+// Import classes:
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        SyntheticsPrivateLocation body = new SyntheticsPrivateLocation(); // SyntheticsPrivateLocation | Details of the private location to create.
+        try {
+            SyntheticsPrivateLocationCreationResponse result = apiInstance.createPrivateLocation()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#createPrivateLocation");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)| Details of the private location to create. |
+
+### Return type
+
+[**SyntheticsPrivateLocationCreationResponse**](SyntheticsPrivateLocationCreationResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **402** | Quota reached for private locations |  -  |
+| **404** | Private locations are not activated for the user |  -  |
 
 
 ## createTest
@@ -268,6 +354,85 @@ null (empty response body)
 | **400** | JSON format is wrong |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not found |  -  |
+
+
+## deletePrivateLocation
+
+> deletePrivateLocation(locationId).execute();
+
+Delete a private location
+
+Delete a Synthetics private location.
+
+### Example
+
+```java
+// Import classes:
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        String locationId = "locationId_example"; // String | The ID of the private location.
+        try {
+            apiInstance.deletePrivateLocation(locationId)
+                .execute();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#deletePrivateLocation");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **locationId** | **String**| The ID of the private location. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **404** | - Private locations are not activated for the user - Private location does not exist |  -  |
 
 
 ## deleteTests
@@ -946,6 +1111,86 @@ Name | Type | Description  | Notes
 | **404** | Not found |  -  |
 
 
+## getPrivateLocation
+
+> SyntheticsPrivateLocation getPrivateLocation(locationId).execute();
+
+Get a private location
+
+Get a Synthetics private location.
+
+### Example
+
+```java
+// Import classes:
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        String locationId = "locationId_example"; // String | The ID of the private location.
+        try {
+            SyntheticsPrivateLocation result = apiInstance.getPrivateLocation(locationId)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#getPrivateLocation");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **locationId** | **String**| The ID of the private location. |
+
+### Return type
+
+[**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | - Synthetic private locations are not activated for the user - Private location does not exist |  -  |
+
+
 ## getTest
 
 > SyntheticsTestDetails getTest(publicId).execute();
@@ -1186,7 +1431,7 @@ This endpoint does not need any parameter.
 
 Trigger some Synthetics tests for CI
 
-Trigger a set of Synthetics tests for continuous integration
+Trigger a set of Synthetics tests for continuous integration.
 
 ### Example
 
@@ -1259,6 +1504,89 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | JSON format is wrong |  -  |
+
+
+## updatePrivateLocation
+
+> SyntheticsPrivateLocation updatePrivateLocation(locationId).body(body).execute();
+
+Edit a private location
+
+Edit a Synthetics private location.
+
+### Example
+
+```java
+// Import classes:
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        String locationId = "locationId_example"; // String | The ID of the private location.
+        SyntheticsPrivateLocation body = new SyntheticsPrivateLocation(); // SyntheticsPrivateLocation | Details of the private location to be updated.
+        try {
+            SyntheticsPrivateLocation result = apiInstance.updatePrivateLocation(locationId)
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#updatePrivateLocation");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **locationId** | **String**| The ID of the private location. |
+ **body** | [**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)| Details of the private location to be updated. |
+
+### Return type
+
+[**SyntheticsPrivateLocation**](SyntheticsPrivateLocation.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | - Private locations are not activated for the user - Private location does not exist |  -  |
 
 
 ## updateTest

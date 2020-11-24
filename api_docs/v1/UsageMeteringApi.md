@@ -2269,7 +2269,7 @@ Name | Type | Description  | Notes
 
 ## getUsageTopAvgMetrics
 
-> UsageTopAvgMetricsResponse getUsageTopAvgMetrics().month(month).names(names).execute();
+> UsageTopAvgMetricsResponse getUsageTopAvgMetrics().month(month).names(names).limit(limit).execute();
 
 Get top 500 custom metrics by hourly average
 
@@ -2306,10 +2306,12 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         OffsetDateTime month = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
         List<String> names = Arrays.asList(); // List<String> | Comma-separated list of metric names.
+        Integer limit = 500; // Integer | Maximum number of results to return.
         try {
             UsageTopAvgMetricsResponse result = apiInstance.getUsageTopAvgMetrics()
                 .month(month)
                 .names(names)
+                .limit(limit)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -2330,6 +2332,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **month** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. |
  **names** | [**List&lt;String&gt;**](String.md)| Comma-separated list of metric names. | [optional]
+ **limit** | **Integer**| Maximum number of results to return. | [optional] [default to 500]
 
 ### Return type
 
