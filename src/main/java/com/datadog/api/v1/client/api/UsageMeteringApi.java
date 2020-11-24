@@ -3290,7 +3290,7 @@ private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(Offs
     return new APIgetUsageTimeseriesRequest();
   }
 
-private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInfo(OffsetDateTime month, List<String> names) throws ApiException {
+private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInfo(OffsetDateTime month, List<String> names, Integer limit) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'month' is set
@@ -3309,6 +3309,7 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "names", names));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTopAvgMetrics");
@@ -3338,6 +3339,7 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
   public class APIgetUsageTopAvgMetricsRequest {
     private OffsetDateTime month;
     private List<String> names;
+    private Integer limit;
 
     private APIgetUsageTopAvgMetricsRequest() {
     }
@@ -3359,6 +3361,16 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
      */
     public APIgetUsageTopAvgMetricsRequest names(List<String> names) {
       this.names = names;
+      return this;
+    }
+
+    /**
+     * Set limit
+     * @param limit Maximum number of results to return. (optional, default to 500)
+     * @return APIgetUsageTopAvgMetricsRequest
+     */
+    public APIgetUsageTopAvgMetricsRequest limit(Integer limit) {
+      this.limit = limit;
       return this;
     }
 
@@ -3394,7 +3406,7 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
 
      */
     public ApiResponse<UsageTopAvgMetricsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageTopAvgMetricsWithHttpInfo(month, names);
+      return getUsageTopAvgMetricsWithHttpInfo(month, names, limit);
     }
   }
 
