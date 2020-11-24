@@ -1,5 +1,5 @@
 [{
-  "id" : "efe0130a-e813-489d-b901-502064d6c9b3",
+  "id" : "c11bea81-20b5-4808-8bf9-aa251a555c9a",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/org",
@@ -9,13 +9,13 @@
       "DD-OPERATION-ID" : [ "createChildOrg" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "48" ]
+      "Content-Length" : [ "13" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"billing\":null,\"name\":null,\"subscription\":null}"
+      "json" : "{\"name\":null}"
     }
   },
   "times" : {
@@ -28,13 +28,13 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:44 GMT" ],
+      "Date" : [ "Tue, 24 Nov 2020 11:05:57 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "55" ],
       "Connection" : [ "keep-alive" ],
       "Pragma" : [ "no-cache" ],
       "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
+      "X-DD-VERSION" : [ "35.3423654" ],
       "DD-POOL" : [ "dogweb_wallace" ],
       "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "X-Frame-Options" : [ "SAMEORIGIN" ],
@@ -44,7 +44,7 @@
     "body" : "{\"errors\": [\"Not allowed to create new organizations\"]}"
   }
 }, {
-  "id" : "17a6f9d7-fb97-4021-836c-114a5c426215",
+  "id" : "c11bb007-13bc-4af7-b321-b6b0ffddf732",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/org",
@@ -54,13 +54,13 @@
       "DD-OPERATION-ID" : [ "createChildOrg" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
-      "Content-Length" : [ "48" ]
+      "Content-Length" : [ "13" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"billing\":null,\"name\":null,\"subscription\":null}"
+      "json" : "{\"name\":null}"
     }
   },
   "times" : {
@@ -73,7 +73,7 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:45 GMT" ],
+      "Date" : [ "Tue, 24 Nov 2020 11:05:57 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "Cache-Control" : [ "no-cache" ],
