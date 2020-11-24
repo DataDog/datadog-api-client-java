@@ -12,6 +12,9 @@ import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.AWSAccount;
 import com.datadog.api.v1.client.model.AWSAccountCreateResponse;
 import com.datadog.api.v1.client.model.AWSAccountListResponse;
+import com.datadog.api.v1.client.model.AWSTagFilterCreateRequest;
+import com.datadog.api.v1.client.model.AWSTagFilterDeleteRequest;
+import com.datadog.api.v1.client.model.AWSTagFilterListResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -156,6 +159,113 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
    */
   public APIcreateAWSAccountRequest createAWSAccount() throws ApiException {
     return new APIcreateAWSAccountRequest();
+  }
+
+private ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createAWSTagFilter");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/filtering";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createAWSTagFilter");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
+
+    return apiClient.invokeAPI("AwsIntegrationApi.createAWSTagFilter", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIcreateAWSTagFilterRequest {
+    private AWSTagFilterCreateRequest body;
+
+    private APIcreateAWSTagFilterRequest() {
+    }
+
+    /**
+     * Set body
+     * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
+     * @return APIcreateAWSTagFilterRequest
+     */
+    public APIcreateAWSTagFilterRequest body(AWSTagFilterCreateRequest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createAWSTagFilter request
+     * @return Object
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public Object execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createAWSTagFilter request with HTTP info returned
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
+      return createAWSTagFilterWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Set an AWS tag filter
+   * Set an AWS tag filter.
+   * @return createAWSTagFilterRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIcreateAWSTagFilterRequest createAWSTagFilter() throws ApiException {
+    return new APIcreateAWSTagFilterRequest();
   }
 
 private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo(AWSAccount body) throws ApiException {
@@ -374,6 +484,113 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
     return new APIdeleteAWSAccountRequest();
   }
 
+private ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling deleteAWSTagFilter");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/filtering";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSTagFilter");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
+
+    return apiClient.invokeAPI("AwsIntegrationApi.deleteAWSTagFilter", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIdeleteAWSTagFilterRequest {
+    private AWSTagFilterDeleteRequest body;
+
+    private APIdeleteAWSTagFilterRequest() {
+    }
+
+    /**
+     * Set body
+     * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace. (required)
+     * @return APIdeleteAWSTagFilterRequest
+     */
+    public APIdeleteAWSTagFilterRequest body(AWSTagFilterDeleteRequest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute deleteAWSTagFilter request
+     * @return Object
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public Object execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute deleteAWSTagFilter request with HTTP info returned
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
+      return deleteAWSTagFilterWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Delete a tag filtering entry
+   * Delete a tag filtering entry.
+   * @return deleteAWSTagFilterRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIdeleteAWSTagFilterRequest deleteAWSTagFilter() throws ApiException {
+    return new APIdeleteAWSTagFilterRequest();
+  }
+
 private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String accountId, String roleName, String accessKeyId) throws ApiException {
     Object localVarPostBody = null;
     
@@ -499,6 +716,114 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
    */
   public APIlistAWSAccountsRequest listAWSAccounts() throws ApiException {
     return new APIlistAWSAccountsRequest();
+  }
+
+private ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(String accountId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling listAWSTagFilters");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/filtering";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSTagFilters");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<AWSTagFilterListResponse> localVarReturnType = new GenericType<AWSTagFilterListResponse>() {};
+
+    return apiClient.invokeAPI("AwsIntegrationApi.listAWSTagFilters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIlistAWSTagFiltersRequest {
+    private String accountId;
+
+    private APIlistAWSTagFiltersRequest() {
+    }
+
+    /**
+     * Set accountId
+     * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
+     * @return APIlistAWSTagFiltersRequest
+     */
+    public APIlistAWSTagFiltersRequest accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
+    }
+
+    /**
+     * Execute listAWSTagFilters request
+     * @return AWSTagFilterListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public AWSTagFilterListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listAWSTagFilters request with HTTP info returned
+     * @return ApiResponse&lt;AWSTagFilterListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<AWSTagFilterListResponse> executeWithHttpInfo() throws ApiException {
+      return listAWSTagFiltersWithHttpInfo(accountId);
+    }
+  }
+
+  /**
+   * Get all AWS tag filters
+   * Get all AWS tag filters.
+   * @return listAWSTagFiltersRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIlistAWSTagFiltersRequest listAWSTagFilters() throws ApiException {
+    return new APIlistAWSTagFiltersRequest();
   }
 
 private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {

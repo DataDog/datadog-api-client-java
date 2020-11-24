@@ -6,9 +6,12 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticationApi* | [**validate**](AuthenticationApi.md#validate) | **GET** /api/v1/validate | Validate API key
 *AwsIntegrationApi* | [**createAWSAccount**](AwsIntegrationApi.md#createAWSAccount) | **POST** /api/v1/integration/aws | Create an AWS integration
+*AwsIntegrationApi* | [**createAWSTagFilter**](AwsIntegrationApi.md#createAWSTagFilter) | **POST** /api/v1/integration/aws/filtering | Set an AWS tag filter
 *AwsIntegrationApi* | [**createNewAWSExternalID**](AwsIntegrationApi.md#createNewAWSExternalID) | **PUT** /api/v1/integration/aws/generate_new_external_id | Generate a new external ID
 *AwsIntegrationApi* | [**deleteAWSAccount**](AwsIntegrationApi.md#deleteAWSAccount) | **DELETE** /api/v1/integration/aws | Delete an AWS integration
+*AwsIntegrationApi* | [**deleteAWSTagFilter**](AwsIntegrationApi.md#deleteAWSTagFilter) | **DELETE** /api/v1/integration/aws/filtering | Delete a tag filtering entry
 *AwsIntegrationApi* | [**listAWSAccounts**](AwsIntegrationApi.md#listAWSAccounts) | **GET** /api/v1/integration/aws | List all AWS integrations
+*AwsIntegrationApi* | [**listAWSTagFilters**](AwsIntegrationApi.md#listAWSTagFilters) | **GET** /api/v1/integration/aws/filtering | Get all AWS tag filters
 *AwsIntegrationApi* | [**listAvailableAWSNamespaces**](AwsIntegrationApi.md#listAvailableAWSNamespaces) | **GET** /api/v1/integration/aws/available_namespace_rules | List namespace rules
 *AwsIntegrationApi* | [**updateAWSAccount**](AwsIntegrationApi.md#updateAWSAccount) | **PUT** /api/v1/integration/aws | Update an AWS integration
 *AwsLogsIntegrationApi* | [**checkAWSLogsLambdaAsync**](AwsLogsIntegrationApi.md#checkAWSLogsLambdaAsync) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists
@@ -177,6 +180,11 @@ Class | Method | HTTP request | Description
  - [AWSLogsListResponseLambdas](AWSLogsListResponseLambdas.md)
  - [AWSLogsListServicesResponse](AWSLogsListServicesResponse.md)
  - [AWSLogsServicesRequest](AWSLogsServicesRequest.md)
+ - [AWSNamespace](AWSNamespace.md)
+ - [AWSTagFilterCreateRequest](AWSTagFilterCreateRequest.md)
+ - [AWSTagFilterDeleteRequest](AWSTagFilterDeleteRequest.md)
+ - [AWSTagFilterListResponse](AWSTagFilterListResponse.md)
+ - [AWSTagFilterListResponseFilters](AWSTagFilterListResponseFilters.md)
  - [AccessRole](AccessRole.md)
  - [AlertGraphWidgetDefinition](AlertGraphWidgetDefinition.md)
  - [AlertGraphWidgetDefinitionType](AlertGraphWidgetDefinitionType.md)
