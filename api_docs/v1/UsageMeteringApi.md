@@ -102,8 +102,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **Long**| The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;. | [optional]
  **pageNumber** | **Long**| The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional]
- **sortDir** | [**UsageSortDirection**](.md)| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
- **sort** | [**UsageSort**](.md)| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] [default to start_date] [enum: computed_on, size, start_date, end_date]
+ **sortDir** | **UsageSortDirection**| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
+ **sort** | **UsageSort**| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] [default to start_date] [enum: computed_on, size, start_date, end_date]
 
 ### Return type
 
@@ -362,8 +362,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **Long**| The number of files to return in the response &#x60;[default&#x3D;60].&#x60; | [optional]
  **pageNumber** | **Long**| The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional]
- **sortDir** | [**UsageSortDirection**](.md)| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
- **sort** | [**UsageSort**](.md)| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] [default to start_date] [enum: computed_on, size, start_date, end_date]
+ **sortDir** | **UsageSortDirection**| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
+ **sort** | **UsageSort**| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] [default to start_date] [enum: computed_on, size, start_date, end_date]
 
 ### Return type
 
@@ -793,8 +793,8 @@ Name | Type | Description  | Notes
  **fields** | **String**| The specified field to search results for. |
  **endMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional]
  **orgId** | **Long**| Include usage summaries for each sub-org. | [optional]
- **sortDirection** | [**UsageSortDirection**](.md)| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
- **sortName** | [**UsageAttributionSort**](.md)| The field to sort by. | [optional] [default to custom_timeseries_usage] [enum: api_percentage, snmp_usage, lambda_percentage, apm_host_usage, api_usage, container_usage, custom_timeseries_percentage, container_percentage, lambda_usage, apm_host_percentage, npm_host_percentage, browser_percentage, browser_usage, infra_host_percentage, snmp_percentage, npm_host_usage, infra_host_usage, custom_timeseries_usage]
+ **sortDirection** | **UsageSortDirection**| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
+ **sortName** | **UsageAttributionSort**| The field to sort by. | [optional] [default to custom_timeseries_usage] [enum: api_percentage, snmp_usage, lambda_percentage, apm_host_usage, api_usage, container_usage, custom_timeseries_percentage, container_percentage, lambda_usage, apm_host_percentage, npm_host_percentage, browser_percentage, browser_usage, infra_host_percentage, snmp_percentage, npm_host_usage, infra_host_usage, custom_timeseries_usage]
 
 ### Return type
 
@@ -1388,7 +1388,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
  **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
- **indexName** | [**List&lt;String&gt;**](String.md)| Comma-separated list of log index names. | [optional]
+ **indexName** | **List&lt;String&gt;**| Comma-separated list of log index names. | [optional]
 
 ### Return type
 
@@ -2331,7 +2331,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **month** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. |
- **names** | [**List&lt;String&gt;**](String.md)| Comma-separated list of metric names. | [optional]
+ **names** | **List&lt;String&gt;**| Comma-separated list of metric names. | [optional]
  **limit** | **Integer**| Maximum number of results to return. | [optional] [default to 500]
 
 ### Return type

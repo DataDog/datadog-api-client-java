@@ -7,7 +7,7 @@ Time setting for the widget.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**liveSpan** | [**WidgetLiveSpan**](WidgetLiveSpan.md) |  |  [optional]
+**liveSpan** | **WidgetLiveSpan** |  |  [optional]
 
 
 

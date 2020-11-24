@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **body** | **String** | Body to include in the test. |  [optional]
 **bodyType** | **String** | Type of the data sent in a synthetics API test. |  [optional]
 **cookies** | **String** | Cookies for the request. |  [optional]
-**deviceIds** | [**List&lt;SyntheticsDeviceID&gt;**](SyntheticsDeviceID.md) | For browser test, array with the different device IDs used to run the test. |  [optional]
+**deviceIds** | **List&lt;SyntheticsDeviceID&gt;** | For browser test, array with the different device IDs used to run the test. |  [optional]
 **followRedirects** | **Boolean** | For API HTTP test, whether or not the test should follow redirects. |  [optional]
 **headers** | **Map&lt;String, String&gt;** | Headers to include when performing the test. |  [optional]
 **locations** | **List&lt;String&gt;** | Array of locations used to run the test. |  [optional]

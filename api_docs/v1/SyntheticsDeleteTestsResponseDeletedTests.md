@@ -7,7 +7,7 @@ Object containing a deleted Synthetic test ID with the associated deletion times
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deletedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Deletion timestamp of the Synthetic test ID. |  [optional]
+**deletedAt** | **OffsetDateTime** | Deletion timestamp of the Synthetic test ID. |  [optional]
 **publicId** | **String** | The Synthetic test ID deleted. |  [optional]
 
 

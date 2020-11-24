@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**UsageCustomReportsAttributes**](UsageCustomReportsAttributes.md) |  |  [optional]
 **id** | **String** | The date for specified custom reports. |  [optional]
-**type** | [**UsageReportsType**](UsageReportsType.md) |  |  [optional]
+**type** | **UsageReportsType** |  |  [optional]
 
 
 

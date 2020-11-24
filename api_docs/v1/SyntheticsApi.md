@@ -669,7 +669,7 @@ Name | Type | Description  | Notes
  **publicId** | **String**| The public ID of the test for which to search results for. |
  **fromTs** | **Long**| Timestamp from which to start querying results. | [optional]
  **toTs** | **Long**| Timestamp up to which to query results. | [optional]
- **probeDc** | [**List&lt;String&gt;**](String.md)| Locations for which to query results. | [optional]
+ **probeDc** | **List&lt;String&gt;**| Locations for which to query results. | [optional]
 
 ### Return type
 
@@ -924,7 +924,7 @@ Name | Type | Description  | Notes
  **publicId** | **String**| The public ID of the browser test for which to search results for. |
  **fromTs** | **Long**| Timestamp from which to start querying results. | [optional]
  **toTs** | **Long**| Timestamp up to which to query results. | [optional]
- **probeDc** | [**List&lt;String&gt;**](String.md)| Locations for which to query results. | [optional]
+ **probeDc** | **List&lt;String&gt;**| Locations for which to query results. | [optional]
 
 ### Return type
 

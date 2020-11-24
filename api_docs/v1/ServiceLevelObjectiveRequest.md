@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **query** | [**ServiceLevelObjectiveQuery**](ServiceLevelObjectiveQuery.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** | A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests. |  [optional]
 **thresholds** | [**List&lt;SLOThreshold&gt;**](SLOThreshold.md) | The thresholds (timeframes and associated targets) for this service level objective object. | 
-**type** | [**SLOType**](SLOType.md) |  | 
+**type** | **SLOType** |  | 
 
 
 

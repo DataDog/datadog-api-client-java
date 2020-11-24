@@ -159,7 +159,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userHandle** | [**String**](.md)| The handle of the user. |
+ **userHandle** | **String**| The handle of the user. |
 
 ### Return type
 
@@ -241,7 +241,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userHandle** | [**String**](.md)| The ID of the user. |
+ **userHandle** | **String**| The ID of the user. |
 
 ### Return type
 
@@ -402,7 +402,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userHandle** | [**String**](.md)| The ID of the user. |
+ **userHandle** | **String**| The ID of the user. |
  **body** | [**User**](User.md)| Description of the update. |
 
 ### Return type

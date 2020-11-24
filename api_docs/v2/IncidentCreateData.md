@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**IncidentCreateAttributes**](IncidentCreateAttributes.md) |  | 
 **relationships** | [**IncidentCreateRelationships**](IncidentCreateRelationships.md) |  |  [optional]
-**type** | [**IncidentType**](IncidentType.md) |  | 
+**type** | **IncidentType** |  | 
 
 
 

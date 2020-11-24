@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **probeDc** | **String** | Location from which the browser test was performed. |  [optional]
 **result** | [**SyntheticsBrowserTestResultData**](SyntheticsBrowserTestResultData.md) |  |  [optional]
 **resultId** | **String** | ID of the browser test result. |  [optional]
-**status** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  |  [optional]
+**status** | **SyntheticsTestMonitorStatus** |  |  [optional]
 
 
 

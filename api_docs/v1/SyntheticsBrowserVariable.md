@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | **String** | ID for the variable. |  [optional]
 **name** | **String** | Name of the variable. | 
 **pattern** | **String** | Pattern of the variable. |  [optional]
-**type** | [**SyntheticsBrowserVariableType**](SyntheticsBrowserVariableType.md) |  | 
+**type** | **SyntheticsBrowserVariableType** |  | 
 
 
 

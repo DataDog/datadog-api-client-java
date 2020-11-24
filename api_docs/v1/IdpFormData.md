@@ -7,7 +7,7 @@ Object describing the IdP configuration.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**idpFile** | [**File**](File.md) | The path to the XML metadata file you wish to upload. | 
+**idpFile** | **File** | The path to the XML metadata file you wish to upload. | 
 
 
 

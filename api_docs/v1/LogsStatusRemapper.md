@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
 **sources** | **List&lt;String&gt;** | Array of source attributes. | 
-**type** | [**LogsStatusRemapperType**](LogsStatusRemapperType.md) |  | 
+**type** | **LogsStatusRemapperType** |  | 
 
 
 

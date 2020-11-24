@@ -8,7 +8,7 @@ The objects used to delete an AWS tag filter entry.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **awsAccountIdentifier** | **String** | The unique identifier of your AWS account. |  [optional]
-**namespace** | [**AWSNamespace**](AWSNamespace.md) |  |  [optional]
+**namespace** | **AWSNamespace** |  |  [optional]
 
 
 

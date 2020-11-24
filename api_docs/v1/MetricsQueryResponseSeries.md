@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **interval** | **Long** | Number of seconds between data samples. |  [optional] [readonly]
 **length** | **Long** | Number of data samples. |  [optional] [readonly]
 **metric** | **String** | Metric name. |  [optional] [readonly]
-**pointlist** | [**List&lt;List&lt;Double&gt;&gt;**](List.md) | List of points of the time series. |  [optional] [readonly]
+**pointlist** | **List&lt;List&lt;Double&gt;&gt;** | List of points of the time series. |  [optional] [readonly]
 **scope** | **String** | Metric scope, comma separated list of tags. |  [optional] [readonly]
 **start** | **Long** | Start of the time window, milliseconds since Unix epoch. |  [optional] [readonly]
 **unit** | [**List&lt;MetricsQueryResponseUnit&gt;**](MetricsQueryResponseUnit.md) | Detailed information about the metric unit. First element describes the \&quot;primary unit\&quot; (for example, &#x60;bytes&#x60; in &#x60;bytes per second&#x60;), second describes the \&quot;per unit\&quot; (for example, &#x60;second&#x60; in &#x60;bytes per second&#x60;). |  [optional] [readonly]

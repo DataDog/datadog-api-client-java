@@ -7,7 +7,7 @@ A list of tag filters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**namespace** | [**AWSNamespace**](AWSNamespace.md) |  |  [optional]
+**namespace** | **AWSNamespace** |  |  [optional]
 **tagFilterStr** | **String** | The tag filter string. |  [optional]
 
 

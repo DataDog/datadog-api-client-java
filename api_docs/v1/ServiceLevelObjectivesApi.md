@@ -332,7 +332,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Map&lt;String, List&lt;SLOTimeframe&gt;&gt;**](List.md)| Delete multiple service level objective objects request body. |
+ **body** | **Map&lt;String,List&lt;SLOTimeframe&gt;&gt;**| Delete multiple service level objective objects request body. |
 
 ### Return type
 

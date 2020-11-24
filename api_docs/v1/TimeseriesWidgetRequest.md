@@ -8,7 +8,7 @@ Updated timeseries widget.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apmQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
-**displayType** | [**WidgetDisplayType**](WidgetDisplayType.md) |  |  [optional]
+**displayType** | **WidgetDisplayType** |  |  [optional]
 **eventQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **logQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **metadata** | [**List&lt;TimeseriesWidgetRequestMetadata&gt;**](TimeseriesWidgetRequestMetadata.md) | Used to define expression aliases. |  [optional]

@@ -7,10 +7,10 @@ An assertion for the `validatesJSONPath` operator.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operator** | [**SyntheticsAssertionJSONPathOperator**](SyntheticsAssertionJSONPathOperator.md) |  | 
+**operator** | **SyntheticsAssertionJSONPathOperator** |  | 
 **property** | **String** | The associated assertion property. |  [optional]
 **target** | [**SyntheticsAssertionJSONPathTargetTarget**](SyntheticsAssertionJSONPathTargetTarget.md) |  |  [optional]
-**type** | [**SyntheticsAssertionType**](SyntheticsAssertionType.md) |  | 
+**type** | **SyntheticsAssertionType** |  | 
 
 
 

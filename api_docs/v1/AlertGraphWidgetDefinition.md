@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **alertId** | **String** | ID of the alert to use in the widget. | 
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | The title of the widget. |  [optional]
-**titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
+**titleAlign** | **WidgetTextAlign** |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | [**AlertGraphWidgetDefinitionType**](AlertGraphWidgetDefinitionType.md) |  | 
-**vizType** | [**WidgetVizType**](WidgetVizType.md) |  | 
+**type** | **AlertGraphWidgetDefinitionType** |  | 
+**vizType** | **WidgetVizType** |  | 
 
 
 

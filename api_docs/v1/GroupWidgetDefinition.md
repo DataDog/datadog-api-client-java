@@ -7,9 +7,9 @@ The groups widget allows you to keep similar graphs together on your timeboard. 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**layoutType** | [**WidgetLayoutType**](WidgetLayoutType.md) |  | 
+**layoutType** | **WidgetLayoutType** |  | 
 **title** | **String** | Title of the widget. |  [optional]
-**type** | [**GroupWidgetDefinitionType**](GroupWidgetDefinitionType.md) |  | 
+**type** | **GroupWidgetDefinitionType** |  | 
 **widgets** | [**List&lt;Widget&gt;**](Widget.md) | List of widget groups. | 
 
 

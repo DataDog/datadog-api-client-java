@@ -7,9 +7,9 @@ Search filters for listing security signals.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**from** | [**OffsetDateTime**](OffsetDateTime.md) | The minimum timestamp for requested security signals. |  [optional]
+**from** | **OffsetDateTime** | The minimum timestamp for requested security signals. |  [optional]
 **query** | **String** | Search query for listing security signals. |  [optional]
-**to** | [**OffsetDateTime**](OffsetDateTime.md) | The maximum timestamp for requested security signals. |  [optional]
+**to** | **OffsetDateTime** | The maximum timestamp for requested security signals. |  [optional]
 
 
 

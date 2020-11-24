@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **showLegend** | **Boolean** | Whether or not to display the legend on this widget. |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of the widget. |  [optional]
-**titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
+**titleAlign** | **WidgetTextAlign** |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | [**HeatMapWidgetDefinitionType**](HeatMapWidgetDefinitionType.md) |  | 
+**type** | **HeatMapWidgetDefinitionType** |  | 
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 
 
