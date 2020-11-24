@@ -113,10 +113,11 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
         //// get all rules
         // get total count
-        SecurityMonitoringListRulesResponse getCountResponse = api.listSecurityMonitoringRules().pageSize(1L).pageNumber(0L).execute();
+        long pageSize = 1L;
+        SecurityMonitoringListRulesResponse getCountResponse = api.listSecurityMonitoringRules().pageSize(pageSize).pageNumber(0L).execute();
         long ruleCount = getCountResponse.getMeta().getPage().getTotalCount();
         assertTrue(ruleCount > 5);
-        assertEquals(ruleCount, ((long) getCountResponse.getMeta().getPage().getTotalFilteredCount())); // everything is matched
+        assertEquals(pageSize, ((long) getCountResponse.getMeta().getPage().getTotalFilteredCount())); // everything is matched
 
         // created rules are in all rules
         SecurityMonitoringListRulesResponse getAllRules = api.listSecurityMonitoringRules().pageSize(ruleCount).execute();
