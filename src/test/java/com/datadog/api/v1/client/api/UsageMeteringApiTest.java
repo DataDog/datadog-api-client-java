@@ -435,6 +435,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     @Test
     public void getUsageAttributionTest() throws ApiException {
+        generalApiClient.setUnstableOperationEnabled("getUsageAttribution", true);
         UsageAttributionResponse usage = api.getUsageAttribution()
                 .startMonth(startMonth)
                 .fields("*")
