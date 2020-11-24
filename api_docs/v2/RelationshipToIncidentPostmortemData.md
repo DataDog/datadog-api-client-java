@@ -8,7 +8,7 @@ The postmortem relationship data.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | A unique identifier that represents the postmortem. | 
-**type** | [**IncidentPostmortemType**](IncidentPostmortemType.md) |  | 
+**type** | **IncidentPostmortemType** |  | 
 
 
 

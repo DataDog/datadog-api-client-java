@@ -8,7 +8,7 @@ A relationship reference for an integration metadata object.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | A unique identifier that represents the integration metadata. | 
-**type** | [**IncidentIntegrationMetadataType**](IncidentIntegrationMetadataType.md) |  | 
+**type** | **IncidentIntegrationMetadataType** |  | 
 
 
 

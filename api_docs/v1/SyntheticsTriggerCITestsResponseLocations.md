@@ -7,7 +7,7 @@ Synthetics location.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**BigDecimal**](BigDecimal.md) | Unique identifier of the location. |  [optional]
+**id** | **BigDecimal** | Unique identifier of the location. |  [optional]
 **name** | **String** | Name of the location. |  [optional]
 
 

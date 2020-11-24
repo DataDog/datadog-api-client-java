@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **muteTimeout** | **Long** | Timeout of the mute applied to your host. |  [optional]
 **name** | **String** | The host name. |  [optional]
 **sources** | **List&lt;String&gt;** | Source or cloud provider associated with your host. |  [optional]
-**tagsBySource** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) | List of tags for each source (AWS, Datadog Agent, Chef..). |  [optional]
+**tagsBySource** | **Map&lt;String, List&lt;String&gt;&gt;** | List of tags for each source (AWS, Datadog Agent, Chef..). |  [optional]
 **up** | **Boolean** | Displays UP when the expected metrics are received and displays &#x60;???&#x60; if no metrics are received. |  [optional]
 
 

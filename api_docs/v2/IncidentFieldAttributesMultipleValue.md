@@ -7,7 +7,7 @@ A field with potentially multiple values selected.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**IncidentFieldAttributesValueType**](IncidentFieldAttributesValueType.md) |  |  [optional]
+**type** | **IncidentFieldAttributesValueType** |  |  [optional]
 **value** | **List&lt;String&gt;** | The multiple values selected for this field. |  [optional]
 
 

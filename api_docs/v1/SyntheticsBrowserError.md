@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the error. | 
 **name** | **String** | Name of the error. | 
 **statusCode** | **Long** | Status Code of the error. |  [optional]
-**type** | [**SyntheticsBrowserErrorType**](SyntheticsBrowserErrorType.md) |  | 
+**type** | **SyntheticsBrowserErrorType** |  | 
 
 
 

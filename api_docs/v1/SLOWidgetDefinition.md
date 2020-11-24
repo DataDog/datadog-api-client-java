@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **showErrorBudget** | **Boolean** | Defined error budget. |  [optional]
 **sloId** | **String** | ID of the SLO displayed. |  [optional]
-**timeWindows** | [**List&lt;WidgetTimeWindows&gt;**](WidgetTimeWindows.md) | Times being monitored. |  [optional]
+**timeWindows** | **List&lt;WidgetTimeWindows&gt;** | Times being monitored. |  [optional]
 **title** | **String** | Title of the widget. |  [optional]
-**titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
+**titleAlign** | **WidgetTextAlign** |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | [**SLOWidgetDefinitionType**](SLOWidgetDefinitionType.md) |  | 
-**viewMode** | [**WidgetViewMode**](WidgetViewMode.md) |  |  [optional]
+**type** | **SLOWidgetDefinitionType** |  | 
+**viewMode** | **WidgetViewMode** |  |  [optional]
 **viewType** | **String** | Type of view displayed by the widget. | 
 
 

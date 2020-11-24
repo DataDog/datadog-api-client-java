@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **sourceType** | **String** | Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;. |  [optional]
 **sources** | **List&lt;String&gt;** | Array of source attributes. | 
 **target** | **String** | Final attribute or tag name to remap the sources to. | 
-**targetFormat** | [**TargetFormatType**](TargetFormatType.md) |  |  [optional]
+**targetFormat** | **TargetFormatType** |  |  [optional]
 **targetType** | **String** | Defines if the final attribute or tag name is from log &#x60;attribute&#x60; or &#x60;tag&#x60;. |  [optional]
-**type** | [**LogsAttributeRemapperType**](LogsAttributeRemapperType.md) |  | 
+**type** | **LogsAttributeRemapperType** |  | 
 
 
 

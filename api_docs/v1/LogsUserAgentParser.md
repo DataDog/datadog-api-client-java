@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the processor. |  [optional]
 **sources** | **List&lt;String&gt;** | Array of source attributes. | 
 **target** | **String** | Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;. | 
-**type** | [**LogsUserAgentParserType**](LogsUserAgentParserType.md) |  | 
+**type** | **LogsUserAgentParserType** |  | 
 
 
 

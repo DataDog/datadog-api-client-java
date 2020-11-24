@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **attributes** | [**UserAttributes**](UserAttributes.md) |  |  [optional]
 **id** | **String** | ID of the user. |  [optional]
 **relationships** | [**UserResponseRelationships**](UserResponseRelationships.md) |  |  [optional]
-**type** | [**UsersType**](UsersType.md) |  |  [optional]
+**type** | **UsersType** |  |  [optional]
 
 
 

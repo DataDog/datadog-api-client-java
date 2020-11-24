@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
  **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0l]
  **sort** | **String**| User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional] [default to &quot;name&quot;]
- **sortDir** | [**QuerySortOrder**](.md)| Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to desc] [enum: asc, desc]
+ **sortDir** | **QuerySortOrder**| Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to desc] [enum: asc, desc]
  **filter** | **String**| Filter all users by the given string. Defaults to no filtering. | [optional]
  **filterStatus** | **String**| Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering. | [optional]
 

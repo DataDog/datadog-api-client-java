@@ -12,12 +12,12 @@ Name | Type | Description | Notes
 **customUnit** | **String** | Display a unit of your choice on the widget. |  [optional]
 **precision** | **Long** | Number of decimals to show. If not defined, the widget uses the raw value. |  [optional]
 **requests** | [**List&lt;QueryValueWidgetRequest&gt;**](QueryValueWidgetRequest.md) | Widget definition. | 
-**textAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
+**textAlign** | **WidgetTextAlign** |  |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]
-**titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
+**titleAlign** | **WidgetTextAlign** |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | [**QueryValueWidgetDefinitionType**](QueryValueWidgetDefinitionType.md) |  | 
+**type** | **QueryValueWidgetDefinitionType** |  | 
 
 
 

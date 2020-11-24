@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **content** | **String** | Content of the note. | 
 **fontSize** | **String** | Size of the text. |  [optional]
 **showTick** | **Boolean** | Whether to show a tick or not. |  [optional]
-**textAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**tickEdge** | [**WidgetTickEdge**](WidgetTickEdge.md) |  |  [optional]
+**textAlign** | **WidgetTextAlign** |  |  [optional]
+**tickEdge** | **WidgetTickEdge** |  |  [optional]
 **tickPos** | **String** | Where to position the tick on an edge. |  [optional]
-**type** | [**NoteWidgetDefinitionType**](NoteWidgetDefinitionType.md) |  | 
+**type** | **NoteWidgetDefinitionType** |  | 
 
 
 

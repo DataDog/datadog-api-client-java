@@ -8,9 +8,9 @@ Column properties.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alias** | **String** | A user-assigned alias for the column. |  [optional]
-**cellDisplayMode** | [**TableWidgetCellDisplayMode**](TableWidgetCellDisplayMode.md) |  |  [optional]
+**cellDisplayMode** | **TableWidgetCellDisplayMode** |  |  [optional]
 **name** | **String** | Column name. | 
-**order** | [**WidgetSort**](WidgetSort.md) |  |  [optional]
+**order** | **WidgetSort** |  |  [optional]
 
 
 

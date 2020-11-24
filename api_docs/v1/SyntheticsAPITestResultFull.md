@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **probeDc** | **String** | Locations for which to query the API test results. |  [optional]
 **result** | [**SyntheticsAPITestResultData**](SyntheticsAPITestResultData.md) |  |  [optional]
 **resultId** | **String** | ID of the API test result. |  [optional]
-**status** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  |  [optional]
+**status** | **SyntheticsTestMonitorStatus** |  |  [optional]
 
 
 

@@ -7,7 +7,7 @@ Attributes of a permission.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | [**OffsetDateTime**](OffsetDateTime.md) | Creation time of the permission. |  [optional]
+**created** | **OffsetDateTime** | Creation time of the permission. |  [optional]
 **description** | **String** | Description of the permission. |  [optional]
 **displayName** | **String** | Displayed name for the permission. |  [optional]
 **displayType** | **String** | Display type. |  [optional]

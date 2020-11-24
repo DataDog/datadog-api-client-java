@@ -8,7 +8,7 @@ The definition of an archive order.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**LogsArchiveOrderAttributes**](LogsArchiveOrderAttributes.md) |  | 
-**type** | [**LogsArchiveOrderDefinitionType**](LogsArchiveOrderDefinitionType.md) |  | 
+**type** | **LogsArchiveOrderDefinitionType** |  | 
 
 
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
 **target** | **String** | Name of the target attribute which value is defined by the matching category. | 
-**type** | [**LogsCategoryProcessorType**](LogsCategoryProcessorType.md) |  | 
+**type** | **LogsCategoryProcessorType** |  | 
 
 
 
