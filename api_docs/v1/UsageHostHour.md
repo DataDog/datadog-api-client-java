@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **containerCount** | **Long** | Shows the total number of containers reported by the Docker integration during the hour. |  [optional]
 **gcpHostCount** | **Long** | Contains the total number of hosts that reported via the Google Cloud integration (and were NOT running the Datadog Agent). |  [optional]
 **hostCount** | **Long** | Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of &#x60;agent_host_count&#x60;, &#x60;aws_host_count&#x60;, and &#x60;gcp_host_count&#x60;. |  [optional]
-**hour** | [**OffsetDateTime**](OffsetDateTime.md) | The hour for the usage. |  [optional]
+**hour** | **OffsetDateTime** | The hour for the usage. |  [optional]
 
 
 

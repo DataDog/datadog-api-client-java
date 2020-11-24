@@ -7,7 +7,7 @@ A field with a single value selected.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**IncidentFieldAttributesSingleValueType**](IncidentFieldAttributesSingleValueType.md) |  |  [optional]
+**type** | **IncidentFieldAttributesSingleValueType** |  |  [optional]
 **value** | **String** | The single value selected for this field. |  [optional]
 
 

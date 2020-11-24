@@ -7,9 +7,9 @@ The image widget allows you to embed an image on your dashboard. An image can be
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**margin** | [**WidgetMargin**](WidgetMargin.md) |  |  [optional]
-**sizing** | [**WidgetImageSizing**](WidgetImageSizing.md) |  |  [optional]
-**type** | [**ImageWidgetDefinitionType**](ImageWidgetDefinitionType.md) |  | 
+**margin** | **WidgetMargin** |  |  [optional]
+**sizing** | **WidgetImageSizing** |  |  [optional]
+**type** | **ImageWidgetDefinitionType** |  | 
 **url** | **String** | URL of the image. | 
 
 

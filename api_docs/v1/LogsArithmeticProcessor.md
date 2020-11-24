@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **isReplaceMissing** | **Boolean** | If &#x60;true&#x60;, it replaces all missing attributes of expression by &#x60;0&#x60;, &#x60;false&#x60; skip the operation if an attribute is missing. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
 **target** | **String** | Name of the attribute that contains the result of the arithmetic operation. | 
-**type** | [**LogsArithmeticProcessorType**](LogsArithmeticProcessorType.md) |  | 
+**type** | **LogsArithmeticProcessorType** |  | 
 
 
 

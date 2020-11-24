@@ -7,7 +7,7 @@ The service summary displays the graphs of a chosen service in your screenboard.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**displayFormat** | [**WidgetServiceSummaryDisplayFormat**](WidgetServiceSummaryDisplayFormat.md) |  |  [optional]
+**displayFormat** | **WidgetServiceSummaryDisplayFormat** |  |  [optional]
 **env** | **String** | APM environment. | 
 **service** | **String** | APM service. | 
 **showBreakdown** | **Boolean** | Whether to show the latency breakdown or not. |  [optional]
@@ -16,13 +16,13 @@ Name | Type | Description | Notes
 **showHits** | **Boolean** | Whether to show the hits metrics or not. |  [optional]
 **showLatency** | **Boolean** | Whether to show the latency metrics or not. |  [optional]
 **showResourceList** | **Boolean** | Whether to show the resource list or not. |  [optional]
-**sizeFormat** | [**WidgetSizeFormat**](WidgetSizeFormat.md) |  |  [optional]
+**sizeFormat** | **WidgetSizeFormat** |  |  [optional]
 **spanName** | **String** | APM span name. | 
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of the widget. |  [optional]
-**titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
+**titleAlign** | **WidgetTextAlign** |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | [**ServiceSummaryWidgetDefinitionType**](ServiceSummaryWidgetDefinitionType.md) |  | 
+**type** | **ServiceSummaryWidgetDefinitionType** |  | 
 
 
 

@@ -239,7 +239,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **incidentId** | **String**| The UUID the incident. |
- **include** | [**List&lt;String&gt;**](String.md)| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+ **include** | **List&lt;String&gt;**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
 
 ### Return type
 
@@ -327,7 +327,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **include** | [**List&lt;String&gt;**](String.md)| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+ **include** | **List&lt;String&gt;**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
  **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0l]
 

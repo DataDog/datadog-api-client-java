@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **showLegend** | **Boolean** | (screenboard only) Show the legend for this widget. |  [optional]
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]
-**titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
+**titleAlign** | **WidgetTextAlign** |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | [**TimeseriesWidgetDefinitionType**](TimeseriesWidgetDefinitionType.md) |  | 
+**type** | **TimeseriesWidgetDefinitionType** |  | 
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 
 

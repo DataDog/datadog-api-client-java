@@ -750,7 +750,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
  **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0l]
- **sort** | [**RolesSort**](.md)| Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional] [default to name] [enum: name, -name, modified_at, -modified_at, user_count, -user_count]
+ **sort** | **RolesSort**| Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;. | [optional] [default to name] [enum: name, -name, modified_at, -modified_at, user_count, -user_count]
  **filter** | **String**| Filter all roles by the given string. | [optional]
 
 ### Return type

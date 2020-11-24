@@ -8,7 +8,7 @@ Number of lambda functions and sum of the invocations of all lambda functions fo
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **funcCount** | **Long** | Contains the number of different functions for each region and AWS account. |  [optional]
-**hour** | [**OffsetDateTime**](OffsetDateTime.md) | The hour for the usage. |  [optional]
+**hour** | **OffsetDateTime** | The hour for the usage. |  [optional]
 **invocationsSum** | **Long** | Contains the sum of invocations of all functions. |  [optional]
 
 

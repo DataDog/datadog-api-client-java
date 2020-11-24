@@ -7,7 +7,7 @@ Object to start or pause an existing Synthetic test.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**newStatus** | [**SyntheticsTestPauseStatus**](SyntheticsTestPauseStatus.md) |  |  [optional]
+**newStatus** | **SyntheticsTestPauseStatus** |  |  [optional]
 
 
 

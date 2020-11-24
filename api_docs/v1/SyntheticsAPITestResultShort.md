@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **probeDc** | **String** | Location from which the API test was performed. |  [optional]
 **result** | [**SyntheticsAPITestResultShortResult**](SyntheticsAPITestResultShortResult.md) |  |  [optional]
 **resultId** | **String** | ID of the API test result. |  [optional]
-**status** | [**SyntheticsTestMonitorStatus**](SyntheticsTestMonitorStatus.md) |  |  [optional]
+**status** | **SyntheticsTestMonitorStatus** |  |  [optional]
 
 
 

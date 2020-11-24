@@ -7,7 +7,7 @@ Attributes of user object returned by the API.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | Creation time of the user. |  [optional]
+**createdAt** | **OffsetDateTime** | Creation time of the user. |  [optional]
 **disabled** | **Boolean** | Whether the user is disabled. |  [optional]
 **email** | **String** | Email of the user. |  [optional]
 **handle** | **String** | Handle of the user. |  [optional]

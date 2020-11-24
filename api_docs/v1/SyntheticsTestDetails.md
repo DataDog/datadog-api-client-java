@@ -14,11 +14,11 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the test. |  [optional]
 **options** | [**SyntheticsTestOptions**](SyntheticsTestOptions.md) |  |  [optional]
 **publicId** | **String** | The test public ID. |  [optional]
-**status** | [**SyntheticsTestPauseStatus**](SyntheticsTestPauseStatus.md) |  |  [optional]
+**status** | **SyntheticsTestPauseStatus** |  |  [optional]
 **steps** | [**List&lt;SyntheticsStep&gt;**](SyntheticsStep.md) | For browser test, the steps of the test. |  [optional]
-**subtype** | [**SyntheticsTestDetailsSubType**](SyntheticsTestDetailsSubType.md) |  |  [optional]
+**subtype** | **SyntheticsTestDetailsSubType** |  |  [optional]
 **tags** | **List&lt;String&gt;** | Array of tags attached to the test. |  [optional]
-**type** | [**SyntheticsTestDetailsType**](SyntheticsTestDetailsType.md) |  |  [optional]
+**type** | **SyntheticsTestDetailsType** |  |  [optional]
 
 
 

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the processor. |  [optional]
 **source** | **String** | Source attribute used to perform the lookup. | 
 **target** | **String** | Name of the attribute that contains the corresponding value in the mapping list or the &#x60;default_lookup&#x60; if not found in the mapping list. | 
-**type** | [**LogsLookupProcessorType**](LogsLookupProcessorType.md) |  | 
+**type** | **LogsLookupProcessorType** |  | 
 
 
 

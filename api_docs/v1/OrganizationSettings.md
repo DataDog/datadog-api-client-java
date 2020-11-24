@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **privateWidgetShare** | **Boolean** | Whether or not the organization users can share widgets outside of Datadog. |  [optional]
 **saml** | [**OrganizationSettingsSaml**](OrganizationSettingsSaml.md) |  |  [optional]
-**samlAutocreateAccessRole** | [**AccessRole**](AccessRole.md) |  |  [optional]
+**samlAutocreateAccessRole** | **AccessRole** |  |  [optional]
 **samlAutocreateUsersDomains** | [**OrganizationSettingsSamlAutocreateUsersDomains**](OrganizationSettingsSamlAutocreateUsersDomains.md) |  |  [optional]
 **samlCanBeEnabled** | **Boolean** | Whether or not SAML can be enabled for this organization. |  [optional]
 **samlIdpEndpoint** | **String** | Identity provider endpoint for SAML authentication. |  [optional]

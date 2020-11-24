@@ -7,7 +7,7 @@ Updated query value widget.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aggregator** | [**WidgetAggregator**](WidgetAggregator.md) |  |  [optional]
+**aggregator** | **WidgetAggregator** |  |  [optional]
 **apmQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **conditionalFormats** | [**List&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | List of conditional formats. |  [optional]
 **eventQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]

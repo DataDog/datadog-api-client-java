@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**UserInvitationDataAttributes**](UserInvitationDataAttributes.md) |  |  [optional]
 **id** | **String** | ID of the user invitation. |  [optional]
-**type** | [**UserInvitationsType**](UserInvitationsType.md) |  |  [optional]
+**type** | **UserInvitationsType** |  |  [optional]
 
 
 

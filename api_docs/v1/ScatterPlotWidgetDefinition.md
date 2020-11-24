@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **requests** | [**ScatterPlotWidgetDefinitionRequests**](ScatterPlotWidgetDefinitionRequests.md) |  | 
 **time** | [**WidgetTime**](WidgetTime.md) |  |  [optional]
 **title** | **String** | Title of your widget. |  [optional]
-**titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
+**titleAlign** | **WidgetTextAlign** |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | [**ScatterPlotWidgetDefinitionType**](ScatterPlotWidgetDefinitionType.md) |  | 
+**type** | **ScatterPlotWidgetDefinitionType** |  | 
 **xaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
 

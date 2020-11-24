@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **filters** | **List&lt;String&gt;** | Your environment and primary tag (or * if enabled for your account). | 
 **service** | **String** | The ID of the service you want to map. | 
 **title** | **String** | The title of your widget. |  [optional]
-**titleAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
+**titleAlign** | **WidgetTextAlign** |  |  [optional]
 **titleSize** | **String** | Size of the title. |  [optional]
-**type** | [**ServiceMapWidgetDefinitionType**](ServiceMapWidgetDefinitionType.md) |  | 
+**type** | **ServiceMapWidgetDefinitionType** |  | 
 
 
 

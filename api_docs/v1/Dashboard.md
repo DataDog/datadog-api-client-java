@@ -8,12 +8,12 @@ A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **authorHandle** | **String** | Identifier of the dashboard author. |  [optional] [readonly]
-**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | Creation date of the dashboard. |  [optional] [readonly]
+**createdAt** | **OffsetDateTime** | Creation date of the dashboard. |  [optional] [readonly]
 **description** | **String** | Description of the dashboard. |  [optional]
 **id** | **String** | ID of the dashboard. |  [optional] [readonly]
 **isReadOnly** | **Boolean** | Whether this dashboard is read-only. If True, only the author and admins can make changes to it. |  [optional]
-**layoutType** | [**DashboardLayoutType**](DashboardLayoutType.md) |  | 
-**modifiedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Modification date of the dashboard. |  [optional] [readonly]
+**layoutType** | **DashboardLayoutType** |  | 
+**modifiedAt** | **OffsetDateTime** | Modification date of the dashboard. |  [optional] [readonly]
 **notifyList** | **List&lt;String&gt;** | List of handles of users to notify when changes are made to this dashboard. |  [optional]
 **templateVariablePresets** | [**List&lt;DashboardTemplateVariablePreset&gt;**](DashboardTemplateVariablePreset.md) | Array of template variables saved views. |  [optional]
 **templateVariables** | [**List&lt;DashboardTemplateVariables&gt;**](DashboardTemplateVariables.md) | List of template variables for this dashboard. |  [optional]

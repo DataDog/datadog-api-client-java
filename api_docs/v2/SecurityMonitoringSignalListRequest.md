@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filter** | [**SecurityMonitoringSignalListRequestFilter**](SecurityMonitoringSignalListRequestFilter.md) |  |  [optional]
 **page** | [**SecurityMonitoringSignalListRequestPage**](SecurityMonitoringSignalListRequestPage.md) |  |  [optional]
-**sort** | [**SecurityMonitoringSignalsSort**](SecurityMonitoringSignalsSort.md) |  |  [optional]
+**sort** | **SecurityMonitoringSignalsSort** |  |  [optional]
 
 
 

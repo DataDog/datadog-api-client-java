@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
  **filterQuery** | **String**| The search query for security signals. | [optional]
  **filterFrom** | **OffsetDateTime**| The minimum timestamp for requested security signals. | [optional]
  **filterTo** | **OffsetDateTime**| The maximum timestamp for requested security signals. | [optional]
- **sort** | [**SecurityMonitoringSignalsSort**](.md)| The order of the security signals in results. | [optional] [enum: timestamp, -timestamp]
+ **sort** | **SecurityMonitoringSignalsSort**| The order of the security signals in results. | [optional] [enum: timestamp, -timestamp]
  **pageCursor** | **String**| A list of results using the cursor provided in the previous query. | [optional]
  **pageLimit** | **Integer**| The maximum number of security signals in the response. | [optional] [default to 10]
 

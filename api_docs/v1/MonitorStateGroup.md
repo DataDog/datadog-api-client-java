@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **lastResolvedTs** | **Long** | Latest timestamp the monitor group was resolved. |  [optional]
 **lastTriggeredTs** | **Long** | Latest timestamp the monitor group triggered. |  [optional]
 **name** | **String** | The name of the monitor. |  [optional]
-**status** | [**MonitorOverallStates**](MonitorOverallStates.md) |  |  [optional]
+**status** | **MonitorOverallStates** |  |  [optional]
 
 
 

@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **color** | **String** | Color of the text. |  [optional]
 **fontSize** | **String** | Size of the text. |  [optional]
 **text** | **String** | Text to display. | 
-**textAlign** | [**WidgetTextAlign**](WidgetTextAlign.md) |  |  [optional]
-**type** | [**FreeTextWidgetDefinitionType**](FreeTextWidgetDefinitionType.md) |  | 
+**textAlign** | **WidgetTextAlign** |  |  [optional]
+**type** | **FreeTextWidgetDefinitionType** |  | 
 
 
 
