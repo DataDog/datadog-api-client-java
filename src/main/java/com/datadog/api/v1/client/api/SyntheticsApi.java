@@ -19,6 +19,8 @@ import com.datadog.api.v1.client.model.SyntheticsGetBrowserTestLatestResultsResp
 import com.datadog.api.v1.client.model.SyntheticsGlobalVariable;
 import com.datadog.api.v1.client.model.SyntheticsListTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsLocations;
+import com.datadog.api.v1.client.model.SyntheticsPrivateLocation;
+import com.datadog.api.v1.client.model.SyntheticsPrivateLocationCreationResponse;
 import com.datadog.api.v1.client.model.SyntheticsTestDetails;
 import com.datadog.api.v1.client.model.SyntheticsTriggerCITestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsUpdateTestPauseStatusPayload;
@@ -164,6 +166,113 @@ private ApiResponse<SyntheticsGlobalVariable> createGlobalVariableWithHttpInfo(S
    */
   public APIcreateGlobalVariableRequest createGlobalVariable() throws ApiException {
     return new APIcreateGlobalVariableRequest();
+  }
+
+private ApiResponse<SyntheticsPrivateLocationCreationResponse> createPrivateLocationWithHttpInfo(SyntheticsPrivateLocation body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createPrivateLocation");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/private-locations";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createPrivateLocation");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsPrivateLocationCreationResponse> localVarReturnType = new GenericType<SyntheticsPrivateLocationCreationResponse>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.createPrivateLocation", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIcreatePrivateLocationRequest {
+    private SyntheticsPrivateLocation body;
+
+    private APIcreatePrivateLocationRequest() {
+    }
+
+    /**
+     * Set body
+     * @param body Details of the private location to create. (required)
+     * @return APIcreatePrivateLocationRequest
+     */
+    public APIcreatePrivateLocationRequest body(SyntheticsPrivateLocation body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createPrivateLocation request
+     * @return SyntheticsPrivateLocationCreationResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 402 </td><td> Quota reached for private locations </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Private locations are not activated for the user </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsPrivateLocationCreationResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createPrivateLocation request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsPrivateLocationCreationResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 402 </td><td> Quota reached for private locations </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> Private locations are not activated for the user </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsPrivateLocationCreationResponse> executeWithHttpInfo() throws ApiException {
+      return createPrivateLocationWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Create a private location
+   * Create a new Synthetics private location.
+   * @return createPrivateLocationRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIcreatePrivateLocationRequest createPrivateLocation() throws ApiException {
+    return new APIcreatePrivateLocationRequest();
   }
 
 private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTestDetails body) throws ApiException {
@@ -373,6 +482,102 @@ private ApiResponse<Void> deleteGlobalVariableWithHttpInfo(String variableId) th
    */
   public APIdeleteGlobalVariableRequest deleteGlobalVariable(String variableId) throws ApiException {
     return new APIdeleteGlobalVariableRequest(variableId);
+  }
+
+private ApiResponse<Void> deletePrivateLocationWithHttpInfo(String locationId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'locationId' is set
+    if (locationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'locationId' when calling deletePrivateLocation");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/private-locations/{location_id}"
+      .replaceAll("\\{" + "location_id" + "\\}", apiClient.escapeString(locationId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deletePrivateLocation");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    return apiClient.invokeAPI("SyntheticsApi.deletePrivateLocation", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+
+  public class APIdeletePrivateLocationRequest {
+    private String locationId;
+
+    private APIdeletePrivateLocationRequest(String locationId) {
+      this.locationId = locationId;
+    }
+
+    /**
+     * Execute deletePrivateLocation request
+     
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public void execute() throws ApiException {
+      this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute deletePrivateLocation request with HTTP info returned
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+      return deletePrivateLocationWithHttpInfo(locationId);
+    }
+  }
+
+  /**
+   * Delete a private location
+   * Delete a Synthetics private location.
+   * @param locationId The ID of the private location. (required)
+   * @return deletePrivateLocationRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIdeletePrivateLocationRequest deletePrivateLocation(String locationId) throws ApiException {
+    return new APIdeletePrivateLocationRequest(locationId);
   }
 
 private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(SyntheticsDeleteTestsPayload body) throws ApiException {
@@ -1290,6 +1495,104 @@ private ApiResponse<SyntheticsGlobalVariable> getGlobalVariableWithHttpInfo(Stri
     return new APIgetGlobalVariableRequest(variableId);
   }
 
+private ApiResponse<SyntheticsPrivateLocation> getPrivateLocationWithHttpInfo(String locationId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'locationId' is set
+    if (locationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'locationId' when calling getPrivateLocation");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/private-locations/{location_id}"
+      .replaceAll("\\{" + "location_id" + "\\}", apiClient.escapeString(locationId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getPrivateLocation");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsPrivateLocation> localVarReturnType = new GenericType<SyntheticsPrivateLocation>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.getPrivateLocation", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetPrivateLocationRequest {
+    private String locationId;
+
+    private APIgetPrivateLocationRequest(String locationId) {
+      this.locationId = locationId;
+    }
+
+    /**
+     * Execute getPrivateLocation request
+     * @return SyntheticsPrivateLocation
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsPrivateLocation execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getPrivateLocation request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsPrivateLocation&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsPrivateLocation> executeWithHttpInfo() throws ApiException {
+      return getPrivateLocationWithHttpInfo(locationId);
+    }
+  }
+
+  /**
+   * Get a private location
+   * Get a Synthetics private location.
+   * @param locationId The ID of the private location. (required)
+   * @return getPrivateLocationRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetPrivateLocationRequest getPrivateLocation(String locationId) throws ApiException {
+    return new APIgetPrivateLocationRequest(locationId);
+  }
+
 private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId) throws ApiException {
     Object localVarPostBody = null;
     
@@ -1663,7 +1966,7 @@ private ApiResponse<SyntheticsTriggerCITestsResponse> triggerCITestsWithHttpInfo
 
   /**
    * Trigger some Synthetics tests for CI
-   * Trigger a set of Synthetics tests for continuous integration
+   * Trigger a set of Synthetics tests for continuous integration.
    * @return triggerCITestsRequest
    * @throws ApiException if fails to make API call
    
@@ -1671,6 +1974,120 @@ private ApiResponse<SyntheticsTriggerCITestsResponse> triggerCITestsWithHttpInfo
    */
   public APItriggerCITestsRequest triggerCITests() throws ApiException {
     return new APItriggerCITestsRequest();
+  }
+
+private ApiResponse<SyntheticsPrivateLocation> updatePrivateLocationWithHttpInfo(String locationId, SyntheticsPrivateLocation body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'locationId' is set
+    if (locationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'locationId' when calling updatePrivateLocation");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updatePrivateLocation");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/private-locations/{location_id}"
+      .replaceAll("\\{" + "location_id" + "\\}", apiClient.escapeString(locationId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updatePrivateLocation");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsPrivateLocation> localVarReturnType = new GenericType<SyntheticsPrivateLocation>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.updatePrivateLocation", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIupdatePrivateLocationRequest {
+    private String locationId;
+    private SyntheticsPrivateLocation body;
+
+    private APIupdatePrivateLocationRequest(String locationId) {
+      this.locationId = locationId;
+    }
+
+    /**
+     * Set body
+     * @param body Details of the private location to be updated. (required)
+     * @return APIupdatePrivateLocationRequest
+     */
+    public APIupdatePrivateLocationRequest body(SyntheticsPrivateLocation body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute updatePrivateLocation request
+     * @return SyntheticsPrivateLocation
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsPrivateLocation execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updatePrivateLocation request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsPrivateLocation&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsPrivateLocation> executeWithHttpInfo() throws ApiException {
+      return updatePrivateLocationWithHttpInfo(locationId, body);
+    }
+  }
+
+  /**
+   * Edit a private location
+   * Edit a Synthetics private location.
+   * @param locationId The ID of the private location. (required)
+   * @return updatePrivateLocationRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIupdatePrivateLocationRequest updatePrivateLocation(String locationId) throws ApiException {
+    return new APIupdatePrivateLocationRequest(locationId);
   }
 
 private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicId, SyntheticsTestDetails body) throws ApiException {
