@@ -36,6 +36,7 @@ Class | Method | HTTP request | Description
 *LogsArchivesApi* | [**removeRoleFromArchive**](LogsArchivesApi.md#removeRoleFromArchive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
 *LogsArchivesApi* | [**updateLogsArchive**](LogsArchivesApi.md#updateLogsArchive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
 *LogsArchivesApi* | [**updateLogsArchiveOrder**](LogsArchivesApi.md#updateLogsArchiveOrder) | **PUT** /api/v2/logs/config/archive-order | Update archive order
+*ProcessesApi* | [**listProcesses**](ProcessesApi.md#listProcesses) | **GET** /api/v2/processes | Get all processes
 *RolesApi* | [**addPermissionToRole**](RolesApi.md#addPermissionToRole) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 *RolesApi* | [**addUserToRole**](RolesApi.md#addUserToRole) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
 *RolesApi* | [**createRole**](RolesApi.md#createRole) | **POST** /api/v2/roles | Create role
@@ -198,6 +199,12 @@ Class | Method | HTTP request | Description
  - [PermissionAttributes](PermissionAttributes.md)
  - [PermissionsResponse](PermissionsResponse.md)
  - [PermissionsType](PermissionsType.md)
+ - [ProcessSummariesMeta](ProcessSummariesMeta.md)
+ - [ProcessSummariesMetaPage](ProcessSummariesMetaPage.md)
+ - [ProcessSummariesResponse](ProcessSummariesResponse.md)
+ - [ProcessSummary](ProcessSummary.md)
+ - [ProcessSummaryAttributes](ProcessSummaryAttributes.md)
+ - [ProcessSummaryType](ProcessSummaryType.md)
  - [QuerySortOrder](QuerySortOrder.md)
  - [RelationshipToIncidentIntegrationMetadataData](RelationshipToIncidentIntegrationMetadataData.md)
  - [RelationshipToIncidentIntegrationMetadatas](RelationshipToIncidentIntegrationMetadatas.md)
