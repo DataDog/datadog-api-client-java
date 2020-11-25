@@ -281,17 +281,17 @@ public class TestUtils {
                 clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
                 now = OffsetDateTime.ofInstant(Instant.now(clock), ZoneOffset.UTC);
                 Files.write(
-                        Paths.get("src/test/resources/cassettes", version, getFreezefileName()),
+                        Paths.get(APITest.cassettesDir, version, getFreezefileName()),
                         now.toString().getBytes()
                 );
             } else {
                 // When replaying, read the time in the `freeze` file, and set the clock to that time, or current time if file not found
-                Path freezeFile = Paths.get("src/test/resources/cassettes", version, getFreezefileName());
+                Path freezeFile = Paths.get(APITest.cassettesDir, version, getFreezefileName());
                 try {
                     List<String> lines = Files.readAllLines(freezeFile);
                     clock = Clock.fixed(Instant.parse(lines.get(0)), ZoneOffset.UTC);
                 } catch (NoSuchFileException e) {
-                    System.out.println("Could not find file " + freezeFile + ", initializing clock using current time");
+                    System.err.println("Could not find file " + freezeFile + ", initializing clock using current time");
                     clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
                 }
                 now = OffsetDateTime.ofInstant(Instant.now(clock), ZoneOffset.UTC);

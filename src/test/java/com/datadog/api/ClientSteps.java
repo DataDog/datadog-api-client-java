@@ -56,7 +56,7 @@ public class ClientSteps {
             try {
                 u.call();
             } catch (Exception e) {
-                System.out.printf("failed undo: %s\n", e);
+                System.err.printf("failed undo: %s\n", e);
             }
         }
 
@@ -223,14 +223,12 @@ public class ClientSteps {
     public static Object lookup(Object data, String path)
             throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
         Object result = data;
-        for (String dotPart : Arrays.asList(path.split("(?<=\\.)"))) {
-            dotPart = dotPart.replaceAll("\\.", "");
-            for (String part : Arrays.asList(dotPart.split("(?<=\\[)"))) {
+        for (String dotPart : Arrays.asList(path.split("\\."))) {
+            for (String part : Arrays.asList(dotPart.split("\\["))) {
                 if (part.indexOf("]") != -1) {
                     Integer index = Integer.parseInt(part.replaceAll("]", ""));
                     result = List.class.cast(result).get(index);
                 } else {
-                    part = part.replaceAll("\\[", "");
                     try {
                         result = HashMap.class.cast(result).get(part);
                     } catch (Exception e) {

@@ -68,7 +68,7 @@ public class RecorderSteps {
                 List<String> lines = Files.readAllLines(freezeFile);
                 world.clock = Clock.fixed(Instant.parse(lines.get(0)), ZoneOffset.UTC);
             } catch (NoSuchFileException e) {
-                System.out.println("Could not find file " + freezeFile + ", initializing clock using current time");
+                System.err.println("Could not find file " + freezeFile + ", initializing clock using current time");
                 world.clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
             }
             world.now = OffsetDateTime.ofInstant(Instant.now(world.clock), ZoneOffset.UTC);

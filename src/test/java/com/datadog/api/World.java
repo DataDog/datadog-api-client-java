@@ -179,11 +179,9 @@ public class World {
 
         Method undoMethod = getRequestUndo();
 
-        System.err.printf("\n\n%s\n\n", request.toString());
         response = responseMethod.invoke(request);
 
         if (undoMethod != null) {
-            // TODO append to undo list
             undo.add(() -> {
                 Method dataMethod = responseClass.getMethod("getData");
                 undoMethod.invoke(null, apiClass.cast(api), dataMethod.invoke(response));
