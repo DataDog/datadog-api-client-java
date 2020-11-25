@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **normalizeEndingSlashes** | **Boolean** | Normalize the ending slashes or not. |  [optional]
 **sources** | **List&lt;String&gt;** | Array of source attributes. | 
 **target** | **String** | Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;. | 
-**type** | [**LogsURLParserType**](LogsURLParserType.md) |  | 
+**type** | **LogsURLParserType** |  | 
 
 
 

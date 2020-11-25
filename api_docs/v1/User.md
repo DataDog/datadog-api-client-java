@@ -7,7 +7,7 @@ Create, edit, and disable users.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessRole** | [**AccessRole**](AccessRole.md) |  |  [optional]
+**accessRole** | **AccessRole** |  |  [optional]
 **disabled** | **Boolean** | The new disabled status of the user. |  [optional]
 **email** | **String** | The new email of the user. |  [optional]
 **handle** | **String** | The user handle, must be a valid email. |  [optional]

@@ -8,9 +8,9 @@ Object containing results for your Synthetic API test.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cert** | [**SyntheticsSSLCertificate**](SyntheticsSSLCertificate.md) |  |  [optional]
-**errorCode** | [**SyntheticsErrorCode**](SyntheticsErrorCode.md) |  |  [optional]
+**errorCode** | **SyntheticsErrorCode** |  |  [optional]
 **errorMessage** | **String** | The API test error message. |  [optional]
-**eventType** | [**SyntheticsTestProcessStatus**](SyntheticsTestProcessStatus.md) |  |  [optional]
+**eventType** | **SyntheticsTestProcessStatus** |  |  [optional]
 **httpStatusCode** | **Long** | The API test HTTP status code. |  [optional]
 **requestHeaders** | **Map&lt;String, Object&gt;** | Request header object used for the API test. |  [optional]
 **responseBody** | **String** | Response body returned for the API test. |  [optional]

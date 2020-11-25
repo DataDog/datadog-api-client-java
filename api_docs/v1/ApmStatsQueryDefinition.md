@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **name** | **String** | Operation name associated with service. | 
 **primaryTag** | **String** | The organization&#39;s host group name and value. | 
 **resource** | **String** | Resource name. |  [optional]
-**rowType** | [**ApmStatsQueryRowType**](ApmStatsQueryRowType.md) |  | 
+**rowType** | **ApmStatsQueryRowType** |  | 
 **service** | **String** | Service name. | 
 
 

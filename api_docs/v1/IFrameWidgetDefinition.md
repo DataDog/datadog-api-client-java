@@ -7,7 +7,7 @@ The iframe widget allows you to embed a portion of any other web page on your da
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**IFrameWidgetDefinitionType**](IFrameWidgetDefinitionType.md) |  | 
+**type** | **IFrameWidgetDefinitionType** |  | 
 **url** | **String** | URL of the iframe. | 
 
 

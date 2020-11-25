@@ -7,7 +7,7 @@ An object that holds an SLI value and its associated data. It can represent an S
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**history** | [**List&lt;List&lt;Double&gt;&gt;**](List.md) | For &#x60;monitor&#x60; based SLOs, this includes the aggregated history uptime time series. |  [optional]
+**history** | **List&lt;List&lt;Double&gt;&gt;** | For &#x60;monitor&#x60; based SLOs, this includes the aggregated history uptime time series. |  [optional]
 **name** | **String** | For groups in a grouped SLO this is the group name. For monitors in a multi-monitor SLO this is the monitor name. |  [optional]
 **precision** | **Map&lt;String, Double&gt;** | A mapping of threshold &#x60;timeframe&#x60; to number of accurate decimals, regardless of the from &amp;&amp; to timestamp. |  [optional]
 **preview** | **Boolean** | For &#x60;monitor&#x60; based SLOs when &#x60;true&#x60; this indicates that a replay is in progress to give an accurate uptime calculation. |  [optional]

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **attributes** | [**RoleAttributes**](RoleAttributes.md) |  |  [optional]
 **id** | **String** | ID of the role. |  [optional]
 **relationships** | [**RoleResponseRelationships**](RoleResponseRelationships.md) |  |  [optional]
-**type** | [**RolesType**](RolesType.md) |  | 
+**type** | **RolesType** |  | 
 
 
 

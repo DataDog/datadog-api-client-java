@@ -313,6 +313,7 @@ public class ApiClient extends JavaTimeFormatter {
     put("getMonthlyCustomReports", false);
     put("getSpecifiedDailyCustomReports", false);
     put("getSpecifiedMonthlyCustomReports", false);
+    put("getUsageAttribution", false);
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
 

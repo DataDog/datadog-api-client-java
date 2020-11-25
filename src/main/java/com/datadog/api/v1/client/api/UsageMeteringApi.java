@@ -1226,6 +1226,12 @@ private ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(Of
    
    */
   public APIgetUsageAttributionRequest getUsageAttribution() throws ApiException {
+    String operationId = "getUsageAttribution";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIgetUsageAttributionRequest();
   }
 

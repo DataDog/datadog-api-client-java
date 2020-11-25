@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the processor. |  [optional]
 **samples** | **List&lt;String&gt;** | List of sample logs to test this grok parser. |  [optional]
 **source** | **String** | Name of the log attribute to parse. | 
-**type** | [**LogsGrokParserType**](LogsGrokParserType.md) |  | 
+**type** | **LogsGrokParserType** |  | 
 
 
 

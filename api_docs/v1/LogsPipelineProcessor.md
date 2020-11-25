@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **isEnabled** | **Boolean** | Whether or not the processor is enabled. |  [optional]
 **name** | **String** | Name of the processor. |  [optional]
 **processors** | [**List&lt;LogsProcessor&gt;**](LogsProcessor.md) | Ordered list of processors in this pipeline. |  [optional]
-**type** | [**LogsPipelineProcessorType**](LogsPipelineProcessorType.md) |  | 
+**type** | **LogsPipelineProcessorType** |  | 
 
 
 

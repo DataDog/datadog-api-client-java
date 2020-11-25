@@ -7,7 +7,7 @@ Number of Fargate tasks run and hourly usage.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hour** | [**OffsetDateTime**](OffsetDateTime.md) | The hour for the usage. |  [optional]
+**hour** | **OffsetDateTime** | The hour for the usage. |  [optional]
 **tasksCount** | **Long** | The number of Fargate tasks run. |  [optional]
 
 

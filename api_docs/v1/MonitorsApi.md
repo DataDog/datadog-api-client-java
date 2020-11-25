@@ -73,7 +73,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **monitorIds** | [**List&lt;Long&gt;**](Long.md)| The IDs of the monitor to check. |
+ **monitorIds** | **List&lt;Long&gt;**| The IDs of the monitor to check. |
 
 ### Return type
 

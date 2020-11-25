@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
  **filterIndex** | **String**| For customers with multiple indexes, the indexes to search Defaults to &#39;*&#39; which means all indexes | [optional]
  **filterFrom** | **OffsetDateTime**| Minimum timestamp for requested logs. | [optional]
  **filterTo** | **OffsetDateTime**| Maximum timestamp for requested logs. | [optional]
- **sort** | [**LogsSort**](.md)| Order of logs in results. | [optional] [enum: timestamp, -timestamp]
+ **sort** | **LogsSort**| Order of logs in results. | [optional] [enum: timestamp, -timestamp]
  **pageCursor** | **String**| List following results with a cursor provided in the previous query. | [optional]
  **pageLimit** | **Integer**| Maximum number of logs in the response. | [optional] [default to 10]
 

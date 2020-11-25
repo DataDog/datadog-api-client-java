@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**IncidentTeamCreateAttributes**](IncidentTeamCreateAttributes.md) |  |  [optional]
 **relationships** | [**IncidentTeamRelationships**](IncidentTeamRelationships.md) |  |  [optional]
-**type** | [**IncidentTeamType**](IncidentTeamType.md) |  | 
+**type** | **IncidentTeamType** |  | 
 
 
 

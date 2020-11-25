@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**IncidentServiceCreateAttributes**](IncidentServiceCreateAttributes.md) |  |  [optional]
 **relationships** | [**IncidentServiceRelationships**](IncidentServiceRelationships.md) |  |  [optional]
-**type** | [**IncidentServiceType**](IncidentServiceType.md) |  | 
+**type** | **IncidentServiceType** |  | 
 
 
 

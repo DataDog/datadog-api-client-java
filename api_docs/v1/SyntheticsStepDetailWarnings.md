@@ -8,7 +8,7 @@ Object collecting warnings for a given step.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **String** | Message for the warning. | 
-**type** | [**SyntheticsWarningType**](SyntheticsWarningType.md) |  | 
+**type** | **SyntheticsWarningType** |  | 
 
 
 

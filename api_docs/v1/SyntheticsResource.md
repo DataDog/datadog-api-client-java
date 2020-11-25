@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **status** | **Long** | Status Code of the resource. |  [optional]
 **timestamp** | **Double** | Timestamp of the resource collection. |  [optional]
 **traceId** | **String** | Trace ID associated with the resource if any. |  [optional]
-**type** | [**SyntheticsResourceType**](SyntheticsResourceType.md) |  |  [optional]
+**type** | **SyntheticsResourceType** |  |  [optional]
 **url** | **String** | URL of the resource. |  [optional]
 
 
