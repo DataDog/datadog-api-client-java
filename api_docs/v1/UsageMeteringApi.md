@@ -722,7 +722,7 @@ Name | Type | Description  | Notes
 
 ## getUsageAttribution
 
-> UsageAttributionResponse getUsageAttribution().startMonth(startMonth).fields(fields).endMonth(endMonth).orgId(orgId).sortDirection(sortDirection).sortName(sortName).execute();
+> UsageAttributionResponse getUsageAttribution().startMonth(startMonth).fields(fields).endMonth(endMonth).sortDirection(sortDirection).sortName(sortName).execute();
 
 Get Usage Attribution
 
@@ -760,7 +760,6 @@ public class Example {
         OffsetDateTime startMonth = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
         String fields = "fields_example"; // String | The specified field to search results for.
         OffsetDateTime endMonth = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
-        Long orgId = 56L; // Long | Include usage summaries for each sub-org.
         UsageSortDirection sortDirection = new UsageSortDirection(); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageAttributionSort sortName = new UsageAttributionSort(); // UsageAttributionSort | The field to sort by.
         try {
@@ -768,7 +767,6 @@ public class Example {
                 .startMonth(startMonth)
                 .fields(fields)
                 .endMonth(endMonth)
-                .orgId(orgId)
                 .sortDirection(sortDirection)
                 .sortName(sortName)
                 .execute();
@@ -792,7 +790,6 @@ Name | Type | Description  | Notes
  **startMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |
  **fields** | **String**| The specified field to search results for. |
  **endMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional]
- **orgId** | **Long**| Include usage summaries for each sub-org. | [optional]
  **sortDirection** | **UsageSortDirection**| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
  **sortName** | **UsageAttributionSort**| The field to sort by. | [optional] [default to custom_timeseries_usage] [enum: api_percentage, snmp_usage, lambda_percentage, apm_host_usage, api_usage, container_usage, custom_timeseries_percentage, container_percentage, lambda_usage, apm_host_percentage, npm_host_percentage, browser_percentage, browser_usage, infra_host_percentage, snmp_percentage, npm_host_usage, infra_host_usage, custom_timeseries_usage]
 
