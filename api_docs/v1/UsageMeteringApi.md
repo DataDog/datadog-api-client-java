@@ -30,7 +30,7 @@ Method | HTTP request | Description
 [**getUsageSyntheticsAPI**](UsageMeteringApi.md#getUsageSyntheticsAPI) | **GET** /api/v1/usage/synthetics_api | Get hourly usage for Synthetics API Checks
 [**getUsageSyntheticsBrowser**](UsageMeteringApi.md#getUsageSyntheticsBrowser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
 [**getUsageTimeseries**](UsageMeteringApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
-[**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get top 500 custom metrics by hourly average
+[**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get top custom metrics by hourly average
 [**getUsageTrace**](UsageMeteringApi.md#getUsageTrace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search
 
 
@@ -2271,7 +2271,7 @@ Name | Type | Description  | Notes
 
 > UsageTopAvgMetricsResponse getUsageTopAvgMetrics().month(month).names(names).limit(limit).execute();
 
-Get top 500 custom metrics by hourly average
+Get top custom metrics by hourly average
 
 Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
 
@@ -2306,7 +2306,7 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         OffsetDateTime month = new OffsetDateTime(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
         List<String> names = Arrays.asList(); // List<String> | Comma-separated list of metric names.
-        Integer limit = 500; // Integer | Maximum number of results to return.
+        Integer limit = 500; // Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
         try {
             UsageTopAvgMetricsResponse result = apiInstance.getUsageTopAvgMetrics()
                 .month(month)
@@ -2332,7 +2332,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **month** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. |
  **names** | **List&lt;String&gt;**| Comma-separated list of metric names. | [optional]
- **limit** | **Integer**| Maximum number of results to return. | [optional] [default to 500]
+ **limit** | **Integer**| Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. | [optional] [default to 500]
 
 ### Return type
 

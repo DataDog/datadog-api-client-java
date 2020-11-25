@@ -3372,7 +3372,7 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
 
     /**
      * Set limit
-     * @param limit Maximum number of results to return. (optional, default to 500)
+     * @param limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. (optional, default to 500)
      * @return APIgetUsageTopAvgMetricsRequest
      */
     public APIgetUsageTopAvgMetricsRequest limit(Integer limit) {
@@ -3417,7 +3417,7 @@ private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInf
   }
 
   /**
-   * Get top 500 custom metrics by hourly average
+   * Get top custom metrics by hourly average
    * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
    * @return getUsageTopAvgMetricsRequest
    * @throws ApiException if fails to make API call
