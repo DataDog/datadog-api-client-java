@@ -1,0 +1,34 @@
+{
+  "id" : "d3ee7c1e-6817-4654-838d-f0121665a050",
+  "name" : "api_v2_users",
+  "request" : {
+    "url" : "/api/v2/users",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"data\":{\"attributes\":{\"email\":\"java-send_invitation_emai-1602850916@datadoghq.com\",\"name\":\"java-send_invitation_emai-1602850916\"},\"type\":\"users\"}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "body" : "{\"data\":{\"type\":\"users\",\"id\":\"2eb8f05e-0faa-11eb-bac9-27d723e419a1\",\"attributes\":{\"name\":\"java-send_invitation_emai-1602850916\",\"handle\":\"java-send_invitation_emai-1602850916@datadoghq.com\",\"created_at\":\"2020-10-16T12:21:56.764300+00:00\",\"email\":\"java-send_invitation_emai-1602850916@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/83785f28bb925eb94b859483a554b5ce?s=48&d=retro\",\"title\":null,\"verified\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
+    "headers" : {
+      "Date" : "Fri, 16 Oct 2020 12:21:56 GMT",
+      "Content-Type" : "application/json",
+      "Pragma" : "no-cache",
+      "Cache-Control" : "no-cache",
+      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 23-Oct-2020 12:21:56 GMT; secure; HttpOnly",
+      "X-DD-VERSION" : "35.3205344",
+      "X-DD-Debug" : "H6mGk0NVWFFYd9VUP8vVAv2c5S84SY5SnfwDRAyGeGOpnNeKpu2AiMB1a9R6+y9D",
+      "DD-POOL" : "dogweb",
+      "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "X-Content-Type-Options" : "nosniff",
+      "Strict-Transport-Security" : "max-age=15724800;"
+    }
+  },
+  "uuid" : "d3ee7c1e-6817-4654-838d-f0121665a050",
+  "persistent" : true,
+  "insertionIndex" : 3
+}

@@ -1,0 +1,39 @@
+{
+  "id" : "14c2c4c2-91e4-4211-8290-4a9bc8860353",
+  "name" : "api_v2_roles_a6c2081a-2daa-11eb-84bc-abe9f575844b_permissions",
+  "request" : {
+    "url" : "/api/v2/roles/a6c2081a-2daa-11eb-84bc-abe9f575844b/permissions",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"data\":{\"id\":\"984a2bd4-d3b4-11e8-a1ff-a7f660d43029\",\"type\":\"permissions\"}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"data\":[{\"type\":\"permissions\",\"id\":\"984a2bd4-d3b4-11e8-a1ff-a7f660d43029\",\"attributes\":{\"name\":\"admin\",\"display_name\":\"Privileged Access\",\"description\":\"This permission gives you the ability to view and edit everything in your Datadog organization that does not have an explicitly defined permission. This includes billing and usage, user, key, and organization management. This permission is inclusive of all Standard access permissions.\",\"created\":\"2018-10-19T15:35:23.734317+00:00\",\"group_name\":\"General\",\"display_type\":\"other\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\",\"attributes\":{\"name\":\"dashboards_read\",\"display_name\":\"Dashboards\",\"description\":\"The ability to view dashboards.\",\"created\":\"2019-09-10T14:39:51.955175+00:00\",\"group_name\":\"Dashboards\",\"display_type\":\"read\",\"restricted\":true}},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\",\"attributes\":{\"name\":\"monitors_read\",\"display_name\":\"Monitors\",\"description\":\"The ability to view monitors.\",\"created\":\"2019-09-16T18:39:07.744297+00:00\",\"group_name\":\"Monitors\",\"display_type\":\"read\",\"restricted\":true}}]}",
+    "headers" : {
+      "Date" : "Mon, 23 Nov 2020 16:40:53 GMT",
+      "Content-Type" : "application/json",
+      "Vary" : "Accept-Encoding",
+      "Pragma" : "no-cache",
+      "Cache-Control" : "no-cache",
+      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 30-Nov-2020 16:40:53 GMT; secure; HttpOnly",
+      "X-DD-VERSION" : "35.3417828",
+      "X-RateLimit-Limit" : "500",
+      "X-RateLimit-Period" : "60",
+      "X-RateLimit-Reset" : "7",
+      "X-RateLimit-Remaining" : "493",
+      "X-DD-Debug" : "u6DvYk2HTsv9JK8VlfzAetNutf1Eel5LZX1SupoC065LdrYdAgOwtNj060V1NNiO",
+      "DD-POOL" : "dogweb",
+      "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "X-Content-Type-Options" : "nosniff",
+      "Strict-Transport-Security" : "max-age=15724800;"
+    }
+  },
+  "uuid" : "14c2c4c2-91e4-4211-8290-4a9bc8860353",
+  "persistent" : true,
+  "insertionIndex" : 3
+}

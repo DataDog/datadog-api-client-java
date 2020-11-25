@@ -11,8 +11,8 @@
         <connection>scm:git:git://github.com/DataDog/datadog-api-client-java.git</connection>
         <developerConnection>scm:git:git@github.com:DataDog/datadog-api-client-java.git</developerConnection>
         <url>https://github.com/DataDog/datadog-api-client-java</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <licenses>
         <license>
@@ -30,7 +30,8 @@
     </distributionManagement>
 
     <developers>
-        <developer> <!-- Additions for tests and small generation changes -->
+        <developer>
+            <!-- Additions for tests and small generation changes -->
             <id>datadog</id>
             <name>Datadog developers</name>
             <email>dev@datadoghq.com</email>
@@ -45,10 +46,10 @@
 
     <build>
         <resources>
-          <resource>
-            <directory>src/main/resources</directory>
-            <filtering>true</filtering>
-          </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
         </resources>
         <plugins>
             <plugin>
@@ -328,9 +329,27 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>6.8.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>6.8.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>6.8.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.github.tomakehurst</groupId>
             <artifactId>wiremock-jre8</artifactId>
-            <version>2.25.1</version>
+            <version>2.27.1</version>
             <scope>test</scope>
             <exclusions>
                 <!-- mock-server also has this dependency, but requires a higher minor version than specified

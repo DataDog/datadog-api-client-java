@@ -1,0 +1,35 @@
+{
+  "id" : "73a97d18-16e6-411a-875a-6f3005a48dd6",
+  "name" : "api_v2_users_35f31ed0-0faa-11eb-bac9-fbe21ea48ff7",
+  "request" : {
+    "url" : "/api/v2/users/35f31ed0-0faa-11eb-bac9-fbe21ea48ff7",
+    "method" : "PATCH",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"data\":{\"attributes\":{\"disabled\":true,\"name\":\"updated\"},\"id\":\"35f31ed0-0faa-11eb-bac9-fbe21ea48ff7\",\"type\":\"users\"}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"data\":{\"type\":\"users\",\"id\":\"35f31ed0-0faa-11eb-bac9-fbe21ea48ff7\",\"attributes\":{\"name\":\"updated\",\"handle\":\"java-update_a_user_return-1602850928@datadoghq.com\",\"created_at\":\"2020-10-16T12:22:08.889685+00:00\",\"email\":\"java-update_a_user_return-1602850928@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/5956c7eb4c2cad7687240dd80a6e2d4f?s=48&d=retro\",\"title\":null,\"verified\":false,\"disabled\":true,\"allowed_login_methods\":[],\"status\":\"Disabled\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
+    "headers" : {
+      "Date" : "Fri, 16 Oct 2020 12:22:09 GMT",
+      "Content-Type" : "application/json",
+      "Vary" : "Accept-Encoding",
+      "Pragma" : "no-cache",
+      "Cache-Control" : "no-cache",
+      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Fri, 23-Oct-2020 12:22:09 GMT; secure; HttpOnly",
+      "X-DD-VERSION" : "35.3205344",
+      "X-DD-Debug" : "I0yEH4xFhLuk+yM2GIR/dtCF29+DEBKb58kq6TOpApqsa53yIh0t7lSVmFnrgEx+",
+      "DD-POOL" : "dogweb",
+      "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "X-Content-Type-Options" : "nosniff",
+      "Strict-Transport-Security" : "max-age=15724800;"
+    }
+  },
+  "uuid" : "73a97d18-16e6-411a-875a-6f3005a48dd6",
+  "persistent" : true,
+  "insertionIndex" : 4
+}
