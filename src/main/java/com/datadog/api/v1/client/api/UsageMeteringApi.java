@@ -1058,7 +1058,7 @@ private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
     return new APIgetUsageAnalyzedLogsRequest();
   }
 
-private ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(OffsetDateTime startMonth, String fields, OffsetDateTime endMonth, Long orgId, UsageSortDirection sortDirection, UsageAttributionSort sortName) throws ApiException {
+private ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(OffsetDateTime startMonth, String fields, OffsetDateTime endMonth, UsageSortDirection sortDirection, UsageAttributionSort sortName) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'startMonth' is set
@@ -1083,7 +1083,6 @@ private ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(Of
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "org_id", orgId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
 
@@ -1116,7 +1115,6 @@ private ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(Of
     private OffsetDateTime startMonth;
     private String fields;
     private OffsetDateTime endMonth;
-    private Long orgId;
     private UsageSortDirection sortDirection;
     private UsageAttributionSort sortName;
 
@@ -1150,16 +1148,6 @@ private ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(Of
      */
     public APIgetUsageAttributionRequest endMonth(OffsetDateTime endMonth) {
       this.endMonth = endMonth;
-      return this;
-    }
-
-    /**
-     * Set orgId
-     * @param orgId Include usage summaries for each sub-org. (optional)
-     * @return APIgetUsageAttributionRequest
-     */
-    public APIgetUsageAttributionRequest orgId(Long orgId) {
-      this.orgId = orgId;
       return this;
     }
 
@@ -1213,7 +1201,7 @@ private ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(Of
 
      */
     public ApiResponse<UsageAttributionResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageAttributionWithHttpInfo(startMonth, fields, endMonth, orgId, sortDirection, sortName);
+      return getUsageAttributionWithHttpInfo(startMonth, fields, endMonth, sortDirection, sortName);
     }
   }
 
