@@ -207,6 +207,7 @@ See [Datadog Logs Archive documentation][2].**
 ### Example
 
 ```java
+import java.time.OffsetDateTime;
 // Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
@@ -233,13 +234,13 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         LogsApi apiInstance = new LogsApi(defaultClient);
-        String filterQuery = @datacenter:us @role:db; // String | Search query following logs syntax.
-        String filterIndex = main; // String | For customers with multiple indexes, the indexes to search Defaults to '*' which means all indexes
-        OffsetDateTime filterFrom = 2019-01-02T09:42:36.320Z; // OffsetDateTime | Minimum timestamp for requested logs.
-        OffsetDateTime filterTo = 2019-01-03T09:42:36.320Z; // OffsetDateTime | Maximum timestamp for requested logs.
-        LogsSort sort = new LogsSort(); // LogsSort | Order of logs in results.
-        String pageCursor = eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==; // String | List following results with a cursor provided in the previous query.
-        Integer pageLimit = 25; // Integer | Maximum number of logs in the response.
+        String filterQuery = "@datacenter:us @role:db"; // String | Search query following logs syntax.
+        String filterIndex = "main"; // String | For customers with multiple indexes, the indexes to search Defaults to '*' which means all indexes
+        OffsetDateTime filterFrom = OffsetDateTime.now(); // OffsetDateTime | Minimum timestamp for requested logs.
+        OffsetDateTime filterTo = OffsetDateTime.now(); // OffsetDateTime | Maximum timestamp for requested logs.
+        LogsSort sort = LogsSort.fromValue("timestamp"); // LogsSort | Order of logs in results.
+        String pageCursor = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ=="; // String | List following results with a cursor provided in the previous query.
+        Integer pageLimit = 10; // Integer | Maximum number of logs in the response.
         try {
             LogsListResponse result = apiInstance.listLogsGet()
                 .filterQuery(filterQuery)

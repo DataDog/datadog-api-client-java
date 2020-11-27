@@ -53,7 +53,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        String ids = id1, id2, id3; // String | A comma separated list of the IDs of the service level objectives objects.
+        String ids = "id1, id2, id3"; // String | A comma separated list of the IDs of the service level objectives objects.
         try {
             CheckCanDeleteSLOResponse result = apiInstance.checkCanDeleteSLO()
                 .ids(ids)
@@ -568,7 +568,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-        String ids = id1, id2, id3; // String | A comma separated list of the IDs of the service level objectives objects.
+        String ids = "id1, id2, id3"; // String | A comma separated list of the IDs of the service level objectives objects.
         try {
             SLOListResponse result = apiInstance.listSLOs()
                 .ids(ids)

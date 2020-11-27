@@ -50,7 +50,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
-        Long downtimeId = 123456; // Long | ID of the downtime to cancel.
+        Long downtimeId = 123456L; // Long | ID of the downtime to cancel.
         try {
             apiInstance.cancelDowntime(downtimeId)
                 .execute();
@@ -295,7 +295,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
-        Long downtimeId = 123456; // Long | ID of the downtime to fetch.
+        Long downtimeId = 123456L; // Long | ID of the downtime to fetch.
         try {
             Downtime result = apiInstance.getDowntime(downtimeId)
                 .execute();
@@ -457,7 +457,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
-        Long downtimeId = 123456; // Long | ID of the downtime to update.
+        Long downtimeId = 123456L; // Long | ID of the downtime to update.
         Downtime body = new Downtime(); // Downtime | Update a downtime request body.
         try {
             Downtime result = apiInstance.updateDowntime(downtimeId)
