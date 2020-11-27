@@ -118,9 +118,10 @@ public class RecorderSteps {
     }
 
     @When("the request is sent")
-    public void theRequestIsSent() throws java.lang.ClassNotFoundException, java.lang.IllegalAccessException,
-            java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException,
-            com.fasterxml.jackson.core.JsonProcessingException, java.lang.InstantiationException {
+    public void theRequestIsSent()
+            throws java.lang.ClassNotFoundException, java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
+            java.lang.reflect.InvocationTargetException, com.fasterxml.jackson.core.JsonProcessingException,
+            java.lang.InstantiationException, java.net.URISyntaxException, java.io.IOException {
         // FIXME this is an ugly hack to support different subdomain
         String actionName = world.requestBuilder.getName();
         if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING) && actionName.equals("getIPRanges")) {

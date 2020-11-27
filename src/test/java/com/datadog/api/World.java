@@ -1,16 +1,17 @@
 package com.datadog.api;
 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.time.Clock;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.concurrent.Callable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-import java.util.concurrent.Callable;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
@@ -46,9 +47,6 @@ public class World {
     // Undo
     public List<Callable<?>> undo;
 
-    static String[] noUndo = { "add", "aggregateLogs", "delete", "disable", "get", "list", "remove", "sendInvitations",
-            "update", };
-
     public World() {
         context = new HashMap<>();
         undo = new ArrayList<>();
@@ -61,10 +59,9 @@ public class World {
         return parts[parts.length - 4];
     }
 
-    public void setupClient(String apiVersion)
-            throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-            java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException,
-            java.lang.NoSuchFieldException {
+    public void setupClient(String apiVersion) throws java.lang.reflect.InvocationTargetException,
+            java.lang.IllegalAccessException, java.lang.InstantiationException, java.lang.NoSuchMethodException,
+            java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
         // import com.datadog.api.{{ apiVersion }}.client.ApiClient
         clientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
         // client = new ApiClient()
@@ -110,8 +107,8 @@ public class World {
         // client.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
     }
 
-    public void setupAPI(String apiVersion, String apiName) throws java.lang.ClassNotFoundException,
-            java.lang.InstantiationException, java.lang.IllegalAccessException,
+    public void setupAPI(String apiVersion, String apiName)
+            throws java.lang.ClassNotFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException,
             java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
         // import com.datadog.api.{{ apiVersion }}.client.api.{{ apiName }}Api
         apiClass = Class.forName("com.datadog.api." + apiVersion + ".client.api." + apiName + "Api");
@@ -119,9 +116,8 @@ public class World {
         api = apiClass.getConstructor(clientClass).newInstance(client);
     }
 
-    public void setUnstableOperationEnabled(String operationId)
-            throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-            java.lang.NoSuchMethodException {
+    public void setUnstableOperationEnabled(String operationId) throws java.lang.reflect.InvocationTargetException,
+            java.lang.IllegalAccessException, java.lang.NoSuchMethodException {
         // client.setUnstableOperationEnabled(operationId, true)
         clientClass.getMethod("setUnstableOperationEnabled", String.class, boolean.class).invoke(client, operationId,
                 true);
@@ -145,20 +141,71 @@ public class World {
         }
     }
 
-    public Method getRequestUndo() throws java.lang.ClassNotFoundException, java.lang.NoSuchMethodException {
+    public Callable<?> getRequestUndo() throws java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
+            java.net.URISyntaxException, java.io.IOException, java.lang.IllegalAccessException,
+            java.lang.reflect.InvocationTargetException, java.lang.InstantiationException {
         String actionName = requestBuilder.getName();
-        if (Stream.of(noUndo).anyMatch(u -> actionName.startsWith(u))) {
+
+        String apiVersion = getVersion();
+
+        Undo undo = UndoAction.UndoAction().getUndo(apiVersion, actionName);
+
+        if (!undo.undo.type.equals("unsafe")) {
             return null;
         }
 
-        Class<?> undoClass = Class.forName(apiClass.getPackage().getName() + ".Undo");
-        Method dataMethod = responseClass.getMethod("getData");
-        return undoClass.getMethod(actionName, apiClass, dataMethod.getReturnType());
+        // find API service based on undo tag value
+        Class<?> undoAPIClass = Class
+                .forName("com.datadog.api." + apiVersion + ".client.api." + undo.getAPIName() + "Api");
+        Object undoAPI = undoAPIClass.getConstructor(clientClass).newInstance(client);
+
+        String undoOperationName = undo.getOperationName();
+        Method undoOperation = null;
+        for (Method method : undoAPIClass.getMethods()) {
+            if (method.getName().equals(undoOperationName)) {
+                undoOperation = method;
+                break;
+            }
+        }
+
+        // Enable unstable undo operation automatically
+        if ((boolean) clientClass.getMethod("isUnstableOperation", String.class).invoke(client, undoOperationName)) {
+            clientClass.getMethod("setUnstableOperationEnabled", String.class, boolean.class).invoke(client,
+            undoOperationName, true);
+        }
+
+        Object request;
+        if (undoOperation.getParameterCount() > 0) {
+            request = undoOperation.invoke(undoAPI, new Object[undoOperation.getParameterCount()]);
+        } else {
+            request = undoOperation.invoke(undoAPI);
+        }
+
+        Class<?> undoClass = undoOperation.getReturnType();
+
+        return () -> {
+            Method dataMethod = responseClass.getMethod("getData");
+            Object data = dataMethod.invoke(response);
+
+            // Build request from undo parameters and response data
+            Map<String, Object> requestParams = undo.undo.getRequestParameters(data);
+            for (Field f : undoClass.getDeclaredFields()) {
+                if (requestParams.containsKey(f.getName())) {
+                    f.setAccessible(true);
+                    f.set(request, requestParams.get(f.getName()));
+                }
+            }
+
+            // Execute request
+            undoClass.getMethod("executeWithHttpInfo").invoke(request);
+            return null;
+        };
     }
 
     public void sendRequest()
             throws java.lang.ClassNotFoundException, java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
-            java.lang.reflect.InvocationTargetException, com.fasterxml.jackson.core.JsonProcessingException {
+            java.lang.reflect.InvocationTargetException, com.fasterxml.jackson.core.JsonProcessingException,
+            java.net.URISyntaxException, java.io.IOException, java.lang.InstantiationException {
         Object request;
         if (requestBuilder.getParameterCount() > 0) {
             Object[] parameters = new Object[requestBuilder.getParameterCount()];
@@ -177,16 +224,12 @@ public class World {
         Method responseMethod = requestClass.getMethod("executeWithHttpInfo");
         responseClass = responseMethod.getReturnType();
 
-        Method undoMethod = getRequestUndo();
+        Callable<?> undoMethod = getRequestUndo();
 
         response = responseMethod.invoke(request);
 
         if (undoMethod != null) {
-            undo.add(() -> {
-                Method dataMethod = responseClass.getMethod("getData");
-                undoMethod.invoke(null, apiClass.cast(api), dataMethod.invoke(response));
-                return null;
-            });
+            undo.add(undoMethod);
         }
     }
 
