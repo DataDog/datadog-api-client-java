@@ -140,7 +140,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
-        String publicId = abc123; // String | The `public_id` of the organization you are operating within.
+        String publicId = "abc123"; // String | The `public_id` of the organization you are operating within.
         try {
             OrganizationResponse result = apiInstance.getOrg(publicId)
                 .execute();
@@ -297,7 +297,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
-        String publicId = abc123; // String | The `public_id` of the organization you are operating within.
+        String publicId = "abc123"; // String | The `public_id` of the organization you are operating within.
         Organization body = new Organization(); // Organization | 
         try {
             OrganizationResponse result = apiInstance.updateOrg(publicId)
@@ -360,6 +360,7 @@ metadata from your SAML IdP.
 ### Example
 
 ```java
+import java.io.File;
 // Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
@@ -386,7 +387,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
-        String publicId = abc123; // String | The `public_id` of the organization you are operating with
+        String publicId = "abc123"; // String | The `public_id` of the organization you are operating with
         File idpFile = new File("/path/to/file"); // File | The path to the XML metadata file you wish to upload.
         try {
             IdpResponse result = apiInstance.uploadIdPForOrg(publicId)

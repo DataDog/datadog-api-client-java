@@ -293,8 +293,8 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
-        Long pageSize = 10lL; // Long | Size for a given page.
-        Long pageNumber = 0lL; // Long | Specific page number to return.
+        Long pageSize = 10l; // Long | Size for a given page.
+        Long pageNumber = 0l; // Long | Specific page number to return.
         try {
             SecurityMonitoringListRulesResponse result = apiInstance.listSecurityMonitoringRules()
                 .pageSize(pageSize)
@@ -353,6 +353,7 @@ security signals.
 ### Example
 
 ```java
+import java.time.OffsetDateTime;
 // Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
@@ -379,12 +380,12 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
-        String filterQuery = security:attack status:high; // String | The search query for security signals.
-        OffsetDateTime filterFrom = 2019-01-02T09:42:36.320Z; // OffsetDateTime | The minimum timestamp for requested security signals.
-        OffsetDateTime filterTo = 2019-01-03T09:42:36.320Z; // OffsetDateTime | The maximum timestamp for requested security signals.
-        SecurityMonitoringSignalsSort sort = new SecurityMonitoringSignalsSort(); // SecurityMonitoringSignalsSort | The order of the security signals in results.
-        String pageCursor = eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==; // String | A list of results using the cursor provided in the previous query.
-        Integer pageLimit = 25; // Integer | The maximum number of security signals in the response.
+        String filterQuery = "security:attack status:high"; // String | The search query for security signals.
+        OffsetDateTime filterFrom = OffsetDateTime.now(); // OffsetDateTime | The minimum timestamp for requested security signals.
+        OffsetDateTime filterTo = OffsetDateTime.now(); // OffsetDateTime | The maximum timestamp for requested security signals.
+        SecurityMonitoringSignalsSort sort = SecurityMonitoringSignalsSort.fromValue("timestamp"); // SecurityMonitoringSignalsSort | The order of the security signals in results.
+        String pageCursor = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ=="; // String | A list of results using the cursor provided in the previous query.
+        Integer pageLimit = 10; // Integer | The maximum number of security signals in the response.
         try {
             SecurityMonitoringSignalsListResponse result = apiInstance.listSecurityMonitoringSignals()
                 .filterQuery(filterQuery)
