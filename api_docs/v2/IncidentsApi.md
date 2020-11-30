@@ -302,8 +302,8 @@ public class Example {
 
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
         List<String> include = Arrays.asList(); // List<String> | Specifies which types of related objects should be included in the response.
-        Long pageSize = 10lL; // Long | Size for a given page.
-        Long pageOffset = 0lL; // Long | Specific offset to use as the beginning of the returned page.
+        Long pageSize = 10l; // Long | Size for a given page.
+        Long pageOffset = 0l; // Long | Specific offset to use as the beginning of the returned page.
         try {
             IncidentsResponse result = apiInstance.listIncidents()
                 .include(include)

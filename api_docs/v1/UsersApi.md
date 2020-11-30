@@ -138,7 +138,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userHandle = test@datadoghq.com; // String | The handle of the user.
+        String userHandle = "test@datadoghq.com"; // String | The handle of the user.
         try {
             UserDisableResponse result = apiInstance.disableUser(userHandle)
                 .execute();
@@ -220,7 +220,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userHandle = test@datadoghq.com; // String | The ID of the user.
+        String userHandle = "test@datadoghq.com"; // String | The ID of the user.
         try {
             UserResponse result = apiInstance.getUser(userHandle)
                 .execute();
@@ -379,7 +379,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userHandle = test@datadoghq.com; // String | The ID of the user.
+        String userHandle = "test@datadoghq.com"; // String | The ID of the user.
         User body = new User(); // User | Description of the update.
         try {
             UserResponse result = apiInstance.updateUser(userHandle)

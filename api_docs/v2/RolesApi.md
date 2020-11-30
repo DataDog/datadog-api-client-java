@@ -628,8 +628,8 @@ public class Example {
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String roleId = "roleId_example"; // String | The ID of the role.
-        Long pageSize = 10lL; // Long | Size for a given page.
-        Long pageNumber = 0lL; // Long | Specific page number to return.
+        Long pageSize = 10l; // Long | Size for a given page.
+        Long pageNumber = 0l; // Long | Specific page number to return.
         String sort = "\"name\""; // String | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
         try {
@@ -720,9 +720,9 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        Long pageSize = 10lL; // Long | Size for a given page.
-        Long pageNumber = 0lL; // Long | Specific page number to return.
-        RolesSort sort = new RolesSort(); // RolesSort | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
+        Long pageSize = 10l; // Long | Size for a given page.
+        Long pageNumber = 0l; // Long | Specific page number to return.
+        RolesSort sort = RolesSort.fromValue("name"); // RolesSort | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
         String filter = "filter_example"; // String | Filter all roles by the given string.
         try {
             RolesResponse result = apiInstance.listRoles()

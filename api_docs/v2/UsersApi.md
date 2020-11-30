@@ -543,10 +543,10 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        Long pageSize = 10lL; // Long | Size for a given page.
-        Long pageNumber = 0lL; // Long | Specific page number to return.
+        Long pageSize = 10l; // Long | Size for a given page.
+        Long pageNumber = 0l; // Long | Specific page number to return.
         String sort = "\"name\""; // String | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
-        QuerySortOrder sortDir = new QuerySortOrder(); // QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
+        QuerySortOrder sortDir = QuerySortOrder.fromValue("asc"); // QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
         String filterStatus = "filterStatus_example"; // String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
         try {

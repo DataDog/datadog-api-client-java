@@ -302,9 +302,9 @@ public class Example {
 
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         String include = "include_example"; // String | Specifies which types of related objects should be included in the response.
-        Long pageSize = 10lL; // Long | Size for a given page.
-        Long pageOffset = 0lL; // Long | Specific offset to use as the beginning of the returned page.
-        String filter = ExampleServiceName; // String | A search query that filters services by name.
+        Long pageSize = 10l; // Long | Size for a given page.
+        Long pageOffset = 0l; // Long | Specific offset to use as the beginning of the returned page.
+        String filter = "ExampleServiceName"; // String | A search query that filters services by name.
         try {
             IncidentServicesResponse result = apiInstance.listIncidentServices()
                 .include(include)
