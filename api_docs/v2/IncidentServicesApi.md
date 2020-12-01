@@ -184,7 +184,8 @@ null (empty response body)
 
 Get details of an incident service
 
-Get details of an incident service. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
+Get details of an incident service. If the `include[users]` query parameter is provided,
+the included attribute will contain the users related to these incident services.
 
 ### Example
 

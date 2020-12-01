@@ -17,7 +17,8 @@ public class Undo {
         api.deleteRole(r.getData().getId());
     }
 
-    public static void createIncidentTeam(IncidentTeamsApi api, Object response) throws com.datadog.api.v2.client.ApiException {
+    public static void createIncidentTeam(IncidentTeamsApi api, Object response)
+            throws com.datadog.api.v2.client.ApiException {
         IncidentTeamResponse r = (IncidentTeamResponse) response;
 
         api.getApiClient().setUnstableOperationEnabled("deleteIncidentTeam", true);
@@ -25,7 +26,8 @@ public class Undo {
         api.getApiClient().setUnstableOperationEnabled("deleteIncidentTeam", false);
     }
 
-    public static void createIncidentService(IncidentServicesApi api, Object response) throws com.datadog.api.v2.client.ApiException {
+    public static void createIncidentService(IncidentServicesApi api, Object response)
+            throws com.datadog.api.v2.client.ApiException {
         IncidentServiceResponse r = (IncidentServiceResponse) response;
 
         api.getApiClient().setUnstableOperationEnabled("deleteIncidentService", true);
