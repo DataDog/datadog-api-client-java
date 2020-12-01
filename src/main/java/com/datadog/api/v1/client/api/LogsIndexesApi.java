@@ -355,6 +355,11 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
       throw new ApiException(400, "Missing the required parameter 'name' when calling updateLogsIndex");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateLogsIndex");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/indexes/{name}"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
@@ -401,7 +406,7 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
 
     /**
      * Set body
-     * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (optional)
+     * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
      * @return APIupdateLogsIndexRequest
      */
     public APIupdateLogsIndexRequest body(LogsIndexUpdateRequest body) {
@@ -469,6 +474,11 @@ private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(String name, LogsInde
 private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndexesOrder body) throws ApiException {
     Object localVarPostBody = body;
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateLogsIndexOrder");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/index-order";
 
@@ -512,7 +522,7 @@ private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndex
 
     /**
      * Set body
-     * @param body Object containing the new ordered list of index names (optional)
+     * @param body Object containing the new ordered list of index names (required)
      * @return APIupdateLogsIndexOrderRequest
      */
     public APIupdateLogsIndexOrderRequest body(LogsIndexesOrder body) {

@@ -80,7 +80,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleId** | **String**| The ID of the role. |
- **body** | [**RelationshipToPermission**](RelationshipToPermission.md)|  | [optional]
+ **body** | [**RelationshipToPermission**](RelationshipToPermission.md)|  |
 
 ### Return type
 
@@ -165,7 +165,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleId** | **String**| The ID of the role. |
- **body** | [**RelationshipToUser**](RelationshipToUser.md)|  | [optional]
+ **body** | [**RelationshipToUser**](RelationshipToUser.md)|  |
 
 ### Return type
 
@@ -248,7 +248,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**RoleCreateRequest**](RoleCreateRequest.md)|  | [optional]
+ **body** | [**RoleCreateRequest**](RoleCreateRequest.md)|  |
 
 ### Return type
 
@@ -834,7 +834,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleId** | **String**| The ID of the role. |
- **body** | [**RelationshipToPermission**](RelationshipToPermission.md)|  | [optional]
+ **body** | [**RelationshipToPermission**](RelationshipToPermission.md)|  |
 
 ### Return type
 
@@ -919,7 +919,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleId** | **String**| The ID of the role. |
- **body** | [**RelationshipToUser**](RelationshipToUser.md)|  | [optional]
+ **body** | [**RelationshipToUser**](RelationshipToUser.md)|  |
 
 ### Return type
 
@@ -1004,7 +1004,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleId** | **String**| The ID of the role. |
- **body** | [**RoleUpdateRequest**](RoleUpdateRequest.md)|  | [optional]
+ **body** | [**RoleUpdateRequest**](RoleUpdateRequest.md)|  |
 
 ### Return type
 
