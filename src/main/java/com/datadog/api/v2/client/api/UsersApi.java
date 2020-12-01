@@ -58,6 +58,11 @@ public class UsersApi {
 private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createUser");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/users";
 
@@ -101,7 +106,7 @@ private ApiResponse<UserResponse> createUserWithHttpInfo(UserCreateRequest body)
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIcreateUserRequest
      */
     public APIcreateUserRequest body(UserCreateRequest body) {
@@ -821,6 +826,11 @@ private ApiResponse<UsersResponse> listUsersWithHttpInfo(Long pageSize, Long pag
 private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInvitationsRequest body) throws ApiException {
     Object localVarPostBody = body;
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling sendInvitations");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/user_invitations";
 
@@ -864,7 +874,7 @@ private ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(UserInv
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIsendInvitationsRequest
      */
     public APIsendInvitationsRequest body(UserInvitationsRequest body) {
@@ -928,6 +938,11 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userId, UserUpda
       throw new ApiException(400, "Missing the required parameter 'userId' when calling updateUser");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateUser");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/users/{user_id}"
       .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
@@ -974,7 +989,7 @@ private ApiResponse<UserResponse> updateUserWithHttpInfo(String userId, UserUpda
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIupdateUserRequest
      */
     public APIupdateUserRequest body(UserUpdateRequest body) {

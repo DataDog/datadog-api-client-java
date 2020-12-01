@@ -75,7 +75,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserCreateRequest**](UserCreateRequest.md)|  | [optional]
+ **body** | [**UserCreateRequest**](UserCreateRequest.md)|  |
 
 ### Return type
 
@@ -662,7 +662,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md)|  | [optional]
+ **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md)|  |
 
 ### Return type
 
@@ -747,7 +747,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The ID of the user. |
- **body** | [**UserUpdateRequest**](UserUpdateRequest.md)|  | [optional]
+ **body** | [**UserUpdateRequest**](UserUpdateRequest.md)|  |
 
 ### Return type
 

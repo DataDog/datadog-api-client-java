@@ -65,6 +65,11 @@ private ApiResponse<PermissionsResponse> addPermissionToRoleWithHttpInfo(String 
       throw new ApiException(400, "Missing the required parameter 'roleId' when calling addPermissionToRole");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling addPermissionToRole");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/roles/{role_id}/permissions"
       .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
@@ -111,7 +116,7 @@ private ApiResponse<PermissionsResponse> addPermissionToRoleWithHttpInfo(String 
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIaddPermissionToRoleRequest
      */
     public APIaddPermissionToRoleRequest body(RelationshipToPermission body) {
@@ -178,6 +183,11 @@ private ApiResponse<UsersResponse> addUserToRoleWithHttpInfo(String roleId, Rela
       throw new ApiException(400, "Missing the required parameter 'roleId' when calling addUserToRole");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling addUserToRole");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/roles/{role_id}/users"
       .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
@@ -224,7 +234,7 @@ private ApiResponse<UsersResponse> addUserToRoleWithHttpInfo(String roleId, Rela
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIaddUserToRoleRequest
      */
     public APIaddUserToRoleRequest body(RelationshipToUser body) {
@@ -286,6 +296,11 @@ private ApiResponse<UsersResponse> addUserToRoleWithHttpInfo(String roleId, Rela
 private ApiResponse<RoleCreateResponse> createRoleWithHttpInfo(RoleCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createRole");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/roles";
 
@@ -329,7 +344,7 @@ private ApiResponse<RoleCreateResponse> createRoleWithHttpInfo(RoleCreateRequest
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIcreateRoleRequest
      */
     public APIcreateRoleRequest body(RoleCreateRequest body) {
@@ -1067,6 +1082,11 @@ private ApiResponse<PermissionsResponse> removePermissionFromRoleWithHttpInfo(St
       throw new ApiException(400, "Missing the required parameter 'roleId' when calling removePermissionFromRole");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling removePermissionFromRole");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/roles/{role_id}/permissions"
       .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
@@ -1113,7 +1133,7 @@ private ApiResponse<PermissionsResponse> removePermissionFromRoleWithHttpInfo(St
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIremovePermissionFromRoleRequest
      */
     public APIremovePermissionFromRoleRequest body(RelationshipToPermission body) {
@@ -1180,6 +1200,11 @@ private ApiResponse<UsersResponse> removeUserFromRoleWithHttpInfo(String roleId,
       throw new ApiException(400, "Missing the required parameter 'roleId' when calling removeUserFromRole");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling removeUserFromRole");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/roles/{role_id}/users"
       .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
@@ -1226,7 +1251,7 @@ private ApiResponse<UsersResponse> removeUserFromRoleWithHttpInfo(String roleId,
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIremoveUserFromRoleRequest
      */
     public APIremoveUserFromRoleRequest body(RelationshipToUser body) {
@@ -1293,6 +1318,11 @@ private ApiResponse<RoleUpdateResponse> updateRoleWithHttpInfo(String roleId, Ro
       throw new ApiException(400, "Missing the required parameter 'roleId' when calling updateRole");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateRole");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/roles/{role_id}"
       .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
@@ -1339,7 +1369,7 @@ private ApiResponse<RoleUpdateResponse> updateRoleWithHttpInfo(String roleId, Ro
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIupdateRoleRequest
      */
     public APIupdateRoleRequest body(RoleUpdateRequest body) {

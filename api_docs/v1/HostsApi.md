@@ -261,7 +261,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hostName** | **String**| Name of the host to mute. |
- **body** | [**HostMuteSettings**](HostMuteSettings.md)| Mute a host request body. | [optional]
+ **body** | [**HostMuteSettings**](HostMuteSettings.md)| Mute a host request body. |
 
 ### Return type
 
