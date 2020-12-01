@@ -91,7 +91,7 @@
                             <value>conf/log4j.properties</value>
                         </property>
                     </systemProperties>
-                    <argLine>-javaagent:${basedir}/target/dd-java-agent-0.69.0-SNAPSHOT.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
+                    <argLine>-javaagent:${basedir}/.dd/dd-java-agent-0.69.0-SNAPSHOT.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
                 </configuration>
             </plugin>
             <plugin>
