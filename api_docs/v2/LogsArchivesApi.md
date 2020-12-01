@@ -77,7 +77,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **archiveId** | **String**| The ID of the archive. |
- **body** | [**RelationshipToRole**](RelationshipToRole.md)|  | [optional]
+ **body** | [**RelationshipToRole**](RelationshipToRole.md)|  |
 
 ### Return type
 
@@ -641,7 +641,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **archiveId** | **String**| The ID of the archive. |
- **body** | [**RelationshipToRole**](RelationshipToRole.md)|  | [optional]
+ **body** | [**RelationshipToRole**](RelationshipToRole.md)|  |
 
 ### Return type
 

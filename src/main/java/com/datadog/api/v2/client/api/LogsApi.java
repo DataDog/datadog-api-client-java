@@ -55,6 +55,11 @@ public class LogsApi {
 private ApiResponse<LogsAggregateResponse> aggregateLogsWithHttpInfo(LogsAggregateRequest body) throws ApiException {
     Object localVarPostBody = body;
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling aggregateLogs");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/logs/analytics/aggregate";
 
@@ -98,7 +103,7 @@ private ApiResponse<LogsAggregateResponse> aggregateLogsWithHttpInfo(LogsAggrega
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIaggregateLogsRequest
      */
     public APIaggregateLogsRequest body(LogsAggregateRequest body) {

@@ -348,6 +348,11 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
       throw new ApiException(400, "Missing the required parameter 'hostName' when calling muteHost");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling muteHost");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v1/host/{host_name}/mute"
       .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
@@ -394,7 +399,7 @@ private ApiResponse<HostMuteResponse> muteHostWithHttpInfo(String hostName, Host
 
     /**
      * Set body
-     * @param body Mute a host request body. (optional)
+     * @param body Mute a host request body. (required)
      * @return APImuteHostRequest
      */
     public APImuteHostRequest body(HostMuteSettings body) {
