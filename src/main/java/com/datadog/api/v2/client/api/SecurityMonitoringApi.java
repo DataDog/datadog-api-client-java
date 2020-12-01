@@ -57,6 +57,11 @@ public class SecurityMonitoringApi {
 private ApiResponse<SecurityMonitoringRuleResponse> createSecurityMonitoringRuleWithHttpInfo(SecurityMonitoringRuleCreatePayload body) throws ApiException {
     Object localVarPostBody = body;
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createSecurityMonitoringRule");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/rules";
 
@@ -100,7 +105,7 @@ private ApiResponse<SecurityMonitoringRuleResponse> createSecurityMonitoringRule
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIcreateSecurityMonitoringRuleRequest
      */
     public APIcreateSecurityMonitoringRuleRequest body(SecurityMonitoringRuleCreatePayload body) {
@@ -750,6 +755,11 @@ private ApiResponse<SecurityMonitoringRuleResponse> updateSecurityMonitoringRule
       throw new ApiException(400, "Missing the required parameter 'ruleId' when calling updateSecurityMonitoringRule");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateSecurityMonitoringRule");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/rules/{rule_id}"
       .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
@@ -796,7 +806,7 @@ private ApiResponse<SecurityMonitoringRuleResponse> updateSecurityMonitoringRule
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIupdateSecurityMonitoringRuleRequest
      */
     public APIupdateSecurityMonitoringRuleRequest body(SecurityMonitoringRuleUpdatePayload body) {

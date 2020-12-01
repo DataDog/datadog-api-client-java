@@ -60,6 +60,11 @@ private ApiResponse<Void> addReadRoleToArchiveWithHttpInfo(String archiveId, Rel
       throw new ApiException(400, "Missing the required parameter 'archiveId' when calling addReadRoleToArchive");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling addReadRoleToArchive");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers"
       .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
@@ -104,7 +109,7 @@ private ApiResponse<Void> addReadRoleToArchiveWithHttpInfo(String archiveId, Rel
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIaddReadRoleToArchiveRequest
      */
     public APIaddReadRoleToArchiveRequest body(RelationshipToRole body) {
@@ -772,6 +777,11 @@ private ApiResponse<Void> removeRoleFromArchiveWithHttpInfo(String archiveId, Re
       throw new ApiException(400, "Missing the required parameter 'archiveId' when calling removeRoleFromArchive");
     }
     
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling removeRoleFromArchive");
+    }
+    
     // create path and map variables
     String localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers"
       .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
@@ -816,7 +826,7 @@ private ApiResponse<Void> removeRoleFromArchiveWithHttpInfo(String archiveId, Re
 
     /**
      * Set body
-     * @param body  (optional)
+     * @param body  (required)
      * @return APIremoveRoleFromArchiveRequest
      */
     public APIremoveRoleFromArchiveRequest body(RelationshipToRole body) {

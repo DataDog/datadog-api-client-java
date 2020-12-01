@@ -69,7 +69,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md)|  | [optional]
+ **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md)|  |
 
 ### Return type
 
