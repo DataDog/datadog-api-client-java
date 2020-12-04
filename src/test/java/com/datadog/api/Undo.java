@@ -31,7 +31,7 @@ public class Undo {
             Map<String, Object> requestParams = new HashMap<String, Object>();
             for (Undo.UndoMethod.Parameter p : parameters) {
                 try {
-                    requestParams.put(ClientSteps.toPropertyName(p.name), ClientSteps.lookup(data, p.source));
+                    requestParams.put(World.toPropertyName(p.name), World.lookup(data, p.source));
                 } catch (java.lang.IllegalAccessException e) {
                     throw new RuntimeException(e);
                 } catch (java.lang.NoSuchFieldException e) {
