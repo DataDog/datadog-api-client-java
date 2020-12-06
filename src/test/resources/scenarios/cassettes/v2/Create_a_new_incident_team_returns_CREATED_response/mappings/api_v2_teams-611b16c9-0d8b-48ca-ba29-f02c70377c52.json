@@ -1,0 +1,38 @@
+{
+  "id" : "611b16c9-0d8b-48ca-ba29-f02c70377c52",
+  "name" : "api_v2_teams",
+  "request" : {
+    "url" : "/api/v2/teams",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"data\":{\"attributes\":{\"name\":\"java-Create_a_new_inciden-1607259886\"},\"type\":\"teams\"}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "body" : "{\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"created_at\":\"2019-10-02T08:15:39.795051+00:00\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"},\"relationships\":{\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}],\"data\":{\"type\":\"teams\",\"id\":\"750c0742-b308-579a-9f80-538e10725428\",\"attributes\":{\"name\":\"java-Create_a_new_inciden-1607259886\",\"created\":\"2020-12-06T13:04:47.431281+00:00\",\"modified\":\"2020-12-06T13:04:47.431281+00:00\"},\"relationships\":{\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+    "headers" : {
+      "Date" : "Sun, 06 Dec 2020 13:04:47 GMT",
+      "Content-Type" : "application/json",
+      "Pragma" : "no-cache",
+      "Cache-Control" : "no-cache",
+      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sun, 13-Dec-2020 13:04:47 GMT; secure; HttpOnly",
+      "X-DD-VERSION" : "35.3482556",
+      "X-RateLimit-Limit" : "12000",
+      "X-RateLimit-Period" : "60",
+      "X-RateLimit-Reset" : "13",
+      "X-RateLimit-Remaining" : "11998",
+      "X-DD-Debug" : "2NNUQsZpZeC5yOEHnEH8LSn5LhjKmDDM31iXmBawo7O6opYjviLgi+mfUoMNw5sj",
+      "DD-POOL" : "dogweb",
+      "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "X-Content-Type-Options" : "nosniff",
+      "Strict-Transport-Security" : "max-age=15724800;"
+    }
+  },
+  "uuid" : "611b16c9-0d8b-48ca-ba29-f02c70377c52",
+  "persistent" : true,
+  "insertionIndex" : 2
+}

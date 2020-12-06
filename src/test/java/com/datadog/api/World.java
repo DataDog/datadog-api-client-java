@@ -183,7 +183,7 @@ public class World {
             }
         }
 
-        // TODO find undo method
+        Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, step.getOperationName());
 
         // Execute request
         Method givenExecute = givenClass.getMethod("executeWithHttpInfo");
@@ -192,10 +192,9 @@ public class World {
         Method dataMethod = givenResponseClass.getMethod("getData");
         Object data = dataMethod.invoke(givenResponse);
 
-        // TODO register undo method with data
-        // if (undoMethod != null) {
-        //     undo.add(undoMethod(...,data));
-        // }
+        if (undoSettings != null) {
+            undo.add(getRequestUndo(apiVersion, undoSettings, data));
+        }
 
         if (step.source != null) {
             data = World.lookup(data, step.source);
@@ -204,25 +203,15 @@ public class World {
         context.put(step.key, data);
     }
 
-    public Callable<?> getRequestUndo() throws java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
+    public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object data) throws java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
             java.net.URISyntaxException, java.io.IOException, java.lang.IllegalAccessException,
             java.lang.reflect.InvocationTargetException, java.lang.InstantiationException {
-        String actionName = requestBuilder.getName();
-
-        String apiVersion = getVersion();
-
-        Undo undo = UndoAction.UndoAction().getUndo(apiVersion, actionName);
-
-        if (!undo.undo.type.equals("unsafe")) {
-            return null;
-        }
-
         // find API service based on undo tag value
         Class<?> undoAPIClass = Class
-                .forName("com.datadog.api." + apiVersion + ".client.api." + undo.getAPIName() + "Api");
+                .forName("com.datadog.api." + apiVersion + ".client.api." + undoSettings.getAPIName() + "Api");
         Object undoAPI = undoAPIClass.getConstructor(clientClass).newInstance(client);
 
-        String undoOperationName = undo.getOperationName();
+        String undoOperationName = undoSettings.getOperationName();
         Method undoOperation = null;
         for (Method method : undoAPIClass.getMethods()) {
             if (method.getName().equals(undoOperationName)) {
@@ -237,33 +226,28 @@ public class World {
                     undoOperationName, true);
         }
 
-        Object request;
+        Object undoRequest;
         if (undoOperation.getParameterCount() > 0) {
-            request = undoOperation.invoke(undoAPI, new Object[undoOperation.getParameterCount()]);
+            undoRequest = undoOperation.invoke(undoAPI, new Object[undoOperation.getParameterCount()]);
         } else {
-            request = undoOperation.invoke(undoAPI);
+            undoRequest = undoOperation.invoke(undoAPI);
         }
 
         Class<?> undoClass = undoOperation.getReturnType();
 
-        return (Object data) -> {
-            return () -> {
-                Method dataMethod = responseClass.getMethod("getData");
-                Object data = dataMethod.invoke(response);
-
-                // Build request from undo parameters and response data
-                Map<String, Object> requestParams = undo.undo.getRequestParameters(data);
-                for (Field f : undoClass.getDeclaredFields()) {
-                    if (requestParams.containsKey(f.getName())) {
-                        f.setAccessible(true);
-                        f.set(request, requestParams.get(f.getName()));
-                    }
+        return () -> {
+            // Build request from undo parameters and response data
+            Map<String, Object> undoRequestParams = undoSettings.undo.getRequestParameters(data);
+            for (Field f : undoClass.getDeclaredFields()) {
+                if (undoRequestParams.containsKey(f.getName())) {
+                    f.setAccessible(true);
+                    f.set(undoRequest, undoRequestParams.get(f.getName()));
                 }
+            }
 
-                // Execute request
-                undoClass.getMethod("executeWithHttpInfo").invoke(request);
-                return null;
-            };
+            // Execute request
+            undoClass.getMethod("executeWithHttpInfo").invoke(undoRequest);
+            return null;
         };
     }
 
@@ -289,15 +273,15 @@ public class World {
         Method responseMethod = requestClass.getMethod("executeWithHttpInfo");
         responseClass = responseMethod.getReturnType();
 
-        Callable<?> undoMethod = getRequestUndo();
+        String apiVersion = getVersion();
+        Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, requestBuilder.getName());
 
         response = responseMethod.invoke(request);
 
-        if (undoMethod != null) {
+        if (undoSettings != null) {
             Method dataMethod = responseClass.getMethod("getData");
             Object data = dataMethod.invoke(response);
-
-            undo.add(undoMethod(data));
+            undo.add(getRequestUndo(apiVersion, undoSettings, data));
         }
     }
 

@@ -32,6 +32,10 @@ public class UndoAction {
     }
 
     public Undo getUndo(String apiVersion, String action) {
-        return actions.get(apiVersion).get(action);
+        Undo undoSettings = actions.get(apiVersion).get(action);
+        if (!undoSettings.undo.type.equals("unsafe")) {
+            return null;
+        }
+        return undoSettings;
     }
 }

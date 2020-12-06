@@ -1,0 +1,39 @@
+{
+  "id" : "23c95436-005d-43c4-92ff-3196f54650f6",
+  "name" : "api_v2_roles_ad47dd72-37c3-11eb-87fb-b35a19ea4114_users",
+  "request" : {
+    "url" : "/api/v2/roles/ad47dd72-37c3-11eb-87fb-b35a19ea4114/users",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"data\":{\"id\":\"ad73c2d4-37c3-11eb-87fb-271e4d71f472\",\"type\":\"users\"}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"meta\":{\"page\":{\"total_count\":1}},\"data\":[{\"type\":\"users\",\"id\":\"ad73c2d4-37c3-11eb-87fb-271e4d71f472\",\"attributes\":{\"name\":null,\"handle\":\"java-add_a_user_to_a_role-1607259912@datadoghq.com\",\"created_at\":\"2020-12-06T13:05:13.309493+00:00\",\"email\":\"java-add_a_user_to_a_role-1607259912@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/a36b03ed4ad1eb27664c07fc57b5e5fc?s=48&d=retro\",\"title\":null,\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[{\"type\":\"roles\",\"id\":\"ad47dd72-37c3-11eb-87fb-b35a19ea4114\"}]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}]}",
+    "headers" : {
+      "Date" : "Sun, 06 Dec 2020 13:05:13 GMT",
+      "Content-Type" : "application/json",
+      "Vary" : "Accept-Encoding",
+      "Pragma" : "no-cache",
+      "Cache-Control" : "no-cache",
+      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sun, 13-Dec-2020 13:05:13 GMT; secure; HttpOnly",
+      "X-DD-VERSION" : "35.3482556",
+      "X-RateLimit-Limit" : "500",
+      "X-RateLimit-Period" : "60",
+      "X-RateLimit-Reset" : "47",
+      "X-RateLimit-Remaining" : "468",
+      "X-DD-Debug" : "gxfSlUtZJz4/cDPBxW1+YhseAnu5514ckuMWbI3rl8N4exeAZPF+KTE0BQhrBgSI",
+      "DD-POOL" : "dogweb",
+      "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "X-Content-Type-Options" : "nosniff",
+      "Strict-Transport-Security" : "max-age=15724800;"
+    }
+  },
+  "uuid" : "23c95436-005d-43c4-92ff-3196f54650f6",
+  "persistent" : true,
+  "insertionIndex" : 6
+}

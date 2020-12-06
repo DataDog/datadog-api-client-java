@@ -1,0 +1,34 @@
+{
+  "id" : "50b1a1bc-b79c-4426-9265-88de5f5f3a14",
+  "name" : "api_v2_incidents",
+  "request" : {
+    "url" : "/api/v2/incidents",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "api_v2_incidents-50b1a1bc-b79c-4426-9265-88de5f5f3a14.json",
+    "headers" : {
+      "Date" : "Sun, 06 Dec 2020 13:04:51 GMT",
+      "Content-Type" : "application/json",
+      "Vary" : "Accept-Encoding",
+      "Pragma" : "no-cache",
+      "Cache-Control" : "no-cache",
+      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sun, 13-Dec-2020 13:04:51 GMT; secure; HttpOnly",
+      "X-DD-VERSION" : "35.3482556",
+      "X-RateLimit-Limit" : "100",
+      "X-RateLimit-Period" : "60",
+      "X-RateLimit-Reset" : "9",
+      "X-RateLimit-Remaining" : "99",
+      "X-DD-Debug" : "t3HUEZc5ir8lXNnqzkff2uqNehUi1czGcghjOPRgwaz4xZmG6O4HwEI6mdtgJV0i",
+      "DD-POOL" : "dogweb",
+      "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
+      "X-Frame-Options" : "SAMEORIGIN",
+      "X-Content-Type-Options" : "nosniff",
+      "Strict-Transport-Security" : "max-age=15724800;"
+    }
+  },
+  "uuid" : "50b1a1bc-b79c-4426-9265-88de5f5f3a14",
+  "persistent" : true,
+  "insertionIndex" : 4
+}
