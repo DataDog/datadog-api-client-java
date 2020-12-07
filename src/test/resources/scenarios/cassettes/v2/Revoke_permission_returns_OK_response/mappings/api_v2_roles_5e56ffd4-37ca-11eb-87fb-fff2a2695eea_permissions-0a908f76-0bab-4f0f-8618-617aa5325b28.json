@@ -1,11 +1,11 @@
 {
-  "id" : "6f11250c-37fe-4e53-9339-7533ea113a92",
-  "name" : "api_v2_roles_63316528-37c8-11eb-87fb-ebc552e701a5_users",
+  "id" : "0a908f76-0bab-4f0f-8618-617aa5325b28",
+  "name" : "api_v2_roles_5e56ffd4-37ca-11eb-87fb-fff2a2695eea_permissions",
   "request" : {
-    "url" : "/api/v2/roles/63316528-37c8-11eb-87fb-ebc552e701a5/users",
+    "url" : "/api/v2/roles/5e56ffd4-37ca-11eb-87fb-fff2a2695eea/permissions",
     "method" : "DELETE",
     "bodyPatterns" : [ {
-      "equalToJson" : "{\"data\":{\"id\":\"66638a6e-37c8-11eb-87fb-17d6b4b61c57\",\"type\":\"users\"}}",
+      "equalToJson" : "{\"data\":{\"id\":\"984a2bd4-d3b4-11e8-a1ff-a7f660d43029\",\"type\":\"permissions\"}}",
       "ignoreArrayOrder" : true,
       "ignoreExtraElements" : true
     } ]
@@ -14,14 +14,14 @@
     "status" : 400,
     "body" : "{\"errors\": [\"API input validation failed: Expecting value: line 1 column 1 (char 0)\"]}",
     "headers" : {
-      "Date" : "Sun, 06 Dec 2020 13:39:12 GMT",
+      "Date" : "Sun, 06 Dec 2020 13:53:07 GMT",
       "Content-Type" : "application/json",
       "Pragma" : "no-cache",
       "Cache-Control" : "no-cache",
       "X-RateLimit-Limit" : "500",
       "X-RateLimit-Period" : "60",
-      "X-RateLimit-Reset" : "48",
-      "X-RateLimit-Remaining" : "498",
+      "X-RateLimit-Reset" : "53",
+      "X-RateLimit-Remaining" : "497",
       "X-DD-VERSION" : "35.3482556",
       "DD-POOL" : "dogweb",
       "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
@@ -30,7 +30,7 @@
       "Strict-Transport-Security" : "max-age=15724800;"
     }
   },
-  "uuid" : "6f11250c-37fe-4e53-9339-7533ea113a92",
+  "uuid" : "0a908f76-0bab-4f0f-8618-617aa5325b28",
   "persistent" : true,
-  "insertionIndex" : 10
+  "insertionIndex" : 9
 }

@@ -1,24 +1,24 @@
 {
-  "id" : "8ef3ab78-d666-4a0a-ba42-ca508be8b996",
-  "name" : "api_v2_roles_63316528-37c8-11eb-87fb-ebc552e701a5",
+  "id" : "877bfa8c-a6d6-41c6-94a4-40d437d1b1fb",
+  "name" : "api_v2_roles_5e56ffd4-37ca-11eb-87fb-fff2a2695eea",
   "request" : {
-    "url" : "/api/v2/roles/63316528-37c8-11eb-87fb-ebc552e701a5",
+    "url" : "/api/v2/roles/5e56ffd4-37ca-11eb-87fb-fff2a2695eea",
     "method" : "DELETE"
   },
   "response" : {
     "status" : 204,
     "headers" : {
-      "Date" : "Sun, 06 Dec 2020 13:39:12 GMT",
+      "Date" : "Sun, 06 Dec 2020 13:53:07 GMT",
       "Content-Type" : "application/json",
       "Pragma" : "no-cache",
       "Cache-Control" : "no-cache",
-      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sun, 13-Dec-2020 13:39:12 GMT; secure; HttpOnly",
+      "Set-Cookie" : "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Sun, 13-Dec-2020 13:53:07 GMT; secure; HttpOnly",
       "X-DD-VERSION" : "35.3482556",
       "X-RateLimit-Limit" : "500",
       "X-RateLimit-Period" : "60",
-      "X-RateLimit-Reset" : "48",
-      "X-RateLimit-Remaining" : "497",
-      "X-DD-Debug" : "nHGjqTbGmPRJGWoHEDsaMxmZCicxo5Y/AObJEW+YW63Ub16t9U+JqCkAyvEnf+xI",
+      "X-RateLimit-Reset" : "53",
+      "X-RateLimit-Remaining" : "496",
+      "X-DD-Debug" : "jksv6NXchM8W/4CgjBiDDYPQGBQ0jGtm+dmNJmQoft/ZYfYSEvwpU9lIHwYKsM2d",
       "DD-POOL" : "dogweb",
       "Content-Security-Policy" : "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report",
       "X-Frame-Options" : "SAMEORIGIN",
@@ -26,7 +26,7 @@
       "Strict-Transport-Security" : "max-age=15724800;"
     }
   },
-  "uuid" : "8ef3ab78-d666-4a0a-ba42-ca508be8b996",
+  "uuid" : "877bfa8c-a6d6-41c6-94a4-40d437d1b1fb",
   "persistent" : true,
-  "insertionIndex" : 12
+  "insertionIndex" : 10
 }
