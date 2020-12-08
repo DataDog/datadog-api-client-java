@@ -479,11 +479,11 @@ public class Downtime {
   }
 
    /**
-   * The timezone for the downtime.
+   * The timezone in which to display the downtime&#39;s start and end times in Datadog applications.
    * @return timezone
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "America/New_York", value = "The timezone for the downtime.")
+  @ApiModelProperty(example = "America/New_York", value = "The timezone in which to display the downtime's start and end times in Datadog applications.")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
