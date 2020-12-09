@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v2.client.model.SecurityMonitoringFilter;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCase;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQuery;
@@ -39,6 +40,7 @@ import com.datadog.api.v2.client.JSON;
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
+  SecurityMonitoringRuleResponse.JSON_PROPERTY_FILTERS,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_ID,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_IS_DEFAULT,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_IS_DELETED,
@@ -60,6 +62,9 @@ public class SecurityMonitoringRuleResponse {
 
   public static final String JSON_PROPERTY_CREATION_AUTHOR_ID = "creationAuthorId";
   private Long creationAuthorId;
+
+  public static final String JSON_PROPERTY_FILTERS = "filters";
+  private List<SecurityMonitoringFilter> filters = null;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -169,6 +174,38 @@ public class SecurityMonitoringRuleResponse {
 
   public void setCreationAuthorId(Long creationAuthorId) {
     this.creationAuthorId = creationAuthorId;
+  }
+
+
+  public SecurityMonitoringRuleResponse filters(List<SecurityMonitoringFilter> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  public SecurityMonitoringRuleResponse addFiltersItem(SecurityMonitoringFilter filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+   /**
+   * Additional queries to filter matched events before they are processed
+   * @return filters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional queries to filter matched events before they are processed")
+  @JsonProperty(JSON_PROPERTY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SecurityMonitoringFilter> getFilters() {
+    return filters;
+  }
+
+
+  public void setFilters(List<SecurityMonitoringFilter> filters) {
+    this.filters = filters;
   }
 
 
@@ -443,6 +480,7 @@ public class SecurityMonitoringRuleResponse {
     return Objects.equals(this.cases, securityMonitoringRuleResponse.cases) &&
         Objects.equals(this.createdAt, securityMonitoringRuleResponse.createdAt) &&
         Objects.equals(this.creationAuthorId, securityMonitoringRuleResponse.creationAuthorId) &&
+        Objects.equals(this.filters, securityMonitoringRuleResponse.filters) &&
         Objects.equals(this.id, securityMonitoringRuleResponse.id) &&
         Objects.equals(this.isDefault, securityMonitoringRuleResponse.isDefault) &&
         Objects.equals(this.isDeleted, securityMonitoringRuleResponse.isDeleted) &&
@@ -457,7 +495,7 @@ public class SecurityMonitoringRuleResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cases, createdAt, creationAuthorId, id, isDefault, isDeleted, isEnabled, message, name, options, queries, tags, version);
+    return Objects.hash(cases, createdAt, creationAuthorId, filters, id, isDefault, isDeleted, isEnabled, message, name, options, queries, tags, version);
   }
 
 
@@ -468,6 +506,7 @@ public class SecurityMonitoringRuleResponse {
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");

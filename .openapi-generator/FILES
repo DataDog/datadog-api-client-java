@@ -184,6 +184,8 @@ docs/RolesResponse.md
 docs/RolesSort.md
 docs/RolesType.md
 docs/SecurityMonitoringApi.md
+docs/SecurityMonitoringFilter.md
+docs/SecurityMonitoringFilterAction.md
 docs/SecurityMonitoringListRulesResponse.md
 docs/SecurityMonitoringRuleCase.md
 docs/SecurityMonitoringRuleCaseCreate.md
@@ -438,6 +440,8 @@ src/main/java/com/datadog/api/v2/client/model/RoleUpdateResponseData.java
 src/main/java/com/datadog/api/v2/client/model/RolesResponse.java
 src/main/java/com/datadog/api/v2/client/model/RolesSort.java
 src/main/java/com/datadog/api/v2/client/model/RolesType.java
+src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringFilter.java
+src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringFilterAction.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringListRulesResponse.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleCase.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleCaseCreate.java
@@ -657,6 +661,8 @@ src/test/java/com/datadog/api/v2/client/model/RoleUpdateResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/RolesResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/RolesSortTest.java
 src/test/java/com/datadog/api/v2/client/model/RolesTypeTest.java
+src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringFilterActionTest.java
+src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringFilterTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringListRulesResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleCaseCreateTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleCaseTest.java
