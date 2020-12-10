@@ -53,7 +53,7 @@ public class WidgetFieldSort {
    * Facet path for the column
    * @return column
   **/
-  @ApiModelProperty(required = true, value = "Facet path for the column")
+  @ApiModelProperty(example = "", required = true, value = "Facet path for the column")
   @JsonProperty(JSON_PROPERTY_COLUMN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

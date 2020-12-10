@@ -198,7 +198,7 @@ public class MonitorSummaryWidgetDefinition {
    * Query to filter the monitors with.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "Query to filter the monitors with.")
+  @ApiModelProperty(example = "", required = true, value = "Query to filter the monitors with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

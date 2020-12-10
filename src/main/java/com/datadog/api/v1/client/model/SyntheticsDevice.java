@@ -135,7 +135,7 @@ public class SyntheticsDevice {
    * The device name.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "The device name.")
+  @ApiModelProperty(example = "", required = true, value = "The device name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

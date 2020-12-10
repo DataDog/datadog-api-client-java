@@ -104,7 +104,7 @@ public class EventStreamWidgetDefinition {
    * Query to filter the event stream with.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "Query to filter the event stream with.")
+  @ApiModelProperty(example = "", required = true, value = "Query to filter the event stream with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

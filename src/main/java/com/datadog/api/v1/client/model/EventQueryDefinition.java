@@ -52,7 +52,7 @@ public class EventQueryDefinition {
    * The query being made on the event.
    * @return search
   **/
-  @ApiModelProperty(required = true, value = "The query being made on the event.")
+  @ApiModelProperty(example = "", required = true, value = "The query being made on the event.")
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -75,7 +75,7 @@ public class EventQueryDefinition {
    * The execution method for multi-value filters. Can be either and or or.
    * @return tagsExecution
   **/
-  @ApiModelProperty(required = true, value = "The execution method for multi-value filters. Can be either and or or.")
+  @ApiModelProperty(example = "", required = true, value = "The execution method for multi-value filters. Can be either and or or.")
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
