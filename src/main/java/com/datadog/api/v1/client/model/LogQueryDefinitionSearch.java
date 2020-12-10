@@ -48,7 +48,7 @@ public class LogQueryDefinitionSearch {
    * Search value to apply.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "Search value to apply.")
+  @ApiModelProperty(example = "", required = true, value = "Search value to apply.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

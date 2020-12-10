@@ -144,7 +144,7 @@ public class LogsCategoryProcessor {
    * Name of the target attribute which value is defined by the matching category.
    * @return target
   **/
-  @ApiModelProperty(required = true, value = "Name of the target attribute which value is defined by the matching category.")
+  @ApiModelProperty(example = "", required = true, value = "Name of the target attribute which value is defined by the matching category.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

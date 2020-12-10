@@ -141,7 +141,7 @@ public class LogsStringBuilderProcessor {
    * The name of the attribute that contains the result of the template.
    * @return target
   **/
-  @ApiModelProperty(required = true, value = "The name of the attribute that contains the result of the template.")
+  @ApiModelProperty(example = "", required = true, value = "The name of the attribute that contains the result of the template.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -164,7 +164,7 @@ public class LogsStringBuilderProcessor {
    * A formula with one or more attributes and raw text.
    * @return template
   **/
-  @ApiModelProperty(required = true, value = "A formula with one or more attributes and raw text.")
+  @ApiModelProperty(example = "", required = true, value = "A formula with one or more attributes and raw text.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

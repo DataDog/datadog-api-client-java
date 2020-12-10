@@ -76,7 +76,7 @@ public class AlertGraphWidgetDefinition {
    * ID of the alert to use in the widget.
    * @return alertId
   **/
-  @ApiModelProperty(required = true, value = "ID of the alert to use in the widget.")
+  @ApiModelProperty(example = "", required = true, value = "ID of the alert to use in the widget.")
   @JsonProperty(JSON_PROPERTY_ALERT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

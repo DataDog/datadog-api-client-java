@@ -90,7 +90,7 @@ public class CheckStatusWidgetDefinition {
    * Name of the check to use in the widget.
    * @return check
   **/
-  @ApiModelProperty(required = true, value = "Name of the check to use in the widget.")
+  @ApiModelProperty(example = "", required = true, value = "Name of the check to use in the widget.")
   @JsonProperty(JSON_PROPERTY_CHECK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

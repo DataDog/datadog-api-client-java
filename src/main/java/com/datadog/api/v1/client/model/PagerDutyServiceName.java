@@ -48,7 +48,7 @@ public class PagerDutyServiceName {
    * Your service name associated service key in PagerDuty.
    * @return serviceName
   **/
-  @ApiModelProperty(required = true, value = "Your service name associated service key in PagerDuty.")
+  @ApiModelProperty(example = "", required = true, value = "Your service name associated service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

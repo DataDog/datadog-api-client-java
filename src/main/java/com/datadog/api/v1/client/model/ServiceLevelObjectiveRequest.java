@@ -271,7 +271,7 @@ public class ServiceLevelObjectiveRequest {
    * The name of the service level objective object.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "The name of the service level objective object.")
+  @ApiModelProperty(example = "", required = true, value = "The name of the service level objective object.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

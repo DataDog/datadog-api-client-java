@@ -52,7 +52,7 @@ public class WidgetEvent {
    * Query definition.
    * @return q
   **/
-  @ApiModelProperty(required = true, value = "Query definition.")
+  @ApiModelProperty(example = "", required = true, value = "Query definition.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

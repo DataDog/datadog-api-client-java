@@ -134,7 +134,7 @@ public class ImageWidgetDefinition {
    * URL of the image.
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "URL of the image.")
+  @ApiModelProperty(example = "", required = true, value = "URL of the image.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -128,7 +128,7 @@ public class SecurityMonitoringRuleCreatePayload {
    * Message for generated signals.
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "Message for generated signals.")
+  @ApiModelProperty(example = "", required = true, value = "Message for generated signals.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -151,7 +151,7 @@ public class SecurityMonitoringRuleCreatePayload {
    * The name of the rule.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "The name of the rule.")
+  @ApiModelProperty(example = "", required = true, value = "The name of the rule.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
