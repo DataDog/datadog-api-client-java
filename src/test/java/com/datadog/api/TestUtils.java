@@ -6,16 +6,14 @@
 
 package com.datadog.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import datadog.trace.api.DDTags;
 import datadog.trace.api.interceptor.MutableSpan;
 import io.opentracing.Span;
-import io.opentracing.tag.Tags;
 import io.opentracing.util.GlobalTracer;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.junit.After;
@@ -63,7 +61,7 @@ public class TestUtils {
 
     public static int SUREFIRE_FORK = Integer.parseInt(System.getProperty("surefireForkNumber"));
     public static String MOCKSERVER_HOST = "localhost";
-    public static int MOCKSERVER_PORT = 9090 + SUREFIRE_FORK;
+    public static int MOCKSERVER_PORT = 8080 + SUREFIRE_FORK;
 
     public static void retry(int interval, int count, BooleanSupplier call) throws RetryException {
         for (int i = 0; i <= count; i++) {
@@ -138,12 +136,12 @@ public class TestUtils {
         protected static final String TEST_API_KEY_NAME = "DD_TEST_CLIENT_API_KEY";
         protected static final String TEST_APP_KEY_NAME = "DD_TEST_CLIENT_APP_KEY";
 
-        protected static final String cassettesDir = "src/test/resources/cassettes";
+        protected static String cassettesDir = "src/test/resources/cassettes";
         protected static String version = "v1";
 
         protected static String TEST_API_KEY;
         protected static String TEST_APP_KEY;
-        protected static int WIREMOCK_PORT = 8080 + SUREFIRE_FORK;
+        protected static int WIREMOCK_PORT = 8070 + SUREFIRE_FORK;
         // We need to make the tag be something that is then searchable in monitors
         // https://docs.datadoghq.com/tracing/guide/metrics_namespace/#errors
         // "version" is really the only one we can use here
@@ -167,20 +165,10 @@ public class TestUtils {
          *
          * @return Path to the combined cassette
          */
-        private static Path createCombinedCassette() throws IOException {
+        static Path createCombinedCassette() throws IOException {
             File cassettesDir = new File(APITest.cassettesDir);
-            File[] cassettesVersionsDirs = cassettesDir.listFiles();
             List<File> allCassettes = new ArrayList<>();
-            FilenameFilter filter = (dir, name) -> name.endsWith(".json");
-            for (File d: cassettesVersionsDirs) {
-                if (d.isDirectory()) {
-                    for (File c: d.listFiles(filter)) {
-                        if (c.length() > 0) { // exclude empty cassettes
-                            allCassettes.add(c);
-                        }
-                    }
-                }
-            }
+            allCassettes.addAll(FileUtils.listFiles(cassettesDir, new String[] { "json" }, true));
             ObjectMapper om = new ObjectMapper();
             om.enable(SerializationFeature.INDENT_OUTPUT);
             List<Object> allRecords = new ArrayList<>();
@@ -190,6 +178,7 @@ public class TestUtils {
             File humongousCassette = null;
             humongousCassette = File.createTempFile("datadog-api-client-java-cassette-", ".json");
             humongousCassette.deleteOnExit();
+            System.out.printf("All Records: %s", allRecords);
             om.writeValue(humongousCassette, allRecords);
             return humongousCassette.toPath();
         }
@@ -236,6 +225,19 @@ public class TestUtils {
 
         @BeforeClass
         public static void trustProxyCerts() {
+            if (handleIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+                return;
+            }
+            // Needed otherwise the Trust store does not have the correct type for java > 8.
+            // See https://github.com/mock-server/mockserver/issues/744
+            Security.setProperty("keystore.type", "jks");
+            // Trust MockServers proxy certificates
+            HttpsURLConnection.setDefaultSSLSocketFactory(
+                    new KeyStoreFactory(new MockServerLogger()).sslContext().getSocketFactory()
+            );
+        }
+
+        public static void trustProxyCertsStatic() {
             if (handleIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }

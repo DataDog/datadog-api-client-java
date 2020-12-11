@@ -1046,6 +1046,7 @@ public class ApiClient extends JavaTimeFormatter {
     } else {
       targetURL = this.basePath + path;
     }
+
     WebTarget target = httpClient.target(targetURL);
 
     if (queryParams != null) {
@@ -1188,7 +1189,9 @@ public class ApiClient extends JavaTimeFormatter {
     clientConfig.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
     // turn off compliance validation to be able to send payloads with DELETE calls
     clientConfig.property(ClientProperties.SUPPRESS_HTTP_COMPLIANCE_VALIDATION, true);
-    if (debugging) {
+
+    if (debugging || !debugging) {
+      System.out.printf("Enabling http debug logging");
       clientConfig.register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME), java.util.logging.Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, 1024*50 /* Log payloads up to 50K */));
       clientConfig.property(LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
       // Set logger to ALL

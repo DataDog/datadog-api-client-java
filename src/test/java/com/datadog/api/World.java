@@ -17,6 +17,10 @@ import java.util.regex.Pattern;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.cucumber.java.Scenario;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+
+import javax.ws.rs.client.Client;
 
 public class World {
     // Client information
@@ -87,7 +91,9 @@ public class World {
                  * config.connectorProvider(new HttpUrlConnectorProvider()
                  * .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
                  */
-                clientClass.getMethod("setBasePath", String.class).invoke(client, RecorderSteps.getUrl());
+                ClientConfig config = (ClientConfig) ( (Client) clientClass.getMethod("getHttpClient").invoke(client)).getConfiguration();
+                config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+                TestUtils.APITest.trustProxyCertsStatic();
                 // client.setServerIndex(null)
                 // clientClass.getMethod("setServerIndex", Integer.class).invoke(client, null);
                 Field f = clientClass.getDeclaredField("serverIndex");
@@ -103,7 +109,7 @@ public class World {
             f.setAccessible(true);
             f.set(client, null);
         }
-
+        clientClass.getMethod("addDefaultHeader", String.class, String.class).invoke(client, "JAVA-TEST-NAME", getName());
         // client.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
     }
 
@@ -142,9 +148,7 @@ public class World {
     }
 
     public void given(String apiVersion, Given step)
-            throws java.lang.ClassNotFoundException, java.lang.NoSuchMethodException, java.net.URISyntaxException,
-            java.io.IOException, java.lang.IllegalAccessException, java.lang.reflect.InvocationTargetException,
-            java.lang.InstantiationException, java.lang.NoSuchFieldException {
+            throws Exception {
         // find API service based on step tag value
         Class<?> givenAPIClass = Class
                 .forName("com.datadog.api." + apiVersion + ".client.api." + step.getAPIName() + "Api");
@@ -188,7 +192,12 @@ public class World {
         // Execute request
         Method givenExecute = givenClass.getMethod("executeWithHttpInfo");
         Class<?> givenResponseClass = givenExecute.getReturnType();
-        Object givenResponse = givenExecute.invoke(request);
+        Object givenResponse;
+        try {
+            givenResponse = givenExecute.invoke(request);
+        } catch (Exception e) {
+            throw new Exception(e.getCause());
+        }
         Method dataMethod = givenResponseClass.getMethod("getData");
         Object data = dataMethod.invoke(givenResponse);
 
@@ -275,8 +284,12 @@ public class World {
 
         String apiVersion = getVersion();
         Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, requestBuilder.getName());
-
-        response = responseMethod.invoke(request);
+        try {
+            response = responseMethod.invoke(request);
+        } catch (java.lang.reflect.InvocationTargetException e) {
+            // Ensure we log the root exception, not the secondary invoke exception
+            System.out.printf("%s", e.getCause().getMessage());
+        }
 
         if (undoSettings != null) {
             Method dataMethod = responseClass.getMethod("getData");
