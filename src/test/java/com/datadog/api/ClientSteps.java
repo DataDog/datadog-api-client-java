@@ -126,7 +126,6 @@ public class ClientSteps {
     public void theResponseStatusIsOK(Integer statusCode, String _)
             throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
             java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException {
-        // If the response is null, log the error and set the status code to 0 to fail assertions
         Integer responseStatusCode = (Integer) 0;
         if (world.response != null) {
             responseStatusCode = (Integer) world.responseClass.getMethod("getStatusCode").invoke(world.response);

@@ -197,8 +197,7 @@ public class World {
         // Execute request
         Method givenExecute = givenClass.getMethod("executeWithHttpInfo");
         Class<?> givenResponseClass = givenExecute.getReturnType();
-        Object givenResponse;
-        givenResponse = givenExecute.invoke(request);
+        Object givenResponse = givenExecute.invoke(request);
         Method dataMethod = givenResponseClass.getMethod("getData");
         Object data = dataMethod.invoke(givenResponse);
 
