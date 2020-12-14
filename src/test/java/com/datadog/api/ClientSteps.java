@@ -27,7 +27,7 @@ public class ClientSteps {
     }
 
     @Before(order = 0)
-    public void setupVersion(Scenario scenario) throws java.io.IOException {
+    public void setupVersion(Scenario scenario) {
         world.scenario = scenario;
         apiVersion = world.getVersion();
         // TODO scenario.getSourceTagNames();
@@ -130,8 +130,6 @@ public class ClientSteps {
         Integer responseStatusCode = (Integer) 0;
         if (world.response != null) {
             responseStatusCode = (Integer) world.responseClass.getMethod("getStatusCode").invoke(world.response);
-        } else {
-            System.out.printf("Response was null");
         }
         assertEquals(statusCode, responseStatusCode);
     }

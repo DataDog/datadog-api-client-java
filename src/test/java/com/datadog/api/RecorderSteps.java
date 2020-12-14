@@ -17,7 +17,6 @@ import java.util.List;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.When;
 import io.cucumber.java.After;
-import org.junit.BeforeClass;
 import org.junit.rules.TestName;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.matchers.TimeToLive;
@@ -30,7 +29,7 @@ import org.mockserver.model.Parameter;
 
 public class RecorderSteps {
 
-    protected static String cassettesDir = "src/test/resources/cassettes";
+    protected static String cassettesDir = TestUtils.APITest.cassettesDir;
 
     // Use the statically initialized mockServer
     public static ClientAndServer mockServer = TestUtils.APITest.mockServer;
@@ -43,7 +42,7 @@ public class RecorderSteps {
     }
 
     public static String getUrl() {
-        return "http://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT;
+        return "https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT;
     }
 
     @Before(order = 1)
@@ -79,43 +78,6 @@ public class RecorderSteps {
         }
     }
 
-    @Before(order = 2)
-    public void setupRecorder() throws java.io.IOException {
-        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
-//            Path testCaseCassette = Paths.get(cassettesDir, world.getVersion(), world.getName());
-//            mockServer.stop();
-//            mockServer.hasStopped(5, 5, TimeUnit.SECONDS);
-//            ConfigurationProperties.initializationJsonPath(testCaseCassette.toString());
-//            mockServer.startClientAndServer(TestUtils.MOCKSERVER_PORT);
-
-//            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
-//                // Clean existing cassettes when RECORD=true
-//                if (Files.exists(testCaseCassette)) {
-//                    Files.walk(testCaseCassette).sorted(Comparator.reverseOrder()).map(Path::toFile)
-//                            .forEach(File::delete);
-//                }
-//                server.getOptions().filesRoot().child(WireMockApp.MAPPINGS_ROOT).createIfNecessary();
-//                server.getOptions().filesRoot().child(WireMockApp.FILES_ROOT).createIfNecessary();
-//                server.startRecording(config());
-//            } else {
-//                server.startRecording(config());
-//                // Make sure that wiremock server is replaying for RECORD=false
-//                server.stopRecording();
-//            }
-        }
-    }
-
-//    @After
-//    public void stopRecorder() {
-//        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
-//            // Wiremock server is running for RECORD=true or RECORD=false
-//            if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
-//                // Store cassettes when RECORD=true
-//                server.stopRecording();
-//            }
-//            server.stop();
-//        }
-//    }
     @After
     public void cleanAndSendExpectations() throws IOException {
         // Cleanup the recorded requests from sensitive information (API keys in headers and query params),
@@ -139,7 +101,9 @@ public class RecorderSteps {
                         !header.getName().equals("x-datadog-trace-id") &&
                         !header.getName().equals("x-datadog-parent-id") &&
                         !header.getName().equals("x-datadog-sampling-priority") &&
-                        !header.getName().equals("User-Agent")
+                        !header.getName().equals("User-Agent") &&
+                        !header.getName().equals("Connection") &&
+                        !header.getName().equals("Content-Length")
                 )
                     cleanHeaders.add(header);
             }
@@ -157,7 +121,6 @@ public class RecorderSteps {
         // write the cassette
         File cassette = new File(Paths.get(TestUtils.APITest.cassettesDir, world.getVersion(), getCassetteName()).toString());
         cassette.getParentFile().mkdirs();
-        System.out.printf("Creating cassette: %s/%s/%s", TestUtils.APITest.cassettesDir, world.getVersion(), getCassetteName());
         if (!cassette.exists()) {
             cassette.createNewFile();
         }
@@ -167,23 +130,13 @@ public class RecorderSteps {
         mockServer.reset();
     }
 
-
     public String getCassetteName() {
         return world.getName() + ".json";
     }
 
     @When("the request is sent")
     public void theRequestIsSent()
-            throws java.lang.ClassNotFoundException, java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
-            java.lang.reflect.InvocationTargetException, com.fasterxml.jackson.core.JsonProcessingException,
-            java.lang.InstantiationException, java.net.URISyntaxException, java.io.IOException {
-        // FIXME this is an ugly hack to support different subdomain
-//        String actionName = world.requestBuilder.getName();
-//        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING) && actionName.equals("getIPRanges")) {
-//            mockServer.stopRecording();
-//            mockServer.startRecording(
-//                    recordSpec().forTarget("https://ip-ranges.datadoghq.com").makeStubsPersistent(true).build());
-//        }
+            throws Exception {
         world.sendRequest();
     }
 }

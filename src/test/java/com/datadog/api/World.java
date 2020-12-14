@@ -78,6 +78,8 @@ public class World {
         // client.setDebugging("true".equals(System.getenv("DEBUG")))
         clientClass.getMethod("setDebugging", boolean.class).invoke(client, "true".equals(System.getenv("DEBUG")));
 
+        TestUtils.APITest.trustProxyCertsStatic();
+
         if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
             // Set proxy to the "mockServer" for recording
             if (!TestUtils.isIbmJdk()) {
@@ -93,12 +95,15 @@ public class World {
                  */
                 ClientConfig config = (ClientConfig) ( (Client) clientClass.getMethod("getHttpClient").invoke(client)).getConfiguration();
                 config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
-                TestUtils.APITest.trustProxyCertsStatic();
+
                 // client.setServerIndex(null)
                 // clientClass.getMethod("setServerIndex", Integer.class).invoke(client, null);
                 Field f = clientClass.getDeclaredField("serverIndex");
                 f.setAccessible(true);
                 f.set(client, null);
+                // When recording, use the server URL
+                clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
+
             }
         } else if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
             // Set base path to the mock server for replaying
@@ -109,8 +114,8 @@ public class World {
             f.setAccessible(true);
             f.set(client, null);
         }
-        clientClass.getMethod("addDefaultHeader", String.class, String.class).invoke(client, "JAVA-TEST-NAME", getName());
         // client.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
+        clientClass.getMethod("addDefaultHeader", String.class, String.class).invoke(client, "JAVA-TEST-NAME", getName());
     }
 
     public void setupAPI(String apiVersion, String apiName)
@@ -193,11 +198,7 @@ public class World {
         Method givenExecute = givenClass.getMethod("executeWithHttpInfo");
         Class<?> givenResponseClass = givenExecute.getReturnType();
         Object givenResponse;
-        try {
-            givenResponse = givenExecute.invoke(request);
-        } catch (Exception e) {
-            throw new Exception(e.getCause());
-        }
+        givenResponse = givenExecute.invoke(request);
         Method dataMethod = givenResponseClass.getMethod("getData");
         Object data = dataMethod.invoke(givenResponse);
 
@@ -212,9 +213,7 @@ public class World {
         context.put(step.key, data);
     }
 
-    public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object data) throws java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
-            java.net.URISyntaxException, java.io.IOException, java.lang.IllegalAccessException,
-            java.lang.reflect.InvocationTargetException, java.lang.InstantiationException {
+    public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object data) throws Exception {
         // find API service based on undo tag value
         Class<?> undoAPIClass = Class
                 .forName("com.datadog.api." + apiVersion + ".client.api." + undoSettings.getAPIName() + "Api");
@@ -237,9 +236,17 @@ public class World {
 
         Object undoRequest;
         if (undoOperation.getParameterCount() > 0) {
-            undoRequest = undoOperation.invoke(undoAPI, new Object[undoOperation.getParameterCount()]);
+            try {
+                undoRequest = undoOperation.invoke(undoAPI, new Object[undoOperation.getParameterCount()]);
+            } catch (Exception e) {
+                throw new Exception(e.getCause());
+            }
         } else {
-            undoRequest = undoOperation.invoke(undoAPI);
+            try {
+                undoRequest = undoOperation.invoke(undoAPI);
+            } catch (Exception e) {
+                throw new Exception(e.getCause());
+            }
         }
 
         Class<?> undoClass = undoOperation.getReturnType();
@@ -255,15 +262,17 @@ public class World {
             }
 
             // Execute request
-            undoClass.getMethod("executeWithHttpInfo").invoke(undoRequest);
+            try {
+                undoClass.getMethod("executeWithHttpInfo").invoke(undoRequest);
+            } catch (Exception e) {
+                throw new Exception(e.getCause());
+            }
             return null;
         };
     }
 
     public void sendRequest()
-            throws java.lang.ClassNotFoundException, java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
-            java.lang.reflect.InvocationTargetException, com.fasterxml.jackson.core.JsonProcessingException,
-            java.net.URISyntaxException, java.io.IOException, java.lang.InstantiationException {
+            throws Exception {
         Object request;
         if (requestBuilder.getParameterCount() > 0) {
             Object[] parameters = new Object[requestBuilder.getParameterCount()];
@@ -284,16 +293,17 @@ public class World {
 
         String apiVersion = getVersion();
         Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, requestBuilder.getName());
-        try {
-            response = responseMethod.invoke(request);
-        } catch (java.lang.reflect.InvocationTargetException e) {
-            // Ensure we log the root exception, not the secondary invoke exception
-            System.out.printf("%s", e.getCause().getMessage());
-        }
+
+        response = responseMethod.invoke(request);
 
         if (undoSettings != null) {
             Method dataMethod = responseClass.getMethod("getData");
-            Object data = dataMethod.invoke(response);
+            Object data;
+            try {
+                data = dataMethod.invoke(response);
+            } catch (Exception e) {
+                throw new Exception(e.getCause());
+            }
             undo.add(getRequestUndo(apiVersion, undoSettings, data));
         }
     }

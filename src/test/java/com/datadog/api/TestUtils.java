@@ -61,7 +61,7 @@ public class TestUtils {
 
     public static int SUREFIRE_FORK = Integer.parseInt(System.getProperty("surefireForkNumber"));
     public static String MOCKSERVER_HOST = "localhost";
-    public static int MOCKSERVER_PORT = 8080 + SUREFIRE_FORK;
+    public static int MOCKSERVER_PORT = 9090 + SUREFIRE_FORK;
 
     public static void retry(int interval, int count, BooleanSupplier call) throws RetryException {
         for (int i = 0; i <= count; i++) {
@@ -141,13 +141,14 @@ public class TestUtils {
 
         protected static String TEST_API_KEY;
         protected static String TEST_APP_KEY;
-        protected static int WIREMOCK_PORT = 8070 + SUREFIRE_FORK;
+        protected static int WIREMOCK_PORT = 8080 + SUREFIRE_FORK;
         // We need to make the tag be something that is then searchable in monitors
         // https://docs.datadoghq.com/tracing/guide/metrics_namespace/#errors
         // "version" is really the only one we can use here
         protected static final String TRACING_TAG_ENDPOINT = "version";
         protected static final String TRACING_SPAN_TYPE = "test";
         @Rule
+        // WireMock is only used for unit tests, for cassette based tests, we use mockServer
         public WireMockRule wireMockRule = new WireMockRule(options().port(WIREMOCK_PORT));
         @Rule
         public TestName name = new TestName();
@@ -178,7 +179,6 @@ public class TestUtils {
             File humongousCassette = null;
             humongousCassette = File.createTempFile("datadog-api-client-java-cassette-", ".json");
             humongousCassette.deleteOnExit();
-            System.out.printf("All Records: %s", allRecords);
             om.writeValue(humongousCassette, allRecords);
             return humongousCassette.toPath();
         }
@@ -225,16 +225,7 @@ public class TestUtils {
 
         @BeforeClass
         public static void trustProxyCerts() {
-            if (handleIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
-                return;
-            }
-            // Needed otherwise the Trust store does not have the correct type for java > 8.
-            // See https://github.com/mock-server/mockserver/issues/744
-            Security.setProperty("keystore.type", "jks");
-            // Trust MockServers proxy certificates
-            HttpsURLConnection.setDefaultSSLSocketFactory(
-                    new KeyStoreFactory(new MockServerLogger()).sslContext().getSocketFactory()
-            );
+            trustProxyCertsStatic();
         }
 
         public static void trustProxyCertsStatic() {
@@ -336,7 +327,9 @@ public class TestUtils {
                             !header.getName().equals("x-datadog-trace-id") &&
                             !header.getName().equals("x-datadog-parent-id") &&
                             !header.getName().equals("x-datadog-sampling-priority") &&
-                            !header.getName().equals("User-Agent")
+                            !header.getName().equals("User-Agent") &&
+                            !header.getName().equals("Connection") &&
+                            !header.getName().equals("Content-Length")
                     )
                         cleanHeaders.add(header);
                 }
