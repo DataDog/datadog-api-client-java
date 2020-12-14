@@ -1315,8 +1315,8 @@ private ApiResponse<UsageBillableSummaryResponse> getUsageBillableSummaryWithHtt
   }
 
   /**
-   * Get billable usage across your multi-org account
-   * Get billable usage across your multi-org account.
+   * Get billable usage across your account
+   * Get billable usage across your account.
    * @return getUsageBillableSummaryRequest
    * @throws ApiException if fails to make API call
    
@@ -2792,7 +2792,7 @@ private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(OffsetDate
 
   /**
    * Get usage across your multi-org account
-   * Get usage across your multi-org account.
+   * Get usage across your multi-org account. You must have the multi-org feature enabled.
    * @return getUsageSummaryRequest
    * @throws ApiException if fails to make API call
    
