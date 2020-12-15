@@ -27,7 +27,7 @@ public class ClientSteps {
     }
 
     @Before(order = 0)
-    public void setupVersion(Scenario scenario) throws java.io.IOException {
+    public void setupVersion(Scenario scenario) {
         world.scenario = scenario;
         apiVersion = world.getVersion();
         // TODO scenario.getSourceTagNames();
@@ -126,7 +126,10 @@ public class ClientSteps {
     public void theResponseStatusIsOK(Integer statusCode, String _)
             throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
             java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException {
-        Integer responseStatusCode = (Integer) world.responseClass.getMethod("getStatusCode").invoke(world.response);
+        Integer responseStatusCode = (Integer) 0;
+        if (world.response != null) {
+            responseStatusCode = (Integer) world.responseClass.getMethod("getStatusCode").invoke(world.response);
+        }
         assertEquals(statusCode, responseStatusCode);
     }
 
