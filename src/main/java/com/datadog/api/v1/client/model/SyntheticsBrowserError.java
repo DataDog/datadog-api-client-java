@@ -61,7 +61,7 @@ public class SyntheticsBrowserError {
    * Description of the error.
    * @return description
   **/
-  @ApiModelProperty(required = true, value = "Description of the error.")
+  @ApiModelProperty(example = "", required = true, value = "Description of the error.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -84,7 +84,7 @@ public class SyntheticsBrowserError {
    * Name of the error.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name of the error.")
+  @ApiModelProperty(example = "", required = true, value = "Name of the error.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

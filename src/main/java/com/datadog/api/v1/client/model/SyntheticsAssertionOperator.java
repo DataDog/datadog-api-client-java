@@ -38,7 +38,11 @@ public enum SyntheticsAssertionOperator {
   
   LESS_THAN("lessThan"),
   
+  LESS_THAN_OR_EQUAL("lessThanOrEqual"),
+  
   MORE_THAN("moreThan"),
+  
+  MORE_THAN_OR_EQUAL("moreThanOrEqual"),
   
   MATCHES("matches"),
   

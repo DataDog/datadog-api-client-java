@@ -103,7 +103,7 @@ public class NoteWidgetDefinition {
    * Content of the note.
    * @return content
   **/
-  @ApiModelProperty(required = true, value = "Content of the note.")
+  @ApiModelProperty(example = "", required = true, value = "Content of the note.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

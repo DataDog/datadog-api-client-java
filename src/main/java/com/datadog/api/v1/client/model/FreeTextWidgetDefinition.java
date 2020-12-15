@@ -114,7 +114,7 @@ public class FreeTextWidgetDefinition {
    * Text to display.
    * @return text
   **/
-  @ApiModelProperty(required = true, value = "Text to display.")
+  @ApiModelProperty(example = "", required = true, value = "Text to display.")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

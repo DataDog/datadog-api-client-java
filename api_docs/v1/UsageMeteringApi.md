@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**getTracingWithoutLimits**](UsageMeteringApi.md#getTracingWithoutLimits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
-[**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your multi-org account
+[**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
 [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -822,9 +822,9 @@ Name | Type | Description  | Notes
 
 > UsageBillableSummaryResponse getUsageBillableSummary().month(month).execute();
 
-Get billable usage across your multi-org account
+Get billable usage across your account
 
-Get billable usage across your multi-org account.
+Get billable usage across your account.
 
 ### Example
 
@@ -1859,7 +1859,7 @@ Name | Type | Description  | Notes
 
 Get usage across your multi-org account
 
-Get usage across your multi-org account.
+Get usage across your multi-org account. You must have the multi-org feature enabled.
 
 ### Example
 

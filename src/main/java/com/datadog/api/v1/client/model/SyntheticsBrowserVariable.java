@@ -113,7 +113,7 @@ public class SyntheticsBrowserVariable {
    * Name of the variable.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name of the variable.")
+  @ApiModelProperty(example = "", required = true, value = "Name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

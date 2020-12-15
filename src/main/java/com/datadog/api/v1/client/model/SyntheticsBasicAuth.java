@@ -52,7 +52,7 @@ public class SyntheticsBasicAuth {
    * Password to use for the basic authentication.
    * @return password
   **/
-  @ApiModelProperty(required = true, value = "Password to use for the basic authentication.")
+  @ApiModelProperty(example = "", required = true, value = "Password to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -75,7 +75,7 @@ public class SyntheticsBasicAuth {
    * Username to use for the basic authentication.
    * @return username
   **/
-  @ApiModelProperty(required = true, value = "Username to use for the basic authentication.")
+  @ApiModelProperty(example = "", required = true, value = "Username to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -76,7 +76,7 @@ public class TimeseriesWidgetRequestMetadata {
    * Expression name.
    * @return expression
   **/
-  @ApiModelProperty(required = true, value = "Expression name.")
+  @ApiModelProperty(example = "", required = true, value = "Expression name.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

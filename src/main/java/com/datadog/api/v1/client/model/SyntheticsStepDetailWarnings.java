@@ -53,7 +53,7 @@ public class SyntheticsStepDetailWarnings {
    * Message for the warning.
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "Message for the warning.")
+  @ApiModelProperty(example = "", required = true, value = "Message for the warning.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -76,7 +76,7 @@ public class IFrameWidgetDefinition {
    * URL of the iframe.
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "URL of the iframe.")
+  @ApiModelProperty(example = "", required = true, value = "URL of the iframe.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
