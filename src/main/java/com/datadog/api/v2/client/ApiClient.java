@@ -1046,7 +1046,6 @@ public class ApiClient extends JavaTimeFormatter {
     } else {
       targetURL = this.basePath + path;
     }
-
     WebTarget target = httpClient.target(targetURL);
 
     if (queryParams != null) {
