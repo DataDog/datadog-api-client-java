@@ -6,16 +6,14 @@
 
 package com.datadog.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import datadog.trace.api.DDTags;
 import datadog.trace.api.interceptor.MutableSpan;
 import io.opentracing.Span;
-import io.opentracing.tag.Tags;
 import io.opentracing.util.GlobalTracer;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.junit.After;
@@ -138,7 +136,7 @@ public class TestUtils {
         protected static final String TEST_API_KEY_NAME = "DD_TEST_CLIENT_API_KEY";
         protected static final String TEST_APP_KEY_NAME = "DD_TEST_CLIENT_APP_KEY";
 
-        protected static final String cassettesDir = "src/test/resources/cassettes";
+        protected static String cassettesDir = "src/test/resources/cassettes";
         protected static String version = "v1";
 
         protected static String TEST_API_KEY;
@@ -150,6 +148,7 @@ public class TestUtils {
         protected static final String TRACING_TAG_ENDPOINT = "version";
         protected static final String TRACING_SPAN_TYPE = "test";
         @Rule
+        // WireMock is only used for unit tests, for cassette based tests, we use mockServer
         public WireMockRule wireMockRule = new WireMockRule(options().port(WIREMOCK_PORT));
         @Rule
         public TestName name = new TestName();
@@ -167,20 +166,10 @@ public class TestUtils {
          *
          * @return Path to the combined cassette
          */
-        private static Path createCombinedCassette() throws IOException {
+        static Path createCombinedCassette() throws IOException {
             File cassettesDir = new File(APITest.cassettesDir);
-            File[] cassettesVersionsDirs = cassettesDir.listFiles();
             List<File> allCassettes = new ArrayList<>();
-            FilenameFilter filter = (dir, name) -> name.endsWith(".json");
-            for (File d: cassettesVersionsDirs) {
-                if (d.isDirectory()) {
-                    for (File c: d.listFiles(filter)) {
-                        if (c.length() > 0) { // exclude empty cassettes
-                            allCassettes.add(c);
-                        }
-                    }
-                }
-            }
+            allCassettes.addAll(FileUtils.listFiles(cassettesDir, new String[] { "json" }, true));
             ObjectMapper om = new ObjectMapper();
             om.enable(SerializationFeature.INDENT_OUTPUT);
             List<Object> allRecords = new ArrayList<>();
@@ -236,6 +225,10 @@ public class TestUtils {
 
         @BeforeClass
         public static void trustProxyCerts() {
+            trustProxyCertsStatic();
+        }
+
+        public static void trustProxyCertsStatic() {
             if (handleIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }
@@ -334,7 +327,9 @@ public class TestUtils {
                             !header.getName().equals("x-datadog-trace-id") &&
                             !header.getName().equals("x-datadog-parent-id") &&
                             !header.getName().equals("x-datadog-sampling-priority") &&
-                            !header.getName().equals("User-Agent")
+                            !header.getName().equals("User-Agent") &&
+                            !header.getName().equals("Connection") &&
+                            !header.getName().equals("Content-Length")
                     )
                         cleanHeaders.add(header);
                 }

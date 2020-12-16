@@ -1,22 +1,26 @@
 package com.datadog.api;
 
-import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.time.Clock;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.Callable;
+import java.util.function.Function;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.tomakehurst.wiremock.WireMockServer;
 
 import io.cucumber.java.Scenario;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+
+import javax.ws.rs.client.Client;
 
 public class World {
     // Client information
@@ -74,6 +78,8 @@ public class World {
         // client.setDebugging("true".equals(System.getenv("DEBUG")))
         clientClass.getMethod("setDebugging", boolean.class).invoke(client, "true".equals(System.getenv("DEBUG")));
 
+        TestUtils.APITest.trustProxyCertsStatic();
+
         if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
             // Set proxy to the "mockServer" for recording
             if (!TestUtils.isIbmJdk()) {
@@ -87,12 +93,17 @@ public class World {
                  * config.connectorProvider(new HttpUrlConnectorProvider()
                  * .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
                  */
-                clientClass.getMethod("setBasePath", String.class).invoke(client, RecorderSteps.getUrl());
+                ClientConfig config = (ClientConfig) ( (Client) clientClass.getMethod("getHttpClient").invoke(client)).getConfiguration();
+                config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+
                 // client.setServerIndex(null)
                 // clientClass.getMethod("setServerIndex", Integer.class).invoke(client, null);
                 Field f = clientClass.getDeclaredField("serverIndex");
                 f.setAccessible(true);
                 f.set(client, null);
+                // When recording, use the server URL
+                clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
+
             }
         } else if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
             // Set base path to the mock server for replaying
@@ -103,8 +114,8 @@ public class World {
             f.setAccessible(true);
             f.set(client, null);
         }
-
         // client.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
+        clientClass.getMethod("addDefaultHeader", String.class, String.class).invoke(client, "JAVA-TEST-NAME", getName());
     }
 
     public void setupAPI(String apiVersion, String apiName)
@@ -141,25 +152,73 @@ public class World {
         }
     }
 
-    public Callable<?> getRequestUndo() throws java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
-            java.net.URISyntaxException, java.io.IOException, java.lang.IllegalAccessException,
-            java.lang.reflect.InvocationTargetException, java.lang.InstantiationException {
-        String actionName = requestBuilder.getName();
+    public void given(String apiVersion, Given step)
+            throws Exception {
+        // find API service based on step tag value
+        Class<?> givenAPIClass = Class
+                .forName("com.datadog.api." + apiVersion + ".client.api." + step.getAPIName() + "Api");
+        Object givenAPI = givenAPIClass.getConstructor(clientClass).newInstance(client);
 
-        String apiVersion = getVersion();
-
-        Undo undo = UndoAction.UndoAction().getUndo(apiVersion, actionName);
-
-        if (!undo.undo.type.equals("unsafe")) {
-            return null;
+        String givenOperationName = step.getOperationName();
+        Method givenOperation = null;
+        for (Method method : givenAPIClass.getMethods()) {
+            if (method.getName().equals(givenOperationName)) {
+                givenOperation = method;
+                break;
+            }
         }
 
+        // Enable unstable operation automatically
+        if ((boolean) clientClass.getMethod("isUnstableOperation", String.class).invoke(client, givenOperationName)) {
+            clientClass.getMethod("setUnstableOperationEnabled", String.class, boolean.class).invoke(client,
+                    givenOperationName, true);
+        }
+
+        Object request;
+        if (givenOperation.getParameterCount() > 0) {
+            request = givenOperation.invoke(givenAPI, new Object[givenOperation.getParameterCount()]);
+        } else {
+            request = givenOperation.invoke(givenAPI);
+        }
+
+        Class<?> givenClass = givenOperation.getReturnType();
+
+        // Build request from undo parameters and response data
+        Map<String, Given.Parameter> givenParams = step.getRequestParameters();
+        for (Field f : givenClass.getDeclaredFields()) {
+            if (givenParams.containsKey(f.getName())) {
+                f.setAccessible(true);
+                f.set(request, givenParams.get(f.getName()).resolve(f.getType(), context, getObjectMapper()));
+            }
+        }
+
+        Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, step.getOperationName());
+
+        // Execute request
+        Method givenExecute = givenClass.getMethod("executeWithHttpInfo");
+        Class<?> givenResponseClass = givenExecute.getReturnType();
+        Object givenResponse = givenExecute.invoke(request);
+        Method dataMethod = givenResponseClass.getMethod("getData");
+        Object data = dataMethod.invoke(givenResponse);
+
+        if (undoSettings != null) {
+            undo.add(getRequestUndo(apiVersion, undoSettings, data));
+        }
+
+        if (step.source != null) {
+            data = World.lookup(data, step.source);
+        }
+
+        context.put(step.key, data);
+    }
+
+    public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object data) throws Exception {
         // find API service based on undo tag value
         Class<?> undoAPIClass = Class
-                .forName("com.datadog.api." + apiVersion + ".client.api." + undo.getAPIName() + "Api");
+                .forName("com.datadog.api." + apiVersion + ".client.api." + undoSettings.getAPIName() + "Api");
         Object undoAPI = undoAPIClass.getConstructor(clientClass).newInstance(client);
 
-        String undoOperationName = undo.getOperationName();
+        String undoOperationName = undoSettings.getOperationName();
         Method undoOperation = null;
         for (Method method : undoAPIClass.getMethods()) {
             if (method.getName().equals(undoOperationName)) {
@@ -171,41 +230,48 @@ public class World {
         // Enable unstable undo operation automatically
         if ((boolean) clientClass.getMethod("isUnstableOperation", String.class).invoke(client, undoOperationName)) {
             clientClass.getMethod("setUnstableOperationEnabled", String.class, boolean.class).invoke(client,
-            undoOperationName, true);
+                    undoOperationName, true);
         }
 
-        Object request;
+        Object undoRequest;
         if (undoOperation.getParameterCount() > 0) {
-            request = undoOperation.invoke(undoAPI, new Object[undoOperation.getParameterCount()]);
+            try {
+                undoRequest = undoOperation.invoke(undoAPI, new Object[undoOperation.getParameterCount()]);
+            } catch (Exception e) {
+                throw new Exception(e.getCause());
+            }
         } else {
-            request = undoOperation.invoke(undoAPI);
+            try {
+                undoRequest = undoOperation.invoke(undoAPI);
+            } catch (Exception e) {
+                throw new Exception(e.getCause());
+            }
         }
 
         Class<?> undoClass = undoOperation.getReturnType();
 
         return () -> {
-            Method dataMethod = responseClass.getMethod("getData");
-            Object data = dataMethod.invoke(response);
-
             // Build request from undo parameters and response data
-            Map<String, Object> requestParams = undo.undo.getRequestParameters(data);
+            Map<String, Object> undoRequestParams = undoSettings.undo.getRequestParameters(data);
             for (Field f : undoClass.getDeclaredFields()) {
-                if (requestParams.containsKey(f.getName())) {
+                if (undoRequestParams.containsKey(f.getName())) {
                     f.setAccessible(true);
-                    f.set(request, requestParams.get(f.getName()));
+                    f.set(undoRequest, undoRequestParams.get(f.getName()));
                 }
             }
 
             // Execute request
-            undoClass.getMethod("executeWithHttpInfo").invoke(request);
+            try {
+                undoClass.getMethod("executeWithHttpInfo").invoke(undoRequest);
+            } catch (Exception e) {
+                throw new Exception(e.getCause());
+            }
             return null;
         };
     }
 
     public void sendRequest()
-            throws java.lang.ClassNotFoundException, java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
-            java.lang.reflect.InvocationTargetException, com.fasterxml.jackson.core.JsonProcessingException,
-            java.net.URISyntaxException, java.io.IOException, java.lang.InstantiationException {
+            throws Exception {
         Object request;
         if (requestBuilder.getParameterCount() > 0) {
             Object[] parameters = new Object[requestBuilder.getParameterCount()];
@@ -224,22 +290,33 @@ public class World {
         Method responseMethod = requestClass.getMethod("executeWithHttpInfo");
         responseClass = responseMethod.getReturnType();
 
-        Callable<?> undoMethod = getRequestUndo();
+        String apiVersion = getVersion();
+        Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, requestBuilder.getName());
 
         response = responseMethod.invoke(request);
 
-        if (undoMethod != null) {
-            undo.add(undoMethod);
+        if (undoSettings != null) {
+            Method dataMethod = responseClass.getMethod("getData");
+            Object data;
+            try {
+                data = dataMethod.invoke(response);
+            } catch (Exception e) {
+                throw new Exception(e.getCause());
+            }
+            undo.add(getRequestUndo(apiVersion, undoSettings, data));
         }
     }
 
-    public <T> T fromJSON(Class<T> clazz, String data)
-            throws java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
-            java.lang.reflect.InvocationTargetException, com.fasterxml.jackson.core.JsonProcessingException {
+    public ObjectMapper getObjectMapper() throws java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
+            java.lang.reflect.InvocationTargetException {
         Method getJSON = clientClass.getMethod("getJSON");
         Object json = getJSON.invoke(client);
         Class<?> jsonClass = getJSON.getReturnType();
-        ObjectMapper mapper = (ObjectMapper) jsonClass.getMethod("getMapper").invoke(json);
+        return (ObjectMapper) jsonClass.getMethod("getMapper").invoke(json);
+    }
+
+    public static <T> T fromJSON(ObjectMapper mapper, Class<T> clazz, String data)
+            throws com.fasterxml.jackson.core.JsonProcessingException {
         return mapper.readValue(data, clazz);
     }
 
@@ -264,4 +341,108 @@ public class World {
         }
         return result;
     }
+
+    /*
+     * Lookup value from generic data object based on given path.
+     *
+     * Path contains attributes names or map keys separated by dots or list indices
+     * in square brackets.
+     *
+     * Example: "foo.bar[1].baz" can be read as data.getFoo().getBar()[1]["baz"]
+     */
+    public static Object lookup(Object data, String path)
+            throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
+        Object result = data;
+        for (String dotPart : Arrays.asList(path.split("\\."))) {
+            for (String part : Arrays.asList(dotPart.split("\\["))) {
+                if (part.indexOf("]") != -1) {
+                    Integer index = Integer.parseInt(part.replaceAll("]", ""));
+                    result = List.class.cast(result).get(index);
+                } else {
+                    try {
+                        result = HashMap.class.cast(result).get(part);
+                    } catch (Exception e) {
+                        result = getPropertyValue(result, toPropertyName(part));
+                    }
+
+                }
+            }
+        }
+        return result;
+    }
+
+    /*
+     * Replaces content in double curly brackets by lookuped values in context
+     * object.
+     *
+     * Example: "Hello {{ foo.bar[1].baz }}" can be read as
+     * String.format("Hello %s", lookup(context, "foo.bar[1].baz").toString())
+     */
+    public static String templated(String source, Object context)
+            throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
+        return replace(source, Pattern.compile("\\{\\{ ?([^ }]+) ?\\}\\}"), m -> {
+            try {
+                return lookup(context, m.group(1)).toString();
+            } catch (Exception e) {
+                return null;
+            }
+
+        });
+    }
+
+    /*
+     * Convert an identifier to property name.
+     */
+    public static String toPropertyName(String identifier) {
+        identifier = replace(identifier, Pattern.compile("_(.)"), m -> {
+            return m.group(1).toUpperCase();
+        });
+        return replace(identifier, Pattern.compile("\\[(.)([^]]*)\\]"), m -> {
+            return m.group(1).toUpperCase() + m.group(2);
+        });
+    }
+
+    /*
+     * Replace all ocurrences of pattern with a result of replacer function.
+     */
+    public static String replace(String input, Pattern regex, Function<Matcher, String> replacer) {
+        // return regex.matcher(input).replaceAll(replacer) in Java 9+
+        StringBuffer result = new StringBuffer();
+        Matcher m = regex.matcher(input);
+        while (m.find()) {
+            m.appendReplacement(result, replacer.apply(m));
+        }
+        m.appendTail(result);
+
+        return result.toString();
+    }
+
+    /*
+     * Convert an identifier to class name.
+     */
+    public static String toClassName(String identifier) {
+        return replace(identifier, Pattern.compile("([A-Z])([A-Z]+)([A-Z][a-z])"), m -> {
+            return m.group(1) + m.group(2).toLowerCase() + m.group(3);
+        });
+    }
+
+    /*
+     * Convert an identifier to method name.
+     */
+    public static String toMethodName(String identifier) {
+        return replace(identifier, Pattern.compile("^([A-Z])"), m -> {
+            return m.group(1).toLowerCase();
+        });
+    }
+
+    @SuppressWarnings("unchecked")
+    private static <T> T getPropertyValue(Object obj, String field)
+            throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
+        Class<?> clazz = obj.getClass();
+        Field f = clazz.getDeclaredField(field);
+        f.setAccessible(true);
+        Object ret = f.get(obj);
+        return (T) ret;
+    }
+
 }
