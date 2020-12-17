@@ -34,6 +34,8 @@ public enum SyntheticsBrowserVariableType {
   
   GLOBAL("global"),
   
+  JAVASCRIPT("javascript"),
+  
   TEXT("text");
 
   private String value;
