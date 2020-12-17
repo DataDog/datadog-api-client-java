@@ -146,7 +146,7 @@ private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throw
 
   /**
    * Create a new dashboard
-   * Create a dashboard using the specified options.
+   * Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the &#x60;as_count()&#x60; or &#x60;as_rate()&#x60; modifiers appended. Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers) for more information on these modifiers.
    * @return createDashboardRequest
    * @throws ApiException if fails to make API call
    
