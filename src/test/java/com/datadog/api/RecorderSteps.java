@@ -47,7 +47,7 @@ public class RecorderSteps {
 
     @Before(order = 1)
     public void setupClock() throws java.io.IOException {
-        if (TestUtils.isIbmJdk() || TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
             world.now = OffsetDateTime.now();
             return;
         }
@@ -82,7 +82,7 @@ public class RecorderSteps {
     public void cleanAndSendExpectations() throws IOException {
         // Cleanup the recorded requests from sensitive information (API keys in headers and query params),
         // create the associated expectations and save them to disk in the `cassettes/**/*.json` files
-        if (TestUtils.isIbmJdk() || !TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
+        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
             System.out.printf("Skipping saving the cassette");
             return;
         }

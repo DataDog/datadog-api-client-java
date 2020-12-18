@@ -45,7 +45,7 @@ public abstract class V2APITest extends TestUtils.APITest {
 
         // Set proxy to the mockServer for recording
         if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
-            if (!(TestUtils.isIbmJdk() || TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE))) {
+            if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 ClientConfig config = (ClientConfig) generalApiClient.getHttpClient().getConfiguration();
                 config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
             }
