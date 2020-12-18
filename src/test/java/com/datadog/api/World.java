@@ -82,29 +82,26 @@ public class World {
 
         if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
             // Set proxy to the "mockServer" for recording
-            if (!TestUtils.isIbmJdk()) {
-                // ClientConfig config = (ClientConfig)
-                // client.getHttpClient().getConfiguration()
-                /*
-                 * Client httpClient = (Client)
-                 * clientClass.getMethod("getHttpClient").invoke(client); ClientConfig config =
-                 * (ClientConfig) httpClient.getConfiguration();
-                 *
-                 * config.connectorProvider(new HttpUrlConnectorProvider()
-                 * .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
-                 */
-                ClientConfig config = (ClientConfig) ( (Client) clientClass.getMethod("getHttpClient").invoke(client)).getConfiguration();
-                config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+            // ClientConfig config = (ClientConfig)
+            // client.getHttpClient().getConfiguration()
+            /*
+             * Client httpClient = (Client)
+             * clientClass.getMethod("getHttpClient").invoke(client); ClientConfig config =
+             * (ClientConfig) httpClient.getConfiguration();
+             *
+             * config.connectorProvider(new HttpUrlConnectorProvider()
+             * .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+             */
+            ClientConfig config = (ClientConfig) ( (Client) clientClass.getMethod("getHttpClient").invoke(client)).getConfiguration();
+            config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
 
-                // client.setServerIndex(null)
-                // clientClass.getMethod("setServerIndex", Integer.class).invoke(client, null);
-                Field f = clientClass.getDeclaredField("serverIndex");
-                f.setAccessible(true);
-                f.set(client, null);
-                // When recording, use the server URL
-                clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
-
-            }
+            // client.setServerIndex(null)
+            // clientClass.getMethod("setServerIndex", Integer.class).invoke(client, null);
+            Field f = clientClass.getDeclaredField("serverIndex");
+            f.setAccessible(true);
+            f.set(client, null);
+            // When recording, use the server URL
+            clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
         } else if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
             // Set base path to the mock server for replaying
             // client.setBasePath(...)

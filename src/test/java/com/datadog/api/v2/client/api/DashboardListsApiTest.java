@@ -60,7 +60,7 @@ public class DashboardListsApiTest extends V2APITest {
         v1Client.configureApiKeys(secrets);
         v1Client.setDebugging("true".equals(System.getenv("DEBUG")));
         ClientConfig config = (ClientConfig) v1Client.getHttpClient().getConfiguration();
-        if (!(TestUtils.isIbmJdk() || TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE))) {
+        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
             config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
         }
 

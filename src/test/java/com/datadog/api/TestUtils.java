@@ -102,21 +102,6 @@ public class TestUtils {
         return rm;
     }
 
-    public static boolean isIbmJdk() {
-        return System.getProperty("java.vendor").equals("IBM Corporation");
-    }
-
-    public static boolean handleIbmJdk() {
-        if (!isIbmJdk()) {
-            return false;
-        }
-        if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
-            throw new RuntimeException("Can't run recorded tests on IBM JDK: https://github.com/mock-server/mockserver/issues/750");
-        }
-        System.err.println("NOTE: Running on IBM JDK can't record cassettes, will only run tests: https://github.com/mock-server/mockserver/issues/750");
-        return true;
-    }
-
     public static class RetryException extends Exception {
         public RetryException(String message) {
             super(message);
@@ -189,7 +174,7 @@ public class TestUtils {
             // forever. We temporarily workaround this by making all connections closing
             // instead of keepAlive, until we figure out where the problem really is.
             System.setProperty("http.keepAlive", "false");
-            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            if (getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }
             if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
@@ -229,7 +214,7 @@ public class TestUtils {
         }
 
         public static void trustProxyCertsStatic() {
-            if (handleIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            if (getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 return;
             }
             // Needed otherwise the Trust store does not have the correct type for java > 8.
@@ -264,7 +249,7 @@ public class TestUtils {
 
         @Before
         public void setupClock() throws IOException {
-            if (isIbmJdk() || getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            if (getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
                 now = OffsetDateTime.now();
                 return;
             }
@@ -309,7 +294,7 @@ public class TestUtils {
         public void cleanAndSendExpectations() throws IOException {
             // Cleanup the recorded requests from sensitive information (API keys in headers and query params),
             // create the associated expectations and save them to disk in the `cassettes/**/*.json` files
-            if (isIbmJdk() || !getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
+            if (!getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
                 return;
             }
             List<Expectation> expectations = new ArrayList<>();
