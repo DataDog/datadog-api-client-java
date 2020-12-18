@@ -17,6 +17,7 @@ import java.util.List;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.When;
 import io.cucumber.java.After;
+import org.junit.AssumptionViolatedException;
 import org.junit.rules.TestName;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.matchers.TimeToLive;
@@ -43,6 +44,14 @@ public class RecorderSteps {
 
     public static String getUrl() {
         return "https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT;
+    }
+
+    @Before(value="@integration-only", order=0)
+    public void skipIntegrationOnly() {
+        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            // skip integration only tests
+            throw new AssumptionViolatedException("Not supported with cassettes");
+        }
     }
 
     @Before(order = 1)
@@ -95,31 +104,27 @@ public class RecorderSteps {
             List<Header> headers = req.getHeaderList();
             List<Header> cleanHeaders = new ArrayList<>();
             for (Header header : headers) {
-                if (!header.getName().equals("DD-API-KEY") &&
-                        !header.getName().equals("DD-APPLICATION-KEY") &&
-                        !header.getName().equals("Host") &&
-                        !header.getName().equals("x-datadog-trace-id") &&
-                        !header.getName().equals("x-datadog-parent-id") &&
-                        !header.getName().equals("x-datadog-sampling-priority") &&
-                        !header.getName().equals("User-Agent") &&
-                        !header.getName().equals("Connection") &&
-                        !header.getName().equals("Content-Length")
-                )
+                if (!header.getName().equals("DD-API-KEY") && !header.getName().equals("DD-APPLICATION-KEY")
+                        && !header.getName().equals("Host") && !header.getName().equals("x-datadog-trace-id")
+                        && !header.getName().equals("x-datadog-parent-id")
+                        && !header.getName().equals("x-datadog-sampling-priority")
+                        && !header.getName().equals("User-Agent") && !header.getName().equals("Connection")
+                        && !header.getName().equals("Content-Length"))
                     cleanHeaders.add(header);
             }
             for (Parameter param : params) {
-                if (!param.getName().equals("api_key") &&
-                        !param.getName().equals("application_key")
-                )
+                if (!param.getName().equals("api_key") && !param.getName().equals("application_key"))
                     cleanParams.add(param);
             }
             req.withHeaders(cleanHeaders);
             req.withQueryStringParameters(cleanParams);
-            expectations.add(Expectation.when(req, Times.once(), TimeToLive.unlimited()).thenRespond(requestAndResponse.getHttpResponse()));
+            expectations.add(Expectation.when(req, Times.once(), TimeToLive.unlimited())
+                    .thenRespond(requestAndResponse.getHttpResponse()));
         }
 
         // write the cassette
-        File cassette = new File(Paths.get(TestUtils.APITest.cassettesDir, world.getVersion(), getCassetteName()).toString());
+        File cassette = new File(
+                Paths.get(TestUtils.APITest.cassettesDir, world.getVersion(), getCassetteName()).toString());
         cassette.getParentFile().mkdirs();
         if (!cassette.exists()) {
             cassette.createNewFile();
@@ -135,8 +140,7 @@ public class RecorderSteps {
     }
 
     @When("the request is sent")
-    public void theRequestIsSent()
-            throws Exception {
+    public void theRequestIsSent() throws Exception {
         world.sendRequest();
     }
 }
