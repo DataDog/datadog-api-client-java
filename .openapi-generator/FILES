@@ -517,7 +517,6 @@ src/main/java/com/datadog/api/v2/client/model/UserUpdateData.java
 src/main/java/com/datadog/api/v2/client/model/UserUpdateRequest.java
 src/main/java/com/datadog/api/v2/client/model/UsersResponse.java
 src/main/java/com/datadog/api/v2/client/model/UsersType.java
-src/test/java/com/datadog/api/v2/client/api/KeyManagementApiTest.java
 src/test/java/com/datadog/api/v2/client/model/APIErrorResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/APIKeyCreateAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/APIKeyCreateDataTest.java
