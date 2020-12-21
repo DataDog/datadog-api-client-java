@@ -18,7 +18,6 @@ import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsBrowserError;
 import com.datadog.api.v1.client.model.SyntheticsCheckType;
 import com.datadog.api.v1.client.model.SyntheticsPlayingTab;
-import com.datadog.api.v1.client.model.SyntheticsResource;
 import com.datadog.api.v1.client.model.SyntheticsStepDetailWarnings;
 import com.datadog.api.v1.client.model.SyntheticsStepType;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -45,7 +44,6 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsStepDetail.JSON_PROPERTY_DURATION,
   SyntheticsStepDetail.JSON_PROPERTY_ERROR,
   SyntheticsStepDetail.JSON_PROPERTY_PLAYING_TAB,
-  SyntheticsStepDetail.JSON_PROPERTY_RESOURCES,
   SyntheticsStepDetail.JSON_PROPERTY_SCREENSHOT_BUCKET_KEY,
   SyntheticsStepDetail.JSON_PROPERTY_SKIPPED,
   SyntheticsStepDetail.JSON_PROPERTY_SNAPSHOT_BUCKET_KEY,
@@ -76,9 +74,6 @@ public class SyntheticsStepDetail {
 
   public static final String JSON_PROPERTY_PLAYING_TAB = "playingTab";
   private SyntheticsPlayingTab playingTab;
-
-  public static final String JSON_PROPERTY_RESOURCES = "resources";
-  private List<SyntheticsResource> resources = null;
 
   public static final String JSON_PROPERTY_SCREENSHOT_BUCKET_KEY = "screenshotBucketKey";
   private Boolean screenshotBucketKey;
@@ -260,38 +255,6 @@ public class SyntheticsStepDetail {
 
   public void setPlayingTab(SyntheticsPlayingTab playingTab) {
     this.playingTab = playingTab;
-  }
-
-
-  public SyntheticsStepDetail resources(List<SyntheticsResource> resources) {
-    this.resources = resources;
-    return this;
-  }
-
-  public SyntheticsStepDetail addResourcesItem(SyntheticsResource resourcesItem) {
-    if (this.resources == null) {
-      this.resources = new ArrayList<>();
-    }
-    this.resources.add(resourcesItem);
-    return this;
-  }
-
-   /**
-   * Array of resources collected by the test.
-   * @return resources
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of resources collected by the test.")
-  @JsonProperty(JSON_PROPERTY_RESOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SyntheticsResource> getResources() {
-    return resources;
-  }
-
-
-  public void setResources(List<SyntheticsResource> resources) {
-    this.resources = resources;
   }
 
 
@@ -569,7 +532,6 @@ public class SyntheticsStepDetail {
         Objects.equals(this.duration, syntheticsStepDetail.duration) &&
         Objects.equals(this.error, syntheticsStepDetail.error) &&
         Objects.equals(this.playingTab, syntheticsStepDetail.playingTab) &&
-        Objects.equals(this.resources, syntheticsStepDetail.resources) &&
         Objects.equals(this.screenshotBucketKey, syntheticsStepDetail.screenshotBucketKey) &&
         Objects.equals(this.skipped, syntheticsStepDetail.skipped) &&
         Objects.equals(this.snapshotBucketKey, syntheticsStepDetail.snapshotBucketKey) &&
@@ -584,7 +546,7 @@ public class SyntheticsStepDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(browserErrors, checkType, description, duration, error, playingTab, resources, screenshotBucketKey, skipped, snapshotBucketKey, stepId, subTestStepDetails, timeToInteractive, type, url, value, warnings);
+    return Objects.hash(browserErrors, checkType, description, duration, error, playingTab, screenshotBucketKey, skipped, snapshotBucketKey, stepId, subTestStepDetails, timeToInteractive, type, url, value, warnings);
   }
 
 
@@ -598,7 +560,6 @@ public class SyntheticsStepDetail {
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    playingTab: ").append(toIndentedString(playingTab)).append("\n");
-    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    screenshotBucketKey: ").append(toIndentedString(screenshotBucketKey)).append("\n");
     sb.append("    skipped: ").append(toIndentedString(skipped)).append("\n");
     sb.append("    snapshotBucketKey: ").append(toIndentedString(snapshotBucketKey)).append("\n");

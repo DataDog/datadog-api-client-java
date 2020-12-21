@@ -454,8 +454,6 @@ Class | Method | HTTP request | Description
  - [SyntheticsPrivateLocationSecrets](SyntheticsPrivateLocationSecrets.md)
  - [SyntheticsPrivateLocationSecretsAuthentication](SyntheticsPrivateLocationSecretsAuthentication.md)
  - [SyntheticsPrivateLocationSecretsConfigDecryption](SyntheticsPrivateLocationSecretsConfigDecryption.md)
- - [SyntheticsResource](SyntheticsResource.md)
- - [SyntheticsResourceType](SyntheticsResourceType.md)
  - [SyntheticsSSLCertificate](SyntheticsSSLCertificate.md)
  - [SyntheticsSSLCertificateIssuer](SyntheticsSSLCertificateIssuer.md)
  - [SyntheticsSSLCertificateSubject](SyntheticsSSLCertificateSubject.md)
