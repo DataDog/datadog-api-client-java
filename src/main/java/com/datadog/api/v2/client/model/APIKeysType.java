@@ -9,7 +9,7 @@
  */
 
 
-package com.datadog.api.v1.client.model;
+package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -17,34 +17,22 @@ import java.util.Map;
 import java.util.HashMap;
 import io.swagger.annotations.ApiModel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Document type to apply an assertion against.
+ * API Keys resource type.
  */
-public enum SyntheticsResourceType {
+public enum APIKeysType {
   
-  DOCUMENT("document"),
-  
-  STYLESHEET("stylesheet"),
-  
-  FETCH("fetch"),
-  
-  IMAGE("image"),
-  
-  SCRIPT("script"),
-  
-  XHR("xhr"),
-  
-  OTHER("other");
+  API_KEYS("api_keys");
 
   private String value;
 
-  SyntheticsResourceType(String value) {
+  APIKeysType(String value) {
     this.value = value;
   }
 
@@ -59,8 +47,8 @@ public enum SyntheticsResourceType {
   }
 
   @JsonCreator
-  public static SyntheticsResourceType fromValue(String value) {
-    for (SyntheticsResourceType b : SyntheticsResourceType.values()) {
+  public static APIKeysType fromValue(String value) {
+    for (APIKeysType b : APIKeysType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
