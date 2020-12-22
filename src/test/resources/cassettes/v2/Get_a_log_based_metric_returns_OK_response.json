@@ -1,0 +1,154 @@
+[{
+  "id" : "2d544379-62fb-4754-905b-bd593b1cef7c",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v2/logs/config/metrics",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Get_a_log_based_metric_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "createLogsMetric" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"filter\":{\"query\":\"source:java-Get_a_log_based_metr-1608594239\"}},\"id\":\"java-Get_a_log_based_metr-1608594239\",\"type\":\"logs_metrics\"}}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 21 Dec 2020 23:44:00 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 28-Dec-2020 23:44:00 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.3583006" ],
+      "X-RateLimit-Limit" : [ "100" ],
+      "X-RateLimit-Period" : [ "3600" ],
+      "X-RateLimit-Reset" : [ "960" ],
+      "X-RateLimit-Remaining" : [ "61" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "POuDbGLugqXrJfoVh1EySG2rrzsK54DWLRF5/pTAPkxizo7RlYf80RrCYTzc0hnv" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "209" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"data\":{\"id\":\"java_Get_a_log_based_metr_1608594239\",\"attributes\":{\"filter\":{\"query\":\"source:java-Get_a_log_based_metr-1608594239\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\"}}"
+  }
+}, {
+  "id" : "ac81c4fa-9d81-423b-8478-4599b15f9114",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/logs/config/metrics/java_Get_a_log_based_metr_1608594239",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Get_a_log_based_metric_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "getLogsMetric" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 21 Dec 2020 23:44:00 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Connection" : [ "keep-alive" ],
+      "Vary" : [ "Accept-Encoding" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 28-Dec-2020 23:44:00 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.3583006" ],
+      "X-RateLimit-Limit" : [ "5000" ],
+      "X-RateLimit-Period" : [ "3600" ],
+      "X-RateLimit-Reset" : [ "960" ],
+      "X-RateLimit-Remaining" : [ "4959" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "sKAY0l5Dq+9OdN3cdjnBmv3dOgVdaJs4B9XR5o+IUZC5EZY9C+nnqv+YslWCCjmi" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "content-length" : [ "209" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"data\":{\"id\":\"java_Get_a_log_based_metr_1608594239\",\"attributes\":{\"filter\":{\"query\":\"source:java-Get_a_log_based_metr-1608594239\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\"}}"
+  }
+}, {
+  "id" : "513b4bc6-f3d7-41be-933e-38028818a02c",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v2/logs/config/metrics/java_Get_a_log_based_metr_1608594239",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Get_a_log_based_metric_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "deleteLogsMetric" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 21 Dec 2020 23:44:01 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ],
+      "Pragma" : [ "no-cache" ],
+      "Cache-Control" : [ "no-cache" ],
+      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 28-Dec-2020 23:44:01 GMT; secure; HttpOnly" ],
+      "X-DD-VERSION" : [ "35.3583006" ],
+      "X-RateLimit-Limit" : [ "5000" ],
+      "X-RateLimit-Period" : [ "3600" ],
+      "X-RateLimit-Reset" : [ "959" ],
+      "X-RateLimit-Remaining" : [ "4958" ],
+      "Content-Disposition" : [ "inline" ],
+      "X-DD-Debug" : [ "1P9wTBqAbIBgrelvLhZC6yMU4dh3hoPJxqgVxGKRZAP7KGr8YPkzxcmHF9q0g7sB" ],
+      "DD-POOL" : [ "dogweb" ],
+      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "X-Frame-Options" : [ "SAMEORIGIN" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{}"
+  }
+}]
