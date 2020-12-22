@@ -41,6 +41,11 @@ Class | Method | HTTP request | Description
 *LogsArchivesApi* | [**removeRoleFromArchive**](LogsArchivesApi.md#removeRoleFromArchive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
 *LogsArchivesApi* | [**updateLogsArchive**](LogsArchivesApi.md#updateLogsArchive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
 *LogsArchivesApi* | [**updateLogsArchiveOrder**](LogsArchivesApi.md#updateLogsArchiveOrder) | **PUT** /api/v2/logs/config/archive-order | Update archive order
+*LogsMetricsApi* | [**createLogsMetric**](LogsMetricsApi.md#createLogsMetric) | **POST** /api/v2/logs/config/metrics | Create a log-based metric
+*LogsMetricsApi* | [**deleteLogsMetric**](LogsMetricsApi.md#deleteLogsMetric) | **DELETE** /api/v2/logs/config/metrics/{metric_id} | Delete a log-based metric
+*LogsMetricsApi* | [**getLogsMetric**](LogsMetricsApi.md#getLogsMetric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric
+*LogsMetricsApi* | [**listLogsMetrics**](LogsMetricsApi.md#listLogsMetrics) | **GET** /api/v2/logs/config/metrics | Get all log-based metrics
+*LogsMetricsApi* | [**updateLogsMetric**](LogsMetricsApi.md#updateLogsMetric) | **PATCH** /api/v2/logs/config/metrics/{metric_id} | Update a log-based metric
 *ProcessesApi* | [**listProcesses**](ProcessesApi.md#listProcesses) | **GET** /api/v2/processes | Get all processes
 *RolesApi* | [**addPermissionToRole**](RolesApi.md#addPermissionToRole) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 *RolesApi* | [**addUserToRole**](RolesApi.md#addUserToRole) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
@@ -202,6 +207,25 @@ Class | Method | HTTP request | Description
  - [LogsListRequestPage](LogsListRequestPage.md)
  - [LogsListResponse](LogsListResponse.md)
  - [LogsListResponseLinks](LogsListResponseLinks.md)
+ - [LogsMetricCompute](LogsMetricCompute.md)
+ - [LogsMetricComputeAggregationType](LogsMetricComputeAggregationType.md)
+ - [LogsMetricCreateAttributes](LogsMetricCreateAttributes.md)
+ - [LogsMetricCreateData](LogsMetricCreateData.md)
+ - [LogsMetricCreateRequest](LogsMetricCreateRequest.md)
+ - [LogsMetricFilter](LogsMetricFilter.md)
+ - [LogsMetricGroupBy](LogsMetricGroupBy.md)
+ - [LogsMetricResponse](LogsMetricResponse.md)
+ - [LogsMetricResponseAttributes](LogsMetricResponseAttributes.md)
+ - [LogsMetricResponseCompute](LogsMetricResponseCompute.md)
+ - [LogsMetricResponseComputeAggregationType](LogsMetricResponseComputeAggregationType.md)
+ - [LogsMetricResponseData](LogsMetricResponseData.md)
+ - [LogsMetricResponseFilter](LogsMetricResponseFilter.md)
+ - [LogsMetricResponseGroupBy](LogsMetricResponseGroupBy.md)
+ - [LogsMetricType](LogsMetricType.md)
+ - [LogsMetricUpdateAttributes](LogsMetricUpdateAttributes.md)
+ - [LogsMetricUpdateData](LogsMetricUpdateData.md)
+ - [LogsMetricUpdateRequest](LogsMetricUpdateRequest.md)
+ - [LogsMetricsResponse](LogsMetricsResponse.md)
  - [LogsQueryFilter](LogsQueryFilter.md)
  - [LogsQueryOptions](LogsQueryOptions.md)
  - [LogsResponseMetadata](LogsResponseMetadata.md)
