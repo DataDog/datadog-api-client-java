@@ -52,7 +52,7 @@ public class ServiceLevelObjectiveQuery {
    * A Datadog metric query for total (valid) events.
    * @return denominator
   **/
-  @ApiModelProperty(required = true, value = "A Datadog metric query for total (valid) events.")
+  @ApiModelProperty(example = "", required = true, value = "A Datadog metric query for total (valid) events.")
   @JsonProperty(JSON_PROPERTY_DENOMINATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -75,7 +75,7 @@ public class ServiceLevelObjectiveQuery {
    * A Datadog metric query for good events.
    * @return numerator
   **/
-  @ApiModelProperty(required = true, value = "A Datadog metric query for good events.")
+  @ApiModelProperty(example = "", required = true, value = "A Datadog metric query for good events.")
   @JsonProperty(JSON_PROPERTY_NUMERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

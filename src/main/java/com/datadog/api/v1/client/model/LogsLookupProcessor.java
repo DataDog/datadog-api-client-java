@@ -175,7 +175,7 @@ public class LogsLookupProcessor {
    * Source attribute used to perform the lookup.
    * @return source
   **/
-  @ApiModelProperty(required = true, value = "Source attribute used to perform the lookup.")
+  @ApiModelProperty(example = "", required = true, value = "Source attribute used to perform the lookup.")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -198,7 +198,7 @@ public class LogsLookupProcessor {
    * Name of the attribute that contains the corresponding value in the mapping list or the &#x60;default_lookup&#x60; if not found in the mapping list.
    * @return target
   **/
-  @ApiModelProperty(required = true, value = "Name of the attribute that contains the corresponding value in the mapping list or the `default_lookup` if not found in the mapping list.")
+  @ApiModelProperty(example = "", required = true, value = "Name of the attribute that contains the corresponding value in the mapping list or the `default_lookup` if not found in the mapping list.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

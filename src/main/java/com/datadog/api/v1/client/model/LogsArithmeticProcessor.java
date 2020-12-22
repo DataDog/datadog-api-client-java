@@ -69,7 +69,7 @@ public class LogsArithmeticProcessor {
    * Arithmetic operation between one or more log attributes.
    * @return expression
   **/
-  @ApiModelProperty(required = true, value = "Arithmetic operation between one or more log attributes.")
+  @ApiModelProperty(example = "", required = true, value = "Arithmetic operation between one or more log attributes.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -164,7 +164,7 @@ public class LogsArithmeticProcessor {
    * Name of the attribute that contains the result of the arithmetic operation.
    * @return target
   **/
-  @ApiModelProperty(required = true, value = "Name of the attribute that contains the result of the arithmetic operation.")
+  @ApiModelProperty(example = "", required = true, value = "Name of the attribute that contains the result of the arithmetic operation.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -137,7 +137,7 @@ public class ServiceSummaryWidgetDefinition {
    * APM environment.
    * @return env
   **/
-  @ApiModelProperty(required = true, value = "APM environment.")
+  @ApiModelProperty(example = "", required = true, value = "APM environment.")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -160,7 +160,7 @@ public class ServiceSummaryWidgetDefinition {
    * APM service.
    * @return service
   **/
-  @ApiModelProperty(required = true, value = "APM service.")
+  @ApiModelProperty(example = "", required = true, value = "APM service.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -351,7 +351,7 @@ public class ServiceSummaryWidgetDefinition {
    * APM span name.
    * @return spanName
   **/
-  @ApiModelProperty(required = true, value = "APM span name.")
+  @ApiModelProperty(example = "", required = true, value = "APM span name.")
   @JsonProperty(JSON_PROPERTY_SPAN_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

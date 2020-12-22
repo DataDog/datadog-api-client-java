@@ -172,7 +172,7 @@ public class SLOHistoryMetrics {
    * The combined numerator and denominator query CSV.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "The combined numerator and denominator query CSV.")
+  @ApiModelProperty(example = "", required = true, value = "The combined numerator and denominator query CSV.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -195,7 +195,7 @@ public class SLOHistoryMetrics {
    * The series result type. This mimics &#x60;batch_query&#x60; response type.
    * @return resType
   **/
-  @ApiModelProperty(required = true, value = "The series result type. This mimics `batch_query` response type.")
+  @ApiModelProperty(example = "", required = true, value = "The series result type. This mimics `batch_query` response type.")
   @JsonProperty(JSON_PROPERTY_RES_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

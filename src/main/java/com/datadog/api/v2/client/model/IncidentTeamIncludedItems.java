@@ -137,7 +137,7 @@ public class IncidentTeamIncludedItems extends AbstractOpenApiSchema {
     }
 
     // store a list of schema names defined in oneOf
-    public final static Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
     public IncidentTeamIncludedItems() {
         super("oneOf", Boolean.FALSE);

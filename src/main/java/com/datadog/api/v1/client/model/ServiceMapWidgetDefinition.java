@@ -137,7 +137,7 @@ public class ServiceMapWidgetDefinition {
    * The ID of the service you want to map.
    * @return service
   **/
-  @ApiModelProperty(required = true, value = "The ID of the service you want to map.")
+  @ApiModelProperty(example = "", required = true, value = "The ID of the service you want to map.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -5764,7 +5764,9 @@ components:
       - is
       - isNot
       - lessThan
+      - lessThanOrEqual
       - moreThan
+      - moreThanOrEqual
       - matches
       - doesNotMatch
       - validates
@@ -5777,7 +5779,9 @@ components:
       - IS
       - IS_NOT
       - LESS_THAN
+      - LESS_THAN_OR_EQUAL
       - MORE_THAN
+      - MORE_THAN_OR_EQUAL
       - MATCHES
       - DOES_NOT_MATCH
       - VALIDATES
@@ -6011,12 +6015,14 @@ components:
       - element
       - email
       - global
+      - javascript
       - text
       type: string
       x-enum-varnames:
       - ELEMENT
       - EMAIL
       - GLOBAL
+      - JAVASCRIPT
       - TEXT
     SyntheticsCITest:
       description: Test configuration for Synthetics CI
@@ -6432,57 +6438,6 @@ components:
               type: string
           type: object
       type: object
-    SyntheticsResource:
-      description: Object describing a resource which is the combination of requests
-        (fetch, XHR) and Assets (HTML, CSS, JS, images).
-      properties:
-        duration:
-          description: Number of time the resource was collected.
-          format: double
-          type: number
-        method:
-          description: HTTP method associated to the resource.
-          type: string
-        size:
-          description: Size of the resource in bytes.
-          format: int64
-          type: integer
-        status:
-          description: Status Code of the resource.
-          format: int64
-          type: integer
-        timestamp:
-          description: Timestamp of the resource collection.
-          format: double
-          type: number
-        traceId:
-          description: Trace ID associated with the resource if any.
-          type: string
-        type:
-          $ref: '#/components/schemas/SyntheticsResourceType'
-        url:
-          description: URL of the resource.
-          type: string
-      type: object
-    SyntheticsResourceType:
-      description: Document type to apply an assertion against.
-      enum:
-      - document
-      - stylesheet
-      - fetch
-      - image
-      - script
-      - xhr
-      - other
-      type: string
-      x-enum-varnames:
-      - DOCUMENT
-      - STYLESHEET
-      - FETCH
-      - IMAGE
-      - SCRIPT
-      - XHR
-      - OTHER
     SyntheticsSSLCertificate:
       description: Object describing the SSL certificate used for a Synthetic test.
       properties:
@@ -6610,11 +6565,6 @@ components:
           type: string
         playingTab:
           $ref: '#/components/schemas/SyntheticsPlayingTab'
-        resources:
-          description: Array of resources collected by the test.
-          items:
-            $ref: '#/components/schemas/SyntheticsResource'
-          type: array
         screenshotBucketKey:
           description: Whether or not screenshots where collected by the test.
           type: boolean
@@ -10182,7 +10132,12 @@ paths:
       x-undo:
         type: safe
     post:
-      description: Create a dashboard using the specified options.
+      description: 'Create a dashboard using the specified options. When defining
+        queries in your widgets, take note of which queries should have the `as_count()`
+        or `as_rate()` modifiers appended.
+
+        Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers)
+        for more information on these modifiers.'
       operationId: CreateDashboard
       requestBody:
         content:
@@ -15576,7 +15531,7 @@ paths:
         type: safe
   /api/v1/usage/billable-summary:
     get:
-      description: Get billable usage across your multi-org account.
+      description: Get billable usage across your account.
       operationId: GetUsageBillableSummary
       parameters:
       - description: 'Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]`
@@ -15606,7 +15561,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Forbidden - User is not authorized
-      summary: Get billable usage across your multi-org account
+      summary: Get billable usage across your account
       tags:
       - Usage Metering
       x-undo:
@@ -16178,7 +16133,8 @@ paths:
         type: safe
   /api/v1/usage/summary:
     get:
-      description: Get usage across your multi-org account.
+      description: Get usage across your multi-org account. You must have the multi-org
+        feature enabled.
       operationId: GetUsageSummary
       parameters:
       - description: 'Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]`

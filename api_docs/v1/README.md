@@ -141,7 +141,7 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getTracingWithoutLimits**](UsageMeteringApi.md#getTracingWithoutLimits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 *UsageMeteringApi* | [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 *UsageMeteringApi* | [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
-*UsageMeteringApi* | [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your multi-org account
+*UsageMeteringApi* | [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
 *UsageMeteringApi* | [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *UsageMeteringApi* | [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *UsageMeteringApi* | [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -454,8 +454,6 @@ Class | Method | HTTP request | Description
  - [SyntheticsPrivateLocationSecrets](SyntheticsPrivateLocationSecrets.md)
  - [SyntheticsPrivateLocationSecretsAuthentication](SyntheticsPrivateLocationSecretsAuthentication.md)
  - [SyntheticsPrivateLocationSecretsConfigDecryption](SyntheticsPrivateLocationSecretsConfigDecryption.md)
- - [SyntheticsResource](SyntheticsResource.md)
- - [SyntheticsResourceType](SyntheticsResourceType.md)
  - [SyntheticsSSLCertificate](SyntheticsSSLCertificate.md)
  - [SyntheticsSSLCertificateIssuer](SyntheticsSSLCertificateIssuer.md)
  - [SyntheticsSSLCertificateSubject](SyntheticsSSLCertificateSubject.md)

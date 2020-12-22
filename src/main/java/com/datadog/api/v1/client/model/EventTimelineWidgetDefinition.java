@@ -75,7 +75,7 @@ public class EventTimelineWidgetDefinition {
    * Query to filter the event timeline with.
    * @return query
   **/
-  @ApiModelProperty(required = true, value = "Query to filter the event timeline with.")
+  @ApiModelProperty(example = "", required = true, value = "Query to filter the event timeline with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

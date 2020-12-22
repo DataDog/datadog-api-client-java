@@ -57,7 +57,7 @@ public class SLOBulkDeleteResponseErrors {
    * The ID of the service level objective object associated with this error.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "The ID of the service level objective object associated with this error.")
+  @ApiModelProperty(example = "", required = true, value = "The ID of the service level objective object associated with this error.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -80,7 +80,7 @@ public class SLOBulkDeleteResponseErrors {
    * The error message.
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "The error message.")
+  @ApiModelProperty(example = "", required = true, value = "The error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

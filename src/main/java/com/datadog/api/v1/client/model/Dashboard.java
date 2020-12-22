@@ -389,7 +389,7 @@ public class Dashboard {
    * Title of the dashboard.
    * @return title
   **/
-  @ApiModelProperty(required = true, value = "Title of the dashboard.")
+  @ApiModelProperty(example = "", required = true, value = "Title of the dashboard.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

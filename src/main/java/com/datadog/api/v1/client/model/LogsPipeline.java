@@ -156,7 +156,7 @@ public class LogsPipeline {
    * Name of the pipeline.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name of the pipeline.")
+  @ApiModelProperty(example = "", required = true, value = "Name of the pipeline.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

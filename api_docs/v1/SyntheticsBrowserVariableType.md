@@ -11,6 +11,8 @@
 
 * `GLOBAL` (value: `"global"`)
 
+* `JAVASCRIPT` (value: `"javascript"`)
+
 * `TEXT` (value: `"text"`)
 
 
