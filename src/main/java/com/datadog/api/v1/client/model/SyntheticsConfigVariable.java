@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsBrowserVariableType;
+import com.datadog.api.v1.client.model.SyntheticsConfigVariableType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -28,23 +28,19 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
+ * Object defining a variable that can be used in your test configuration.
  */
-@ApiModel(description = "Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).")
+@ApiModel(description = "Object defining a variable that can be used in your test configuration.")
 @JsonPropertyOrder({
-  SyntheticsBrowserVariable.JSON_PROPERTY_EXAMPLE,
-  SyntheticsBrowserVariable.JSON_PROPERTY_ID,
-  SyntheticsBrowserVariable.JSON_PROPERTY_NAME,
-  SyntheticsBrowserVariable.JSON_PROPERTY_PATTERN,
-  SyntheticsBrowserVariable.JSON_PROPERTY_TYPE
+  SyntheticsConfigVariable.JSON_PROPERTY_EXAMPLE,
+  SyntheticsConfigVariable.JSON_PROPERTY_NAME,
+  SyntheticsConfigVariable.JSON_PROPERTY_PATTERN,
+  SyntheticsConfigVariable.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsBrowserVariable {
+public class SyntheticsConfigVariable {
   public static final String JSON_PROPERTY_EXAMPLE = "example";
   private String example;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -53,10 +49,10 @@ public class SyntheticsBrowserVariable {
   private String pattern;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SyntheticsBrowserVariableType type;
+  private SyntheticsConfigVariableType type;
 
 
-  public SyntheticsBrowserVariable example(String example) {
+  public SyntheticsConfigVariable example(String example) {
     this.example = example;
     return this;
   }
@@ -65,10 +61,9 @@ public class SyntheticsBrowserVariable {
    * Example for the variable.
    * @return example
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Example for the variable.")
+  @ApiModelProperty(required = true, value = "Example for the variable.")
   @JsonProperty(JSON_PROPERTY_EXAMPLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getExample() {
     return example;
@@ -80,31 +75,7 @@ public class SyntheticsBrowserVariable {
   }
 
 
-  public SyntheticsBrowserVariable id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * ID for the variable.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID for the variable.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public SyntheticsBrowserVariable name(String name) {
+  public SyntheticsConfigVariable name(String name) {
     this.name = name;
     return this;
   }
@@ -127,7 +98,7 @@ public class SyntheticsBrowserVariable {
   }
 
 
-  public SyntheticsBrowserVariable pattern(String pattern) {
+  public SyntheticsConfigVariable pattern(String pattern) {
     this.pattern = pattern;
     return this;
   }
@@ -151,7 +122,7 @@ public class SyntheticsBrowserVariable {
   }
 
 
-  public SyntheticsBrowserVariable type(SyntheticsBrowserVariableType type) {
+  public SyntheticsConfigVariable type(SyntheticsConfigVariableType type) {
     this.type = type;
     return this;
   }
@@ -164,18 +135,18 @@ public class SyntheticsBrowserVariable {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public SyntheticsBrowserVariableType getType() {
+  public SyntheticsConfigVariableType getType() {
     return type;
   }
 
 
-  public void setType(SyntheticsBrowserVariableType type) {
+  public void setType(SyntheticsConfigVariableType type) {
     this.type = type;
   }
 
 
   /**
-   * Return true if this SyntheticsBrowserVariable object is equal to o.
+   * Return true if this SyntheticsConfigVariable object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -185,26 +156,24 @@ public class SyntheticsBrowserVariable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsBrowserVariable syntheticsBrowserVariable = (SyntheticsBrowserVariable) o;
-    return Objects.equals(this.example, syntheticsBrowserVariable.example) &&
-        Objects.equals(this.id, syntheticsBrowserVariable.id) &&
-        Objects.equals(this.name, syntheticsBrowserVariable.name) &&
-        Objects.equals(this.pattern, syntheticsBrowserVariable.pattern) &&
-        Objects.equals(this.type, syntheticsBrowserVariable.type);
+    SyntheticsConfigVariable syntheticsConfigVariable = (SyntheticsConfigVariable) o;
+    return Objects.equals(this.example, syntheticsConfigVariable.example) &&
+        Objects.equals(this.name, syntheticsConfigVariable.name) &&
+        Objects.equals(this.pattern, syntheticsConfigVariable.pattern) &&
+        Objects.equals(this.type, syntheticsConfigVariable.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(example, id, name, pattern, type);
+    return Objects.hash(example, name, pattern, type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsBrowserVariable {\n");
+    sb.append("class SyntheticsConfigVariable {\n");
     sb.append("    example: ").append(toIndentedString(example)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
