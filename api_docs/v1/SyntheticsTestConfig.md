@@ -8,8 +8,9 @@ Configuration object for a Synthetic test.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assertions** | [**List&lt;SyntheticsAssertion&gt;**](SyntheticsAssertion.md) | Array of assertions used for the test. | 
+**configVariables** | [**List&lt;SyntheticsConfigVariable&gt;**](SyntheticsConfigVariable.md) | API tests only - array of variables used for the test. |  [optional]
 **request** | [**SyntheticsTestRequest**](SyntheticsTestRequest.md) |  | 
-**variables** | [**List&lt;SyntheticsBrowserVariable&gt;**](SyntheticsBrowserVariable.md) | Array of variables used for the test. |  [optional]
+**variables** | [**List&lt;SyntheticsBrowserVariable&gt;**](SyntheticsBrowserVariable.md) | Browser tests only - array of variables used for the test steps. |  [optional]
 
 
 
