@@ -333,6 +333,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getTwolIngestedEventsBytesAggSum().longValue(), 8L);
         assertEquals(usage.getMobileRumSessionCountAggSum().longValue(), 9L);
         assertEquals(usage.getIncidentManagementMonthlyActiveUsersHwmSum().longValue(), 10L);
+        assertEquals(usage.getMobileRumSessionCountIosAggSum().longValue(), 11L);
+        assertEquals(usage.getMobileRumSessionCountAndroidAggSum().longValue(), 12L);
+        assertEquals(usage.getRumTotalSessionCountAggSum().longValue(), 13L);
         assertEquals(usage.getAzureAppServiceTop99pSum().longValue(), 14L);
         assertEquals(usage.getApmAzureAppServiceHostTop99pSum().longValue(), 15L);
 
@@ -353,6 +356,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
         assertEquals(usageItem.getMobileRumSessionCountSum().longValue(), 12L);
         assertEquals(usageItem.getIncidentManagementMonthlyActiveUsersHwm().longValue(), 13L);
+        assertEquals(usageItem.getMobileRumSessionCountIosSum().longValue(), 14L);
+        assertEquals(usageItem.getMobileRumSessionCountAndroidSum().longValue(), 15L);
+        assertEquals(usageItem.getRumTotalSessionCountSum().longValue(), 16L);
         assertEquals(usageItem.getAzureAppServiceTop99p().longValue(), 17L);
         assertEquals(usageItem.getApmAzureAppServiceHostTop99p().longValue(), 18L);
 
@@ -371,6 +377,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageOrgItem.getTwolIngestedEventsBytesSum().longValue(), 11L);
         assertEquals(usageOrgItem.getMobileRumSessionCountSum().longValue(), 12L);
         assertEquals(usageOrgItem.getIncidentManagementMonthlyActiveUsersHwm().longValue(), 13L);
+        assertEquals(usageOrgItem.getMobileRumSessionCountIosSum().longValue(), 14L);
+        assertEquals(usageOrgItem.getMobileRumSessionCountAndroidSum().longValue(), 15L);
+        assertEquals(usageOrgItem.getRumTotalSessionCountSum().longValue(), 16L);
         assertEquals(usageOrgItem.getAzureAppServiceTop99p().longValue(), 17L);
         assertEquals(usageOrgItem.getApmAzureAppServiceHostTop99p().longValue(), 18L);
     }

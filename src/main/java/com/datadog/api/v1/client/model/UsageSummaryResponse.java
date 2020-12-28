@@ -56,11 +56,14 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryResponse.JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_LAST_UPDATED,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_START_DATE,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_AGG_SUM,
@@ -133,6 +136,12 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_AGG_SUM = "mobile_rum_session_count_agg_sum";
   private Long mobileRumSessionCountAggSum;
 
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_AGG_SUM = "mobile_rum_session_count_android_agg_sum";
+  private Long mobileRumSessionCountAndroidAggSum;
+
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_AGG_SUM = "mobile_rum_session_count_ios_agg_sum";
+  private Long mobileRumSessionCountIosAggSum;
+
   public static final String JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM = "netflow_indexed_events_count_agg_sum";
   private Long netflowIndexedEventsCountAggSum;
 
@@ -147,6 +156,9 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM = "rum_session_count_agg_sum";
   private Long rumSessionCountAggSum;
+
+  public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM = "rum_total_session_count_agg_sum";
+  private Long rumTotalSessionCountAggSum;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
   private OffsetDateTime startDate;
@@ -671,6 +683,54 @@ public class UsageSummaryResponse {
   }
 
 
+  public UsageSummaryResponse mobileRumSessionCountAndroidAggSum(Long mobileRumSessionCountAndroidAggSum) {
+    this.mobileRumSessionCountAndroidAggSum = mobileRumSessionCountAndroidAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations.
+   * @return mobileRumSessionCountAndroidAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMobileRumSessionCountAndroidAggSum() {
+    return mobileRumSessionCountAndroidAggSum;
+  }
+
+
+  public void setMobileRumSessionCountAndroidAggSum(Long mobileRumSessionCountAndroidAggSum) {
+    this.mobileRumSessionCountAndroidAggSum = mobileRumSessionCountAndroidAggSum;
+  }
+
+
+  public UsageSummaryResponse mobileRumSessionCountIosAggSum(Long mobileRumSessionCountIosAggSum) {
+    this.mobileRumSessionCountIosAggSum = mobileRumSessionCountIosAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations.
+   * @return mobileRumSessionCountIosAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMobileRumSessionCountIosAggSum() {
+    return mobileRumSessionCountIosAggSum;
+  }
+
+
+  public void setMobileRumSessionCountIosAggSum(Long mobileRumSessionCountIosAggSum) {
+    this.mobileRumSessionCountIosAggSum = mobileRumSessionCountIosAggSum;
+  }
+
+
   public UsageSummaryResponse netflowIndexedEventsCountAggSum(Long netflowIndexedEventsCountAggSum) {
     this.netflowIndexedEventsCountAggSum = netflowIndexedEventsCountAggSum;
     return this;
@@ -788,6 +848,30 @@ public class UsageSummaryResponse {
 
   public void setRumSessionCountAggSum(Long rumSessionCountAggSum) {
     this.rumSessionCountAggSum = rumSessionCountAggSum;
+  }
+
+
+  public UsageSummaryResponse rumTotalSessionCountAggSum(Long rumTotalSessionCountAggSum) {
+    this.rumTotalSessionCountAggSum = rumTotalSessionCountAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations.
+   * @return rumTotalSessionCountAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getRumTotalSessionCountAggSum() {
+    return rumTotalSessionCountAggSum;
+  }
+
+
+  public void setRumTotalSessionCountAggSum(Long rumTotalSessionCountAggSum) {
+    this.rumTotalSessionCountAggSum = rumTotalSessionCountAggSum;
   }
 
 
@@ -976,11 +1060,14 @@ public class UsageSummaryResponse {
         Objects.equals(this.ingestedEventsBytesAggSum, usageSummaryResponse.ingestedEventsBytesAggSum) &&
         Objects.equals(this.lastUpdated, usageSummaryResponse.lastUpdated) &&
         Objects.equals(this.mobileRumSessionCountAggSum, usageSummaryResponse.mobileRumSessionCountAggSum) &&
+        Objects.equals(this.mobileRumSessionCountAndroidAggSum, usageSummaryResponse.mobileRumSessionCountAndroidAggSum) &&
+        Objects.equals(this.mobileRumSessionCountIosAggSum, usageSummaryResponse.mobileRumSessionCountIosAggSum) &&
         Objects.equals(this.netflowIndexedEventsCountAggSum, usageSummaryResponse.netflowIndexedEventsCountAggSum) &&
         Objects.equals(this.npmHostTop99pSum, usageSummaryResponse.npmHostTop99pSum) &&
         Objects.equals(this.profilingContainerAgentCountAvg, usageSummaryResponse.profilingContainerAgentCountAvg) &&
         Objects.equals(this.profilingHostCountTop99pSum, usageSummaryResponse.profilingHostCountTop99pSum) &&
         Objects.equals(this.rumSessionCountAggSum, usageSummaryResponse.rumSessionCountAggSum) &&
+        Objects.equals(this.rumTotalSessionCountAggSum, usageSummaryResponse.rumTotalSessionCountAggSum) &&
         Objects.equals(this.startDate, usageSummaryResponse.startDate) &&
         Objects.equals(this.syntheticsBrowserCheckCallsCountAggSum, usageSummaryResponse.syntheticsBrowserCheckCallsCountAggSum) &&
         Objects.equals(this.syntheticsCheckCallsCountAggSum, usageSummaryResponse.syntheticsCheckCallsCountAggSum) &&
@@ -991,7 +1078,7 @@ public class UsageSummaryResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99pSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, incidentManagementMonthlyActiveUsersHwmSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, lastUpdated, mobileRumSessionCountAggSum, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingContainerAgentCountAvg, profilingHostCountTop99pSum, rumSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, twolIngestedEventsBytesAggSum, usage);
+    return Objects.hash(agentHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99pSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, incidentManagementMonthlyActiveUsersHwmSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, lastUpdated, mobileRumSessionCountAggSum, mobileRumSessionCountAndroidAggSum, mobileRumSessionCountIosAggSum, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingContainerAgentCountAvg, profilingHostCountTop99pSum, rumSessionCountAggSum, rumTotalSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, twolIngestedEventsBytesAggSum, usage);
   }
 
 
@@ -1020,11 +1107,14 @@ public class UsageSummaryResponse {
     sb.append("    ingestedEventsBytesAggSum: ").append(toIndentedString(ingestedEventsBytesAggSum)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
     sb.append("    mobileRumSessionCountAggSum: ").append(toIndentedString(mobileRumSessionCountAggSum)).append("\n");
+    sb.append("    mobileRumSessionCountAndroidAggSum: ").append(toIndentedString(mobileRumSessionCountAndroidAggSum)).append("\n");
+    sb.append("    mobileRumSessionCountIosAggSum: ").append(toIndentedString(mobileRumSessionCountIosAggSum)).append("\n");
     sb.append("    netflowIndexedEventsCountAggSum: ").append(toIndentedString(netflowIndexedEventsCountAggSum)).append("\n");
     sb.append("    npmHostTop99pSum: ").append(toIndentedString(npmHostTop99pSum)).append("\n");
     sb.append("    profilingContainerAgentCountAvg: ").append(toIndentedString(profilingContainerAgentCountAvg)).append("\n");
     sb.append("    profilingHostCountTop99pSum: ").append(toIndentedString(profilingHostCountTop99pSum)).append("\n");
     sb.append("    rumSessionCountAggSum: ").append(toIndentedString(rumSessionCountAggSum)).append("\n");
+    sb.append("    rumTotalSessionCountAggSum: ").append(toIndentedString(rumTotalSessionCountAggSum)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountAggSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountAggSum)).append("\n");
     sb.append("    syntheticsCheckCallsCountAggSum: ").append(toIndentedString(syntheticsCheckCallsCountAggSum)).append("\n");
