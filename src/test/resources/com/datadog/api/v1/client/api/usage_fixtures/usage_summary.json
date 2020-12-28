@@ -54,7 +54,7 @@
           "incident_management_monthly_active_users_hwm": 13,
           "mobile_rum_session_count_ios_sum": 14,
           "mobile_rum_session_count_android_sum": 15,
-          "rum_total_session_count_sum": 16
+          "rum_total_session_count_sum": 16,
           "azure_app_service_top99p": 17,
           "apm_azure_app_service_host_top99p": 18
         }
