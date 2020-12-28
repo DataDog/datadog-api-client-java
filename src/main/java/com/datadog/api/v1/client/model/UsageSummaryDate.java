@@ -53,12 +53,15 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDate.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM,
+  UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
@@ -120,6 +123,12 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM = "ingested_events_bytes_sum";
   private Long ingestedEventsBytesSum;
 
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM = "mobile_rum_session_count_android_sum";
+  private Long mobileRumSessionCountAndroidSum;
+
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM = "mobile_rum_session_count_ios_sum";
+  private Long mobileRumSessionCountIosSum;
+
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM = "mobile_rum_session_count_sum";
   private Long mobileRumSessionCountSum;
 
@@ -137,6 +146,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_SUM = "rum_session_count_sum";
   private Long rumSessionCountSum;
+
+  public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM = "rum_total_session_count_sum";
+  private Long rumTotalSessionCountSum;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM = "synthetics_browser_check_calls_count_sum";
   private Long syntheticsBrowserCheckCallsCountSum;
@@ -583,6 +595,54 @@ public class UsageSummaryDate {
   }
 
 
+  public UsageSummaryDate mobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
+    this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all organizations.
+   * @return mobileRumSessionCountAndroidSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMobileRumSessionCountAndroidSum() {
+    return mobileRumSessionCountAndroidSum;
+  }
+
+
+  public void setMobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
+    this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
+  }
+
+
+  public UsageSummaryDate mobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
+    this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all organizations.
+   * @return mobileRumSessionCountIosSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMobileRumSessionCountIosSum() {
+    return mobileRumSessionCountIosSum;
+  }
+
+
+  public void setMobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
+    this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
+  }
+
+
   public UsageSummaryDate mobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
     return this;
@@ -735,6 +795,30 @@ public class UsageSummaryDate {
   }
 
 
+  public UsageSummaryDate rumTotalSessionCountSum(Long rumTotalSessionCountSum) {
+    this.rumTotalSessionCountSum = rumTotalSessionCountSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for all organizations.
+   * @return rumTotalSessionCountSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getRumTotalSessionCountSum() {
+    return rumTotalSessionCountSum;
+  }
+
+
+  public void setRumTotalSessionCountSum(Long rumTotalSessionCountSum) {
+    this.rumTotalSessionCountSum = rumTotalSessionCountSum;
+  }
+
+
   public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
     return this;
@@ -861,12 +945,15 @@ public class UsageSummaryDate {
         Objects.equals(this.indexedEventsCountSum, usageSummaryDate.indexedEventsCountSum) &&
         Objects.equals(this.infraHostTop99p, usageSummaryDate.infraHostTop99p) &&
         Objects.equals(this.ingestedEventsBytesSum, usageSummaryDate.ingestedEventsBytesSum) &&
+        Objects.equals(this.mobileRumSessionCountAndroidSum, usageSummaryDate.mobileRumSessionCountAndroidSum) &&
+        Objects.equals(this.mobileRumSessionCountIosSum, usageSummaryDate.mobileRumSessionCountIosSum) &&
         Objects.equals(this.mobileRumSessionCountSum, usageSummaryDate.mobileRumSessionCountSum) &&
         Objects.equals(this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum) &&
         Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p) &&
         Objects.equals(this.orgs, usageSummaryDate.orgs) &&
         Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p) &&
         Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum) &&
+        Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum) &&
         Objects.equals(this.syntheticsBrowserCheckCallsCountSum, usageSummaryDate.syntheticsBrowserCheckCallsCountSum) &&
         Objects.equals(this.syntheticsCheckCallsCountSum, usageSummaryDate.syntheticsCheckCallsCountSum) &&
         Objects.equals(this.traceSearchIndexedEventsCountSum, usageSummaryDate.traceSearchIndexedEventsCountSum) &&
@@ -875,7 +962,7 @@ public class UsageSummaryDate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99p, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, date, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, incidentManagementMonthlyActiveUsersHwm, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, mobileRumSessionCountSum, netflowIndexedEventsCountSum, npmHostTop99p, orgs, profilingHostTop99p, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
+    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99p, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, date, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, incidentManagementMonthlyActiveUsersHwm, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, mobileRumSessionCountAndroidSum, mobileRumSessionCountIosSum, mobileRumSessionCountSum, netflowIndexedEventsCountSum, npmHostTop99p, orgs, profilingHostTop99p, rumSessionCountSum, rumTotalSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
   }
 
 
@@ -901,12 +988,15 @@ public class UsageSummaryDate {
     sb.append("    indexedEventsCountSum: ").append(toIndentedString(indexedEventsCountSum)).append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
     sb.append("    ingestedEventsBytesSum: ").append(toIndentedString(ingestedEventsBytesSum)).append("\n");
+    sb.append("    mobileRumSessionCountAndroidSum: ").append(toIndentedString(mobileRumSessionCountAndroidSum)).append("\n");
+    sb.append("    mobileRumSessionCountIosSum: ").append(toIndentedString(mobileRumSessionCountIosSum)).append("\n");
     sb.append("    mobileRumSessionCountSum: ").append(toIndentedString(mobileRumSessionCountSum)).append("\n");
     sb.append("    netflowIndexedEventsCountSum: ").append(toIndentedString(netflowIndexedEventsCountSum)).append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
     sb.append("    profilingHostTop99p: ").append(toIndentedString(profilingHostTop99p)).append("\n");
     sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
+    sb.append("    rumTotalSessionCountSum: ").append(toIndentedString(rumTotalSessionCountSum)).append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountSum)).append("\n");
     sb.append("    syntheticsCheckCallsCountSum: ").append(toIndentedString(syntheticsCheckCallsCountSum)).append("\n");
     sb.append("    traceSearchIndexedEventsCountSum: ").append(toIndentedString(traceSearchIndexedEventsCountSum)).append("\n");
