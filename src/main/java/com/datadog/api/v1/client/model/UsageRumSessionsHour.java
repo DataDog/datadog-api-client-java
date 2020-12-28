@@ -33,7 +33,9 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "Number of RUM Sessions recorded for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageRumSessionsHour.JSON_PROPERTY_HOUR,
-  UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT
+  UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT,
+  UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_ANDROID,
+  UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_IOS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageRumSessionsHour {
@@ -42,6 +44,12 @@ public class UsageRumSessionsHour {
 
   public static final String JSON_PROPERTY_SESSION_COUNT = "session_count";
   private Long sessionCount;
+
+  public static final String JSON_PROPERTY_SESSION_COUNT_ANDROID = "session_count_android";
+  private Long sessionCountAndroid;
+
+  public static final String JSON_PROPERTY_SESSION_COUNT_IOS = "session_count_ios";
+  private Long sessionCountIos;
 
 
   public UsageRumSessionsHour hour(OffsetDateTime hour) {
@@ -92,6 +100,54 @@ public class UsageRumSessionsHour {
   }
 
 
+  public UsageRumSessionsHour sessionCountAndroid(Long sessionCountAndroid) {
+    this.sessionCountAndroid = sessionCountAndroid;
+    return this;
+  }
+
+   /**
+   * Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
+   * @return sessionCountAndroid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_SESSION_COUNT_ANDROID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getSessionCountAndroid() {
+    return sessionCountAndroid;
+  }
+
+
+  public void setSessionCountAndroid(Long sessionCountAndroid) {
+    this.sessionCountAndroid = sessionCountAndroid;
+  }
+
+
+  public UsageRumSessionsHour sessionCountIos(Long sessionCountIos) {
+    this.sessionCountIos = sessionCountIos;
+    return this;
+  }
+
+   /**
+   * Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
+   * @return sessionCountIos
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_SESSION_COUNT_IOS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getSessionCountIos() {
+    return sessionCountIos;
+  }
+
+
+  public void setSessionCountIos(Long sessionCountIos) {
+    this.sessionCountIos = sessionCountIos;
+  }
+
+
   /**
    * Return true if this UsageRumSessionsHour object is equal to o.
    */
@@ -105,12 +161,14 @@ public class UsageRumSessionsHour {
     }
     UsageRumSessionsHour usageRumSessionsHour = (UsageRumSessionsHour) o;
     return Objects.equals(this.hour, usageRumSessionsHour.hour) &&
-        Objects.equals(this.sessionCount, usageRumSessionsHour.sessionCount);
+        Objects.equals(this.sessionCount, usageRumSessionsHour.sessionCount) &&
+        Objects.equals(this.sessionCountAndroid, usageRumSessionsHour.sessionCountAndroid) &&
+        Objects.equals(this.sessionCountIos, usageRumSessionsHour.sessionCountIos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, sessionCount);
+    return Objects.hash(hour, sessionCount, sessionCountAndroid, sessionCountIos);
   }
 
 
@@ -120,6 +178,8 @@ public class UsageRumSessionsHour {
     sb.append("class UsageRumSessionsHour {\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
+    sb.append("    sessionCountAndroid: ").append(toIndentedString(sessionCountAndroid)).append("\n");
+    sb.append("    sessionCountIos: ").append(toIndentedString(sessionCountIos)).append("\n");
     sb.append("}");
     return sb.toString();
   }
