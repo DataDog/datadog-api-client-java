@@ -8,6 +8,7 @@ Response with hourly report of all data billed by Datadog all organizations.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **agentHostTop99pSum** | **Long** | Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations. |  [optional]
+**apmAzureAppServiceHostTop99pSum** | **Long** | Shows the 99th percentile of all Azure app services using APM over all hours in the current months all organizations. |  [optional]
 **apmHostTop99pSum** | **Long** | Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations. |  [optional]
 **awsHostTop99pSum** | **Long** | Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations. |  [optional]
 **awsLambdaFuncCount** | **Long** | Shows the average of the number of functions that executed 1 or more times each hour in the current months for all organizations. |  [optional]
@@ -28,11 +29,14 @@ Name | Type | Description | Notes
 **ingestedEventsBytesAggSum** | **Long** | Shows the sum of all log bytes ingested over all hours in the current months for all organizations. |  [optional]
 **lastUpdated** | **OffsetDateTime** | Shows the the most recent hour in the current months for all organizations for which all usages were calculated. |  [optional]
 **mobileRumSessionCountAggSum** | **Long** | Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations. |  [optional]
+**mobileRumSessionCountAndroidAggSum** | **Long** | Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations. |  [optional]
+**mobileRumSessionCountIosAggSum** | **Long** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations. |  [optional]
 **netflowIndexedEventsCountAggSum** | **Long** | Shows the sum of all Network flows indexed over all hours in the current months for all organizations. |  [optional]
 **npmHostTop99pSum** | **Long** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations. |  [optional]
 **profilingContainerAgentCountAvg** | **Long** | Shows the average number of profiled containers over all hours in the current months for all organizations. |  [optional]
 **profilingHostCountTop99pSum** | **Long** | Shows the 99th percentile of all profiled hosts over all hours in the current months for all organizations. |  [optional]
 **rumSessionCountAggSum** | **Long** | Shows the sum of all browser RUM Sessions over all hours in the current months for all organizations. |  [optional]
+**rumTotalSessionCountAggSum** | **Long** | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations. |  [optional]
 **startDate** | **OffsetDateTime** | Shows the first date of usage in the current months for all organizations. |  [optional]
 **syntheticsBrowserCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current months for all organizations. |  [optional]
 **syntheticsCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current months for all organizations. |  [optional]

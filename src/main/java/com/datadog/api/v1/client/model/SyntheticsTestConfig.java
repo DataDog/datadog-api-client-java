@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsAssertion;
 import com.datadog.api.v1.client.model.SyntheticsBrowserVariable;
+import com.datadog.api.v1.client.model.SyntheticsConfigVariable;
 import com.datadog.api.v1.client.model.SyntheticsTestRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -37,6 +38,7 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "Configuration object for a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestConfig.JSON_PROPERTY_ASSERTIONS,
+  SyntheticsTestConfig.JSON_PROPERTY_CONFIG_VARIABLES,
   SyntheticsTestConfig.JSON_PROPERTY_REQUEST,
   SyntheticsTestConfig.JSON_PROPERTY_VARIABLES
 })
@@ -44,6 +46,9 @@ import com.datadog.api.v1.client.JSON;
 public class SyntheticsTestConfig {
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_CONFIG_VARIABLES = "configVariables";
+  private List<SyntheticsConfigVariable> configVariables = null;
 
   public static final String JSON_PROPERTY_REQUEST = "request";
   private SyntheticsTestRequest request;
@@ -77,6 +82,38 @@ public class SyntheticsTestConfig {
 
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+  }
+
+
+  public SyntheticsTestConfig configVariables(List<SyntheticsConfigVariable> configVariables) {
+    this.configVariables = configVariables;
+    return this;
+  }
+
+  public SyntheticsTestConfig addConfigVariablesItem(SyntheticsConfigVariable configVariablesItem) {
+    if (this.configVariables == null) {
+      this.configVariables = new ArrayList<>();
+    }
+    this.configVariables.add(configVariablesItem);
+    return this;
+  }
+
+   /**
+   * API tests only - array of variables used for the test.
+   * @return configVariables
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "API tests only - array of variables used for the test.")
+  @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SyntheticsConfigVariable> getConfigVariables() {
+    return configVariables;
+  }
+
+
+  public void setConfigVariables(List<SyntheticsConfigVariable> configVariables) {
+    this.configVariables = configVariables;
   }
 
 
@@ -117,11 +154,11 @@ public class SyntheticsTestConfig {
   }
 
    /**
-   * Array of variables used for the test.
+   * Browser tests only - array of variables used for the test steps.
    * @return variables
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of variables used for the test.")
+  @ApiModelProperty(value = "Browser tests only - array of variables used for the test steps.")
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,13 +185,14 @@ public class SyntheticsTestConfig {
     }
     SyntheticsTestConfig syntheticsTestConfig = (SyntheticsTestConfig) o;
     return Objects.equals(this.assertions, syntheticsTestConfig.assertions) &&
+        Objects.equals(this.configVariables, syntheticsTestConfig.configVariables) &&
         Objects.equals(this.request, syntheticsTestConfig.request) &&
         Objects.equals(this.variables, syntheticsTestConfig.variables);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, request, variables);
+    return Objects.hash(assertions, configVariables, request, variables);
   }
 
 
@@ -163,6 +201,7 @@ public class SyntheticsTestConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsTestConfig {\n");
     sb.append("    assertions: ").append(toIndentedString(assertions)).append("\n");
+    sb.append("    configVariables: ").append(toIndentedString(configVariables)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("}");
