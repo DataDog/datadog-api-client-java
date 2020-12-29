@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v2.client.model.SecurityMonitoringFilter;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryCreate;
@@ -37,6 +38,7 @@ import com.datadog.api.v2.client.JSON;
 @ApiModel(description = "Create a new rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_CASES,
+  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_FILTERS,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_IS_ENABLED,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_MESSAGE,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_NAME,
@@ -48,6 +50,9 @@ import com.datadog.api.v2.client.JSON;
 public class SecurityMonitoringRuleCreatePayload {
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCaseCreate> cases = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_FILTERS = "filters";
+  private List<SecurityMonitoringFilter> filters = null;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
   private Boolean isEnabled;
@@ -93,6 +98,38 @@ public class SecurityMonitoringRuleCreatePayload {
 
   public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
+  }
+
+
+  public SecurityMonitoringRuleCreatePayload filters(List<SecurityMonitoringFilter> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  public SecurityMonitoringRuleCreatePayload addFiltersItem(SecurityMonitoringFilter filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+   /**
+   * Additional queries to filter matched events before they are processed.
+   * @return filters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional queries to filter matched events before they are processed.")
+  @JsonProperty(JSON_PROPERTY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SecurityMonitoringFilter> getFilters() {
+    return filters;
+  }
+
+
+  public void setFilters(List<SecurityMonitoringFilter> filters) {
+    this.filters = filters;
   }
 
 
@@ -261,6 +298,7 @@ public class SecurityMonitoringRuleCreatePayload {
     }
     SecurityMonitoringRuleCreatePayload securityMonitoringRuleCreatePayload = (SecurityMonitoringRuleCreatePayload) o;
     return Objects.equals(this.cases, securityMonitoringRuleCreatePayload.cases) &&
+        Objects.equals(this.filters, securityMonitoringRuleCreatePayload.filters) &&
         Objects.equals(this.isEnabled, securityMonitoringRuleCreatePayload.isEnabled) &&
         Objects.equals(this.message, securityMonitoringRuleCreatePayload.message) &&
         Objects.equals(this.name, securityMonitoringRuleCreatePayload.name) &&
@@ -271,7 +309,7 @@ public class SecurityMonitoringRuleCreatePayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cases, isEnabled, message, name, options, queries, tags);
+    return Objects.hash(cases, filters, isEnabled, message, name, options, queries, tags);
   }
 
 
@@ -280,6 +318,7 @@ public class SecurityMonitoringRuleCreatePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleCreatePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
