@@ -336,6 +336,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usage.getMobileRumSessionCountIosAggSum().longValue(), 11L);
         assertEquals(usage.getMobileRumSessionCountAndroidAggSum().longValue(), 12L);
         assertEquals(usage.getRumTotalSessionCountAggSum().longValue(), 13L);
+        assertEquals(usage.getAzureAppServiceTop99pSum().longValue(), 14L);
+        assertEquals(usage.getApmAzureAppServiceHostTop99pSum().longValue(), 15L);
 
         // Note the nanosecond field had to be converted from the value in the summary fixture (i.e. 0.014039s -> 14039000ns)
         OffsetDateTime dateExpected = OffsetDateTime.of(LocalDateTime.of(2020, 02, 02, 23, 00),
@@ -357,6 +359,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageItem.getMobileRumSessionCountIosSum().longValue(), 14L);
         assertEquals(usageItem.getMobileRumSessionCountAndroidSum().longValue(), 15L);
         assertEquals(usageItem.getRumTotalSessionCountSum().longValue(), 16L);
+        assertEquals(usageItem.getAzureAppServiceTop99p().longValue(), 17L);
+        assertEquals(usageItem.getApmAzureAppServiceHostTop99p().longValue(), 18L);
 
         UsageSummaryDateOrg usageOrgItem = usageItem.getOrgs().get(0);
         assertEquals(usageOrgItem.getId(), "1b");
@@ -376,6 +380,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
         assertEquals(usageOrgItem.getMobileRumSessionCountIosSum().longValue(), 14L);
         assertEquals(usageOrgItem.getMobileRumSessionCountAndroidSum().longValue(), 15L);
         assertEquals(usageOrgItem.getRumTotalSessionCountSum().longValue(), 16L);
+        assertEquals(usageOrgItem.getAzureAppServiceTop99p().longValue(), 17L);
+        assertEquals(usageOrgItem.getApmAzureAppServiceHostTop99p().longValue(), 18L);
     }
 
     @Test

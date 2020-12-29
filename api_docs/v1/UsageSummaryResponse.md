@@ -8,6 +8,7 @@ Response with hourly report of all data billed by Datadog all organizations.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **agentHostTop99pSum** | **Long** | Shows the 99th percentile of all agent hosts over all hours in the current months for all organizations. |  [optional]
+**apmAzureAppServiceHostTop99pSum** | **Long** | Shows the 99th percentile of all Azure app services using APM over all hours in the current months all organizations. |  [optional]
 **apmHostTop99pSum** | **Long** | Shows the 99th percentile of all distinct APM hosts over all hours in the current months for all organizations. |  [optional]
 **awsHostTop99pSum** | **Long** | Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations. |  [optional]
 **awsLambdaFuncCount** | **Long** | Shows the average of the number of functions that executed 1 or more times each hour in the current months for all organizations. |  [optional]
