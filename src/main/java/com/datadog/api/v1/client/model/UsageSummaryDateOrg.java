@@ -32,10 +32,12 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "Global hourly report of all data billed by Datadog for a given organization.")
 @JsonPropertyOrder({
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
@@ -68,6 +70,9 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P = "agent_host_top99p";
   private Long agentHostTop99p;
 
+  public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P = "apm_azure_app_service_host_top99p";
+  private Long apmAzureAppServiceHostTop99p;
+
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
   private Long apmHostTop99p;
 
@@ -79,6 +84,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM = "aws_lambda_invocations_sum";
   private Long awsLambdaInvocationsSum;
+
+  public static final String JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P = "azure_app_service_top99p";
+  private Long azureAppServiceTop99p;
 
   public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM = "billable_ingested_bytes_sum";
   private Long billableIngestedBytesSum;
@@ -183,6 +191,30 @@ public class UsageSummaryDateOrg {
   }
 
 
+  public UsageSummaryDateOrg apmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
+    this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all Azure app services using APM over all hours in the current date for the given org.
+   * @return apmAzureAppServiceHostTop99p
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all Azure app services using APM over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getApmAzureAppServiceHostTop99p() {
+    return apmAzureAppServiceHostTop99p;
+  }
+
+
+  public void setApmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
+    this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
+  }
+
+
   public UsageSummaryDateOrg apmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
     return this;
@@ -276,6 +308,30 @@ public class UsageSummaryDateOrg {
 
   public void setAwsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
+  }
+
+
+  public UsageSummaryDateOrg azureAppServiceTop99p(Long azureAppServiceTop99p) {
+    this.azureAppServiceTop99p = azureAppServiceTop99p;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all Azure app services over all hours in the current date for the given org.
+   * @return azureAppServiceTop99p
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all Azure app services over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getAzureAppServiceTop99p() {
+    return azureAppServiceTop99p;
+  }
+
+
+  public void setAzureAppServiceTop99p(Long azureAppServiceTop99p) {
+    this.azureAppServiceTop99p = azureAppServiceTop99p;
   }
 
 
@@ -916,10 +972,12 @@ public class UsageSummaryDateOrg {
     }
     UsageSummaryDateOrg usageSummaryDateOrg = (UsageSummaryDateOrg) o;
     return Objects.equals(this.agentHostTop99p, usageSummaryDateOrg.agentHostTop99p) &&
+        Objects.equals(this.apmAzureAppServiceHostTop99p, usageSummaryDateOrg.apmAzureAppServiceHostTop99p) &&
         Objects.equals(this.apmHostTop99p, usageSummaryDateOrg.apmHostTop99p) &&
         Objects.equals(this.awsHostTop99p, usageSummaryDateOrg.awsHostTop99p) &&
         Objects.equals(this.awsLambdaFuncCount, usageSummaryDateOrg.awsLambdaFuncCount) &&
         Objects.equals(this.awsLambdaInvocationsSum, usageSummaryDateOrg.awsLambdaInvocationsSum) &&
+        Objects.equals(this.azureAppServiceTop99p, usageSummaryDateOrg.azureAppServiceTop99p) &&
         Objects.equals(this.billableIngestedBytesSum, usageSummaryDateOrg.billableIngestedBytesSum) &&
         Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg) &&
         Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm) &&
@@ -950,7 +1008,7 @@ public class UsageSummaryDateOrg {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, incidentManagementMonthlyActiveUsersHwm, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, mobileRumSessionCountAndroidSum, mobileRumSessionCountIosSum, mobileRumSessionCountSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, rumTotalSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
+    return Objects.hash(agentHostTop99p, apmAzureAppServiceHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99p, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, incidentManagementMonthlyActiveUsersHwm, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, mobileRumSessionCountAndroidSum, mobileRumSessionCountIosSum, mobileRumSessionCountSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, rumTotalSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
   }
 
 
@@ -959,10 +1017,12 @@ public class UsageSummaryDateOrg {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageSummaryDateOrg {\n");
     sb.append("    agentHostTop99p: ").append(toIndentedString(agentHostTop99p)).append("\n");
+    sb.append("    apmAzureAppServiceHostTop99p: ").append(toIndentedString(apmAzureAppServiceHostTop99p)).append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
     sb.append("    awsHostTop99p: ").append(toIndentedString(awsHostTop99p)).append("\n");
     sb.append("    awsLambdaFuncCount: ").append(toIndentedString(awsLambdaFuncCount)).append("\n");
     sb.append("    awsLambdaInvocationsSum: ").append(toIndentedString(awsLambdaInvocationsSum)).append("\n");
+    sb.append("    azureAppServiceTop99p: ").append(toIndentedString(azureAppServiceTop99p)).append("\n");
     sb.append("    billableIngestedBytesSum: ").append(toIndentedString(billableIngestedBytesSum)).append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
