@@ -14,6 +14,8 @@ import static org.junit.Assert.assertTrue;
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.model.SecurityMonitoringFilter;
+import com.datadog.api.v2.client.model.SecurityMonitoringFilterAction;
 import com.datadog.api.v2.client.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCase;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCaseCreate;
@@ -428,6 +430,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
                         .name("rule-case")
                         .condition("rule > 0")
                         .status(SecurityMonitoringRuleSeverity.INFO))
+                .addFiltersItem(new SecurityMonitoringFilter().query("query").action(SecurityMonitoringFilterAction.SUPPRESS))
                 .message("Rule message")
                 .tags(Collections.singletonList("datadog-api-client-test-java"));
 
