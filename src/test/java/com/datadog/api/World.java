@@ -43,6 +43,9 @@ public class World {
     Class<?> responseClass;
     Object response; // ApiResponse<?>
 
+    // Exceptions
+    Class<?> exceptionClass;
+
     // Name control
     Scenario scenario;
     Clock clock;
@@ -286,11 +289,19 @@ public class World {
 
         Method responseMethod = requestClass.getMethod("executeWithHttpInfo");
         responseClass = responseMethod.getReturnType();
+        exceptionClass = responseMethod.getExceptionTypes()[0];
 
         String apiVersion = getVersion();
         Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, requestBuilder.getName());
 
-        response = responseMethod.invoke(request);
+        try {
+            response = responseMethod.invoke(request);
+        } catch (Exception e) {
+            // Return a new response object with the response code set
+            // so we can make assertions on it
+            int responseCode = (int) exceptionClass.getMethod("getCode").invoke(e.getCause());
+            response = responseClass.getConstructors()[0].newInstance(responseCode, new HashMap<String, String>());
+        }
 
         if (undoSettings != null) {
             Method dataMethod = responseClass.getMethod("getData");
