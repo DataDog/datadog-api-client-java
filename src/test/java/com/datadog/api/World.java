@@ -1,5 +1,6 @@
 package com.datadog.api;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.time.Clock;
@@ -300,7 +301,11 @@ public class World {
             // Return a new response object with the response code set
             // so we can make assertions on it
             int responseCode = (int) exceptionClass.getMethod("getCode").invoke(e.getCause());
-            response = responseClass.getConstructors()[0].newInstance(responseCode, new HashMap<String, String>());
+            for (Constructor<?> c : responseClass.getConstructors()) {
+                if (c.getParameterCount() == 2) {
+                    response = c.newInstance(responseCode, new HashMap<String, String>());
+                }
+            }
         }
 
         if (undoSettings != null) {
