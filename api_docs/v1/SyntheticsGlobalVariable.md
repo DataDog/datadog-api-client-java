@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the global variable. | 
 **id** | **String** | Unique identifier of the global variable. |  [optional] [readonly]
 **name** | **String** | Name of the global variable. | 
+**parseTestOptions** | [**SyntheticsGlobalVariableParseTestOptions**](SyntheticsGlobalVariableParseTestOptions.md) |  |  [optional]
+**parseTestPublicId** | **String** | A Synthetic test ID to use as a test to generate the variable value. |  [optional]
 **tags** | **List&lt;String&gt;** | Tags of the global variable. | 
 **value** | [**SyntheticsGlobalVariableValue**](SyntheticsGlobalVariableValue.md) |  | 
 
