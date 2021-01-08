@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsGlobalVariableParseTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsGlobalVariableValue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -37,6 +38,8 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsGlobalVariable.JSON_PROPERTY_DESCRIPTION,
   SyntheticsGlobalVariable.JSON_PROPERTY_ID,
   SyntheticsGlobalVariable.JSON_PROPERTY_NAME,
+  SyntheticsGlobalVariable.JSON_PROPERTY_PARSE_TEST_OPTIONS,
+  SyntheticsGlobalVariable.JSON_PROPERTY_PARSE_TEST_PUBLIC_ID,
   SyntheticsGlobalVariable.JSON_PROPERTY_TAGS,
   SyntheticsGlobalVariable.JSON_PROPERTY_VALUE
 })
@@ -50,6 +53,12 @@ public class SyntheticsGlobalVariable {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_PARSE_TEST_OPTIONS = "parse_test_options";
+  private SyntheticsGlobalVariableParseTestOptions parseTestOptions;
+
+  public static final String JSON_PROPERTY_PARSE_TEST_PUBLIC_ID = "parse_test_public_id";
+  private String parseTestPublicId;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = new ArrayList<>();
@@ -120,6 +129,54 @@ public class SyntheticsGlobalVariable {
   }
 
 
+  public SyntheticsGlobalVariable parseTestOptions(SyntheticsGlobalVariableParseTestOptions parseTestOptions) {
+    this.parseTestOptions = parseTestOptions;
+    return this;
+  }
+
+   /**
+   * Get parseTestOptions
+   * @return parseTestOptions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PARSE_TEST_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SyntheticsGlobalVariableParseTestOptions getParseTestOptions() {
+    return parseTestOptions;
+  }
+
+
+  public void setParseTestOptions(SyntheticsGlobalVariableParseTestOptions parseTestOptions) {
+    this.parseTestOptions = parseTestOptions;
+  }
+
+
+  public SyntheticsGlobalVariable parseTestPublicId(String parseTestPublicId) {
+    this.parseTestPublicId = parseTestPublicId;
+    return this;
+  }
+
+   /**
+   * A Synthetic test ID to use as a test to generate the variable value.
+   * @return parseTestPublicId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "abc-def-123", value = "A Synthetic test ID to use as a test to generate the variable value.")
+  @JsonProperty(JSON_PROPERTY_PARSE_TEST_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getParseTestPublicId() {
+    return parseTestPublicId;
+  }
+
+
+  public void setParseTestPublicId(String parseTestPublicId) {
+    this.parseTestPublicId = parseTestPublicId;
+  }
+
+
   public SyntheticsGlobalVariable tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -186,13 +243,15 @@ public class SyntheticsGlobalVariable {
     return Objects.equals(this.description, syntheticsGlobalVariable.description) &&
         Objects.equals(this.id, syntheticsGlobalVariable.id) &&
         Objects.equals(this.name, syntheticsGlobalVariable.name) &&
+        Objects.equals(this.parseTestOptions, syntheticsGlobalVariable.parseTestOptions) &&
+        Objects.equals(this.parseTestPublicId, syntheticsGlobalVariable.parseTestPublicId) &&
         Objects.equals(this.tags, syntheticsGlobalVariable.tags) &&
         Objects.equals(this.value, syntheticsGlobalVariable.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, name, tags, value);
+    return Objects.hash(description, id, name, parseTestOptions, parseTestPublicId, tags, value);
   }
 
 
@@ -203,6 +262,8 @@ public class SyntheticsGlobalVariable {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    parseTestOptions: ").append(toIndentedString(parseTestOptions)).append("\n");
+    sb.append("    parseTestPublicId: ").append(toIndentedString(parseTestPublicId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
