@@ -56,7 +56,7 @@ fi
 
 # Always run integration-only scenarios
 set -e
-if [ "$RECORD" != "none" ]; then
+if [ "$RECORD" != "none" -a -n $DD_TEST_CLIENT_API_KEY -a -n $DD_TEST_CLIENT_APP_KEY ]; then
   RECORD=none mvn test -Dtest=ScenariosTest -Dcucumber.filter.tags="@integration-only"
 fi
 
