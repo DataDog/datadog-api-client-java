@@ -13,9 +13,11 @@ import com.datadog.api.v2.client.model.APIKeyCreateRequest;
 import com.datadog.api.v2.client.model.APIKeyResponse;
 import com.datadog.api.v2.client.model.APIKeyUpdateRequest;
 import com.datadog.api.v2.client.model.APIKeysResponse;
+import com.datadog.api.v2.client.model.APIKeysSort;
 import com.datadog.api.v2.client.model.ApplicationKeyCreateRequest;
 import com.datadog.api.v2.client.model.ApplicationKeyResponse;
 import com.datadog.api.v2.client.model.ApplicationKeyUpdateRequest;
+import com.datadog.api.v2.client.model.ApplicationKeysSort;
 import com.datadog.api.v2.client.model.ListApplicationKeysResponse;
 
 import java.util.ArrayList;
@@ -774,7 +776,7 @@ private ApiResponse<ApplicationKeyResponse> getCurrentUserApplicationKeyWithHttp
     return new APIgetCurrentUserApplicationKeyRequest(appKeyId);
   }
 
-private ApiResponse<APIKeysResponse> listAPIKeysWithHttpInfo(Long pageSize, Long pageNumber, String sort, String filter, String filterCreatedAtStart, String filterCreatedAtEnd, String filterModifiedAtStart, String filterModifiedAtEnd, String include) throws ApiException {
+private ApiResponse<APIKeysResponse> listAPIKeysWithHttpInfo(Long pageSize, Long pageNumber, APIKeysSort sort, String filter, String filterCreatedAtStart, String filterCreatedAtEnd, String filterModifiedAtStart, String filterModifiedAtEnd, String include) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -824,7 +826,7 @@ private ApiResponse<APIKeysResponse> listAPIKeysWithHttpInfo(Long pageSize, Long
   public class APIlistAPIKeysRequest {
     private Long pageSize;
     private Long pageNumber;
-    private String sort;
+    private APIKeysSort sort;
     private String filter;
     private String filterCreatedAtStart;
     private String filterCreatedAtEnd;
@@ -860,7 +862,7 @@ private ApiResponse<APIKeysResponse> listAPIKeysWithHttpInfo(Long pageSize, Long
      * @param sort API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. (optional, default to name)
      * @return APIlistAPIKeysRequest
      */
-    public APIlistAPIKeysRequest sort(String sort) {
+    public APIlistAPIKeysRequest sort(APIKeysSort sort) {
       this.sort = sort;
       return this;
     }
@@ -973,7 +975,7 @@ private ApiResponse<APIKeysResponse> listAPIKeysWithHttpInfo(Long pageSize, Long
     return new APIlistAPIKeysRequest();
   }
 
-private ApiResponse<ListApplicationKeysResponse> listApplicationKeysWithHttpInfo(Long pageSize, Long pageNumber, String sort, String filter, String filterCreatedAtStart, String filterCreatedAtEnd) throws ApiException {
+private ApiResponse<ListApplicationKeysResponse> listApplicationKeysWithHttpInfo(Long pageSize, Long pageNumber, ApplicationKeysSort sort, String filter, String filterCreatedAtStart, String filterCreatedAtEnd) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1020,7 +1022,7 @@ private ApiResponse<ListApplicationKeysResponse> listApplicationKeysWithHttpInfo
   public class APIlistApplicationKeysRequest {
     private Long pageSize;
     private Long pageNumber;
-    private String sort;
+    private ApplicationKeysSort sort;
     private String filter;
     private String filterCreatedAtStart;
     private String filterCreatedAtEnd;
@@ -1053,7 +1055,7 @@ private ApiResponse<ListApplicationKeysResponse> listApplicationKeysWithHttpInfo
      * @param sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. (optional, default to name)
      * @return APIlistApplicationKeysRequest
      */
-    public APIlistApplicationKeysRequest sort(String sort) {
+    public APIlistApplicationKeysRequest sort(ApplicationKeysSort sort) {
       this.sort = sort;
       return this;
     }
@@ -1138,7 +1140,7 @@ private ApiResponse<ListApplicationKeysResponse> listApplicationKeysWithHttpInfo
     return new APIlistApplicationKeysRequest();
   }
 
-private ApiResponse<ListApplicationKeysResponse> listCurrentUserApplicationKeysWithHttpInfo(Long pageSize, Long pageNumber, String sort, String filter, String filterCreatedAtStart, String filterCreatedAtEnd) throws ApiException {
+private ApiResponse<ListApplicationKeysResponse> listCurrentUserApplicationKeysWithHttpInfo(Long pageSize, Long pageNumber, ApplicationKeysSort sort, String filter, String filterCreatedAtStart, String filterCreatedAtEnd) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1185,7 +1187,7 @@ private ApiResponse<ListApplicationKeysResponse> listCurrentUserApplicationKeysW
   public class APIlistCurrentUserApplicationKeysRequest {
     private Long pageSize;
     private Long pageNumber;
-    private String sort;
+    private ApplicationKeysSort sort;
     private String filter;
     private String filterCreatedAtStart;
     private String filterCreatedAtEnd;
@@ -1218,7 +1220,7 @@ private ApiResponse<ListApplicationKeysResponse> listCurrentUserApplicationKeysW
      * @param sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. (optional, default to name)
      * @return APIlistCurrentUserApplicationKeysRequest
      */
-    public APIlistCurrentUserApplicationKeysRequest sort(String sort) {
+    public APIlistCurrentUserApplicationKeysRequest sort(ApplicationKeysSort sort) {
       this.sort = sort;
       return this;
     }

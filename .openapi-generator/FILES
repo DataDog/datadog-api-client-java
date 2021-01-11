@@ -14,6 +14,7 @@ docs/APIKeyUpdateAttributes.md
 docs/APIKeyUpdateData.md
 docs/APIKeyUpdateRequest.md
 docs/APIKeysResponse.md
+docs/APIKeysSort.md
 docs/APIKeysType.md
 docs/ApplicationKeyCreateAttributes.md
 docs/ApplicationKeyCreateData.md
@@ -24,6 +25,7 @@ docs/ApplicationKeyResponseIncludedItem.md
 docs/ApplicationKeyUpdateAttributes.md
 docs/ApplicationKeyUpdateData.md
 docs/ApplicationKeyUpdateRequest.md
+docs/ApplicationKeysSort.md
 docs/ApplicationKeysType.md
 docs/Creator.md
 docs/DashboardListAddItemsRequest.md
@@ -331,6 +333,7 @@ src/main/java/com/datadog/api/v2/client/model/APIKeyUpdateAttributes.java
 src/main/java/com/datadog/api/v2/client/model/APIKeyUpdateData.java
 src/main/java/com/datadog/api/v2/client/model/APIKeyUpdateRequest.java
 src/main/java/com/datadog/api/v2/client/model/APIKeysResponse.java
+src/main/java/com/datadog/api/v2/client/model/APIKeysSort.java
 src/main/java/com/datadog/api/v2/client/model/APIKeysType.java
 src/main/java/com/datadog/api/v2/client/model/AbstractOpenApiSchema.java
 src/main/java/com/datadog/api/v2/client/model/ApplicationKeyCreateAttributes.java
@@ -342,6 +345,7 @@ src/main/java/com/datadog/api/v2/client/model/ApplicationKeyResponseIncludedItem
 src/main/java/com/datadog/api/v2/client/model/ApplicationKeyUpdateAttributes.java
 src/main/java/com/datadog/api/v2/client/model/ApplicationKeyUpdateData.java
 src/main/java/com/datadog/api/v2/client/model/ApplicationKeyUpdateRequest.java
+src/main/java/com/datadog/api/v2/client/model/ApplicationKeysSort.java
 src/main/java/com/datadog/api/v2/client/model/ApplicationKeysType.java
 src/main/java/com/datadog/api/v2/client/model/Creator.java
 src/main/java/com/datadog/api/v2/client/model/DashboardListAddItemsRequest.java
@@ -602,6 +606,7 @@ src/test/java/com/datadog/api/v2/client/model/APIKeyUpdateAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/APIKeyUpdateDataTest.java
 src/test/java/com/datadog/api/v2/client/model/APIKeyUpdateRequestTest.java
 src/test/java/com/datadog/api/v2/client/model/APIKeysResponseTest.java
+src/test/java/com/datadog/api/v2/client/model/APIKeysSortTest.java
 src/test/java/com/datadog/api/v2/client/model/APIKeysTypeTest.java
 src/test/java/com/datadog/api/v2/client/model/ApplicationKeyCreateAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/ApplicationKeyCreateDataTest.java
@@ -612,6 +617,7 @@ src/test/java/com/datadog/api/v2/client/model/ApplicationKeyResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/ApplicationKeyUpdateAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/ApplicationKeyUpdateDataTest.java
 src/test/java/com/datadog/api/v2/client/model/ApplicationKeyUpdateRequestTest.java
+src/test/java/com/datadog/api/v2/client/model/ApplicationKeysSortTest.java
 src/test/java/com/datadog/api/v2/client/model/ApplicationKeysTypeTest.java
 src/test/java/com/datadog/api/v2/client/model/CreatorTest.java
 src/test/java/com/datadog/api/v2/client/model/DashboardListAddItemsRequestTest.java
