@@ -53,4 +53,11 @@ if [ "$RERECORD_FAILED_TESTS" == "true" -a "$RESULT" -ne 0 ]; then
     python3 failed.py | RECORD=true bash
     RESULT=$?
 fi
+
+# Always run integration-only scenarios
+set -e
+if [ "$RECORD" != "none" ]; then
+  RECORD=none mvn test -Dtest=ScenariosTest -Dcucumber.filter.tags="@integration-only"
+fi
+
 exit $RESULT
