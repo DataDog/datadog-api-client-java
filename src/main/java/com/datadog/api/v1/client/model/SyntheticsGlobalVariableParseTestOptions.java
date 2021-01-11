@@ -33,16 +33,44 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.")
 @JsonPropertyOrder({
+  SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_FIELD,
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_PARSER,
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsGlobalVariableParseTestOptions {
+  public static final String JSON_PROPERTY_FIELD = "field";
+  private String field;
+
   public static final String JSON_PROPERTY_PARSER = "parser";
   private SyntheticsGlobalVariableParseTestOptionsParser parser;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsGlobalVariableParseTestOptionsType type;
+
+
+  public SyntheticsGlobalVariableParseTestOptions field(String field) {
+    this.field = field;
+    return this;
+  }
+
+   /**
+   * When type is &#x60;http_header&#x60;, name of the header to use to extract the value.
+   * @return field
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "content-type", value = "When type is `http_header`, name of the header to use to extract the value.")
+  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getField() {
+    return field;
+  }
+
+
+  public void setField(String field) {
+    this.field = field;
+  }
 
 
   public SyntheticsGlobalVariableParseTestOptions parser(SyntheticsGlobalVariableParseTestOptionsParser parser) {
@@ -103,13 +131,14 @@ public class SyntheticsGlobalVariableParseTestOptions {
       return false;
     }
     SyntheticsGlobalVariableParseTestOptions syntheticsGlobalVariableParseTestOptions = (SyntheticsGlobalVariableParseTestOptions) o;
-    return Objects.equals(this.parser, syntheticsGlobalVariableParseTestOptions.parser) &&
+    return Objects.equals(this.field, syntheticsGlobalVariableParseTestOptions.field) &&
+        Objects.equals(this.parser, syntheticsGlobalVariableParseTestOptions.parser) &&
         Objects.equals(this.type, syntheticsGlobalVariableParseTestOptions.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(parser, type);
+    return Objects.hash(field, parser, type);
   }
 
 
@@ -117,6 +146,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsGlobalVariableParseTestOptions {\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    parser: ").append(toIndentedString(parser)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
