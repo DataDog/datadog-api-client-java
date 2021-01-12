@@ -44,9 +44,6 @@ public class World {
     Class<?> responseClass;
     Object response; // ApiResponse<?>
 
-    // Exceptions
-    Class<?> exceptionClass;
-
     // Name control
     Scenario scenario;
     Clock clock;
@@ -290,9 +287,10 @@ public class World {
 
         Method responseMethod = requestClass.getMethod("executeWithHttpInfo");
         responseClass = responseMethod.getReturnType();
-        exceptionClass = responseMethod.getExceptionTypes()[0];
 
         String apiVersion = getVersion();
+        Class<?> exceptionClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
+
         Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, requestBuilder.getName());
 
         try {
