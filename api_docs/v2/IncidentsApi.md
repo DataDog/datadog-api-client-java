@@ -216,7 +216,7 @@ public class Example {
 
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
         String incidentId = "incidentId_example"; // String | The UUID the incident.
-        List<String> include = Arrays.asList(); // List<String> | Specifies which types of related objects should be included in the response.
+        List<IncidentRelatedObject> include = Arrays.asList(); // List<IncidentRelatedObject> | Specifies which types of related objects should be included in the response.
         try {
             IncidentResponse result = apiInstance.getIncident(incidentId)
                 .include(include)
@@ -239,7 +239,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **incidentId** | **String**| The UUID the incident. |
- **include** | **List&lt;String&gt;**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+ **include** | **List&lt;IncidentRelatedObject&gt;**| Specifies which types of related objects should be included in the response. | [optional]
 
 ### Return type
 
@@ -301,7 +301,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
-        List<String> include = Arrays.asList(); // List<String> | Specifies which types of related objects should be included in the response.
+        List<IncidentRelatedObject> include = Arrays.asList(); // List<IncidentRelatedObject> | Specifies which types of related objects should be included in the response.
         Long pageSize = 10l; // Long | Size for a given page.
         Long pageOffset = 0l; // Long | Specific offset to use as the beginning of the returned page.
         try {
@@ -327,7 +327,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **include** | **List&lt;String&gt;**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+ **include** | **List&lt;IncidentRelatedObject&gt;**| Specifies which types of related objects should be included in the response. | [optional]
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
  **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0l]
 
