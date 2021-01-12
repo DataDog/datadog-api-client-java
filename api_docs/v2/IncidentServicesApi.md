@@ -217,7 +217,7 @@ public class Example {
 
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
-        String include = "include_example"; // String | Specifies which types of related objects should be included in the response.
+        IncidentRelatedObject include = IncidentRelatedObject.fromValue("users"); // IncidentRelatedObject | Specifies which types of related objects should be included in the response.
         try {
             IncidentServiceResponse result = apiInstance.getIncidentService(serviceId)
                 .include(include)
@@ -240,7 +240,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serviceId** | **String**| The ID of the incident service. |
- **include** | **String**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+ **include** | **IncidentRelatedObject**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
 
 ### Return type
 
@@ -302,7 +302,7 @@ public class Example {
         defaultClient.configureApiKeys(secrets);
 
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
-        String include = "include_example"; // String | Specifies which types of related objects should be included in the response.
+        IncidentRelatedObject include = IncidentRelatedObject.fromValue("users"); // IncidentRelatedObject | Specifies which types of related objects should be included in the response.
         Long pageSize = 10l; // Long | Size for a given page.
         Long pageOffset = 0l; // Long | Specific offset to use as the beginning of the returned page.
         String filter = "ExampleServiceName"; // String | A search query that filters services by name.
@@ -330,7 +330,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **include** | **String**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+ **include** | **IncidentRelatedObject**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
  **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0l]
  **filter** | **String**| A search query that filters services by name. | [optional]

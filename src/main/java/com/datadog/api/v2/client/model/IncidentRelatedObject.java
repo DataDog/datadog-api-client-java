@@ -24,15 +24,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Incident service resource type.
+ * Object related to an incident.
  */
-public enum IncidentServiceType {
+public enum IncidentRelatedObject {
   
-  SERVICES("services");
+  USERS("users");
 
   private String value;
 
-  IncidentServiceType(String value) {
+  IncidentRelatedObject(String value) {
     this.value = value;
   }
 
@@ -47,8 +47,8 @@ public enum IncidentServiceType {
   }
 
   @JsonCreator
-  public static IncidentServiceType fromValue(String value) {
-    for (IncidentServiceType b : IncidentServiceType.values()) {
+  public static IncidentRelatedObject fromValue(String value) {
+    for (IncidentRelatedObject b : IncidentRelatedObject.values()) {
       if (b.value.equals(value)) {
         return b;
       }

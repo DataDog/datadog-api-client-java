@@ -9,6 +9,7 @@ import com.datadog.api.v2.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v2.client.model.APIErrorResponse;
+import com.datadog.api.v2.client.model.IncidentRelatedObject;
 import com.datadog.api.v2.client.model.IncidentTeamCreateRequest;
 import com.datadog.api.v2.client.model.IncidentTeamResponse;
 import com.datadog.api.v2.client.model.IncidentTeamUpdateRequest;
@@ -275,7 +276,7 @@ private ApiResponse<Void> deleteIncidentTeamWithHttpInfo(String teamId) throws A
     return new APIdeleteIncidentTeamRequest(teamId);
   }
 
-private ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(String teamId, String include) throws ApiException {
+private ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(String teamId, IncidentRelatedObject include) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'teamId' is set
@@ -322,7 +323,7 @@ private ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(String tea
 
   public class APIgetIncidentTeamRequest {
     private String teamId;
-    private String include;
+    private IncidentRelatedObject include;
 
     private APIgetIncidentTeamRequest(String teamId) {
       this.teamId = teamId;
@@ -333,7 +334,7 @@ private ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(String tea
      * @param include Specifies which types of related objects should be included in the response. (optional)
      * @return APIgetIncidentTeamRequest
      */
-    public APIgetIncidentTeamRequest include(String include) {
+    public APIgetIncidentTeamRequest include(IncidentRelatedObject include) {
       this.include = include;
       return this;
     }
@@ -397,7 +398,7 @@ private ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(String tea
     return new APIgetIncidentTeamRequest(teamId);
   }
 
-private ApiResponse<IncidentTeamsResponse> listIncidentTeamsWithHttpInfo(String include, Long pageSize, Long pageOffset, String filter) throws ApiException {
+private ApiResponse<IncidentTeamsResponse> listIncidentTeamsWithHttpInfo(IncidentRelatedObject include, Long pageSize, Long pageOffset, String filter) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -440,7 +441,7 @@ private ApiResponse<IncidentTeamsResponse> listIncidentTeamsWithHttpInfo(String 
   }
 
   public class APIlistIncidentTeamsRequest {
-    private String include;
+    private IncidentRelatedObject include;
     private Long pageSize;
     private Long pageOffset;
     private String filter;
@@ -453,7 +454,7 @@ private ApiResponse<IncidentTeamsResponse> listIncidentTeamsWithHttpInfo(String 
      * @param include Specifies which types of related objects should be included in the response. (optional)
      * @return APIlistIncidentTeamsRequest
      */
-    public APIlistIncidentTeamsRequest include(String include) {
+    public APIlistIncidentTeamsRequest include(IncidentRelatedObject include) {
       this.include = include;
       return this;
     }

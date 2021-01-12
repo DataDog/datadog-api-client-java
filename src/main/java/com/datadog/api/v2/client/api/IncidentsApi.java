@@ -10,6 +10,7 @@ import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v2.client.model.APIErrorResponse;
 import com.datadog.api.v2.client.model.IncidentCreateRequest;
+import com.datadog.api.v2.client.model.IncidentRelatedObject;
 import com.datadog.api.v2.client.model.IncidentResponse;
 import com.datadog.api.v2.client.model.IncidentUpdateRequest;
 import com.datadog.api.v2.client.model.IncidentsResponse;
@@ -275,7 +276,7 @@ private ApiResponse<Void> deleteIncidentWithHttpInfo(String incidentId) throws A
     return new APIdeleteIncidentRequest(incidentId);
   }
 
-private ApiResponse<IncidentResponse> getIncidentWithHttpInfo(String incidentId, List<String> include) throws ApiException {
+private ApiResponse<IncidentResponse> getIncidentWithHttpInfo(String incidentId, List<IncidentRelatedObject> include) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'incidentId' is set
@@ -322,7 +323,7 @@ private ApiResponse<IncidentResponse> getIncidentWithHttpInfo(String incidentId,
 
   public class APIgetIncidentRequest {
     private String incidentId;
-    private List<String> include;
+    private List<IncidentRelatedObject> include;
 
     private APIgetIncidentRequest(String incidentId) {
       this.incidentId = incidentId;
@@ -333,7 +334,7 @@ private ApiResponse<IncidentResponse> getIncidentWithHttpInfo(String incidentId,
      * @param include Specifies which types of related objects should be included in the response. (optional)
      * @return APIgetIncidentRequest
      */
-    public APIgetIncidentRequest include(List<String> include) {
+    public APIgetIncidentRequest include(List<IncidentRelatedObject> include) {
       this.include = include;
       return this;
     }
@@ -397,7 +398,7 @@ private ApiResponse<IncidentResponse> getIncidentWithHttpInfo(String incidentId,
     return new APIgetIncidentRequest(incidentId);
   }
 
-private ApiResponse<IncidentsResponse> listIncidentsWithHttpInfo(List<String> include, Long pageSize, Long pageOffset) throws ApiException {
+private ApiResponse<IncidentsResponse> listIncidentsWithHttpInfo(List<IncidentRelatedObject> include, Long pageSize, Long pageOffset) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -439,7 +440,7 @@ private ApiResponse<IncidentsResponse> listIncidentsWithHttpInfo(List<String> in
   }
 
   public class APIlistIncidentsRequest {
-    private List<String> include;
+    private List<IncidentRelatedObject> include;
     private Long pageSize;
     private Long pageOffset;
 
@@ -451,7 +452,7 @@ private ApiResponse<IncidentsResponse> listIncidentsWithHttpInfo(List<String> in
      * @param include Specifies which types of related objects should be included in the response. (optional)
      * @return APIlistIncidentsRequest
      */
-    public APIlistIncidentsRequest include(List<String> include) {
+    public APIlistIncidentsRequest include(List<IncidentRelatedObject> include) {
       this.include = include;
       return this;
     }
