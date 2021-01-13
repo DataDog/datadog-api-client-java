@@ -154,6 +154,12 @@ private ApiResponse<SLOCorrectionResponse> createSLOCorrectionWithHttpInfo(SLOCo
    
    */
   public APIcreateSLOCorrectionRequest createSLOCorrection() throws ApiException {
+    String operationId = "createSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIcreateSLOCorrectionRequest();
   }
 
@@ -252,6 +258,12 @@ private ApiResponse<Void> deleteSLOCorrectionWithHttpInfo(String sloCorrectionId
    
    */
   public APIdeleteSLOCorrectionRequest deleteSLOCorrection(String sloCorrectionId) throws ApiException {
+    String operationId = "deleteSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIdeleteSLOCorrectionRequest(sloCorrectionId);
   }
 
@@ -352,6 +364,12 @@ private ApiResponse<SLOCorrectionResponse> getSLOCorrectionWithHttpInfo(String s
    
    */
   public APIgetSLOCorrectionRequest getSLOCorrection(String sloCorrectionId) throws ApiException {
+    String operationId = "getSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIgetSLOCorrectionRequest(sloCorrectionId);
   }
 
@@ -441,6 +459,12 @@ private ApiResponse<SLOCorrectionListResponse> listSLOCorrectionWithHttpInfo() t
    
    */
   public APIlistSLOCorrectionRequest listSLOCorrection() throws ApiException {
+    String operationId = "listSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIlistSLOCorrectionRequest();
   }
 
@@ -559,6 +583,12 @@ private ApiResponse<SLOCorrectionResponse> updateSLOCorrectionWithHttpInfo(Strin
    
    */
   public APIupdateSLOCorrectionRequest updateSLOCorrection(String sloCorrectionId) throws ApiException {
+    String operationId = "updateSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     return new APIupdateSLOCorrectionRequest(sloCorrectionId);
   }
 }
