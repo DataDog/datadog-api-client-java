@@ -97,6 +97,11 @@ Class | Method | HTTP request | Description
 *PagerDutyIntegrationApi* | [**deletePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#deletePagerDutyIntegrationService) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
 *PagerDutyIntegrationApi* | [**getPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#getPagerDutyIntegrationService) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
 *PagerDutyIntegrationApi* | [**updatePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#updatePagerDutyIntegrationService) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
+*ServiceLevelObjectiveCorrectionsApi* | [**createSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#createSLOCorrection) | **POST** /api/v1/slo/correction | Create an SLO correction
+*ServiceLevelObjectiveCorrectionsApi* | [**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO Correction
+*ServiceLevelObjectiveCorrectionsApi* | [**getSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#getSLOCorrection) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
+*ServiceLevelObjectiveCorrectionsApi* | [**listSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#listSLOCorrection) | **GET** /api/v1/slo/correction | Get all SLO corrections
+*ServiceLevelObjectiveCorrectionsApi* | [**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO Correction
 *ServiceLevelObjectivesApi* | [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
 *ServiceLevelObjectivesApi* | [**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create a SLO object
 *ServiceLevelObjectivesApi* | [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO
@@ -378,6 +383,18 @@ Class | Method | HTTP request | Description
  - [SLOBulkDeleteResponse](SLOBulkDeleteResponse.md)
  - [SLOBulkDeleteResponseData](SLOBulkDeleteResponseData.md)
  - [SLOBulkDeleteResponseErrors](SLOBulkDeleteResponseErrors.md)
+ - [SLOCorrectionCategory](SLOCorrectionCategory.md)
+ - [SLOCorrectionCreateRequest](SLOCorrectionCreateRequest.md)
+ - [SLOCorrectionCreateRequestAttributes](SLOCorrectionCreateRequestAttributes.md)
+ - [SLOCorrectionCreateRequestData](SLOCorrectionCreateRequestData.md)
+ - [SLOCorrectionListResponse](SLOCorrectionListResponse.md)
+ - [SLOCorrectionListResponseData](SLOCorrectionListResponseData.md)
+ - [SLOCorrectionResponse](SLOCorrectionResponse.md)
+ - [SLOCorrectionResponseAttributes](SLOCorrectionResponseAttributes.md)
+ - [SLOCorrectionResponseData](SLOCorrectionResponseData.md)
+ - [SLOCorrectionUpdateRequest](SLOCorrectionUpdateRequest.md)
+ - [SLOCorrectionUpdateRequestAttributes](SLOCorrectionUpdateRequestAttributes.md)
+ - [SLOCorrectionUpdateRequestData](SLOCorrectionUpdateRequestData.md)
  - [SLODeleteResponse](SLODeleteResponse.md)
  - [SLOErrorTimeframe](SLOErrorTimeframe.md)
  - [SLOHistoryMetrics](SLOHistoryMetrics.md)
