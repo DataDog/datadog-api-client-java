@@ -123,7 +123,7 @@ public class ClientSteps {
     }
 
     @Then("the response status is {int} {}")
-    public void theResponseStatusIsOK(Integer statusCode, String _)
+    public void theResponseStatusIs(Integer statusCode, String _)
             throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
             java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException {
         Integer responseStatusCode = (Integer) 0;
