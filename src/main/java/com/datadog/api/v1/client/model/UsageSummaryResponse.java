@@ -56,6 +56,8 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryResponse.JSON_PROPERTY_INFRA_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_LAST_UPDATED,
+  UsageSummaryResponse.JSON_PROPERTY_LIVE_INDEXED_EVENTS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_LIVE_INGESTED_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_AGG_SUM,
@@ -63,6 +65,8 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_REHYDRATED_INGESTED_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_START_DATE,
@@ -137,6 +141,12 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_LAST_UPDATED = "last_updated";
   private OffsetDateTime lastUpdated;
 
+  public static final String JSON_PROPERTY_LIVE_INDEXED_EVENTS_AGG_SUM = "live_indexed_events_agg_sum";
+  private Long liveIndexedEventsAggSum;
+
+  public static final String JSON_PROPERTY_LIVE_INGESTED_BYTES_AGG_SUM = "live_ingested_bytes_agg_sum";
+  private Long liveIngestedBytesAggSum;
+
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_AGG_SUM = "mobile_rum_session_count_agg_sum";
   private Long mobileRumSessionCountAggSum;
 
@@ -157,6 +167,12 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM = "profiling_host_count_top99p_sum";
   private Long profilingHostCountTop99pSum;
+
+  public static final String JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_AGG_SUM = "rehydrated_indexed_events_agg_sum";
+  private Long rehydratedIndexedEventsAggSum;
+
+  public static final String JSON_PROPERTY_REHYDRATED_INGESTED_BYTES_AGG_SUM = "rehydrated_ingested_bytes_agg_sum";
+  private Long rehydratedIngestedBytesAggSum;
 
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM = "rum_session_count_agg_sum";
   private Long rumSessionCountAggSum;
@@ -687,6 +703,54 @@ public class UsageSummaryResponse {
   }
 
 
+  public UsageSummaryResponse liveIndexedEventsAggSum(Long liveIndexedEventsAggSum) {
+    this.liveIndexedEventsAggSum = liveIndexedEventsAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all live logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).
+   * @return liveIndexedEventsAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all live logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_LIVE_INDEXED_EVENTS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getLiveIndexedEventsAggSum() {
+    return liveIndexedEventsAggSum;
+  }
+
+
+  public void setLiveIndexedEventsAggSum(Long liveIndexedEventsAggSum) {
+    this.liveIndexedEventsAggSum = liveIndexedEventsAggSum;
+  }
+
+
+  public UsageSummaryResponse liveIngestedBytesAggSum(Long liveIngestedBytesAggSum) {
+    this.liveIngestedBytesAggSum = liveIngestedBytesAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).
+   * @return liveIngestedBytesAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_LIVE_INGESTED_BYTES_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getLiveIngestedBytesAggSum() {
+    return liveIngestedBytesAggSum;
+  }
+
+
+  public void setLiveIngestedBytesAggSum(Long liveIngestedBytesAggSum) {
+    this.liveIngestedBytesAggSum = liveIngestedBytesAggSum;
+  }
+
+
   public UsageSummaryResponse mobileRumSessionCountAggSum(Long mobileRumSessionCountAggSum) {
     this.mobileRumSessionCountAggSum = mobileRumSessionCountAggSum;
     return this;
@@ -852,6 +916,54 @@ public class UsageSummaryResponse {
 
   public void setProfilingHostCountTop99pSum(Long profilingHostCountTop99pSum) {
     this.profilingHostCountTop99pSum = profilingHostCountTop99pSum;
+  }
+
+
+  public UsageSummaryResponse rehydratedIndexedEventsAggSum(Long rehydratedIndexedEventsAggSum) {
+    this.rehydratedIndexedEventsAggSum = rehydratedIndexedEventsAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all rehydrated logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).
+   * @return rehydratedIndexedEventsAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all rehydrated logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getRehydratedIndexedEventsAggSum() {
+    return rehydratedIndexedEventsAggSum;
+  }
+
+
+  public void setRehydratedIndexedEventsAggSum(Long rehydratedIndexedEventsAggSum) {
+    this.rehydratedIndexedEventsAggSum = rehydratedIndexedEventsAggSum;
+  }
+
+
+  public UsageSummaryResponse rehydratedIngestedBytesAggSum(Long rehydratedIngestedBytesAggSum) {
+    this.rehydratedIngestedBytesAggSum = rehydratedIngestedBytesAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all rehydrated logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).
+   * @return rehydratedIngestedBytesAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all rehydrated logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_REHYDRATED_INGESTED_BYTES_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getRehydratedIngestedBytesAggSum() {
+    return rehydratedIngestedBytesAggSum;
+  }
+
+
+  public void setRehydratedIngestedBytesAggSum(Long rehydratedIngestedBytesAggSum) {
+    this.rehydratedIngestedBytesAggSum = rehydratedIngestedBytesAggSum;
   }
 
 
@@ -1088,6 +1200,8 @@ public class UsageSummaryResponse {
         Objects.equals(this.infraHostTop99pSum, usageSummaryResponse.infraHostTop99pSum) &&
         Objects.equals(this.ingestedEventsBytesAggSum, usageSummaryResponse.ingestedEventsBytesAggSum) &&
         Objects.equals(this.lastUpdated, usageSummaryResponse.lastUpdated) &&
+        Objects.equals(this.liveIndexedEventsAggSum, usageSummaryResponse.liveIndexedEventsAggSum) &&
+        Objects.equals(this.liveIngestedBytesAggSum, usageSummaryResponse.liveIngestedBytesAggSum) &&
         Objects.equals(this.mobileRumSessionCountAggSum, usageSummaryResponse.mobileRumSessionCountAggSum) &&
         Objects.equals(this.mobileRumSessionCountAndroidAggSum, usageSummaryResponse.mobileRumSessionCountAndroidAggSum) &&
         Objects.equals(this.mobileRumSessionCountIosAggSum, usageSummaryResponse.mobileRumSessionCountIosAggSum) &&
@@ -1095,6 +1209,8 @@ public class UsageSummaryResponse {
         Objects.equals(this.npmHostTop99pSum, usageSummaryResponse.npmHostTop99pSum) &&
         Objects.equals(this.profilingContainerAgentCountAvg, usageSummaryResponse.profilingContainerAgentCountAvg) &&
         Objects.equals(this.profilingHostCountTop99pSum, usageSummaryResponse.profilingHostCountTop99pSum) &&
+        Objects.equals(this.rehydratedIndexedEventsAggSum, usageSummaryResponse.rehydratedIndexedEventsAggSum) &&
+        Objects.equals(this.rehydratedIngestedBytesAggSum, usageSummaryResponse.rehydratedIngestedBytesAggSum) &&
         Objects.equals(this.rumSessionCountAggSum, usageSummaryResponse.rumSessionCountAggSum) &&
         Objects.equals(this.rumTotalSessionCountAggSum, usageSummaryResponse.rumTotalSessionCountAggSum) &&
         Objects.equals(this.startDate, usageSummaryResponse.startDate) &&
@@ -1107,7 +1223,7 @@ public class UsageSummaryResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99pSum, apmAzureAppServiceHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99pSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, incidentManagementMonthlyActiveUsersHwmSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, lastUpdated, mobileRumSessionCountAggSum, mobileRumSessionCountAndroidAggSum, mobileRumSessionCountIosAggSum, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingContainerAgentCountAvg, profilingHostCountTop99pSum, rumSessionCountAggSum, rumTotalSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, twolIngestedEventsBytesAggSum, usage);
+    return Objects.hash(agentHostTop99pSum, apmAzureAppServiceHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99pSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, incidentManagementMonthlyActiveUsersHwmSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, lastUpdated, liveIndexedEventsAggSum, liveIngestedBytesAggSum, mobileRumSessionCountAggSum, mobileRumSessionCountAndroidAggSum, mobileRumSessionCountIosAggSum, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingContainerAgentCountAvg, profilingHostCountTop99pSum, rehydratedIndexedEventsAggSum, rehydratedIngestedBytesAggSum, rumSessionCountAggSum, rumTotalSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, twolIngestedEventsBytesAggSum, usage);
   }
 
 
@@ -1136,6 +1252,8 @@ public class UsageSummaryResponse {
     sb.append("    infraHostTop99pSum: ").append(toIndentedString(infraHostTop99pSum)).append("\n");
     sb.append("    ingestedEventsBytesAggSum: ").append(toIndentedString(ingestedEventsBytesAggSum)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
+    sb.append("    liveIndexedEventsAggSum: ").append(toIndentedString(liveIndexedEventsAggSum)).append("\n");
+    sb.append("    liveIngestedBytesAggSum: ").append(toIndentedString(liveIngestedBytesAggSum)).append("\n");
     sb.append("    mobileRumSessionCountAggSum: ").append(toIndentedString(mobileRumSessionCountAggSum)).append("\n");
     sb.append("    mobileRumSessionCountAndroidAggSum: ").append(toIndentedString(mobileRumSessionCountAndroidAggSum)).append("\n");
     sb.append("    mobileRumSessionCountIosAggSum: ").append(toIndentedString(mobileRumSessionCountIosAggSum)).append("\n");
@@ -1143,6 +1261,8 @@ public class UsageSummaryResponse {
     sb.append("    npmHostTop99pSum: ").append(toIndentedString(npmHostTop99pSum)).append("\n");
     sb.append("    profilingContainerAgentCountAvg: ").append(toIndentedString(profilingContainerAgentCountAvg)).append("\n");
     sb.append("    profilingHostCountTop99pSum: ").append(toIndentedString(profilingHostCountTop99pSum)).append("\n");
+    sb.append("    rehydratedIndexedEventsAggSum: ").append(toIndentedString(rehydratedIndexedEventsAggSum)).append("\n");
+    sb.append("    rehydratedIngestedBytesAggSum: ").append(toIndentedString(rehydratedIngestedBytesAggSum)).append("\n");
     sb.append("    rumSessionCountAggSum: ").append(toIndentedString(rumSessionCountAggSum)).append("\n");
     sb.append("    rumTotalSessionCountAggSum: ").append(toIndentedString(rumTotalSessionCountAggSum)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
