@@ -35,7 +35,11 @@ import com.datadog.api.v1.client.JSON;
   UsageLogsHour.JSON_PROPERTY_BILLABLE_INGESTED_BYTES,
   UsageLogsHour.JSON_PROPERTY_HOUR,
   UsageLogsHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT,
-  UsageLogsHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES
+  UsageLogsHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES,
+  UsageLogsHour.JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT,
+  UsageLogsHour.JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES,
+  UsageLogsHour.JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT,
+  UsageLogsHour.JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageLogsHour {
@@ -50,6 +54,18 @@ public class UsageLogsHour {
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES = "ingested_events_bytes";
   private Long ingestedEventsBytes;
+
+  public static final String JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT = "logs_live_indexed_count";
+  private Long logsLiveIndexedCount;
+
+  public static final String JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES = "logs_live_ingested_bytes";
+  private Long logsLiveIngestedBytes;
+
+  public static final String JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT = "logs_rehydrated_indexed_count";
+  private Long logsRehydratedIndexedCount;
+
+  public static final String JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES = "logs_rehydrated_ingested_bytes";
+  private Long logsRehydratedIngestedBytes;
 
 
   public UsageLogsHour billableIngestedBytes(Long billableIngestedBytes) {
@@ -148,6 +164,102 @@ public class UsageLogsHour {
   }
 
 
+  public UsageLogsHour logsLiveIndexedCount(Long logsLiveIndexedCount) {
+    this.logsLiveIndexedCount = logsLiveIndexedCount;
+    return this;
+  }
+
+   /**
+   * Contains the number of live log events indexed (data available as of December 1, 2020).
+   * @return logsLiveIndexedCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of live log events indexed (data available as of December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getLogsLiveIndexedCount() {
+    return logsLiveIndexedCount;
+  }
+
+
+  public void setLogsLiveIndexedCount(Long logsLiveIndexedCount) {
+    this.logsLiveIndexedCount = logsLiveIndexedCount;
+  }
+
+
+  public UsageLogsHour logsLiveIngestedBytes(Long logsLiveIngestedBytes) {
+    this.logsLiveIngestedBytes = logsLiveIngestedBytes;
+    return this;
+  }
+
+   /**
+   * Contains the number of live log bytes ingested (data available as of December 1, 2020).
+   * @return logsLiveIngestedBytes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of live log bytes ingested (data available as of December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getLogsLiveIngestedBytes() {
+    return logsLiveIngestedBytes;
+  }
+
+
+  public void setLogsLiveIngestedBytes(Long logsLiveIngestedBytes) {
+    this.logsLiveIngestedBytes = logsLiveIngestedBytes;
+  }
+
+
+  public UsageLogsHour logsRehydratedIndexedCount(Long logsRehydratedIndexedCount) {
+    this.logsRehydratedIndexedCount = logsRehydratedIndexedCount;
+    return this;
+  }
+
+   /**
+   * Contains the number of rehydrated log events indexed (data available as of December 1, 2020).
+   * @return logsRehydratedIndexedCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of rehydrated log events indexed (data available as of December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getLogsRehydratedIndexedCount() {
+    return logsRehydratedIndexedCount;
+  }
+
+
+  public void setLogsRehydratedIndexedCount(Long logsRehydratedIndexedCount) {
+    this.logsRehydratedIndexedCount = logsRehydratedIndexedCount;
+  }
+
+
+  public UsageLogsHour logsRehydratedIngestedBytes(Long logsRehydratedIngestedBytes) {
+    this.logsRehydratedIngestedBytes = logsRehydratedIngestedBytes;
+    return this;
+  }
+
+   /**
+   * Contains the number of rehydrated log bytes ingested (data available as of December 1, 2020).
+   * @return logsRehydratedIngestedBytes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of rehydrated log bytes ingested (data available as of December 1, 2020).")
+  @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getLogsRehydratedIngestedBytes() {
+    return logsRehydratedIngestedBytes;
+  }
+
+
+  public void setLogsRehydratedIngestedBytes(Long logsRehydratedIngestedBytes) {
+    this.logsRehydratedIngestedBytes = logsRehydratedIngestedBytes;
+  }
+
+
   /**
    * Return true if this UsageLogsHour object is equal to o.
    */
@@ -163,12 +275,16 @@ public class UsageLogsHour {
     return Objects.equals(this.billableIngestedBytes, usageLogsHour.billableIngestedBytes) &&
         Objects.equals(this.hour, usageLogsHour.hour) &&
         Objects.equals(this.indexedEventsCount, usageLogsHour.indexedEventsCount) &&
-        Objects.equals(this.ingestedEventsBytes, usageLogsHour.ingestedEventsBytes);
+        Objects.equals(this.ingestedEventsBytes, usageLogsHour.ingestedEventsBytes) &&
+        Objects.equals(this.logsLiveIndexedCount, usageLogsHour.logsLiveIndexedCount) &&
+        Objects.equals(this.logsLiveIngestedBytes, usageLogsHour.logsLiveIngestedBytes) &&
+        Objects.equals(this.logsRehydratedIndexedCount, usageLogsHour.logsRehydratedIndexedCount) &&
+        Objects.equals(this.logsRehydratedIngestedBytes, usageLogsHour.logsRehydratedIngestedBytes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billableIngestedBytes, hour, indexedEventsCount, ingestedEventsBytes);
+    return Objects.hash(billableIngestedBytes, hour, indexedEventsCount, ingestedEventsBytes, logsLiveIndexedCount, logsLiveIngestedBytes, logsRehydratedIndexedCount, logsRehydratedIngestedBytes);
   }
 
 
@@ -180,6 +296,10 @@ public class UsageLogsHour {
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    indexedEventsCount: ").append(toIndentedString(indexedEventsCount)).append("\n");
     sb.append("    ingestedEventsBytes: ").append(toIndentedString(ingestedEventsBytes)).append("\n");
+    sb.append("    logsLiveIndexedCount: ").append(toIndentedString(logsLiveIndexedCount)).append("\n");
+    sb.append("    logsLiveIngestedBytes: ").append(toIndentedString(logsLiveIngestedBytes)).append("\n");
+    sb.append("    logsRehydratedIndexedCount: ").append(toIndentedString(logsRehydratedIndexedCount)).append("\n");
+    sb.append("    logsRehydratedIngestedBytes: ").append(toIndentedString(logsRehydratedIngestedBytes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
