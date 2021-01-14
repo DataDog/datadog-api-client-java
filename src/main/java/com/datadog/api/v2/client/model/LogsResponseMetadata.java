@@ -45,7 +45,7 @@ import com.datadog.api.v2.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsResponseMetadata {
   public static final String JSON_PROPERTY_ELAPSED = "elapsed";
-  private Integer elapsed;
+  private Long elapsed;
 
   public static final String JSON_PROPERTY_PAGE = "page";
   private LogsResponseMetadataPage page;
@@ -60,7 +60,7 @@ public class LogsResponseMetadata {
   private List<LogsWarning> warnings = null;
 
 
-  public LogsResponseMetadata elapsed(Integer elapsed) {
+  public LogsResponseMetadata elapsed(Long elapsed) {
     this.elapsed = elapsed;
     return this;
   }
@@ -74,12 +74,12 @@ public class LogsResponseMetadata {
   @JsonProperty(JSON_PROPERTY_ELAPSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getElapsed() {
+  public Long getElapsed() {
     return elapsed;
   }
 
 
-  public void setElapsed(Integer elapsed) {
+  public void setElapsed(Long elapsed) {
     this.elapsed = elapsed;
   }
 

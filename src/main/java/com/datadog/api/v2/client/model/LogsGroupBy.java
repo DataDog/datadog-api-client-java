@@ -51,7 +51,7 @@ public class LogsGroupBy {
   private LogsGroupByHistogram histogram;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Integer limit = 10;
+  private Long limit = 10l;
 
   public static final String JSON_PROPERTY_MISSING = "missing";
   private LogsGroupByMissing missing = null;
@@ -110,7 +110,7 @@ public class LogsGroupBy {
   }
 
 
-  public LogsGroupBy limit(Integer limit) {
+  public LogsGroupBy limit(Long limit) {
     this.limit = limit;
     return this;
   }
@@ -124,12 +124,12 @@ public class LogsGroupBy {
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getLimit() {
+  public Long getLimit() {
     return limit;
   }
 
 
-  public void setLimit(Integer limit) {
+  public void setLimit(Long limit) {
     this.limit = limit;
   }
 
