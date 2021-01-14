@@ -7,7 +7,7 @@ The metadata associated with a request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**elapsed** | **Integer** | The time elapsed in milliseconds |  [optional]
+**elapsed** | **Long** | The time elapsed in milliseconds |  [optional]
 **page** | [**LogsResponseMetadataPage**](LogsResponseMetadataPage.md) |  |  [optional]
 **requestId** | **String** | The identifier of the request |  [optional]
 **status** | **LogsAggregateResponseStatus** |  |  [optional]
