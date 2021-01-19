@@ -132,6 +132,43 @@ public class LogsIndexesApiTest extends V1ApiTest {
 
     /**
      * Unit Test
+     * This endpoint creates an Index.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createLogsIndexTest() throws ApiException, IOException {
+        LogsFilter filter = new LogsFilter()
+            .query("chicken-query");
+
+        List<LogsExclusion> exclusionFilters = new ArrayList<LogsExclusion>();
+        LogsExclusion exclusion = new LogsExclusion()
+            .name(String.format("chicken-exclusion"))
+            .isEnabled(false)
+            .filter(new LogsExclusionFilter().query("chicken-filter").sampleRate(0.55));
+        exclusionFilters.add(exclusion);
+
+        LogsIndexUpdateRequest body = new LogsIndex()
+            .name("chicken-index")
+            .filter(filter)
+            .numRetentionDays(55)
+            .dailyLimit(550000000)
+            .exclusionFilters(exclusionFilters);
+
+        stubFor(put(urlPathEqualTo("/api/v1/logs/config/indexes"))
+                .willReturn(okJson(TestUtils.getFixture("v1/client/api/logs_indexes_fixtures/create_index.json")))
+        );
+        LogsIndex response = unitApi.createLogsIndex().body(body).execute();
+        resetWiremock();
+        assertEquals(body.getName(), response.getName());
+        assertEquals(body.getFilter(), response.getFilter());
+        assertEquals(body.getNumRetentionDays(), response.getNumRetentionDays());
+        assertEquals(body.getDailyLimit(), response.getDailyLimit());
+        assertEquals(body.getExclusionFilters(), response.getExclusionFilters());
+    }
+
+    /**
+     * Unit Test
      * This endpoint updates an Index identified by its name.
      *
      * @throws ApiException if the Api call fails
