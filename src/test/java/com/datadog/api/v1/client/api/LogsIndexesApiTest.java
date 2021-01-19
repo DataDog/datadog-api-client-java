@@ -57,16 +57,19 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public static void enableUnstableOperations() {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalApiClient.setUnstableOperationEnabled("listLogIndexes", true);
+        generalApiClient.setUnstableOperationEnabled("createLogsIndex", true);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
         generalApiClient.setUnstableOperationEnabled("getLogsIndexOrder", true);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndexOrder", true);
         generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalFakeAuthApiClient.setUnstableOperationEnabled("listLogIndexes", true);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("createLogsIndex", true);
         generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndex", true);
         generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndexOrder", true);
         generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndexOrder", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", true);
+        generalApiUnitTestClient.setUnstableOperationEnabled("createLogsIndex", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndexOrder", true);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndexOrder", true);
@@ -76,16 +79,19 @@ public class LogsIndexesApiTest extends V1ApiTest {
     public static void disableUnstableOperations() {
         generalApiClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalApiClient.setUnstableOperationEnabled("listLogIndexes", false);
+        generalApiClient.setUnstableOperationEnabled("createLogsIndex", false);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
         generalApiClient.setUnstableOperationEnabled("getLogsIndexOrder", false);
         generalApiClient.setUnstableOperationEnabled("updateLogsIndexOrder", false);
         generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalFakeAuthApiClient.setUnstableOperationEnabled("listLogIndexes", false);
+        generalFakeAuthApiClient.setUnstableOperationEnabled("createLogsIndex", false);
         generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndex", false);
         generalFakeAuthApiClient.setUnstableOperationEnabled("getLogsIndexOrder", false);
         generalFakeAuthApiClient.setUnstableOperationEnabled("updateLogsIndexOrder", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndex", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("listLogIndexes", false);
+        generalApiUnitTestClient.setUnstableOperationEnabled("createLogsIndex", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndex", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("getLogsIndexOrder", false);
         generalApiUnitTestClient.setUnstableOperationEnabled("updateLogsIndexOrder", false);
@@ -148,14 +154,14 @@ public class LogsIndexesApiTest extends V1ApiTest {
             .filter(new LogsExclusionFilter().query("chicken-filter").sampleRate(0.55));
         exclusionFilters.add(exclusion);
 
-        LogsIndexUpdateRequest body = new LogsIndex()
+        LogsIndex body = new LogsIndex()
             .name("chicken-index")
             .filter(filter)
-            .numRetentionDays(55)
-            .dailyLimit(550000000)
+            .numRetentionDays(Long.valueOf(55))
+            .dailyLimit(Long.valueOf(550000000))
             .exclusionFilters(exclusionFilters);
 
-        stubFor(put(urlPathEqualTo("/api/v1/logs/config/indexes"))
+        stubFor(post(urlPathEqualTo("/api/v1/logs/config/indexes"))
                 .willReturn(okJson(TestUtils.getFixture("v1/client/api/logs_indexes_fixtures/create_index.json")))
         );
         LogsIndex response = unitApi.createLogsIndex().body(body).execute();
