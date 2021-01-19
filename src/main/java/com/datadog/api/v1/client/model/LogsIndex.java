@@ -73,7 +73,7 @@ public class LogsIndex {
    * @return dailyLimit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of log events you can send in this index per day before you are rate-limited.")
+  @ApiModelProperty(example = "300000000", value = "The number of log events you can send in this index per day before you are rate-limited.")
   @JsonProperty(JSON_PROPERTY_DAILY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -147,7 +147,7 @@ public class LogsIndex {
    * @return isRateLimited
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent. Rate limit is reset every-day at 2pm UTC.")
+  @ApiModelProperty(example = "false", value = "A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent. Rate limit is reset every-day at 2pm UTC.")
   @JsonProperty(JSON_PROPERTY_IS_RATE_LIMITED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -158,20 +158,27 @@ public class LogsIndex {
 
 
 
+  public LogsIndex name(String name) {
+    this.name = name;
+    return this;
+  }
+
    /**
    * The name of the index.
    * @return name
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the index.")
+  @ApiModelProperty(example = "main", required = true, value = "The name of the index.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
   }
 
 
+  public void setName(String name) {
+    this.name = name;
+  }
 
 
   public LogsIndex numRetentionDays(Long numRetentionDays) {
@@ -184,7 +191,7 @@ public class LogsIndex {
    * @return numRetentionDays
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.")
+  @ApiModelProperty(example = "15", value = "The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.")
   @JsonProperty(JSON_PROPERTY_NUM_RETENTION_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
