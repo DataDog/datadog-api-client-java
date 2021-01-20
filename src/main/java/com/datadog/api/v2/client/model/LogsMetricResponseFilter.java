@@ -49,7 +49,7 @@ public class LogsMetricResponseFilter {
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The search query - following the log search syntax.")
+  @ApiModelProperty(example = "service:web* AND @http.status_code:[200 TO 299]", value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
