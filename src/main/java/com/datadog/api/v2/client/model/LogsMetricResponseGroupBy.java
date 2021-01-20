@@ -53,7 +53,7 @@ public class LogsMetricResponseGroupBy {
    * @return path
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The path to the value the log-based metric will be aggregated over.")
+  @ApiModelProperty(example = "@http.status_code", value = "The path to the value the log-based metric will be aggregated over.")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -77,7 +77,7 @@ public class LogsMetricResponseGroupBy {
    * @return tagName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.")
+  @ApiModelProperty(example = "status_code", value = "Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.")
   @JsonProperty(JSON_PROPERTY_TAG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

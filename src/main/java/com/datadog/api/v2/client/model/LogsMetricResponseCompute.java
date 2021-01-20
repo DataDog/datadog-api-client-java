@@ -78,7 +78,7 @@ public class LogsMetricResponseCompute {
    * @return path
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \"distribution\").")
+  @ApiModelProperty(example = "@duration", value = "The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \"distribution\").")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
