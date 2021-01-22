@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **end** | **Long** | Ending time of the correction in epoch seconds | 
 **sloId** | **String** | ID of the SLO that this correction will be applied to | 
 **start** | **Long** | Starting time of the correction in epoch seconds | 
-**timezone** | **String** | Timezone of the timestamps provided | 
+**timezone** | **String** | The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;) |  [optional]
 
 
 

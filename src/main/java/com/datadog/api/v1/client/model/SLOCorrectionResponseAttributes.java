@@ -215,11 +215,11 @@ public class SLOCorrectionResponseAttributes {
   }
 
    /**
-   * Timezone of the timestamps provided
+   * The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;)
    * @return timezone
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timezone of the timestamps provided")
+  @ApiModelProperty(value = "The timezone to display in the UI for the correction times (defaults to \"UTC\")")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
