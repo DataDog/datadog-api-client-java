@@ -90,8 +90,12 @@
                             <name>loggerPath</name>
                             <value>conf/log4j.properties</value>
                         </property>
+                        <property>
+                            <name>dd.prioritization.type</name>
+                            <value>EnsureTrace</value>
+                        </property>
                     </systemProperties>
-                    <argLine>-javaagent:${basedir}/.dd/dd-java-agent-0.69.0-SNAPSHOT.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
+                    <argLine>-javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -401,7 +405,7 @@
         <http-signature-version>1.3</http-signature-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.1</junit-version>
-        <dd-java-agent-version>0.68.0</dd-java-agent-version>
+        <dd-java-agent-version>0.72.0</dd-java-agent-version>
         <bintray.repo>datadog/datadog-maven</bintray.repo>
         <bintray.package>datadog-api-client</bintray.package>
     </properties>
