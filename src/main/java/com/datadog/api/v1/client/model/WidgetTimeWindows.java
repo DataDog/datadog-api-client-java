@@ -40,7 +40,9 @@ public enum WidgetTimeWindows {
   
   MONTH_TO_DATE("month_to_date"),
   
-  PREVIOUS_MONTH("previous_month");
+  PREVIOUS_MONTH("previous_month"),
+  
+  GLOBAL_TIME("global_time");
 
   private String value;
 
