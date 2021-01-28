@@ -31,40 +31,40 @@ import com.datadog.api.v2.client.JSON;
  */
 @ApiModel(description = "Paging settings")
 @JsonPropertyOrder({
-  LogsAggregateRequestPaging.JSON_PROPERTY_AFTER
+  LogsAggregateRequestPage.JSON_PROPERTY_CURSOR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class LogsAggregateRequestPaging {
-  public static final String JSON_PROPERTY_AFTER = "after";
-  private String after;
+public class LogsAggregateRequestPage {
+  public static final String JSON_PROPERTY_CURSOR = "cursor";
+  private String cursor;
 
 
-  public LogsAggregateRequestPaging after(String after) {
-    this.after = after;
+  public LogsAggregateRequestPage cursor(String cursor) {
+    this.cursor = cursor;
     return this;
   }
 
    /**
    * The returned paging point to use to get the next results
-   * @return after
+   * @return cursor
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==", value = "The returned paging point to use to get the next results")
-  @JsonProperty(JSON_PROPERTY_AFTER)
+  @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getAfter() {
-    return after;
+  public String getCursor() {
+    return cursor;
   }
 
 
-  public void setAfter(String after) {
-    this.after = after;
+  public void setCursor(String cursor) {
+    this.cursor = cursor;
   }
 
 
   /**
-   * Return true if this LogsAggregateRequest_paging object is equal to o.
+   * Return true if this LogsAggregateRequest_page object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -74,21 +74,21 @@ public class LogsAggregateRequestPaging {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsAggregateRequestPaging logsAggregateRequestPaging = (LogsAggregateRequestPaging) o;
-    return Objects.equals(this.after, logsAggregateRequestPaging.after);
+    LogsAggregateRequestPage logsAggregateRequestPage = (LogsAggregateRequestPage) o;
+    return Objects.equals(this.cursor, logsAggregateRequestPage.cursor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(after);
+    return Objects.hash(cursor);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogsAggregateRequestPaging {\n");
-    sb.append("    after: ").append(toIndentedString(after)).append("\n");
+    sb.append("class LogsAggregateRequestPage {\n");
+    sb.append("    cursor: ").append(toIndentedString(cursor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

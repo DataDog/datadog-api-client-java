@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsAggregateRequestPaging;
+import com.datadog.api.v2.client.model.LogsAggregateRequestPage;
 import com.datadog.api.v2.client.model.LogsCompute;
 import com.datadog.api.v2.client.model.LogsGroupBy;
 import com.datadog.api.v2.client.model.LogsQueryFilter;
@@ -42,7 +42,7 @@ import com.datadog.api.v2.client.JSON;
   LogsAggregateRequest.JSON_PROPERTY_FILTER,
   LogsAggregateRequest.JSON_PROPERTY_GROUP_BY,
   LogsAggregateRequest.JSON_PROPERTY_OPTIONS,
-  LogsAggregateRequest.JSON_PROPERTY_PAGING
+  LogsAggregateRequest.JSON_PROPERTY_PAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateRequest {
@@ -58,8 +58,8 @@ public class LogsAggregateRequest {
   public static final String JSON_PROPERTY_OPTIONS = "options";
   private LogsQueryOptions options;
 
-  public static final String JSON_PROPERTY_PAGING = "paging";
-  private LogsAggregateRequestPaging paging;
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private LogsAggregateRequestPage page;
 
 
   public LogsAggregateRequest compute(List<LogsCompute> compute) {
@@ -174,27 +174,27 @@ public class LogsAggregateRequest {
   }
 
 
-  public LogsAggregateRequest paging(LogsAggregateRequestPaging paging) {
-    this.paging = paging;
+  public LogsAggregateRequest page(LogsAggregateRequestPage page) {
+    this.page = page;
     return this;
   }
 
    /**
-   * Get paging
-   * @return paging
+   * Get page
+   * @return page
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PAGING)
+  @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LogsAggregateRequestPaging getPaging() {
-    return paging;
+  public LogsAggregateRequestPage getPage() {
+    return page;
   }
 
 
-  public void setPaging(LogsAggregateRequestPaging paging) {
-    this.paging = paging;
+  public void setPage(LogsAggregateRequestPage page) {
+    this.page = page;
   }
 
 
@@ -214,12 +214,12 @@ public class LogsAggregateRequest {
         Objects.equals(this.filter, logsAggregateRequest.filter) &&
         Objects.equals(this.groupBy, logsAggregateRequest.groupBy) &&
         Objects.equals(this.options, logsAggregateRequest.options) &&
-        Objects.equals(this.paging, logsAggregateRequest.paging);
+        Objects.equals(this.page, logsAggregateRequest.page);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute, filter, groupBy, options, paging);
+    return Objects.hash(compute, filter, groupBy, options, page);
   }
 
 
@@ -231,7 +231,7 @@ public class LogsAggregateRequest {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    paging: ").append(toIndentedString(paging)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("}");
     return sb.toString();
   }
