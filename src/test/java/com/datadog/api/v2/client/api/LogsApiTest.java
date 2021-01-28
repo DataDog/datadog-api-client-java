@@ -128,26 +128,43 @@ public class LogsApiTest extends V2APITest {
             }
         });
 
-        // Sort works correctly
-        LogsListResponse responseAscending = api.listLogs()
-                .body(new LogsListRequest()
-                        .filter(allLogsFilter)
-                        .sort(LogsSort.TIMESTAMP_ASCENDING))
-                .execute();
+        AtomicReference<LogsListResponse> responseAscending = new AtomicReference<>();
 
-        assertEquals(2, responseAscending.getData().size());
-        assertEquals("test-log-list " + suffix, responseAscending.getData().get(0).getAttributes().getMessage());
-        assertEquals("test-log-list-2 " + suffix, responseAscending.getData().get(1).getAttributes().getMessage());
+        TestUtils.retry(5, 10, () -> {
+            try {
+                // Sort works correctly
+                responseAscending.set(api.listLogs()
+                        .body(new LogsListRequest()
+                                .filter(allLogsFilter)
+                                .sort(LogsSort.TIMESTAMP_ASCENDING))
+                        .execute());
+                return responseAscending.get().getData() != null && responseAscending.get().getData().size() == 2;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
 
-        LogsListResponse responseDescending = api.listLogs()
-                .body(new LogsListRequest()
-                        .filter(allLogsFilter)
-                        .sort(LogsSort.TIMESTAMP_DESCENDING))
-                .execute();
+        assertEquals(2, responseAscending.get().getData().size());
+        assertEquals("test-log-list " + suffix, responseAscending.get().getData().get(0).getAttributes().getMessage());
+        assertEquals("test-log-list-2 " + suffix, responseAscending.get().getData().get(1).getAttributes().getMessage());
 
-        assertEquals(2, responseDescending.getData().size());
-        assertEquals("test-log-list-2 " + suffix, responseDescending.getData().get(0).getAttributes().getMessage());
-        assertEquals("test-log-list " + suffix, responseDescending.getData().get(1).getAttributes().getMessage());
+        AtomicReference<LogsListResponse> responseDescending = new AtomicReference<>();
+        TestUtils.retry(5, 10, () -> {
+            try {
+                responseDescending.set(api.listLogs()
+                        .body(new LogsListRequest()
+                                .filter(allLogsFilter)
+                                .sort(LogsSort.TIMESTAMP_DESCENDING))
+                        .execute());
+                return responseDescending.get().getData() != null && responseDescending.get().getData().size() == 2;
+            } catch (ApiException ignored) {
+                return false;
+            }
+        });
+
+        assertEquals(2, responseDescending.get().getData().size());
+        assertEquals("test-log-list-2 " + suffix, responseDescending.get().getData().get(0).getAttributes().getMessage());
+        assertEquals("test-log-list " + suffix, responseDescending.get().getData().get(1).getAttributes().getMessage());
 
         // Paging
         LogsListResponse pageOneResponse = api.listLogs()
