@@ -112,7 +112,7 @@ docs/LogsAggregateBucketValue.md
 docs/LogsAggregateBucketValueTimeseries.md
 docs/LogsAggregateBucketValueTimeseriesPoint.md
 docs/LogsAggregateRequest.md
-docs/LogsAggregateRequestPaging.md
+docs/LogsAggregateRequestPage.md
 docs/LogsAggregateResponse.md
 docs/LogsAggregateResponseData.md
 docs/LogsAggregateResponseStatus.md
@@ -428,7 +428,7 @@ src/main/java/com/datadog/api/v2/client/model/LogsAggregateBucketValue.java
 src/main/java/com/datadog/api/v2/client/model/LogsAggregateBucketValueTimeseries.java
 src/main/java/com/datadog/api/v2/client/model/LogsAggregateBucketValueTimeseriesPoint.java
 src/main/java/com/datadog/api/v2/client/model/LogsAggregateRequest.java
-src/main/java/com/datadog/api/v2/client/model/LogsAggregateRequestPaging.java
+src/main/java/com/datadog/api/v2/client/model/LogsAggregateRequestPage.java
 src/main/java/com/datadog/api/v2/client/model/LogsAggregateResponse.java
 src/main/java/com/datadog/api/v2/client/model/LogsAggregateResponseData.java
 src/main/java/com/datadog/api/v2/client/model/LogsAggregateResponseStatus.java
@@ -700,7 +700,7 @@ src/test/java/com/datadog/api/v2/client/model/LogsAggregateBucketTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsAggregateBucketValueTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsAggregateBucketValueTimeseriesPointTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsAggregateBucketValueTimeseriesTest.java
-src/test/java/com/datadog/api/v2/client/model/LogsAggregateRequestPagingTest.java
+src/test/java/com/datadog/api/v2/client/model/LogsAggregateRequestPageTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsAggregateRequestTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsAggregateResponseDataTest.java
 src/test/java/com/datadog/api/v2/client/model/LogsAggregateResponseStatusTest.java
