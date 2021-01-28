@@ -109,7 +109,7 @@ Class | Method | HTTP request | Description
 *ServiceLevelObjectivesApi* | [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
 *ServiceLevelObjectivesApi* | [**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details
 *ServiceLevelObjectivesApi* | [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
-*ServiceLevelObjectivesApi* | [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Search SLOs
+*ServiceLevelObjectivesApi* | [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Get all SLOs
 *ServiceLevelObjectivesApi* | [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
 *SnapshotsApi* | [**getGraphSnapshot**](SnapshotsApi.md#getGraphSnapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
 *SyntheticsApi* | [**createGlobalVariable**](SyntheticsApi.md#createGlobalVariable) | **POST** /api/v1/synthetics/variables | Create a global variable
