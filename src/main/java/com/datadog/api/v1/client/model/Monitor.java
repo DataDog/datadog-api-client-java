@@ -54,6 +54,7 @@ import com.datadog.api.v1.client.JSON;
   Monitor.JSON_PROPERTY_OVERALL_STATE,
   Monitor.JSON_PROPERTY_PRIORITY,
   Monitor.JSON_PROPERTY_QUERY,
+  Monitor.JSON_PROPERTY_RESTRICTED_ROLES,
   Monitor.JSON_PROPERTY_STATE,
   Monitor.JSON_PROPERTY_TAGS,
   Monitor.JSON_PROPERTY_TYPE
@@ -95,6 +96,9 @@ public class Monitor {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
+  private List<String> restrictedRoles = null;
 
   public static final String JSON_PROPERTY_STATE = "state";
   private MonitorState state;
@@ -370,6 +374,38 @@ public class Monitor {
   }
 
 
+  public Monitor restrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
+    return this;
+  }
+
+  public Monitor addRestrictedRolesItem(String restrictedRolesItem) {
+    if (this.restrictedRoles == null) {
+      this.restrictedRoles = new ArrayList<>();
+    }
+    this.restrictedRoles.add(restrictedRolesItem);
+    return this;
+  }
+
+   /**
+   * A list of role identifiers that can be pulled from the Roles API. Cannot be used with &#x60;locked&#x60; option.
+   * @return restrictedRoles
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.")
+  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getRestrictedRoles() {
+    return restrictedRoles;
+  }
+
+
+  public void setRestrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
+  }
+
+
   public Monitor state(MonitorState state) {
     this.state = state;
     return this;
@@ -474,6 +510,7 @@ public class Monitor {
         Objects.equals(this.overallState, monitor.overallState) &&
         Objects.equals(this.priority, monitor.priority) &&
         Objects.equals(this.query, monitor.query) &&
+        Objects.equals(this.restrictedRoles, monitor.restrictedRoles) &&
         Objects.equals(this.state, monitor.state) &&
         Objects.equals(this.tags, monitor.tags) &&
         Objects.equals(this.type, monitor.type);
@@ -481,7 +518,7 @@ public class Monitor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, creator, deleted, id, message, modified, multi, name, options, overallState, priority, query, state, tags, type);
+    return Objects.hash(created, creator, deleted, id, message, modified, multi, name, options, overallState, priority, query, restrictedRoles, state, tags, type);
   }
 
 
@@ -501,6 +538,7 @@ public class Monitor {
     sb.append("    overallState: ").append(toIndentedString(overallState)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
