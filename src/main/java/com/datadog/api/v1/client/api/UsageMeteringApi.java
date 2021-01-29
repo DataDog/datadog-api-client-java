@@ -20,6 +20,7 @@ import com.datadog.api.v1.client.model.UsageHostsResponse;
 import com.datadog.api.v1.client.model.UsageIncidentManagementResponse;
 import com.datadog.api.v1.client.model.UsageIndexedSpansResponse;
 import com.datadog.api.v1.client.model.UsageIngestedSpansResponse;
+import com.datadog.api.v1.client.model.UsageIoTResponse;
 import com.datadog.api.v1.client.model.UsageLambdaResponse;
 import com.datadog.api.v1.client.model.UsageLogsByIndexResponse;
 import com.datadog.api.v1.client.model.UsageLogsResponse;
@@ -1684,6 +1685,126 @@ private ApiResponse<UsageIndexedSpansResponse> getUsageIndexedSpansWithHttpInfo(
    */
   public APIgetUsageIndexedSpansRequest getUsageIndexedSpans() throws ApiException {
     return new APIgetUsageIndexedSpansRequest();
+  }
+
+private ApiResponse<UsageIoTResponse> getUsageInternetOfThingsWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(400, "Missing the required parameter 'startHr' when calling getUsageInternetOfThings");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/iot";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageInternetOfThings");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<UsageIoTResponse> localVarReturnType = new GenericType<UsageIoTResponse>() {};
+
+    return apiClient.invokeAPI("UsageMeteringApi.getUsageInternetOfThings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIgetUsageInternetOfThingsRequest {
+    private OffsetDateTime startHr;
+    private OffsetDateTime endHr;
+
+    private APIgetUsageInternetOfThingsRequest() {
+    }
+
+    /**
+     * Set startHr
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. (required)
+     * @return APIgetUsageInternetOfThingsRequest
+     */
+    public APIgetUsageInternetOfThingsRequest startHr(OffsetDateTime startHr) {
+      this.startHr = startHr;
+      return this;
+    }
+
+    /**
+     * Set endHr
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. (optional)
+     * @return APIgetUsageInternetOfThingsRequest
+     */
+    public APIgetUsageInternetOfThingsRequest endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Execute getUsageInternetOfThings request
+     * @return UsageIoTResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UsageIoTResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getUsageInternetOfThings request with HTTP info returned
+     * @return ApiResponse&lt;UsageIoTResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UsageIoTResponse> executeWithHttpInfo() throws ApiException {
+      return getUsageInternetOfThingsWithHttpInfo(startHr, endHr);
+    }
+  }
+
+  /**
+   * Get hourly usage for IoT
+   * Get hourly usage for IoT.
+   * @return getUsageInternetOfThingsRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIgetUsageInternetOfThingsRequest getUsageInternetOfThings() throws ApiException {
+    return new APIgetUsageInternetOfThingsRequest();
   }
 
 private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {

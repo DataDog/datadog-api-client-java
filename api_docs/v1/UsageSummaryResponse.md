@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **indexedEventsCountAggSum** | **Long** | Shows the sum of all log events indexed over all hours in the current months for all organizations. |  [optional]
 **infraHostTop99pSum** | **Long** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current months for all organizations. |  [optional]
 **ingestedEventsBytesAggSum** | **Long** | Shows the sum of all log bytes ingested over all hours in the current months for all organizations. |  [optional]
+**iotDeviceAggSum** | **Long** | Shows the sum of all IoT devices over all hours in the current months for all organizations. |  [optional]
+**iotDeviceTop99pSum** | **Long** | Shows the 99th percentile of all IoT devices over all hours in the current months of all organizations. |  [optional]
 **lastUpdated** | **OffsetDateTime** | Shows the the most recent hour in the current months for all organizations for which all usages were calculated. |  [optional]
 **liveIndexedEventsAggSum** | **Long** | Shows the sum of all live logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020). |  [optional]
 **liveIngestedBytesAggSum** | **Long** | Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020). |  [optional]
