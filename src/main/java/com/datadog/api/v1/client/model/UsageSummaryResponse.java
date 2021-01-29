@@ -55,6 +55,8 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryResponse.JSON_PROPERTY_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INFRA_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_LAST_UPDATED,
   UsageSummaryResponse.JSON_PROPERTY_LIVE_INDEXED_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_LIVE_INGESTED_BYTES_AGG_SUM,
@@ -137,6 +139,12 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM = "ingested_events_bytes_agg_sum";
   private Long ingestedEventsBytesAggSum;
+
+  public static final String JSON_PROPERTY_IOT_DEVICE_AGG_SUM = "iot_device_agg_sum";
+  private Long iotDeviceAggSum;
+
+  public static final String JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM = "iot_device_top99p_sum";
+  private Long iotDeviceTop99pSum;
 
   public static final String JSON_PROPERTY_LAST_UPDATED = "last_updated";
   private OffsetDateTime lastUpdated;
@@ -679,6 +687,54 @@ public class UsageSummaryResponse {
   }
 
 
+  public UsageSummaryResponse iotDeviceAggSum(Long iotDeviceAggSum) {
+    this.iotDeviceAggSum = iotDeviceAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all IoT devices over all hours in the current months for all organizations.
+   * @return iotDeviceAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all IoT devices over all hours in the current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getIotDeviceAggSum() {
+    return iotDeviceAggSum;
+  }
+
+
+  public void setIotDeviceAggSum(Long iotDeviceAggSum) {
+    this.iotDeviceAggSum = iotDeviceAggSum;
+  }
+
+
+  public UsageSummaryResponse iotDeviceTop99pSum(Long iotDeviceTop99pSum) {
+    this.iotDeviceTop99pSum = iotDeviceTop99pSum;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all IoT devices over all hours in the current months of all organizations.
+   * @return iotDeviceTop99pSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all IoT devices over all hours in the current months of all organizations.")
+  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getIotDeviceTop99pSum() {
+    return iotDeviceTop99pSum;
+  }
+
+
+  public void setIotDeviceTop99pSum(Long iotDeviceTop99pSum) {
+    this.iotDeviceTop99pSum = iotDeviceTop99pSum;
+  }
+
+
   public UsageSummaryResponse lastUpdated(OffsetDateTime lastUpdated) {
     this.lastUpdated = lastUpdated;
     return this;
@@ -1199,6 +1255,8 @@ public class UsageSummaryResponse {
         Objects.equals(this.indexedEventsCountAggSum, usageSummaryResponse.indexedEventsCountAggSum) &&
         Objects.equals(this.infraHostTop99pSum, usageSummaryResponse.infraHostTop99pSum) &&
         Objects.equals(this.ingestedEventsBytesAggSum, usageSummaryResponse.ingestedEventsBytesAggSum) &&
+        Objects.equals(this.iotDeviceAggSum, usageSummaryResponse.iotDeviceAggSum) &&
+        Objects.equals(this.iotDeviceTop99pSum, usageSummaryResponse.iotDeviceTop99pSum) &&
         Objects.equals(this.lastUpdated, usageSummaryResponse.lastUpdated) &&
         Objects.equals(this.liveIndexedEventsAggSum, usageSummaryResponse.liveIndexedEventsAggSum) &&
         Objects.equals(this.liveIngestedBytesAggSum, usageSummaryResponse.liveIngestedBytesAggSum) &&
@@ -1223,7 +1281,7 @@ public class UsageSummaryResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99pSum, apmAzureAppServiceHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99pSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, incidentManagementMonthlyActiveUsersHwmSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, lastUpdated, liveIndexedEventsAggSum, liveIngestedBytesAggSum, mobileRumSessionCountAggSum, mobileRumSessionCountAndroidAggSum, mobileRumSessionCountIosAggSum, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingContainerAgentCountAvg, profilingHostCountTop99pSum, rehydratedIndexedEventsAggSum, rehydratedIngestedBytesAggSum, rumSessionCountAggSum, rumTotalSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, twolIngestedEventsBytesAggSum, usage);
+    return Objects.hash(agentHostTop99pSum, apmAzureAppServiceHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99pSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, incidentManagementMonthlyActiveUsersHwmSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, iotDeviceAggSum, iotDeviceTop99pSum, lastUpdated, liveIndexedEventsAggSum, liveIngestedBytesAggSum, mobileRumSessionCountAggSum, mobileRumSessionCountAndroidAggSum, mobileRumSessionCountIosAggSum, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingContainerAgentCountAvg, profilingHostCountTop99pSum, rehydratedIndexedEventsAggSum, rehydratedIngestedBytesAggSum, rumSessionCountAggSum, rumTotalSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, twolIngestedEventsBytesAggSum, usage);
   }
 
 
@@ -1251,6 +1309,8 @@ public class UsageSummaryResponse {
     sb.append("    indexedEventsCountAggSum: ").append(toIndentedString(indexedEventsCountAggSum)).append("\n");
     sb.append("    infraHostTop99pSum: ").append(toIndentedString(infraHostTop99pSum)).append("\n");
     sb.append("    ingestedEventsBytesAggSum: ").append(toIndentedString(ingestedEventsBytesAggSum)).append("\n");
+    sb.append("    iotDeviceAggSum: ").append(toIndentedString(iotDeviceAggSum)).append("\n");
+    sb.append("    iotDeviceTop99pSum: ").append(toIndentedString(iotDeviceTop99pSum)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
     sb.append("    liveIndexedEventsAggSum: ").append(toIndentedString(liveIndexedEventsAggSum)).append("\n");
     sb.append("    liveIngestedBytesAggSum: ").append(toIndentedString(liveIngestedBytesAggSum)).append("\n");
