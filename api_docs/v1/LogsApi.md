@@ -4,7 +4,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Get a list of logs
+[**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Search logs
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > LogsListResponse listLogs().body(body).execute();
 
-Get a list of logs
+Search logs
 
 List endpoint returns logs that match a log search query.
 [Results are paginated][1].
