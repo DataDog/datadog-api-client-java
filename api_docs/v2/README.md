@@ -37,8 +37,8 @@ Class | Method | HTTP request | Description
 *KeyManagementApi* | [**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey) | **PATCH** /api/v2/application_keys/{app_key_id} | Edit an application key
 *KeyManagementApi* | [**updateCurrentUserApplicationKey**](KeyManagementApi.md#updateCurrentUserApplicationKey) | **PATCH** /api/v2/current_user/application_keys/{app_key_id} | Edit an application key owned by current user
 *LogsApi* | [**aggregateLogs**](LogsApi.md#aggregateLogs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
-*LogsApi* | [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v2/logs/events/search | Get a list of logs
-*LogsApi* | [**listLogsGet**](LogsApi.md#listLogsGet) | **GET** /api/v2/logs/events | Get a quick list of logs
+*LogsApi* | [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v2/logs/events/search | Search logs
+*LogsApi* | [**listLogsGet**](LogsApi.md#listLogsGet) | **GET** /api/v2/logs/events | Get a list of logs
 *LogsArchivesApi* | [**addReadRoleToArchive**](LogsArchivesApi.md#addReadRoleToArchive) | **POST** /api/v2/logs/config/archives/{archive_id}/readers | Grant role to an archive
 *LogsArchivesApi* | [**createLogsArchive**](LogsArchivesApi.md#createLogsArchive) | **POST** /api/v2/logs/config/archives | Create an archive
 *LogsArchivesApi* | [**deleteLogsArchive**](LogsArchivesApi.md#deleteLogsArchive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive

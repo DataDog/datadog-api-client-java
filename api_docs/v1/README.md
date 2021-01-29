@@ -63,7 +63,7 @@ Class | Method | HTTP request | Description
 *KeyManagementApi* | [**listApplicationKeys**](KeyManagementApi.md#listApplicationKeys) | **GET** /api/v1/application_key | Get all application keys
 *KeyManagementApi* | [**updateAPIKey**](KeyManagementApi.md#updateAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key
 *KeyManagementApi* | [**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key
-*LogsApi* | [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Get a list of logs
+*LogsApi* | [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Search logs
 *LogsIndexesApi* | [**createLogsIndex**](LogsIndexesApi.md#createLogsIndex) | **POST** /api/v1/logs/config/indexes | Create an index
 *LogsIndexesApi* | [**getLogsIndex**](LogsIndexesApi.md#getLogsIndex) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
 *LogsIndexesApi* | [**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get indexes order
