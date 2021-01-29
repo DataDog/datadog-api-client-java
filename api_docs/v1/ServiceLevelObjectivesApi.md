@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
 [**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details
 [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
-[**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Search SLOs
+[**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Get all SLOs
 [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
 
 
@@ -533,11 +533,11 @@ Name | Type | Description  | Notes
 
 ## listSLOs
 
-> SLOListResponse listSLOs().ids(ids).execute();
+> SLOListResponse listSLOs().ids(ids).query(query).tagsQuery(tagsQuery).metricsQuery(metricsQuery).execute();
 
-Search SLOs
+Get all SLOs
 
-Get multiple service level objective objects by their IDs.
+Get a list of service level objective objects for your organization.
 
 ### Example
 
@@ -569,9 +569,15 @@ public class Example {
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String ids = "id1, id2, id3"; // String | A comma separated list of the IDs of the service level objectives objects.
+        String query = "monitor"; // String | The query string to filter results based on SLO names.
+        String tagsQuery = "env:prod"; // String | The query string to filter results based on SLO tags.
+        String metricsQuery = "aws.elb.request_count"; // String | The query string to filter results based on SLO numerator and denominator.
         try {
             SLOListResponse result = apiInstance.listSLOs()
                 .ids(ids)
+                .query(query)
+                .tagsQuery(tagsQuery)
+                .metricsQuery(metricsQuery)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -590,7 +596,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. |
+ **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. | [optional]
+ **query** | **String**| The query string to filter results based on SLO names. | [optional]
+ **tagsQuery** | **String**| The query string to filter results based on SLO tags. | [optional]
+ **metricsQuery** | **String**| The query string to filter results based on SLO numerator and denominator. | [optional]
 
 ### Return type
 

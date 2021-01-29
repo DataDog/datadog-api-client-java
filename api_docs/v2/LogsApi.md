@@ -5,8 +5,8 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**aggregateLogs**](LogsApi.md#aggregateLogs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
-[**listLogs**](LogsApi.md#listLogs) | **POST** /api/v2/logs/events/search | Get a list of logs
-[**listLogsGet**](LogsApi.md#listLogsGet) | **GET** /api/v2/logs/events | Get a quick list of logs
+[**listLogs**](LogsApi.md#listLogs) | **POST** /api/v2/logs/events/search | Search logs
+[**listLogsGet**](LogsApi.md#listLogsGet) | **GET** /api/v2/logs/events | Get a list of logs
 
 
 
@@ -96,13 +96,12 @@ Name | Type | Description  | Notes
 
 > LogsListResponse listLogs().body(body).execute();
 
-Get a list of logs
+Search logs
 
 List endpoint returns logs that match a log search query.
 [Results are paginated][1].
 
-Both this endpoint and the GET endpoint can be used interchangeably when listing
-logs.
+Use this endpoint to build complex logs filtering and search.
 
 **If you are considering archiving logs for your organization,
 consider use of the Datadog archive capabilities instead of the log list API.
@@ -189,13 +188,12 @@ Name | Type | Description  | Notes
 
 > LogsListResponse listLogsGet().filterQuery(filterQuery).filterIndex(filterIndex).filterFrom(filterFrom).filterTo(filterTo).sort(sort).pageCursor(pageCursor).pageLimit(pageLimit).execute();
 
-Get a quick list of logs
+Get a list of logs
 
 List endpoint returns logs that match a log search query.
 [Results are paginated][1].
 
-Both this endpoint and the POST endpoint can be used interchangeably when listing
-logs.
+Use this endpoint to see your latest logs.
 
 **If you are considering archiving logs for your organization,
 consider use of the Datadog archive capabilities instead of the log list API.
