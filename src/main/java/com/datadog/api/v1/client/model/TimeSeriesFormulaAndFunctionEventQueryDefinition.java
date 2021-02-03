@@ -53,7 +53,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   private FormulaAndFunctionEventsDataSource dataSource;
 
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
-  private TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy groupBy;
+  private List<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy> groupBy = null;
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
@@ -111,26 +111,34 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition groupBy(TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy groupBy) {
+  public TimeSeriesFormulaAndFunctionEventQueryDefinition groupBy(List<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy> groupBy) {
     this.groupBy = groupBy;
     return this;
   }
 
+  public TimeSeriesFormulaAndFunctionEventQueryDefinition addGroupByItem(TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy groupByItem) {
+    if (this.groupBy == null) {
+      this.groupBy = new ArrayList<>();
+    }
+    this.groupBy.add(groupByItem);
+    return this;
+  }
+
    /**
-   * Get groupBy
+   * Group by options.
    * @return groupBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Group by options.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy getGroupBy() {
+  public List<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy> getGroupBy() {
     return groupBy;
   }
 
 
-  public void setGroupBy(TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy groupBy) {
+  public void setGroupBy(List<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
 
