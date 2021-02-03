@@ -22,6 +22,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v1.client.JSON;
 
@@ -56,7 +61,7 @@ public class SLOHistoryMetricsSeriesMetadata {
   private String scope;
 
   public static final String JSON_PROPERTY_UNIT = "unit";
-  private String unit;
+  private JsonNullable<List<Object>> unit = JsonNullable.<List<Object>>undefined();
 
 
   public SLOHistoryMetricsSeriesMetadata aggr(String aggr) {
@@ -179,27 +184,49 @@ public class SLOHistoryMetricsSeriesMetadata {
   }
 
 
-  public SLOHistoryMetricsSeriesMetadata unit(String unit) {
-    this.unit = unit;
+  public SLOHistoryMetricsSeriesMetadata unit(List<Object> unit) {
+    this.unit = JsonNullable.<List<Object>>of(unit);
+    return this;
+  }
+
+  public SLOHistoryMetricsSeriesMetadata addUnitItem(Object unitItem) {
+    if (this.unit == null || !this.unit.isPresent()) {
+      this.unit = JsonNullable.<List<Object>>of(new ArrayList<>());
+    }
+    try {
+      this.unit.get().add(unitItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
    /**
-   * Query units (if available).
+   * An array of metric units that contains up to two unit objects. For example, bytes represents one unit object and bytes per second represents two unit objects. If a metric query only has one unit object, the second array element is null.
    * @return unit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query units (if available).")
+  @ApiModelProperty(example = "[{\"family\":\"bytes\",\"scale_factor\":1.0,\"name\":\"byte\",\"short_name\":\"B\",\"plural\":\"bytes\",\"id\":2},null]", value = "An array of metric units that contains up to two unit objects. For example, bytes represents one unit object and bytes per second represents two unit objects. If a metric query only has one unit object, the second array element is null.")
+  @JsonIgnore
+
+  public List<Object> getUnit() {
+        return unit.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getUnit() {
+  public JsonNullable<List<Object>> getUnit_JsonNullable() {
     return unit;
   }
-
-
-  public void setUnit(String unit) {
+  
+  @JsonProperty(JSON_PROPERTY_UNIT)
+  public void setUnit_JsonNullable(JsonNullable<List<Object>> unit) {
     this.unit = unit;
+  }
+
+  public void setUnit(List<Object> unit) {
+    this.unit = JsonNullable.<List<Object>>of(unit);
   }
 
 
