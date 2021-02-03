@@ -689,17 +689,6 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
-   * The path of temporary folder used to store downloaded files from endpoints
-   * with file response. The default value is <code>null</code>, i.e. using
-   * the system's default tempopary folder.
-   *
-   * @return Temp folder path
-   */
-  public String getTempFolderPath() {
-    return tempFolderPath;
-  }
-
-  /**
    * Set temp folder path
    * @param tempFolderPath Temp folder path
    * @return API client
@@ -1108,10 +1097,6 @@ public class ApiClient extends JavaTimeFormatter {
     if ("byte[]".equals(returnType.toString())) {
       // Handle binary response (byte array).
       return (T) response.readEntity(byte[].class);
-    } else if (returnType.getRawType() == File.class) {
-      // Handle file downloading.
-      T file = (T) downloadFileFromResponse(response);
-      return file;
     }
 
     String contentType = null;
@@ -1123,57 +1108,6 @@ public class ApiClient extends JavaTimeFormatter {
     response.bufferEntity();
 
     return response.readEntity(returnType);
-  }
-
-  /**
-   * Download file from the given response.
-   * @param response Response
-   * @return File
-   * @throws ApiException If fail to read file content from response and write to disk
-   */
-  public File downloadFileFromResponse(Response response) throws ApiException {
-    try {
-      File file = prepareDownloadFile(response);
-      Files.copy(response.readEntity(InputStream.class), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-      return file;
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-  }
-
-  public File prepareDownloadFile(Response response) throws IOException {
-    String filename = null;
-    String contentDisposition = (String) response.getHeaders().getFirst("Content-Disposition");
-    if (contentDisposition != null && !"".equals(contentDisposition)) {
-      // Get filename from the Content-Disposition header.
-      Pattern pattern = Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
-      Matcher matcher = pattern.matcher(contentDisposition);
-      if (matcher.find())
-        filename = matcher.group(1);
-    }
-
-    String prefix;
-    String suffix = null;
-    if (filename == null) {
-      prefix = "download-";
-      suffix = "";
-    } else {
-      int pos = filename.lastIndexOf('.');
-      if (pos == -1) {
-        prefix = filename + "-";
-      } else {
-        prefix = filename.substring(0, pos) + "-";
-        suffix = filename.substring(pos);
-      }
-      // File.createTempFile requires the prefix to be at least three characters long
-      if (prefix.length() < 3)
-        prefix = "download-";
-    }
-
-    if (tempFolderPath == null)
-      return File.createTempFile(prefix, suffix);
-    else
-      return File.createTempFile(prefix, suffix, new File(tempFolderPath));
   }
 
   /**
