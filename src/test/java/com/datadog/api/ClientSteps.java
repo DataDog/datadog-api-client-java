@@ -2,6 +2,7 @@ package com.datadog.api;
 
 import static org.junit.Assert.*;
 
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Callable;
 import java.lang.reflect.Field;
 import java.util.Collections;
@@ -45,6 +46,12 @@ public class ClientSteps {
         String unique = world.getUniqueEntityName();
         world.context.put("unique", unique);
         world.context.put("unique_lower", unique.toLowerCase());
+        world.context.put("now_ts", world.now.toEpochSecond());
+        world.context.put("now_iso", world.now.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        world.context.put("hour_later_ts", world.now.plusHours(1).toEpochSecond());
+        world.context.put("hour_later_iso", world.now.plusHours(1).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        world.context.put("hour_ago_ts", world.now.minusHours(1).toEpochSecond());
+        world.context.put("hour_ago_iso", world.now.minusHours(1).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
     }
 
     @After
@@ -123,7 +130,7 @@ public class ClientSteps {
     }
 
     @Then("the response status is {int} {}")
-    public void theResponseStatusIsOK(Integer statusCode, String _)
+    public void theResponseStatusIs(Integer statusCode, String _)
             throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
             java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException {
         Integer responseStatusCode = (Integer) 0;

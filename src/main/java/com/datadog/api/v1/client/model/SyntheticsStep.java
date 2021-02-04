@@ -23,7 +23,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v1.client.JSON;
 
@@ -51,7 +50,7 @@ public class SyntheticsStep {
   private Object params;
 
   public static final String JSON_PROPERTY_TIMEOUT = "timeout";
-  private BigDecimal timeout;
+  private Long timeout;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsStepType type;
@@ -129,7 +128,7 @@ public class SyntheticsStep {
   }
 
 
-  public SyntheticsStep timeout(BigDecimal timeout) {
+  public SyntheticsStep timeout(Long timeout) {
     this.timeout = timeout;
     return this;
   }
@@ -143,12 +142,12 @@ public class SyntheticsStep {
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getTimeout() {
+  public Long getTimeout() {
     return timeout;
   }
 
 
-  public void setTimeout(BigDecimal timeout) {
+  public void setTimeout(Long timeout) {
     this.timeout = timeout;
   }
 

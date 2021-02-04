@@ -1,5 +1,6 @@
 package com.datadog.api;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.time.Clock;
@@ -288,9 +289,22 @@ public class World {
         responseClass = responseMethod.getReturnType();
 
         String apiVersion = getVersion();
+        Class<?> exceptionClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
+
         Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, requestBuilder.getName());
 
-        response = responseMethod.invoke(request);
+        try {
+            response = responseMethod.invoke(request);
+        } catch (Exception e) {
+            // Return a new response object with the response code set
+            // so we can make assertions on it
+            int responseCode = (int) exceptionClass.getMethod("getCode").invoke(e.getCause());
+            for (Constructor<?> c : responseClass.getConstructors()) {
+                if (c.getParameterCount() == 2) {
+                    response = c.newInstance(responseCode, new HashMap<String, String>());
+                }
+            }
+        }
 
         if (undoSettings != null) {
             Method dataMethod = responseClass.getMethod("getData");

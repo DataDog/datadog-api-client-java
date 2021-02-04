@@ -37,13 +37,13 @@ import com.datadog.api.v2.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsQueryOptions {
   public static final String JSON_PROPERTY_TIME_OFFSET = "timeOffset";
-  private Integer timeOffset;
+  private Long timeOffset;
 
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private String timezone = "UTC";
 
 
-  public LogsQueryOptions timeOffset(Integer timeOffset) {
+  public LogsQueryOptions timeOffset(Long timeOffset) {
     this.timeOffset = timeOffset;
     return this;
   }
@@ -57,12 +57,12 @@ public class LogsQueryOptions {
   @JsonProperty(JSON_PROPERTY_TIME_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getTimeOffset() {
+  public Long getTimeOffset() {
     return timeOffset;
   }
 
 
-  public void setTimeOffset(Integer timeOffset) {
+  public void setTimeOffset(Long timeOffset) {
     this.timeOffset = timeOffset;
   }
 

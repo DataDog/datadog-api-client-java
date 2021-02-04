@@ -1,0 +1,19 @@
+{
+  "name": "chicken-index",
+  "filter": {
+    "query": "chicken-query"
+  },
+  "num_retention_days": 55,
+  "daily_limit": 550000000,
+  "is_rate_limited": false,
+  "exclusion_filters": [
+    {
+      "name": "chicken-exclusion",
+      "is_enabled": false,
+      "filter": {
+        "query": "chicken-filter",
+        "sample_rate": 0.55
+      }
+    }
+  ]
+}

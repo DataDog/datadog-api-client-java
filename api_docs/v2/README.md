@@ -24,13 +24,21 @@ Class | Method | HTTP request | Description
 *IncidentsApi* | [**listIncidents**](IncidentsApi.md#listIncidents) | **GET** /api/v2/incidents | Get a list of incidents
 *IncidentsApi* | [**updateIncident**](IncidentsApi.md#updateIncident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident
 *KeyManagementApi* | [**createAPIKey**](KeyManagementApi.md#createAPIKey) | **POST** /api/v2/api_keys | Create an API key
+*KeyManagementApi* | [**createCurrentUserApplicationKey**](KeyManagementApi.md#createCurrentUserApplicationKey) | **POST** /api/v2/current_user/application_keys | Create an application key for current user
 *KeyManagementApi* | [**deleteAPIKey**](KeyManagementApi.md#deleteAPIKey) | **DELETE** /api/v2/api_keys/{api_key_id} | Delete an API key
+*KeyManagementApi* | [**deleteApplicationKey**](KeyManagementApi.md#deleteApplicationKey) | **DELETE** /api/v2/application_keys/{app_key_id} | Delete an application key
+*KeyManagementApi* | [**deleteCurrentUserApplicationKey**](KeyManagementApi.md#deleteCurrentUserApplicationKey) | **DELETE** /api/v2/current_user/application_keys/{app_key_id} | Delete an application key owned by current user
 *KeyManagementApi* | [**getAPIKey**](KeyManagementApi.md#getAPIKey) | **GET** /api/v2/api_keys/{api_key_id} | Get API key
+*KeyManagementApi* | [**getCurrentUserApplicationKey**](KeyManagementApi.md#getCurrentUserApplicationKey) | **GET** /api/v2/current_user/application_keys/{app_key_id} | Get one application key owned by current user
 *KeyManagementApi* | [**listAPIKeys**](KeyManagementApi.md#listAPIKeys) | **GET** /api/v2/api_keys | Get all API keys
+*KeyManagementApi* | [**listApplicationKeys**](KeyManagementApi.md#listApplicationKeys) | **GET** /api/v2/application_keys | Get all application keys
+*KeyManagementApi* | [**listCurrentUserApplicationKeys**](KeyManagementApi.md#listCurrentUserApplicationKeys) | **GET** /api/v2/current_user/application_keys | Get all application keys owned by current user
 *KeyManagementApi* | [**updateAPIKey**](KeyManagementApi.md#updateAPIKey) | **PATCH** /api/v2/api_keys/{api_key_id} | Edit an API key
+*KeyManagementApi* | [**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey) | **PATCH** /api/v2/application_keys/{app_key_id} | Edit an application key
+*KeyManagementApi* | [**updateCurrentUserApplicationKey**](KeyManagementApi.md#updateCurrentUserApplicationKey) | **PATCH** /api/v2/current_user/application_keys/{app_key_id} | Edit an application key owned by current user
 *LogsApi* | [**aggregateLogs**](LogsApi.md#aggregateLogs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
-*LogsApi* | [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v2/logs/events/search | Get a list of logs
-*LogsApi* | [**listLogsGet**](LogsApi.md#listLogsGet) | **GET** /api/v2/logs/events | Get a quick list of logs
+*LogsApi* | [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v2/logs/events/search | Search logs
+*LogsApi* | [**listLogsGet**](LogsApi.md#listLogsGet) | **GET** /api/v2/logs/events | Get a list of logs
 *LogsArchivesApi* | [**addReadRoleToArchive**](LogsArchivesApi.md#addReadRoleToArchive) | **POST** /api/v2/logs/config/archives/{archive_id}/readers | Grant role to an archive
 *LogsArchivesApi* | [**createLogsArchive**](LogsArchivesApi.md#createLogsArchive) | **POST** /api/v2/logs/config/archives | Create an archive
 *LogsArchivesApi* | [**deleteLogsArchive**](LogsArchivesApi.md#deleteLogsArchive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive
@@ -41,6 +49,11 @@ Class | Method | HTTP request | Description
 *LogsArchivesApi* | [**removeRoleFromArchive**](LogsArchivesApi.md#removeRoleFromArchive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
 *LogsArchivesApi* | [**updateLogsArchive**](LogsArchivesApi.md#updateLogsArchive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
 *LogsArchivesApi* | [**updateLogsArchiveOrder**](LogsArchivesApi.md#updateLogsArchiveOrder) | **PUT** /api/v2/logs/config/archive-order | Update archive order
+*LogsMetricsApi* | [**createLogsMetric**](LogsMetricsApi.md#createLogsMetric) | **POST** /api/v2/logs/config/metrics | Create a log-based metric
+*LogsMetricsApi* | [**deleteLogsMetric**](LogsMetricsApi.md#deleteLogsMetric) | **DELETE** /api/v2/logs/config/metrics/{metric_id} | Delete a log-based metric
+*LogsMetricsApi* | [**getLogsMetric**](LogsMetricsApi.md#getLogsMetric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric
+*LogsMetricsApi* | [**listLogsMetrics**](LogsMetricsApi.md#listLogsMetrics) | **GET** /api/v2/logs/config/metrics | Get all log-based metrics
+*LogsMetricsApi* | [**updateLogsMetric**](LogsMetricsApi.md#updateLogsMetric) | **PATCH** /api/v2/logs/config/metrics/{metric_id} | Update a log-based metric
 *ProcessesApi* | [**listProcesses**](ProcessesApi.md#listProcesses) | **GET** /api/v2/processes | Get all processes
 *RolesApi* | [**addPermissionToRole**](RolesApi.md#addPermissionToRole) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 *RolesApi* | [**addUserToRole**](RolesApi.md#addUserToRole) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
@@ -85,7 +98,19 @@ Class | Method | HTTP request | Description
  - [APIKeyUpdateData](APIKeyUpdateData.md)
  - [APIKeyUpdateRequest](APIKeyUpdateRequest.md)
  - [APIKeysResponse](APIKeysResponse.md)
+ - [APIKeysSort](APIKeysSort.md)
  - [APIKeysType](APIKeysType.md)
+ - [ApplicationKeyCreateAttributes](ApplicationKeyCreateAttributes.md)
+ - [ApplicationKeyCreateData](ApplicationKeyCreateData.md)
+ - [ApplicationKeyCreateRequest](ApplicationKeyCreateRequest.md)
+ - [ApplicationKeyRelationships](ApplicationKeyRelationships.md)
+ - [ApplicationKeyResponse](ApplicationKeyResponse.md)
+ - [ApplicationKeyResponseIncludedItem](ApplicationKeyResponseIncludedItem.md)
+ - [ApplicationKeyUpdateAttributes](ApplicationKeyUpdateAttributes.md)
+ - [ApplicationKeyUpdateData](ApplicationKeyUpdateData.md)
+ - [ApplicationKeyUpdateRequest](ApplicationKeyUpdateRequest.md)
+ - [ApplicationKeysSort](ApplicationKeysSort.md)
+ - [ApplicationKeysType](ApplicationKeysType.md)
  - [Creator](Creator.md)
  - [DashboardListAddItemsRequest](DashboardListAddItemsRequest.md)
  - [DashboardListAddItemsResponse](DashboardListAddItemsResponse.md)
@@ -100,6 +125,8 @@ Class | Method | HTTP request | Description
  - [DashboardType](DashboardType.md)
  - [FullAPIKey](FullAPIKey.md)
  - [FullAPIKeyAttributes](FullAPIKeyAttributes.md)
+ - [FullApplicationKey](FullApplicationKey.md)
+ - [FullApplicationKeyAttributes](FullApplicationKeyAttributes.md)
  - [IncidentCreateAttributes](IncidentCreateAttributes.md)
  - [IncidentCreateData](IncidentCreateData.md)
  - [IncidentCreateRelationships](IncidentCreateRelationships.md)
@@ -111,6 +138,7 @@ Class | Method | HTTP request | Description
  - [IncidentFieldAttributesValueType](IncidentFieldAttributesValueType.md)
  - [IncidentIntegrationMetadataType](IncidentIntegrationMetadataType.md)
  - [IncidentPostmortemType](IncidentPostmortemType.md)
+ - [IncidentRelatedObject](IncidentRelatedObject.md)
  - [IncidentResponse](IncidentResponse.md)
  - [IncidentResponseAttributes](IncidentResponseAttributes.md)
  - [IncidentResponseData](IncidentResponseData.md)
@@ -154,6 +182,7 @@ Class | Method | HTTP request | Description
  - [IncidentUpdateRelationships](IncidentUpdateRelationships.md)
  - [IncidentUpdateRequest](IncidentUpdateRequest.md)
  - [IncidentsResponse](IncidentsResponse.md)
+ - [ListApplicationKeysResponse](ListApplicationKeysResponse.md)
  - [Log](Log.md)
  - [LogAttributes](LogAttributes.md)
  - [LogType](LogType.md)
@@ -162,7 +191,7 @@ Class | Method | HTTP request | Description
  - [LogsAggregateBucketValueTimeseries](LogsAggregateBucketValueTimeseries.md)
  - [LogsAggregateBucketValueTimeseriesPoint](LogsAggregateBucketValueTimeseriesPoint.md)
  - [LogsAggregateRequest](LogsAggregateRequest.md)
- - [LogsAggregateRequestPaging](LogsAggregateRequestPaging.md)
+ - [LogsAggregateRequestPage](LogsAggregateRequestPage.md)
  - [LogsAggregateResponse](LogsAggregateResponse.md)
  - [LogsAggregateResponseData](LogsAggregateResponseData.md)
  - [LogsAggregateResponseStatus](LogsAggregateResponseStatus.md)
@@ -202,6 +231,25 @@ Class | Method | HTTP request | Description
  - [LogsListRequestPage](LogsListRequestPage.md)
  - [LogsListResponse](LogsListResponse.md)
  - [LogsListResponseLinks](LogsListResponseLinks.md)
+ - [LogsMetricCompute](LogsMetricCompute.md)
+ - [LogsMetricComputeAggregationType](LogsMetricComputeAggregationType.md)
+ - [LogsMetricCreateAttributes](LogsMetricCreateAttributes.md)
+ - [LogsMetricCreateData](LogsMetricCreateData.md)
+ - [LogsMetricCreateRequest](LogsMetricCreateRequest.md)
+ - [LogsMetricFilter](LogsMetricFilter.md)
+ - [LogsMetricGroupBy](LogsMetricGroupBy.md)
+ - [LogsMetricResponse](LogsMetricResponse.md)
+ - [LogsMetricResponseAttributes](LogsMetricResponseAttributes.md)
+ - [LogsMetricResponseCompute](LogsMetricResponseCompute.md)
+ - [LogsMetricResponseComputeAggregationType](LogsMetricResponseComputeAggregationType.md)
+ - [LogsMetricResponseData](LogsMetricResponseData.md)
+ - [LogsMetricResponseFilter](LogsMetricResponseFilter.md)
+ - [LogsMetricResponseGroupBy](LogsMetricResponseGroupBy.md)
+ - [LogsMetricType](LogsMetricType.md)
+ - [LogsMetricUpdateAttributes](LogsMetricUpdateAttributes.md)
+ - [LogsMetricUpdateData](LogsMetricUpdateData.md)
+ - [LogsMetricUpdateRequest](LogsMetricUpdateRequest.md)
+ - [LogsMetricsResponse](LogsMetricsResponse.md)
  - [LogsQueryFilter](LogsQueryFilter.md)
  - [LogsQueryOptions](LogsQueryOptions.md)
  - [LogsResponseMetadata](LogsResponseMetadata.md)
@@ -215,6 +263,8 @@ Class | Method | HTTP request | Description
  - [Pagination](Pagination.md)
  - [PartialAPIKey](PartialAPIKey.md)
  - [PartialAPIKeyAttributes](PartialAPIKeyAttributes.md)
+ - [PartialApplicationKey](PartialApplicationKey.md)
+ - [PartialApplicationKeyAttributes](PartialApplicationKeyAttributes.md)
  - [Permission](Permission.md)
  - [PermissionAttributes](PermissionAttributes.md)
  - [PermissionsResponse](PermissionsResponse.md)
@@ -261,6 +311,8 @@ Class | Method | HTTP request | Description
  - [RolesResponse](RolesResponse.md)
  - [RolesSort](RolesSort.md)
  - [RolesType](RolesType.md)
+ - [SecurityMonitoringFilter](SecurityMonitoringFilter.md)
+ - [SecurityMonitoringFilterAction](SecurityMonitoringFilterAction.md)
  - [SecurityMonitoringListRulesResponse](SecurityMonitoringListRulesResponse.md)
  - [SecurityMonitoringRuleCase](SecurityMonitoringRuleCase.md)
  - [SecurityMonitoringRuleCaseCreate](SecurityMonitoringRuleCaseCreate.md)

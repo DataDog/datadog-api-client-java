@@ -32,10 +32,12 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "Global hourly report of all data billed by Datadog for a given organization.")
 @JsonPropertyOrder({
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
@@ -48,6 +50,10 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDateOrg.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NAME,
   UsageSummaryDateOrg.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
@@ -55,6 +61,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PUBLIC_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
@@ -64,6 +71,9 @@ import com.datadog.api.v1.client.JSON;
 public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P = "agent_host_top99p";
   private Long agentHostTop99p;
+
+  public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P = "apm_azure_app_service_host_top99p";
+  private Long apmAzureAppServiceHostTop99p;
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
   private Long apmHostTop99p;
@@ -76,6 +86,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM = "aws_lambda_invocations_sum";
   private Long awsLambdaInvocationsSum;
+
+  public static final String JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P = "azure_app_service_top99p";
+  private Long azureAppServiceTop99p;
 
   public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM = "billable_ingested_bytes_sum";
   private Long billableIngestedBytesSum;
@@ -113,6 +126,18 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM = "ingested_events_bytes_sum";
   private Long ingestedEventsBytesSum;
 
+  public static final String JSON_PROPERTY_IOT_DEVICE_AGG_SUM = "iot_device_agg_sum";
+  private Long iotDeviceAggSum;
+
+  public static final String JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM = "iot_device_top99p_sum";
+  private Long iotDeviceTop99pSum;
+
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM = "mobile_rum_session_count_android_sum";
+  private Long mobileRumSessionCountAndroidSum;
+
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM = "mobile_rum_session_count_ios_sum";
+  private Long mobileRumSessionCountIosSum;
+
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM = "mobile_rum_session_count_sum";
   private Long mobileRumSessionCountSum;
 
@@ -133,6 +158,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_SUM = "rum_session_count_sum";
   private Long rumSessionCountSum;
+
+  public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM = "rum_total_session_count_sum";
+  private Long rumTotalSessionCountSum;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM = "synthetics_browser_check_calls_count_sum";
   private Long syntheticsBrowserCheckCallsCountSum;
@@ -168,6 +196,30 @@ public class UsageSummaryDateOrg {
 
   public void setAgentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
+  }
+
+
+  public UsageSummaryDateOrg apmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
+    this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all Azure app services using APM over all hours in the current date for the given org.
+   * @return apmAzureAppServiceHostTop99p
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all Azure app services using APM over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getApmAzureAppServiceHostTop99p() {
+    return apmAzureAppServiceHostTop99p;
+  }
+
+
+  public void setApmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
+    this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
   }
 
 
@@ -264,6 +316,30 @@ public class UsageSummaryDateOrg {
 
   public void setAwsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
+  }
+
+
+  public UsageSummaryDateOrg azureAppServiceTop99p(Long azureAppServiceTop99p) {
+    this.azureAppServiceTop99p = azureAppServiceTop99p;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all Azure app services over all hours in the current date for the given org.
+   * @return azureAppServiceTop99p
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all Azure app services over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getAzureAppServiceTop99p() {
+    return azureAppServiceTop99p;
+  }
+
+
+  public void setAzureAppServiceTop99p(Long azureAppServiceTop99p) {
+    this.azureAppServiceTop99p = azureAppServiceTop99p;
   }
 
 
@@ -555,6 +631,102 @@ public class UsageSummaryDateOrg {
   }
 
 
+  public UsageSummaryDateOrg iotDeviceAggSum(Long iotDeviceAggSum) {
+    this.iotDeviceAggSum = iotDeviceAggSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all IoT devices over all hours in the current date for the given org.
+   * @return iotDeviceAggSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all IoT devices over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getIotDeviceAggSum() {
+    return iotDeviceAggSum;
+  }
+
+
+  public void setIotDeviceAggSum(Long iotDeviceAggSum) {
+    this.iotDeviceAggSum = iotDeviceAggSum;
+  }
+
+
+  public UsageSummaryDateOrg iotDeviceTop99pSum(Long iotDeviceTop99pSum) {
+    this.iotDeviceTop99pSum = iotDeviceTop99pSum;
+    return this;
+  }
+
+   /**
+   * Shows the 99th percentile of all IoT devices over all hours in the current date for the given org.
+   * @return iotDeviceTop99pSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the 99th percentile of all IoT devices over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getIotDeviceTop99pSum() {
+    return iotDeviceTop99pSum;
+  }
+
+
+  public void setIotDeviceTop99pSum(Long iotDeviceTop99pSum) {
+    this.iotDeviceTop99pSum = iotDeviceTop99pSum;
+  }
+
+
+  public UsageSummaryDateOrg mobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
+    this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for the given org.
+   * @return mobileRumSessionCountAndroidSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMobileRumSessionCountAndroidSum() {
+    return mobileRumSessionCountAndroidSum;
+  }
+
+
+  public void setMobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
+    this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
+  }
+
+
+  public UsageSummaryDateOrg mobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
+    this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for the given org.
+   * @return mobileRumSessionCountIosSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMobileRumSessionCountIosSum() {
+    return mobileRumSessionCountIosSum;
+  }
+
+
+  public void setMobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
+    this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
+  }
+
+
   public UsageSummaryDateOrg mobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
     return this;
@@ -723,6 +895,30 @@ public class UsageSummaryDateOrg {
   }
 
 
+  public UsageSummaryDateOrg rumTotalSessionCountSum(Long rumTotalSessionCountSum) {
+    this.rumTotalSessionCountSum = rumTotalSessionCountSum;
+    return this;
+  }
+
+   /**
+   * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for the given org.
+   * @return rumTotalSessionCountSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getRumTotalSessionCountSum() {
+    return rumTotalSessionCountSum;
+  }
+
+
+  public void setRumTotalSessionCountSum(Long rumTotalSessionCountSum) {
+    this.rumTotalSessionCountSum = rumTotalSessionCountSum;
+  }
+
+
   public UsageSummaryDateOrg syntheticsBrowserCheckCallsCountSum(Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
     return this;
@@ -832,10 +1028,12 @@ public class UsageSummaryDateOrg {
     }
     UsageSummaryDateOrg usageSummaryDateOrg = (UsageSummaryDateOrg) o;
     return Objects.equals(this.agentHostTop99p, usageSummaryDateOrg.agentHostTop99p) &&
+        Objects.equals(this.apmAzureAppServiceHostTop99p, usageSummaryDateOrg.apmAzureAppServiceHostTop99p) &&
         Objects.equals(this.apmHostTop99p, usageSummaryDateOrg.apmHostTop99p) &&
         Objects.equals(this.awsHostTop99p, usageSummaryDateOrg.awsHostTop99p) &&
         Objects.equals(this.awsLambdaFuncCount, usageSummaryDateOrg.awsLambdaFuncCount) &&
         Objects.equals(this.awsLambdaInvocationsSum, usageSummaryDateOrg.awsLambdaInvocationsSum) &&
+        Objects.equals(this.azureAppServiceTop99p, usageSummaryDateOrg.azureAppServiceTop99p) &&
         Objects.equals(this.billableIngestedBytesSum, usageSummaryDateOrg.billableIngestedBytesSum) &&
         Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg) &&
         Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm) &&
@@ -848,6 +1046,10 @@ public class UsageSummaryDateOrg {
         Objects.equals(this.indexedEventsCountSum, usageSummaryDateOrg.indexedEventsCountSum) &&
         Objects.equals(this.infraHostTop99p, usageSummaryDateOrg.infraHostTop99p) &&
         Objects.equals(this.ingestedEventsBytesSum, usageSummaryDateOrg.ingestedEventsBytesSum) &&
+        Objects.equals(this.iotDeviceAggSum, usageSummaryDateOrg.iotDeviceAggSum) &&
+        Objects.equals(this.iotDeviceTop99pSum, usageSummaryDateOrg.iotDeviceTop99pSum) &&
+        Objects.equals(this.mobileRumSessionCountAndroidSum, usageSummaryDateOrg.mobileRumSessionCountAndroidSum) &&
+        Objects.equals(this.mobileRumSessionCountIosSum, usageSummaryDateOrg.mobileRumSessionCountIosSum) &&
         Objects.equals(this.mobileRumSessionCountSum, usageSummaryDateOrg.mobileRumSessionCountSum) &&
         Objects.equals(this.name, usageSummaryDateOrg.name) &&
         Objects.equals(this.netflowIndexedEventsCountSum, usageSummaryDateOrg.netflowIndexedEventsCountSum) &&
@@ -855,6 +1057,7 @@ public class UsageSummaryDateOrg {
         Objects.equals(this.profilingHostTop99p, usageSummaryDateOrg.profilingHostTop99p) &&
         Objects.equals(this.publicId, usageSummaryDateOrg.publicId) &&
         Objects.equals(this.rumSessionCountSum, usageSummaryDateOrg.rumSessionCountSum) &&
+        Objects.equals(this.rumTotalSessionCountSum, usageSummaryDateOrg.rumTotalSessionCountSum) &&
         Objects.equals(this.syntheticsBrowserCheckCallsCountSum, usageSummaryDateOrg.syntheticsBrowserCheckCallsCountSum) &&
         Objects.equals(this.syntheticsCheckCallsCountSum, usageSummaryDateOrg.syntheticsCheckCallsCountSum) &&
         Objects.equals(this.traceSearchIndexedEventsCountSum, usageSummaryDateOrg.traceSearchIndexedEventsCountSum) &&
@@ -863,7 +1066,7 @@ public class UsageSummaryDateOrg {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, incidentManagementMonthlyActiveUsersHwm, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, mobileRumSessionCountSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
+    return Objects.hash(agentHostTop99p, apmAzureAppServiceHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99p, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, id, incidentManagementMonthlyActiveUsersHwm, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, iotDeviceAggSum, iotDeviceTop99pSum, mobileRumSessionCountAndroidSum, mobileRumSessionCountIosSum, mobileRumSessionCountSum, name, netflowIndexedEventsCountSum, npmHostTop99p, profilingHostTop99p, publicId, rumSessionCountSum, rumTotalSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
   }
 
 
@@ -872,10 +1075,12 @@ public class UsageSummaryDateOrg {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageSummaryDateOrg {\n");
     sb.append("    agentHostTop99p: ").append(toIndentedString(agentHostTop99p)).append("\n");
+    sb.append("    apmAzureAppServiceHostTop99p: ").append(toIndentedString(apmAzureAppServiceHostTop99p)).append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
     sb.append("    awsHostTop99p: ").append(toIndentedString(awsHostTop99p)).append("\n");
     sb.append("    awsLambdaFuncCount: ").append(toIndentedString(awsLambdaFuncCount)).append("\n");
     sb.append("    awsLambdaInvocationsSum: ").append(toIndentedString(awsLambdaInvocationsSum)).append("\n");
+    sb.append("    azureAppServiceTop99p: ").append(toIndentedString(azureAppServiceTop99p)).append("\n");
     sb.append("    billableIngestedBytesSum: ").append(toIndentedString(billableIngestedBytesSum)).append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
@@ -888,6 +1093,10 @@ public class UsageSummaryDateOrg {
     sb.append("    indexedEventsCountSum: ").append(toIndentedString(indexedEventsCountSum)).append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
     sb.append("    ingestedEventsBytesSum: ").append(toIndentedString(ingestedEventsBytesSum)).append("\n");
+    sb.append("    iotDeviceAggSum: ").append(toIndentedString(iotDeviceAggSum)).append("\n");
+    sb.append("    iotDeviceTop99pSum: ").append(toIndentedString(iotDeviceTop99pSum)).append("\n");
+    sb.append("    mobileRumSessionCountAndroidSum: ").append(toIndentedString(mobileRumSessionCountAndroidSum)).append("\n");
+    sb.append("    mobileRumSessionCountIosSum: ").append(toIndentedString(mobileRumSessionCountIosSum)).append("\n");
     sb.append("    mobileRumSessionCountSum: ").append(toIndentedString(mobileRumSessionCountSum)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    netflowIndexedEventsCountSum: ").append(toIndentedString(netflowIndexedEventsCountSum)).append("\n");
@@ -895,6 +1104,7 @@ public class UsageSummaryDateOrg {
     sb.append("    profilingHostTop99p: ").append(toIndentedString(profilingHostTop99p)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
+    sb.append("    rumTotalSessionCountSum: ").append(toIndentedString(rumTotalSessionCountSum)).append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountSum)).append("\n");
     sb.append("    syntheticsCheckCallsCountSum: ").append(toIndentedString(syntheticsCheckCallsCountSum)).append("\n");
     sb.append("    traceSearchIndexedEventsCountSum: ").append(toIndentedString(traceSearchIndexedEventsCountSum)).append("\n");

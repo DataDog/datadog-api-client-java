@@ -735,13 +735,8 @@ private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(String sloId, 
     return new APIgetSLOHistoryRequest(sloId);
   }
 
-private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws ApiException {
+private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids, String query, String tagsQuery, String metricsQuery) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling listSLOs");
-    }
     
     // create path and map variables
     String localVarPath = "/api/v1/slo";
@@ -753,6 +748,9 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags_query", tagsQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metrics_query", metricsQuery));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listSLOs");
@@ -781,17 +779,50 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
 
   public class APIlistSLOsRequest {
     private String ids;
+    private String query;
+    private String tagsQuery;
+    private String metricsQuery;
 
     private APIlistSLOsRequest() {
     }
 
     /**
      * Set ids
-     * @param ids A comma separated list of the IDs of the service level objectives objects. (required)
+     * @param ids A comma separated list of the IDs of the service level objectives objects. (optional)
      * @return APIlistSLOsRequest
      */
     public APIlistSLOsRequest ids(String ids) {
       this.ids = ids;
+      return this;
+    }
+
+    /**
+     * Set query
+     * @param query The query string to filter results based on SLO names. (optional)
+     * @return APIlistSLOsRequest
+     */
+    public APIlistSLOsRequest query(String query) {
+      this.query = query;
+      return this;
+    }
+
+    /**
+     * Set tagsQuery
+     * @param tagsQuery The query string to filter results based on SLO tags. (optional)
+     * @return APIlistSLOsRequest
+     */
+    public APIlistSLOsRequest tagsQuery(String tagsQuery) {
+      this.tagsQuery = tagsQuery;
+      return this;
+    }
+
+    /**
+     * Set metricsQuery
+     * @param metricsQuery The query string to filter results based on SLO numerator and denominator. (optional)
+     * @return APIlistSLOsRequest
+     */
+    public APIlistSLOsRequest metricsQuery(String metricsQuery) {
+      this.metricsQuery = metricsQuery;
       return this;
     }
 
@@ -829,13 +860,13 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids) throws Api
 
      */
     public ApiResponse<SLOListResponse> executeWithHttpInfo() throws ApiException {
-      return listSLOsWithHttpInfo(ids);
+      return listSLOsWithHttpInfo(ids, query, tagsQuery, metricsQuery);
     }
   }
 
   /**
-   * Search SLOs
-   * Get multiple service level objective objects by their IDs.
+   * Get all SLOs
+   * Get a list of service level objective objects for your organization.
    * @return listSLOsRequest
    * @throws ApiException if fails to make API call
    

@@ -19,5 +19,7 @@
 
 * `PREVIOUS_MONTH` (value: `"previous_month"`)
 
+* `GLOBAL_TIME` (value: `"global_time"`)
+
 
 

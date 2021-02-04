@@ -63,7 +63,8 @@ Class | Method | HTTP request | Description
 *KeyManagementApi* | [**listApplicationKeys**](KeyManagementApi.md#listApplicationKeys) | **GET** /api/v1/application_key | Get all application keys
 *KeyManagementApi* | [**updateAPIKey**](KeyManagementApi.md#updateAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key
 *KeyManagementApi* | [**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key
-*LogsApi* | [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Get a list of logs
+*LogsApi* | [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Search logs
+*LogsIndexesApi* | [**createLogsIndex**](LogsIndexesApi.md#createLogsIndex) | **POST** /api/v1/logs/config/indexes | Create an index
 *LogsIndexesApi* | [**getLogsIndex**](LogsIndexesApi.md#getLogsIndex) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
 *LogsIndexesApi* | [**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get indexes order
 *LogsIndexesApi* | [**listLogIndexes**](LogsIndexesApi.md#listLogIndexes) | **GET** /api/v1/logs/config/indexes | Get all indexes
@@ -97,13 +98,18 @@ Class | Method | HTTP request | Description
 *PagerDutyIntegrationApi* | [**deletePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#deletePagerDutyIntegrationService) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
 *PagerDutyIntegrationApi* | [**getPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#getPagerDutyIntegrationService) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
 *PagerDutyIntegrationApi* | [**updatePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#updatePagerDutyIntegrationService) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
+*ServiceLevelObjectiveCorrectionsApi* | [**createSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#createSLOCorrection) | **POST** /api/v1/slo/correction | Create an SLO correction
+*ServiceLevelObjectiveCorrectionsApi* | [**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO Correction
+*ServiceLevelObjectiveCorrectionsApi* | [**getSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#getSLOCorrection) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
+*ServiceLevelObjectiveCorrectionsApi* | [**listSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#listSLOCorrection) | **GET** /api/v1/slo/correction | Get all SLO corrections
+*ServiceLevelObjectiveCorrectionsApi* | [**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO Correction
 *ServiceLevelObjectivesApi* | [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
 *ServiceLevelObjectivesApi* | [**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create a SLO object
 *ServiceLevelObjectivesApi* | [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO
 *ServiceLevelObjectivesApi* | [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
 *ServiceLevelObjectivesApi* | [**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details
 *ServiceLevelObjectivesApi* | [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
-*ServiceLevelObjectivesApi* | [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Search SLOs
+*ServiceLevelObjectivesApi* | [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Get all SLOs
 *ServiceLevelObjectivesApi* | [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
 *SnapshotsApi* | [**getGraphSnapshot**](SnapshotsApi.md#getGraphSnapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
 *SyntheticsApi* | [**createGlobalVariable**](SyntheticsApi.md#createGlobalVariable) | **POST** /api/v1/synthetics/variables | Create a global variable
@@ -145,6 +151,7 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *UsageMeteringApi* | [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *UsageMeteringApi* | [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
+*UsageMeteringApi* | [**getUsageInternetOfThings**](UsageMeteringApi.md#getUsageInternetOfThings) | **GET** /api/v1/usage/iot | Get hourly usage for IoT
 *UsageMeteringApi* | [**getUsageLambda**](UsageMeteringApi.md#getUsageLambda) | **GET** /api/v1/usage/aws_lambda | Get hourly usage for Lambda
 *UsageMeteringApi* | [**getUsageLogs**](UsageMeteringApi.md#getUsageLogs) | **GET** /api/v1/usage/logs | Get hourly usage for Logs
 *UsageMeteringApi* | [**getUsageLogsByIndex**](UsageMeteringApi.md#getUsageLogsByIndex) | **GET** /api/v1/usage/logs_by_index | Get hourly usage for Logs by Index
@@ -240,6 +247,14 @@ Class | Method | HTTP request | Description
  - [EventStreamWidgetDefinitionType](EventStreamWidgetDefinitionType.md)
  - [EventTimelineWidgetDefinition](EventTimelineWidgetDefinition.md)
  - [EventTimelineWidgetDefinitionType](EventTimelineWidgetDefinitionType.md)
+ - [FormulaAndFunctionEventAggregation](FormulaAndFunctionEventAggregation.md)
+ - [FormulaAndFunctionEventsDataSource](FormulaAndFunctionEventsDataSource.md)
+ - [FormulaAndFunctionEventsSortType](FormulaAndFunctionEventsSortType.md)
+ - [FormulaAndFunctionMetricAggregation](FormulaAndFunctionMetricAggregation.md)
+ - [FormulaAndFunctionMetricDataSource](FormulaAndFunctionMetricDataSource.md)
+ - [FormulaAndFunctionProcessQueryDataSource](FormulaAndFunctionProcessQueryDataSource.md)
+ - [FormulaAndFunctionQueryDefinition](FormulaAndFunctionQueryDefinition.md)
+ - [FormulaAndFunctionResponseFormat](FormulaAndFunctionResponseFormat.md)
  - [FreeTextWidgetDefinition](FreeTextWidgetDefinition.md)
  - [FreeTextWidgetDefinitionType](FreeTextWidgetDefinitionType.md)
  - [GCPAccount](GCPAccount.md)
@@ -372,17 +387,31 @@ Class | Method | HTTP request | Description
  - [PagerDutyServiceKey](PagerDutyServiceKey.md)
  - [PagerDutyServiceName](PagerDutyServiceName.md)
  - [ProcessQueryDefinition](ProcessQueryDefinition.md)
+ - [QuerySortOrder](QuerySortOrder.md)
  - [QueryValueWidgetDefinition](QueryValueWidgetDefinition.md)
  - [QueryValueWidgetDefinitionType](QueryValueWidgetDefinitionType.md)
  - [QueryValueWidgetRequest](QueryValueWidgetRequest.md)
  - [SLOBulkDeleteResponse](SLOBulkDeleteResponse.md)
  - [SLOBulkDeleteResponseData](SLOBulkDeleteResponseData.md)
  - [SLOBulkDeleteResponseErrors](SLOBulkDeleteResponseErrors.md)
+ - [SLOCorrectionCategory](SLOCorrectionCategory.md)
+ - [SLOCorrectionCreateRequest](SLOCorrectionCreateRequest.md)
+ - [SLOCorrectionCreateRequestAttributes](SLOCorrectionCreateRequestAttributes.md)
+ - [SLOCorrectionCreateRequestData](SLOCorrectionCreateRequestData.md)
+ - [SLOCorrectionListResponse](SLOCorrectionListResponse.md)
+ - [SLOCorrectionListResponseData](SLOCorrectionListResponseData.md)
+ - [SLOCorrectionResponse](SLOCorrectionResponse.md)
+ - [SLOCorrectionResponseAttributes](SLOCorrectionResponseAttributes.md)
+ - [SLOCorrectionResponseData](SLOCorrectionResponseData.md)
+ - [SLOCorrectionUpdateRequest](SLOCorrectionUpdateRequest.md)
+ - [SLOCorrectionUpdateRequestAttributes](SLOCorrectionUpdateRequestAttributes.md)
+ - [SLOCorrectionUpdateRequestData](SLOCorrectionUpdateRequestData.md)
  - [SLODeleteResponse](SLODeleteResponse.md)
  - [SLOErrorTimeframe](SLOErrorTimeframe.md)
  - [SLOHistoryMetrics](SLOHistoryMetrics.md)
  - [SLOHistoryMetricsSeries](SLOHistoryMetricsSeries.md)
  - [SLOHistoryMetricsSeriesMetadata](SLOHistoryMetricsSeriesMetadata.md)
+ - [SLOHistoryMetricsSeriesMetadataUnit](SLOHistoryMetricsSeriesMetadataUnit.md)
  - [SLOHistoryResponse](SLOHistoryResponse.md)
  - [SLOHistoryResponseData](SLOHistoryResponseData.md)
  - [SLOHistoryResponseError](SLOHistoryResponseError.md)
@@ -434,6 +463,8 @@ Class | Method | HTTP request | Description
  - [SyntheticsCITestMetadataCi](SyntheticsCITestMetadataCi.md)
  - [SyntheticsCITestMetadataGit](SyntheticsCITestMetadataGit.md)
  - [SyntheticsCheckType](SyntheticsCheckType.md)
+ - [SyntheticsConfigVariable](SyntheticsConfigVariable.md)
+ - [SyntheticsConfigVariableType](SyntheticsConfigVariableType.md)
  - [SyntheticsDeleteTestsPayload](SyntheticsDeleteTestsPayload.md)
  - [SyntheticsDeleteTestsResponse](SyntheticsDeleteTestsResponse.md)
  - [SyntheticsDeleteTestsResponseDeletedTests](SyntheticsDeleteTestsResponseDeletedTests.md)
@@ -443,6 +474,10 @@ Class | Method | HTTP request | Description
  - [SyntheticsGetAPITestLatestResultsResponse](SyntheticsGetAPITestLatestResultsResponse.md)
  - [SyntheticsGetBrowserTestLatestResultsResponse](SyntheticsGetBrowserTestLatestResultsResponse.md)
  - [SyntheticsGlobalVariable](SyntheticsGlobalVariable.md)
+ - [SyntheticsGlobalVariableParseTestOptions](SyntheticsGlobalVariableParseTestOptions.md)
+ - [SyntheticsGlobalVariableParseTestOptionsParser](SyntheticsGlobalVariableParseTestOptionsParser.md)
+ - [SyntheticsGlobalVariableParseTestOptionsType](SyntheticsGlobalVariableParseTestOptionsType.md)
+ - [SyntheticsGlobalVariableParserType](SyntheticsGlobalVariableParserType.md)
  - [SyntheticsGlobalVariableValue](SyntheticsGlobalVariableValue.md)
  - [SyntheticsListTestsResponse](SyntheticsListTestsResponse.md)
  - [SyntheticsLocation](SyntheticsLocation.md)
@@ -488,6 +523,13 @@ Class | Method | HTTP request | Description
  - [TableWidgetRequest](TableWidgetRequest.md)
  - [TagToHosts](TagToHosts.md)
  - [TargetFormatType](TargetFormatType.md)
+ - [TimeSeriesFormulaAndFunctionEventQueryDefinition](TimeSeriesFormulaAndFunctionEventQueryDefinition.md)
+ - [TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute](TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.md)
+ - [TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy](TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy.md)
+ - [TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch](TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch.md)
+ - [TimeSeriesFormulaAndFunctionEventQueryDefinitionSort](TimeSeriesFormulaAndFunctionEventQueryDefinitionSort.md)
+ - [TimeSeriesFormulaAndFunctionMetricQueryDefinition](TimeSeriesFormulaAndFunctionMetricQueryDefinition.md)
+ - [TimeSeriesFormulaAndFunctionProcessQueryDefinition](TimeSeriesFormulaAndFunctionProcessQueryDefinition.md)
  - [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
  - [TimeseriesWidgetDefinitionType](TimeseriesWidgetDefinitionType.md)
  - [TimeseriesWidgetRequest](TimeseriesWidgetRequest.md)
@@ -523,6 +565,8 @@ Class | Method | HTTP request | Description
  - [UsageIndexedSpansResponse](UsageIndexedSpansResponse.md)
  - [UsageIngestedSpansHour](UsageIngestedSpansHour.md)
  - [UsageIngestedSpansResponse](UsageIngestedSpansResponse.md)
+ - [UsageIoTHour](UsageIoTHour.md)
+ - [UsageIoTResponse](UsageIoTResponse.md)
  - [UsageLambdaHour](UsageLambdaHour.md)
  - [UsageLambdaResponse](UsageLambdaResponse.md)
  - [UsageLogsByIndexHour](UsageLogsByIndexHour.md)
@@ -583,6 +627,8 @@ Class | Method | HTTP request | Description
  - [WidgetEvent](WidgetEvent.md)
  - [WidgetEventSize](WidgetEventSize.md)
  - [WidgetFieldSort](WidgetFieldSort.md)
+ - [WidgetFormula](WidgetFormula.md)
+ - [WidgetFormulaLimit](WidgetFormulaLimit.md)
  - [WidgetGrouping](WidgetGrouping.md)
  - [WidgetImageSizing](WidgetImageSizing.md)
  - [WidgetLayout](WidgetLayout.md)

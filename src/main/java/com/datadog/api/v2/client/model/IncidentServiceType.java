@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Incident Service resource type.
+ * Incident service resource type.
  */
 public enum IncidentServiceType {
   

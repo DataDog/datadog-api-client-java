@@ -22,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v1.client.JSON;
 
@@ -38,13 +37,13 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTriggerCITestsResponseLocations {
   public static final String JSON_PROPERTY_ID = "id";
-  private BigDecimal id;
+  private Long id;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
 
-  public SyntheticsTriggerCITestsResponseLocations id(BigDecimal id) {
+  public SyntheticsTriggerCITestsResponseLocations id(Long id) {
     this.id = id;
     return this;
   }
@@ -58,12 +57,12 @@ public class SyntheticsTriggerCITestsResponseLocations {
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getId() {
+  public Long getId() {
     return id;
   }
 
 
-  public void setId(BigDecimal id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

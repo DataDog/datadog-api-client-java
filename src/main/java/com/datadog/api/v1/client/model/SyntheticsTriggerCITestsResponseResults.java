@@ -23,7 +23,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v1.client.JSON;
 
@@ -44,7 +43,7 @@ public class SyntheticsTriggerCITestsResponseResults {
   private SyntheticsDeviceID device;
 
   public static final String JSON_PROPERTY_LOCATION = "location";
-  private BigDecimal location;
+  private Long location;
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
@@ -77,7 +76,7 @@ public class SyntheticsTriggerCITestsResponseResults {
   }
 
 
-  public SyntheticsTriggerCITestsResponseResults location(BigDecimal location) {
+  public SyntheticsTriggerCITestsResponseResults location(Long location) {
     this.location = location;
     return this;
   }
@@ -91,12 +90,12 @@ public class SyntheticsTriggerCITestsResponseResults {
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getLocation() {
+  public Long getLocation() {
     return location;
   }
 
 
-  public void setLocation(BigDecimal location) {
+  public void setLocation(Long location) {
     this.location = location;
   }
 
