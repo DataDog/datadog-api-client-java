@@ -32,39 +32,39 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "The objects used to delete an AWS tag filter entry.")
 @JsonPropertyOrder({
-  AWSTagFilterDeleteRequest.JSON_PROPERTY_AWS_ACCOUNT_IDENTIFIER,
+  AWSTagFilterDeleteRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSTagFilterDeleteRequest.JSON_PROPERTY_NAMESPACE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSTagFilterDeleteRequest {
-  public static final String JSON_PROPERTY_AWS_ACCOUNT_IDENTIFIER = "aws_account_identifier";
-  private String awsAccountIdentifier;
+  public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  private String accountId;
 
   public static final String JSON_PROPERTY_NAMESPACE = "namespace";
   private AWSNamespace namespace;
 
 
-  public AWSTagFilterDeleteRequest awsAccountIdentifier(String awsAccountIdentifier) {
-    this.awsAccountIdentifier = awsAccountIdentifier;
+  public AWSTagFilterDeleteRequest accountId(String accountId) {
+    this.accountId = accountId;
     return this;
   }
 
    /**
    * The unique identifier of your AWS account.
-   * @return awsAccountIdentifier
+   * @return accountId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FAKEAC0FAKEAC2FAKEAC", value = "The unique identifier of your AWS account.")
-  @JsonProperty(JSON_PROPERTY_AWS_ACCOUNT_IDENTIFIER)
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getAwsAccountIdentifier() {
-    return awsAccountIdentifier;
+  public String getAccountId() {
+    return accountId;
   }
 
 
-  public void setAwsAccountIdentifier(String awsAccountIdentifier) {
-    this.awsAccountIdentifier = awsAccountIdentifier;
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
   }
 
 
@@ -104,13 +104,13 @@ public class AWSTagFilterDeleteRequest {
       return false;
     }
     AWSTagFilterDeleteRequest awSTagFilterDeleteRequest = (AWSTagFilterDeleteRequest) o;
-    return Objects.equals(this.awsAccountIdentifier, awSTagFilterDeleteRequest.awsAccountIdentifier) &&
+    return Objects.equals(this.accountId, awSTagFilterDeleteRequest.accountId) &&
         Objects.equals(this.namespace, awSTagFilterDeleteRequest.namespace);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsAccountIdentifier, namespace);
+    return Objects.hash(accountId, namespace);
   }
 
 
@@ -118,7 +118,7 @@ public class AWSTagFilterDeleteRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AWSTagFilterDeleteRequest {\n");
-    sb.append("    awsAccountIdentifier: ").append(toIndentedString(awsAccountIdentifier)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("}");
     return sb.toString();
