@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.FormulaAndFunctionEventAggregation;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventsSortType;
 import com.datadog.api.v1.client.model.QuerySortOrder;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,8 +35,7 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   TimeSeriesFormulaAndFunctionEventQueryDefinitionSort.JSON_PROPERTY_AGGREGATION,
   TimeSeriesFormulaAndFunctionEventQueryDefinitionSort.JSON_PROPERTY_METRIC,
-  TimeSeriesFormulaAndFunctionEventQueryDefinitionSort.JSON_PROPERTY_ORDER,
-  TimeSeriesFormulaAndFunctionEventQueryDefinitionSort.JSON_PROPERTY_TYPE
+  TimeSeriesFormulaAndFunctionEventQueryDefinitionSort.JSON_PROPERTY_ORDER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TimeSeriesFormulaAndFunctionEventQueryDefinitionSort {
@@ -49,9 +47,6 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionSort {
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private QuerySortOrder order = QuerySortOrder.DESC;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private FormulaAndFunctionEventsSortType type;
 
 
   public TimeSeriesFormulaAndFunctionEventQueryDefinitionSort aggregation(FormulaAndFunctionEventAggregation aggregation) {
@@ -125,30 +120,6 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionSort {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionSort type(FormulaAndFunctionEventsSortType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public FormulaAndFunctionEventsSortType getType() {
-    return type;
-  }
-
-
-  public void setType(FormulaAndFunctionEventsSortType type) {
-    this.type = type;
-  }
-
-
   /**
    * Return true if this TimeSeriesFormulaAndFunctionEventQueryDefinition_sort object is equal to o.
    */
@@ -163,13 +134,12 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionSort {
     TimeSeriesFormulaAndFunctionEventQueryDefinitionSort timeSeriesFormulaAndFunctionEventQueryDefinitionSort = (TimeSeriesFormulaAndFunctionEventQueryDefinitionSort) o;
     return Objects.equals(this.aggregation, timeSeriesFormulaAndFunctionEventQueryDefinitionSort.aggregation) &&
         Objects.equals(this.metric, timeSeriesFormulaAndFunctionEventQueryDefinitionSort.metric) &&
-        Objects.equals(this.order, timeSeriesFormulaAndFunctionEventQueryDefinitionSort.order) &&
-        Objects.equals(this.type, timeSeriesFormulaAndFunctionEventQueryDefinitionSort.type);
+        Objects.equals(this.order, timeSeriesFormulaAndFunctionEventQueryDefinitionSort.order);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, metric, order, type);
+    return Objects.hash(aggregation, metric, order);
   }
 
 
@@ -180,7 +150,6 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionSort {
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
