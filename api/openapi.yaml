@@ -1745,9 +1745,6 @@ paths:
       x-codegen-request-body-name: body
       x-undo:
         type: idempotent
-      x-unstable: |-
-        **Note**: This endpoint is in public beta.
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
       x-contentType: application/json
       x-accepts: application/json
     get:
@@ -1793,9 +1790,6 @@ paths:
       x-codegen-request-body-name: body
       x-undo:
         type: safe
-      x-unstable: |-
-        **Note**: This endpoint is in public beta.
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
       x-accepts: application/json
     post:
       description: Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
@@ -1842,9 +1836,6 @@ paths:
       x-codegen-request-body-name: body
       x-undo:
         type: unsafe
-      x-unstable: |-
-        **Note**: This endpoint is in public beta.
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
       x-contentType: application/json
       x-accepts: application/json
   /api/v2/logs/config/metrics:
@@ -2204,9 +2195,6 @@ paths:
       - Logs
       x-undo:
         type: safe
-      x-unstable: |-
-        **Note**: This endpoint is in public beta.
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
       x-accepts: application/json
   /api/v2/logs/events/search:
     post:
@@ -2254,9 +2242,6 @@ paths:
       x-codegen-request-body-name: body
       x-undo:
         type: safe
-      x-unstable: |-
-        **Note**: This endpoint is in public beta.
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
       x-contentType: application/json
       x-accepts: application/json
   /api/v2/permissions:

@@ -258,12 +258,6 @@ private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
    
    */
   public APIlistLogsRequest listLogs() throws ApiException {
-    String operationId = "listLogs";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     return new APIlistLogsRequest();
   }
 
@@ -439,12 +433,6 @@ private ApiResponse<LogsListResponse> listLogsGetWithHttpInfo(String filterQuery
    
    */
   public APIlistLogsGetRequest listLogsGet() throws ApiException {
-    String operationId = "listLogsGet";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     return new APIlistLogsGetRequest();
   }
 }
