@@ -45,18 +45,6 @@ public class LogsApiTest extends V2APITest {
         return "logs";
     }
 
-    @BeforeClass
-    public static void enableUnstableOperations() {
-        generalApiClient.setUnstableOperationEnabled("listLogs", true);
-        generalApiClient.setUnstableOperationEnabled("listLogsGet", true);
-    }
-
-    @AfterClass
-    public static void disableUnstableOperations() {
-        generalApiClient.setUnstableOperationEnabled("listLogs", false);
-        generalApiClient.setUnstableOperationEnabled("listLogsGet", false);
-    }
-
     @Before
     public void setup() {
         api = new LogsApi(generalApiClient);
