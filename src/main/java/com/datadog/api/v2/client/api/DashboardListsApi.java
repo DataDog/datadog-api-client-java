@@ -377,7 +377,7 @@ private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long d
   }
 
   /**
-   * Get a Dashboard List
+   * Get items of a Dashboard List
    * Fetch the dashboard list’s dashboard definitions.
    * @param dashboardListId ID of the dashboard list to get items from. (required)
    * @return getDashboardListItemsRequest
