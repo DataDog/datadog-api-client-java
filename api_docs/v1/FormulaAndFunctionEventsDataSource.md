@@ -7,7 +7,7 @@
 
 * `LOGS` (value: `"logs"`)
 
-* `ANALYZED_SPANS` (value: `"analyzed_spans"`)
+* `SPANS` (value: `"spans"`)
 
 * `NETWORK` (value: `"network"`)
 
