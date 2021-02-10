@@ -30,7 +30,7 @@ public enum FormulaAndFunctionEventsDataSource {
   
   LOGS("logs"),
   
-  ANALYZED_SPANS("analyzed_spans"),
+  SPANS("spans"),
   
   NETWORK("network"),
   
