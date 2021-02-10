@@ -305,12 +305,6 @@ public class ApiClient extends JavaTimeFormatter {
 
   protected DateFormat dateFormat;
   protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {{
-    put("createLogsIndex", false);
-    put("getLogsIndex", false);
-    put("getLogsIndexOrder", false);
-    put("listLogIndexes", false);
-    put("updateLogsIndex", false);
-    put("updateLogsIndexOrder", false);
     put("createSLOCorrection", false);
     put("deleteSLOCorrection", false);
     put("getSLOCorrection", false);

@@ -808,7 +808,7 @@ private ApiResponse<SLOListResponse> listSLOsWithHttpInfo(String ids, String que
 
     /**
      * Set tagsQuery
-     * @param tagsQuery The query string to filter results based on SLO tags. (optional)
+     * @param tagsQuery The query string to filter results based on a single SLO tag. (optional)
      * @return APIlistSLOsRequest
      */
     public APIlistSLOsRequest tagsQuery(String tagsQuery) {
