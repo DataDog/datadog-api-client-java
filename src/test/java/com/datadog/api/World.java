@@ -414,7 +414,7 @@ public class World {
     }
 
     /*
-     * Replace all ocurrences of pattern with a result of replacer function.
+     * Replace all occurrences of pattern with a result of replacer function.
      */
     public static String replace(String input, Pattern regex, Function<Matcher, String> replacer) {
         // return regex.matcher(input).replaceAll(replacer) in Java 9+
