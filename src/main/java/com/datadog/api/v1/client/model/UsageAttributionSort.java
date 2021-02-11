@@ -32,8 +32,6 @@ public enum UsageAttributionSort {
   
   SNMP_USAGE("snmp_usage"),
   
-  LAMBDA_PERCENTAGE("lambda_percentage"),
-  
   APM_HOST_USAGE("apm_host_usage"),
   
   API_USAGE("api_usage"),
@@ -43,8 +41,6 @@ public enum UsageAttributionSort {
   CUSTOM_TIMESERIES_PERCENTAGE("custom_timeseries_percentage"),
   
   CONTAINER_PERCENTAGE("container_percentage"),
-  
-  LAMBDA_USAGE("lambda_usage"),
   
   APM_HOST_PERCENTAGE("apm_host_percentage"),
   
@@ -62,7 +58,19 @@ public enum UsageAttributionSort {
   
   INFRA_HOST_USAGE("infra_host_usage"),
   
-  CUSTOM_TIMESERIES_USAGE("custom_timeseries_usage");
+  CUSTOM_TIMESERIES_USAGE("custom_timeseries_usage"),
+  
+  LAMBDA_FUNCTIONS_USAGE("lambda_functions_usage"),
+  
+  LAMBDA_FUNCTIONS_PERCENTAGE("lambda_functions_percentage"),
+  
+  LAMBDA_INVOCATIONS_USAGE("lambda_invocations_usage"),
+  
+  LAMBDA_INVOCATIONS_PERCENTAGE("lambda_invocations_percentage"),
+  
+  LAMBDA_USAGE("lambda_usage"),
+  
+  LAMBDA_PERCENTAGE("lambda_percentage");
 
   private String value;
 
