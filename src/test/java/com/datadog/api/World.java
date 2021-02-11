@@ -93,8 +93,10 @@ public class World {
              * config.connectorProvider(new HttpUrlConnectorProvider()
              * .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
              */
-            ClientConfig config = (ClientConfig) ( (Client) clientClass.getMethod("getHttpClient").invoke(client)).getConfiguration();
-            config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+            ClientConfig config = (ClientConfig) ((Client) clientClass.getMethod("getHttpClient").invoke(client))
+                    .getConfiguration();
+            config.connectorProvider(
+                    new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
 
             // client.setServerIndex(null)
             // clientClass.getMethod("setServerIndex", Integer.class).invoke(client, null);
@@ -113,7 +115,8 @@ public class World {
             f.set(client, null);
         }
         // client.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
-        clientClass.getMethod("addDefaultHeader", String.class, String.class).invoke(client, "JAVA-TEST-NAME", getName());
+        clientClass.getMethod("addDefaultHeader", String.class, String.class).invoke(client, "JAVA-TEST-NAME",
+                getName());
     }
 
     public void setupAPI(String apiVersion, String apiName)
@@ -150,8 +153,7 @@ public class World {
         }
     }
 
-    public void given(String apiVersion, Given step)
-            throws Exception {
+    public void given(String apiVersion, Given step) throws Exception {
         // find API service based on step tag value
         Class<?> givenAPIClass = Class
                 .forName("com.datadog.api." + apiVersion + ".client.api." + step.getAPIName() + "Api");
@@ -268,8 +270,7 @@ public class World {
         };
     }
 
-    public void sendRequest()
-            throws Exception {
+    public void sendRequest() throws Exception {
         Object request;
         if (requestBuilder.getParameterCount() > 0) {
             Object[] parameters = new Object[requestBuilder.getParameterCount()];
@@ -362,7 +363,7 @@ public class World {
      * Example: "foo.bar[1].baz" can be read as data.getFoo().getBar()[1]["baz"]
      */
     public static Object lookup(Object data, String path)
-            throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
+            throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException  {
         Object result = data;
         for (String dotPart : Arrays.asList(path.split("\\."))) {
             for (String part : Arrays.asList(dotPart.split("\\["))) {
@@ -373,7 +374,20 @@ public class World {
                     try {
                         result = HashMap.class.cast(result).get(part);
                     } catch (Exception e) {
-                        result = getPropertyValue(result, toPropertyName(part));
+                        try {
+                            result = getPropertyValue(result, toPropertyName(part));
+                        } catch (java.lang.NoSuchFieldException ee) {
+                            // try to handle oneOf models
+                            try {
+                                result = result.getClass().getMethod("getActualInstance").invoke(result);
+                            } catch (java.lang.reflect.InvocationTargetException eee) {
+                                throw ee;
+                            } catch (java.lang.NoSuchMethodException eee) {
+                                throw ee;
+                            }
+                            result = getPropertyValue(result, toPropertyName(part));
+                        }
+                        
                     }
 
                 }
