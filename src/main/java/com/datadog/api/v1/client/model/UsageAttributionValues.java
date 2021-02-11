@@ -43,6 +43,10 @@ import com.datadog.api.v1.client.JSON;
   UsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_LAMBDA_FUNCTIONS_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_LAMBDA_INVOCATIONS_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_LAMBDA_INVOCATIONS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_USAGE,
   UsageAttributionValues.JSON_PROPERTY_NPM_HOST_PERCENTAGE,
@@ -87,6 +91,18 @@ public class UsageAttributionValues {
 
   public static final String JSON_PROPERTY_INFRA_HOST_USAGE = "infra_host_usage";
   private Double infraHostUsage;
+
+  public static final String JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE = "lambda_functions_percentage";
+  private Double lambdaFunctionsPercentage;
+
+  public static final String JSON_PROPERTY_LAMBDA_FUNCTIONS_USAGE = "lambda_functions_usage";
+  private Double lambdaFunctionsUsage;
+
+  public static final String JSON_PROPERTY_LAMBDA_INVOCATIONS_PERCENTAGE = "lambda_invocations_percentage";
+  private Double lambdaInvocationsPercentage;
+
+  public static final String JSON_PROPERTY_LAMBDA_INVOCATIONS_USAGE = "lambda_invocations_usage";
+  private Double lambdaInvocationsUsage;
 
   public static final String JSON_PROPERTY_LAMBDA_PERCENTAGE = "lambda_percentage";
   private Double lambdaPercentage;
@@ -395,17 +411,113 @@ public class UsageAttributionValues {
   }
 
 
+  public UsageAttributionValues lambdaFunctionsPercentage(Double lambdaFunctionsPercentage) {
+    this.lambdaFunctionsPercentage = lambdaFunctionsPercentage;
+    return this;
+  }
+
+   /**
+   * The percentage of Lambda function usage by tag(s).
+   * @return lambdaFunctionsPercentage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The percentage of Lambda function usage by tag(s).")
+  @JsonProperty(JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Double getLambdaFunctionsPercentage() {
+    return lambdaFunctionsPercentage;
+  }
+
+
+  public void setLambdaFunctionsPercentage(Double lambdaFunctionsPercentage) {
+    this.lambdaFunctionsPercentage = lambdaFunctionsPercentage;
+  }
+
+
+  public UsageAttributionValues lambdaFunctionsUsage(Double lambdaFunctionsUsage) {
+    this.lambdaFunctionsUsage = lambdaFunctionsUsage;
+    return this;
+  }
+
+   /**
+   * The Lambda function usage by tag(s).
+   * @return lambdaFunctionsUsage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Lambda function usage by tag(s).")
+  @JsonProperty(JSON_PROPERTY_LAMBDA_FUNCTIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Double getLambdaFunctionsUsage() {
+    return lambdaFunctionsUsage;
+  }
+
+
+  public void setLambdaFunctionsUsage(Double lambdaFunctionsUsage) {
+    this.lambdaFunctionsUsage = lambdaFunctionsUsage;
+  }
+
+
+  public UsageAttributionValues lambdaInvocationsPercentage(Double lambdaInvocationsPercentage) {
+    this.lambdaInvocationsPercentage = lambdaInvocationsPercentage;
+    return this;
+  }
+
+   /**
+   * The percentage of Lambda invocation usage by tag(s).
+   * @return lambdaInvocationsPercentage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The percentage of Lambda invocation usage by tag(s).")
+  @JsonProperty(JSON_PROPERTY_LAMBDA_INVOCATIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Double getLambdaInvocationsPercentage() {
+    return lambdaInvocationsPercentage;
+  }
+
+
+  public void setLambdaInvocationsPercentage(Double lambdaInvocationsPercentage) {
+    this.lambdaInvocationsPercentage = lambdaInvocationsPercentage;
+  }
+
+
+  public UsageAttributionValues lambdaInvocationsUsage(Double lambdaInvocationsUsage) {
+    this.lambdaInvocationsUsage = lambdaInvocationsUsage;
+    return this;
+  }
+
+   /**
+   * The Lambda invocation usage by tag(s).
+   * @return lambdaInvocationsUsage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Lambda invocation usage by tag(s).")
+  @JsonProperty(JSON_PROPERTY_LAMBDA_INVOCATIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Double getLambdaInvocationsUsage() {
+    return lambdaInvocationsUsage;
+  }
+
+
+  public void setLambdaInvocationsUsage(Double lambdaInvocationsUsage) {
+    this.lambdaInvocationsUsage = lambdaInvocationsUsage;
+  }
+
+
   public UsageAttributionValues lambdaPercentage(Double lambdaPercentage) {
     this.lambdaPercentage = lambdaPercentage;
     return this;
   }
 
    /**
-   * The percentage of lambda function usage by tag(s).
+   * The percentage of Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_percentage instead.
    * @return lambdaPercentage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of lambda function usage by tag(s).")
+  @ApiModelProperty(value = "The percentage of Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_percentage instead.")
   @JsonProperty(JSON_PROPERTY_LAMBDA_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -425,11 +537,11 @@ public class UsageAttributionValues {
   }
 
    /**
-   * The lambda function usage by tag(s).
+   * The Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_usage instead.
    * @return lambdaUsage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The lambda function usage by tag(s).")
+  @ApiModelProperty(value = "The Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_usage instead.")
   @JsonProperty(JSON_PROPERTY_LAMBDA_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -563,6 +675,10 @@ public class UsageAttributionValues {
         Objects.equals(this.customTimeseriesUsage, usageAttributionValues.customTimeseriesUsage) &&
         Objects.equals(this.infraHostPercentage, usageAttributionValues.infraHostPercentage) &&
         Objects.equals(this.infraHostUsage, usageAttributionValues.infraHostUsage) &&
+        Objects.equals(this.lambdaFunctionsPercentage, usageAttributionValues.lambdaFunctionsPercentage) &&
+        Objects.equals(this.lambdaFunctionsUsage, usageAttributionValues.lambdaFunctionsUsage) &&
+        Objects.equals(this.lambdaInvocationsPercentage, usageAttributionValues.lambdaInvocationsPercentage) &&
+        Objects.equals(this.lambdaInvocationsUsage, usageAttributionValues.lambdaInvocationsUsage) &&
         Objects.equals(this.lambdaPercentage, usageAttributionValues.lambdaPercentage) &&
         Objects.equals(this.lambdaUsage, usageAttributionValues.lambdaUsage) &&
         Objects.equals(this.npmHostPercentage, usageAttributionValues.npmHostPercentage) &&
@@ -573,7 +689,7 @@ public class UsageAttributionValues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiPercentage, apiUsage, apmHostPercentage, apmHostUsage, browserPercentage, browserUsage, containerPercentage, containerUsage, customTimeseriesPercentage, customTimeseriesUsage, infraHostPercentage, infraHostUsage, lambdaPercentage, lambdaUsage, npmHostPercentage, npmHostUsage, snmpPercentage, snmpUsage);
+    return Objects.hash(apiPercentage, apiUsage, apmHostPercentage, apmHostUsage, browserPercentage, browserUsage, containerPercentage, containerUsage, customTimeseriesPercentage, customTimeseriesUsage, infraHostPercentage, infraHostUsage, lambdaFunctionsPercentage, lambdaFunctionsUsage, lambdaInvocationsPercentage, lambdaInvocationsUsage, lambdaPercentage, lambdaUsage, npmHostPercentage, npmHostUsage, snmpPercentage, snmpUsage);
   }
 
 
@@ -593,6 +709,10 @@ public class UsageAttributionValues {
     sb.append("    customTimeseriesUsage: ").append(toIndentedString(customTimeseriesUsage)).append("\n");
     sb.append("    infraHostPercentage: ").append(toIndentedString(infraHostPercentage)).append("\n");
     sb.append("    infraHostUsage: ").append(toIndentedString(infraHostUsage)).append("\n");
+    sb.append("    lambdaFunctionsPercentage: ").append(toIndentedString(lambdaFunctionsPercentage)).append("\n");
+    sb.append("    lambdaFunctionsUsage: ").append(toIndentedString(lambdaFunctionsUsage)).append("\n");
+    sb.append("    lambdaInvocationsPercentage: ").append(toIndentedString(lambdaInvocationsPercentage)).append("\n");
+    sb.append("    lambdaInvocationsUsage: ").append(toIndentedString(lambdaInvocationsUsage)).append("\n");
     sb.append("    lambdaPercentage: ").append(toIndentedString(lambdaPercentage)).append("\n");
     sb.append("    lambdaUsage: ").append(toIndentedString(lambdaUsage)).append("\n");
     sb.append("    npmHostPercentage: ").append(toIndentedString(npmHostPercentage)).append("\n");

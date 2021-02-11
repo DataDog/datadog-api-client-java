@@ -46,6 +46,7 @@ import com.datadog.api.v1.client.JSON;
   UsageBillableSummaryKeys.JSON_PROPERTY_NPM_FLOW_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageBillableSummaryKeys.JSON_PROPERTY_RUM_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_SERVERLESS_INVOCATION_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_SIEM_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_SYNTHETICS_API_TESTS_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECKS_SUM,
@@ -94,6 +95,9 @@ public class UsageBillableSummaryKeys {
 
   public static final String JSON_PROPERTY_RUM_SUM = "rum_sum";
   private UsageBillableSummaryBody rumSum;
+
+  public static final String JSON_PROPERTY_SERVERLESS_INVOCATION_SUM = "serverless_invocation_sum";
+  private UsageBillableSummaryBody serverlessInvocationSum;
 
   public static final String JSON_PROPERTY_SIEM_SUM = "siem_sum";
   private UsageBillableSummaryBody siemSum;
@@ -444,6 +448,30 @@ public class UsageBillableSummaryKeys {
   }
 
 
+  public UsageBillableSummaryKeys serverlessInvocationSum(UsageBillableSummaryBody serverlessInvocationSum) {
+    this.serverlessInvocationSum = serverlessInvocationSum;
+    return this;
+  }
+
+   /**
+   * Get serverlessInvocationSum
+   * @return serverlessInvocationSum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_INVOCATION_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UsageBillableSummaryBody getServerlessInvocationSum() {
+    return serverlessInvocationSum;
+  }
+
+
+  public void setServerlessInvocationSum(UsageBillableSummaryBody serverlessInvocationSum) {
+    this.serverlessInvocationSum = serverlessInvocationSum;
+  }
+
+
   public UsageBillableSummaryKeys siemSum(UsageBillableSummaryBody siemSum) {
     this.siemSum = siemSum;
     return this;
@@ -566,6 +594,7 @@ public class UsageBillableSummaryKeys {
         Objects.equals(this.npmFlowSum, usageBillableSummaryKeys.npmFlowSum) &&
         Objects.equals(this.npmHostTop99p, usageBillableSummaryKeys.npmHostTop99p) &&
         Objects.equals(this.rumSum, usageBillableSummaryKeys.rumSum) &&
+        Objects.equals(this.serverlessInvocationSum, usageBillableSummaryKeys.serverlessInvocationSum) &&
         Objects.equals(this.siemSum, usageBillableSummaryKeys.siemSum) &&
         Objects.equals(this.syntheticsApiTestsSum, usageBillableSummaryKeys.syntheticsApiTestsSum) &&
         Objects.equals(this.syntheticsBrowserChecksSum, usageBillableSummaryKeys.syntheticsBrowserChecksSum) &&
@@ -574,7 +603,7 @@ public class UsageBillableSummaryKeys {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmHostSum, apmHostTop99p, apmTraceSearchSum, fargateContainerAverage, infraContainerSum, infraHostSum, infraHostTop99p, iotTop99p, lambdaFunctionAverage, logsIndexedSum, logsIngestedSum, npmFlowSum, npmHostTop99p, rumSum, siemSum, syntheticsApiTestsSum, syntheticsBrowserChecksSum, timeseriesAverage);
+    return Objects.hash(apmHostSum, apmHostTop99p, apmTraceSearchSum, fargateContainerAverage, infraContainerSum, infraHostSum, infraHostTop99p, iotTop99p, lambdaFunctionAverage, logsIndexedSum, logsIngestedSum, npmFlowSum, npmHostTop99p, rumSum, serverlessInvocationSum, siemSum, syntheticsApiTestsSum, syntheticsBrowserChecksSum, timeseriesAverage);
   }
 
 
@@ -596,6 +625,7 @@ public class UsageBillableSummaryKeys {
     sb.append("    npmFlowSum: ").append(toIndentedString(npmFlowSum)).append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
     sb.append("    rumSum: ").append(toIndentedString(rumSum)).append("\n");
+    sb.append("    serverlessInvocationSum: ").append(toIndentedString(serverlessInvocationSum)).append("\n");
     sb.append("    siemSum: ").append(toIndentedString(siemSum)).append("\n");
     sb.append("    syntheticsApiTestsSum: ").append(toIndentedString(syntheticsApiTestsSum)).append("\n");
     sb.append("    syntheticsBrowserChecksSum: ").append(toIndentedString(syntheticsBrowserChecksSum)).append("\n");
