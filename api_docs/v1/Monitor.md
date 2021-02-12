@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **overallState** | **MonitorOverallStates** |  |  [optional]
 **priority** | **Long** | Integer from 1 (high) to 5 (low) indicating alert severity. |  [optional]
 **query** | **String** | The monitor query. |  [optional]
+**restrictedRoles** | **List&lt;String&gt;** | A list of role identifiers that can be pulled from the Roles API. Cannot be used with &#x60;locked&#x60; option. |  [optional]
 **state** | [**MonitorState**](MonitorState.md) |  |  [optional]
 **tags** | **List&lt;String&gt;** | Tags associated to your monitor. |  [optional]
 **type** | **MonitorType** |  |  [optional]

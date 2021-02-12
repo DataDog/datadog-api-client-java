@@ -151,6 +151,7 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *UsageMeteringApi* | [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *UsageMeteringApi* | [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
+*UsageMeteringApi* | [**getUsageInternetOfThings**](UsageMeteringApi.md#getUsageInternetOfThings) | **GET** /api/v1/usage/iot | Get hourly usage for IoT
 *UsageMeteringApi* | [**getUsageLambda**](UsageMeteringApi.md#getUsageLambda) | **GET** /api/v1/usage/aws_lambda | Get hourly usage for Lambda
 *UsageMeteringApi* | [**getUsageLogs**](UsageMeteringApi.md#getUsageLogs) | **GET** /api/v1/usage/logs | Get hourly usage for Logs
 *UsageMeteringApi* | [**getUsageLogsByIndex**](UsageMeteringApi.md#getUsageLogsByIndex) | **GET** /api/v1/usage/logs_by_index | Get hourly usage for Logs by Index
@@ -248,7 +249,6 @@ Class | Method | HTTP request | Description
  - [EventTimelineWidgetDefinitionType](EventTimelineWidgetDefinitionType.md)
  - [FormulaAndFunctionEventAggregation](FormulaAndFunctionEventAggregation.md)
  - [FormulaAndFunctionEventsDataSource](FormulaAndFunctionEventsDataSource.md)
- - [FormulaAndFunctionEventsSortType](FormulaAndFunctionEventsSortType.md)
  - [FormulaAndFunctionMetricAggregation](FormulaAndFunctionMetricAggregation.md)
  - [FormulaAndFunctionMetricDataSource](FormulaAndFunctionMetricDataSource.md)
  - [FormulaAndFunctionProcessQueryDataSource](FormulaAndFunctionProcessQueryDataSource.md)
@@ -257,6 +257,11 @@ Class | Method | HTTP request | Description
  - [FreeTextWidgetDefinition](FreeTextWidgetDefinition.md)
  - [FreeTextWidgetDefinitionType](FreeTextWidgetDefinitionType.md)
  - [GCPAccount](GCPAccount.md)
+ - [GeomapWidgetDefinition](GeomapWidgetDefinition.md)
+ - [GeomapWidgetDefinitionStyle](GeomapWidgetDefinitionStyle.md)
+ - [GeomapWidgetDefinitionType](GeomapWidgetDefinitionType.md)
+ - [GeomapWidgetDefinitionView](GeomapWidgetDefinitionView.md)
+ - [GeomapWidgetRequest](GeomapWidgetRequest.md)
  - [GraphSnapshot](GraphSnapshot.md)
  - [GroupWidgetDefinition](GroupWidgetDefinition.md)
  - [GroupWidgetDefinitionType](GroupWidgetDefinitionType.md)
@@ -410,6 +415,7 @@ Class | Method | HTTP request | Description
  - [SLOHistoryMetrics](SLOHistoryMetrics.md)
  - [SLOHistoryMetricsSeries](SLOHistoryMetricsSeries.md)
  - [SLOHistoryMetricsSeriesMetadata](SLOHistoryMetricsSeriesMetadata.md)
+ - [SLOHistoryMetricsSeriesMetadataUnit](SLOHistoryMetricsSeriesMetadataUnit.md)
  - [SLOHistoryResponse](SLOHistoryResponse.md)
  - [SLOHistoryResponseData](SLOHistoryResponseData.md)
  - [SLOHistoryResponseError](SLOHistoryResponseError.md)
@@ -524,8 +530,8 @@ Class | Method | HTTP request | Description
  - [TimeSeriesFormulaAndFunctionEventQueryDefinition](TimeSeriesFormulaAndFunctionEventQueryDefinition.md)
  - [TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute](TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.md)
  - [TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy](TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy.md)
- - [TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort](TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort.md)
  - [TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch](TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch.md)
+ - [TimeSeriesFormulaAndFunctionEventQueryDefinitionSort](TimeSeriesFormulaAndFunctionEventQueryDefinitionSort.md)
  - [TimeSeriesFormulaAndFunctionMetricQueryDefinition](TimeSeriesFormulaAndFunctionMetricQueryDefinition.md)
  - [TimeSeriesFormulaAndFunctionProcessQueryDefinition](TimeSeriesFormulaAndFunctionProcessQueryDefinition.md)
  - [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
@@ -563,6 +569,8 @@ Class | Method | HTTP request | Description
  - [UsageIndexedSpansResponse](UsageIndexedSpansResponse.md)
  - [UsageIngestedSpansHour](UsageIngestedSpansHour.md)
  - [UsageIngestedSpansResponse](UsageIngestedSpansResponse.md)
+ - [UsageIoTHour](UsageIoTHour.md)
+ - [UsageIoTResponse](UsageIoTResponse.md)
  - [UsageLambdaHour](UsageLambdaHour.md)
  - [UsageLambdaResponse](UsageLambdaResponse.md)
  - [UsageLogsByIndexHour](UsageLogsByIndexHour.md)

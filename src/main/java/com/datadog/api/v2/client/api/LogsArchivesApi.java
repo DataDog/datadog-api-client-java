@@ -165,12 +165,6 @@ private ApiResponse<Void> addReadRoleToArchiveWithHttpInfo(String archiveId, Rel
    
    */
   public APIaddReadRoleToArchiveRequest addReadRoleToArchive(String archiveId) throws ApiException {
-    String operationId = "addReadRoleToArchive";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     return new APIaddReadRoleToArchiveRequest(archiveId);
   }
 
@@ -671,12 +665,6 @@ private ApiResponse<RolesResponse> listArchiveReadRolesWithHttpInfo(String archi
    
    */
   public APIlistArchiveReadRolesRequest listArchiveReadRoles(String archiveId) throws ApiException {
-    String operationId = "listArchiveReadRoles";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     return new APIlistArchiveReadRolesRequest(archiveId);
   }
 
@@ -882,12 +870,6 @@ private ApiResponse<Void> removeRoleFromArchiveWithHttpInfo(String archiveId, Re
    
    */
   public APIremoveRoleFromArchiveRequest removeRoleFromArchive(String archiveId) throws ApiException {
-    String operationId = "removeRoleFromArchive";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     return new APIremoveRoleFromArchiveRequest(archiveId);
   }
 

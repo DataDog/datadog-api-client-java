@@ -57,7 +57,6 @@ import com.datadog.api.v1.client.JSON;
   MonitorOptions.JSON_PROPERTY_NOTIFY_NO_DATA,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL,
   MonitorOptions.JSON_PROPERTY_REQUIRE_FULL_WINDOW,
-  MonitorOptions.JSON_PROPERTY_RESTRICTED_ROLES,
   MonitorOptions.JSON_PROPERTY_SILENCED,
   MonitorOptions.JSON_PROPERTY_SYNTHETICS_CHECK_ID,
   MonitorOptions.JSON_PROPERTY_THRESHOLD_WINDOWS,
@@ -110,9 +109,6 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
   private Boolean requireFullWindow;
-
-  public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
-  private List<String> restrictedRoles = null;
 
   public static final String JSON_PROPERTY_SILENCED = "silenced";
   private Map<String, Long> silenced = null;
@@ -544,38 +540,6 @@ public class MonitorOptions {
   }
 
 
-  public MonitorOptions restrictedRoles(List<String> restrictedRoles) {
-    this.restrictedRoles = restrictedRoles;
-    return this;
-  }
-
-  public MonitorOptions addRestrictedRolesItem(String restrictedRolesItem) {
-    if (this.restrictedRoles == null) {
-      this.restrictedRoles = new ArrayList<>();
-    }
-    this.restrictedRoles.add(restrictedRolesItem);
-    return this;
-  }
-
-   /**
-   * A list of role identifiers that can be pulled from the Roles API. Cannot be used with &#x60;locked&#x60;.
-   * @return restrictedRoles
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked`.")
-  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getRestrictedRoles() {
-    return restrictedRoles;
-  }
-
-
-  public void setRestrictedRoles(List<String> restrictedRoles) {
-    this.restrictedRoles = restrictedRoles;
-  }
-
-
   public MonitorOptions silenced(Map<String, Long> silenced) {
     this.silenced = silenced;
     return this;
@@ -751,7 +715,6 @@ public class MonitorOptions {
         Objects.equals(this.notifyNoData, monitorOptions.notifyNoData) &&
         Objects.equals(this.renotifyInterval, monitorOptions.renotifyInterval) &&
         Objects.equals(this.requireFullWindow, monitorOptions.requireFullWindow) &&
-        Objects.equals(this.restrictedRoles, monitorOptions.restrictedRoles) &&
         Objects.equals(this.silenced, monitorOptions.silenced) &&
         Objects.equals(this.syntheticsCheckId, monitorOptions.syntheticsCheckId) &&
         Objects.equals(this.thresholdWindows, monitorOptions.thresholdWindows) &&
@@ -761,7 +724,7 @@ public class MonitorOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, deviceIds, enableLogsSample, escalationMessage, evaluationDelay, includeTags, locked, minFailureDuration, minLocationFailed, newHostDelay, noDataTimeframe, notifyAudit, notifyNoData, renotifyInterval, requireFullWindow, restrictedRoles, silenced, syntheticsCheckId, thresholdWindows, thresholds, timeoutH);
+    return Objects.hash(aggregation, deviceIds, enableLogsSample, escalationMessage, evaluationDelay, includeTags, locked, minFailureDuration, minLocationFailed, newHostDelay, noDataTimeframe, notifyAudit, notifyNoData, renotifyInterval, requireFullWindow, silenced, syntheticsCheckId, thresholdWindows, thresholds, timeoutH);
   }
 
 
@@ -784,7 +747,6 @@ public class MonitorOptions {
     sb.append("    notifyNoData: ").append(toIndentedString(notifyNoData)).append("\n");
     sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
     sb.append("    requireFullWindow: ").append(toIndentedString(requireFullWindow)).append("\n");
-    sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
     sb.append("    silenced: ").append(toIndentedString(silenced)).append("\n");
     sb.append("    syntheticsCheckId: ").append(toIndentedString(syntheticsCheckId)).append("\n");
     sb.append("    thresholdWindows: ").append(toIndentedString(thresholdWindows)).append("\n");

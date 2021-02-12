@@ -1,0 +1,149 @@
+[{
+  "id" : "dfa42267-acec-4eaf-864a-c2210039c71c",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v2/metrics/javaListTagConfigurati1613061981/tags",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "List_Tag_Configurations_returns_Success_response" ],
+      "DD-OPERATION-ID" : [ "createTagConfiguration" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"data\":{\"attributes\":{\"include_percentiles\":false,\"metric_type\":\"distribution\",\"tags\":[\"app\",\"datacenter\",\"javaListTagConfigurati1613061981\"]},\"id\":\"javaListTagConfigurati1613061981\",\"type\":\"manage_tags\"}}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 201,
+    "reasonPhrase" : "Created",
+    "headers" : {
+      "Date" : [ "Thu, 11 Feb 2021 16:46:22 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "302" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 16:46:22 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.3891487" ],
+      "x-ratelimit-limit" : [ "50" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "38" ],
+      "x-ratelimit-remaining" : [ "41" ],
+      "x-dd-debug" : [ "l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"data\":{\"type\":\"manage_tags\",\"id\":\"javaListTagConfigurati1613061981\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"javaListTagConfigurati1613061981\"],\"include_percentiles\":false,\"created_at\":\"2021-02-11T16:46:22.209811+00:00\",\"updated_at\":\"2021-02-11T16:46:22.209811+00:00\",\"metric_type\":\"distribution\"}}}"
+  }
+}, {
+  "id" : "7e2da33e-e244-4f90-81d0-f9d64eb75cc3",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v2/metrics",
+    "queryStringParameters" : {
+      "filter[tags_configured]" : [ "javaListTagConfigurati1613061981" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "List_Tag_Configurations_returns_Success_response" ],
+      "DD-OPERATION-ID" : [ "listTagConfigurations" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Thu, 11 Feb 2021 16:46:28 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 16:46:22 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.3891487" ],
+      "x-ratelimit-limit" : [ "50" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "38" ],
+      "x-ratelimit-remaining" : [ "40" ],
+      "x-dd-debug" : [ "SY1h8ScsWq+kYmtbh63ltMLFAZsQjqfrgvdfAoRX+9TzT1sgMBRYaFRwfWWRRe9a" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "304" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    },
+    "body" : "{\"data\":[{\"type\":\"manage_tags\",\"id\":\"javaListTagConfigurati1613061981\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"javaListTagConfigurati1613061981\"],\"include_percentiles\":false,\"created_at\":\"2021-02-11T16:46:22.209811+00:00\",\"updated_at\":\"2021-02-11T16:46:22.209811+00:00\",\"metric_type\":\"distribution\"}}]}"
+  }
+}, {
+  "id" : "b86b8893-e9e7-4abc-8ea6-f83e19c736b3",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v2/metrics/javaListTagConfigurati1613061981/tags",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "List_Tag_Configurations_returns_Success_response" ],
+      "DD-OPERATION-ID" : [ "deleteTagConfiguration" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 204,
+    "reasonPhrase" : "No Content",
+    "headers" : {
+      "Date" : [ "Thu, 11 Feb 2021 16:46:28 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "0" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Thu, 18-Feb-2021 16:46:28 GMT; secure; HttpOnly" ],
+      "x-dd-version" : [ "35.3891487" ],
+      "x-ratelimit-limit" : [ "50" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "32" ],
+      "x-ratelimit-remaining" : [ "39" ],
+      "x-dd-debug" : [ "25u1gDlL724DHllbjFT4BhOLorBTilh+aah2uWAUEjFC/+rjczJdiyWrV/HwLwe/" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "cookies" : {
+      "DD-PSHARD" : "233"
+    }
+  }
+}]

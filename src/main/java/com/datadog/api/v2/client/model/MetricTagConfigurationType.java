@@ -9,7 +9,7 @@
  */
 
 
-package com.datadog.api.v1.client.model;
+package com.datadog.api.v2.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -17,24 +17,22 @@ import java.util.Map;
 import java.util.HashMap;
 import io.swagger.annotations.ApiModel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Method for sorting event platform results.
+ * The metric tag configuration resource type.
  */
-public enum FormulaAndFunctionEventsSortType {
+public enum MetricTagConfigurationType {
   
-  ALPHABETICAL("alphabetical"),
-  
-  MEASURE("measure");
+  MANAGE_TAGS("manage_tags");
 
   private String value;
 
-  FormulaAndFunctionEventsSortType(String value) {
+  MetricTagConfigurationType(String value) {
     this.value = value;
   }
 
@@ -49,8 +47,8 @@ public enum FormulaAndFunctionEventsSortType {
   }
 
   @JsonCreator
-  public static FormulaAndFunctionEventsSortType fromValue(String value) {
-    for (FormulaAndFunctionEventsSortType b : FormulaAndFunctionEventsSortType.values()) {
+  public static MetricTagConfigurationType fromValue(String value) {
+    for (MetricTagConfigurationType b : MetricTagConfigurationType.values()) {
       if (b.value.equals(value)) {
         return b;
       }

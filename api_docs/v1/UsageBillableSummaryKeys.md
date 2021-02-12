@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **npmFlowSum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  |  [optional]
 **npmHostTop99p** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  |  [optional]
 **rumSum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  |  [optional]
+**serverlessInvocationSum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  |  [optional]
 **siemSum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  |  [optional]
 **syntheticsApiTestsSum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  |  [optional]
 **syntheticsBrowserChecksSum** | [**UsageBillableSummaryBody**](UsageBillableSummaryBody.md) |  |  [optional]

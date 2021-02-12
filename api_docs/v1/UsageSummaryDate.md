@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **indexedEventsCountSum** | **Long** | Shows the sum of all log events indexed over all hours in the current date for all organizations. |  [optional]
 **infraHostTop99p** | **Long** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations. |  [optional]
 **ingestedEventsBytesSum** | **Long** | Shows the sum of all log bytes ingested over all hours in the current date for all organizations. |  [optional]
+**iotDeviceAggSum** | **Long** | Shows the sum of all IoT devices over all hours in the current date for all organizations. |  [optional]
+**iotDeviceTop99pSum** | **Long** | Shows the 99th percentile of all IoT devices over all hours in the current date all organizations. |  [optional]
 **mobileRumSessionCountAndroidSum** | **Long** | Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all organizations. |  [optional]
 **mobileRumSessionCountIosSum** | **Long** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all organizations. |  [optional]
 **mobileRumSessionCountSum** | **Long** | Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations |  [optional]

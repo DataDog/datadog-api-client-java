@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort;
+import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinitionSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -28,9 +28,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Group by options.
+ * List of objects used to group by.
  */
-@ApiModel(description = "Group by options.")
+@ApiModel(description = "List of objects used to group by.")
 @JsonPropertyOrder({
   TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy.JSON_PROPERTY_FACET,
   TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy.JSON_PROPERTY_LIMIT,
@@ -45,7 +45,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy {
   private Long limit;
 
   public static final String JSON_PROPERTY_SORT = "sort";
-  private TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort sort;
+  private TimeSeriesFormulaAndFunctionEventQueryDefinitionSort sort;
 
 
   public TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy facet(String facet) {
@@ -95,7 +95,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy sort(TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort sort) {
+  public TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy sort(TimeSeriesFormulaAndFunctionEventQueryDefinitionSort sort) {
     this.sort = sort;
     return this;
   }
@@ -109,12 +109,12 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy {
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort getSort() {
+  public TimeSeriesFormulaAndFunctionEventQueryDefinitionSort getSort() {
     return sort;
   }
 
 
-  public void setSort(TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBySort sort) {
+  public void setSort(TimeSeriesFormulaAndFunctionEventQueryDefinitionSort sort) {
     this.sort = sort;
   }
 

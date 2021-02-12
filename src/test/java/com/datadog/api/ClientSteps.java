@@ -2,7 +2,9 @@ package com.datadog.api;
 
 import static org.junit.Assert.*;
 
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Callable;
+import java.util.regex.Pattern;
 import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.HashMap;
@@ -45,6 +47,13 @@ public class ClientSteps {
         String unique = world.getUniqueEntityName();
         world.context.put("unique", unique);
         world.context.put("unique_lower", unique.toLowerCase());
+        world.context.put("unique_alnum", World.replace(unique, Pattern.compile("[^A-Za-z0-9]+"), m -> { return ""; }));
+        world.context.put("now_ts", world.now.toEpochSecond());
+        world.context.put("now_iso", world.now.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        world.context.put("hour_later_ts", world.now.plusHours(1).toEpochSecond());
+        world.context.put("hour_later_iso", world.now.plusHours(1).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        world.context.put("hour_ago_ts", world.now.minusHours(1).toEpochSecond());
+        world.context.put("hour_ago_iso", world.now.minusHours(1).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
     }
 
     @After
@@ -111,7 +120,7 @@ public class ClientSteps {
             com.fasterxml.jackson.core.JsonProcessingException {
         String propertyName = World.toPropertyName(parameterName);
         Field field = world.requestClass.getDeclaredField(propertyName);
-        world.requestParams.put(propertyName, World.fromJSON(world.getObjectMapper(), field.getType(), value));
+        world.requestParams.put(propertyName, World.fromJSON(world.getObjectMapper(), field.getType(), World.templated(value, world.context)));
     }
 
     @Given("body {}")
