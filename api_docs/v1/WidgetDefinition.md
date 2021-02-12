@@ -13,6 +13,7 @@
 * [EventStreamWidgetDefinition](EventStreamWidgetDefinition.md)
 * [EventTimelineWidgetDefinition](EventTimelineWidgetDefinition.md)
 * [FreeTextWidgetDefinition](FreeTextWidgetDefinition.md)
+* [GeomapWidgetDefinition](GeomapWidgetDefinition.md)
 * [GroupWidgetDefinition](GroupWidgetDefinition.md)
 * [HeatMapWidgetDefinition](HeatMapWidgetDefinition.md)
 * [HostMapWidgetDefinition](HostMapWidgetDefinition.md)
@@ -42,6 +43,7 @@ import com.datadog.api.v1.client.model.DistributionWidgetDefinition;
 import com.datadog.api.v1.client.model.EventStreamWidgetDefinition;
 import com.datadog.api.v1.client.model.EventTimelineWidgetDefinition;
 import com.datadog.api.v1.client.model.FreeTextWidgetDefinition;
+import com.datadog.api.v1.client.model.GeomapWidgetDefinition;
 import com.datadog.api.v1.client.model.GroupWidgetDefinition;
 import com.datadog.api.v1.client.model.HeatMapWidgetDefinition;
 import com.datadog.api.v1.client.model.HostMapWidgetDefinition;
@@ -118,6 +120,13 @@ public class Example {
         exampleWidgetDefinition.setActualInstance(exampleFreeTextWidgetDefinition);
         // to get back the FreeTextWidgetDefinition set earlier
         FreeTextWidgetDefinition testFreeTextWidgetDefinition = (FreeTextWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new GeomapWidgetDefinition
+        GeomapWidgetDefinition exampleGeomapWidgetDefinition = new GeomapWidgetDefinition();
+        // set WidgetDefinition to GeomapWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleGeomapWidgetDefinition);
+        // to get back the GeomapWidgetDefinition set earlier
+        GeomapWidgetDefinition testGeomapWidgetDefinition = (GeomapWidgetDefinition) exampleWidgetDefinition.getActualInstance();
 
         // create a new GroupWidgetDefinition
         GroupWidgetDefinition exampleGroupWidgetDefinition = new GroupWidgetDefinition();
