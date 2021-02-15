@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.SLOCorrectionUpdateRequestData;
+import com.datadog.api.v1.client.model.SLOCorrectionUpdateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,10 +37,10 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOCorrectionUpdateRequest {
   public static final String JSON_PROPERTY_DATA = "data";
-  private SLOCorrectionUpdateRequestData data;
+  private SLOCorrectionUpdateData data;
 
 
-  public SLOCorrectionUpdateRequest data(SLOCorrectionUpdateRequestData data) {
+  public SLOCorrectionUpdateRequest data(SLOCorrectionUpdateData data) {
     this.data = data;
     return this;
   }
@@ -54,12 +54,12 @@ public class SLOCorrectionUpdateRequest {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SLOCorrectionUpdateRequestData getData() {
+  public SLOCorrectionUpdateData getData() {
     return data;
   }
 
 
-  public void setData(SLOCorrectionUpdateRequestData data) {
+  public void setData(SLOCorrectionUpdateData data) {
     this.data = data;
   }
 

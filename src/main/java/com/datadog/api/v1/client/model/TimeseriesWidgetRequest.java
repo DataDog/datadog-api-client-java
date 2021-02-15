@@ -19,7 +19,7 @@ import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
-import com.datadog.api.v1.client.model.TimeseriesWidgetRequestMetadata;
+import com.datadog.api.v1.client.model.TimeseriesWidgetExpressionAlias;
 import com.datadog.api.v1.client.model.WidgetDisplayType;
 import com.datadog.api.v1.client.model.WidgetFormula;
 import com.datadog.api.v1.client.model.WidgetRequestStyle;
@@ -75,7 +75,7 @@ public class TimeseriesWidgetRequest {
   private LogQueryDefinition logQuery;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private List<TimeseriesWidgetRequestMetadata> metadata = null;
+  private List<TimeseriesWidgetExpressionAlias> metadata = null;
 
   public static final String JSON_PROPERTY_NETWORK_QUERY = "network_query";
   private LogQueryDefinition networkQuery;
@@ -233,12 +233,12 @@ public class TimeseriesWidgetRequest {
   }
 
 
-  public TimeseriesWidgetRequest metadata(List<TimeseriesWidgetRequestMetadata> metadata) {
+  public TimeseriesWidgetRequest metadata(List<TimeseriesWidgetExpressionAlias> metadata) {
     this.metadata = metadata;
     return this;
   }
 
-  public TimeseriesWidgetRequest addMetadataItem(TimeseriesWidgetRequestMetadata metadataItem) {
+  public TimeseriesWidgetRequest addMetadataItem(TimeseriesWidgetExpressionAlias metadataItem) {
     if (this.metadata == null) {
       this.metadata = new ArrayList<>();
     }
@@ -255,12 +255,12 @@ public class TimeseriesWidgetRequest {
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<TimeseriesWidgetRequestMetadata> getMetadata() {
+  public List<TimeseriesWidgetExpressionAlias> getMetadata() {
     return metadata;
   }
 
 
-  public void setMetadata(List<TimeseriesWidgetRequestMetadata> metadata) {
+  public void setMetadata(List<TimeseriesWidgetExpressionAlias> metadata) {
     this.metadata = metadata;
   }
 

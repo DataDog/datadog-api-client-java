@@ -17,8 +17,8 @@ import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.FormulaAndFunctionEventsDataSource;
 import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy;
 import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch;
+import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryGroupBy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -53,7 +53,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   private FormulaAndFunctionEventsDataSource dataSource;
 
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
-  private List<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy> groupBy = null;
+  private List<TimeSeriesFormulaAndFunctionEventQueryGroupBy> groupBy = null;
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
@@ -111,12 +111,12 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition groupBy(List<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy> groupBy) {
+  public TimeSeriesFormulaAndFunctionEventQueryDefinition groupBy(List<TimeSeriesFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
     return this;
   }
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition addGroupByItem(TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy groupByItem) {
+  public TimeSeriesFormulaAndFunctionEventQueryDefinition addGroupByItem(TimeSeriesFormulaAndFunctionEventQueryGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
     }
@@ -133,12 +133,12 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy> getGroupBy() {
+  public List<TimeSeriesFormulaAndFunctionEventQueryGroupBy> getGroupBy() {
     return groupBy;
   }
 
 
-  public void setGroupBy(List<TimeSeriesFormulaAndFunctionEventQueryDefinitionGroupBy> groupBy) {
+  public void setGroupBy(List<TimeSeriesFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
 

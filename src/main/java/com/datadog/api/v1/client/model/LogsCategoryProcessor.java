@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.LogsCategoryProcessorCategories;
+import com.datadog.api.v1.client.model.LogsCategoryProcessorCategory;
 import com.datadog.api.v1.client.model.LogsCategoryProcessorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,7 +44,7 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsCategoryProcessor {
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
-  private List<LogsCategoryProcessorCategories> categories = new ArrayList<>();
+  private List<LogsCategoryProcessorCategory> categories = new ArrayList<>();
 
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
@@ -59,12 +59,12 @@ public class LogsCategoryProcessor {
   private LogsCategoryProcessorType type = LogsCategoryProcessorType.CATEGORY_PROCESSOR;
 
 
-  public LogsCategoryProcessor categories(List<LogsCategoryProcessorCategories> categories) {
+  public LogsCategoryProcessor categories(List<LogsCategoryProcessorCategory> categories) {
     this.categories = categories;
     return this;
   }
 
-  public LogsCategoryProcessor addCategoriesItem(LogsCategoryProcessorCategories categoriesItem) {
+  public LogsCategoryProcessor addCategoriesItem(LogsCategoryProcessorCategory categoriesItem) {
     this.categories.add(categoriesItem);
     return this;
   }
@@ -77,12 +77,12 @@ public class LogsCategoryProcessor {
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<LogsCategoryProcessorCategories> getCategories() {
+  public List<LogsCategoryProcessorCategory> getCategories() {
     return categories;
   }
 
 
-  public void setCategories(List<LogsCategoryProcessorCategories> categories) {
+  public void setCategories(List<LogsCategoryProcessorCategory> categories) {
     this.categories = categories;
   }
 
