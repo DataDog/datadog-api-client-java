@@ -15,8 +15,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v1.client.model.SLOBulkDeleteError;
 import com.datadog.api.v1.client.model.SLOBulkDeleteResponseData;
-import com.datadog.api.v1.client.model.SLOBulkDeleteResponseErrors;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -44,7 +44,7 @@ public class SLOBulkDeleteResponse {
   private SLOBulkDeleteResponseData data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<SLOBulkDeleteResponseErrors> errors = null;
+  private List<SLOBulkDeleteError> errors = null;
 
 
   public SLOBulkDeleteResponse data(SLOBulkDeleteResponseData data) {
@@ -71,12 +71,12 @@ public class SLOBulkDeleteResponse {
   }
 
 
-  public SLOBulkDeleteResponse errors(List<SLOBulkDeleteResponseErrors> errors) {
+  public SLOBulkDeleteResponse errors(List<SLOBulkDeleteError> errors) {
     this.errors = errors;
     return this;
   }
 
-  public SLOBulkDeleteResponse addErrorsItem(SLOBulkDeleteResponseErrors errorsItem) {
+  public SLOBulkDeleteResponse addErrorsItem(SLOBulkDeleteError errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -93,12 +93,12 @@ public class SLOBulkDeleteResponse {
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SLOBulkDeleteResponseErrors> getErrors() {
+  public List<SLOBulkDeleteError> getErrors() {
     return errors;
   }
 
 
-  public void setErrors(List<SLOBulkDeleteResponseErrors> errors) {
+  public void setErrors(List<SLOBulkDeleteError> errors) {
     this.errors = errors;
   }
 

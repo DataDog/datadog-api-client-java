@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **message** | **String** | Message indicating &#x60;success&#x60; if status is &#x60;ok&#x60;. |  [optional] [readonly]
 **query** | **String** | Query string |  [optional] [readonly]
 **resType** | **String** | Type of response. |  [optional] [readonly]
-**series** | [**List&lt;MetricsQueryResponseSeries&gt;**](MetricsQueryResponseSeries.md) | List of timeseries queried. |  [optional] [readonly]
+**series** | [**List&lt;MetricsQueryMetadata&gt;**](MetricsQueryMetadata.md) | List of timeseries queried. |  [optional] [readonly]
 **status** | **String** | Status of the query. |  [optional] [readonly]
 **toDate** | **Long** | End of requested time window, milliseconds since Unix epoch. |  [optional] [readonly]
 

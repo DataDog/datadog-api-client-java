@@ -588,14 +588,14 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         logsApi.deleteAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
         List<AWSLogsListResponse> listOutput2 = logsApi.listAWSLogsIntegrations().execute();
         Boolean accountExistsAfterDelete = false;
-        List<AWSLogsListResponseLambdas> listOfARNs2 = new ArrayList<>();
+        List<AWSLogsLambda> listOfARNs2 = new ArrayList<>();
 
         for (AWSLogsListResponse account : listOutput2) {
             if (account.getAccountId().equals(uniqueAWSAccount.getAccountId())) {
                 listOfARNs2 = account.getLambdas();
             }
         }
-        for (AWSLogsListResponseLambdas lambda : listOfARNs2) {
+        for (AWSLogsLambda lambda : listOfARNs2) {
             if (lambda.getArn().equals(uniqueAWSAccountLambdaRequest.getLambdaArn())) {
                 accountExistsAfterDelete = true;
             }

@@ -7,7 +7,7 @@ Dashboard summary response.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dashboards** | [**List&lt;DashboardSummaryDashboards&gt;**](DashboardSummaryDashboards.md) | List of dashboard definitions. |  [optional]
+**dashboards** | [**List&lt;DashboardSummaryDefinition&gt;**](DashboardSummaryDefinition.md) | List of dashboard definitions. |  [optional]
 
 
 

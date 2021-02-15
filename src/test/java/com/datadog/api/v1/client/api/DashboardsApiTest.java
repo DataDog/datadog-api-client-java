@@ -430,7 +430,7 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .palette("dog_classic")
                                 .lineType(WidgetLineType.DASHED)
                                 .lineWidth(WidgetLineWidth.THICK)
-                        ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
+                        ).addMetadataItem(new TimeseriesWidgetExpressionAlias()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
                         .onRightYaxis(true)
@@ -464,7 +464,7 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .palette("dog_classic")
                                 .lineType(WidgetLineType.DASHED)
                                 .lineWidth(WidgetLineWidth.THICK)
-                        ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
+                        ).addMetadataItem(new TimeseriesWidgetExpressionAlias()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
                         .onRightYaxis(true)
@@ -492,14 +492,14 @@ public class DashboardsApiTest extends V1ApiTest{
                                 .compute(new LogsQueryCompute().aggregation("count").facet("host").interval(10L))
                                 .search(new LogQueryDefinitionSearch().query("source:kubernetes"))
                                 .addGroupByItem(new LogQueryDefinitionGroupBy().facet("host").limit(5L).sort(
-                                        new LogQueryDefinitionSort().aggregation("count").order(WidgetSort.ASCENDING)
+                                        new LogQueryDefinitionGroupBySort().aggregation("count").order(WidgetSort.ASCENDING)
                                 ))
                         )
                         .style(new WidgetRequestStyle()
                                 .palette("dog_classic")
                                 .lineType(WidgetLineType.DASHED)
                                 .lineWidth(WidgetLineWidth.THICK)
-                        ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
+                        ).addMetadataItem(new TimeseriesWidgetExpressionAlias()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
                         .onRightYaxis(true)
@@ -527,14 +527,14 @@ public class DashboardsApiTest extends V1ApiTest{
                                         .compute(new LogsQueryCompute().aggregation("count").facet("host").interval(10L))
                                         .search(new LogQueryDefinitionSearch().query("Error parsing"))
                                         .addGroupByItem(new LogQueryDefinitionGroupBy().facet("host").limit(5L).sort(
-                                                new LogQueryDefinitionSort().aggregation("count").order(WidgetSort.ASCENDING)
+                                                new LogQueryDefinitionGroupBySort().aggregation("count").order(WidgetSort.ASCENDING)
                                         ))
                         )
                         .style(new WidgetRequestStyle()
                                 .palette("dog_classic")
                                 .lineType(WidgetLineType.DASHED)
                                 .lineWidth(WidgetLineWidth.THICK)
-                        ).addMetadataItem(new TimeseriesWidgetRequestMetadata()
+                        ).addMetadataItem(new TimeseriesWidgetExpressionAlias()
                                 .expression("avg:system.load.1{*}").aliasName("Aliased metric")
                         ).displayType(WidgetDisplayType.LINE)
                         .onRightYaxis(true)
@@ -575,9 +575,9 @@ public class DashboardsApiTest extends V1ApiTest{
         orderedWidgetList.add(toplistWidget);
 
         // Template Variables
-        DashboardTemplateVariables templateVariable = new DashboardTemplateVariables()
+        DashboardTemplateVariable templateVariable = new DashboardTemplateVariable()
                 .name("test template var").prefix("test-java")._default("*");
-        List<DashboardTemplateVariables> templateVariables = new ArrayList<>();
+        List<DashboardTemplateVariable> templateVariables = new ArrayList<>();
         templateVariables.add(templateVariable);
 
         // Template Variable Presets

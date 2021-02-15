@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.ws.rs.core.GenericType;
+import org.junit.AssumptionViolatedException;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -96,6 +97,9 @@ public class LogsApiTest extends V2APITest {
 
     @Test
     public void listLogsTest() throws Exception {
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            throw new AssumptionViolatedException("Skipping in non-recording mode");
+        }
         String suffix = getUniqueEntityName();
         sendLogs(suffix);
 
@@ -179,6 +183,9 @@ public class LogsApiTest extends V2APITest {
 
     @Test
     public void listLogsGetTest() throws Exception {
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            throw new AssumptionViolatedException("Skipping in non-recording mode");
+        }
         String suffix = getUniqueEntityName();
         sendLogs(suffix);
 

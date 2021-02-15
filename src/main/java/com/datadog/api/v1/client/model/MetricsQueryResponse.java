@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.MetricsQueryResponseSeries;
+import com.datadog.api.v1.client.model.MetricsQueryMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -65,7 +65,7 @@ public class MetricsQueryResponse {
   private String resType;
 
   public static final String JSON_PROPERTY_SERIES = "series";
-  private List<MetricsQueryResponseSeries> series = null;
+  private List<MetricsQueryMetadata> series = null;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -179,7 +179,7 @@ public class MetricsQueryResponse {
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<MetricsQueryResponseSeries> getSeries() {
+  public List<MetricsQueryMetadata> getSeries() {
     return series;
   }
 

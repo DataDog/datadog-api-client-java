@@ -18,7 +18,7 @@ import java.util.HashMap;
 import com.datadog.api.v1.client.model.LogsArithmeticProcessor;
 import com.datadog.api.v1.client.model.LogsAttributeRemapper;
 import com.datadog.api.v1.client.model.LogsCategoryProcessor;
-import com.datadog.api.v1.client.model.LogsCategoryProcessorCategories;
+import com.datadog.api.v1.client.model.LogsCategoryProcessorCategory;
 import com.datadog.api.v1.client.model.LogsDateRemapper;
 import com.datadog.api.v1.client.model.LogsFilter;
 import com.datadog.api.v1.client.model.LogsGeoIPParser;

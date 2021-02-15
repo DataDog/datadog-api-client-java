@@ -14,6 +14,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.AssumptionViolatedException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -50,6 +51,9 @@ public class LogsApiTest extends V1ApiTest {
 
     @Test
     public void listLogTest() throws ApiException, TestUtils.RetryException, InterruptedException {
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            throw new AssumptionViolatedException("Skipping in non-recording mode");
+        }
         long nowNano = now.toEpochSecond() * 1000000 + now.getNano();
         String source = String.format("java-client-test-%d", nowNano);
         String message = String.format("test-log-list-%d", nowNano);

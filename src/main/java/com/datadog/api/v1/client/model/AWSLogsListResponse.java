@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.AWSLogsListResponseLambdas;
+import com.datadog.api.v1.client.model.AWSLogsLambda;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -44,7 +44,7 @@ public class AWSLogsListResponse {
   private String accountId;
 
   public static final String JSON_PROPERTY_LAMBDAS = "lambdas";
-  private List<AWSLogsListResponseLambdas> lambdas = null;
+  private List<AWSLogsLambda> lambdas = null;
 
   public static final String JSON_PROPERTY_SERVICES = "services";
   private List<String> services = null;
@@ -74,12 +74,12 @@ public class AWSLogsListResponse {
   }
 
 
-  public AWSLogsListResponse lambdas(List<AWSLogsListResponseLambdas> lambdas) {
+  public AWSLogsListResponse lambdas(List<AWSLogsLambda> lambdas) {
     this.lambdas = lambdas;
     return this;
   }
 
-  public AWSLogsListResponse addLambdasItem(AWSLogsListResponseLambdas lambdasItem) {
+  public AWSLogsListResponse addLambdasItem(AWSLogsLambda lambdasItem) {
     if (this.lambdas == null) {
       this.lambdas = new ArrayList<>();
     }
@@ -96,12 +96,12 @@ public class AWSLogsListResponse {
   @JsonProperty(JSON_PROPERTY_LAMBDAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<AWSLogsListResponseLambdas> getLambdas() {
+  public List<AWSLogsLambda> getLambdas() {
     return lambdas;
   }
 
 
-  public void setLambdas(List<AWSLogsListResponseLambdas> lambdas) {
+  public void setLambdas(List<AWSLogsLambda> lambdas) {
     this.lambdas = lambdas;
   }
 

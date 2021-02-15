@@ -111,7 +111,7 @@ public class MetricsApiTest extends V1ApiTest {
         assertEquals("ok", queryResult.getStatus());
         assertEquals("time_series", queryResult.getResType());
         assertEquals(1, queryResult.getSeries().size());
-        MetricsQueryResponseSeries series = queryResult.getSeries().get(0);
+        MetricsQueryMetadata series = queryResult.getSeries().get(0);
         assertEquals(new Long(2), series.getLength());
         assertEquals("avg", series.getAggr());
         assertEquals(testMetric, series.getDisplayName());

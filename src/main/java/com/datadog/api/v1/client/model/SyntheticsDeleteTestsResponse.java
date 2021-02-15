@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsDeleteTestsResponseDeletedTests;
+import com.datadog.api.v1.client.model.SyntheticsDeletedTest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,15 +39,15 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsDeleteTestsResponse {
   public static final String JSON_PROPERTY_DELETED_TESTS = "deleted_tests";
-  private List<SyntheticsDeleteTestsResponseDeletedTests> deletedTests = null;
+  private List<SyntheticsDeletedTest> deletedTests = null;
 
 
-  public SyntheticsDeleteTestsResponse deletedTests(List<SyntheticsDeleteTestsResponseDeletedTests> deletedTests) {
+  public SyntheticsDeleteTestsResponse deletedTests(List<SyntheticsDeletedTest> deletedTests) {
     this.deletedTests = deletedTests;
     return this;
   }
 
-  public SyntheticsDeleteTestsResponse addDeletedTestsItem(SyntheticsDeleteTestsResponseDeletedTests deletedTestsItem) {
+  public SyntheticsDeleteTestsResponse addDeletedTestsItem(SyntheticsDeletedTest deletedTestsItem) {
     if (this.deletedTests == null) {
       this.deletedTests = new ArrayList<>();
     }
@@ -64,12 +64,12 @@ public class SyntheticsDeleteTestsResponse {
   @JsonProperty(JSON_PROPERTY_DELETED_TESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SyntheticsDeleteTestsResponseDeletedTests> getDeletedTests() {
+  public List<SyntheticsDeletedTest> getDeletedTests() {
     return deletedTests;
   }
 
 
-  public void setDeletedTests(List<SyntheticsDeleteTestsResponseDeletedTests> deletedTests) {
+  public void setDeletedTests(List<SyntheticsDeletedTest> deletedTests) {
     this.deletedTests = deletedTests;
   }
 
