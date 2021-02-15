@@ -15,8 +15,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsTriggerCITestsResponseLocations;
-import com.datadog.api.v1.client.model.SyntheticsTriggerCITestsResponseResults;
+import com.datadog.api.v1.client.model.SyntheticsTriggerCITestLocation;
+import com.datadog.api.v1.client.model.SyntheticsTriggerCITestRunResult;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,21 +42,21 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTriggerCITestsResponse {
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
-  private List<SyntheticsTriggerCITestsResponseLocations> locations = null;
+  private List<SyntheticsTriggerCITestLocation> locations = null;
 
   public static final String JSON_PROPERTY_RESULTS = "results";
-  private List<SyntheticsTriggerCITestsResponseResults> results = null;
+  private List<SyntheticsTriggerCITestRunResult> results = null;
 
   public static final String JSON_PROPERTY_TRIGGERED_CHECK_IDS = "triggered_check_ids";
   private List<String> triggeredCheckIds = null;
 
 
-  public SyntheticsTriggerCITestsResponse locations(List<SyntheticsTriggerCITestsResponseLocations> locations) {
+  public SyntheticsTriggerCITestsResponse locations(List<SyntheticsTriggerCITestLocation> locations) {
     this.locations = locations;
     return this;
   }
 
-  public SyntheticsTriggerCITestsResponse addLocationsItem(SyntheticsTriggerCITestsResponseLocations locationsItem) {
+  public SyntheticsTriggerCITestsResponse addLocationsItem(SyntheticsTriggerCITestLocation locationsItem) {
     if (this.locations == null) {
       this.locations = new ArrayList<>();
     }
@@ -73,22 +73,22 @@ public class SyntheticsTriggerCITestsResponse {
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SyntheticsTriggerCITestsResponseLocations> getLocations() {
+  public List<SyntheticsTriggerCITestLocation> getLocations() {
     return locations;
   }
 
 
-  public void setLocations(List<SyntheticsTriggerCITestsResponseLocations> locations) {
+  public void setLocations(List<SyntheticsTriggerCITestLocation> locations) {
     this.locations = locations;
   }
 
 
-  public SyntheticsTriggerCITestsResponse results(List<SyntheticsTriggerCITestsResponseResults> results) {
+  public SyntheticsTriggerCITestsResponse results(List<SyntheticsTriggerCITestRunResult> results) {
     this.results = results;
     return this;
   }
 
-  public SyntheticsTriggerCITestsResponse addResultsItem(SyntheticsTriggerCITestsResponseResults resultsItem) {
+  public SyntheticsTriggerCITestsResponse addResultsItem(SyntheticsTriggerCITestRunResult resultsItem) {
     if (this.results == null) {
       this.results = new ArrayList<>();
     }
@@ -105,12 +105,12 @@ public class SyntheticsTriggerCITestsResponse {
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SyntheticsTriggerCITestsResponseResults> getResults() {
+  public List<SyntheticsTriggerCITestRunResult> getResults() {
     return results;
   }
 
 
-  public void setResults(List<SyntheticsTriggerCITestsResponseResults> results) {
+  public void setResults(List<SyntheticsTriggerCITestRunResult> results) {
     this.results = results;
   }
 

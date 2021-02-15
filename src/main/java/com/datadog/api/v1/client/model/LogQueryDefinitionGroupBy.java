@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.LogQueryDefinitionSort;
+import com.datadog.api.v1.client.model.LogQueryDefinitionGroupBySort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -45,7 +45,7 @@ public class LogQueryDefinitionGroupBy {
   private Long limit;
 
   public static final String JSON_PROPERTY_SORT = "sort";
-  private LogQueryDefinitionSort sort;
+  private LogQueryDefinitionGroupBySort sort;
 
 
   public LogQueryDefinitionGroupBy facet(String facet) {
@@ -95,7 +95,7 @@ public class LogQueryDefinitionGroupBy {
   }
 
 
-  public LogQueryDefinitionGroupBy sort(LogQueryDefinitionSort sort) {
+  public LogQueryDefinitionGroupBy sort(LogQueryDefinitionGroupBySort sort) {
     this.sort = sort;
     return this;
   }
@@ -109,18 +109,18 @@ public class LogQueryDefinitionGroupBy {
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LogQueryDefinitionSort getSort() {
+  public LogQueryDefinitionGroupBySort getSort() {
     return sort;
   }
 
 
-  public void setSort(LogQueryDefinitionSort sort) {
+  public void setSort(LogQueryDefinitionGroupBySort sort) {
     this.sort = sort;
   }
 
 
   /**
-   * Return true if this LogQueryDefinition_group_by object is equal to o.
+   * Return true if this LogQueryDefinitionGroupBy object is equal to o.
    */
   @Override
   public boolean equals(Object o) {

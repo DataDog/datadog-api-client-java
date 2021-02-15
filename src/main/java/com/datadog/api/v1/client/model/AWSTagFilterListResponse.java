@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.AWSTagFilterListResponseFilters;
+import com.datadog.api.v1.client.model.AWSTagFilter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,15 +39,15 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSTagFilterListResponse {
   public static final String JSON_PROPERTY_FILTERS = "filters";
-  private List<AWSTagFilterListResponseFilters> filters = null;
+  private List<AWSTagFilter> filters = null;
 
 
-  public AWSTagFilterListResponse filters(List<AWSTagFilterListResponseFilters> filters) {
+  public AWSTagFilterListResponse filters(List<AWSTagFilter> filters) {
     this.filters = filters;
     return this;
   }
 
-  public AWSTagFilterListResponse addFiltersItem(AWSTagFilterListResponseFilters filtersItem) {
+  public AWSTagFilterListResponse addFiltersItem(AWSTagFilter filtersItem) {
     if (this.filters == null) {
       this.filters = new ArrayList<>();
     }
@@ -64,12 +64,12 @@ public class AWSTagFilterListResponse {
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<AWSTagFilterListResponseFilters> getFilters() {
+  public List<AWSTagFilter> getFilters() {
     return filters;
   }
 
 
-  public void setFilters(List<AWSTagFilterListResponseFilters> filters) {
+  public void setFilters(List<AWSTagFilter> filters) {
     this.filters = filters;
   }
 

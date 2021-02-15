@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.DashboardSummaryDashboards;
+import com.datadog.api.v1.client.model.DashboardSummaryDefinition;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,15 +39,15 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardSummary {
   public static final String JSON_PROPERTY_DASHBOARDS = "dashboards";
-  private List<DashboardSummaryDashboards> dashboards = null;
+  private List<DashboardSummaryDefinition> dashboards = null;
 
 
-  public DashboardSummary dashboards(List<DashboardSummaryDashboards> dashboards) {
+  public DashboardSummary dashboards(List<DashboardSummaryDefinition> dashboards) {
     this.dashboards = dashboards;
     return this;
   }
 
-  public DashboardSummary addDashboardsItem(DashboardSummaryDashboards dashboardsItem) {
+  public DashboardSummary addDashboardsItem(DashboardSummaryDefinition dashboardsItem) {
     if (this.dashboards == null) {
       this.dashboards = new ArrayList<>();
     }
@@ -64,12 +64,12 @@ public class DashboardSummary {
   @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DashboardSummaryDashboards> getDashboards() {
+  public List<DashboardSummaryDefinition> getDashboards() {
     return dashboards;
   }
 
 
-  public void setDashboards(List<DashboardSummaryDashboards> dashboards) {
+  public void setDashboards(List<DashboardSummaryDefinition> dashboards) {
     this.dashboards = dashboards;
   }
 
