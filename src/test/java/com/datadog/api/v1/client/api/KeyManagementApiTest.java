@@ -494,28 +494,6 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     @Test
-    public void aPPKeysMgmtCreate409ErrorsTest() throws ApiException, IOException {
-        // This test case does not support reply from recording
-        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
-
-        long nowMillis = now.toInstant().toEpochMilli()/1000;
-        String testAppKeyName = getUniqueEntityName();
-
-        //Create an APP key to trigger 409 conflict
-        ApplicationKeyResponse response = api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName)).execute();
-
-        try {
-            api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName)).execute();
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            api.deleteApplicationKey(response.getApplicationKey().getHash()).execute();
-            assertEquals(409, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-    }
-
-    @Test
     public void aPPKeysMgmtGetErrorsTest() throws IOException {
         try {
             fakeAuthApi.getApplicationKey("whatever").execute();
@@ -561,30 +539,6 @@ public class KeyManagementApiTest extends V1ApiTest {
             fail("Expected ApiException not thrown");
         } catch (ApiException e) {
             assertEquals(404, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-    }
-
-    @Test
-    public void aPPKeysMgmtUpdate409ErrorsTest() throws ApiException, IOException {
-        // This test case does not support reply from recording
-        assumeFalse(TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
-
-        // Create two app keys to trigger the 409 conflict
-        String testAppKeyName1 = getUniqueEntityName();
-        ApplicationKeyResponse testAppKeyresponse1 = api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName1)).execute();
-        deleteAppKeys.add(testAppKeyresponse1);
-
-        String testAppKeyName2 = String.format("%s-two", testAppKeyName1);
-        ApplicationKeyResponse testAppKeyresponse2 = api.createApplicationKey().body(new ApplicationKey().name(testAppKeyName2)).execute();
-        deleteAppKeys.add(testAppKeyresponse2);
-
-        try {
-            api.updateApplicationKey(testAppKeyresponse1.getApplicationKey().getHash()).body(new ApplicationKey().name(testAppKeyName2)).execute();
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            assertEquals(409, e.getCode());
             APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
             assertNotNull(error.getErrors());
         }
