@@ -47,6 +47,7 @@ import com.datadog.api.v1.client.JSON;
   ChangeWidgetRequest.JSON_PROPERTY_ORDER_BY,
   ChangeWidgetRequest.JSON_PROPERTY_ORDER_DIR,
   ChangeWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
+  ChangeWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_Q,
   ChangeWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
@@ -83,6 +84,9 @@ public class ChangeWidgetRequest {
 
   public static final String JSON_PROPERTY_PROCESS_QUERY = "process_query";
   private ProcessQueryDefinition processQuery;
+
+  public static final String JSON_PROPERTY_PROFILE_METRICS_QUERY = "profile_metrics_query";
+  private LogQueryDefinition profileMetricsQuery;
 
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
@@ -337,6 +341,30 @@ public class ChangeWidgetRequest {
   }
 
 
+  public ChangeWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+    return this;
+  }
+
+   /**
+   * Get profileMetricsQuery
+   * @return profileMetricsQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getProfileMetricsQuery() {
+    return profileMetricsQuery;
+  }
+
+
+  public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+  }
+
+
   public ChangeWidgetRequest q(String q) {
     this.q = q;
     return this;
@@ -455,6 +483,7 @@ public class ChangeWidgetRequest {
         Objects.equals(this.orderBy, changeWidgetRequest.orderBy) &&
         Objects.equals(this.orderDir, changeWidgetRequest.orderDir) &&
         Objects.equals(this.processQuery, changeWidgetRequest.processQuery) &&
+        Objects.equals(this.profileMetricsQuery, changeWidgetRequest.profileMetricsQuery) &&
         Objects.equals(this.q, changeWidgetRequest.q) &&
         Objects.equals(this.rumQuery, changeWidgetRequest.rumQuery) &&
         Objects.equals(this.securityQuery, changeWidgetRequest.securityQuery) &&
@@ -463,7 +492,7 @@ public class ChangeWidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, changeType, compareTo, eventQuery, increaseGood, logQuery, networkQuery, orderBy, orderDir, processQuery, q, rumQuery, securityQuery, showPresent);
+    return Objects.hash(apmQuery, changeType, compareTo, eventQuery, increaseGood, logQuery, networkQuery, orderBy, orderDir, processQuery, profileMetricsQuery, q, rumQuery, securityQuery, showPresent);
   }
 
 
@@ -481,6 +510,7 @@ public class ChangeWidgetRequest {
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");

@@ -50,6 +50,7 @@ import com.datadog.api.v1.client.JSON;
   TimeseriesWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_ON_RIGHT_YAXIS,
   TimeseriesWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_Q,
   TimeseriesWidgetRequest.JSON_PROPERTY_QUERIES,
   TimeseriesWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
@@ -85,6 +86,9 @@ public class TimeseriesWidgetRequest {
 
   public static final String JSON_PROPERTY_PROCESS_QUERY = "process_query";
   private ProcessQueryDefinition processQuery;
+
+  public static final String JSON_PROPERTY_PROFILE_METRICS_QUERY = "profile_metrics_query";
+  private LogQueryDefinition profileMetricsQuery;
 
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
@@ -337,6 +341,30 @@ public class TimeseriesWidgetRequest {
   }
 
 
+  public TimeseriesWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+    return this;
+  }
+
+   /**
+   * Get profileMetricsQuery
+   * @return profileMetricsQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getProfileMetricsQuery() {
+    return profileMetricsQuery;
+  }
+
+
+  public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+  }
+
+
   public TimeseriesWidgetRequest q(String q) {
     this.q = q;
     return this;
@@ -510,6 +538,7 @@ public class TimeseriesWidgetRequest {
         Objects.equals(this.networkQuery, timeseriesWidgetRequest.networkQuery) &&
         Objects.equals(this.onRightYaxis, timeseriesWidgetRequest.onRightYaxis) &&
         Objects.equals(this.processQuery, timeseriesWidgetRequest.processQuery) &&
+        Objects.equals(this.profileMetricsQuery, timeseriesWidgetRequest.profileMetricsQuery) &&
         Objects.equals(this.q, timeseriesWidgetRequest.q) &&
         Objects.equals(this.queries, timeseriesWidgetRequest.queries) &&
         Objects.equals(this.responseFormat, timeseriesWidgetRequest.responseFormat) &&
@@ -520,7 +549,7 @@ public class TimeseriesWidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, displayType, eventQuery, formulas, logQuery, metadata, networkQuery, onRightYaxis, processQuery, q, queries, responseFormat, rumQuery, securityQuery, style);
+    return Objects.hash(apmQuery, displayType, eventQuery, formulas, logQuery, metadata, networkQuery, onRightYaxis, processQuery, profileMetricsQuery, q, queries, responseFormat, rumQuery, securityQuery, style);
   }
 
 
@@ -537,6 +566,7 @@ public class TimeseriesWidgetRequest {
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    onRightYaxis: ").append(toIndentedString(onRightYaxis)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");

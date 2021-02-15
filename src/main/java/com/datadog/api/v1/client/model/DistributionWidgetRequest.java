@@ -39,6 +39,7 @@ import com.datadog.api.v1.client.JSON;
   DistributionWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
+  DistributionWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_Q,
   DistributionWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
@@ -60,6 +61,9 @@ public class DistributionWidgetRequest {
 
   public static final String JSON_PROPERTY_PROCESS_QUERY = "process_query";
   private ProcessQueryDefinition processQuery;
+
+  public static final String JSON_PROPERTY_PROFILE_METRICS_QUERY = "profile_metrics_query";
+  private LogQueryDefinition profileMetricsQuery;
 
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
@@ -194,6 +198,30 @@ public class DistributionWidgetRequest {
   }
 
 
+  public DistributionWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+    return this;
+  }
+
+   /**
+   * Get profileMetricsQuery
+   * @return profileMetricsQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getProfileMetricsQuery() {
+    return profileMetricsQuery;
+  }
+
+
+  public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+  }
+
+
   public DistributionWidgetRequest q(String q) {
     this.q = q;
     return this;
@@ -307,6 +335,7 @@ public class DistributionWidgetRequest {
         Objects.equals(this.logQuery, distributionWidgetRequest.logQuery) &&
         Objects.equals(this.networkQuery, distributionWidgetRequest.networkQuery) &&
         Objects.equals(this.processQuery, distributionWidgetRequest.processQuery) &&
+        Objects.equals(this.profileMetricsQuery, distributionWidgetRequest.profileMetricsQuery) &&
         Objects.equals(this.q, distributionWidgetRequest.q) &&
         Objects.equals(this.rumQuery, distributionWidgetRequest.rumQuery) &&
         Objects.equals(this.securityQuery, distributionWidgetRequest.securityQuery) &&
@@ -315,7 +344,7 @@ public class DistributionWidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery, securityQuery, style);
+    return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, profileMetricsQuery, q, rumQuery, securityQuery, style);
   }
 
 
@@ -328,6 +357,7 @@ public class DistributionWidgetRequest {
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
