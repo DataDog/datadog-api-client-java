@@ -7,8 +7,9 @@
 package com.datadog.api.v1.client.api;
 
 
-import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
+import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.model.*;
 
@@ -18,6 +19,7 @@ import static org.junit.Assert.*;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.AssumptionViolatedException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -51,6 +53,9 @@ public class TagsApiTest extends V1ApiTest {
 
     @Test
     public void tagsTest() throws ApiException, TestUtils.RetryException {
+        if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+            throw new AssumptionViolatedException("Skipping in non-recording mode");
+        }
         String commonHostTag = "test:client_java";
         long nowSeconds = now.toEpochSecond();
         String hostname = getUniqueEntityName();
