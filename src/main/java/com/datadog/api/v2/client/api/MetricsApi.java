@@ -160,7 +160,7 @@ private ApiResponse<MetricTagConfigurationResponse> createTagConfigurationWithHt
 
   /**
    * Create a Tag Configuration
-   * Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
    * @param metricName The name of the metric. (required)
    * @return createTagConfigurationRequest
    * @throws ApiException if fails to make API call
@@ -647,7 +647,7 @@ private ApiResponse<MetricTagConfigurationResponse> updateTagConfigurationWithHt
 
   /**
    * Update a Tag Configuration
-   * Update the tag configuration of a metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
    * @param metricName The name of the metric. (required)
    * @return updateTagConfigurationRequest
    * @throws ApiException if fails to make API call
