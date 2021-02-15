@@ -18,7 +18,7 @@ import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsBrowserError;
 import com.datadog.api.v1.client.model.SyntheticsCheckType;
 import com.datadog.api.v1.client.model.SyntheticsPlayingTab;
-import com.datadog.api.v1.client.model.SyntheticsStepDetailWarnings;
+import com.datadog.api.v1.client.model.SyntheticsStepDetailWarning;
 import com.datadog.api.v1.client.model.SyntheticsStepType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -103,7 +103,7 @@ public class SyntheticsStepDetail {
   private Object value;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<SyntheticsStepDetailWarnings> warnings = null;
+  private List<SyntheticsStepDetailWarning> warnings = null;
 
 
   public SyntheticsStepDetail browserErrors(List<SyntheticsBrowserError> browserErrors) {
@@ -482,12 +482,12 @@ public class SyntheticsStepDetail {
   }
 
 
-  public SyntheticsStepDetail warnings(List<SyntheticsStepDetailWarnings> warnings) {
+  public SyntheticsStepDetail warnings(List<SyntheticsStepDetailWarning> warnings) {
     this.warnings = warnings;
     return this;
   }
 
-  public SyntheticsStepDetail addWarningsItem(SyntheticsStepDetailWarnings warningsItem) {
+  public SyntheticsStepDetail addWarningsItem(SyntheticsStepDetailWarning warningsItem) {
     if (this.warnings == null) {
       this.warnings = new ArrayList<>();
     }
@@ -504,12 +504,12 @@ public class SyntheticsStepDetail {
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SyntheticsStepDetailWarnings> getWarnings() {
+  public List<SyntheticsStepDetailWarning> getWarnings() {
     return warnings;
   }
 
 
-  public void setWarnings(List<SyntheticsStepDetailWarnings> warnings) {
+  public void setWarnings(List<SyntheticsStepDetailWarning> warnings) {
     this.warnings = warnings;
   }
 

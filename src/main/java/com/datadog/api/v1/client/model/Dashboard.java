@@ -16,8 +16,8 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
+import com.datadog.api.v1.client.model.DashboardTemplateVariable;
 import com.datadog.api.v1.client.model.DashboardTemplateVariablePreset;
-import com.datadog.api.v1.client.model.DashboardTemplateVariables;
 import com.datadog.api.v1.client.model.Widget;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -85,7 +85,7 @@ public class Dashboard {
   private JsonNullable<List<DashboardTemplateVariablePreset>> templateVariablePresets = JsonNullable.<List<DashboardTemplateVariablePreset>>undefined();
 
   public static final String JSON_PROPERTY_TEMPLATE_VARIABLES = "template_variables";
-  private JsonNullable<List<DashboardTemplateVariables>> templateVariables = JsonNullable.<List<DashboardTemplateVariables>>undefined();
+  private JsonNullable<List<DashboardTemplateVariable>> templateVariables = JsonNullable.<List<DashboardTemplateVariable>>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -334,14 +334,14 @@ public class Dashboard {
   }
 
 
-  public Dashboard templateVariables(List<DashboardTemplateVariables> templateVariables) {
-    this.templateVariables = JsonNullable.<List<DashboardTemplateVariables>>of(templateVariables);
+  public Dashboard templateVariables(List<DashboardTemplateVariable> templateVariables) {
+    this.templateVariables = JsonNullable.<List<DashboardTemplateVariable>>of(templateVariables);
     return this;
   }
 
-  public Dashboard addTemplateVariablesItem(DashboardTemplateVariables templateVariablesItem) {
+  public Dashboard addTemplateVariablesItem(DashboardTemplateVariable templateVariablesItem) {
     if (this.templateVariables == null || !this.templateVariables.isPresent()) {
-      this.templateVariables = JsonNullable.<List<DashboardTemplateVariables>>of(new ArrayList<>());
+      this.templateVariables = JsonNullable.<List<DashboardTemplateVariable>>of(new ArrayList<>());
     }
     try {
       this.templateVariables.get().add(templateVariablesItem);
@@ -359,24 +359,24 @@ public class Dashboard {
   @ApiModelProperty(value = "List of template variables for this dashboard.")
   @JsonIgnore
 
-  public List<DashboardTemplateVariables> getTemplateVariables() {
+  public List<DashboardTemplateVariable> getTemplateVariables() {
         return templateVariables.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<DashboardTemplateVariables>> getTemplateVariables_JsonNullable() {
+  public JsonNullable<List<DashboardTemplateVariable>> getTemplateVariables_JsonNullable() {
     return templateVariables;
   }
   
   @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
-  public void setTemplateVariables_JsonNullable(JsonNullable<List<DashboardTemplateVariables>> templateVariables) {
+  public void setTemplateVariables_JsonNullable(JsonNullable<List<DashboardTemplateVariable>> templateVariables) {
     this.templateVariables = templateVariables;
   }
 
-  public void setTemplateVariables(List<DashboardTemplateVariables> templateVariables) {
-    this.templateVariables = JsonNullable.<List<DashboardTemplateVariables>>of(templateVariables);
+  public void setTemplateVariables(List<DashboardTemplateVariable> templateVariables) {
+    this.templateVariables = JsonNullable.<List<DashboardTemplateVariable>>of(templateVariables);
   }
 
 

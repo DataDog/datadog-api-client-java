@@ -96,7 +96,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
                 .name("user agent parser"));
         LogsProcessor categoryProcessor = new LogsProcessor(new LogsCategoryProcessor()
                 .addCategoriesItem(
-                        new LogsCategoryProcessorCategories()
+                        new LogsCategoryProcessorCategory()
                             .name("category")
                             .filter(new LogsFilter().query("query"))
                 )

@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.AWSLogsAsyncResponseErrors;
+import com.datadog.api.v1.client.model.AWSLogsAsyncError;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,18 +40,18 @@ import com.datadog.api.v1.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsAsyncResponse {
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<AWSLogsAsyncResponseErrors> errors = null;
+  private List<AWSLogsAsyncError> errors = null;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
 
-  public AWSLogsAsyncResponse errors(List<AWSLogsAsyncResponseErrors> errors) {
+  public AWSLogsAsyncResponse errors(List<AWSLogsAsyncError> errors) {
     this.errors = errors;
     return this;
   }
 
-  public AWSLogsAsyncResponse addErrorsItem(AWSLogsAsyncResponseErrors errorsItem) {
+  public AWSLogsAsyncResponse addErrorsItem(AWSLogsAsyncError errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -68,12 +68,12 @@ public class AWSLogsAsyncResponse {
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<AWSLogsAsyncResponseErrors> getErrors() {
+  public List<AWSLogsAsyncError> getErrors() {
     return errors;
   }
 
 
-  public void setErrors(List<AWSLogsAsyncResponseErrors> errors) {
+  public void setErrors(List<AWSLogsAsyncError> errors) {
     this.errors = errors;
   }
 

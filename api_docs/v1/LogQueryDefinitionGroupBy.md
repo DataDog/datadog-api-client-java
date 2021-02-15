@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **facet** | **String** | Facet name. | 
 **limit** | **Long** | Maximum number of items in the group. |  [optional]
-**sort** | [**LogQueryDefinitionSort**](LogQueryDefinitionSort.md) |  |  [optional]
+**sort** | [**LogQueryDefinitionGroupBySort**](LogQueryDefinitionGroupBySort.md) |  |  [optional]
 
 
 
