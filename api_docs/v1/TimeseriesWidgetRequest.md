@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **networkQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **onRightYaxis** | **Boolean** | Whether or not to display a second y-axis on the right. |  [optional]
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
+**profileMetricsQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **q** | **String** | Widget query. |  [optional]
 **queries** | [**List&lt;FormulaAndFunctionQueryDefinition&gt;**](FormulaAndFunctionQueryDefinition.md) | List of queries that can be returned directly or used in formulas. This feature is currently in beta. |  [optional]
 **responseFormat** | **FormulaAndFunctionResponseFormat** |  |  [optional]

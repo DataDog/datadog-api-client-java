@@ -40,6 +40,7 @@ import com.datadog.api.v1.client.JSON;
   HeatMapWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
+  HeatMapWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_Q,
   HeatMapWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
@@ -61,6 +62,9 @@ public class HeatMapWidgetRequest {
 
   public static final String JSON_PROPERTY_PROCESS_QUERY = "process_query";
   private ProcessQueryDefinition processQuery;
+
+  public static final String JSON_PROPERTY_PROFILE_METRICS_QUERY = "profile_metrics_query";
+  private LogQueryDefinition profileMetricsQuery;
 
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
@@ -195,6 +199,30 @@ public class HeatMapWidgetRequest {
   }
 
 
+  public HeatMapWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+    return this;
+  }
+
+   /**
+   * Get profileMetricsQuery
+   * @return profileMetricsQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogQueryDefinition getProfileMetricsQuery() {
+    return profileMetricsQuery;
+  }
+
+
+  public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+  }
+
+
   public HeatMapWidgetRequest q(String q) {
     this.q = q;
     return this;
@@ -308,6 +336,7 @@ public class HeatMapWidgetRequest {
         Objects.equals(this.logQuery, heatMapWidgetRequest.logQuery) &&
         Objects.equals(this.networkQuery, heatMapWidgetRequest.networkQuery) &&
         Objects.equals(this.processQuery, heatMapWidgetRequest.processQuery) &&
+        Objects.equals(this.profileMetricsQuery, heatMapWidgetRequest.profileMetricsQuery) &&
         Objects.equals(this.q, heatMapWidgetRequest.q) &&
         Objects.equals(this.rumQuery, heatMapWidgetRequest.rumQuery) &&
         Objects.equals(this.securityQuery, heatMapWidgetRequest.securityQuery) &&
@@ -316,7 +345,7 @@ public class HeatMapWidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, q, rumQuery, securityQuery, style);
+    return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, profileMetricsQuery, q, rumQuery, securityQuery, style);
   }
 
 
@@ -329,6 +358,7 @@ public class HeatMapWidgetRequest {
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");

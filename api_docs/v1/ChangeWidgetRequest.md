@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **orderBy** | **WidgetOrderBy** |  |  [optional]
 **orderDir** | **WidgetSort** |  |  [optional]
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
+**profileMetricsQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **q** | **String** | Query definition. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **securityQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]

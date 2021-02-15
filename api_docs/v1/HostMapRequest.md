@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **logQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **networkQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **processQuery** | [**ProcessQueryDefinition**](ProcessQueryDefinition.md) |  |  [optional]
+**profileMetricsQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **q** | **String** | Query definition. |  [optional]
 **rumQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **securityQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
