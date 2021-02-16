@@ -42,7 +42,11 @@ public enum SyntheticsAssertionType {
   
   RECORD_EVERY("recordEvery"),
   
-  RECORD_SOME("recordSome");
+  RECORD_SOME("recordSome"),
+  
+  TLS_VERSION("tlsVersion"),
+  
+  MIN_TLS_VERSION("minTlsVersion");
 
   private String value;
 

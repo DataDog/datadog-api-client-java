@@ -21,5 +21,9 @@
 
 * `RECORD_SOME` (value: `"recordSome"`)
 
+* `TLS_VERSION` (value: `"tlsVersion"`)
+
+* `MIN_TLS_VERSION` (value: `"minTlsVersion"`)
+
 
 
