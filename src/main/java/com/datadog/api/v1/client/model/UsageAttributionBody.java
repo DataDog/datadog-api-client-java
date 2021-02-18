@@ -37,6 +37,7 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "Usage Summary by tag for a given organization.")
 @JsonPropertyOrder({
   UsageAttributionBody.JSON_PROPERTY_MONTH,
+  UsageAttributionBody.JSON_PROPERTY_ORG_NAME,
   UsageAttributionBody.JSON_PROPERTY_PUBLIC_ID,
   UsageAttributionBody.JSON_PROPERTY_TAGS,
   UsageAttributionBody.JSON_PROPERTY_UPDATED_AT,
@@ -46,6 +47,9 @@ import com.datadog.api.v1.client.JSON;
 public class UsageAttributionBody {
   public static final String JSON_PROPERTY_MONTH = "month";
   private OffsetDateTime month;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
@@ -81,6 +85,30 @@ public class UsageAttributionBody {
 
   public void setMonth(OffsetDateTime month) {
     this.month = month;
+  }
+
+
+  public UsageAttributionBody orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+   /**
+   * The name of the organization.
+   * @return orgName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the organization.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getOrgName() {
+    return orgName;
+  }
+
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
   }
 
 
@@ -201,6 +229,7 @@ public class UsageAttributionBody {
     }
     UsageAttributionBody usageAttributionBody = (UsageAttributionBody) o;
     return Objects.equals(this.month, usageAttributionBody.month) &&
+        Objects.equals(this.orgName, usageAttributionBody.orgName) &&
         Objects.equals(this.publicId, usageAttributionBody.publicId) &&
         Objects.equals(this.tags, usageAttributionBody.tags) &&
         Objects.equals(this.updatedAt, usageAttributionBody.updatedAt) &&
@@ -209,7 +238,7 @@ public class UsageAttributionBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(month, publicId, tags, updatedAt, values);
+    return Objects.hash(month, orgName, publicId, tags, updatedAt, values);
   }
 
 
@@ -218,6 +247,7 @@ public class UsageAttributionBody {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageAttributionBody {\n");
     sb.append("    month: ").append(toIndentedString(month)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
