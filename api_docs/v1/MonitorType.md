@@ -27,5 +27,7 @@
 
 * `SLO_ALERT` (value: `"slo alert"`)
 
+* `EVENT_V2_ALERT` (value: `"event-v2 alert"`)
+
 
 
