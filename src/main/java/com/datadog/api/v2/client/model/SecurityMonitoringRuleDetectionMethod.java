@@ -24,23 +24,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The aggregation type.
+ * The detection method.
  */
-public enum SecurityMonitoringRuleQueryAggregation {
+public enum SecurityMonitoringRuleDetectionMethod {
   
-  COUNT("count"),
-  
-  CARDINALITY("cardinality"),
-  
-  SUM("sum"),
-  
-  MAX("max"),
+  THRESHOLD("threshold"),
   
   NEW_VALUE("new_value");
 
   private String value;
 
-  SecurityMonitoringRuleQueryAggregation(String value) {
+  SecurityMonitoringRuleDetectionMethod(String value) {
     this.value = value;
   }
 
@@ -55,8 +49,8 @@ public enum SecurityMonitoringRuleQueryAggregation {
   }
 
   @JsonCreator
-  public static SecurityMonitoringRuleQueryAggregation fromValue(String value) {
-    for (SecurityMonitoringRuleQueryAggregation b : SecurityMonitoringRuleQueryAggregation.values()) {
+  public static SecurityMonitoringRuleDetectionMethod fromValue(String value) {
+    for (SecurityMonitoringRuleDetectionMethod b : SecurityMonitoringRuleDetectionMethod.values()) {
       if (b.value.equals(value)) {
         return b;
       }

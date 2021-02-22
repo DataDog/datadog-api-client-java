@@ -24,28 +24,30 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The aggregation type.
+ * The duration in days after which a learned value is forgotten.
  */
-public enum SecurityMonitoringRuleQueryAggregation {
+public enum SecurityMonitoringRuleNewValueOptionsForgetAfter {
   
-  COUNT("count"),
+  ONE_DAY(1),
   
-  CARDINALITY("cardinality"),
+  TWO_DAYS(2),
   
-  SUM("sum"),
+  ONE_WEEK(7),
   
-  MAX("max"),
+  TWO_WEEKS(14),
   
-  NEW_VALUE("new_value");
+  THREE_WEEKS(21),
+  
+  FOUR_WEEKS(28);
 
-  private String value;
+  private Integer value;
 
-  SecurityMonitoringRuleQueryAggregation(String value) {
+  SecurityMonitoringRuleNewValueOptionsForgetAfter(Integer value) {
     this.value = value;
   }
 
   @JsonValue
-  public String getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -55,8 +57,8 @@ public enum SecurityMonitoringRuleQueryAggregation {
   }
 
   @JsonCreator
-  public static SecurityMonitoringRuleQueryAggregation fromValue(String value) {
-    for (SecurityMonitoringRuleQueryAggregation b : SecurityMonitoringRuleQueryAggregation.values()) {
+  public static SecurityMonitoringRuleNewValueOptionsForgetAfter fromValue(Integer value) {
+    for (SecurityMonitoringRuleNewValueOptionsForgetAfter b : SecurityMonitoringRuleNewValueOptionsForgetAfter.values()) {
       if (b.value.equals(value)) {
         return b;
       }

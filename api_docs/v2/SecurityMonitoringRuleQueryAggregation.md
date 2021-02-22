@@ -13,5 +13,7 @@
 
 * `MAX` (value: `"max"`)
 
+* `NEW_VALUE` (value: `"new_value"`)
+
 
 
