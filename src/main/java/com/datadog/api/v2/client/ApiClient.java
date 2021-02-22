@@ -83,6 +83,7 @@ public class ApiClient extends JavaTimeFormatter {
           new HashSet<String>(
             Arrays.asList(
               "datadoghq.com",
+              "us3.datadoghq.com",
               "datadoghq.eu",
               "ddog-gov.com"
             )
