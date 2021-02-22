@@ -15,9 +15,11 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleDetectionMethod;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleEvaluationWindow;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleMaxSignalDuration;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleNewValueOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,12 +36,17 @@ import com.datadog.api.v2.client.JSON;
  */
 @ApiModel(description = "Options on rules.")
 @JsonPropertyOrder({
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleOptions {
+  public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
+  private SecurityMonitoringRuleDetectionMethod detectionMethod;
+
   public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluationWindow";
   private SecurityMonitoringRuleEvaluationWindow evaluationWindow;
 
@@ -48,6 +55,33 @@ public class SecurityMonitoringRuleOptions {
 
   public static final String JSON_PROPERTY_MAX_SIGNAL_DURATION = "maxSignalDuration";
   private SecurityMonitoringRuleMaxSignalDuration maxSignalDuration;
+
+  public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
+  private SecurityMonitoringRuleNewValueOptions newValueOptions;
+
+
+  public SecurityMonitoringRuleOptions detectionMethod(SecurityMonitoringRuleDetectionMethod detectionMethod) {
+    this.detectionMethod = detectionMethod;
+    return this;
+  }
+
+   /**
+   * Get detectionMethod
+   * @return detectionMethod
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DETECTION_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SecurityMonitoringRuleDetectionMethod getDetectionMethod() {
+    return detectionMethod;
+  }
+
+
+  public void setDetectionMethod(SecurityMonitoringRuleDetectionMethod detectionMethod) {
+    this.detectionMethod = detectionMethod;
+  }
 
 
   public SecurityMonitoringRuleOptions evaluationWindow(SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
@@ -122,6 +156,30 @@ public class SecurityMonitoringRuleOptions {
   }
 
 
+  public SecurityMonitoringRuleOptions newValueOptions(SecurityMonitoringRuleNewValueOptions newValueOptions) {
+    this.newValueOptions = newValueOptions;
+    return this;
+  }
+
+   /**
+   * Get newValueOptions
+   * @return newValueOptions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SecurityMonitoringRuleNewValueOptions getNewValueOptions() {
+    return newValueOptions;
+  }
+
+
+  public void setNewValueOptions(SecurityMonitoringRuleNewValueOptions newValueOptions) {
+    this.newValueOptions = newValueOptions;
+  }
+
+
   /**
    * Return true if this SecurityMonitoringRuleOptions object is equal to o.
    */
@@ -134,14 +192,16 @@ public class SecurityMonitoringRuleOptions {
       return false;
     }
     SecurityMonitoringRuleOptions securityMonitoringRuleOptions = (SecurityMonitoringRuleOptions) o;
-    return Objects.equals(this.evaluationWindow, securityMonitoringRuleOptions.evaluationWindow) &&
+    return Objects.equals(this.detectionMethod, securityMonitoringRuleOptions.detectionMethod) &&
+        Objects.equals(this.evaluationWindow, securityMonitoringRuleOptions.evaluationWindow) &&
         Objects.equals(this.keepAlive, securityMonitoringRuleOptions.keepAlive) &&
-        Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration);
+        Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration) &&
+        Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(evaluationWindow, keepAlive, maxSignalDuration);
+    return Objects.hash(detectionMethod, evaluationWindow, keepAlive, maxSignalDuration, newValueOptions);
   }
 
 
@@ -149,9 +209,11 @@ public class SecurityMonitoringRuleOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleOptions {\n");
+    sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
     sb.append("    keepAlive: ").append(toIndentedString(keepAlive)).append("\n");
     sb.append("    maxSignalDuration: ").append(toIndentedString(maxSignalDuration)).append("\n");
+    sb.append("    newValueOptions: ").append(toIndentedString(newValueOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
