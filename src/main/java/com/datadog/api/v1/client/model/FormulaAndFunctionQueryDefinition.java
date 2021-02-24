@@ -15,15 +15,15 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinition;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionCompute;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionSearch;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryGroupBy;
 import com.datadog.api.v1.client.model.FormulaAndFunctionMetricAggregation;
+import com.datadog.api.v1.client.model.FormulaAndFunctionMetricQueryDefinition;
 import com.datadog.api.v1.client.model.FormulaAndFunctionProcessQueryDataSource;
+import com.datadog.api.v1.client.model.FormulaAndFunctionProcessQueryDefinition;
 import com.datadog.api.v1.client.model.QuerySortOrder;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinition;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryGroupBy;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionMetricQueryDefinition;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionProcessQueryDefinition;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -100,82 +100,82 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // deserialize TimeSeriesFormulaAndFunctionEventQueryDefinition
+            // deserialize FormulaAndFunctionEventQueryDefinition
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Integer.class) || TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Long.class) || TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Float.class) || TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Double.class) || TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Boolean.class) || TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(String.class)) {
+                if (FormulaAndFunctionEventQueryDefinition.class.equals(Integer.class) || FormulaAndFunctionEventQueryDefinition.class.equals(Long.class) || FormulaAndFunctionEventQueryDefinition.class.equals(Float.class) || FormulaAndFunctionEventQueryDefinition.class.equals(Double.class) || FormulaAndFunctionEventQueryDefinition.class.equals(Boolean.class) || FormulaAndFunctionEventQueryDefinition.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Integer.class) || TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Float.class) || TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (TimeSeriesFormulaAndFunctionEventQueryDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((FormulaAndFunctionEventQueryDefinition.class.equals(Integer.class) || FormulaAndFunctionEventQueryDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((FormulaAndFunctionEventQueryDefinition.class.equals(Float.class) || FormulaAndFunctionEventQueryDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (FormulaAndFunctionEventQueryDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (FormulaAndFunctionEventQueryDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeSeriesFormulaAndFunctionEventQueryDefinition.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(FormulaAndFunctionEventQueryDefinition.class);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'TimeSeriesFormulaAndFunctionEventQueryDefinition'");
+                    log.log(Level.FINER, "Input data matches schema 'FormulaAndFunctionEventQueryDefinition'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'TimeSeriesFormulaAndFunctionEventQueryDefinition'", e);
+                log.log(Level.FINER, "Input data does not match schema 'FormulaAndFunctionEventQueryDefinition'", e);
             }
 
-            // deserialize TimeSeriesFormulaAndFunctionMetricQueryDefinition
+            // deserialize FormulaAndFunctionMetricQueryDefinition
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Integer.class) || TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Long.class) || TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Float.class) || TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Double.class) || TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Boolean.class) || TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(String.class)) {
+                if (FormulaAndFunctionMetricQueryDefinition.class.equals(Integer.class) || FormulaAndFunctionMetricQueryDefinition.class.equals(Long.class) || FormulaAndFunctionMetricQueryDefinition.class.equals(Float.class) || FormulaAndFunctionMetricQueryDefinition.class.equals(Double.class) || FormulaAndFunctionMetricQueryDefinition.class.equals(Boolean.class) || FormulaAndFunctionMetricQueryDefinition.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Integer.class) || TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Float.class) || TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (TimeSeriesFormulaAndFunctionMetricQueryDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((FormulaAndFunctionMetricQueryDefinition.class.equals(Integer.class) || FormulaAndFunctionMetricQueryDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((FormulaAndFunctionMetricQueryDefinition.class.equals(Float.class) || FormulaAndFunctionMetricQueryDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (FormulaAndFunctionMetricQueryDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (FormulaAndFunctionMetricQueryDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeSeriesFormulaAndFunctionMetricQueryDefinition.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(FormulaAndFunctionMetricQueryDefinition.class);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'TimeSeriesFormulaAndFunctionMetricQueryDefinition'");
+                    log.log(Level.FINER, "Input data matches schema 'FormulaAndFunctionMetricQueryDefinition'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'TimeSeriesFormulaAndFunctionMetricQueryDefinition'", e);
+                log.log(Level.FINER, "Input data does not match schema 'FormulaAndFunctionMetricQueryDefinition'", e);
             }
 
-            // deserialize TimeSeriesFormulaAndFunctionProcessQueryDefinition
+            // deserialize FormulaAndFunctionProcessQueryDefinition
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Integer.class) || TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Long.class) || TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Float.class) || TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Double.class) || TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Boolean.class) || TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(String.class)) {
+                if (FormulaAndFunctionProcessQueryDefinition.class.equals(Integer.class) || FormulaAndFunctionProcessQueryDefinition.class.equals(Long.class) || FormulaAndFunctionProcessQueryDefinition.class.equals(Float.class) || FormulaAndFunctionProcessQueryDefinition.class.equals(Double.class) || FormulaAndFunctionProcessQueryDefinition.class.equals(Boolean.class) || FormulaAndFunctionProcessQueryDefinition.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Integer.class) || TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Float.class) || TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (TimeSeriesFormulaAndFunctionProcessQueryDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((FormulaAndFunctionProcessQueryDefinition.class.equals(Integer.class) || FormulaAndFunctionProcessQueryDefinition.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((FormulaAndFunctionProcessQueryDefinition.class.equals(Float.class) || FormulaAndFunctionProcessQueryDefinition.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (FormulaAndFunctionProcessQueryDefinition.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (FormulaAndFunctionProcessQueryDefinition.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TimeSeriesFormulaAndFunctionProcessQueryDefinition.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(FormulaAndFunctionProcessQueryDefinition.class);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'TimeSeriesFormulaAndFunctionProcessQueryDefinition'");
+                    log.log(Level.FINER, "Input data matches schema 'FormulaAndFunctionProcessQueryDefinition'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'TimeSeriesFormulaAndFunctionProcessQueryDefinition'", e);
+                log.log(Level.FINER, "Input data does not match schema 'FormulaAndFunctionProcessQueryDefinition'", e);
             }
 
             if (match == 1) {
@@ -202,27 +202,27 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
-    public FormulaAndFunctionQueryDefinition(TimeSeriesFormulaAndFunctionEventQueryDefinition o) {
+    public FormulaAndFunctionQueryDefinition(FormulaAndFunctionEventQueryDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public FormulaAndFunctionQueryDefinition(TimeSeriesFormulaAndFunctionMetricQueryDefinition o) {
+    public FormulaAndFunctionQueryDefinition(FormulaAndFunctionMetricQueryDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public FormulaAndFunctionQueryDefinition(TimeSeriesFormulaAndFunctionProcessQueryDefinition o) {
+    public FormulaAndFunctionQueryDefinition(FormulaAndFunctionProcessQueryDefinition o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("TimeSeriesFormulaAndFunctionEventQueryDefinition", new GenericType<TimeSeriesFormulaAndFunctionEventQueryDefinition>() {
+        schemas.put("FormulaAndFunctionEventQueryDefinition", new GenericType<FormulaAndFunctionEventQueryDefinition>() {
         });
-        schemas.put("TimeSeriesFormulaAndFunctionMetricQueryDefinition", new GenericType<TimeSeriesFormulaAndFunctionMetricQueryDefinition>() {
+        schemas.put("FormulaAndFunctionMetricQueryDefinition", new GenericType<FormulaAndFunctionMetricQueryDefinition>() {
         });
-        schemas.put("TimeSeriesFormulaAndFunctionProcessQueryDefinition", new GenericType<TimeSeriesFormulaAndFunctionProcessQueryDefinition>() {
+        schemas.put("FormulaAndFunctionProcessQueryDefinition", new GenericType<FormulaAndFunctionProcessQueryDefinition>() {
         });
         JSON.registerDescendants(FormulaAndFunctionQueryDefinition.class, Collections.unmodifiableMap(schemas));
     }
@@ -235,36 +235,36 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * TimeSeriesFormulaAndFunctionEventQueryDefinition, TimeSeriesFormulaAndFunctionMetricQueryDefinition, TimeSeriesFormulaAndFunctionProcessQueryDefinition
+     * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(TimeSeriesFormulaAndFunctionEventQueryDefinition.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(FormulaAndFunctionEventQueryDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(TimeSeriesFormulaAndFunctionMetricQueryDefinition.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(FormulaAndFunctionMetricQueryDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(TimeSeriesFormulaAndFunctionProcessQueryDefinition.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(FormulaAndFunctionProcessQueryDefinition.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be TimeSeriesFormulaAndFunctionEventQueryDefinition, TimeSeriesFormulaAndFunctionMetricQueryDefinition, TimeSeriesFormulaAndFunctionProcessQueryDefinition");
+        throw new RuntimeException("Invalid instance type. Must be FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * TimeSeriesFormulaAndFunctionEventQueryDefinition, TimeSeriesFormulaAndFunctionMetricQueryDefinition, TimeSeriesFormulaAndFunctionProcessQueryDefinition
+     * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition
      *
-     * @return The actual instance (TimeSeriesFormulaAndFunctionEventQueryDefinition, TimeSeriesFormulaAndFunctionMetricQueryDefinition, TimeSeriesFormulaAndFunctionProcessQueryDefinition)
+     * @return The actual instance (FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition)
      */
     @Override
     public Object getActualInstance() {
@@ -272,36 +272,36 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `TimeSeriesFormulaAndFunctionEventQueryDefinition`. If the actual instanct is not `TimeSeriesFormulaAndFunctionEventQueryDefinition`,
+     * Get the actual instance of `FormulaAndFunctionEventQueryDefinition`. If the actual instanct is not `FormulaAndFunctionEventQueryDefinition`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `TimeSeriesFormulaAndFunctionEventQueryDefinition`
-     * @throws ClassCastException if the instance is not `TimeSeriesFormulaAndFunctionEventQueryDefinition`
+     * @return The actual instance of `FormulaAndFunctionEventQueryDefinition`
+     * @throws ClassCastException if the instance is not `FormulaAndFunctionEventQueryDefinition`
      */
-    public TimeSeriesFormulaAndFunctionEventQueryDefinition getTimeSeriesFormulaAndFunctionEventQueryDefinition() throws ClassCastException {
-        return (TimeSeriesFormulaAndFunctionEventQueryDefinition)super.getActualInstance();
+    public FormulaAndFunctionEventQueryDefinition getFormulaAndFunctionEventQueryDefinition() throws ClassCastException {
+        return (FormulaAndFunctionEventQueryDefinition)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `TimeSeriesFormulaAndFunctionMetricQueryDefinition`. If the actual instanct is not `TimeSeriesFormulaAndFunctionMetricQueryDefinition`,
+     * Get the actual instance of `FormulaAndFunctionMetricQueryDefinition`. If the actual instanct is not `FormulaAndFunctionMetricQueryDefinition`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `TimeSeriesFormulaAndFunctionMetricQueryDefinition`
-     * @throws ClassCastException if the instance is not `TimeSeriesFormulaAndFunctionMetricQueryDefinition`
+     * @return The actual instance of `FormulaAndFunctionMetricQueryDefinition`
+     * @throws ClassCastException if the instance is not `FormulaAndFunctionMetricQueryDefinition`
      */
-    public TimeSeriesFormulaAndFunctionMetricQueryDefinition getTimeSeriesFormulaAndFunctionMetricQueryDefinition() throws ClassCastException {
-        return (TimeSeriesFormulaAndFunctionMetricQueryDefinition)super.getActualInstance();
+    public FormulaAndFunctionMetricQueryDefinition getFormulaAndFunctionMetricQueryDefinition() throws ClassCastException {
+        return (FormulaAndFunctionMetricQueryDefinition)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `TimeSeriesFormulaAndFunctionProcessQueryDefinition`. If the actual instanct is not `TimeSeriesFormulaAndFunctionProcessQueryDefinition`,
+     * Get the actual instance of `FormulaAndFunctionProcessQueryDefinition`. If the actual instanct is not `FormulaAndFunctionProcessQueryDefinition`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `TimeSeriesFormulaAndFunctionProcessQueryDefinition`
-     * @throws ClassCastException if the instance is not `TimeSeriesFormulaAndFunctionProcessQueryDefinition`
+     * @return The actual instance of `FormulaAndFunctionProcessQueryDefinition`
+     * @throws ClassCastException if the instance is not `FormulaAndFunctionProcessQueryDefinition`
      */
-    public TimeSeriesFormulaAndFunctionProcessQueryDefinition getTimeSeriesFormulaAndFunctionProcessQueryDefinition() throws ClassCastException {
-        return (TimeSeriesFormulaAndFunctionProcessQueryDefinition)super.getActualInstance();
+    public FormulaAndFunctionProcessQueryDefinition getFormulaAndFunctionProcessQueryDefinition() throws ClassCastException {
+        return (FormulaAndFunctionProcessQueryDefinition)super.getActualInstance();
     }
 
 }

@@ -33,12 +33,12 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "Options for sorting group by results.")
 @JsonPropertyOrder({
-  TimeSeriesFormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_AGGREGATION,
-  TimeSeriesFormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_METRIC,
-  TimeSeriesFormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_ORDER
+  FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_AGGREGATION,
+  FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_METRIC,
+  FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_ORDER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TimeSeriesFormulaAndFunctionEventQueryGroupBySort {
+public class FormulaAndFunctionEventQueryGroupBySort {
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private FormulaAndFunctionEventAggregation aggregation;
 
@@ -49,7 +49,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBySort {
   private QuerySortOrder order = QuerySortOrder.DESC;
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryGroupBySort aggregation(FormulaAndFunctionEventAggregation aggregation) {
+  public FormulaAndFunctionEventQueryGroupBySort aggregation(FormulaAndFunctionEventAggregation aggregation) {
     this.aggregation = aggregation;
     return this;
   }
@@ -72,7 +72,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBySort {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryGroupBySort metric(String metric) {
+  public FormulaAndFunctionEventQueryGroupBySort metric(String metric) {
     this.metric = metric;
     return this;
   }
@@ -96,7 +96,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBySort {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryGroupBySort order(QuerySortOrder order) {
+  public FormulaAndFunctionEventQueryGroupBySort order(QuerySortOrder order) {
     this.order = order;
     return this;
   }
@@ -121,7 +121,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBySort {
 
 
   /**
-   * Return true if this TimeSeriesFormulaAndFunctionEventQueryGroupBy_sort object is equal to o.
+   * Return true if this FormulaAndFunctionEventQueryGroupBy_sort object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -131,10 +131,10 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBySort {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TimeSeriesFormulaAndFunctionEventQueryGroupBySort timeSeriesFormulaAndFunctionEventQueryGroupBySort = (TimeSeriesFormulaAndFunctionEventQueryGroupBySort) o;
-    return Objects.equals(this.aggregation, timeSeriesFormulaAndFunctionEventQueryGroupBySort.aggregation) &&
-        Objects.equals(this.metric, timeSeriesFormulaAndFunctionEventQueryGroupBySort.metric) &&
-        Objects.equals(this.order, timeSeriesFormulaAndFunctionEventQueryGroupBySort.order);
+    FormulaAndFunctionEventQueryGroupBySort formulaAndFunctionEventQueryGroupBySort = (FormulaAndFunctionEventQueryGroupBySort) o;
+    return Objects.equals(this.aggregation, formulaAndFunctionEventQueryGroupBySort.aggregation) &&
+        Objects.equals(this.metric, formulaAndFunctionEventQueryGroupBySort.metric) &&
+        Objects.equals(this.order, formulaAndFunctionEventQueryGroupBySort.order);
   }
 
   @Override
@@ -146,7 +146,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBySort {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TimeSeriesFormulaAndFunctionEventQueryGroupBySort {\n");
+    sb.append("class FormulaAndFunctionEventQueryGroupBySort {\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");

@@ -36,18 +36,18 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "Process query using formulas and functions.")
 @JsonPropertyOrder({
-  TimeSeriesFormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_AGGREGATOR,
-  TimeSeriesFormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
-  TimeSeriesFormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_IS_NORMALIZED_CPU,
-  TimeSeriesFormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_LIMIT,
-  TimeSeriesFormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_METRIC,
-  TimeSeriesFormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_NAME,
-  TimeSeriesFormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_SORT,
-  TimeSeriesFormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TAG_FILTERS,
-  TimeSeriesFormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TEXT_FILTER
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_AGGREGATOR,
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_IS_NORMALIZED_CPU,
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_LIMIT,
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_METRIC,
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_NAME,
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_SORT,
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TAG_FILTERS,
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TEXT_FILTER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
+public class FormulaAndFunctionProcessQueryDefinition {
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private FormulaAndFunctionMetricAggregation aggregator;
 
@@ -76,7 +76,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   private String textFilter;
 
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition aggregator(FormulaAndFunctionMetricAggregation aggregator) {
+  public FormulaAndFunctionProcessQueryDefinition aggregator(FormulaAndFunctionMetricAggregation aggregator) {
     this.aggregator = aggregator;
     return this;
   }
@@ -100,7 +100,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition dataSource(FormulaAndFunctionProcessQueryDataSource dataSource) {
+  public FormulaAndFunctionProcessQueryDefinition dataSource(FormulaAndFunctionProcessQueryDataSource dataSource) {
     this.dataSource = dataSource;
     return this;
   }
@@ -123,7 +123,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition isNormalizedCpu(Boolean isNormalizedCpu) {
+  public FormulaAndFunctionProcessQueryDefinition isNormalizedCpu(Boolean isNormalizedCpu) {
     this.isNormalizedCpu = isNormalizedCpu;
     return this;
   }
@@ -147,7 +147,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition limit(Long limit) {
+  public FormulaAndFunctionProcessQueryDefinition limit(Long limit) {
     this.limit = limit;
     return this;
   }
@@ -171,7 +171,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition metric(String metric) {
+  public FormulaAndFunctionProcessQueryDefinition metric(String metric) {
     this.metric = metric;
     return this;
   }
@@ -194,7 +194,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition name(String name) {
+  public FormulaAndFunctionProcessQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
@@ -218,7 +218,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition sort(QuerySortOrder sort) {
+  public FormulaAndFunctionProcessQueryDefinition sort(QuerySortOrder sort) {
     this.sort = sort;
     return this;
   }
@@ -242,12 +242,12 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition tagFilters(List<String> tagFilters) {
+  public FormulaAndFunctionProcessQueryDefinition tagFilters(List<String> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
   }
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition addTagFiltersItem(String tagFiltersItem) {
+  public FormulaAndFunctionProcessQueryDefinition addTagFiltersItem(String tagFiltersItem) {
     if (this.tagFilters == null) {
       this.tagFilters = new ArrayList<>();
     }
@@ -274,7 +274,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionProcessQueryDefinition textFilter(String textFilter) {
+  public FormulaAndFunctionProcessQueryDefinition textFilter(String textFilter) {
     this.textFilter = textFilter;
     return this;
   }
@@ -299,7 +299,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
 
 
   /**
-   * Return true if this TimeSeriesFormulaAndFunctionProcessQueryDefinition object is equal to o.
+   * Return true if this FormulaAndFunctionProcessQueryDefinition object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -309,16 +309,16 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TimeSeriesFormulaAndFunctionProcessQueryDefinition timeSeriesFormulaAndFunctionProcessQueryDefinition = (TimeSeriesFormulaAndFunctionProcessQueryDefinition) o;
-    return Objects.equals(this.aggregator, timeSeriesFormulaAndFunctionProcessQueryDefinition.aggregator) &&
-        Objects.equals(this.dataSource, timeSeriesFormulaAndFunctionProcessQueryDefinition.dataSource) &&
-        Objects.equals(this.isNormalizedCpu, timeSeriesFormulaAndFunctionProcessQueryDefinition.isNormalizedCpu) &&
-        Objects.equals(this.limit, timeSeriesFormulaAndFunctionProcessQueryDefinition.limit) &&
-        Objects.equals(this.metric, timeSeriesFormulaAndFunctionProcessQueryDefinition.metric) &&
-        Objects.equals(this.name, timeSeriesFormulaAndFunctionProcessQueryDefinition.name) &&
-        Objects.equals(this.sort, timeSeriesFormulaAndFunctionProcessQueryDefinition.sort) &&
-        Objects.equals(this.tagFilters, timeSeriesFormulaAndFunctionProcessQueryDefinition.tagFilters) &&
-        Objects.equals(this.textFilter, timeSeriesFormulaAndFunctionProcessQueryDefinition.textFilter);
+    FormulaAndFunctionProcessQueryDefinition formulaAndFunctionProcessQueryDefinition = (FormulaAndFunctionProcessQueryDefinition) o;
+    return Objects.equals(this.aggregator, formulaAndFunctionProcessQueryDefinition.aggregator) &&
+        Objects.equals(this.dataSource, formulaAndFunctionProcessQueryDefinition.dataSource) &&
+        Objects.equals(this.isNormalizedCpu, formulaAndFunctionProcessQueryDefinition.isNormalizedCpu) &&
+        Objects.equals(this.limit, formulaAndFunctionProcessQueryDefinition.limit) &&
+        Objects.equals(this.metric, formulaAndFunctionProcessQueryDefinition.metric) &&
+        Objects.equals(this.name, formulaAndFunctionProcessQueryDefinition.name) &&
+        Objects.equals(this.sort, formulaAndFunctionProcessQueryDefinition.sort) &&
+        Objects.equals(this.tagFilters, formulaAndFunctionProcessQueryDefinition.tagFilters) &&
+        Objects.equals(this.textFilter, formulaAndFunctionProcessQueryDefinition.textFilter);
   }
 
   @Override
@@ -330,7 +330,7 @@ public class TimeSeriesFormulaAndFunctionProcessQueryDefinition {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TimeSeriesFormulaAndFunctionProcessQueryDefinition {\n");
+    sb.append("class FormulaAndFunctionProcessQueryDefinition {\n");
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    isNormalizedCpu: ").append(toIndentedString(isNormalizedCpu)).append("\n");

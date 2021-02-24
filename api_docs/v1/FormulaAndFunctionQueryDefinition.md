@@ -5,42 +5,42 @@
 A formula and function query.
 
 ## oneOf schemas
-* [TimeSeriesFormulaAndFunctionEventQueryDefinition](TimeSeriesFormulaAndFunctionEventQueryDefinition.md)
-* [TimeSeriesFormulaAndFunctionMetricQueryDefinition](TimeSeriesFormulaAndFunctionMetricQueryDefinition.md)
-* [TimeSeriesFormulaAndFunctionProcessQueryDefinition](TimeSeriesFormulaAndFunctionProcessQueryDefinition.md)
+* [FormulaAndFunctionEventQueryDefinition](FormulaAndFunctionEventQueryDefinition.md)
+* [FormulaAndFunctionMetricQueryDefinition](FormulaAndFunctionMetricQueryDefinition.md)
+* [FormulaAndFunctionProcessQueryDefinition](FormulaAndFunctionProcessQueryDefinition.md)
 
 ## Example
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinition;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionMetricQueryDefinition;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionProcessQueryDefinition;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinition;
+import com.datadog.api.v1.client.model.FormulaAndFunctionMetricQueryDefinition;
+import com.datadog.api.v1.client.model.FormulaAndFunctionProcessQueryDefinition;
 
 public class Example {
     public static void main(String[] args) {
         FormulaAndFunctionQueryDefinition exampleFormulaAndFunctionQueryDefinition = new FormulaAndFunctionQueryDefinition();
 
-        // create a new TimeSeriesFormulaAndFunctionEventQueryDefinition
-        TimeSeriesFormulaAndFunctionEventQueryDefinition exampleTimeSeriesFormulaAndFunctionEventQueryDefinition = new TimeSeriesFormulaAndFunctionEventQueryDefinition();
-        // set FormulaAndFunctionQueryDefinition to TimeSeriesFormulaAndFunctionEventQueryDefinition
-        exampleFormulaAndFunctionQueryDefinition.setActualInstance(exampleTimeSeriesFormulaAndFunctionEventQueryDefinition);
-        // to get back the TimeSeriesFormulaAndFunctionEventQueryDefinition set earlier
-        TimeSeriesFormulaAndFunctionEventQueryDefinition testTimeSeriesFormulaAndFunctionEventQueryDefinition = (TimeSeriesFormulaAndFunctionEventQueryDefinition) exampleFormulaAndFunctionQueryDefinition.getActualInstance();
+        // create a new FormulaAndFunctionEventQueryDefinition
+        FormulaAndFunctionEventQueryDefinition exampleFormulaAndFunctionEventQueryDefinition = new FormulaAndFunctionEventQueryDefinition();
+        // set FormulaAndFunctionQueryDefinition to FormulaAndFunctionEventQueryDefinition
+        exampleFormulaAndFunctionQueryDefinition.setActualInstance(exampleFormulaAndFunctionEventQueryDefinition);
+        // to get back the FormulaAndFunctionEventQueryDefinition set earlier
+        FormulaAndFunctionEventQueryDefinition testFormulaAndFunctionEventQueryDefinition = (FormulaAndFunctionEventQueryDefinition) exampleFormulaAndFunctionQueryDefinition.getActualInstance();
 
-        // create a new TimeSeriesFormulaAndFunctionMetricQueryDefinition
-        TimeSeriesFormulaAndFunctionMetricQueryDefinition exampleTimeSeriesFormulaAndFunctionMetricQueryDefinition = new TimeSeriesFormulaAndFunctionMetricQueryDefinition();
-        // set FormulaAndFunctionQueryDefinition to TimeSeriesFormulaAndFunctionMetricQueryDefinition
-        exampleFormulaAndFunctionQueryDefinition.setActualInstance(exampleTimeSeriesFormulaAndFunctionMetricQueryDefinition);
-        // to get back the TimeSeriesFormulaAndFunctionMetricQueryDefinition set earlier
-        TimeSeriesFormulaAndFunctionMetricQueryDefinition testTimeSeriesFormulaAndFunctionMetricQueryDefinition = (TimeSeriesFormulaAndFunctionMetricQueryDefinition) exampleFormulaAndFunctionQueryDefinition.getActualInstance();
+        // create a new FormulaAndFunctionMetricQueryDefinition
+        FormulaAndFunctionMetricQueryDefinition exampleFormulaAndFunctionMetricQueryDefinition = new FormulaAndFunctionMetricQueryDefinition();
+        // set FormulaAndFunctionQueryDefinition to FormulaAndFunctionMetricQueryDefinition
+        exampleFormulaAndFunctionQueryDefinition.setActualInstance(exampleFormulaAndFunctionMetricQueryDefinition);
+        // to get back the FormulaAndFunctionMetricQueryDefinition set earlier
+        FormulaAndFunctionMetricQueryDefinition testFormulaAndFunctionMetricQueryDefinition = (FormulaAndFunctionMetricQueryDefinition) exampleFormulaAndFunctionQueryDefinition.getActualInstance();
 
-        // create a new TimeSeriesFormulaAndFunctionProcessQueryDefinition
-        TimeSeriesFormulaAndFunctionProcessQueryDefinition exampleTimeSeriesFormulaAndFunctionProcessQueryDefinition = new TimeSeriesFormulaAndFunctionProcessQueryDefinition();
-        // set FormulaAndFunctionQueryDefinition to TimeSeriesFormulaAndFunctionProcessQueryDefinition
-        exampleFormulaAndFunctionQueryDefinition.setActualInstance(exampleTimeSeriesFormulaAndFunctionProcessQueryDefinition);
-        // to get back the TimeSeriesFormulaAndFunctionProcessQueryDefinition set earlier
-        TimeSeriesFormulaAndFunctionProcessQueryDefinition testTimeSeriesFormulaAndFunctionProcessQueryDefinition = (TimeSeriesFormulaAndFunctionProcessQueryDefinition) exampleFormulaAndFunctionQueryDefinition.getActualInstance();
+        // create a new FormulaAndFunctionProcessQueryDefinition
+        FormulaAndFunctionProcessQueryDefinition exampleFormulaAndFunctionProcessQueryDefinition = new FormulaAndFunctionProcessQueryDefinition();
+        // set FormulaAndFunctionQueryDefinition to FormulaAndFunctionProcessQueryDefinition
+        exampleFormulaAndFunctionQueryDefinition.setActualInstance(exampleFormulaAndFunctionProcessQueryDefinition);
+        // to get back the FormulaAndFunctionProcessQueryDefinition set earlier
+        FormulaAndFunctionProcessQueryDefinition testFormulaAndFunctionProcessQueryDefinition = (FormulaAndFunctionProcessQueryDefinition) exampleFormulaAndFunctionQueryDefinition.getActualInstance();
     }
 }
 ```
