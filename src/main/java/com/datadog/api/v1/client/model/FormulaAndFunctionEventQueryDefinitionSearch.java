@@ -31,15 +31,15 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "Search options.")
 @JsonPropertyOrder({
-  TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch.JSON_PROPERTY_QUERY
+  FormulaAndFunctionEventQueryDefinitionSearch.JSON_PROPERTY_QUERY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch {
+public class FormulaAndFunctionEventQueryDefinitionSearch {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch query(String query) {
+  public FormulaAndFunctionEventQueryDefinitionSearch query(String query) {
     this.query = query;
     return this;
   }
@@ -63,7 +63,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch {
 
 
   /**
-   * Return true if this TimeSeriesFormulaAndFunctionEventQueryDefinition_search object is equal to o.
+   * Return true if this FormulaAndFunctionEventQueryDefinition_search object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -73,8 +73,8 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch timeSeriesFormulaAndFunctionEventQueryDefinitionSearch = (TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch) o;
-    return Objects.equals(this.query, timeSeriesFormulaAndFunctionEventQueryDefinitionSearch.query);
+    FormulaAndFunctionEventQueryDefinitionSearch formulaAndFunctionEventQueryDefinitionSearch = (FormulaAndFunctionEventQueryDefinitionSearch) o;
+    return Objects.equals(this.query, formulaAndFunctionEventQueryDefinitionSearch.query);
   }
 
   @Override
@@ -86,7 +86,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch {\n");
+    sb.append("class FormulaAndFunctionEventQueryDefinitionSearch {\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");
     return sb.toString();

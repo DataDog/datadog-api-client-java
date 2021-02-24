@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryGroupBySort;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryGroupBySort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,12 +32,12 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "List of objects used to group by.")
 @JsonPropertyOrder({
-  TimeSeriesFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_FACET,
-  TimeSeriesFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_LIMIT,
-  TimeSeriesFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_SORT
+  FormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_FACET,
+  FormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_LIMIT,
+  FormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_SORT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TimeSeriesFormulaAndFunctionEventQueryGroupBy {
+public class FormulaAndFunctionEventQueryGroupBy {
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -45,10 +45,10 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBy {
   private Long limit;
 
   public static final String JSON_PROPERTY_SORT = "sort";
-  private TimeSeriesFormulaAndFunctionEventQueryGroupBySort sort;
+  private FormulaAndFunctionEventQueryGroupBySort sort;
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryGroupBy facet(String facet) {
+  public FormulaAndFunctionEventQueryGroupBy facet(String facet) {
     this.facet = facet;
     return this;
   }
@@ -71,7 +71,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBy {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryGroupBy limit(Long limit) {
+  public FormulaAndFunctionEventQueryGroupBy limit(Long limit) {
     this.limit = limit;
     return this;
   }
@@ -95,7 +95,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBy {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryGroupBy sort(TimeSeriesFormulaAndFunctionEventQueryGroupBySort sort) {
+  public FormulaAndFunctionEventQueryGroupBy sort(FormulaAndFunctionEventQueryGroupBySort sort) {
     this.sort = sort;
     return this;
   }
@@ -109,18 +109,18 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBy {
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TimeSeriesFormulaAndFunctionEventQueryGroupBySort getSort() {
+  public FormulaAndFunctionEventQueryGroupBySort getSort() {
     return sort;
   }
 
 
-  public void setSort(TimeSeriesFormulaAndFunctionEventQueryGroupBySort sort) {
+  public void setSort(FormulaAndFunctionEventQueryGroupBySort sort) {
     this.sort = sort;
   }
 
 
   /**
-   * Return true if this TimeSeriesFormulaAndFunctionEventQueryGroupBy object is equal to o.
+   * Return true if this FormulaAndFunctionEventQueryGroupBy object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -130,10 +130,10 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBy {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TimeSeriesFormulaAndFunctionEventQueryGroupBy timeSeriesFormulaAndFunctionEventQueryGroupBy = (TimeSeriesFormulaAndFunctionEventQueryGroupBy) o;
-    return Objects.equals(this.facet, timeSeriesFormulaAndFunctionEventQueryGroupBy.facet) &&
-        Objects.equals(this.limit, timeSeriesFormulaAndFunctionEventQueryGroupBy.limit) &&
-        Objects.equals(this.sort, timeSeriesFormulaAndFunctionEventQueryGroupBy.sort);
+    FormulaAndFunctionEventQueryGroupBy formulaAndFunctionEventQueryGroupBy = (FormulaAndFunctionEventQueryGroupBy) o;
+    return Objects.equals(this.facet, formulaAndFunctionEventQueryGroupBy.facet) &&
+        Objects.equals(this.limit, formulaAndFunctionEventQueryGroupBy.limit) &&
+        Objects.equals(this.sort, formulaAndFunctionEventQueryGroupBy.sort);
   }
 
   @Override
@@ -145,7 +145,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryGroupBy {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TimeSeriesFormulaAndFunctionEventQueryGroupBy {\n");
+    sb.append("class FormulaAndFunctionEventQueryGroupBy {\n");
     sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");

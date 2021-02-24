@@ -29,17 +29,17 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * A timeseries formula and functions metrics query.
+ * A formula and functions metrics query.
  */
-@ApiModel(description = "A timeseries formula and functions metrics query.")
+@ApiModel(description = "A formula and functions metrics query.")
 @JsonPropertyOrder({
-  TimeSeriesFormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_AGGREGATOR,
-  TimeSeriesFormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
-  TimeSeriesFormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_NAME,
-  TimeSeriesFormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_QUERY
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_AGGREGATOR,
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_NAME,
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_QUERY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TimeSeriesFormulaAndFunctionMetricQueryDefinition {
+public class FormulaAndFunctionMetricQueryDefinition {
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private FormulaAndFunctionMetricAggregation aggregator;
 
@@ -53,7 +53,7 @@ public class TimeSeriesFormulaAndFunctionMetricQueryDefinition {
   private String query;
 
 
-  public TimeSeriesFormulaAndFunctionMetricQueryDefinition aggregator(FormulaAndFunctionMetricAggregation aggregator) {
+  public FormulaAndFunctionMetricQueryDefinition aggregator(FormulaAndFunctionMetricAggregation aggregator) {
     this.aggregator = aggregator;
     return this;
   }
@@ -77,7 +77,7 @@ public class TimeSeriesFormulaAndFunctionMetricQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionMetricQueryDefinition dataSource(FormulaAndFunctionMetricDataSource dataSource) {
+  public FormulaAndFunctionMetricQueryDefinition dataSource(FormulaAndFunctionMetricDataSource dataSource) {
     this.dataSource = dataSource;
     return this;
   }
@@ -100,7 +100,7 @@ public class TimeSeriesFormulaAndFunctionMetricQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionMetricQueryDefinition name(String name) {
+  public FormulaAndFunctionMetricQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
@@ -124,7 +124,7 @@ public class TimeSeriesFormulaAndFunctionMetricQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionMetricQueryDefinition query(String query) {
+  public FormulaAndFunctionMetricQueryDefinition query(String query) {
     this.query = query;
     return this;
   }
@@ -148,7 +148,7 @@ public class TimeSeriesFormulaAndFunctionMetricQueryDefinition {
 
 
   /**
-   * Return true if this TimeSeriesFormulaAndFunctionMetricQueryDefinition object is equal to o.
+   * Return true if this FormulaAndFunctionMetricQueryDefinition object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -158,11 +158,11 @@ public class TimeSeriesFormulaAndFunctionMetricQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TimeSeriesFormulaAndFunctionMetricQueryDefinition timeSeriesFormulaAndFunctionMetricQueryDefinition = (TimeSeriesFormulaAndFunctionMetricQueryDefinition) o;
-    return Objects.equals(this.aggregator, timeSeriesFormulaAndFunctionMetricQueryDefinition.aggregator) &&
-        Objects.equals(this.dataSource, timeSeriesFormulaAndFunctionMetricQueryDefinition.dataSource) &&
-        Objects.equals(this.name, timeSeriesFormulaAndFunctionMetricQueryDefinition.name) &&
-        Objects.equals(this.query, timeSeriesFormulaAndFunctionMetricQueryDefinition.query);
+    FormulaAndFunctionMetricQueryDefinition formulaAndFunctionMetricQueryDefinition = (FormulaAndFunctionMetricQueryDefinition) o;
+    return Objects.equals(this.aggregator, formulaAndFunctionMetricQueryDefinition.aggregator) &&
+        Objects.equals(this.dataSource, formulaAndFunctionMetricQueryDefinition.dataSource) &&
+        Objects.equals(this.name, formulaAndFunctionMetricQueryDefinition.name) &&
+        Objects.equals(this.query, formulaAndFunctionMetricQueryDefinition.query);
   }
 
   @Override
@@ -174,7 +174,7 @@ public class TimeSeriesFormulaAndFunctionMetricQueryDefinition {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TimeSeriesFormulaAndFunctionMetricQueryDefinition {\n");
+    sb.append("class FormulaAndFunctionMetricQueryDefinition {\n");
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

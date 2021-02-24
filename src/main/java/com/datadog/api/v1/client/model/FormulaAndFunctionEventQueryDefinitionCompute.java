@@ -32,12 +32,12 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "Compute options.")
 @JsonPropertyOrder({
-  TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_AGGREGATION,
-  TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_INTERVAL,
-  TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_METRIC
+  FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_AGGREGATION,
+  FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_INTERVAL,
+  FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_METRIC
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute {
+public class FormulaAndFunctionEventQueryDefinitionCompute {
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private FormulaAndFunctionEventAggregation aggregation;
 
@@ -48,7 +48,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute {
   private String metric;
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute aggregation(FormulaAndFunctionEventAggregation aggregation) {
+  public FormulaAndFunctionEventQueryDefinitionCompute aggregation(FormulaAndFunctionEventAggregation aggregation) {
     this.aggregation = aggregation;
     return this;
   }
@@ -71,7 +71,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute interval(Long interval) {
+  public FormulaAndFunctionEventQueryDefinitionCompute interval(Long interval) {
     this.interval = interval;
     return this;
   }
@@ -95,7 +95,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute metric(String metric) {
+  public FormulaAndFunctionEventQueryDefinitionCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
@@ -120,7 +120,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute {
 
 
   /**
-   * Return true if this TimeSeriesFormulaAndFunctionEventQueryDefinition_compute object is equal to o.
+   * Return true if this FormulaAndFunctionEventQueryDefinition_compute object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -130,10 +130,10 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute timeSeriesFormulaAndFunctionEventQueryDefinitionCompute = (TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute) o;
-    return Objects.equals(this.aggregation, timeSeriesFormulaAndFunctionEventQueryDefinitionCompute.aggregation) &&
-        Objects.equals(this.interval, timeSeriesFormulaAndFunctionEventQueryDefinitionCompute.interval) &&
-        Objects.equals(this.metric, timeSeriesFormulaAndFunctionEventQueryDefinitionCompute.metric);
+    FormulaAndFunctionEventQueryDefinitionCompute formulaAndFunctionEventQueryDefinitionCompute = (FormulaAndFunctionEventQueryDefinitionCompute) o;
+    return Objects.equals(this.aggregation, formulaAndFunctionEventQueryDefinitionCompute.aggregation) &&
+        Objects.equals(this.interval, formulaAndFunctionEventQueryDefinitionCompute.interval) &&
+        Objects.equals(this.metric, formulaAndFunctionEventQueryDefinitionCompute.metric);
   }
 
   @Override
@@ -145,7 +145,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute {\n");
+    sb.append("class FormulaAndFunctionEventQueryDefinitionCompute {\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
