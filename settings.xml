@@ -3,9 +3,9 @@
           xmlns='http://maven.apache.org/SETTINGS/1.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
     <servers>
         <server>
-            <id>bintray-datadog-api-client</id>
-            <username>${env.BINTRAY_USER}</username>
-            <password>${env.BINTRAY_API_KEY}</password>
+            <id>nexus-datadog-api-client</id>
+            <username>admin</username>
+            <password>admin123</password>
         </server>
     </servers>
 </settings>

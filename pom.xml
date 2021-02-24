@@ -22,13 +22,6 @@
         </license>
     </licenses>
 
-    <distributionManagement>
-        <repository>
-            <id>bintray-datadog-api-client</id>
-            <url>https://api.bintray.com/maven/${bintray.repo}/${bintray.package}/</url>
-        </repository>
-    </distributionManagement>
-
     <developers>
         <developer>
             <!-- Additions for tests and small generation changes -->
@@ -233,6 +226,16 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.6</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>nexus-datadog-api-client</serverId>
+                    <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -414,7 +417,5 @@
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.1</junit-version>
         <dd-java-agent-version>0.72.0</dd-java-agent-version>
-        <bintray.repo>datadog/datadog-maven</bintray.repo>
-        <bintray.package>datadog-api-client</bintray.package>
     </properties>
 </project>
