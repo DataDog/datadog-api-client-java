@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Timeseries or Scalar response. This feature is currently in beta.
+ * Timeseries or Scalar response. **This feature is currently in beta.**
  */
 public enum FormulaAndFunctionResponseFormat {
   
