@@ -15,10 +15,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionCompute;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionSearch;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryGroupBy;
 import com.datadog.api.v1.client.model.FormulaAndFunctionEventsDataSource;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch;
-import com.datadog.api.v1.client.model.TimeSeriesFormulaAndFunctionEventQueryGroupBy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,27 +33,27 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * A timeseries formula and functions events query.
+ * A formula and functions events query.
  */
-@ApiModel(description = "A timeseries formula and functions events query.")
+@ApiModel(description = "A formula and functions events query.")
 @JsonPropertyOrder({
-  TimeSeriesFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_COMPUTE,
-  TimeSeriesFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
-  TimeSeriesFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_GROUP_BY,
-  TimeSeriesFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_INDEXES,
-  TimeSeriesFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_NAME,
-  TimeSeriesFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_SEARCH
+  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_COMPUTE,
+  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
+  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_GROUP_BY,
+  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_INDEXES,
+  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_NAME,
+  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_SEARCH
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
+public class FormulaAndFunctionEventQueryDefinition {
   public static final String JSON_PROPERTY_COMPUTE = "compute";
-  private TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute compute;
+  private FormulaAndFunctionEventQueryDefinitionCompute compute;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FormulaAndFunctionEventsDataSource dataSource;
 
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
-  private List<TimeSeriesFormulaAndFunctionEventQueryGroupBy> groupBy = null;
+  private List<FormulaAndFunctionEventQueryGroupBy> groupBy = null;
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
@@ -62,10 +62,10 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   private String name;
 
   public static final String JSON_PROPERTY_SEARCH = "search";
-  private TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch search;
+  private FormulaAndFunctionEventQueryDefinitionSearch search;
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition compute(TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute compute) {
+  public FormulaAndFunctionEventQueryDefinition compute(FormulaAndFunctionEventQueryDefinitionCompute compute) {
     this.compute = compute;
     return this;
   }
@@ -78,17 +78,17 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute getCompute() {
+  public FormulaAndFunctionEventQueryDefinitionCompute getCompute() {
     return compute;
   }
 
 
-  public void setCompute(TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute compute) {
+  public void setCompute(FormulaAndFunctionEventQueryDefinitionCompute compute) {
     this.compute = compute;
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition dataSource(FormulaAndFunctionEventsDataSource dataSource) {
+  public FormulaAndFunctionEventQueryDefinition dataSource(FormulaAndFunctionEventsDataSource dataSource) {
     this.dataSource = dataSource;
     return this;
   }
@@ -111,12 +111,12 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition groupBy(List<TimeSeriesFormulaAndFunctionEventQueryGroupBy> groupBy) {
+  public FormulaAndFunctionEventQueryDefinition groupBy(List<FormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
     return this;
   }
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition addGroupByItem(TimeSeriesFormulaAndFunctionEventQueryGroupBy groupByItem) {
+  public FormulaAndFunctionEventQueryDefinition addGroupByItem(FormulaAndFunctionEventQueryGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
     }
@@ -133,22 +133,22 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<TimeSeriesFormulaAndFunctionEventQueryGroupBy> getGroupBy() {
+  public List<FormulaAndFunctionEventQueryGroupBy> getGroupBy() {
     return groupBy;
   }
 
 
-  public void setGroupBy(List<TimeSeriesFormulaAndFunctionEventQueryGroupBy> groupBy) {
+  public void setGroupBy(List<FormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition indexes(List<String> indexes) {
+  public FormulaAndFunctionEventQueryDefinition indexes(List<String> indexes) {
     this.indexes = indexes;
     return this;
   }
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition addIndexesItem(String indexesItem) {
+  public FormulaAndFunctionEventQueryDefinition addIndexesItem(String indexesItem) {
     if (this.indexes == null) {
       this.indexes = new ArrayList<>();
     }
@@ -175,7 +175,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition name(String name) {
+  public FormulaAndFunctionEventQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
@@ -199,7 +199,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   }
 
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinition search(TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch search) {
+  public FormulaAndFunctionEventQueryDefinition search(FormulaAndFunctionEventQueryDefinitionSearch search) {
     this.search = search;
     return this;
   }
@@ -213,18 +213,18 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch getSearch() {
+  public FormulaAndFunctionEventQueryDefinitionSearch getSearch() {
     return search;
   }
 
 
-  public void setSearch(TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch search) {
+  public void setSearch(FormulaAndFunctionEventQueryDefinitionSearch search) {
     this.search = search;
   }
 
 
   /**
-   * Return true if this TimeSeriesFormulaAndFunctionEventQueryDefinition object is equal to o.
+   * Return true if this FormulaAndFunctionEventQueryDefinition object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -234,13 +234,13 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TimeSeriesFormulaAndFunctionEventQueryDefinition timeSeriesFormulaAndFunctionEventQueryDefinition = (TimeSeriesFormulaAndFunctionEventQueryDefinition) o;
-    return Objects.equals(this.compute, timeSeriesFormulaAndFunctionEventQueryDefinition.compute) &&
-        Objects.equals(this.dataSource, timeSeriesFormulaAndFunctionEventQueryDefinition.dataSource) &&
-        Objects.equals(this.groupBy, timeSeriesFormulaAndFunctionEventQueryDefinition.groupBy) &&
-        Objects.equals(this.indexes, timeSeriesFormulaAndFunctionEventQueryDefinition.indexes) &&
-        Objects.equals(this.name, timeSeriesFormulaAndFunctionEventQueryDefinition.name) &&
-        Objects.equals(this.search, timeSeriesFormulaAndFunctionEventQueryDefinition.search);
+    FormulaAndFunctionEventQueryDefinition formulaAndFunctionEventQueryDefinition = (FormulaAndFunctionEventQueryDefinition) o;
+    return Objects.equals(this.compute, formulaAndFunctionEventQueryDefinition.compute) &&
+        Objects.equals(this.dataSource, formulaAndFunctionEventQueryDefinition.dataSource) &&
+        Objects.equals(this.groupBy, formulaAndFunctionEventQueryDefinition.groupBy) &&
+        Objects.equals(this.indexes, formulaAndFunctionEventQueryDefinition.indexes) &&
+        Objects.equals(this.name, formulaAndFunctionEventQueryDefinition.name) &&
+        Objects.equals(this.search, formulaAndFunctionEventQueryDefinition.search);
   }
 
   @Override
@@ -252,7 +252,7 @@ public class TimeSeriesFormulaAndFunctionEventQueryDefinition {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TimeSeriesFormulaAndFunctionEventQueryDefinition {\n");
+    sb.append("class FormulaAndFunctionEventQueryDefinition {\n");
     sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");

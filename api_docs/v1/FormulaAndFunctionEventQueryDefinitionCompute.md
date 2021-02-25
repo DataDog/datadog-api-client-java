@@ -1,6 +1,6 @@
 
 
-# TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute
+# FormulaAndFunctionEventQueryDefinitionCompute
 
 Compute options.
 ## Properties

@@ -111,6 +111,11 @@ Class | Method | HTTP request | Description
 *ServiceLevelObjectivesApi* | [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
 *ServiceLevelObjectivesApi* | [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Get all SLOs
 *ServiceLevelObjectivesApi* | [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
+*SlackIntegrationApi* | [**createSlackIntegrationChannel**](SlackIntegrationApi.md#createSlackIntegrationChannel) | **POST** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Create a Slack integration channel
+*SlackIntegrationApi* | [**getSlackIntegrationChannel**](SlackIntegrationApi.md#getSlackIntegrationChannel) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Get a Slack integration channel
+*SlackIntegrationApi* | [**getSlackIntegrationChannels**](SlackIntegrationApi.md#getSlackIntegrationChannels) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Get all channels in a Slack integration
+*SlackIntegrationApi* | [**removeSlackIntegrationChannel**](SlackIntegrationApi.md#removeSlackIntegrationChannel) | **DELETE** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Remove a Slack integration channel
+*SlackIntegrationApi* | [**updateSlackIntegrationChannel**](SlackIntegrationApi.md#updateSlackIntegrationChannel) | **PATCH** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Update a Slack integration channel
 *SnapshotsApi* | [**getGraphSnapshot**](SnapshotsApi.md#getGraphSnapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
 *SyntheticsApi* | [**createGlobalVariable**](SyntheticsApi.md#createGlobalVariable) | **POST** /api/v1/synthetics/variables | Create a global variable
 *SyntheticsApi* | [**createPrivateLocation**](SyntheticsApi.md#createPrivateLocation) | **POST** /api/v1/synthetics/private-locations | Create a private location
@@ -248,10 +253,17 @@ Class | Method | HTTP request | Description
  - [EventTimelineWidgetDefinition](EventTimelineWidgetDefinition.md)
  - [EventTimelineWidgetDefinitionType](EventTimelineWidgetDefinitionType.md)
  - [FormulaAndFunctionEventAggregation](FormulaAndFunctionEventAggregation.md)
+ - [FormulaAndFunctionEventQueryDefinition](FormulaAndFunctionEventQueryDefinition.md)
+ - [FormulaAndFunctionEventQueryDefinitionCompute](FormulaAndFunctionEventQueryDefinitionCompute.md)
+ - [FormulaAndFunctionEventQueryDefinitionSearch](FormulaAndFunctionEventQueryDefinitionSearch.md)
+ - [FormulaAndFunctionEventQueryGroupBy](FormulaAndFunctionEventQueryGroupBy.md)
+ - [FormulaAndFunctionEventQueryGroupBySort](FormulaAndFunctionEventQueryGroupBySort.md)
  - [FormulaAndFunctionEventsDataSource](FormulaAndFunctionEventsDataSource.md)
  - [FormulaAndFunctionMetricAggregation](FormulaAndFunctionMetricAggregation.md)
  - [FormulaAndFunctionMetricDataSource](FormulaAndFunctionMetricDataSource.md)
+ - [FormulaAndFunctionMetricQueryDefinition](FormulaAndFunctionMetricQueryDefinition.md)
  - [FormulaAndFunctionProcessQueryDataSource](FormulaAndFunctionProcessQueryDataSource.md)
+ - [FormulaAndFunctionProcessQueryDefinition](FormulaAndFunctionProcessQueryDefinition.md)
  - [FormulaAndFunctionQueryDefinition](FormulaAndFunctionQueryDefinition.md)
  - [FormulaAndFunctionResponseFormat](FormulaAndFunctionResponseFormat.md)
  - [FreeTextWidgetDefinition](FreeTextWidgetDefinition.md)
@@ -439,6 +451,8 @@ Class | Method | HTTP request | Description
  - [ServiceMapWidgetDefinitionType](ServiceMapWidgetDefinitionType.md)
  - [ServiceSummaryWidgetDefinition](ServiceSummaryWidgetDefinition.md)
  - [ServiceSummaryWidgetDefinitionType](ServiceSummaryWidgetDefinitionType.md)
+ - [SlackIntegrationChannel](SlackIntegrationChannel.md)
+ - [SlackIntegrationChannelDisplay](SlackIntegrationChannelDisplay.md)
  - [SyntheticsAPITestResultData](SyntheticsAPITestResultData.md)
  - [SyntheticsAPITestResultFull](SyntheticsAPITestResultFull.md)
  - [SyntheticsAPITestResultFullCheck](SyntheticsAPITestResultFullCheck.md)
@@ -527,13 +541,6 @@ Class | Method | HTTP request | Description
  - [TableWidgetRequest](TableWidgetRequest.md)
  - [TagToHosts](TagToHosts.md)
  - [TargetFormatType](TargetFormatType.md)
- - [TimeSeriesFormulaAndFunctionEventQueryDefinition](TimeSeriesFormulaAndFunctionEventQueryDefinition.md)
- - [TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute](TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.md)
- - [TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch](TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch.md)
- - [TimeSeriesFormulaAndFunctionEventQueryGroupBy](TimeSeriesFormulaAndFunctionEventQueryGroupBy.md)
- - [TimeSeriesFormulaAndFunctionEventQueryGroupBySort](TimeSeriesFormulaAndFunctionEventQueryGroupBySort.md)
- - [TimeSeriesFormulaAndFunctionMetricQueryDefinition](TimeSeriesFormulaAndFunctionMetricQueryDefinition.md)
- - [TimeSeriesFormulaAndFunctionProcessQueryDefinition](TimeSeriesFormulaAndFunctionProcessQueryDefinition.md)
  - [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
  - [TimeseriesWidgetDefinitionType](TimeseriesWidgetDefinitionType.md)
  - [TimeseriesWidgetExpressionAlias](TimeseriesWidgetExpressionAlias.md)

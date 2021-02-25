@@ -1,6 +1,6 @@
 
 
-# TimeSeriesFormulaAndFunctionEventQueryGroupBySort
+# FormulaAndFunctionEventQueryGroupBySort
 
 Options for sorting group by results.
 ## Properties
