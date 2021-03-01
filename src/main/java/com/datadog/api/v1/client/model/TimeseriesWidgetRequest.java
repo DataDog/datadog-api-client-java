@@ -195,11 +195,11 @@ public class TimeseriesWidgetRequest {
   }
 
    /**
-   * List of formulas that operate on queries. This feature is currently in beta.
+   * List of formulas that operate on queries. **This feature is currently in beta.**
    * @return formulas
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of formulas that operate on queries. This feature is currently in beta.")
+  @ApiModelProperty(value = "List of formulas that operate on queries. **This feature is currently in beta.**")
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -403,11 +403,11 @@ public class TimeseriesWidgetRequest {
   }
 
    /**
-   * List of queries that can be returned directly or used in formulas. This feature is currently in beta.
+   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
    * @return queries
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of queries that can be returned directly or used in formulas. This feature is currently in beta.")
+  @ApiModelProperty(value = "List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

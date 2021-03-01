@@ -15,9 +15,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
+import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
 import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.datadog.api.v1.client.model.ProcessQueryDefinition;
 import com.datadog.api.v1.client.model.WidgetConditionalFormat;
+import com.datadog.api.v1.client.model.WidgetFormula;
 import com.datadog.api.v1.client.model.WidgetRequestStyle;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -40,11 +43,14 @@ import com.datadog.api.v1.client.JSON;
   ToplistWidgetRequest.JSON_PROPERTY_APM_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
   ToplistWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
+  ToplistWidgetRequest.JSON_PROPERTY_FORMULAS,
   ToplistWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_Q,
+  ToplistWidgetRequest.JSON_PROPERTY_QUERIES,
+  ToplistWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   ToplistWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_STYLE
@@ -60,6 +66,9 @@ public class ToplistWidgetRequest {
   public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
   private LogQueryDefinition eventQuery;
 
+  public static final String JSON_PROPERTY_FORMULAS = "formulas";
+  private List<WidgetFormula> formulas = null;
+
   public static final String JSON_PROPERTY_LOG_QUERY = "log_query";
   private LogQueryDefinition logQuery;
 
@@ -74,6 +83,12 @@ public class ToplistWidgetRequest {
 
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
+
+  public static final String JSON_PROPERTY_QUERIES = "queries";
+  private List<FormulaAndFunctionQueryDefinition> queries = null;
+
+  public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
+  private FormulaAndFunctionResponseFormat responseFormat;
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
@@ -162,6 +177,38 @@ public class ToplistWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+  }
+
+
+  public ToplistWidgetRequest formulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
+    return this;
+  }
+
+  public ToplistWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
+    if (this.formulas == null) {
+      this.formulas = new ArrayList<>();
+    }
+    this.formulas.add(formulasItem);
+    return this;
+  }
+
+   /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   * @return formulas
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of formulas that operate on queries. **This feature is currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_FORMULAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<WidgetFormula> getFormulas() {
+    return formulas;
+  }
+
+
+  public void setFormulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
   }
 
 
@@ -285,6 +332,62 @@ public class ToplistWidgetRequest {
   }
 
 
+  public ToplistWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+    return this;
+  }
+
+  public ToplistWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
+    if (this.queries == null) {
+      this.queries = new ArrayList<>();
+    }
+    this.queries.add(queriesItem);
+    return this;
+  }
+
+   /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   * @return queries
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<FormulaAndFunctionQueryDefinition> getQueries() {
+    return queries;
+  }
+
+
+  public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+  }
+
+
+  public ToplistWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    this.responseFormat = responseFormat;
+    return this;
+  }
+
+   /**
+   * Get responseFormat
+   * @return responseFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FormulaAndFunctionResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
+
+
+  public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    this.responseFormat = responseFormat;
+  }
+
+
   public ToplistWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     return this;
@@ -372,11 +475,14 @@ public class ToplistWidgetRequest {
     return Objects.equals(this.apmQuery, toplistWidgetRequest.apmQuery) &&
         Objects.equals(this.conditionalFormats, toplistWidgetRequest.conditionalFormats) &&
         Objects.equals(this.eventQuery, toplistWidgetRequest.eventQuery) &&
+        Objects.equals(this.formulas, toplistWidgetRequest.formulas) &&
         Objects.equals(this.logQuery, toplistWidgetRequest.logQuery) &&
         Objects.equals(this.networkQuery, toplistWidgetRequest.networkQuery) &&
         Objects.equals(this.processQuery, toplistWidgetRequest.processQuery) &&
         Objects.equals(this.profileMetricsQuery, toplistWidgetRequest.profileMetricsQuery) &&
         Objects.equals(this.q, toplistWidgetRequest.q) &&
+        Objects.equals(this.queries, toplistWidgetRequest.queries) &&
+        Objects.equals(this.responseFormat, toplistWidgetRequest.responseFormat) &&
         Objects.equals(this.rumQuery, toplistWidgetRequest.rumQuery) &&
         Objects.equals(this.securityQuery, toplistWidgetRequest.securityQuery) &&
         Objects.equals(this.style, toplistWidgetRequest.style);
@@ -384,7 +490,7 @@ public class ToplistWidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, conditionalFormats, eventQuery, logQuery, networkQuery, processQuery, profileMetricsQuery, q, rumQuery, securityQuery, style);
+    return Objects.hash(apmQuery, conditionalFormats, eventQuery, formulas, logQuery, networkQuery, processQuery, profileMetricsQuery, q, queries, responseFormat, rumQuery, securityQuery, style);
   }
 
 
@@ -395,11 +501,14 @@ public class ToplistWidgetRequest {
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
+    sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
     sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
+    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
+    sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
