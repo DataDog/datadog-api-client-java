@@ -95,11 +95,11 @@ public class DowntimeRecurrence {
   }
 
    /**
-   * The &#x60;RRULE&#x60; standard for defining recurring events. For example, to have a recurring event on the first day of each month, select a type of &#x60;rrule&#x60; and set the &#x60;FREQ&#x60; to &#x60;MONTHLY&#x60; and &#x60;BYMONTHDAY&#x60; to &#x60;1&#x60;. Most common &#x60;rrule&#x60; options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in &#x60;RRULE&#x60; are not supported (for example, &#x60;DTSTART&#x60;, &#x60;DTEND&#x60;, &#x60;DURATION&#x60;).
+   * The &#x60;RRULE&#x60; standard for defining recurring events (**requires to set \&quot;type\&quot; to rrule**) For example, to have a recurring event on the first day of each month, set the type to &#x60;rrule&#x60; and set the &#x60;FREQ&#x60; to &#x60;MONTHLY&#x60; and &#x60;BYMONTHDAY&#x60; to &#x60;1&#x60;. Most common &#x60;rrule&#x60; options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in &#x60;RRULE&#x60; are not supported (for example, &#x60;DTSTART&#x60;, &#x60;DTEND&#x60;, &#x60;DURATION&#x60;). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/supress-alert-with-downtimes/?tab&#x3D;api)
    * @return rrule
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1", value = "The `RRULE` standard for defining recurring events. For example, to have a recurring event on the first day of each month, select a type of `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).")
+  @ApiModelProperty(example = "FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1", value = "The `RRULE` standard for defining recurring events (**requires to set \"type\" to rrule**) For example, to have a recurring event on the first day of each month, set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`. Most common `rrule` options from the [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes specifying the duration in `RRULE` are not supported (for example, `DTSTART`, `DTEND`, `DURATION`). More examples available in this [downtime guide](https://docs.datadoghq.com/monitors/guide/supress-alert-with-downtimes/?tab=api)")
   @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -119,11 +119,11 @@ public class DowntimeRecurrence {
   }
 
    /**
-   * The type of recurrence. Choose from &#x60;days&#x60;, &#x60;weeks&#x60;, &#x60;months&#x60;, &#x60;years&#x60;.
+   * The type of recurrence. Choose from &#x60;days&#x60;, &#x60;weeks&#x60;, &#x60;months&#x60;, &#x60;years&#x60;, &#x60;rrule&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "weeks", value = "The type of recurrence. Choose from `days`, `weeks`, `months`, `years`.")
+  @ApiModelProperty(example = "weeks", value = "The type of recurrence. Choose from `days`, `weeks`, `months`, `years`, `rrule`.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
