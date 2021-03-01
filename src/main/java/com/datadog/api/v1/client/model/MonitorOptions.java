@@ -47,6 +47,7 @@ import com.datadog.api.v1.client.JSON;
   MonitorOptions.JSON_PROPERTY_ENABLE_LOGS_SAMPLE,
   MonitorOptions.JSON_PROPERTY_ESCALATION_MESSAGE,
   MonitorOptions.JSON_PROPERTY_EVALUATION_DELAY,
+  MonitorOptions.JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR,
   MonitorOptions.JSON_PROPERTY_INCLUDE_TAGS,
   MonitorOptions.JSON_PROPERTY_LOCKED,
   MonitorOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
@@ -79,6 +80,9 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_EVALUATION_DELAY = "evaluation_delay";
   private JsonNullable<Long> evaluationDelay = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR = "groupby_simple_monitor";
+  private Boolean groupbySimpleMonitor;
 
   public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
   private Boolean includeTags = true;
@@ -245,6 +249,30 @@ public class MonitorOptions {
 
   public void setEvaluationDelay(Long evaluationDelay) {
     this.evaluationDelay = JsonNullable.<Long>of(evaluationDelay);
+  }
+
+
+  public MonitorOptions groupbySimpleMonitor(Boolean groupbySimpleMonitor) {
+    this.groupbySimpleMonitor = groupbySimpleMonitor;
+    return this;
+  }
+
+   /**
+   * Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
+   * @return groupbySimpleMonitor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.")
+  @JsonProperty(JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getGroupbySimpleMonitor() {
+    return groupbySimpleMonitor;
+  }
+
+
+  public void setGroupbySimpleMonitor(Boolean groupbySimpleMonitor) {
+    this.groupbySimpleMonitor = groupbySimpleMonitor;
   }
 
 
@@ -705,6 +733,7 @@ public class MonitorOptions {
         Objects.equals(this.enableLogsSample, monitorOptions.enableLogsSample) &&
         Objects.equals(this.escalationMessage, monitorOptions.escalationMessage) &&
         Objects.equals(this.evaluationDelay, monitorOptions.evaluationDelay) &&
+        Objects.equals(this.groupbySimpleMonitor, monitorOptions.groupbySimpleMonitor) &&
         Objects.equals(this.includeTags, monitorOptions.includeTags) &&
         Objects.equals(this.locked, monitorOptions.locked) &&
         Objects.equals(this.minFailureDuration, monitorOptions.minFailureDuration) &&
@@ -724,7 +753,7 @@ public class MonitorOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, deviceIds, enableLogsSample, escalationMessage, evaluationDelay, includeTags, locked, minFailureDuration, minLocationFailed, newHostDelay, noDataTimeframe, notifyAudit, notifyNoData, renotifyInterval, requireFullWindow, silenced, syntheticsCheckId, thresholdWindows, thresholds, timeoutH);
+    return Objects.hash(aggregation, deviceIds, enableLogsSample, escalationMessage, evaluationDelay, groupbySimpleMonitor, includeTags, locked, minFailureDuration, minLocationFailed, newHostDelay, noDataTimeframe, notifyAudit, notifyNoData, renotifyInterval, requireFullWindow, silenced, syntheticsCheckId, thresholdWindows, thresholds, timeoutH);
   }
 
 
@@ -737,6 +766,7 @@ public class MonitorOptions {
     sb.append("    enableLogsSample: ").append(toIndentedString(enableLogsSample)).append("\n");
     sb.append("    escalationMessage: ").append(toIndentedString(escalationMessage)).append("\n");
     sb.append("    evaluationDelay: ").append(toIndentedString(evaluationDelay)).append("\n");
+    sb.append("    groupbySimpleMonitor: ").append(toIndentedString(groupbySimpleMonitor)).append("\n");
     sb.append("    includeTags: ").append(toIndentedString(includeTags)).append("\n");
     sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("    minFailureDuration: ").append(toIndentedString(minFailureDuration)).append("\n");
