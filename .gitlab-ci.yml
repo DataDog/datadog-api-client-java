@@ -1,0 +1,12 @@
+stages:
+  - deploy
+
+# From the tagged repo, stage the final artifact
+# We've already run tests through the CI when creating the changelog and tag, skip them here
+deploy:
+  stage: deploy
+  image: maven:3.6.3-jdk-8-slim
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - mvn -DskipTests -Darguments=-DskipTests -DdryRun=true --settings settings.xml clean deploy

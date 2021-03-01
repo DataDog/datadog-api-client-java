@@ -22,6 +22,13 @@
         </license>
     </licenses>
 
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+        </repository>
+    </distributionManagement>
+
     <developers>
         <developer>
             <!-- Additions for tests and small generation changes -->
@@ -71,6 +78,14 @@
                 <version>3.0.0-M1</version>
                 <configuration>
                     <tagNameFormat>@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+            <!-- Skip the maven release default deploy, we use the nexus staging plugin for this-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
             <plugin>
@@ -232,8 +247,9 @@
                 <version>1.6.6</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>nexus-datadog-api-client</serverId>
+                    <serverId>nexus</serverId>
                     <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>
@@ -417,5 +433,6 @@
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.1</junit-version>
         <dd-java-agent-version>0.72.0</dd-java-agent-version>
+        <project.scm.id>github</project.scm.id>
     </properties>
 </project>
