@@ -9,7 +9,9 @@ import com.datadog.api.v1.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.datadog.api.v1.client.model.APIErrorResponse;
+import com.datadog.api.v1.client.model.SyntheticsAPITest;
 import com.datadog.api.v1.client.model.SyntheticsAPITestResultFull;
+import com.datadog.api.v1.client.model.SyntheticsBrowserTest;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultFull;
 import com.datadog.api.v1.client.model.SyntheticsCITestBody;
 import com.datadog.api.v1.client.model.SyntheticsDeleteTestsPayload;
@@ -275,6 +277,224 @@ private ApiResponse<SyntheticsPrivateLocationCreationResponse> createPrivateLoca
     return new APIcreatePrivateLocationRequest();
   }
 
+private ApiResponse<SyntheticsAPITest> createSyntheticsAPITestWithHttpInfo(SyntheticsAPITest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createSyntheticsAPITest");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/api";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createSyntheticsAPITest");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsAPITest> localVarReturnType = new GenericType<SyntheticsAPITest>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.createSyntheticsAPITest", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIcreateSyntheticsAPITestRequest {
+    private SyntheticsAPITest body;
+
+    private APIcreateSyntheticsAPITestRequest() {
+    }
+
+    /**
+     * Set body
+     * @param body Details of the test to create. (required)
+     * @return APIcreateSyntheticsAPITestRequest
+     */
+    public APIcreateSyntheticsAPITestRequest body(SyntheticsAPITest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createSyntheticsAPITest request
+     * @return SyntheticsAPITest
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+         <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsAPITest execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createSyntheticsAPITest request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsAPITest&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+         <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsAPITest> executeWithHttpInfo() throws ApiException {
+      return createSyntheticsAPITestWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Create an API test
+   * Create a Synthetic API test.
+   * @return createSyntheticsAPITestRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIcreateSyntheticsAPITestRequest createSyntheticsAPITest() throws ApiException {
+    return new APIcreateSyntheticsAPITestRequest();
+  }
+
+private ApiResponse<SyntheticsBrowserTest> createSyntheticsBrowserTestWithHttpInfo(SyntheticsBrowserTest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createSyntheticsBrowserTest");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/browser";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createSyntheticsBrowserTest");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsBrowserTest> localVarReturnType = new GenericType<SyntheticsBrowserTest>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.createSyntheticsBrowserTest", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIcreateSyntheticsBrowserTestRequest {
+    private SyntheticsBrowserTest body;
+
+    private APIcreateSyntheticsBrowserTestRequest() {
+    }
+
+    /**
+     * Set body
+     * @param body Details of the test to create. (required)
+     * @return APIcreateSyntheticsBrowserTestRequest
+     */
+    public APIcreateSyntheticsBrowserTestRequest body(SyntheticsBrowserTest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createSyntheticsBrowserTest request
+     * @return SyntheticsBrowserTest
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+         <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsBrowserTest execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createSyntheticsBrowserTest request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+         <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsBrowserTest> executeWithHttpInfo() throws ApiException {
+      return createSyntheticsBrowserTestWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Create a browser test
+   * Create a Synthetic browser test.
+   * @return createSyntheticsBrowserTestRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIcreateSyntheticsBrowserTestRequest createSyntheticsBrowserTest() throws ApiException {
+    return new APIcreateSyntheticsBrowserTestRequest();
+  }
+
 private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTestDetails body) throws ApiException {
     Object localVarPostBody = body;
     
@@ -346,9 +566,9 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
          <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-     
+     * @deprecated
      */
-    
+    @Deprecated
     public SyntheticsTestDetails execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
@@ -365,8 +585,9 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
          <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        </table>
-
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
       return createTestWithHttpInfo(body);
     }
@@ -377,9 +598,10 @@ private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTest
    * Create a Synthetic test.
    * @return createTestRequest
    * @throws ApiException if fails to make API call
-   
+   * @deprecated
    
    */
+  @Deprecated
   public APIcreateTestRequest createTest() throws ApiException {
     return new APIcreateTestRequest();
   }
@@ -1976,6 +2198,242 @@ private ApiResponse<SyntheticsTriggerCITestsResponse> triggerCITestsWithHttpInfo
     return new APItriggerCITestsRequest();
   }
 
+private ApiResponse<SyntheticsAPITest> updateAPITestWithHttpInfo(String publicId, SyntheticsAPITest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(400, "Missing the required parameter 'publicId' when calling updateAPITest");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateAPITest");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/api/{public_id}"
+      .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateAPITest");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsAPITest> localVarReturnType = new GenericType<SyntheticsAPITest>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.updateAPITest", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIupdateAPITestRequest {
+    private String publicId;
+    private SyntheticsAPITest body;
+
+    private APIupdateAPITestRequest(String publicId) {
+      this.publicId = publicId;
+    }
+
+    /**
+     * Set body
+     * @param body New test details to be saved. (required)
+     * @return APIupdateAPITestRequest
+     */
+    public APIupdateAPITestRequest body(SyntheticsAPITest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute updateAPITest request
+     * @return SyntheticsAPITest
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsAPITest execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateAPITest request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsAPITest&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsAPITest> executeWithHttpInfo() throws ApiException {
+      return updateAPITestWithHttpInfo(publicId, body);
+    }
+  }
+
+  /**
+   * Edit an API test
+   * Edit the configuration of a Synthetic API test.
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return updateAPITestRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIupdateAPITestRequest updateAPITest(String publicId) throws ApiException {
+    return new APIupdateAPITestRequest(publicId);
+  }
+
+private ApiResponse<SyntheticsBrowserTest> updateBrowserTestWithHttpInfo(String publicId, SyntheticsBrowserTest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(400, "Missing the required parameter 'publicId' when calling updateBrowserTest");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateBrowserTest");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/browser/{public_id}"
+      .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateBrowserTest");
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+
+    GenericType<SyntheticsBrowserTest> localVarReturnType = new GenericType<SyntheticsBrowserTest>() {};
+
+    return apiClient.invokeAPI("SyntheticsApi.updateBrowserTest", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIupdateBrowserTestRequest {
+    private String publicId;
+    private SyntheticsBrowserTest body;
+
+    private APIupdateBrowserTestRequest(String publicId) {
+      this.publicId = publicId;
+    }
+
+    /**
+     * Set body
+     * @param body New test details to be saved. (required)
+     * @return APIupdateBrowserTestRequest
+     */
+    public APIupdateBrowserTestRequest body(SyntheticsBrowserTest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute updateBrowserTest request
+     * @return SyntheticsBrowserTest
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public SyntheticsBrowserTest execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateBrowserTest request with HTTP info returned
+     * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+         <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+         <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<SyntheticsBrowserTest> executeWithHttpInfo() throws ApiException {
+      return updateBrowserTestWithHttpInfo(publicId, body);
+    }
+  }
+
+  /**
+   * Edit a browser test
+   * Edit the configuration of a Synthetic browser test.
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return updateBrowserTestRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIupdateBrowserTestRequest updateBrowserTest(String publicId) throws ApiException {
+    return new APIupdateBrowserTestRequest(publicId);
+  }
+
 private ApiResponse<SyntheticsPrivateLocation> updatePrivateLocationWithHttpInfo(String locationId, SyntheticsPrivateLocation body) throws ApiException {
     Object localVarPostBody = body;
     
@@ -2169,9 +2627,9 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
        </table>
-     
+     * @deprecated
      */
-    
+    @Deprecated
     public SyntheticsTestDetails execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
@@ -2188,8 +2646,9 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
          <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
          <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
        </table>
-
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
       return updateTestWithHttpInfo(publicId, body);
     }
@@ -2201,9 +2660,10 @@ private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(String publicI
    * @param publicId The public ID of the test to get details from. (required)
    * @return updateTestRequest
    * @throws ApiException if fails to make API call
-   
+   * @deprecated
    
    */
+  @Deprecated
   public APIupdateTestRequest updateTest(String publicId) throws ApiException {
     return new APIupdateTestRequest(publicId);
   }
