@@ -54,11 +54,13 @@ Class | Method | HTTP request | Description
 *LogsMetricsApi* | [**getLogsMetric**](LogsMetricsApi.md#getLogsMetric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric
 *LogsMetricsApi* | [**listLogsMetrics**](LogsMetricsApi.md#listLogsMetrics) | **GET** /api/v2/logs/config/metrics | Get all log-based metrics
 *LogsMetricsApi* | [**updateLogsMetric**](LogsMetricsApi.md#updateLogsMetric) | **PATCH** /api/v2/logs/config/metrics/{metric_id} | Update a log-based metric
-*MetricsApi* | [**createTagConfiguration**](MetricsApi.md#createTagConfiguration) | **POST** /api/v2/metrics/{metric_name}/tags | Create a Tag Configuration
-*MetricsApi* | [**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration) | **DELETE** /api/v2/metrics/{metric_name}/tags | Delete a Tag Configuration
-*MetricsApi* | [**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName) | **GET** /api/v2/metrics/{metric_name}/tags | List Tag Configuration by Name
-*MetricsApi* | [**listTagConfigurations**](MetricsApi.md#listTagConfigurations) | **GET** /api/v2/metrics | List Tag Configurations
-*MetricsApi* | [**updateTagConfiguration**](MetricsApi.md#updateTagConfiguration) | **PATCH** /api/v2/metrics/{metric_name}/tags | Update a Tag Configuration
+*MetricsApi* | [**createTagConfiguration**](MetricsApi.md#createTagConfiguration) | **POST** /api/v2/metrics/{metric_name}/tags | Create a tag configuration
+*MetricsApi* | [**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration) | **DELETE** /api/v2/metrics/{metric_name}/tags | Delete a tag configuration
+*MetricsApi* | [**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName) | **GET** /api/v2/metrics/{metric_name}/tags | List tag configuration by name
+*MetricsApi* | [**listTagConfigurations**](MetricsApi.md#listTagConfigurations) | **GET** /api/v2/metrics | List tag configurations
+*MetricsApi* | [**listTagsByMetricName**](MetricsApi.md#listTagsByMetricName) | **GET** /api/v2/metrics/{metric_name}/all-tags | List tags by metric name
+*MetricsApi* | [**listVolumesByMetricName**](MetricsApi.md#listVolumesByMetricName) | **GET** /api/v2/metrics/{metric_name}/volumes | List distinct metric volumes by metric name
+*MetricsApi* | [**updateTagConfiguration**](MetricsApi.md#updateTagConfiguration) | **PATCH** /api/v2/metrics/{metric_name}/tags | Update a tag configuration
 *ProcessesApi* | [**listProcesses**](ProcessesApi.md#listProcesses) | **GET** /api/v2/processes | Get all processes
 *RolesApi* | [**addPermissionToRole**](RolesApi.md#addPermissionToRole) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 *RolesApi* | [**addUserToRole**](RolesApi.md#addUserToRole) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
@@ -263,6 +265,15 @@ Class | Method | HTTP request | Description
  - [LogsSortOrder](LogsSortOrder.md)
  - [LogsWarning](LogsWarning.md)
  - [Metric](Metric.md)
+ - [MetricAllTags](MetricAllTags.md)
+ - [MetricAllTagsAttributes](MetricAllTagsAttributes.md)
+ - [MetricAllTagsResponse](MetricAllTagsResponse.md)
+ - [MetricDistinctVolume](MetricDistinctVolume.md)
+ - [MetricDistinctVolumeAttributes](MetricDistinctVolumeAttributes.md)
+ - [MetricDistinctVolumeType](MetricDistinctVolumeType.md)
+ - [MetricIngestedIndexedVolume](MetricIngestedIndexedVolume.md)
+ - [MetricIngestedIndexedVolumeAttributes](MetricIngestedIndexedVolumeAttributes.md)
+ - [MetricIngestedIndexedVolumeType](MetricIngestedIndexedVolumeType.md)
  - [MetricTagConfiguration](MetricTagConfiguration.md)
  - [MetricTagConfigurationAttributes](MetricTagConfigurationAttributes.md)
  - [MetricTagConfigurationCreateAttributes](MetricTagConfigurationCreateAttributes.md)
@@ -275,6 +286,8 @@ Class | Method | HTTP request | Description
  - [MetricTagConfigurationUpdateData](MetricTagConfigurationUpdateData.md)
  - [MetricTagConfigurationUpdateRequest](MetricTagConfigurationUpdateRequest.md)
  - [MetricType](MetricType.md)
+ - [MetricVolumes](MetricVolumes.md)
+ - [MetricVolumesResponse](MetricVolumesResponse.md)
  - [MetricsAndMetricTagConfigurations](MetricsAndMetricTagConfigurations.md)
  - [MetricsAndMetricTagConfigurationsResponse](MetricsAndMetricTagConfigurationsResponse.md)
  - [Organization](Organization.md)
