@@ -4,11 +4,13 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createTagConfiguration**](MetricsApi.md#createTagConfiguration) | **POST** /api/v2/metrics/{metric_name}/tags | Create a Tag Configuration
-[**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration) | **DELETE** /api/v2/metrics/{metric_name}/tags | Delete a Tag Configuration
-[**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName) | **GET** /api/v2/metrics/{metric_name}/tags | List Tag Configuration by Name
-[**listTagConfigurations**](MetricsApi.md#listTagConfigurations) | **GET** /api/v2/metrics | List Tag Configurations
-[**updateTagConfiguration**](MetricsApi.md#updateTagConfiguration) | **PATCH** /api/v2/metrics/{metric_name}/tags | Update a Tag Configuration
+[**createTagConfiguration**](MetricsApi.md#createTagConfiguration) | **POST** /api/v2/metrics/{metric_name}/tags | Create a tag configuration
+[**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration) | **DELETE** /api/v2/metrics/{metric_name}/tags | Delete a tag configuration
+[**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName) | **GET** /api/v2/metrics/{metric_name}/tags | List tag configuration by name
+[**listTagConfigurations**](MetricsApi.md#listTagConfigurations) | **GET** /api/v2/metrics | List tag configurations
+[**listTagsByMetricName**](MetricsApi.md#listTagsByMetricName) | **GET** /api/v2/metrics/{metric_name}/all-tags | List tags by metric name
+[**listVolumesByMetricName**](MetricsApi.md#listVolumesByMetricName) | **GET** /api/v2/metrics/{metric_name}/volumes | List distinct metric volumes by metric name
+[**updateTagConfiguration**](MetricsApi.md#updateTagConfiguration) | **PATCH** /api/v2/metrics/{metric_name}/tags | Update a tag configuration
 
 
 
@@ -16,7 +18,7 @@ Method | HTTP request | Description
 
 > MetricTagConfigurationResponse createTagConfiguration(metricName).body(body).execute();
 
-Create a Tag Configuration
+Create a tag configuration
 
 Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric.
 Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
@@ -103,7 +105,7 @@ Name | Type | Description  | Notes
 
 > deleteTagConfiguration(metricName).execute();
 
-Delete a Tag Configuration
+Delete a tag configuration
 
 Deletes a metric's tag configuration. Can only be used with application
 keys from users with the `Manage Tags for Metrics` permission.
@@ -185,7 +187,7 @@ null (empty response body)
 
 > MetricTagConfigurationResponse listTagConfigurationByName(metricName).execute();
 
-List Tag Configuration by Name
+List tag configuration by name
 
 Returns the tag configuration for the given metric name.
 
@@ -267,7 +269,7 @@ Name | Type | Description  | Notes
 
 > MetricsAndMetricTagConfigurationsResponse listTagConfigurations().filterConfigured(filterConfigured).filterTagsConfigured(filterTagsConfigured).filterMetricType(filterMetricType).filterIncludePercentiles(filterIncludePercentiles).execute();
 
-List Tag Configurations
+List tag configurations
 
 Returns all configured count/gauge/rate/distribution metric names
 (with additional filters if specified).
@@ -356,11 +358,181 @@ Name | Type | Description  | Notes
 | **429** | Too Many Requests |  -  |
 
 
+## listTagsByMetricName
+
+> MetricAllTagsResponse listTagsByMetricName(metricName).execute();
+
+List tags by metric name
+
+View indexed tag key-value pairs for a given metric name.
+
+### Example
+
+```java
+// Import classes:
+import java.util.*;
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.MetricsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        MetricsApi apiInstance = new MetricsApi(defaultClient);
+        String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
+        try {
+            MetricAllTagsResponse result = apiInstance.listTagsByMetricName(metricName)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MetricsApi#listTagsByMetricName");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricName** | **String**| The name of the metric. |
+
+### Return type
+
+[**MetricAllTagsResponse**](MetricAllTagsResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+
+## listVolumesByMetricName
+
+> MetricVolumesResponse listVolumesByMetricName(metricName).execute();
+
+List distinct metric volumes by metric name
+
+View distinct metrics volumes for the given metric name.
+
+Custom distribution metrics will return both ingested and indexed custom metrics.
+For Metrics without Limits beta customers, all metrics will return both ingested/indexed volumes.
+Custom metrics generated in-app from other products will return `null` for ingested volumes.
+
+### Example
+
+```java
+// Import classes:
+import java.util.*;
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.auth.*;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.MetricsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        MetricsApi apiInstance = new MetricsApi(defaultClient);
+        String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
+        try {
+            MetricVolumesResponse result = apiInstance.listVolumesByMetricName(metricName)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MetricsApi#listVolumesByMetricName");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricName** | **String**| The name of the metric. |
+
+### Return type
+
+[**MetricVolumesResponse**](MetricVolumesResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+
 ## updateTagConfiguration
 
 > MetricTagConfigurationResponse updateTagConfiguration(metricName).body(body).execute();
 
-Update a Tag Configuration
+Update a tag configuration
 
 Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with
 application keys from users with the `Manage Tags for Metrics` permission.
