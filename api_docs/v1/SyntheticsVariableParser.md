@@ -1,6 +1,6 @@
 
 
-# SyntheticsGlobalVariableParseTestOptionsParser
+# SyntheticsVariableParser
 
 Details of the parser to use for the global variable.
 ## Properties

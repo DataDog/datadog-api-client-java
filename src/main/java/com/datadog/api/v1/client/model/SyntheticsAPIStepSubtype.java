@@ -24,23 +24,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;, &#x60;dns&#x60; or &#x60;multi&#x60;.
+ * The subtype of the Synthetic multistep API test step, currently only supporting &#x60;http&#x60;.
  */
-public enum SyntheticsTestDetailsSubType {
+public enum SyntheticsAPIStepSubtype {
   
-  HTTP("http"),
-  
-  SSL("ssl"),
-  
-  TCP("tcp"),
-  
-  DNS("dns"),
-  
-  MULTI("multi");
+  HTTP("http");
 
   private String value;
 
-  SyntheticsTestDetailsSubType(String value) {
+  SyntheticsAPIStepSubtype(String value) {
     this.value = value;
   }
 
@@ -55,8 +47,8 @@ public enum SyntheticsTestDetailsSubType {
   }
 
   @JsonCreator
-  public static SyntheticsTestDetailsSubType fromValue(String value) {
-    for (SyntheticsTestDetailsSubType b : SyntheticsTestDetailsSubType.values()) {
+  public static SyntheticsAPIStepSubtype fromValue(String value) {
+    for (SyntheticsAPIStepSubtype b : SyntheticsAPIStepSubtype.values()) {
       if (b.value.equals(value)) {
         return b;
       }
