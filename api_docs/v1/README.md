@@ -104,13 +104,13 @@ Class | Method | HTTP request | Description
 *ServiceLevelObjectiveCorrectionsApi* | [**listSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#listSLOCorrection) | **GET** /api/v1/slo/correction | Get all SLO corrections
 *ServiceLevelObjectiveCorrectionsApi* | [**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO Correction
 *ServiceLevelObjectivesApi* | [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
-*ServiceLevelObjectivesApi* | [**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create a SLO object
-*ServiceLevelObjectivesApi* | [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO
+*ServiceLevelObjectivesApi* | [**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create an SLO object
+*ServiceLevelObjectivesApi* | [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete an SLO
 *ServiceLevelObjectivesApi* | [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
-*ServiceLevelObjectivesApi* | [**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details
+*ServiceLevelObjectivesApi* | [**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get an SLO&#39;s details
 *ServiceLevelObjectivesApi* | [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
 *ServiceLevelObjectivesApi* | [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Get all SLOs
-*ServiceLevelObjectivesApi* | [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
+*ServiceLevelObjectivesApi* | [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update an SLO
 *SlackIntegrationApi* | [**createSlackIntegrationChannel**](SlackIntegrationApi.md#createSlackIntegrationChannel) | **POST** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Create a Slack integration channel
 *SlackIntegrationApi* | [**getSlackIntegrationChannel**](SlackIntegrationApi.md#getSlackIntegrationChannel) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Get a Slack integration channel
 *SlackIntegrationApi* | [**getSlackIntegrationChannels**](SlackIntegrationApi.md#getSlackIntegrationChannels) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Get all channels in a Slack integration

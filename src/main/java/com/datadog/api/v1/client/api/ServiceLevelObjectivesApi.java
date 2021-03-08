@@ -155,7 +155,7 @@ private ApiResponse<CheckCanDeleteSLOResponse> checkCanDeleteSLOWithHttpInfo(Str
 
   /**
    * Check if SLOs can be safely deleted
-   * Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
+   * Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
    * @return checkCanDeleteSLORequest
    * @throws ApiException if fails to make API call
    
@@ -261,7 +261,7 @@ private ApiResponse<SLOListResponse> createSLOWithHttpInfo(ServiceLevelObjective
   }
 
   /**
-   * Create a SLO object
+   * Create an SLO object
    * Create a service level objective object.
    * @return createSLORequest
    * @throws ApiException if fails to make API call
@@ -374,7 +374,7 @@ private ApiResponse<SLODeleteResponse> deleteSLOWithHttpInfo(String sloId, Strin
   }
 
   /**
-   * Delete a SLO
+   * Delete an SLO
    * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the &#x60;DELETE /v1/slo/&#x60; endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
    * @param sloId The ID of the service level objective. (required)
    * @return deleteSLORequest
@@ -581,7 +581,7 @@ private ApiResponse<SLOResponse> getSLOWithHttpInfo(String sloId) throws ApiExce
   }
 
   /**
-   * Get a SLO&#39;s details
+   * Get an SLO&#39;s details
    * Get a service level objective object.
    * @param sloId The ID of the service level objective object. (required)
    * @return getSLORequest
@@ -982,7 +982,7 @@ private ApiResponse<SLOListResponse> updateSLOWithHttpInfo(String sloId, Service
   }
 
   /**
-   * Update a SLO
+   * Update an SLO
    * Update the specified service level objective object.
    * @param sloId The ID of the service level objective object. (required)
    * @return updateSLORequest
