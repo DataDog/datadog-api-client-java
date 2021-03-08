@@ -171,7 +171,6 @@ public class ImageWidgetDefinition {
     return Objects.hash(margin, sizing, type, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

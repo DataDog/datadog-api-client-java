@@ -317,7 +317,6 @@ public class HostMapRequest {
     return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, profileMetricsQuery, q, rumQuery, securityQuery);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

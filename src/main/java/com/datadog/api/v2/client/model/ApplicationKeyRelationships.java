@@ -84,7 +84,6 @@ public class ApplicationKeyRelationships {
     return Objects.hash(createdBy);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

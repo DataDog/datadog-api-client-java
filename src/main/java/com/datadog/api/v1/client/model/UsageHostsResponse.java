@@ -94,7 +94,6 @@ public class UsageHostsResponse {
     return Objects.hash(usage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

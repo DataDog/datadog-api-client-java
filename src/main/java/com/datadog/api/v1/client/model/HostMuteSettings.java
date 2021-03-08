@@ -141,7 +141,6 @@ public class HostMuteSettings {
     return Objects.hash(end, message, override);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

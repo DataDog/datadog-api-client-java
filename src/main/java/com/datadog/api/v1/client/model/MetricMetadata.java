@@ -249,7 +249,6 @@ public class MetricMetadata {
     return Objects.hash(description, integration, perUnit, shortName, statsdInterval, type, unit);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -140,7 +140,6 @@ public class UserCreateAttributes {
     return Objects.hash(email, name, title);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

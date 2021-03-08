@@ -130,7 +130,6 @@ public class IPPrefixesAgents {
     return Objects.hash(prefixesIpv4, prefixesIpv6);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

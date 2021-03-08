@@ -83,7 +83,6 @@ public class LogsAggregateRequestPage {
     return Objects.hash(cursor);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

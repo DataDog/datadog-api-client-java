@@ -111,7 +111,6 @@ public class LogsGrokParserRules {
     return Objects.hash(matchRules, supportRules);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -692,7 +692,6 @@ public class UsageAttributionValues {
     return Objects.hash(apiPercentage, apiUsage, apmHostPercentage, apmHostUsage, browserPercentage, browserUsage, containerPercentage, containerUsage, customTimeseriesPercentage, customTimeseriesUsage, infraHostPercentage, infraHostUsage, lambdaFunctionsPercentage, lambdaFunctionsUsage, lambdaInvocationsPercentage, lambdaInvocationsUsage, lambdaPercentage, lambdaUsage, npmHostPercentage, npmHostUsage, snmpPercentage, snmpUsage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

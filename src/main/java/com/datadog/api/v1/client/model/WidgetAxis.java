@@ -199,7 +199,6 @@ public class WidgetAxis {
     return Objects.hash(includeZero, label, max, min, scale);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

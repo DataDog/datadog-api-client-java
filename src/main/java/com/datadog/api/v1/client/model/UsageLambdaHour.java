@@ -142,7 +142,6 @@ public class UsageLambdaHour {
     return Objects.hash(funcCount, hour, invocationsSum);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

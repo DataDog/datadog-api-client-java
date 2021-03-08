@@ -113,7 +113,6 @@ public class UsageIoTHour {
     return Objects.hash(hour, iotDeviceCount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

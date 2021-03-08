@@ -152,7 +152,6 @@ public class HostListResponse {
     return Objects.hash(hostList, totalMatching, totalReturned);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

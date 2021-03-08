@@ -239,7 +239,6 @@ public class DashboardList {
     return Objects.hash(author, created, dashboardCount, id, isFavorite, modified, name, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

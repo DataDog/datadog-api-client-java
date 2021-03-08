@@ -152,7 +152,6 @@ public class LogsListResponse {
     return Objects.hash(logs, nextLogId, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

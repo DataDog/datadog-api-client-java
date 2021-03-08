@@ -461,7 +461,6 @@ public class HostMapWidgetDefinition {
     return Objects.hash(customLinks, group, noGroupHosts, noMetricHosts, nodeType, notes, requests, scope, style, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -124,7 +124,6 @@ public class UsageAttributionMetadata {
     return Objects.hash(aggregates, pagination);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -756,7 +756,6 @@ public class MonitorOptions {
     return Objects.hash(aggregation, deviceIds, enableLogsSample, escalationMessage, evaluationDelay, groupbySimpleMonitor, includeTags, locked, minFailureDuration, minLocationFailed, newHostDelay, noDataTimeframe, notifyAudit, notifyNoData, renotifyInterval, requireFullWindow, silenced, syntheticsCheckId, thresholdWindows, thresholds, timeoutH);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

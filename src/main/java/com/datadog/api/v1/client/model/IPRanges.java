@@ -322,7 +322,6 @@ public class IPRanges {
     return Objects.hash(agents, api, apm, logs, modified, process, synthetics, version, webhooks);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

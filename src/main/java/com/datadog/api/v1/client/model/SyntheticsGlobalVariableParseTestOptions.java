@@ -141,7 +141,6 @@ public class SyntheticsGlobalVariableParseTestOptions {
     return Objects.hash(field, parser, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

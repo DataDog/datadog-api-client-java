@@ -110,7 +110,6 @@ public class PagerDutyService {
     return Objects.hash(serviceKey, serviceName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

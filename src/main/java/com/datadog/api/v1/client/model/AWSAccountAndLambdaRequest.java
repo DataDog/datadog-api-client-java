@@ -110,7 +110,6 @@ public class AWSAccountAndLambdaRequest {
     return Objects.hash(accountId, lambdaArn);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

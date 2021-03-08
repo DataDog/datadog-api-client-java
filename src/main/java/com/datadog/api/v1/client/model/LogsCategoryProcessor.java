@@ -205,7 +205,6 @@ public class LogsCategoryProcessor {
     return Objects.hash(categories, isEnabled, name, target, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

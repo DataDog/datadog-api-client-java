@@ -246,7 +246,6 @@ public class MetricsQueryResponse {
     return Objects.hash(error, fromDate, groupBy, message, query, resType, series, status, toDate);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

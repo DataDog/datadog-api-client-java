@@ -226,7 +226,6 @@ public class LogsArithmeticProcessor {
     return Objects.hash(expression, isEnabled, isReplaceMissing, name, target, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

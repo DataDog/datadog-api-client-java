@@ -84,7 +84,6 @@ public class IncidentServicesResponseMeta {
     return Objects.hash(pagination);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

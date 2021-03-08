@@ -84,7 +84,6 @@ public class UsageCustomReportsMeta {
     return Objects.hash(page);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -82,7 +82,6 @@ public class PagerDutyServiceKey {
     return Objects.hash(serviceKey);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

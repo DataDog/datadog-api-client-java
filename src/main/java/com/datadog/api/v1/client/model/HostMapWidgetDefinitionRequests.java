@@ -113,7 +113,6 @@ public class HostMapWidgetDefinitionRequests {
     return Objects.hash(fill, size);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

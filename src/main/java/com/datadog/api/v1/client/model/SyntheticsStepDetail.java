@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.datadog.api.v1.client.model.SyntheticsBrowserError;
 import com.datadog.api.v1.client.model.SyntheticsCheckType;
+import com.datadog.api.v1.client.model.SyntheticsCoreWebVitals;
 import com.datadog.api.v1.client.model.SyntheticsPlayingTab;
 import com.datadog.api.v1.client.model.SyntheticsStepDetailWarning;
 import com.datadog.api.v1.client.model.SyntheticsStepType;
@@ -53,6 +54,7 @@ import com.datadog.api.v1.client.JSON;
   SyntheticsStepDetail.JSON_PROPERTY_TYPE,
   SyntheticsStepDetail.JSON_PROPERTY_URL,
   SyntheticsStepDetail.JSON_PROPERTY_VALUE,
+  SyntheticsStepDetail.JSON_PROPERTY_VITALS_METRICS,
   SyntheticsStepDetail.JSON_PROPERTY_WARNINGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -101,6 +103,9 @@ public class SyntheticsStepDetail {
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private Object value;
+
+  public static final String JSON_PROPERTY_VITALS_METRICS = "vitalsMetrics";
+  private List<SyntheticsCoreWebVitals> vitalsMetrics = null;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private List<SyntheticsStepDetailWarning> warnings = null;
@@ -482,6 +487,38 @@ public class SyntheticsStepDetail {
   }
 
 
+  public SyntheticsStepDetail vitalsMetrics(List<SyntheticsCoreWebVitals> vitalsMetrics) {
+    this.vitalsMetrics = vitalsMetrics;
+    return this;
+  }
+
+  public SyntheticsStepDetail addVitalsMetricsItem(SyntheticsCoreWebVitals vitalsMetricsItem) {
+    if (this.vitalsMetrics == null) {
+      this.vitalsMetrics = new ArrayList<>();
+    }
+    this.vitalsMetrics.add(vitalsMetricsItem);
+    return this;
+  }
+
+   /**
+   * Array of Core Web Vitals metrics for the step.
+   * @return vitalsMetrics
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of Core Web Vitals metrics for the step.")
+  @JsonProperty(JSON_PROPERTY_VITALS_METRICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SyntheticsCoreWebVitals> getVitalsMetrics() {
+    return vitalsMetrics;
+  }
+
+
+  public void setVitalsMetrics(List<SyntheticsCoreWebVitals> vitalsMetrics) {
+    this.vitalsMetrics = vitalsMetrics;
+  }
+
+
   public SyntheticsStepDetail warnings(List<SyntheticsStepDetailWarning> warnings) {
     this.warnings = warnings;
     return this;
@@ -541,14 +578,14 @@ public class SyntheticsStepDetail {
         Objects.equals(this.type, syntheticsStepDetail.type) &&
         Objects.equals(this.url, syntheticsStepDetail.url) &&
         Objects.equals(this.value, syntheticsStepDetail.value) &&
+        Objects.equals(this.vitalsMetrics, syntheticsStepDetail.vitalsMetrics) &&
         Objects.equals(this.warnings, syntheticsStepDetail.warnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(browserErrors, checkType, description, duration, error, playingTab, screenshotBucketKey, skipped, snapshotBucketKey, stepId, subTestStepDetails, timeToInteractive, type, url, value, warnings);
+    return Objects.hash(browserErrors, checkType, description, duration, error, playingTab, screenshotBucketKey, skipped, snapshotBucketKey, stepId, subTestStepDetails, timeToInteractive, type, url, value, vitalsMetrics, warnings);
   }
-
 
   @Override
   public String toString() {
@@ -569,6 +606,7 @@ public class SyntheticsStepDetail {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    vitalsMetrics: ").append(toIndentedString(vitalsMetrics)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();

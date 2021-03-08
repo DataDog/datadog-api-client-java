@@ -130,7 +130,6 @@ public class SLOBulkDeleteResponseData {
     return Objects.hash(deleted, updated);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

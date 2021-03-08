@@ -401,7 +401,6 @@ public class HeatMapWidgetDefinition {
     return Objects.hash(customLinks, events, legendSize, requests, showLegend, time, title, titleAlign, titleSize, type, yaxis);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

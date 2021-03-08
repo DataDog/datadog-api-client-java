@@ -90,7 +90,6 @@ public class RelationshipToIncidentIntegrationMetadatas {
     return Objects.hash(data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

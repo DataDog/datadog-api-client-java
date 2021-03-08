@@ -210,7 +210,6 @@ public class LogsIndexUpdateRequest {
     return Objects.hash(dailyLimit, disableDailyLimit, exclusionFilters, filter, numRetentionDays);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

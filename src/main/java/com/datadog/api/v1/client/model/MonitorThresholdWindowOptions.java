@@ -135,7 +135,6 @@ public class MonitorThresholdWindowOptions {
     return Objects.hash(recoveryWindow, triggerWindow);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

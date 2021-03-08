@@ -113,7 +113,6 @@ public class AWSTagFilter {
     return Objects.hash(namespace, tagFilterStr);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

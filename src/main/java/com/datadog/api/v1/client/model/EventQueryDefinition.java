@@ -110,7 +110,6 @@ public class EventQueryDefinition {
     return Objects.hash(search, tagsExecution);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

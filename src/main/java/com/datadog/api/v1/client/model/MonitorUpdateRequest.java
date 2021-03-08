@@ -521,7 +521,6 @@ public class MonitorUpdateRequest {
     return Objects.hash(created, creator, deleted, id, message, modified, multi, name, options, overallState, priority, query, restrictedRoles, state, tags, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -174,7 +174,6 @@ public class LogsListRequest {
     return Objects.hash(filter, options, page, sort);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -204,7 +204,6 @@ public class LogsGeoIPParser {
     return Objects.hash(isEnabled, name, sources, target, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

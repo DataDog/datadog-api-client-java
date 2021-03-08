@@ -498,7 +498,6 @@ public class SecurityMonitoringRuleResponse {
     return Objects.hash(cases, createdAt, creationAuthorId, filters, id, isDefault, isDeleted, isEnabled, message, name, options, queries, tags, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

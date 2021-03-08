@@ -84,7 +84,6 @@ public class UserRelationships {
     return Objects.hash(roles);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

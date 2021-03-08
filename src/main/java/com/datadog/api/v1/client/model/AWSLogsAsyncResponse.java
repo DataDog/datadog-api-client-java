@@ -123,7 +123,6 @@ public class AWSLogsAsyncResponse {
     return Objects.hash(errors, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

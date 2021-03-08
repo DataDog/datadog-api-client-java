@@ -111,7 +111,6 @@ public class IFrameWidgetDefinition {
     return Objects.hash(type, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

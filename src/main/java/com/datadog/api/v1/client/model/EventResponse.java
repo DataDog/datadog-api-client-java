@@ -113,7 +113,6 @@ public class EventResponse {
     return Objects.hash(event, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

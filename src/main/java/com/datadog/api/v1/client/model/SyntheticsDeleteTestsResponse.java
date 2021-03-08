@@ -94,7 +94,6 @@ public class SyntheticsDeleteTestsResponse {
     return Objects.hash(deletedTests);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

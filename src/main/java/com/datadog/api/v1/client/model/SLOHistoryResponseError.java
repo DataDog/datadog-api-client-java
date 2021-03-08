@@ -83,7 +83,6 @@ public class SLOHistoryResponseError {
     return Objects.hash(error);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -83,7 +83,6 @@ public class UserInvitationRelationships {
     return Objects.hash(user);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -258,7 +258,6 @@ public class UsageBillableSummaryBody {
     return Objects.hash(accountBillableUsage, elapsedUsageHours, firstBillableUsageHour, lastBillableUsageHour, orgBillableUsage, percentageInAccount, usageUnit);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

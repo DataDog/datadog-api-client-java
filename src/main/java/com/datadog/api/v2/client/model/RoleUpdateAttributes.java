@@ -126,7 +126,6 @@ public class RoleUpdateAttributes {
     return Objects.hash(createdAt, modifiedAt, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

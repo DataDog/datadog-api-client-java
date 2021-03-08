@@ -222,7 +222,6 @@ public class LogsAggregateRequest {
     return Objects.hash(compute, filter, groupBy, options, page);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

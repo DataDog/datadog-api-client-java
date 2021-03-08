@@ -374,7 +374,6 @@ public class UsageHostHour {
     return Objects.hash(agentHostCount, alibabaHostCount, apmAzureAppServiceHostCount, apmHostCount, awsHostCount, azureHostCount, containerCount, gcpHostCount, hostCount, hour, infraAzureAppService);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

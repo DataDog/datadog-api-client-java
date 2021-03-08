@@ -247,7 +247,6 @@ public class SecurityMonitoringRuleQuery {
     return Objects.hash(aggregation, distinctFields, groupByFields, metric, name, query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

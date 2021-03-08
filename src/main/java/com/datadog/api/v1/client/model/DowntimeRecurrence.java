@@ -263,7 +263,6 @@ public class DowntimeRecurrence {
     return Objects.hash(period, rrule, type, untilDate, untilOccurrences, weekDays);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

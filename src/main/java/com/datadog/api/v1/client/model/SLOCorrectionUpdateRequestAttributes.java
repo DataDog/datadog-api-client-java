@@ -200,7 +200,6 @@ public class SLOCorrectionUpdateRequestAttributes {
     return Objects.hash(category, description, end, start, timezone);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

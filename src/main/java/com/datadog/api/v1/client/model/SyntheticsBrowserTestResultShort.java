@@ -201,7 +201,6 @@ public class SyntheticsBrowserTestResultShort {
     return Objects.hash(checkTime, probeDc, result, resultId, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -82,7 +82,6 @@ public class GeomapWidgetDefinitionView {
     return Objects.hash(focus);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

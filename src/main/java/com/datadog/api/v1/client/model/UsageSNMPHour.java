@@ -113,7 +113,6 @@ public class UsageSNMPHour {
     return Objects.hash(hour, snmpDevices);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

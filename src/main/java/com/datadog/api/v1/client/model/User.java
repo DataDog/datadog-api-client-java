@@ -242,7 +242,6 @@ public class User {
     return Objects.hash(accessRole, disabled, email, handle, icon, name, verified);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

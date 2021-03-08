@@ -83,7 +83,6 @@ public class LogsListResponseLinks {
     return Objects.hash(next);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

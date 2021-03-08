@@ -113,7 +113,6 @@ public class UsageNetworkFlowsHour {
     return Objects.hash(hour, indexedEventCount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

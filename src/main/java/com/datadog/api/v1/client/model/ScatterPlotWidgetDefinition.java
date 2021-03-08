@@ -366,7 +366,6 @@ public class ScatterPlotWidgetDefinition {
     return Objects.hash(colorByGroups, customLinks, requests, time, title, titleAlign, titleSize, type, xaxis, yaxis);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

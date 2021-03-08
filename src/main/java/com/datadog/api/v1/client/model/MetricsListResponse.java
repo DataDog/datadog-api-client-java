@@ -122,7 +122,6 @@ public class MetricsListResponse {
     return Objects.hash(from, metrics);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -211,7 +211,6 @@ public class LogsPipelineProcessor {
     return Objects.hash(filter, isEnabled, name, processors, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

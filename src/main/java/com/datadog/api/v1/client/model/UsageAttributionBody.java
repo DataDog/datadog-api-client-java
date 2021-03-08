@@ -241,7 +241,6 @@ public class UsageAttributionBody {
     return Objects.hash(month, orgName, publicId, tags, updatedAt, values);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

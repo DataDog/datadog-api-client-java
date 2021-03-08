@@ -171,7 +171,6 @@ public class SyntheticsTriggerCITestRunResult {
     return Objects.hash(device, location, publicId, resultId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

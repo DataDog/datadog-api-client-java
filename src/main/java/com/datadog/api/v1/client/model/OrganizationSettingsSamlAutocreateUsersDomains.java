@@ -122,7 +122,6 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
     return Objects.hash(domains, enabled);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

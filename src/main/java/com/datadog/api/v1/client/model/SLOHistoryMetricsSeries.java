@@ -174,7 +174,6 @@ public class SLOHistoryMetricsSeries {
     return Objects.hash(count, metadata, sum, values);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

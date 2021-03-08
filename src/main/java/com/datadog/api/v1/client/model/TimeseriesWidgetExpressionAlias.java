@@ -111,7 +111,6 @@ public class TimeseriesWidgetExpressionAlias {
     return Objects.hash(aliasName, expression);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

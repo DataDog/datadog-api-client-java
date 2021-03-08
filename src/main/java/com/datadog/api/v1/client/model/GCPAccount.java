@@ -441,7 +441,6 @@ public class GCPAccount {
     return Objects.hash(authProviderX509CertUrl, authUri, automute, clientEmail, clientId, clientX509CertUrl, errors, hostFilters, privateKey, privateKeyId, projectId, tokenUri, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

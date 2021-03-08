@@ -83,7 +83,6 @@ public class AWSAccountCreateResponse {
     return Objects.hash(externalId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -146,7 +146,6 @@ public class ApiKey {
     return Objects.hash(created, createdBy, key, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

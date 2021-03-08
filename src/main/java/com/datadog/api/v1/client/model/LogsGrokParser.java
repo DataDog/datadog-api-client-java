@@ -237,7 +237,6 @@ public class LogsGrokParser {
     return Objects.hash(grok, isEnabled, name, samples, source, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

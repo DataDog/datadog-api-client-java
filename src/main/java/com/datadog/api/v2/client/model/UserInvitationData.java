@@ -112,7 +112,6 @@ public class UserInvitationData {
     return Objects.hash(relationships, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

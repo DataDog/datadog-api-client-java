@@ -258,7 +258,6 @@ public class AlertGraphWidgetDefinition {
     return Objects.hash(alertId, time, title, titleAlign, titleSize, type, vizType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

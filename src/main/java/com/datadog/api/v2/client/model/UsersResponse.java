@@ -162,7 +162,6 @@ public class UsersResponse {
     return Objects.hash(data, included, meta);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

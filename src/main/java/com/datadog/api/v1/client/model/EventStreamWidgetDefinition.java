@@ -288,7 +288,6 @@ public class EventStreamWidgetDefinition {
     return Objects.hash(eventSize, query, tagsExecution, time, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

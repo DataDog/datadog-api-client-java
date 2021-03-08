@@ -157,7 +157,6 @@ public class SyntheticsBrowserTestConfig {
     return Objects.hash(assertions, request, variables);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

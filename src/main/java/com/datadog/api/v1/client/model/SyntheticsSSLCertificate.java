@@ -415,7 +415,6 @@ public class SyntheticsSSLCertificate {
     return Objects.hash(cipher, exponent, extKeyUsage, fingerprint, fingerprint256, issuer, modulus, protocol, serialNumber, subject, validFrom, validTo);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

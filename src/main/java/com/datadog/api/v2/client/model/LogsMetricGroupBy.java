@@ -111,7 +111,6 @@ public class LogsMetricGroupBy {
     return Objects.hash(path, tagName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

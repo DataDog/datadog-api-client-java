@@ -238,7 +238,6 @@ public class UsageSpecifiedCustomReportsAttributes {
     return Objects.hash(computedOn, endDate, location, size, startDate, tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

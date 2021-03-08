@@ -113,7 +113,6 @@ public class SecurityMonitoringFilter {
     return Objects.hash(action, query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

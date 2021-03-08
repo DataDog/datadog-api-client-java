@@ -391,7 +391,6 @@ public class QueryValueWidgetDefinition {
     return Objects.hash(autoscale, customLinks, customUnit, precision, requests, textAlign, time, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
