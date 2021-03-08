@@ -157,7 +157,6 @@ public class SyntheticsAPITestConfig {
     return Objects.hash(assertions, configVariables, request);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

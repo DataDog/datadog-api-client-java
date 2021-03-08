@@ -123,7 +123,6 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
     return Objects.hash(lastTimestampFetched, results);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

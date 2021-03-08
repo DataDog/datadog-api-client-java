@@ -140,7 +140,6 @@ public class LogsMetricCreateData {
     return Objects.hash(attributes, id, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

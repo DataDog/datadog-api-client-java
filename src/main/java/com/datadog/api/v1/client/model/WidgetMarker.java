@@ -169,7 +169,6 @@ public class WidgetMarker {
     return Objects.hash(displayType, label, time, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

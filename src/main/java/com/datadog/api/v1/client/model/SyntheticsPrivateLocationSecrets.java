@@ -114,7 +114,6 @@ public class SyntheticsPrivateLocationSecrets {
     return Objects.hash(authentication, configDecryption);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

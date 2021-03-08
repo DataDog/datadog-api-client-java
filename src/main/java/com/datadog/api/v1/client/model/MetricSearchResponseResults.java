@@ -93,7 +93,6 @@ public class MetricSearchResponseResults {
     return Objects.hash(metrics);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

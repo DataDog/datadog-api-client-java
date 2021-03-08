@@ -606,7 +606,6 @@ public class UsageBillableSummaryKeys {
     return Objects.hash(apmHostSum, apmHostTop99p, apmTraceSearchSum, fargateContainerAverage, infraContainerSum, infraHostSum, infraHostTop99p, iotTop99p, lambdaFunctionAverage, logsIndexedSum, logsIngestedSum, npmFlowSum, npmHostTop99p, rumSum, serverlessInvocationSum, siemSum, syntheticsApiTestsSum, syntheticsBrowserChecksSum, timeseriesAverage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -246,7 +246,6 @@ public class LogsURLParser {
     return Objects.hash(isEnabled, name, normalizeEndingSlashes, sources, target, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -110,7 +110,6 @@ public class LogsArchiveIntegrationS3 {
     return Objects.hash(accountId, roleName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

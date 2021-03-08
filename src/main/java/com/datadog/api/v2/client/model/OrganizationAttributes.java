@@ -287,7 +287,6 @@ public class OrganizationAttributes {
     return Objects.hash(createdAt, description, disabled, modifiedAt, name, publicId, sharing, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

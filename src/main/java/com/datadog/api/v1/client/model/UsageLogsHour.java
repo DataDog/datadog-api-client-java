@@ -287,7 +287,6 @@ public class UsageLogsHour {
     return Objects.hash(billableIngestedBytes, hour, indexedEventsCount, ingestedEventsBytes, logsLiveIndexedCount, logsLiveIngestedBytes, logsRehydratedIndexedCount, logsRehydratedIngestedBytes);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -141,7 +141,6 @@ public class LogQueryDefinitionGroupBy {
     return Objects.hash(facet, limit, sort);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

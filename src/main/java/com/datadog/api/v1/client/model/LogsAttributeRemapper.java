@@ -350,7 +350,6 @@ public class LogsAttributeRemapper {
     return Objects.hash(isEnabled, name, overrideOnConflict, preserveSource, sourceType, sources, target, targetFormat, targetType, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

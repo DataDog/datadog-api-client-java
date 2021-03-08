@@ -390,7 +390,6 @@ public class Event {
     return Objects.hash(alertType, dateHappened, deviceName, host, id, payload, priority, sourceTypeName, tags, text, title, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

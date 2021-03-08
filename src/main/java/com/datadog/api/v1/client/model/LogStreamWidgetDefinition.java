@@ -453,7 +453,6 @@ public class LogStreamWidgetDefinition {
     return Objects.hash(columns, indexes, logset, messageDisplay, query, showDateColumn, showMessageColumn, sort, time, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

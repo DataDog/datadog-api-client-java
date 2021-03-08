@@ -202,7 +202,6 @@ public class IncidentUpdateRelationships {
     return Objects.hash(commanderUser, createdByUser, integrations, lastModifiedByUser, postmortem);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

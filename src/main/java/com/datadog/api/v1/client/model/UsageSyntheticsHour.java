@@ -113,7 +113,6 @@ public class UsageSyntheticsHour {
     return Objects.hash(checkCallsCount, hour);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

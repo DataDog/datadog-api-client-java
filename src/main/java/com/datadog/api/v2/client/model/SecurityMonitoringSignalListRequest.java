@@ -144,7 +144,6 @@ public class SecurityMonitoringSignalListRequest {
     return Objects.hash(filter, page, sort);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

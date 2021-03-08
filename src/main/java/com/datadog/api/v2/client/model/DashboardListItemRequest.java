@@ -111,7 +111,6 @@ public class DashboardListItemRequest {
     return Objects.hash(id, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

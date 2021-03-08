@@ -277,7 +277,6 @@ public class SLOHistorySLIData {
     return Objects.hash(history, name, precision, preview, sliValue, spanPrecision, uptime);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

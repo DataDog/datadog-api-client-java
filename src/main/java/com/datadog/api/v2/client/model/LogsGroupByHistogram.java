@@ -138,7 +138,6 @@ public class LogsGroupByHistogram {
     return Objects.hash(interval, max, min);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

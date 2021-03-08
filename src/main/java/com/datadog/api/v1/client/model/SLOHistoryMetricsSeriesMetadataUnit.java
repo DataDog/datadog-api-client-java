@@ -251,7 +251,6 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
     return Objects.hash(family, id, name, plural, scaleFactor, shortName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

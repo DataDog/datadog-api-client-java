@@ -141,7 +141,6 @@ public class UsageAttributionAggregatesBody {
     return Objects.hash(aggType, field, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

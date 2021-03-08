@@ -140,7 +140,6 @@ public class LogsListRequestTime {
     return Objects.hash(from, timezone, to);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

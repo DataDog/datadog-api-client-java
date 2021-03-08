@@ -94,7 +94,6 @@ public class DashboardListDeleteItemsRequest {
     return Objects.hash(dashboards);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

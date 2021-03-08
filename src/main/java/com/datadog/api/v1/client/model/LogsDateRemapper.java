@@ -176,7 +176,6 @@ public class LogsDateRemapper {
     return Objects.hash(isEnabled, name, sources, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

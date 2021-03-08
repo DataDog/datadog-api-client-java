@@ -180,7 +180,6 @@ public class LogsQueryFilter {
     return Objects.hash(from, indexes, query, to);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

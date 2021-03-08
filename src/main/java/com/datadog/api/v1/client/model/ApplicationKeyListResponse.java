@@ -94,7 +94,6 @@ public class ApplicationKeyListResponse {
     return Objects.hash(applicationKeys);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

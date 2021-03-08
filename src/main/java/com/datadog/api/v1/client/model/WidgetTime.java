@@ -84,7 +84,6 @@ public class WidgetTime {
     return Objects.hash(liveSpan);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

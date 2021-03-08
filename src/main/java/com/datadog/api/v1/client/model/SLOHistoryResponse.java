@@ -124,7 +124,6 @@ public class SLOHistoryResponse {
     return Objects.hash(data, errors);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

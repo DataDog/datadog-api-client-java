@@ -159,7 +159,6 @@ public class MetricsQueryUnit {
     return Objects.hash(family, name, plural, scaleFactor, shortName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

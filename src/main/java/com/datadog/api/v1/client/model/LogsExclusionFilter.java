@@ -111,7 +111,6 @@ public class LogsExclusionFilter {
     return Objects.hash(query, sampleRate);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

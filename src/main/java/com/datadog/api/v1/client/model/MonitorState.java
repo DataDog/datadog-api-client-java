@@ -95,7 +95,6 @@ public class MonitorState {
     return Objects.hash(groups);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

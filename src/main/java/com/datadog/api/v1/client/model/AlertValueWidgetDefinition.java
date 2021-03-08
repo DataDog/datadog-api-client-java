@@ -286,7 +286,6 @@ public class AlertValueWidgetDefinition {
     return Objects.hash(alertId, precision, textAlign, title, titleAlign, titleSize, type, unit);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

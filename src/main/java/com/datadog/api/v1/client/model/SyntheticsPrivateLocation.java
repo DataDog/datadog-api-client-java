@@ -196,7 +196,6 @@ public class SyntheticsPrivateLocation {
     return Objects.hash(description, id, name, secrets, tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -460,7 +460,6 @@ public class ServiceLevelObjective {
     return Objects.hash(createdAt, creator, description, groups, id, modifiedAt, monitorIds, monitorTags, name, query, tags, thresholds, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

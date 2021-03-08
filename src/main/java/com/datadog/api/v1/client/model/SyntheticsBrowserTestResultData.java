@@ -385,7 +385,6 @@ public class SyntheticsBrowserTestResultData {
     return Objects.hash(browserType, browserVersion, device, duration, error, passed, receivedEmailCount, startUrl, stepDetails, thumbnailsBucketKey, timeToInteractive);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

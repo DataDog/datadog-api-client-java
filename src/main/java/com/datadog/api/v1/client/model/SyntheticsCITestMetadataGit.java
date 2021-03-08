@@ -112,7 +112,6 @@ public class SyntheticsCITestMetadataGit {
     return Objects.hash(branch, commitSha);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

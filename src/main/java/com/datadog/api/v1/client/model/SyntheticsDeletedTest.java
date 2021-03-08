@@ -113,7 +113,6 @@ public class SyntheticsDeletedTest {
     return Objects.hash(deletedAt, publicId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

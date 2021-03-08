@@ -324,7 +324,6 @@ public class SecurityMonitoringRuleUpdatePayload {
     return Objects.hash(cases, filters, isEnabled, message, name, options, queries, tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

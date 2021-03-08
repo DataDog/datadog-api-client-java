@@ -142,7 +142,6 @@ public class FormulaAndFunctionEventQueryGroupBySort {
     return Objects.hash(aggregation, metric, order);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

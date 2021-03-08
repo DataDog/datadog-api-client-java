@@ -493,7 +493,6 @@ public class QueryValueWidgetRequest {
     return Objects.hash(aggregator, apmQuery, conditionalFormats, eventQuery, formulas, logQuery, networkQuery, processQuery, profileMetricsQuery, q, queries, responseFormat, rumQuery, securityQuery);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

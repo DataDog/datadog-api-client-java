@@ -387,7 +387,6 @@ public class SyntheticsTestRequest {
     return Objects.hash(basicAuth, body, certificate, dnsServer, headers, host, method, port, query, timeout, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

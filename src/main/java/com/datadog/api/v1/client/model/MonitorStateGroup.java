@@ -229,7 +229,6 @@ public class MonitorStateGroup {
     return Objects.hash(lastNodataTs, lastNotifiedTs, lastResolvedTs, lastTriggeredTs, name, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

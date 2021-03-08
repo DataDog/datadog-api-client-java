@@ -110,7 +110,6 @@ public class SyntheticsBasicAuth {
     return Objects.hash(password, username);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

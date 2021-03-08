@@ -332,7 +332,6 @@ public class DashboardListItem {
     return Objects.hash(author, created, icon, id, isFavorite, isReadOnly, isShared, modified, popularity, title, type, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

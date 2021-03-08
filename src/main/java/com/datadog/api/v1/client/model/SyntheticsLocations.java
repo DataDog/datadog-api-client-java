@@ -94,7 +94,6 @@ public class SyntheticsLocations {
     return Objects.hash(locations);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

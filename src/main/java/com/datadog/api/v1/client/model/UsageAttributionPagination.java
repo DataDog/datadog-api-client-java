@@ -199,7 +199,6 @@ public class UsageAttributionPagination {
     return Objects.hash(limit, offset, sortDirection, sortName, totalNumberOfRecords);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

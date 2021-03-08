@@ -93,7 +93,6 @@ public class MetricAllTagsAttributes {
     return Objects.hash(tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

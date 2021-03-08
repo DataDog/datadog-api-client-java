@@ -110,7 +110,6 @@ public class ServiceLevelObjectiveQuery {
     return Objects.hash(denominator, numerator);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

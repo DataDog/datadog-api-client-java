@@ -142,7 +142,6 @@ public class IncidentCreateData {
     return Objects.hash(attributes, relationships, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

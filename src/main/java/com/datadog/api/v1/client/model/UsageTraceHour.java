@@ -113,7 +113,6 @@ public class UsageTraceHour {
     return Objects.hash(hour, indexedEventsCount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -111,7 +111,6 @@ public class SyntheticsGlobalVariableValue {
     return Objects.hash(secure, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

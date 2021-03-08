@@ -248,7 +248,6 @@ public class FormulaAndFunctionEventQueryDefinition {
     return Objects.hash(compute, dataSource, groupBy, indexes, name, search);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -349,7 +349,6 @@ public class OrganizationSettings {
     return Objects.hash(privateWidgetShare, saml, samlAutocreateAccessRole, samlAutocreateUsersDomains, samlCanBeEnabled, samlIdpEndpoint, samlIdpInitiatedLogin, samlIdpMetadataUploaded, samlLoginUrl, samlStrictMode);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

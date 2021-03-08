@@ -305,7 +305,6 @@ public class TableWidgetDefinition {
     return Objects.hash(customLinks, hasSearchBar, requests, time, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

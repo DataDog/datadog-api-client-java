@@ -316,7 +316,6 @@ public class UserAttributes {
     return Objects.hash(createdAt, disabled, email, handle, icon, name, status, title, verified);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

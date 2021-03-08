@@ -281,7 +281,6 @@ public class MonitorThresholds {
     return Objects.hash(critical, criticalRecovery, ok, unknown, warning, warningRecovery);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

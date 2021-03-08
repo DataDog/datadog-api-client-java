@@ -552,7 +552,6 @@ public class TimeseriesWidgetRequest {
     return Objects.hash(apmQuery, displayType, eventQuery, formulas, logQuery, metadata, networkQuery, onRightYaxis, processQuery, profileMetricsQuery, q, queries, responseFormat, rumQuery, securityQuery, style);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

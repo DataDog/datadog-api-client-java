@@ -594,7 +594,6 @@ public class IncidentResponseAttributes {
     return Objects.hash(created, customerImpactDuration, customerImpactEnd, customerImpactScope, customerImpactStart, customerImpacted, detected, fields, modified, notificationHandles, postmortemId, publicId, resolved, timeToDetect, timeToInternalResponse, timeToRepair, timeToResolve, title);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

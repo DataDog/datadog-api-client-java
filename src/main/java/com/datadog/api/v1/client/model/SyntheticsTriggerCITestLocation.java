@@ -112,7 +112,6 @@ public class SyntheticsTriggerCITestLocation {
     return Objects.hash(id, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

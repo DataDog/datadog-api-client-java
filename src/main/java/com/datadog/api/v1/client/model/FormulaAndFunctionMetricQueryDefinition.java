@@ -170,7 +170,6 @@ public class FormulaAndFunctionMetricQueryDefinition {
     return Objects.hash(aggregator, dataSource, name, query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

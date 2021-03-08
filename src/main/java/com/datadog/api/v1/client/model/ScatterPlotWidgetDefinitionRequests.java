@@ -111,7 +111,6 @@ public class ScatterPlotWidgetDefinitionRequests {
     return Objects.hash(x, y);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

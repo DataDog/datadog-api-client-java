@@ -563,7 +563,6 @@ public class Downtime {
     return Objects.hash(active, canceled, creatorId, disabled, downtimeType, end, id, message, monitorId, monitorTags, parentId, recurrence, scope, start, timezone, updaterId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

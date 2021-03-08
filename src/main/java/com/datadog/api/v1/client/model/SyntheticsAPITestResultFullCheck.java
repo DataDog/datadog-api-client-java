@@ -83,7 +83,6 @@ public class SyntheticsAPITestResultFullCheck {
     return Objects.hash(config);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

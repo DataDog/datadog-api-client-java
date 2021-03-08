@@ -94,7 +94,6 @@ public class OrganizationListResponse {
     return Objects.hash(orgs);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

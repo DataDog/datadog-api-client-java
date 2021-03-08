@@ -238,7 +238,6 @@ public class LogsArchiveAttributes {
     return Objects.hash(destination, includeTags, name, query, rehydrationTags, state);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

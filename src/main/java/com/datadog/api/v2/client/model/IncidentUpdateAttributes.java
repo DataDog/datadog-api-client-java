@@ -380,7 +380,6 @@ public class IncidentUpdateAttributes {
     return Objects.hash(customerImpactEnd, customerImpactScope, customerImpactStart, customerImpacted, detected, fields, notificationHandles, resolved, title);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

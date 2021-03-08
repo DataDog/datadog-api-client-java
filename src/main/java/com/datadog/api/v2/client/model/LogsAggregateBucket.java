@@ -132,7 +132,6 @@ public class LogsAggregateBucket {
     return Objects.hash(by, computes);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

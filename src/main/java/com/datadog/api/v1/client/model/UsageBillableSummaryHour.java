@@ -288,7 +288,6 @@ public class UsageBillableSummaryHour {
     return Objects.hash(billingPlan, endDate, numOrgs, orgName, publicId, ratioInMonth, startDate, usage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

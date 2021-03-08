@@ -367,7 +367,6 @@ public class SyntheticsAPITestResultData {
     return Objects.hash(cert, errorCode, errorMessage, eventType, httpStatusCode, requestHeaders, responseBody, responseHeaders, responseSize, timings);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

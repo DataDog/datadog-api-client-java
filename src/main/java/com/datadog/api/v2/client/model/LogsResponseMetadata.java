@@ -212,7 +212,6 @@ public class LogsResponseMetadata {
     return Objects.hash(elapsed, page, requestId, status, warnings);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

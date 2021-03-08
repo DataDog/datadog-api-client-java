@@ -142,7 +142,6 @@ public class Widget {
     return Objects.hash(definition, id, layout);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

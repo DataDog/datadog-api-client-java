@@ -519,7 +519,6 @@ public class ServiceSummaryWidgetDefinition {
     return Objects.hash(displayFormat, env, service, showBreakdown, showDistribution, showErrors, showHits, showLatency, showResourceList, sizeFormat, spanName, time, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

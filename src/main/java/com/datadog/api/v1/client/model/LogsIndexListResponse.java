@@ -94,7 +94,6 @@ public class LogsIndexListResponse {
     return Objects.hash(indexes);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

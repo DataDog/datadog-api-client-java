@@ -141,7 +141,6 @@ public class IncidentServicesResponseMetaPagination {
     return Objects.hash(nextOffset, offset, size);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

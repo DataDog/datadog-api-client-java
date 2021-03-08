@@ -327,7 +327,6 @@ public class SLOWidgetDefinition {
     return Objects.hash(showErrorBudget, sloId, timeWindows, title, titleAlign, titleSize, type, viewMode, viewType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

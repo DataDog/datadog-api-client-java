@@ -174,7 +174,6 @@ public class UserResponseRelationships {
     return Objects.hash(org, otherOrgs, otherUsers, roles);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

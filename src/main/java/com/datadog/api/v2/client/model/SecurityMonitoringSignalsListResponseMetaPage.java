@@ -83,7 +83,6 @@ public class SecurityMonitoringSignalsListResponseMetaPage {
     return Objects.hash(after);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

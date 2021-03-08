@@ -171,7 +171,6 @@ public class ApmStatsQueryColumnType {
     return Objects.hash(alias, cellDisplayMode, name, order);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

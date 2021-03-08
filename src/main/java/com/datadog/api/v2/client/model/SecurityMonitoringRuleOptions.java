@@ -204,7 +204,6 @@ public class SecurityMonitoringRuleOptions {
     return Objects.hash(detectionMethod, evaluationWindow, keepAlive, maxSignalDuration, newValueOptions);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

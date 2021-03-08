@@ -498,7 +498,6 @@ public class Host {
     return Objects.hash(aliases, apps, awsName, hostName, id, isMuted, lastReportedTime, meta, metrics, muteTimeout, name, sources, tagsBySource, up);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

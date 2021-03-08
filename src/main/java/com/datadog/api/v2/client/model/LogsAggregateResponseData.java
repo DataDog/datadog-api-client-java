@@ -94,7 +94,6 @@ public class LogsAggregateResponseData {
     return Objects.hash(buckets);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -195,7 +195,6 @@ public class SyntheticsTestConfig {
     return Objects.hash(assertions, configVariables, request, variables);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

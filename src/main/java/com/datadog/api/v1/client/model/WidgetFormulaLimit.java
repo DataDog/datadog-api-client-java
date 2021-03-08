@@ -113,7 +113,6 @@ public class WidgetFormulaLimit {
     return Objects.hash(count, order);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

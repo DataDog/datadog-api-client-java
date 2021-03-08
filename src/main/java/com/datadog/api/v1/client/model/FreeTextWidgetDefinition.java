@@ -199,7 +199,6 @@ public class FreeTextWidgetDefinition {
     return Objects.hash(color, fontSize, text, textAlign, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

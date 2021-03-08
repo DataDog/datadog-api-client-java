@@ -314,7 +314,6 @@ public class WidgetConditionalFormat {
     return Objects.hash(comparator, customBgColor, customFgColor, hideValue, imageUrl, metric, palette, timeframe, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

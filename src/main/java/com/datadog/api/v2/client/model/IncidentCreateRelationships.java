@@ -83,7 +83,6 @@ public class IncidentCreateRelationships {
     return Objects.hash(commander);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

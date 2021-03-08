@@ -137,7 +137,6 @@ public class Organization {
 
    /**
    * The name of the new child-organization, limited to 32 characters.
-   * maximum: 32
    * @return name
   **/
   @javax.annotation.Nullable
@@ -252,7 +251,6 @@ public class Organization {
   public int hashCode() {
     return Objects.hash(billing, created, description, name, publicId, settings, subscription);
   }
-
 
   @Override
   public String toString() {

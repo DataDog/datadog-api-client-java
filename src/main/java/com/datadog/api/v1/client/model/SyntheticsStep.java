@@ -200,7 +200,6 @@ public class SyntheticsStep {
     return Objects.hash(allowFailure, name, params, timeout, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

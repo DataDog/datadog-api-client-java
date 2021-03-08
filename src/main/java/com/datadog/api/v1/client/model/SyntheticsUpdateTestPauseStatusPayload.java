@@ -84,7 +84,6 @@ public class SyntheticsUpdateTestPauseStatusPayload {
     return Objects.hash(newStatus);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

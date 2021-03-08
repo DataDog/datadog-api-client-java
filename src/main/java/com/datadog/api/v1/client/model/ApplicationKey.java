@@ -125,7 +125,6 @@ public class ApplicationKey {
     return Objects.hash(hash, name, owner);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

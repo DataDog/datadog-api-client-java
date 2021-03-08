@@ -227,7 +227,6 @@ public class IncidentCreateAttributes {
     return Objects.hash(customerImpacted, fields, initialTimelineCells, notificationHandles, title);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -141,7 +141,6 @@ public class UserUpdateAttributes {
     return Objects.hash(disabled, email, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

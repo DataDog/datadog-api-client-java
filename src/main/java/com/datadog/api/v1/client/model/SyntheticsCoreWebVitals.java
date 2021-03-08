@@ -141,7 +141,6 @@ public class SyntheticsCoreWebVitals {
     return Objects.hash(cls, lcp, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

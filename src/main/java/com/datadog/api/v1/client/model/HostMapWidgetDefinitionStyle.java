@@ -170,7 +170,6 @@ public class HostMapWidgetDefinitionStyle {
     return Objects.hash(fillMax, fillMin, palette, paletteFlip);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -112,7 +112,6 @@ public class AWSLogsListServicesResponse {
     return Objects.hash(id, label);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
