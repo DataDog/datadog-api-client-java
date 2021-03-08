@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check changelog labels
-        if: false == contains(join(github.event.pull_request.labels.*.name, ','), 'changelog/')
+        if: github.event.pull_request.draft == false && false == contains(join(github.event.pull_request.labels.*.name, ','), 'changelog/')
         run: |-
           echo "::error Add 'changelog/*' label";
           exit 1;
