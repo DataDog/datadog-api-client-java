@@ -25,6 +25,7 @@
     <distributionManagement>
         <repository>
             <id>nexus</id>
+            <!-- TODO Replace with real snapshot repository-->
             <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
         </repository>
     </distributionManagement>
@@ -248,6 +249,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>nexus</serverId>
+                    <!-- TODO Replace with real sonatype URL-->
                     <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
                     <autoReleaseAfterClose>false</autoReleaseAfterClose>
                 </configuration>
