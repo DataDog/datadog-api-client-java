@@ -83,7 +83,6 @@ public class DeletedMonitor {
     return Objects.hash(deletedMonitorId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

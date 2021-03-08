@@ -114,7 +114,6 @@ public class ProcessSummariesMetaPage {
     return Objects.hash(after, size);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

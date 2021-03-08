@@ -110,7 +110,6 @@ public class LogsArchiveIntegrationAzure {
     return Objects.hash(clientId, tenantId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

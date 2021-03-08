@@ -258,7 +258,6 @@ public class EventTimelineWidgetDefinition {
     return Objects.hash(query, tagsExecution, time, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

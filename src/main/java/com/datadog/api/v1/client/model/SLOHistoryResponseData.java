@@ -302,7 +302,6 @@ public class SLOHistoryResponseData {
     return Objects.hash(fromTs, groups, overall, series, thresholds, toTs, type, typeId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

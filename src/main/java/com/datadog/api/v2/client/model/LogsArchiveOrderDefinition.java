@@ -112,7 +112,6 @@ public class LogsArchiveOrderDefinition {
     return Objects.hash(attributes, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

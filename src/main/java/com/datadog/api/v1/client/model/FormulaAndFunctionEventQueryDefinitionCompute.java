@@ -141,7 +141,6 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
     return Objects.hash(aggregation, interval, metric);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

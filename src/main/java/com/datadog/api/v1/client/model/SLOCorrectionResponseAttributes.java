@@ -259,7 +259,6 @@ public class SLOCorrectionResponseAttributes {
     return Objects.hash(category, creator, description, end, sloId, start, timezone);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

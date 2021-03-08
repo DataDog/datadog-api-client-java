@@ -168,7 +168,6 @@ public class SyntheticsConfigVariable {
     return Objects.hash(example, name, pattern, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

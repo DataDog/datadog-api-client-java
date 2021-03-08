@@ -168,7 +168,6 @@ public class SyntheticsBrowserError {
     return Objects.hash(description, name, statusCode, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

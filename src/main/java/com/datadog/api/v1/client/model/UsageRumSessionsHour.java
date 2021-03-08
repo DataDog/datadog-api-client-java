@@ -171,7 +171,6 @@ public class UsageRumSessionsHour {
     return Objects.hash(hour, sessionCount, sessionCountAndroid, sessionCountIos);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

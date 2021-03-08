@@ -258,7 +258,6 @@ public class PermissionAttributes {
     return Objects.hash(created, description, displayName, displayType, groupName, name, restricted);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

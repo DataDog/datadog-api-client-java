@@ -170,7 +170,6 @@ public class HostMuteResponse {
     return Objects.hash(action, end, hostname, message);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

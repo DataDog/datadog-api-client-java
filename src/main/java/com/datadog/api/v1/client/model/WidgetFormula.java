@@ -141,7 +141,6 @@ public class WidgetFormula {
     return Objects.hash(alias, formula, limit);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -94,7 +94,6 @@ public class ApiKeyListResponse {
     return Objects.hash(apiKeys);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

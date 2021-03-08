@@ -260,7 +260,6 @@ public class SyntheticsAPITestResultFull {
     return Objects.hash(check, checkTime, checkVersion, probeDc, result, resultId, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -112,7 +112,6 @@ public class MetricIngestedIndexedVolumeAttributes {
     return Objects.hash(indexedVolume, ingestedVolume);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

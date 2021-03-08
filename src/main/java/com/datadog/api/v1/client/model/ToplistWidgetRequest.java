@@ -493,7 +493,6 @@ public class ToplistWidgetRequest {
     return Objects.hash(apmQuery, conditionalFormats, eventQuery, formulas, logQuery, networkQuery, processQuery, profileMetricsQuery, q, queries, responseFormat, rumQuery, securityQuery, style);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

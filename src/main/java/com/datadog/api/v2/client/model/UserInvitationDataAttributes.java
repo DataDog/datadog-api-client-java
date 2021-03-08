@@ -171,7 +171,6 @@ public class UserInvitationDataAttributes {
     return Objects.hash(createdAt, expiresAt, inviteType, uuid);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

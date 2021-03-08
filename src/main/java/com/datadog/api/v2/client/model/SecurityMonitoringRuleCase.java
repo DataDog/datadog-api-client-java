@@ -181,7 +181,6 @@ public class SecurityMonitoringRuleCase {
     return Objects.hash(condition, name, notifications, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

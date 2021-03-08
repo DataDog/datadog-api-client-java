@@ -435,7 +435,6 @@ public class MonitorSummaryWidgetDefinition {
     return Objects.hash(colorPreference, count, displayFormat, hideZeroCounts, query, showLastTriggered, sort, start, summaryType, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

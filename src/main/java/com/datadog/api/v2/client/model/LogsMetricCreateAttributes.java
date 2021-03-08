@@ -153,7 +153,6 @@ public class LogsMetricCreateAttributes {
     return Objects.hash(compute, filter, groupBy);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

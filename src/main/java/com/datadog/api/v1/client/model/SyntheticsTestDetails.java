@@ -434,7 +434,6 @@ public class SyntheticsTestDetails {
     return Objects.hash(config, locations, message, monitorId, name, options, publicId, status, steps, subtype, tags, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

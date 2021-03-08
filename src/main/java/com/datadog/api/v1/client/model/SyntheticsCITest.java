@@ -499,7 +499,6 @@ public class SyntheticsCITest {
     return Objects.hash(allowInsecureCertificates, basicAuth, body, bodyType, cookies, deviceIds, followRedirects, headers, locations, metadata, publicId, retry, startUrl, variables);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -83,7 +83,6 @@ public class OrganizationSettingsSaml {
     return Objects.hash(enabled);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

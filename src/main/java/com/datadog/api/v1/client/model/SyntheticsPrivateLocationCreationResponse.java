@@ -143,7 +143,6 @@ public class SyntheticsPrivateLocationCreationResponse {
     return Objects.hash(config, privateLocation, resultEncryption);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -543,7 +543,6 @@ public class TableWidgetRequest {
     return Objects.hash(aggregator, alias, apmQuery, apmStatsQuery, cellDisplayMode, conditionalFormats, eventQuery, limit, logQuery, networkQuery, order, processQuery, profileMetricsQuery, q, rumQuery, securityQuery);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

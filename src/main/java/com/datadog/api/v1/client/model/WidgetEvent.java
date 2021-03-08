@@ -111,7 +111,6 @@ public class WidgetEvent {
     return Objects.hash(q, tagsExecution);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

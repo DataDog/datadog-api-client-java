@@ -83,7 +83,6 @@ public class UsageSpecifiedCustomReportsPage {
     return Objects.hash(totalCount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

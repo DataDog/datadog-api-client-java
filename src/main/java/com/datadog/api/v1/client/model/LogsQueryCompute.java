@@ -140,7 +140,6 @@ public class LogsQueryCompute {
     return Objects.hash(aggregation, facet, interval);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

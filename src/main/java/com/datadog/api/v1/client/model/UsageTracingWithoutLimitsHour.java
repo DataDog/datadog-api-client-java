@@ -113,7 +113,6 @@ public class UsageTracingWithoutLimitsHour {
     return Objects.hash(hour, ingestedEventsBytes);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

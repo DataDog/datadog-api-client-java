@@ -171,7 +171,6 @@ public class IncidentUpdateData {
     return Objects.hash(attributes, id, relationships, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

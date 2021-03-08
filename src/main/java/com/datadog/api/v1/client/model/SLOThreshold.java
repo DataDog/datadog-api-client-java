@@ -198,7 +198,6 @@ public class SLOThreshold {
     return Objects.hash(target, targetDisplay, timeframe, warning, warningDisplay);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

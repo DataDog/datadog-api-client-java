@@ -94,7 +94,6 @@ public class UserListResponse {
     return Objects.hash(users);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -141,7 +141,6 @@ public class SyntheticsAssertionJSONPathTargetTarget {
     return Objects.hash(jsonPath, operator, targetValue);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

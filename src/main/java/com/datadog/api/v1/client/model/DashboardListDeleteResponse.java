@@ -83,7 +83,6 @@ public class DashboardListDeleteResponse {
     return Objects.hash(deletedDashboardListId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -142,7 +142,6 @@ public class GeomapWidgetRequest {
     return Objects.hash(logQuery, q, rumQuery);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

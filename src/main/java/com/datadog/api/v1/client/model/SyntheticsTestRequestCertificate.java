@@ -113,7 +113,6 @@ public class SyntheticsTestRequestCertificate {
     return Objects.hash(cert, key);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

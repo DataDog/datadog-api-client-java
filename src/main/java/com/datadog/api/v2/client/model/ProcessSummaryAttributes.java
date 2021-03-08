@@ -296,7 +296,6 @@ public class ProcessSummaryAttributes {
     return Objects.hash(cmdline, host, pid, ppid, start, tags, timestamp, user);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

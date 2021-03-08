@@ -468,7 +468,6 @@ public class TimeseriesWidgetDefinition {
     return Objects.hash(customLinks, events, legendSize, markers, requests, rightYaxis, showLegend, time, title, titleAlign, titleSize, type, yaxis);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -163,7 +163,6 @@ public class DashboardTemplateVariable {
     return Objects.hash(_default, name, prefix);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

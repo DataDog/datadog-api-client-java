@@ -261,7 +261,6 @@ public class LogsLookupProcessor {
     return Objects.hash(defaultLookup, isEnabled, lookupTable, name, source, target, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

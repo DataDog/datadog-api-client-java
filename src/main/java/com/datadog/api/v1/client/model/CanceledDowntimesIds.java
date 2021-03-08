@@ -93,7 +93,6 @@ public class CanceledDowntimesIds {
     return Objects.hash(cancelledIds);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

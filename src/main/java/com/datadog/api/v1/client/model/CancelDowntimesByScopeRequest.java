@@ -82,7 +82,6 @@ public class CancelDowntimesByScopeRequest {
     return Objects.hash(scope);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

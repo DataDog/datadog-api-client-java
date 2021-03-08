@@ -264,7 +264,6 @@ public class ApmStatsQueryDefinition {
     return Objects.hash(columns, env, name, primaryTag, resource, rowType, service);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

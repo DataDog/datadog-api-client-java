@@ -244,7 +244,6 @@ public class LogsPipeline {
     return Objects.hash(filter, id, isEnabled, isReadOnly, name, processors, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

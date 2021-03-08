@@ -174,7 +174,6 @@ public class OrganizationCreateResponse {
     return Objects.hash(apiKey, applicationKey, org, user);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -113,7 +113,6 @@ public class SlackIntegrationChannel {
     return Objects.hash(display, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

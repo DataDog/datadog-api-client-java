@@ -84,7 +84,6 @@ public class RoleResponseRelationships {
     return Objects.hash(permissions);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

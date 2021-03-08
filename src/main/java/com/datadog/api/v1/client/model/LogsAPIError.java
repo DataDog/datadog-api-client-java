@@ -151,7 +151,6 @@ public class LogsAPIError {
     return Objects.hash(code, details, message);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

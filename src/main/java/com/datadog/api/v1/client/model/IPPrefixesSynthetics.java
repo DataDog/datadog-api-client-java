@@ -206,7 +206,6 @@ public class IPPrefixesSynthetics {
     return Objects.hash(prefixesIpv4, prefixesIpv4ByLocation, prefixesIpv6, prefixesIpv6ByLocation);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

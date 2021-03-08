@@ -110,7 +110,6 @@ public class GeomapWidgetDefinitionStyle {
     return Objects.hash(palette, paletteFlip);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

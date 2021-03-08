@@ -1284,7 +1284,6 @@ public class UsageSummaryResponse {
     return Objects.hash(agentHostTop99pSum, apmAzureAppServiceHostTop99pSum, apmHostTop99pSum, awsHostTop99pSum, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99pSum, azureHostTop99pSum, billableIngestedBytesAggSum, containerAvgSum, containerHwmSum, customTsSum, endDate, fargateTasksCountAvgSum, fargateTasksCountHwmSum, gcpHostTop99pSum, incidentManagementMonthlyActiveUsersHwmSum, indexedEventsCountAggSum, infraHostTop99pSum, ingestedEventsBytesAggSum, iotDeviceAggSum, iotDeviceTop99pSum, lastUpdated, liveIndexedEventsAggSum, liveIngestedBytesAggSum, mobileRumSessionCountAggSum, mobileRumSessionCountAndroidAggSum, mobileRumSessionCountIosAggSum, netflowIndexedEventsCountAggSum, npmHostTop99pSum, profilingContainerAgentCountAvg, profilingHostCountTop99pSum, rehydratedIndexedEventsAggSum, rehydratedIngestedBytesAggSum, rumSessionCountAggSum, rumTotalSessionCountAggSum, startDate, syntheticsBrowserCheckCallsCountAggSum, syntheticsCheckCallsCountAggSum, traceSearchIndexedEventsCountAggSum, twolIngestedEventsBytesAggSum, usage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

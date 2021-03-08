@@ -154,7 +154,6 @@ public class SecurityMonitoringSignalsListResponse {
     return Objects.hash(data, links, meta);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

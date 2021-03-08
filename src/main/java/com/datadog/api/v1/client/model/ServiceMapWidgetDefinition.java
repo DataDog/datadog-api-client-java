@@ -272,7 +272,6 @@ public class ServiceMapWidgetDefinition {
     return Objects.hash(customLinks, filters, service, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -267,7 +267,6 @@ public class AzureAccount {
     return Objects.hash(clientId, clientSecret, errors, hostFilters, newClientId, newTenantName, tenantName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -51,7 +51,6 @@ public class LogsAggregateBucketValueTimeseries extends ArrayList<LogsAggregateB
     return Objects.hash(super.hashCode());
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

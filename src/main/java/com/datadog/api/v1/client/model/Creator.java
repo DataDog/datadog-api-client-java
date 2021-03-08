@@ -141,7 +141,6 @@ public class Creator {
     return Objects.hash(email, handle, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

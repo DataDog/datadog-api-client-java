@@ -83,7 +83,6 @@ public class WidgetStyle {
     return Objects.hash(palette);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

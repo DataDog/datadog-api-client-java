@@ -75,7 +75,6 @@ public class AuthenticationValidationResponse {
     return Objects.hash(valid);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

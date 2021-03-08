@@ -89,7 +89,6 @@ public class APIErrorResponse {
     return Objects.hash(errors);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

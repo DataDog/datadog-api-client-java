@@ -111,7 +111,6 @@ public class DashboardListItems {
     return Objects.hash(dashboards, total);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

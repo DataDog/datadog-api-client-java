@@ -122,7 +122,6 @@ public class MetricTagConfigurationUpdateAttributes {
     return Objects.hash(includePercentiles, tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

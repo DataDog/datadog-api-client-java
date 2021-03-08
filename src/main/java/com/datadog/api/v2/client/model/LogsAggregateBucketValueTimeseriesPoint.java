@@ -112,7 +112,6 @@ public class LogsAggregateBucketValueTimeseriesPoint {
     return Objects.hash(time, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

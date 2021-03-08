@@ -141,7 +141,6 @@ public class SyntheticsTestRequestCertificateItem {
     return Objects.hash(content, filename, updatedAt);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

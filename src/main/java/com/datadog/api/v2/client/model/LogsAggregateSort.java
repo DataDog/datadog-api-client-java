@@ -173,7 +173,6 @@ public class LogsAggregateSort {
     return Objects.hash(aggregation, metric, order, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

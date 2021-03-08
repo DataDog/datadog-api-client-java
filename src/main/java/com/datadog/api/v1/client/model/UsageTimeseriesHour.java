@@ -171,7 +171,6 @@ public class UsageTimeseriesHour {
     return Objects.hash(hour, numCustomInputTimeseries, numCustomOutputTimeseries, numCustomTimeseries);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

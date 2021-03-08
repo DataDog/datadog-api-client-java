@@ -113,7 +113,6 @@ public class UsageAnalyzedLogsHour {
     return Objects.hash(analyzedLogs, hour);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

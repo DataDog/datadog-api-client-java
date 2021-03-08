@@ -83,7 +83,6 @@ public class OrganizationSubscription {
     return Objects.hash(type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

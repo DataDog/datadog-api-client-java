@@ -112,7 +112,6 @@ public class DashboardTemplateVariablePresetValue {
     return Objects.hash(name, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

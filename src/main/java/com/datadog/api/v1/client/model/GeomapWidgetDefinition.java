@@ -333,7 +333,6 @@ public class GeomapWidgetDefinition {
     return Objects.hash(customLinks, requests, style, time, title, titleAlign, titleSize, type, view);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

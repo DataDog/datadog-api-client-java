@@ -160,7 +160,6 @@ public class AWSLogsListResponse {
     return Objects.hash(accountId, lambdas, services);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

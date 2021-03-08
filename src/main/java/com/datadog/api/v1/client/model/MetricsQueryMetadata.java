@@ -288,7 +288,6 @@ public class MetricsQueryMetadata {
     return Objects.hash(aggr, displayName, end, expression, interval, length, metric, pointlist, scope, start, unit);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

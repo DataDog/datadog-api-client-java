@@ -191,7 +191,6 @@ public class SecurityMonitoringSignalAttributes {
     return Objects.hash(attributes, message, tags, timestamp);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

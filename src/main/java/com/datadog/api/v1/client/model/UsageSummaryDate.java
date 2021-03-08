@@ -1052,7 +1052,6 @@ public class UsageSummaryDate {
     return Objects.hash(agentHostTop99p, apmAzureAppServiceHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99p, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, date, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, incidentManagementMonthlyActiveUsersHwm, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, iotDeviceAggSum, iotDeviceTop99pSum, mobileRumSessionCountAndroidSum, mobileRumSessionCountIosSum, mobileRumSessionCountSum, netflowIndexedEventsCountSum, npmHostTop99p, orgs, profilingHostTop99p, rumSessionCountSum, rumTotalSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

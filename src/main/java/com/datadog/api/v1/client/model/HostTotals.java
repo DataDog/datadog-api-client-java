@@ -112,7 +112,6 @@ public class HostTotals {
     return Objects.hash(totalActive, totalUp);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

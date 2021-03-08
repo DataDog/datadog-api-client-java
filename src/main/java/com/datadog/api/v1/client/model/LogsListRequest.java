@@ -230,7 +230,6 @@ public class LogsListRequest {
     return Objects.hash(index, limit, query, sort, startAt, time);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

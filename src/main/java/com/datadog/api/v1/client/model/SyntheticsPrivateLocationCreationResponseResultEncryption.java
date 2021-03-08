@@ -112,7 +112,6 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
     return Objects.hash(id, key);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

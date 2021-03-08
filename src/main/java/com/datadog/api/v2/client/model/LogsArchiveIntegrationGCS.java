@@ -110,7 +110,6 @@ public class LogsArchiveIntegrationGCS {
     return Objects.hash(clientEmail, projectId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

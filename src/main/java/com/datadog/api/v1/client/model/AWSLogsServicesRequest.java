@@ -117,7 +117,6 @@ public class AWSLogsServicesRequest {
     return Objects.hash(accountId, services);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

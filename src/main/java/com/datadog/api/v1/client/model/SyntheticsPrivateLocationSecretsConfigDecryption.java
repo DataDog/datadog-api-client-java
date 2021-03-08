@@ -75,7 +75,6 @@ public class SyntheticsPrivateLocationSecretsConfigDecryption {
     return Objects.hash(key);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

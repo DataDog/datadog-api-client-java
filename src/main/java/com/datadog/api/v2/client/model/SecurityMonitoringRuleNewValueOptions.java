@@ -114,7 +114,6 @@ public class SecurityMonitoringRuleNewValueOptions {
     return Objects.hash(forgetAfter, learningDuration);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

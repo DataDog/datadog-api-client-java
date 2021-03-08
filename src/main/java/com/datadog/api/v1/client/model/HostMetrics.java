@@ -141,7 +141,6 @@ public class HostMetrics {
     return Objects.hash(cpu, iowait, load);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

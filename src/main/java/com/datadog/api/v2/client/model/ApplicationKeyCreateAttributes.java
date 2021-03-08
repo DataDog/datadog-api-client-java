@@ -82,7 +82,6 @@ public class ApplicationKeyCreateAttributes {
     return Objects.hash(name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
