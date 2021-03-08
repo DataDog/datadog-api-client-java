@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsAPIStep;
 import com.datadog.api.v1.client.model.SyntheticsAssertion;
 import com.datadog.api.v1.client.model.SyntheticsConfigVariable;
 import com.datadog.api.v1.client.model.SyntheticsTestRequest;
@@ -38,7 +39,8 @@ import com.datadog.api.v1.client.JSON;
 @JsonPropertyOrder({
   SyntheticsAPITestConfig.JSON_PROPERTY_ASSERTIONS,
   SyntheticsAPITestConfig.JSON_PROPERTY_CONFIG_VARIABLES,
-  SyntheticsAPITestConfig.JSON_PROPERTY_REQUEST
+  SyntheticsAPITestConfig.JSON_PROPERTY_REQUEST,
+  SyntheticsAPITestConfig.JSON_PROPERTY_STEPS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestConfig {
@@ -50,6 +52,9 @@ public class SyntheticsAPITestConfig {
 
   public static final String JSON_PROPERTY_REQUEST = "request";
   private SyntheticsTestRequest request;
+
+  public static final String JSON_PROPERTY_STEPS = "steps";
+  private List<SyntheticsAPIStep> steps = null;
 
 
   public SyntheticsAPITestConfig assertions(List<SyntheticsAssertion> assertions) {
@@ -121,9 +126,10 @@ public class SyntheticsAPITestConfig {
    * Get request
    * @return request
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SyntheticsTestRequest getRequest() {
     return request;
@@ -132,6 +138,38 @@ public class SyntheticsAPITestConfig {
 
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
+  }
+
+
+  public SyntheticsAPITestConfig steps(List<SyntheticsAPIStep> steps) {
+    this.steps = steps;
+    return this;
+  }
+
+  public SyntheticsAPITestConfig addStepsItem(SyntheticsAPIStep stepsItem) {
+    if (this.steps == null) {
+      this.steps = new ArrayList<>();
+    }
+    this.steps.add(stepsItem);
+    return this;
+  }
+
+   /**
+   * When the test subtype is &#x60;multi&#x60;, the steps of the test.
+   * @return steps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When the test subtype is `multi`, the steps of the test.")
+  @JsonProperty(JSON_PROPERTY_STEPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SyntheticsAPIStep> getSteps() {
+    return steps;
+  }
+
+
+  public void setSteps(List<SyntheticsAPIStep> steps) {
+    this.steps = steps;
   }
 
 
@@ -149,12 +187,13 @@ public class SyntheticsAPITestConfig {
     SyntheticsAPITestConfig syntheticsAPITestConfig = (SyntheticsAPITestConfig) o;
     return Objects.equals(this.assertions, syntheticsAPITestConfig.assertions) &&
         Objects.equals(this.configVariables, syntheticsAPITestConfig.configVariables) &&
-        Objects.equals(this.request, syntheticsAPITestConfig.request);
+        Objects.equals(this.request, syntheticsAPITestConfig.request) &&
+        Objects.equals(this.steps, syntheticsAPITestConfig.steps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, configVariables, request);
+    return Objects.hash(assertions, configVariables, request, steps);
   }
 
   @Override
@@ -164,6 +203,7 @@ public class SyntheticsAPITestConfig {
     sb.append("    assertions: ").append(toIndentedString(assertions)).append("\n");
     sb.append("    configVariables: ").append(toIndentedString(configVariables)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
+    sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("}");
     return sb.toString();
   }
