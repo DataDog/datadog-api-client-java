@@ -143,13 +143,13 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     @After
-    public void deleteSLOs() throws ApiException {
+    public void deleteSyntheticsTests() throws ApiException {
         if (deleteSyntheticsTests != null) {
             for (String id : deleteSyntheticsTests) {
                 try {
                     api.deleteTests().body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(id))).execute();
                 } catch (ApiException e) {
-                    if (e.getCode() == 404) {
+                    if (e.getCode() == 404 || e.getCode() == 400) {
                         // doesn't exist => continue
                         continue;
                     } else {
