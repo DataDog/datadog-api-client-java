@@ -141,7 +141,6 @@ public class MonitorOptionsAggregation {
     return Objects.hash(groupBy, metric, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -495,7 +495,6 @@ public class ChangeWidgetRequest {
     return Objects.hash(apmQuery, changeType, compareTo, eventQuery, increaseGood, logQuery, networkQuery, orderBy, orderDir, processQuery, profileMetricsQuery, q, rumQuery, securityQuery, showPresent);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

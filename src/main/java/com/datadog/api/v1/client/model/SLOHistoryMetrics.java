@@ -287,7 +287,6 @@ public class SLOHistoryMetrics {
     return Objects.hash(denominator, interval, message, numerator, query, resType, respVersion, times);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

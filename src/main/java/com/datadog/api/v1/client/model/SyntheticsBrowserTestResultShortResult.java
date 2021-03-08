@@ -200,7 +200,6 @@ public class SyntheticsBrowserTestResultShortResult {
     return Objects.hash(device, duration, errorCount, stepCountCompleted, stepCountTotal);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

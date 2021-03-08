@@ -139,7 +139,6 @@ public class SLOBulkDeleteError {
     return Objects.hash(id, message, timeframe);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

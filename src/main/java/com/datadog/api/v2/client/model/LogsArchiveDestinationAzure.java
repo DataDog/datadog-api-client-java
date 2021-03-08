@@ -226,7 +226,6 @@ public class LogsArchiveDestinationAzure {
     return Objects.hash(container, integration, path, region, storageAccount, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -111,7 +111,6 @@ public class WidgetFieldSort {
     return Objects.hash(column, order);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

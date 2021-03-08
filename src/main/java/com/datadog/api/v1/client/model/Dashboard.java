@@ -479,7 +479,6 @@ public class Dashboard {
     return Objects.hash(authorHandle, createdAt, description, id, isReadOnly, layoutType, modifiedAt, notifyList, templateVariablePresets, templateVariables, title, url, widgets);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

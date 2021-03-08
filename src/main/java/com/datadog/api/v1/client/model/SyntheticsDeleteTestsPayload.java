@@ -93,7 +93,6 @@ public class SyntheticsDeleteTestsPayload {
     return Objects.hash(publicIds);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

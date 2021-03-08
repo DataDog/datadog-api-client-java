@@ -315,7 +315,6 @@ public class SyntheticsTiming {
     return Objects.hash(dns, download, firstByte, handshake, redirect, ssl, tcp, total, wait);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

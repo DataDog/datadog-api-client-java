@@ -257,7 +257,6 @@ public class SyntheticsSSLCertificateSubject {
     return Objects.hash(C, CN, L, O, OU, ST, altName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

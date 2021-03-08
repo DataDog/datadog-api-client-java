@@ -112,7 +112,6 @@ public class AWSLogsAsyncError {
     return Objects.hash(code, message);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

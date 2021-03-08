@@ -587,7 +587,6 @@ public class SyntheticsStepDetail {
     return Objects.hash(browserErrors, checkType, description, duration, error, playingTab, screenshotBucketKey, skipped, snapshotBucketKey, stepId, subTestStepDetails, timeToInteractive, type, url, value, vitalsMetrics, warnings);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

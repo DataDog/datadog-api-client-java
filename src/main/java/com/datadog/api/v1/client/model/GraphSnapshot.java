@@ -141,7 +141,6 @@ public class GraphSnapshot {
     return Objects.hash(graphDef, metricQuery, snapshotUrl);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

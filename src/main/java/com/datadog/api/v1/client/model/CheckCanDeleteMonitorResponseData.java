@@ -93,7 +93,6 @@ public class CheckCanDeleteMonitorResponseData {
     return Objects.hash(ok);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

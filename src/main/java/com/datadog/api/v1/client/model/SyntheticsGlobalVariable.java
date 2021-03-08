@@ -254,7 +254,6 @@ public class SyntheticsGlobalVariable {
     return Objects.hash(description, id, name, parseTestOptions, parseTestPublicId, tags, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

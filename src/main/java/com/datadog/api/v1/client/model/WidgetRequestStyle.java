@@ -143,7 +143,6 @@ public class WidgetRequestStyle {
     return Objects.hash(lineType, lineWidth, palette);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

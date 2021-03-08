@@ -177,7 +177,6 @@ public class GroupWidgetDefinition {
     return Objects.hash(layoutType, title, type, widgets);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

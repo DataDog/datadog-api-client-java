@@ -140,7 +140,6 @@ public class LogQueryDefinitionGroupBySort {
     return Objects.hash(aggregation, facet, order);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

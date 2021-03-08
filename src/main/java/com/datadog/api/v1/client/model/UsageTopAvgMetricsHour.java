@@ -171,7 +171,6 @@ public class UsageTopAvgMetricsHour {
     return Objects.hash(avgMetricHour, maxMetricHour, metricCategory, metricName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

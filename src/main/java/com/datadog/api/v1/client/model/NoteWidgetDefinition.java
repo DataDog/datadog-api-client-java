@@ -287,7 +287,6 @@ public class NoteWidgetDefinition {
     return Objects.hash(backgroundColor, content, fontSize, showTick, textAlign, tickEdge, tickPos, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

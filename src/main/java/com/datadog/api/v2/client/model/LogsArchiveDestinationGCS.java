@@ -169,7 +169,6 @@ public class LogsArchiveDestinationGCS {
     return Objects.hash(bucket, integration, path, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

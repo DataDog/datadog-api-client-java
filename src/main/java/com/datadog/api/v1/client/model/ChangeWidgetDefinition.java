@@ -275,7 +275,6 @@ public class ChangeWidgetDefinition {
     return Objects.hash(customLinks, requests, time, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

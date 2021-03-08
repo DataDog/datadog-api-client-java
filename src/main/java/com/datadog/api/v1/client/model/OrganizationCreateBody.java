@@ -80,7 +80,6 @@ public class OrganizationCreateBody {
 
    /**
    * The name of the new child-organization, limited to 32 characters.
-   * maximum: 32
    * @return name
   **/
   @ApiModelProperty(example = "New child org", required = true, value = "The name of the new child-organization, limited to 32 characters.")
@@ -142,7 +141,6 @@ public class OrganizationCreateBody {
   public int hashCode() {
     return Objects.hash(billing, name, subscription);
   }
-
 
   @Override
   public String toString() {

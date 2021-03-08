@@ -170,7 +170,6 @@ public class WidgetLayout {
     return Objects.hash(height, width, x, y);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

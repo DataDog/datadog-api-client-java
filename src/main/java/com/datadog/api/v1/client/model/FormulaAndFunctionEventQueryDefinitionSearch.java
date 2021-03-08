@@ -82,7 +82,6 @@ public class FormulaAndFunctionEventQueryDefinitionSearch {
     return Objects.hash(query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

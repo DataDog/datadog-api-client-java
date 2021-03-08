@@ -110,7 +110,6 @@ public class WidgetCustomLink {
     return Objects.hash(label, link);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

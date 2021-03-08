@@ -233,7 +233,6 @@ public class LogsUserAgentParser {
     return Objects.hash(isEnabled, isEncoded, name, sources, target, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

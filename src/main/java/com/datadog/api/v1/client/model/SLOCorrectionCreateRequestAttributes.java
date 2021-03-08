@@ -225,7 +225,6 @@ public class SLOCorrectionCreateRequestAttributes {
     return Objects.hash(category, description, end, sloId, start, timezone);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -200,7 +200,6 @@ public class UsageLogsByIndexHour {
     return Objects.hash(eventCount, hour, indexId, indexName, retention);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

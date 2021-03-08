@@ -231,7 +231,6 @@ public class LogsGroupBy {
     return Objects.hash(facet, histogram, limit, missing, sort, total);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -201,7 +201,6 @@ public class SyntheticsAPITestResultShort {
     return Objects.hash(checkTime, probeDc, result, resultId, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

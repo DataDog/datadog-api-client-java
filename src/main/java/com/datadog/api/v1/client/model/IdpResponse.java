@@ -82,7 +82,6 @@ public class IdpResponse {
     return Objects.hash(message);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

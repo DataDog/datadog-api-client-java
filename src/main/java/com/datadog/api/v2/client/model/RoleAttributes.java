@@ -147,7 +147,6 @@ public class RoleAttributes {
     return Objects.hash(createdAt, modifiedAt, name, userCount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

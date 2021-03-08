@@ -113,7 +113,6 @@ public class LogsMetricResponseCompute {
     return Objects.hash(aggregationType, path);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

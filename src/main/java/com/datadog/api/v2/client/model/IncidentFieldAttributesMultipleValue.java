@@ -123,7 +123,6 @@ public class IncidentFieldAttributesMultipleValue {
     return Objects.hash(type, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

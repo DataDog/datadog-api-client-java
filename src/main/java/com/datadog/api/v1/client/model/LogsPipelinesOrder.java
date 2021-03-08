@@ -89,7 +89,6 @@ public class LogsPipelinesOrder {
     return Objects.hash(pipelineIds);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

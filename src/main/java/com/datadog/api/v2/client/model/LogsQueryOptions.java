@@ -112,7 +112,6 @@ public class LogsQueryOptions {
     return Objects.hash(timeOffset, timezone);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

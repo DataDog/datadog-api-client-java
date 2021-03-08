@@ -94,7 +94,6 @@ public class AWSTagFilterListResponse {
     return Objects.hash(filters);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

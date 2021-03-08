@@ -107,7 +107,6 @@ public class IncidentServiceResponse {
     return Objects.hash(data, included);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

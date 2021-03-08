@@ -198,7 +198,6 @@ public class SyntheticsBrowserVariable {
     return Objects.hash(example, id, name, pattern, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

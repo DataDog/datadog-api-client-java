@@ -113,7 +113,6 @@ public class UsageFargateHour {
     return Objects.hash(hour, tasksCount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

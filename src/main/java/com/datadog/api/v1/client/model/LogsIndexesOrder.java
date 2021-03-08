@@ -89,7 +89,6 @@ public class LogsIndexesOrder {
     return Objects.hash(indexNames);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

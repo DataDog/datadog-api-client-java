@@ -113,7 +113,6 @@ public class Log {
     return Objects.hash(content, id);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

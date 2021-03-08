@@ -180,7 +180,6 @@ public class ProcessQueryDefinition {
     return Objects.hash(filterBy, limit, metric, searchBy);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -112,7 +112,6 @@ public class SyntheticsTestOptionsRetry {
     return Objects.hash(count, interval);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

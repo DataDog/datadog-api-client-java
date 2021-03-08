@@ -295,7 +295,6 @@ public class DistributionWidgetDefinition {
     return Objects.hash(legendSize, requests, showLegend, time, title, titleAlign, titleSize, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

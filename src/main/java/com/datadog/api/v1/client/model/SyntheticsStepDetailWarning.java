@@ -111,7 +111,6 @@ public class SyntheticsStepDetailWarning {
     return Objects.hash(message, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

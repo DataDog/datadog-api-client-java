@@ -112,7 +112,6 @@ public class Pagination {
     return Objects.hash(totalCount, totalFilteredCount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

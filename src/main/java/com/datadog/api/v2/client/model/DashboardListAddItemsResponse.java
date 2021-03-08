@@ -94,7 +94,6 @@ public class DashboardListAddItemsResponse {
     return Objects.hash(addedDashboardsToList);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -317,7 +317,6 @@ public class DashboardSummaryDefinition {
     return Objects.hash(authorHandle, createdAt, description, id, isReadOnly, layoutType, modifiedAt, title, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

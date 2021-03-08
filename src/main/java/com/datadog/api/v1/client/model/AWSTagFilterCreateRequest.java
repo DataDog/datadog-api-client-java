@@ -142,7 +142,6 @@ public class AWSTagFilterCreateRequest {
     return Objects.hash(accountId, namespace, tagFilterStr);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

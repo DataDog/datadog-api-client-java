@@ -83,7 +83,6 @@ public class UserDisableResponse {
     return Objects.hash(message);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

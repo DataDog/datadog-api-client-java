@@ -82,7 +82,6 @@ public class PagerDutyServiceName {
     return Objects.hash(serviceName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

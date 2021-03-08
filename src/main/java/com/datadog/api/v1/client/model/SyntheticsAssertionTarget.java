@@ -170,7 +170,6 @@ public class SyntheticsAssertionTarget {
     return Objects.hash(operator, property, target, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

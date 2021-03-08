@@ -196,7 +196,6 @@ public class SyntheticsDevice {
     return Objects.hash(height, id, isMobile, name, width);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

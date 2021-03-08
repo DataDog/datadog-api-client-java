@@ -85,7 +85,6 @@ public class SyntheticsTestOptionsMonitorOptions {
     return Objects.hash(renotifyInterval);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

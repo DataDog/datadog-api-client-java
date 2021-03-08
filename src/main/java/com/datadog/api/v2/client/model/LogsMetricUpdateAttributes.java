@@ -124,7 +124,6 @@ public class LogsMetricUpdateAttributes {
     return Objects.hash(filter, groupBy);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

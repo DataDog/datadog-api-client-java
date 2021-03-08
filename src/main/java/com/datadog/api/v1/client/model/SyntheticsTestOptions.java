@@ -329,7 +329,6 @@ public class SyntheticsTestOptions {
     return Objects.hash(acceptSelfSigned, allowInsecure, deviceIds, followRedirects, minFailureDuration, minLocationFailed, monitorOptions, retry, tickEvery);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

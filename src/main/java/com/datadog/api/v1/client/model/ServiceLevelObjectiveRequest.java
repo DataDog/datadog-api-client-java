@@ -423,7 +423,6 @@ public class ServiceLevelObjectiveRequest {
     return Objects.hash(createdAt, creator, description, groups, id, modifiedAt, monitorIds, name, query, tags, thresholds, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

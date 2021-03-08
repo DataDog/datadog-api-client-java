@@ -113,7 +113,6 @@ public class IncidentServiceRelationships {
     return Objects.hash(createdBy, lastModifiedBy);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

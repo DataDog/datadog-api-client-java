@@ -113,7 +113,6 @@ public class LogsListRequestPage {
     return Objects.hash(cursor, limit);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

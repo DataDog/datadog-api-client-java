@@ -83,7 +83,6 @@ public class IdpFormData {
     return Objects.hash(idpFile);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

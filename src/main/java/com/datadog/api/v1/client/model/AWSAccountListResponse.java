@@ -94,7 +94,6 @@ public class AWSAccountListResponse {
     return Objects.hash(accounts);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

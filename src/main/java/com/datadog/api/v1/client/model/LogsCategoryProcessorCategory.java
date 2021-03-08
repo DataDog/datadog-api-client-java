@@ -113,7 +113,6 @@ public class LogsCategoryProcessorCategory {
     return Objects.hash(filter, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

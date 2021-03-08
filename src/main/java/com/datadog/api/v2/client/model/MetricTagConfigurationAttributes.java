@@ -211,7 +211,6 @@ public class MetricTagConfigurationAttributes {
     return Objects.hash(createdAt, includePercentiles, metricType, modifiedAt, tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

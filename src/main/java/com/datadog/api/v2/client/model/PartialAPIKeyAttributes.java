@@ -146,7 +146,6 @@ public class PartialAPIKeyAttributes {
     return Objects.hash(createdAt, last4, modifiedAt, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

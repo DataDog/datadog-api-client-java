@@ -226,7 +226,6 @@ public class LogsStringBuilderProcessor {
     return Objects.hash(isEnabled, isReplaceMissing, name, target, template, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

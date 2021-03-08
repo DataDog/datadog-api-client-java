@@ -249,7 +249,6 @@ public class LogContent {
     return Objects.hash(attributes, host, message, service, tags, timestamp);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

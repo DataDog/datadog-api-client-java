@@ -113,7 +113,6 @@ public class UsageNetworkHostsHour {
     return Objects.hash(hostCount, hour);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

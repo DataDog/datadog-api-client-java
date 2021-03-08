@@ -322,7 +322,6 @@ public class AWSAccount {
     return Objects.hash(accessKeyId, accountId, accountSpecificNamespaceRules, excludedRegions, filterTags, hostTags, roleName, secretAccessKey);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

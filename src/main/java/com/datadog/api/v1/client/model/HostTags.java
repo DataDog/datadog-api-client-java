@@ -122,7 +122,6 @@ public class HostTags {
     return Objects.hash(host, tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

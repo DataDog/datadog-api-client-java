@@ -170,7 +170,6 @@ public class SlackIntegrationChannelDisplay {
     return Objects.hash(message, notified, snapshot, tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

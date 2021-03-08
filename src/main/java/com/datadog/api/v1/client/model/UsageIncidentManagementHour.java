@@ -113,7 +113,6 @@ public class UsageIncidentManagementHour {
     return Objects.hash(hour, monthlyActiveUsers);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -83,7 +83,6 @@ public class AWSLogsLambda {
     return Objects.hash(arn);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

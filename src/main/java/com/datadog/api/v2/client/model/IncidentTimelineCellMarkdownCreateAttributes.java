@@ -141,7 +141,6 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
     return Objects.hash(cellType, content, important);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -141,7 +141,6 @@ public class LogsWarning {
     return Objects.hash(code, detail, title);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

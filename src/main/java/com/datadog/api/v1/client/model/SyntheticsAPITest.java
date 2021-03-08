@@ -396,7 +396,6 @@ public class SyntheticsAPITest {
     return Objects.hash(config, locations, message, monitorId, name, options, publicId, status, subtype, tags, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

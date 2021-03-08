@@ -167,7 +167,6 @@ public class FullAPIKeyAttributes {
     return Objects.hash(createdAt, key, last4, modifiedAt, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

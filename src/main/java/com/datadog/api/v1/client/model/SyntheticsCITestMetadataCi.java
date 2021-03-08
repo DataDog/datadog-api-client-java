@@ -112,7 +112,6 @@ public class SyntheticsCITestMetadataCi {
     return Objects.hash(pipeline, provider);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

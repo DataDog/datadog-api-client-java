@@ -326,7 +326,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
     return Objects.hash(aggregator, dataSource, isNormalizedCpu, limit, metric, name, sort, tagFilters, textFilter);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

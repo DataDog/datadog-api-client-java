@@ -146,7 +146,6 @@ public class FullApplicationKeyAttributes {
     return Objects.hash(createdAt, key, last4, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

@@ -142,7 +142,6 @@ public class UsageProfilingHour {
     return Objects.hash(avgContainerAgentCount, hostCount, hour);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

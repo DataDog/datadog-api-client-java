@@ -220,7 +220,6 @@ public class LogQueryDefinition {
     return Objects.hash(compute, groupBy, index, multiCompute, search);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
