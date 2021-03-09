@@ -40,7 +40,6 @@ public class TracePlugin implements EventListener {
             s.setTag(DDTags.RESOURCE_NAME, event.getTestCase().getScenarioDesignation());
             s.setTag("test.name", event.getTestCase().getName());
             s.setTag("test.suite", event.getTestCase().getUri().toString());
-            
         }
     }
 
