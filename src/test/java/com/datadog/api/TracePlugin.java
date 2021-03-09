@@ -20,7 +20,6 @@ import io.opentracing.tag.Tags;
 import io.opentracing.Tracer;
 import io.opentracing.util.GlobalTracer;
 
-
 public class TracePlugin implements EventListener {
 
     private String TRACING_SPAN_TYPE = "test";
@@ -33,10 +32,9 @@ public class TracePlugin implements EventListener {
 
     private void receiveTestCaseStarted(TestCaseStarted event) {
         Tracer tracer = GlobalTracer.get();
-        scenarioSpan = tracer.buildSpan("scenario").withTag(DDTags.ANALYTICS_SAMPLE_RATE, 1.0f)
-                .withTag(DDTags.RESOURCE_NAME, event.getTestCase().getName()).withTag(DDTags.SPAN_TYPE, "test")
-                .withTag("span.kind", "test").withTag("test.framework", "io.cucumber").withTag("test.type", "scenario")
-                .withTag("test.name", "io.cucumber").start();
+        scenarioSpan = tracer.buildSpan("scenario").withTag(DDTags.RESOURCE_NAME, event.getTestCase().getName())
+                .withTag(DDTags.SPAN_TYPE, "test").withTag("span.kind", "test").withTag("test.framework", "io.cucumber")
+                .withTag("test.type", "scenario").withTag("test.name", "io.cucumber").start();
         MutableSpan s = (MutableSpan) scenarioSpan;
         s.setResourceName(event.getTestCase().getName());
         s.setSpanType("test");
