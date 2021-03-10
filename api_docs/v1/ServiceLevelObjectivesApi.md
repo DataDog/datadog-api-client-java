@@ -5,13 +5,13 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
-[**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create a SLO object
-[**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO
+[**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create an SLO object
+[**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete an SLO
 [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
-[**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details
+[**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get an SLO&#39;s details
 [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
 [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Get all SLOs
-[**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
+[**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update an SLO
 
 
 
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 Check if SLOs can be safely deleted
 
-Check if a SLO can be safely deleted. For example,
+Check if an SLO can be safely deleted. For example,
 assure an SLO can be deleted without disrupting a dashboard.
 
 ### Example
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 > SLOListResponse createSLO().body(body).execute();
 
-Create a SLO object
+Create an SLO object
 
 Create a service level objective object.
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 > SLODeleteResponse deleteSLO(sloId).force(force).execute();
 
-Delete a SLO
+Delete an SLO
 
 Permanently delete the specified service level objective object.
 
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 > SLOResponse getSLO(sloId).execute();
 
-Get a SLO&#39;s details
+Get an SLO&#39;s details
 
 Get a service level objective object.
 
@@ -627,7 +627,7 @@ Name | Type | Description  | Notes
 
 > SLOListResponse updateSLO(sloId).body(body).execute();
 
-Update a SLO
+Update an SLO
 
 Update the specified service level objective object.
 

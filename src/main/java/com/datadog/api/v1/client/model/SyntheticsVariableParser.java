@@ -32,11 +32,11 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "Details of the parser to use for the global variable.")
 @JsonPropertyOrder({
-  SyntheticsGlobalVariableParseTestOptionsParser.JSON_PROPERTY_TYPE,
-  SyntheticsGlobalVariableParseTestOptionsParser.JSON_PROPERTY_VALUE
+  SyntheticsVariableParser.JSON_PROPERTY_TYPE,
+  SyntheticsVariableParser.JSON_PROPERTY_VALUE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsGlobalVariableParseTestOptionsParser {
+public class SyntheticsVariableParser {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsGlobalVariableParserType type;
 
@@ -44,7 +44,7 @@ public class SyntheticsGlobalVariableParseTestOptionsParser {
   private String value;
 
 
-  public SyntheticsGlobalVariableParseTestOptionsParser type(SyntheticsGlobalVariableParserType type) {
+  public SyntheticsVariableParser type(SyntheticsGlobalVariableParserType type) {
     this.type = type;
     return this;
   }
@@ -67,7 +67,7 @@ public class SyntheticsGlobalVariableParseTestOptionsParser {
   }
 
 
-  public SyntheticsGlobalVariableParseTestOptionsParser value(String value) {
+  public SyntheticsVariableParser value(String value) {
     this.value = value;
     return this;
   }
@@ -92,7 +92,7 @@ public class SyntheticsGlobalVariableParseTestOptionsParser {
 
 
   /**
-   * Return true if this SyntheticsGlobalVariable_parse_test_options_parser object is equal to o.
+   * Return true if this SyntheticsVariableParser object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -102,9 +102,9 @@ public class SyntheticsGlobalVariableParseTestOptionsParser {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsGlobalVariableParseTestOptionsParser syntheticsGlobalVariableParseTestOptionsParser = (SyntheticsGlobalVariableParseTestOptionsParser) o;
-    return Objects.equals(this.type, syntheticsGlobalVariableParseTestOptionsParser.type) &&
-        Objects.equals(this.value, syntheticsGlobalVariableParseTestOptionsParser.value);
+    SyntheticsVariableParser syntheticsVariableParser = (SyntheticsVariableParser) o;
+    return Objects.equals(this.type, syntheticsVariableParser.type) &&
+        Objects.equals(this.value, syntheticsVariableParser.value);
   }
 
   @Override
@@ -115,7 +115,7 @@ public class SyntheticsGlobalVariableParseTestOptionsParser {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsGlobalVariableParseTestOptionsParser {\n");
+    sb.append("class SyntheticsVariableParser {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

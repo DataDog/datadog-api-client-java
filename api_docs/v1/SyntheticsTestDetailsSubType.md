@@ -13,5 +13,7 @@
 
 * `DNS` (value: `"dns"`)
 
+* `MULTI` (value: `"multi"`)
+
 
 

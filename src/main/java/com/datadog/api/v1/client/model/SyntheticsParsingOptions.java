@@ -29,18 +29,22 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with &#x60;parse_test_public_id&#x60;.
+ * Parsing options for variables to extract.
  */
-@ApiModel(description = "Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.")
+@ApiModel(description = "Parsing options for variables to extract.")
 @JsonPropertyOrder({
-  SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_FIELD,
-  SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_PARSER,
-  SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_TYPE
+  SyntheticsParsingOptions.JSON_PROPERTY_FIELD,
+  SyntheticsParsingOptions.JSON_PROPERTY_NAME,
+  SyntheticsParsingOptions.JSON_PROPERTY_PARSER,
+  SyntheticsParsingOptions.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsGlobalVariableParseTestOptions {
+public class SyntheticsParsingOptions {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_PARSER = "parser";
   private SyntheticsVariableParser parser;
@@ -49,7 +53,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   private SyntheticsGlobalVariableParseTestOptionsType type;
 
 
-  public SyntheticsGlobalVariableParseTestOptions field(String field) {
+  public SyntheticsParsingOptions field(String field) {
     this.field = field;
     return this;
   }
@@ -73,7 +77,31 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
 
-  public SyntheticsGlobalVariableParseTestOptions parser(SyntheticsVariableParser parser) {
+  public SyntheticsParsingOptions name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the variable to extract.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the variable to extract.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public SyntheticsParsingOptions parser(SyntheticsVariableParser parser) {
     this.parser = parser;
     return this;
   }
@@ -82,9 +110,10 @@ public class SyntheticsGlobalVariableParseTestOptions {
    * Get parser
    * @return parser
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARSER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SyntheticsVariableParser getParser() {
     return parser;
@@ -96,7 +125,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
 
-  public SyntheticsGlobalVariableParseTestOptions type(SyntheticsGlobalVariableParseTestOptionsType type) {
+  public SyntheticsParsingOptions type(SyntheticsGlobalVariableParseTestOptionsType type) {
     this.type = type;
     return this;
   }
@@ -105,9 +134,10 @@ public class SyntheticsGlobalVariableParseTestOptions {
    * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SyntheticsGlobalVariableParseTestOptionsType getType() {
     return type;
@@ -120,7 +150,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
 
 
   /**
-   * Return true if this SyntheticsGlobalVariable_parse_test_options object is equal to o.
+   * Return true if this SyntheticsParsingOptions object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -130,22 +160,24 @@ public class SyntheticsGlobalVariableParseTestOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsGlobalVariableParseTestOptions syntheticsGlobalVariableParseTestOptions = (SyntheticsGlobalVariableParseTestOptions) o;
-    return Objects.equals(this.field, syntheticsGlobalVariableParseTestOptions.field) &&
-        Objects.equals(this.parser, syntheticsGlobalVariableParseTestOptions.parser) &&
-        Objects.equals(this.type, syntheticsGlobalVariableParseTestOptions.type);
+    SyntheticsParsingOptions syntheticsParsingOptions = (SyntheticsParsingOptions) o;
+    return Objects.equals(this.field, syntheticsParsingOptions.field) &&
+        Objects.equals(this.name, syntheticsParsingOptions.name) &&
+        Objects.equals(this.parser, syntheticsParsingOptions.parser) &&
+        Objects.equals(this.type, syntheticsParsingOptions.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, parser, type);
+    return Objects.hash(field, name, parser, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsGlobalVariableParseTestOptions {\n");
+    sb.append("class SyntheticsParsingOptions {\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parser: ").append(toIndentedString(parser)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

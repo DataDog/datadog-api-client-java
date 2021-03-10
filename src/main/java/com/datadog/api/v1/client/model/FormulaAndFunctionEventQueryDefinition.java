@@ -184,10 +184,9 @@ public class FormulaAndFunctionEventQueryDefinition {
    * Name of the query for use in formulas.
    * @return name
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "query_errors", value = "Name of the query for use in formulas.")
+  @ApiModelProperty(example = "query_errors", required = true, value = "Name of the query for use in formulas.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
