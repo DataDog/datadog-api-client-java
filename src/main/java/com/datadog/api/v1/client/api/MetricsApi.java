@@ -150,7 +150,7 @@ private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricN
     return new APIgetMetricMetadataRequest(metricName);
   }
 
-private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from, String host) throws ApiException {
+private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from, String host, String tagFilter) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'from' is set
@@ -169,6 +169,7 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "host", host));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tag_filter", tagFilter));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listActiveMetrics");
@@ -198,6 +199,7 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
   public class APIlistActiveMetricsRequest {
     private Long from;
     private String host;
+    private String tagFilter;
 
     private APIlistActiveMetricsRequest() {
     }
@@ -219,6 +221,16 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
      */
     public APIlistActiveMetricsRequest host(String host) {
       this.host = host;
+      return this;
+    }
+
+    /**
+     * Set tagFilter
+     * @param tagFilter Filter metrics that have been submitted with the given tags, supports boolean and wildcard expressions. Cannot be combined with other filters. (optional)
+     * @return APIlistActiveMetricsRequest
+     */
+    public APIlistActiveMetricsRequest tagFilter(String tagFilter) {
+      this.tagFilter = tagFilter;
       return this;
     }
 
@@ -254,7 +266,7 @@ private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from
 
      */
     public ApiResponse<MetricsListResponse> executeWithHttpInfo() throws ApiException {
-      return listActiveMetricsWithHttpInfo(from, host);
+      return listActiveMetricsWithHttpInfo(from, host, tagFilter);
     }
   }
 
