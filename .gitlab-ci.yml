@@ -1,0 +1,16 @@
+stages:
+  - create_key
+
+# This job creates the GPG key
+create_key:
+  when: manual
+  tags: [ "runner:docker", "size:large" ]
+  image: 486234852809.dkr.ecr.us-east-1.amazonaws.com/ci/agent-key-management-tools/create-gpg-key:1
+  variables:
+    PROJECT_NAME: "datadog-api-client-java"
+  script:
+    - ash create_gpg_key.sh 
+  artifacts:
+    expire_in: 2 weeks
+    paths:
+      - pubkeys 
