@@ -20,7 +20,6 @@ import io.opentracing.tag.Tags;
 import io.opentracing.Tracer;
 import io.opentracing.util.GlobalTracer;
 
-
 public class TracePlugin implements EventListener {
 
     private String TRACING_SPAN_TYPE = "test";
@@ -33,32 +32,14 @@ public class TracePlugin implements EventListener {
 
     private void receiveTestCaseStarted(TestCaseStarted event) {
         Tracer tracer = GlobalTracer.get();
-        scenarioSpan = tracer.buildSpan("scenario").withTag(DDTags.ANALYTICS_SAMPLE_RATE, 1.0f)
-                .withTag(DDTags.RESOURCE_NAME, event.getTestCase().getName()).withTag(DDTags.SPAN_TYPE, "test")
-                .withTag("span.kind", "test").withTag("test.framework", "io.cucumber").withTag("test.type", "scenario")
-                .withTag("test.name", "io.cucumber").start();
-        MutableSpan s = (MutableSpan) scenarioSpan;
-        s.setResourceName(event.getTestCase().getName());
-        s.setSpanType("test");
-        scenarioScope = tracer.activateSpan(scenarioSpan);
-        // scenarioScope.setAsyncPropagation(true);
-    }
-
-    private void receiveTestCaseFinished(TestCaseFinished event) {
-        try {
-            Result result = event.getResult();
+        scenarioSpan = GlobalTracer.get().activeSpan();
+        if (scenarioSpan != null) {
             MutableSpan s = (MutableSpan) scenarioSpan;
-            if (!result.getStatus().isOk()) {
-                s.setError(true);
-                s.setTag("test.status", "fail");
-            } else {
-                s.setTag("test.status", "pass");
-            }
-        } finally {
-            scenarioScope.close();
-            scenarioScope = null;
-            scenarioSpan.finish();
-            scenarioSpan = null;
+            s.setResourceName(event.getTestCase().getScenarioDesignation());
+            s.setTag("test.framework", "io.cucumber");
+            s.setTag(DDTags.RESOURCE_NAME, event.getTestCase().getScenarioDesignation());
+            s.setTag("test.name", event.getTestCase().getName());
+            s.setTag("test.suite", event.getTestCase().getUri().toString());
         }
     }
 
@@ -101,6 +82,5 @@ public class TracePlugin implements EventListener {
         publisher.registerHandlerFor(TestCaseStarted.class, this::receiveTestCaseStarted);
         publisher.registerHandlerFor(TestStepStarted.class, this::receiveTestStepStarted);
         publisher.registerHandlerFor(TestStepFinished.class, this::receiveTestStepFinished);
-        publisher.registerHandlerFor(TestCaseFinished.class, this::receiveTestCaseFinished);
     }
 }

@@ -285,7 +285,6 @@ public class TestUtils {
                 localRootSpan.setTag(TRACING_TAG_ENDPOINT, getTracingEndpoint());
                 localRootSpan.setOperationName(TRACING_SPAN_TYPE);
                 localRootSpan.setSpanType(TRACING_SPAN_TYPE);
-                localRootSpan.setTag(DDTags.ANALYTICS_SAMPLE_RATE, 1.0f);
                 localRootSpan.setTag(DDTags.SPAN_TYPE, TRACING_SPAN_TYPE);
             }
         }
