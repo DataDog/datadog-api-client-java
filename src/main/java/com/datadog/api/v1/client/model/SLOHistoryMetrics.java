@@ -30,9 +30,9 @@ import com.datadog.api.v1.client.JSON;
 
 
 /**
- * A &#x60;metric&#x60; based SLO history response.
+ * A &#x60;metric&#x60; based SLO history response.  This is not included in responses for &#x60;monitor&#x60; based SLOs.
  */
-@ApiModel(description = "A `metric` based SLO history response.")
+@ApiModel(description = "A `metric` based SLO history response.  This is not included in responses for `monitor` based SLOs.")
 @JsonPropertyOrder({
   SLOHistoryMetrics.JSON_PROPERTY_DENOMINATOR,
   SLOHistoryMetrics.JSON_PROPERTY_INTERVAL,
