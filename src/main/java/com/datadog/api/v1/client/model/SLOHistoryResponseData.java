@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,9 @@ import com.datadog.api.v1.client.JSON;
 @ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
   SLOHistoryResponseData.JSON_PROPERTY_FROM_TS,
+  SLOHistoryResponseData.JSON_PROPERTY_GROUP_BY,
   SLOHistoryResponseData.JSON_PROPERTY_GROUPS,
+  SLOHistoryResponseData.JSON_PROPERTY_MONITORS,
   SLOHistoryResponseData.JSON_PROPERTY_OVERALL,
   SLOHistoryResponseData.JSON_PROPERTY_SERIES,
   SLOHistoryResponseData.JSON_PROPERTY_THRESHOLDS,
@@ -53,8 +56,14 @@ public class SLOHistoryResponseData {
   public static final String JSON_PROPERTY_FROM_TS = "from_ts";
   private Long fromTs;
 
+  public static final String JSON_PROPERTY_GROUP_BY = "group_by";
+  private List<String> groupBy = null;
+
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  private SLOHistorySLIData groups;
+  private List<SLOHistorySLIData> groups = null;
+
+  public static final String JSON_PROPERTY_MONITORS = "monitors";
+  private List<SLOHistorySLIData> monitors = null;
 
   public static final String JSON_PROPERTY_OVERALL = "overall";
   private SLOHistorySLIData overall;
@@ -99,27 +108,99 @@ public class SLOHistoryResponseData {
   }
 
 
-  public SLOHistoryResponseData groups(SLOHistorySLIData groups) {
-    this.groups = groups;
+  public SLOHistoryResponseData groupBy(List<String> groupBy) {
+    this.groupBy = groupBy;
+    return this;
+  }
+
+  public SLOHistoryResponseData addGroupByItem(String groupByItem) {
+    if (this.groupBy == null) {
+      this.groupBy = new ArrayList<>();
+    }
+    this.groupBy.add(groupByItem);
     return this;
   }
 
    /**
-   * Get groups
+   * For &#x60;metric&#x60; based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.  This is not included in responses for &#x60;monitor&#x60; based SLOs.
+   * @return groupBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.  This is not included in responses for `monitor` based SLOs.")
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getGroupBy() {
+    return groupBy;
+  }
+
+
+  public void setGroupBy(List<String> groupBy) {
+    this.groupBy = groupBy;
+  }
+
+
+  public SLOHistoryResponseData groups(List<SLOHistorySLIData> groups) {
+    this.groups = groups;
+    return this;
+  }
+
+  public SLOHistoryResponseData addGroupsItem(SLOHistorySLIData groupsItem) {
+    if (this.groups == null) {
+      this.groups = new ArrayList<>();
+    }
+    this.groups.add(groupsItem);
+    return this;
+  }
+
+   /**
+   * For grouped SLOs, this represents SLI data for specific groups.  This is not included in the responses for &#x60;metric&#x60; based SLOs.
    * @return groups
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "For grouped SLOs, this represents SLI data for specific groups.  This is not included in the responses for `metric` based SLOs.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SLOHistorySLIData getGroups() {
+  public List<SLOHistorySLIData> getGroups() {
     return groups;
   }
 
 
-  public void setGroups(SLOHistorySLIData groups) {
+  public void setGroups(List<SLOHistorySLIData> groups) {
     this.groups = groups;
+  }
+
+
+  public SLOHistoryResponseData monitors(List<SLOHistorySLIData> monitors) {
+    this.monitors = monitors;
+    return this;
+  }
+
+  public SLOHistoryResponseData addMonitorsItem(SLOHistorySLIData monitorsItem) {
+    if (this.monitors == null) {
+      this.monitors = new ArrayList<>();
+    }
+    this.monitors.add(monitorsItem);
+    return this;
+  }
+
+   /**
+   * For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not included in the responses for &#x60;metric&#x60; based SLOs.
+   * @return monitors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not included in the responses for `metric` based SLOs.")
+  @JsonProperty(JSON_PROPERTY_MONITORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SLOHistorySLIData> getMonitors() {
+    return monitors;
+  }
+
+
+  public void setMonitors(List<SLOHistorySLIData> monitors) {
+    this.monitors = monitors;
   }
 
 
@@ -288,7 +369,9 @@ public class SLOHistoryResponseData {
     }
     SLOHistoryResponseData slOHistoryResponseData = (SLOHistoryResponseData) o;
     return Objects.equals(this.fromTs, slOHistoryResponseData.fromTs) &&
+        Objects.equals(this.groupBy, slOHistoryResponseData.groupBy) &&
         Objects.equals(this.groups, slOHistoryResponseData.groups) &&
+        Objects.equals(this.monitors, slOHistoryResponseData.monitors) &&
         Objects.equals(this.overall, slOHistoryResponseData.overall) &&
         Objects.equals(this.series, slOHistoryResponseData.series) &&
         Objects.equals(this.thresholds, slOHistoryResponseData.thresholds) &&
@@ -299,7 +382,7 @@ public class SLOHistoryResponseData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fromTs, groups, overall, series, thresholds, toTs, type, typeId);
+    return Objects.hash(fromTs, groupBy, groups, monitors, overall, series, thresholds, toTs, type, typeId);
   }
 
   @Override
@@ -307,7 +390,9 @@ public class SLOHistoryResponseData {
     StringBuilder sb = new StringBuilder();
     sb.append("class SLOHistoryResponseData {\n");
     sb.append("    fromTs: ").append(toIndentedString(fromTs)).append("\n");
+    sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
+    sb.append("    monitors: ").append(toIndentedString(monitors)).append("\n");
     sb.append("    overall: ").append(toIndentedString(overall)).append("\n");
     sb.append("    series: ").append(toIndentedString(series)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
