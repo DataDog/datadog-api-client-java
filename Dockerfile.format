@@ -1,9 +1,9 @@
-FROM openjdk:17-alpine
+FROM openjdk:12-alpine
 
 RUN mkdir -p /app
 WORKDIR /app
 
 ADD https://github.com/google/google-java-format/releases/download/google-java-format-1.9/google-java-format-1.9-all-deps.jar /app/google-java-format.jar
 
-ENTRYPOINT ["/usr/bin/java", "-jar", "/app/google-java-format.jar"]
+ENTRYPOINT ["java", "-jar", "/app/google-java-format.jar"]
 
