@@ -8,64 +8,45 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.IncidentTeamUpdateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Update request with an incident team payload.
- */
+/** Update request with an incident team payload. */
 @ApiModel(description = "Update request with an incident team payload.")
-@JsonPropertyOrder({
-  IncidentTeamUpdateRequest.JSON_PROPERTY_DATA
-})
+@JsonPropertyOrder({IncidentTeamUpdateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTeamUpdateRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private IncidentTeamUpdateData data;
-
 
   public IncidentTeamUpdateRequest data(IncidentTeamUpdateData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IncidentTeamUpdateData getData() {
     return data;
   }
-
 
   public void setData(IncidentTeamUpdateData data) {
     this.data = data;
   }
 
-
-  /**
-   * Return true if this IncidentTeamUpdateRequest object is equal to o.
-   */
+  /** Return true if this IncidentTeamUpdateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,8 +74,7 @@ public class IncidentTeamUpdateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +82,4 @@ public class IncidentTeamUpdateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

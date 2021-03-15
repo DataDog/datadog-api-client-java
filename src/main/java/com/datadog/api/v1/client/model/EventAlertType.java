@@ -8,38 +8,29 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * If an alert event is enabled, set its type. For example, &#x60;error&#x60;, &#x60;warning&#x60;, &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;, &#x60;recommendation&#x60;, and &#x60;snapshot&#x60;.
+ * If an alert event is enabled, set its type. For example, &#x60;error&#x60;, &#x60;warning&#x60;,
+ * &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;, &#x60;recommendation&#x60;, and
+ * &#x60;snapshot&#x60;.
  */
 public enum EventAlertType {
-  
   ERROR("error"),
-  
+
   WARNING("warning"),
-  
+
   INFO("info"),
-  
+
   SUCCESS("success"),
-  
+
   USER_UPDATE("user_update"),
-  
+
   RECOMMENDATION("recommendation"),
-  
+
   SNAPSHOT("snapshot");
 
   private String value;
@@ -68,4 +59,3 @@ public enum EventAlertType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

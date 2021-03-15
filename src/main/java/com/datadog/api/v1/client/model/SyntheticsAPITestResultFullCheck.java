@@ -8,64 +8,45 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsTestConfig;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object describing the API test configuration.
- */
+/** Object describing the API test configuration. */
 @ApiModel(description = "Object describing the API test configuration.")
-@JsonPropertyOrder({
-  SyntheticsAPITestResultFullCheck.JSON_PROPERTY_CONFIG
-})
+@JsonPropertyOrder({SyntheticsAPITestResultFullCheck.JSON_PROPERTY_CONFIG})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestResultFullCheck {
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsTestConfig config;
-
 
   public SyntheticsAPITestResultFullCheck config(SyntheticsTestConfig config) {
     this.config = config;
     return this;
   }
 
-   /**
+  /**
    * Get config
+   *
    * @return config
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SyntheticsTestConfig getConfig() {
     return config;
   }
-
 
   public void setConfig(SyntheticsTestConfig config) {
     this.config = config;
   }
 
-
-  /**
-   * Return true if this SyntheticsAPITestResultFull_check object is equal to o.
-   */
+  /** Return true if this SyntheticsAPITestResultFull_check object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,7 +55,8 @@ public class SyntheticsAPITestResultFullCheck {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultFullCheck syntheticsAPITestResultFullCheck = (SyntheticsAPITestResultFullCheck) o;
+    SyntheticsAPITestResultFullCheck syntheticsAPITestResultFullCheck =
+        (SyntheticsAPITestResultFullCheck) o;
     return Objects.equals(this.config, syntheticsAPITestResultFullCheck.config);
   }
 
@@ -93,8 +75,7 @@ public class SyntheticsAPITestResultFullCheck {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +83,4 @@ public class SyntheticsAPITestResultFullCheck {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,32 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsAssertion;
-import com.datadog.api.v1.client.model.SyntheticsBrowserVariable;
-import com.datadog.api.v1.client.model.SyntheticsTestRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Configuration object for a Synthetic browser test.
- */
+/** Configuration object for a Synthetic browser test. */
 @ApiModel(description = "Configuration object for a Synthetic browser test.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestConfig.JSON_PROPERTY_ASSERTIONS,
@@ -51,7 +37,6 @@ public class SyntheticsBrowserTestConfig {
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<SyntheticsBrowserVariable> variables = null;
 
-
   public SyntheticsBrowserTestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
     return this;
@@ -62,46 +47,45 @@ public class SyntheticsBrowserTestConfig {
     return this;
   }
 
-   /**
+  /**
    * Array of assertions used for the test.
+   *
    * @return assertions
-  **/
-  @ApiModelProperty(example = "[]", required = true, value = "Array of assertions used for the test.")
+   */
+  @ApiModelProperty(
+      example = "[]",
+      required = true,
+      value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<SyntheticsAssertion> getAssertions() {
     return assertions;
   }
 
-
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
   }
-
 
   public SyntheticsBrowserTestConfig request(SyntheticsTestRequest request) {
     this.request = request;
     return this;
   }
 
-   /**
+  /**
    * Get request
+   *
    * @return request
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SyntheticsTestRequest getRequest() {
     return request;
   }
 
-
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
   }
-
 
   public SyntheticsBrowserTestConfig variables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
@@ -116,28 +100,24 @@ public class SyntheticsBrowserTestConfig {
     return this;
   }
 
-   /**
+  /**
    * Array of variables used for the test steps.
+   *
    * @return variables
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of variables used for the test steps.")
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsBrowserVariable> getVariables() {
     return variables;
   }
-
 
   public void setVariables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
   }
 
-
-  /**
-   * Return true if this SyntheticsBrowserTestConfig object is equal to o.
-   */
+  /** Return true if this SyntheticsBrowserTestConfig object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,9 +127,9 @@ public class SyntheticsBrowserTestConfig {
       return false;
     }
     SyntheticsBrowserTestConfig syntheticsBrowserTestConfig = (SyntheticsBrowserTestConfig) o;
-    return Objects.equals(this.assertions, syntheticsBrowserTestConfig.assertions) &&
-        Objects.equals(this.request, syntheticsBrowserTestConfig.request) &&
-        Objects.equals(this.variables, syntheticsBrowserTestConfig.variables);
+    return Objects.equals(this.assertions, syntheticsBrowserTestConfig.assertions)
+        && Objects.equals(this.request, syntheticsBrowserTestConfig.request)
+        && Objects.equals(this.variables, syntheticsBrowserTestConfig.variables);
   }
 
   @Override
@@ -169,8 +149,7 @@ public class SyntheticsBrowserTestConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -178,6 +157,4 @@ public class SyntheticsBrowserTestConfig {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

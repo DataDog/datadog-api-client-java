@@ -1,20 +1,16 @@
 package com.datadog.api.v1.client.api;
 
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
-
-import javax.ws.rs.core.GenericType;
-
-import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.SlackIntegrationChannel;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SlackIntegrationApi {
@@ -46,23 +42,29 @@ public class SlackIntegrationApi {
     this.apiClient = apiClient;
   }
 
-
-private ApiResponse<SlackIntegrationChannel> createSlackIntegrationChannelWithHttpInfo(String accountName, SlackIntegrationChannel body) throws ApiException {
+  private ApiResponse<SlackIntegrationChannel> createSlackIntegrationChannelWithHttpInfo(
+      String accountName, SlackIntegrationChannel body) throws ApiException {
     Object localVarPostBody = body;
-    
+
     // verify the required parameter 'accountName' is set
     if (accountName == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountName' when calling createSlackIntegrationChannel");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'accountName' when calling"
+              + " createSlackIntegrationChannel");
     }
-    
+
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createSlackIntegrationChannel");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createSlackIntegrationChannel");
     }
-    
+
     // create path and map variables
-    String localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels"
-      .replaceAll("\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()));
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -70,30 +72,34 @@ private ApiResponse<SlackIntegrationChannel> createSlackIntegrationChannelWithHt
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createSlackIntegrationChannel");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<SlackIntegrationChannel> localVarReturnType = new GenericType<SlackIntegrationChannel>() {};
+    GenericType<SlackIntegrationChannel> localVarReturnType =
+        new GenericType<SlackIntegrationChannel>() {};
 
-    return apiClient.invokeAPI("SlackIntegrationApi.createSlackIntegrationChannel", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SlackIntegrationApi.createSlackIntegrationChannel",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIcreateSlackIntegrationChannelRequest {
@@ -106,6 +112,7 @@ private ApiResponse<SlackIntegrationChannel> createSlackIntegrationChannelWithHt
 
     /**
      * Set body
+     *
      * @param body Payload describing Slack channel to be created (required)
      * @return APIcreateSlackIntegrationChannelRequest
      */
@@ -116,36 +123,35 @@ private ApiResponse<SlackIntegrationChannel> createSlackIntegrationChannelWithHt
 
     /**
      * Execute createSlackIntegrationChannel request
+     *
      * @return SlackIntegrationChannel
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public SlackIntegrationChannel execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute createSlackIntegrationChannel request with HTTP info returned
+     *
      * @return ApiResponse&lt;SlackIntegrationChannel&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<SlackIntegrationChannel> executeWithHttpInfo() throws ApiException {
       return createSlackIntegrationChannelWithHttpInfo(accountName, body);
@@ -153,35 +159,42 @@ private ApiResponse<SlackIntegrationChannel> createSlackIntegrationChannelWithHt
   }
 
   /**
-   * Create a Slack integration channel
-   * Add a channel to your Datadog-Slack integration.
+   * Create a Slack integration channel Add a channel to your Datadog-Slack integration.
+   *
    * @param accountName Your Slack account name. (required)
    * @return createSlackIntegrationChannelRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
-  public APIcreateSlackIntegrationChannelRequest createSlackIntegrationChannel(String accountName) throws ApiException {
+  public APIcreateSlackIntegrationChannelRequest createSlackIntegrationChannel(String accountName)
+      throws ApiException {
     return new APIcreateSlackIntegrationChannelRequest(accountName);
   }
 
-private ApiResponse<SlackIntegrationChannel> getSlackIntegrationChannelWithHttpInfo(String accountName, String channelName) throws ApiException {
+  private ApiResponse<SlackIntegrationChannel> getSlackIntegrationChannelWithHttpInfo(
+      String accountName, String channelName) throws ApiException {
     Object localVarPostBody = null;
-    
+
     // verify the required parameter 'accountName' is set
     if (accountName == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountName' when calling getSlackIntegrationChannel");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'accountName' when calling getSlackIntegrationChannel");
     }
-    
+
     // verify the required parameter 'channelName' is set
     if (channelName == null) {
-      throw new ApiException(400, "Missing the required parameter 'channelName' when calling getSlackIntegrationChannel");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'channelName' when calling getSlackIntegrationChannel");
     }
-    
+
     // create path and map variables
-    String localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-      .replaceAll("\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()))
-      .replaceAll("\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()))
+            .replaceAll(
+                "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -189,30 +202,35 @@ private ApiResponse<SlackIntegrationChannel> getSlackIntegrationChannelWithHttpI
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannel");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      
-    };
+    final String[] localVarContentTypes = {};
+
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<SlackIntegrationChannel> localVarReturnType = new GenericType<SlackIntegrationChannel>() {};
+    GenericType<SlackIntegrationChannel> localVarReturnType =
+        new GenericType<SlackIntegrationChannel>() {};
 
-    return apiClient.invokeAPI("SlackIntegrationApi.getSlackIntegrationChannel", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SlackIntegrationApi.getSlackIntegrationChannel",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIgetSlackIntegrationChannelRequest {
@@ -226,36 +244,35 @@ private ApiResponse<SlackIntegrationChannel> getSlackIntegrationChannelWithHttpI
 
     /**
      * Execute getSlackIntegrationChannel request
+     *
      * @return SlackIntegrationChannel
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public SlackIntegrationChannel execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute getSlackIntegrationChannel request with HTTP info returned
+     *
      * @return ApiResponse&lt;SlackIntegrationChannel&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<SlackIntegrationChannel> executeWithHttpInfo() throws ApiException {
       return getSlackIntegrationChannelWithHttpInfo(accountName, channelName);
@@ -263,30 +280,34 @@ private ApiResponse<SlackIntegrationChannel> getSlackIntegrationChannelWithHttpI
   }
 
   /**
-   * Get a Slack integration channel
-   * Get a channel configured for your Datadog-Slack integration.
+   * Get a Slack integration channel Get a channel configured for your Datadog-Slack integration.
+   *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @return getSlackIntegrationChannelRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
-  public APIgetSlackIntegrationChannelRequest getSlackIntegrationChannel(String accountName, String channelName) throws ApiException {
+  public APIgetSlackIntegrationChannelRequest getSlackIntegrationChannel(
+      String accountName, String channelName) throws ApiException {
     return new APIgetSlackIntegrationChannelRequest(accountName, channelName);
   }
 
-private ApiResponse<List<SlackIntegrationChannel>> getSlackIntegrationChannelsWithHttpInfo(String accountName) throws ApiException {
+  private ApiResponse<List<SlackIntegrationChannel>> getSlackIntegrationChannelsWithHttpInfo(
+      String accountName) throws ApiException {
     Object localVarPostBody = null;
-    
+
     // verify the required parameter 'accountName' is set
     if (accountName == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountName' when calling getSlackIntegrationChannels");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'accountName' when calling getSlackIntegrationChannels");
     }
-    
+
     // create path and map variables
-    String localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels"
-      .replaceAll("\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()));
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -294,30 +315,35 @@ private ApiResponse<List<SlackIntegrationChannel>> getSlackIntegrationChannelsWi
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannels");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      
-    };
+    final String[] localVarContentTypes = {};
+
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<List<SlackIntegrationChannel>> localVarReturnType = new GenericType<List<SlackIntegrationChannel>>() {};
+    GenericType<List<SlackIntegrationChannel>> localVarReturnType =
+        new GenericType<List<SlackIntegrationChannel>>() {};
 
-    return apiClient.invokeAPI("SlackIntegrationApi.getSlackIntegrationChannels", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SlackIntegrationApi.getSlackIntegrationChannels",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIgetSlackIntegrationChannelsRequest {
@@ -329,36 +355,35 @@ private ApiResponse<List<SlackIntegrationChannel>> getSlackIntegrationChannelsWi
 
     /**
      * Execute getSlackIntegrationChannels request
+     *
      * @return List&lt;SlackIntegrationChannel&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public List<SlackIntegrationChannel> execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute getSlackIntegrationChannels request with HTTP info returned
+     *
      * @return ApiResponse&lt;List&lt;SlackIntegrationChannel&gt;&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<List<SlackIntegrationChannel>> executeWithHttpInfo() throws ApiException {
       return getSlackIntegrationChannelsWithHttpInfo(accountName);
@@ -366,35 +391,45 @@ private ApiResponse<List<SlackIntegrationChannel>> getSlackIntegrationChannelsWi
   }
 
   /**
-   * Get all channels in a Slack integration
-   * Get a list of all channels configured for your Datadog-Slack integration.
+   * Get all channels in a Slack integration Get a list of all channels configured for your
+   * Datadog-Slack integration.
+   *
    * @param accountName Your Slack account name. (required)
    * @return getSlackIntegrationChannelsRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
-  public APIgetSlackIntegrationChannelsRequest getSlackIntegrationChannels(String accountName) throws ApiException {
+  public APIgetSlackIntegrationChannelsRequest getSlackIntegrationChannels(String accountName)
+      throws ApiException {
     return new APIgetSlackIntegrationChannelsRequest(accountName);
   }
 
-private ApiResponse<Void> removeSlackIntegrationChannelWithHttpInfo(String accountName, String channelName) throws ApiException {
+  private ApiResponse<Void> removeSlackIntegrationChannelWithHttpInfo(
+      String accountName, String channelName) throws ApiException {
     Object localVarPostBody = null;
-    
+
     // verify the required parameter 'accountName' is set
     if (accountName == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountName' when calling removeSlackIntegrationChannel");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'accountName' when calling"
+              + " removeSlackIntegrationChannel");
     }
-    
+
     // verify the required parameter 'channelName' is set
     if (channelName == null) {
-      throw new ApiException(400, "Missing the required parameter 'channelName' when calling removeSlackIntegrationChannel");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'channelName' when calling"
+              + " removeSlackIntegrationChannel");
     }
-    
+
     // create path and map variables
-    String localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-      .replaceAll("\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()))
-      .replaceAll("\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()))
+            .replaceAll(
+                "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -402,28 +437,32 @@ private ApiResponse<Void> removeSlackIntegrationChannelWithHttpInfo(String accou
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "removeSlackIntegrationChannel");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      
-    };
+    final String[] localVarContentTypes = {};
+
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    return apiClient.invokeAPI("SlackIntegrationApi.removeSlackIntegrationChannel", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    return apiClient.invokeAPI(
+        "SlackIntegrationApi.removeSlackIntegrationChannel",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
   }
 
   public class APIremoveSlackIntegrationChannelRequest {
@@ -437,36 +476,34 @@ private ApiResponse<Void> removeSlackIntegrationChannelWithHttpInfo(String accou
 
     /**
      * Execute removeSlackIntegrationChannel request
-     
+     *
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> The channel was removed successfully. </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 204 </td><td> The channel was removed successfully. </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public void execute() throws ApiException {
       this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute removeSlackIntegrationChannel request with HTTP info returned
+     *
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 204 </td><td> The channel was removed successfully. </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 204 </td><td> The channel was removed successfully. </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
       return removeSlackIntegrationChannelWithHttpInfo(accountName, channelName);
@@ -474,41 +511,51 @@ private ApiResponse<Void> removeSlackIntegrationChannelWithHttpInfo(String accou
   }
 
   /**
-   * Remove a Slack integration channel
-   * Remove a channel from your Datadog-Slack integration.
+   * Remove a Slack integration channel Remove a channel from your Datadog-Slack integration.
+   *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @return removeSlackIntegrationChannelRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
-  public APIremoveSlackIntegrationChannelRequest removeSlackIntegrationChannel(String accountName, String channelName) throws ApiException {
+  public APIremoveSlackIntegrationChannelRequest removeSlackIntegrationChannel(
+      String accountName, String channelName) throws ApiException {
     return new APIremoveSlackIntegrationChannelRequest(accountName, channelName);
   }
 
-private ApiResponse<SlackIntegrationChannel> updateSlackIntegrationChannelWithHttpInfo(String accountName, String channelName, SlackIntegrationChannel body) throws ApiException {
+  private ApiResponse<SlackIntegrationChannel> updateSlackIntegrationChannelWithHttpInfo(
+      String accountName, String channelName, SlackIntegrationChannel body) throws ApiException {
     Object localVarPostBody = body;
-    
+
     // verify the required parameter 'accountName' is set
     if (accountName == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountName' when calling updateSlackIntegrationChannel");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'accountName' when calling"
+              + " updateSlackIntegrationChannel");
     }
-    
+
     // verify the required parameter 'channelName' is set
     if (channelName == null) {
-      throw new ApiException(400, "Missing the required parameter 'channelName' when calling updateSlackIntegrationChannel");
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'channelName' when calling"
+              + " updateSlackIntegrationChannel");
     }
-    
+
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateSlackIntegrationChannel");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateSlackIntegrationChannel");
     }
-    
+
     // create path and map variables
-    String localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-      .replaceAll("\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()))
-      .replaceAll("\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()))
+            .replaceAll(
+                "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -516,30 +563,34 @@ private ApiResponse<SlackIntegrationChannel> updateSlackIntegrationChannelWithHt
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateSlackIntegrationChannel");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<SlackIntegrationChannel> localVarReturnType = new GenericType<SlackIntegrationChannel>() {};
+    GenericType<SlackIntegrationChannel> localVarReturnType =
+        new GenericType<SlackIntegrationChannel>() {};
 
-    return apiClient.invokeAPI("SlackIntegrationApi.updateSlackIntegrationChannel", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SlackIntegrationApi.updateSlackIntegrationChannel",
+        localVarPath,
+        "PATCH",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIupdateSlackIntegrationChannelRequest {
@@ -554,6 +605,7 @@ private ApiResponse<SlackIntegrationChannel> updateSlackIntegrationChannelWithHt
 
     /**
      * Set body
+     *
      * @param body Payload describing fields and values to be updated. (required)
      * @return APIupdateSlackIntegrationChannelRequest
      */
@@ -564,36 +616,35 @@ private ApiResponse<SlackIntegrationChannel> updateSlackIntegrationChannelWithHt
 
     /**
      * Execute updateSlackIntegrationChannel request
+     *
      * @return SlackIntegrationChannel
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public SlackIntegrationChannel execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute updateSlackIntegrationChannel request with HTTP info returned
+     *
      * @return ApiResponse&lt;SlackIntegrationChannel&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-         <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<SlackIntegrationChannel> executeWithHttpInfo() throws ApiException {
       return updateSlackIntegrationChannelWithHttpInfo(accountName, channelName, body);
@@ -601,16 +652,15 @@ private ApiResponse<SlackIntegrationChannel> updateSlackIntegrationChannelWithHt
   }
 
   /**
-   * Update a Slack integration channel
-   * Update a channel used in your Datadog-Slack integration.
+   * Update a Slack integration channel Update a channel used in your Datadog-Slack integration.
+   *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @return updateSlackIntegrationChannelRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
-  public APIupdateSlackIntegrationChannelRequest updateSlackIntegrationChannel(String accountName, String channelName) throws ApiException {
+  public APIupdateSlackIntegrationChannelRequest updateSlackIntegrationChannel(
+      String accountName, String channelName) throws ApiException {
     return new APIupdateSlackIntegrationChannelRequest(accountName, channelName);
   }
 }

@@ -8,74 +8,61 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Step type used in your Synthetic test.
- */
+/** Step type used in your Synthetic test. */
 public enum SyntheticsStepType {
-  
   ASSERT_CURRENT_URL("assertCurrentUrl"),
-  
+
   ASSERT_ELEMENT_ATTRIBUTE("assertElementAttribute"),
-  
+
   ASSERT_ELEMENT_CONTENT("assertElementContent"),
-  
+
   ASSERT_ELEMENT_PRESENT("assertElementPresent"),
-  
+
   ASSERT_EMAIL("assertEmail"),
-  
+
   ASSERT_FILE_DOWNLOAD("assertFileDownload"),
-  
+
   ASSERT_FROM_JAVASCRIPT("assertFromJavascript"),
-  
+
   ASSERT_PAGE_CONTAINS("assertPageContains"),
-  
+
   ASSERT_PAGE_LACKS("assertPageLacks"),
-  
+
   CLICK("click"),
-  
+
   EXTRACT_FROM_JAVASCRIPT("extractFromJavascript"),
-  
+
   EXTRACT_VARIABLE("extractVariable"),
-  
+
   GO_TO_EMAIL_LINK("goToEmailLink"),
-  
+
   GO_TO_URL("goToUrl"),
-  
+
   GO_TO_URL_AND_MEASURE_TTI("goToUrlAndMeasureTti"),
-  
+
   HOVER("hover"),
-  
+
   PLAY_SUB_TEST("playSubTest"),
-  
+
   PRESS_KEY("pressKey"),
-  
+
   REFRESH("refresh"),
-  
+
   RUN_API_TEST("runApiTest"),
-  
+
   SCROLL("scroll"),
-  
+
   SELECT_OPTION("selectOption"),
-  
+
   TYPE_TEXT("typeText"),
-  
+
   UPLOAD_FILES("uploadFiles"),
-  
+
   WAIT("wait");
 
   private String value;
@@ -104,4 +91,3 @@ public enum SyntheticsStepType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

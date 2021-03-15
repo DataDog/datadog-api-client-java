@@ -8,30 +8,20 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for triggered * &#x60;2&#x60; for no data
+ * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for
+ * triggered * &#x60;2&#x60; for no data
  */
 public enum SyntheticsTestMonitorStatus {
-  
   UNTRIGGERED(0l),
-  
+
   TRIGGERED(1l),
-  
+
   NO_DATA(2l);
 
   private Long value;
@@ -60,4 +50,3 @@ public enum SyntheticsTestMonitorStatus {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

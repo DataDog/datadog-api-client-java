@@ -8,32 +8,22 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
+ * The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro**
+ * (read-only user).
  */
 public enum AccessRole {
-  
   STANDARD("st"),
-  
+
   ADMIN("adm"),
-  
+
   READ_ONLY("ro"),
-  
+
   ERROR("ERROR");
 
   private String value;
@@ -62,4 +52,3 @@ public enum AccessRole {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

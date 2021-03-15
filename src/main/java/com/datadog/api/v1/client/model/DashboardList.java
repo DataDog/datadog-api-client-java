@@ -8,29 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.Creator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Your Datadog Dashboards.
- */
+/** Your Datadog Dashboards. */
 @ApiModel(description = "Your Datadog Dashboards.")
 @JsonPropertyOrder({
   DashboardList.JSON_PROPERTY_AUTHOR,
@@ -68,153 +56,131 @@ public class DashboardList {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
-
   public DashboardList author(Creator author) {
     this.author = author;
     return this;
   }
 
-   /**
+  /**
    * Get author
+   *
    * @return author
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Creator getAuthor() {
     return author;
   }
-
 
   public void setAuthor(Creator author) {
     this.author = author;
   }
 
-
-   /**
+  /**
    * Date of creation of the dashboard list.
+   *
    * @return created
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date of creation of the dashboard list.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreated() {
     return created;
   }
 
-
-
-
-   /**
+  /**
    * The number of dashboards in the list.
+   *
    * @return dashboardCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number of dashboards in the list.")
   @JsonProperty(JSON_PROPERTY_DASHBOARD_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getDashboardCount() {
     return dashboardCount;
   }
 
-
-
-
-   /**
+  /**
    * The ID of the dashboard list.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The ID of the dashboard list.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getId() {
     return id;
   }
 
-
-
-
-   /**
+  /**
    * Whether or not the list is in the favorites.
+   *
    * @return isFavorite
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether or not the list is in the favorites.")
   @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsFavorite() {
     return isFavorite;
   }
 
-
-
-
-   /**
+  /**
    * Date of last edition of the dashboard list.
+   *
    * @return modified
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date of last edition of the dashboard list.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getModified() {
     return modified;
   }
-
-
-
 
   public DashboardList name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the dashboard list.
+   *
    * @return name
-  **/
-  @ApiModelProperty(example = "My Dashboard", required = true, value = "The name of the dashboard list.")
+   */
+  @ApiModelProperty(
+      example = "My Dashboard",
+      required = true,
+      value = "The name of the dashboard list.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-   /**
+  /**
    * The type of dashboard list.
+   *
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "manual_dashboard_list", value = "The type of dashboard list.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
-
-
-  /**
-   * Return true if this DashboardList object is equal to o.
-   */
+  /** Return true if this DashboardList object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -224,14 +190,14 @@ public class DashboardList {
       return false;
     }
     DashboardList dashboardList = (DashboardList) o;
-    return Objects.equals(this.author, dashboardList.author) &&
-        Objects.equals(this.created, dashboardList.created) &&
-        Objects.equals(this.dashboardCount, dashboardList.dashboardCount) &&
-        Objects.equals(this.id, dashboardList.id) &&
-        Objects.equals(this.isFavorite, dashboardList.isFavorite) &&
-        Objects.equals(this.modified, dashboardList.modified) &&
-        Objects.equals(this.name, dashboardList.name) &&
-        Objects.equals(this.type, dashboardList.type);
+    return Objects.equals(this.author, dashboardList.author)
+        && Objects.equals(this.created, dashboardList.created)
+        && Objects.equals(this.dashboardCount, dashboardList.dashboardCount)
+        && Objects.equals(this.id, dashboardList.id)
+        && Objects.equals(this.isFavorite, dashboardList.isFavorite)
+        && Objects.equals(this.modified, dashboardList.modified)
+        && Objects.equals(this.name, dashboardList.name)
+        && Objects.equals(this.type, dashboardList.type);
   }
 
   @Override
@@ -256,8 +222,7 @@ public class DashboardList {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -265,6 +230,4 @@ public class DashboardList {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

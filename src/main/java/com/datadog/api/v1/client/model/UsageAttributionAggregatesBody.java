@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The object containing the aggregates.
- */
+/** The object containing the aggregates. */
 @ApiModel(description = "The object containing the aggregates.")
 @JsonPropertyOrder({
   UsageAttributionAggregatesBody.JSON_PROPERTY_AGG_TYPE,
@@ -46,82 +35,73 @@ public class UsageAttributionAggregatesBody {
   public static final String JSON_PROPERTY_VALUE = "value";
   private Double value;
 
-
   public UsageAttributionAggregatesBody aggType(String aggType) {
     this.aggType = aggType;
     return this;
   }
 
-   /**
+  /**
    * The aggregate type.
+   *
    * @return aggType
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "sum", value = "The aggregate type.")
   @JsonProperty(JSON_PROPERTY_AGG_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAggType() {
     return aggType;
   }
 
-
   public void setAggType(String aggType) {
     this.aggType = aggType;
   }
-
 
   public UsageAttributionAggregatesBody field(String field) {
     this.field = field;
     return this;
   }
 
-   /**
+  /**
    * The field.
+   *
    * @return field
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "custom_timeseries_usage", value = "The field.")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getField() {
     return field;
   }
 
-
   public void setField(String field) {
     this.field = field;
   }
-
 
   public UsageAttributionAggregatesBody value(Double value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The value for a given field.
+   *
    * @return value
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The value for a given field.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getValue() {
     return value;
   }
-
 
   public void setValue(Double value) {
     this.value = value;
   }
 
-
-  /**
-   * Return true if this UsageAttributionAggregatesBody object is equal to o.
-   */
+  /** Return true if this UsageAttributionAggregatesBody object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,10 +110,11 @@ public class UsageAttributionAggregatesBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageAttributionAggregatesBody usageAttributionAggregatesBody = (UsageAttributionAggregatesBody) o;
-    return Objects.equals(this.aggType, usageAttributionAggregatesBody.aggType) &&
-        Objects.equals(this.field, usageAttributionAggregatesBody.field) &&
-        Objects.equals(this.value, usageAttributionAggregatesBody.value);
+    UsageAttributionAggregatesBody usageAttributionAggregatesBody =
+        (UsageAttributionAggregatesBody) o;
+    return Objects.equals(this.aggType, usageAttributionAggregatesBody.aggType)
+        && Objects.equals(this.field, usageAttributionAggregatesBody.field)
+        && Objects.equals(this.value, usageAttributionAggregatesBody.value);
   }
 
   @Override
@@ -153,8 +134,7 @@ public class UsageAttributionAggregatesBody {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -162,6 +142,4 @@ public class UsageAttributionAggregatesBody {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

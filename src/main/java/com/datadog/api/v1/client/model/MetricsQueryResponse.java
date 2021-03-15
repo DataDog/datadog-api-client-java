@@ -8,31 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.MetricsQueryMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response Object that includes your query and the list of metrics retrieved.
- */
-@ApiModel(description = "Response Object that includes your query and the list of metrics retrieved.")
+/** Response Object that includes your query and the list of metrics retrieved. */
+@ApiModel(
+    description = "Response Object that includes your query and the list of metrics retrieved.")
 @JsonPropertyOrder({
   MetricsQueryResponse.JSON_PROPERTY_ERROR,
   MetricsQueryResponse.JSON_PROPERTY_FROM_DATE,
@@ -73,154 +61,124 @@ public class MetricsQueryResponse {
   public static final String JSON_PROPERTY_TO_DATE = "to_date";
   private Long toDate;
 
-
-   /**
+  /**
    * Message indicating the errors if status is not &#x60;ok&#x60;.
+   *
    * @return error
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Message indicating the errors if status is not `ok`.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getError() {
     return error;
   }
 
-
-
-
-   /**
+  /**
    * Start of requested time window, milliseconds since Unix epoch.
+   *
    * @return fromDate
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Start of requested time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_FROM_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getFromDate() {
     return fromDate;
   }
 
-
-
-
-   /**
+  /**
    * List of tag keys on which to group.
+   *
    * @return groupBy
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of tag keys on which to group.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getGroupBy() {
     return groupBy;
   }
 
-
-
-
-   /**
+  /**
    * Message indicating &#x60;success&#x60; if status is &#x60;ok&#x60;.
+   *
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Message indicating `success` if status is `ok`.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
-
-
-   /**
+  /**
    * Query string
+   *
    * @return query
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Query string")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getQuery() {
     return query;
   }
 
-
-
-
-   /**
+  /**
    * Type of response.
+   *
    * @return resType
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "time_series", value = "Type of response.")
   @JsonProperty(JSON_PROPERTY_RES_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResType() {
     return resType;
   }
 
-
-
-
-   /**
+  /**
    * List of timeseries queried.
+   *
    * @return series
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of timeseries queried.")
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<MetricsQueryMetadata> getSeries() {
     return series;
   }
 
-
-
-
-   /**
+  /**
    * Status of the query.
+   *
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "ok", value = "Status of the query.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
 
-
-
-
-   /**
+  /**
    * End of requested time window, milliseconds since Unix epoch.
+   *
    * @return toDate
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "End of requested time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_TO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getToDate() {
     return toDate;
   }
 
-
-
-
-  /**
-   * Return true if this MetricsQueryResponse object is equal to o.
-   */
+  /** Return true if this MetricsQueryResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,15 +188,15 @@ public class MetricsQueryResponse {
       return false;
     }
     MetricsQueryResponse metricsQueryResponse = (MetricsQueryResponse) o;
-    return Objects.equals(this.error, metricsQueryResponse.error) &&
-        Objects.equals(this.fromDate, metricsQueryResponse.fromDate) &&
-        Objects.equals(this.groupBy, metricsQueryResponse.groupBy) &&
-        Objects.equals(this.message, metricsQueryResponse.message) &&
-        Objects.equals(this.query, metricsQueryResponse.query) &&
-        Objects.equals(this.resType, metricsQueryResponse.resType) &&
-        Objects.equals(this.series, metricsQueryResponse.series) &&
-        Objects.equals(this.status, metricsQueryResponse.status) &&
-        Objects.equals(this.toDate, metricsQueryResponse.toDate);
+    return Objects.equals(this.error, metricsQueryResponse.error)
+        && Objects.equals(this.fromDate, metricsQueryResponse.fromDate)
+        && Objects.equals(this.groupBy, metricsQueryResponse.groupBy)
+        && Objects.equals(this.message, metricsQueryResponse.message)
+        && Objects.equals(this.query, metricsQueryResponse.query)
+        && Objects.equals(this.resType, metricsQueryResponse.resType)
+        && Objects.equals(this.series, metricsQueryResponse.series)
+        && Objects.equals(this.status, metricsQueryResponse.status)
+        && Objects.equals(this.toDate, metricsQueryResponse.toDate);
   }
 
   @Override
@@ -264,8 +222,7 @@ public class MetricsQueryResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -273,6 +230,4 @@ public class MetricsQueryResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

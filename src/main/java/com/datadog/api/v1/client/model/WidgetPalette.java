@@ -8,62 +8,49 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Color palette to apply.
- */
+/** Color palette to apply. */
 public enum WidgetPalette {
-  
   BLUE("blue"),
-  
+
   CUSTOM_BACKGROUND("custom_bg"),
-  
+
   CUSTOM_IMAGE("custom_image"),
-  
+
   CUSTOM_TEXT("custom_text"),
-  
+
   GRAY_ON_WHITE("gray_on_white"),
-  
+
   GREY("grey"),
-  
+
   GREEN("green"),
-  
+
   ORANGE("orange"),
-  
+
   RED("red"),
-  
+
   RED_ON_WHITE("red_on_white"),
-  
+
   WHITE_ON_GRAY("white_on_gray"),
-  
+
   WHITE_ON_GREEN("white_on_green"),
-  
+
   GREEN_ON_WHITE("green_on_white"),
-  
+
   WHITE_ON_RED("white_on_red"),
-  
+
   WHITE_ON_YELLOW("white_on_yellow"),
-  
+
   YELLOW_ON_WHITE("yellow_on_white"),
-  
+
   BLACK_ON_LIGHT_YELLOW("black_on_light_yellow"),
-  
+
   BLACK_ON_LIGHT_GREEN("black_on_light_green"),
-  
+
   BLACK_ON_LIGHT_RED("black_on_light_red");
 
   private String value;
@@ -92,4 +79,3 @@ public enum WidgetPalette {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

@@ -8,28 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Attributes of user object returned by the API.
- */
+/** Attributes of user object returned by the API. */
 @ApiModel(description = "Attributes of user object returned by the API.")
 @JsonPropertyOrder({
   UserAttributes.JSON_PROPERTY_CREATED_AT,
@@ -71,226 +60,205 @@ public class UserAttributes {
   public static final String JSON_PROPERTY_VERIFIED = "verified";
   private Boolean verified;
 
-
   public UserAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
-   /**
+  /**
    * Creation time of the user.
+   *
    * @return createdAt
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Creation time of the user.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
 
   public UserAttributes disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
 
-   /**
+  /**
    * Whether the user is disabled.
+   *
    * @return disabled
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether the user is disabled.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDisabled() {
     return disabled;
   }
 
-
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
-
 
   public UserAttributes email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * Email of the user.
+   *
    * @return email
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
   public void setEmail(String email) {
     this.email = email;
   }
-
 
   public UserAttributes handle(String handle) {
     this.handle = handle;
     return this;
   }
 
-   /**
+  /**
    * Handle of the user.
+   *
    * @return handle
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Handle of the user.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHandle() {
     return handle;
   }
 
-
   public void setHandle(String handle) {
     this.handle = handle;
   }
-
 
   public UserAttributes icon(String icon) {
     this.icon = icon;
     return this;
   }
 
-   /**
+  /**
    * URL of the user&#39;s icon.
+   *
    * @return icon
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "URL of the user's icon.")
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIcon() {
     return icon;
   }
 
-
   public void setIcon(String icon) {
     this.icon = icon;
   }
-
 
   public UserAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the user.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the user.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public UserAttributes status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Status of the user.
+   *
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Status of the user.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
 
-
   public void setStatus(String status) {
     this.status = status;
   }
-
 
   public UserAttributes title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Title of the user.
+   *
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the user.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
-
 
   public UserAttributes verified(Boolean verified) {
     this.verified = verified;
     return this;
   }
 
-   /**
+  /**
    * Whether the user is verified.
+   *
    * @return verified
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether the user is verified.")
   @JsonProperty(JSON_PROPERTY_VERIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getVerified() {
     return verified;
   }
-
 
   public void setVerified(Boolean verified) {
     this.verified = verified;
   }
 
-
-  /**
-   * Return true if this UserAttributes object is equal to o.
-   */
+  /** Return true if this UserAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -300,15 +268,15 @@ public class UserAttributes {
       return false;
     }
     UserAttributes userAttributes = (UserAttributes) o;
-    return Objects.equals(this.createdAt, userAttributes.createdAt) &&
-        Objects.equals(this.disabled, userAttributes.disabled) &&
-        Objects.equals(this.email, userAttributes.email) &&
-        Objects.equals(this.handle, userAttributes.handle) &&
-        Objects.equals(this.icon, userAttributes.icon) &&
-        Objects.equals(this.name, userAttributes.name) &&
-        Objects.equals(this.status, userAttributes.status) &&
-        Objects.equals(this.title, userAttributes.title) &&
-        Objects.equals(this.verified, userAttributes.verified);
+    return Objects.equals(this.createdAt, userAttributes.createdAt)
+        && Objects.equals(this.disabled, userAttributes.disabled)
+        && Objects.equals(this.email, userAttributes.email)
+        && Objects.equals(this.handle, userAttributes.handle)
+        && Objects.equals(this.icon, userAttributes.icon)
+        && Objects.equals(this.name, userAttributes.name)
+        && Objects.equals(this.status, userAttributes.status)
+        && Objects.equals(this.title, userAttributes.title)
+        && Objects.equals(this.verified, userAttributes.verified);
   }
 
   @Override
@@ -334,8 +302,7 @@ public class UserAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -343,6 +310,4 @@ public class UserAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-
