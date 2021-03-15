@@ -8,28 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * A numeric representation of the type of the service level objective (&#x60;0&#x60; for monitor, &#x60;1&#x60; for metric). Always included in service level objective responses. Ignored in create/update requests.
+ * A numeric representation of the type of the service level objective (&#x60;0&#x60; for monitor,
+ * &#x60;1&#x60; for metric). Always included in service level objective responses. Ignored in
+ * create/update requests.
  */
 public enum SLOTypeNumeric {
-  
   MONITOR(0),
-  
+
   METRIC(1);
 
   private Integer value;
@@ -58,4 +49,3 @@ public enum SLOTypeNumeric {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Pagination object.
- */
+/** Pagination object. */
 @ApiModel(description = "Pagination object.")
 @JsonPropertyOrder({
   Pagination.JSON_PROPERTY_TOTAL_COUNT,
@@ -42,58 +31,51 @@ public class Pagination {
   public static final String JSON_PROPERTY_TOTAL_FILTERED_COUNT = "total_filtered_count";
   private Long totalFilteredCount;
 
-
   public Pagination totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
 
-   /**
+  /**
    * Total count.
+   *
    * @return totalCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total count.")
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTotalCount() {
     return totalCount;
   }
 
-
   public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
-
 
   public Pagination totalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
     return this;
   }
 
-   /**
+  /**
    * Total count of elements matched by the filter.
+   *
    * @return totalFilteredCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total count of elements matched by the filter.")
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTotalFilteredCount() {
     return totalFilteredCount;
   }
-
 
   public void setTotalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
   }
 
-
-  /**
-   * Return true if this Pagination object is equal to o.
-   */
+  /** Return true if this Pagination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,8 +85,8 @@ public class Pagination {
       return false;
     }
     Pagination pagination = (Pagination) o;
-    return Objects.equals(this.totalCount, pagination.totalCount) &&
-        Objects.equals(this.totalFilteredCount, pagination.totalFilteredCount);
+    return Objects.equals(this.totalCount, pagination.totalCount)
+        && Objects.equals(this.totalFilteredCount, pagination.totalFilteredCount);
   }
 
   @Override
@@ -123,8 +105,7 @@ public class Pagination {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -132,6 +113,4 @@ public class Pagination {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

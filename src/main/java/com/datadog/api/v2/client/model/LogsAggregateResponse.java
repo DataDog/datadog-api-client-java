@@ -8,29 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsAggregateResponseData;
-import com.datadog.api.v2.client.model.LogsResponseMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The response object for the logs aggregate API endpoint
- */
+/** The response object for the logs aggregate API endpoint */
 @ApiModel(description = "The response object for the logs aggregate API endpoint")
 @JsonPropertyOrder({
   LogsAggregateResponse.JSON_PROPERTY_DATA,
@@ -44,58 +31,51 @@ public class LogsAggregateResponse {
   public static final String JSON_PROPERTY_META = "meta";
   private LogsResponseMetadata meta;
 
-
   public LogsAggregateResponse data(LogsAggregateResponseData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsAggregateResponseData getData() {
     return data;
   }
 
-
   public void setData(LogsAggregateResponseData data) {
     this.data = data;
   }
-
 
   public LogsAggregateResponse meta(LogsResponseMetadata meta) {
     this.meta = meta;
     return this;
   }
 
-   /**
+  /**
    * Get meta
+   *
    * @return meta
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsResponseMetadata getMeta() {
     return meta;
   }
-
 
   public void setMeta(LogsResponseMetadata meta) {
     this.meta = meta;
   }
 
-
-  /**
-   * Return true if this LogsAggregateResponse object is equal to o.
-   */
+  /** Return true if this LogsAggregateResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -105,8 +85,8 @@ public class LogsAggregateResponse {
       return false;
     }
     LogsAggregateResponse logsAggregateResponse = (LogsAggregateResponse) o;
-    return Objects.equals(this.data, logsAggregateResponse.data) &&
-        Objects.equals(this.meta, logsAggregateResponse.meta);
+    return Objects.equals(this.data, logsAggregateResponse.data)
+        && Objects.equals(this.meta, logsAggregateResponse.meta);
   }
 
   @Override
@@ -125,8 +105,7 @@ public class LogsAggregateResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -134,6 +113,4 @@ public class LogsAggregateResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

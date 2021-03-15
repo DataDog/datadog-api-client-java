@@ -8,29 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The number of synthetics tests run for each hour for a given organization.
- */
-@ApiModel(description = "The number of synthetics tests run for each hour for a given organization.")
+/** The number of synthetics tests run for each hour for a given organization. */
+@ApiModel(
+    description = "The number of synthetics tests run for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageSyntheticsHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
   UsageSyntheticsHour.JSON_PROPERTY_HOUR
@@ -43,58 +33,51 @@ public class UsageSyntheticsHour {
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
-
   public UsageSyntheticsHour checkCallsCount(Long checkCallsCount) {
     this.checkCallsCount = checkCallsCount;
     return this;
   }
 
-   /**
+  /**
    * Contains the number of Synthetics API tests run.
+   *
    * @return checkCallsCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Contains the number of Synthetics API tests run.")
   @JsonProperty(JSON_PROPERTY_CHECK_CALLS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getCheckCallsCount() {
     return checkCallsCount;
   }
 
-
   public void setCheckCallsCount(Long checkCallsCount) {
     this.checkCallsCount = checkCallsCount;
   }
-
 
   public UsageSyntheticsHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-   /**
+  /**
    * The hour for the usage.
+   *
    * @return hour
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getHour() {
     return hour;
   }
-
 
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
 
-
-  /**
-   * Return true if this UsageSyntheticsHour object is equal to o.
-   */
+  /** Return true if this UsageSyntheticsHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +87,8 @@ public class UsageSyntheticsHour {
       return false;
     }
     UsageSyntheticsHour usageSyntheticsHour = (UsageSyntheticsHour) o;
-    return Objects.equals(this.checkCallsCount, usageSyntheticsHour.checkCallsCount) &&
-        Objects.equals(this.hour, usageSyntheticsHour.hour);
+    return Objects.equals(this.checkCallsCount, usageSyntheticsHour.checkCallsCount)
+        && Objects.equals(this.hour, usageSyntheticsHour.hour);
   }
 
   @Override
@@ -124,8 +107,7 @@ public class UsageSyntheticsHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +115,4 @@ public class UsageSyntheticsHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

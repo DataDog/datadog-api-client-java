@@ -8,36 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.IncidentResponseData;
-import com.datadog.api.v2.client.model.IncidentResponseIncludedItem;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response with an incident.
- */
+/** Response with an incident. */
 @ApiModel(description = "Response with an incident.")
-@JsonPropertyOrder({
-  IncidentResponse.JSON_PROPERTY_DATA,
-  IncidentResponse.JSON_PROPERTY_INCLUDED
-})
+@JsonPropertyOrder({IncidentResponse.JSON_PROPERTY_DATA, IncidentResponse.JSON_PROPERTY_INCLUDED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentResponse {
   public static final String JSON_PROPERTY_DATA = "data";
@@ -46,49 +29,41 @@ public class IncidentResponse {
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<IncidentResponseIncludedItem> included = null;
 
-
   public IncidentResponse data(IncidentResponseData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IncidentResponseData getData() {
     return data;
   }
-
 
   public void setData(IncidentResponseData data) {
     this.data = data;
   }
 
-
-   /**
+  /**
    * Included related resources that the user requested.
+   *
    * @return included
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Included related resources that the user requested.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<IncidentResponseIncludedItem> getIncluded() {
     return included;
   }
 
-
-
-
-  /**
-   * Return true if this IncidentResponse object is equal to o.
-   */
+  /** Return true if this IncidentResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,8 +73,8 @@ public class IncidentResponse {
       return false;
     }
     IncidentResponse incidentResponse = (IncidentResponse) o;
-    return Objects.equals(this.data, incidentResponse.data) &&
-        Objects.equals(this.included, incidentResponse.included);
+    return Objects.equals(this.data, incidentResponse.data)
+        && Objects.equals(this.included, incidentResponse.included);
   }
 
   @Override
@@ -118,8 +93,7 @@ public class IncidentResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -127,6 +101,4 @@ public class IncidentResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

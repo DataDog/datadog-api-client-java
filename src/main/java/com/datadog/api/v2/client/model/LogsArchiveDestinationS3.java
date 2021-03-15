@@ -8,29 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsArchiveDestinationS3Type;
-import com.datadog.api.v2.client.model.LogsArchiveIntegrationS3;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The S3 archive destination.
- */
+/** The S3 archive destination. */
 @ApiModel(description = "The S3 archive destination.")
 @JsonPropertyOrder({
   LogsArchiveDestinationS3.JSON_PROPERTY_BUCKET,
@@ -52,103 +39,95 @@ public class LogsArchiveDestinationS3 {
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsArchiveDestinationS3Type type = LogsArchiveDestinationS3Type.S3;
 
-
   public LogsArchiveDestinationS3 bucket(String bucket) {
     this.bucket = bucket;
     return this;
   }
 
-   /**
+  /**
    * The bucket where the archive will be stored.
+   *
    * @return bucket
-  **/
-  @ApiModelProperty(example = "bucket-name", required = true, value = "The bucket where the archive will be stored.")
+   */
+  @ApiModelProperty(
+      example = "bucket-name",
+      required = true,
+      value = "The bucket where the archive will be stored.")
   @JsonProperty(JSON_PROPERTY_BUCKET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getBucket() {
     return bucket;
   }
 
-
   public void setBucket(String bucket) {
     this.bucket = bucket;
   }
-
 
   public LogsArchiveDestinationS3 integration(LogsArchiveIntegrationS3 integration) {
     this.integration = integration;
     return this;
   }
 
-   /**
+  /**
    * Get integration
+   *
    * @return integration
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INTEGRATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsArchiveIntegrationS3 getIntegration() {
     return integration;
   }
 
-
   public void setIntegration(LogsArchiveIntegrationS3 integration) {
     this.integration = integration;
   }
-
 
   public LogsArchiveDestinationS3 path(String path) {
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * The archive path.
+   *
    * @return path
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The archive path.")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPath() {
     return path;
   }
 
-
   public void setPath(String path) {
     this.path = path;
   }
-
 
   public LogsArchiveDestinationS3 type(LogsArchiveDestinationS3Type type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsArchiveDestinationS3Type getType() {
     return type;
   }
-
 
   public void setType(LogsArchiveDestinationS3Type type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this LogsArchiveDestinationS3 object is equal to o.
-   */
+  /** Return true if this LogsArchiveDestinationS3 object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,10 +137,10 @@ public class LogsArchiveDestinationS3 {
       return false;
     }
     LogsArchiveDestinationS3 logsArchiveDestinationS3 = (LogsArchiveDestinationS3) o;
-    return Objects.equals(this.bucket, logsArchiveDestinationS3.bucket) &&
-        Objects.equals(this.integration, logsArchiveDestinationS3.integration) &&
-        Objects.equals(this.path, logsArchiveDestinationS3.path) &&
-        Objects.equals(this.type, logsArchiveDestinationS3.type);
+    return Objects.equals(this.bucket, logsArchiveDestinationS3.bucket)
+        && Objects.equals(this.integration, logsArchiveDestinationS3.integration)
+        && Objects.equals(this.path, logsArchiveDestinationS3.path)
+        && Objects.equals(this.type, logsArchiveDestinationS3.type);
   }
 
   @Override
@@ -182,8 +161,7 @@ public class LogsArchiveDestinationS3 {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -191,6 +169,4 @@ public class LogsArchiveDestinationS3 {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

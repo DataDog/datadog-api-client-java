@@ -8,29 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.IncidentTimelineCellMarkdownContentType;
-import com.datadog.api.v2.client.model.IncidentTimelineCellMarkdownCreateAttributesContent;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Timeline cell data for Markdown timeline cells for a create request.
- */
+/** Timeline cell data for Markdown timeline cells for a create request. */
 @ApiModel(description = "Timeline cell data for Markdown timeline cells for a create request.")
 @JsonPropertyOrder({
   IncidentTimelineCellMarkdownCreateAttributes.JSON_PROPERTY_CELL_TYPE,
@@ -40,7 +27,8 @@ import com.datadog.api.v2.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTimelineCellMarkdownCreateAttributes {
   public static final String JSON_PROPERTY_CELL_TYPE = "cell_type";
-  private IncidentTimelineCellMarkdownContentType cellType = IncidentTimelineCellMarkdownContentType.MARKDOWN;
+  private IncidentTimelineCellMarkdownContentType cellType =
+      IncidentTimelineCellMarkdownContentType.MARKDOWN;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
   private IncidentTimelineCellMarkdownCreateAttributesContent content;
@@ -48,80 +36,75 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
   public static final String JSON_PROPERTY_IMPORTANT = "important";
   private Boolean important = false;
 
-
-  public IncidentTimelineCellMarkdownCreateAttributes cellType(IncidentTimelineCellMarkdownContentType cellType) {
+  public IncidentTimelineCellMarkdownCreateAttributes cellType(
+      IncidentTimelineCellMarkdownContentType cellType) {
     this.cellType = cellType;
     return this;
   }
 
-   /**
+  /**
    * Get cellType
+   *
    * @return cellType
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CELL_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IncidentTimelineCellMarkdownContentType getCellType() {
     return cellType;
   }
-
 
   public void setCellType(IncidentTimelineCellMarkdownContentType cellType) {
     this.cellType = cellType;
   }
 
-
-  public IncidentTimelineCellMarkdownCreateAttributes content(IncidentTimelineCellMarkdownCreateAttributesContent content) {
+  public IncidentTimelineCellMarkdownCreateAttributes content(
+      IncidentTimelineCellMarkdownCreateAttributesContent content) {
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * Get content
+   *
    * @return content
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IncidentTimelineCellMarkdownCreateAttributesContent getContent() {
     return content;
   }
 
-
   public void setContent(IncidentTimelineCellMarkdownCreateAttributesContent content) {
     this.content = content;
   }
-
 
   public IncidentTimelineCellMarkdownCreateAttributes important(Boolean important) {
     this.important = important;
     return this;
   }
 
-   /**
+  /**
    * A flag indicating whether the timeline cell is important and should be highlighted.
+   *
    * @return important
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "A flag indicating whether the timeline cell is important and should be highlighted.")
+  @ApiModelProperty(
+      example = "false",
+      value = "A flag indicating whether the timeline cell is important and should be highlighted.")
   @JsonProperty(JSON_PROPERTY_IMPORTANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getImportant() {
     return important;
   }
-
 
   public void setImportant(Boolean important) {
     this.important = important;
   }
 
-
-  /**
-   * Return true if this IncidentTimelineCellMarkdownCreateAttributes object is equal to o.
-   */
+  /** Return true if this IncidentTimelineCellMarkdownCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,10 +113,11 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTimelineCellMarkdownCreateAttributes incidentTimelineCellMarkdownCreateAttributes = (IncidentTimelineCellMarkdownCreateAttributes) o;
-    return Objects.equals(this.cellType, incidentTimelineCellMarkdownCreateAttributes.cellType) &&
-        Objects.equals(this.content, incidentTimelineCellMarkdownCreateAttributes.content) &&
-        Objects.equals(this.important, incidentTimelineCellMarkdownCreateAttributes.important);
+    IncidentTimelineCellMarkdownCreateAttributes incidentTimelineCellMarkdownCreateAttributes =
+        (IncidentTimelineCellMarkdownCreateAttributes) o;
+    return Objects.equals(this.cellType, incidentTimelineCellMarkdownCreateAttributes.cellType)
+        && Objects.equals(this.content, incidentTimelineCellMarkdownCreateAttributes.content)
+        && Objects.equals(this.important, incidentTimelineCellMarkdownCreateAttributes.important);
   }
 
   @Override
@@ -153,8 +137,7 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -162,6 +145,4 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

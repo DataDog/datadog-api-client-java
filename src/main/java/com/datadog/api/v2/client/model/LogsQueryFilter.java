@@ -8,29 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The search and filter query settings
- */
+/** The search and filter query settings */
 @ApiModel(description = "The search and filter query settings")
 @JsonPropertyOrder({
   LogsQueryFilter.JSON_PROPERTY_FROM,
@@ -52,30 +41,29 @@ public class LogsQueryFilter {
   public static final String JSON_PROPERTY_TO = "to";
   private String to = "now";
 
-
   public LogsQueryFilter from(String from) {
     this.from = from;
     return this;
   }
 
-   /**
+  /**
    * The minimum time for the requested logs, supports date math and regular timestamps
+   *
    * @return from
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "now-15m", value = "The minimum time for the requested logs, supports date math and regular timestamps")
+  @ApiModelProperty(
+      example = "now-15m",
+      value = "The minimum time for the requested logs, supports date math and regular timestamps")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFrom() {
     return from;
   }
 
-
   public void setFrom(String from) {
     this.from = from;
   }
-
 
   public LogsQueryFilter indexes(List<String> indexes) {
     this.indexes = indexes;
@@ -90,76 +78,77 @@ public class LogsQueryFilter {
     return this;
   }
 
-   /**
-   * For customers with multiple indexes, the indexes to search. Defaults to [&#39;*&#39;] which means all indexes.
+  /**
+   * For customers with multiple indexes, the indexes to search. Defaults to [&#39;*&#39;] which
+   * means all indexes.
+   *
    * @return indexes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"main\",\"web\"]", value = "For customers with multiple indexes, the indexes to search. Defaults to ['*'] which means all indexes.")
+  @ApiModelProperty(
+      example = "[\"main\",\"web\"]",
+      value =
+          "For customers with multiple indexes, the indexes to search. Defaults to ['*'] which"
+              + " means all indexes.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getIndexes() {
     return indexes;
   }
 
-
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
   }
-
 
   public LogsQueryFilter query(String query) {
     this.query = query;
     return this;
   }
 
-   /**
+  /**
    * The search query - following the log search syntax.
+   *
    * @return query
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "service:web* AND @http.status_code:[200 TO 299]", value = "The search query - following the log search syntax.")
+  @ApiModelProperty(
+      example = "service:web* AND @http.status_code:[200 TO 299]",
+      value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getQuery() {
     return query;
   }
 
-
   public void setQuery(String query) {
     this.query = query;
   }
-
 
   public LogsQueryFilter to(String to) {
     this.to = to;
     return this;
   }
 
-   /**
+  /**
    * The maximum time for the requested logs, supports date math and regular timestamps
+   *
    * @return to
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "now", value = "The maximum time for the requested logs, supports date math and regular timestamps")
+  @ApiModelProperty(
+      example = "now",
+      value = "The maximum time for the requested logs, supports date math and regular timestamps")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTo() {
     return to;
   }
-
 
   public void setTo(String to) {
     this.to = to;
   }
 
-
-  /**
-   * Return true if this LogsQueryFilter object is equal to o.
-   */
+  /** Return true if this LogsQueryFilter object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,10 +158,10 @@ public class LogsQueryFilter {
       return false;
     }
     LogsQueryFilter logsQueryFilter = (LogsQueryFilter) o;
-    return Objects.equals(this.from, logsQueryFilter.from) &&
-        Objects.equals(this.indexes, logsQueryFilter.indexes) &&
-        Objects.equals(this.query, logsQueryFilter.query) &&
-        Objects.equals(this.to, logsQueryFilter.to);
+    return Objects.equals(this.from, logsQueryFilter.from)
+        && Objects.equals(this.indexes, logsQueryFilter.indexes)
+        && Objects.equals(this.query, logsQueryFilter.query)
+        && Objects.equals(this.to, logsQueryFilter.to);
   }
 
   @Override
@@ -193,8 +182,7 @@ public class LogsQueryFilter {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -202,6 +190,4 @@ public class LogsQueryFilter {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

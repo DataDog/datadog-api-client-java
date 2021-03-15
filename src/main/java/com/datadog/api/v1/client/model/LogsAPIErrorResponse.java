@@ -8,65 +8,46 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.LogsAPIError;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response returned by the Logs API when errors occur.
- */
+/** Response returned by the Logs API when errors occur. */
 @ApiModel(description = "Response returned by the Logs API when errors occur.")
-@JsonPropertyOrder({
-  LogsAPIErrorResponse.JSON_PROPERTY_ERROR
-})
+@JsonPropertyOrder({LogsAPIErrorResponse.JSON_PROPERTY_ERROR})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAPIErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
   private LogsAPIError error;
-
 
   public LogsAPIErrorResponse error(LogsAPIError error) {
     this.error = error;
     return this;
   }
 
-   /**
+  /**
    * Get error
+   *
    * @return error
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsAPIError getError() {
     return error;
   }
-
 
   public void setError(LogsAPIError error) {
     this.error = error;
   }
 
-
-  /**
-   * Return true if this LogsAPIErrorResponse object is equal to o.
-   */
+  /** Return true if this LogsAPIErrorResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,8 +75,7 @@ public class LogsAPIErrorResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +83,4 @@ public class LogsAPIErrorResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

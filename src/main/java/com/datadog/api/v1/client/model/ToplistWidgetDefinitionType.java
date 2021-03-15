@@ -8,26 +8,13 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Type of the top list widget.
- */
+/** Type of the top list widget. */
 public enum ToplistWidgetDefinitionType {
-  
   TOPLIST("toplist");
 
   private String value;
@@ -56,4 +43,3 @@ public enum ToplistWidgetDefinitionType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

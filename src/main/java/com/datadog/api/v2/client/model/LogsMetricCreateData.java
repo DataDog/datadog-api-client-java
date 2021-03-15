@@ -8,29 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsMetricCreateAttributes;
-import com.datadog.api.v2.client.model.LogsMetricType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The new log-based metric properties.
- */
+/** The new log-based metric properties. */
 @ApiModel(description = "The new log-based metric properties.")
 @JsonPropertyOrder({
   LogsMetricCreateData.JSON_PROPERTY_ATTRIBUTES,
@@ -48,79 +35,73 @@ public class LogsMetricCreateData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsMetricType type = LogsMetricType.LOGS_METRICS;
 
-
   public LogsMetricCreateData attributes(LogsMetricCreateAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsMetricCreateAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(LogsMetricCreateAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public LogsMetricCreateData id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The name of the log-based metric.
+   *
    * @return id
-  **/
-  @ApiModelProperty(example = "logs.page.load.count", required = true, value = "The name of the log-based metric.")
+   */
+  @ApiModelProperty(
+      example = "logs.page.load.count",
+      required = true,
+      value = "The name of the log-based metric.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public LogsMetricCreateData type(LogsMetricType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsMetricType getType() {
     return type;
   }
-
 
   public void setType(LogsMetricType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this LogsMetricCreateData object is equal to o.
-   */
+  /** Return true if this LogsMetricCreateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,9 +111,9 @@ public class LogsMetricCreateData {
       return false;
     }
     LogsMetricCreateData logsMetricCreateData = (LogsMetricCreateData) o;
-    return Objects.equals(this.attributes, logsMetricCreateData.attributes) &&
-        Objects.equals(this.id, logsMetricCreateData.id) &&
-        Objects.equals(this.type, logsMetricCreateData.type);
+    return Objects.equals(this.attributes, logsMetricCreateData.attributes)
+        && Objects.equals(this.id, logsMetricCreateData.id)
+        && Objects.equals(this.type, logsMetricCreateData.type);
   }
 
   @Override
@@ -152,8 +133,7 @@ public class LogsMetricCreateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -161,6 +141,4 @@ public class LogsMetricCreateData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

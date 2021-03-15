@@ -8,46 +8,33 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Aggregation methods for event platform queries.
- */
+/** Aggregation methods for event platform queries. */
 public enum FormulaAndFunctionEventAggregation {
-  
   COUNT("count"),
-  
+
   CARDINALITY("cardinality"),
-  
+
   PC75("pc75"),
-  
+
   PC90("pc90"),
-  
+
   PC95("pc95"),
-  
+
   PC98("pc98"),
-  
+
   PC99("pc99"),
-  
+
   SUM("sum"),
-  
+
   MIN("min"),
-  
+
   MAX("max"),
-  
+
   AVG("avg");
 
   private String value;
@@ -76,4 +63,3 @@ public enum FormulaAndFunctionEventAggregation {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

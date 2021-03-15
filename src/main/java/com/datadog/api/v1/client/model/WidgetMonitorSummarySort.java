@@ -8,54 +8,41 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Widget sorting methods.
- */
+/** Widget sorting methods. */
 public enum WidgetMonitorSummarySort {
-  
   NAME("name"),
-  
+
   GROUP("group"),
-  
+
   STATUS("status"),
-  
+
   TAGS("tags"),
-  
+
   TRIGGERED("triggered"),
-  
+
   GROUP_ASCENDING("group,asc"),
-  
+
   GROUP_DESCENDING("group,desc"),
-  
+
   NAME_ASCENDING("name,asc"),
-  
+
   NAME_DESCENDING("name,desc"),
-  
+
   STATUS_ASCENDING("status,asc"),
-  
+
   STATUS_DESCENDING("status,desc"),
-  
+
   TAGS_ASCENDING("tags,asc"),
-  
+
   TAGS_DESCENDING("tags,desc"),
-  
+
   TRIGGERED_ASCENDING("triggered,asc"),
-  
+
   TRIGGERED_DESCENDING("triggered,desc");
 
   private String value;
@@ -84,4 +71,3 @@ public enum WidgetMonitorSummarySort {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

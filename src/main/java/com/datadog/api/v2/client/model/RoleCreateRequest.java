@@ -8,64 +8,45 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.RoleCreateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Create a role.
- */
+/** Create a role. */
 @ApiModel(description = "Create a role.")
-@JsonPropertyOrder({
-  RoleCreateRequest.JSON_PROPERTY_DATA
-})
+@JsonPropertyOrder({RoleCreateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleCreateRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private RoleCreateData data;
-
 
   public RoleCreateRequest data(RoleCreateData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public RoleCreateData getData() {
     return data;
   }
-
 
   public void setData(RoleCreateData data) {
     this.data = data;
   }
 
-
-  /**
-   * Return true if this RoleCreateRequest object is equal to o.
-   */
+  /** Return true if this RoleCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,8 +74,7 @@ public class RoleCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +82,4 @@ public class RoleCreateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

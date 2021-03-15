@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.AccessRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Create, edit, and disable users.
- */
+/** Create, edit, and disable users. */
 @ApiModel(description = "Create, edit, and disable users.")
 @JsonPropertyOrder({
   User.JSON_PROPERTY_ACCESS_ROLE,
@@ -63,162 +51,149 @@ public class User {
   public static final String JSON_PROPERTY_VERIFIED = "verified";
   private Boolean verified;
 
-
   public User accessRole(AccessRole accessRole) {
     this.accessRole = accessRole;
     return this;
   }
 
-   /**
+  /**
    * Get accessRole
+   *
    * @return accessRole
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AccessRole getAccessRole() {
     return accessRole;
   }
 
-
   public void setAccessRole(AccessRole accessRole) {
     this.accessRole = accessRole;
   }
-
 
   public User disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
 
-   /**
+  /**
    * The new disabled status of the user.
+   *
    * @return disabled
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "The new disabled status of the user.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDisabled() {
     return disabled;
   }
 
-
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
-
 
   public User email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The new email of the user.
+   *
    * @return email
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "test@datadoghq.com", value = "The new email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
   public void setEmail(String email) {
     this.email = email;
   }
-
 
   public User handle(String handle) {
     this.handle = handle;
     return this;
   }
 
-   /**
+  /**
    * The user handle, must be a valid email.
+   *
    * @return handle
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test@datadoghq.com", value = "The user handle, must be a valid email.")
+  @ApiModelProperty(
+      example = "test@datadoghq.com",
+      value = "The user handle, must be a valid email.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHandle() {
     return handle;
   }
-
 
   public void setHandle(String handle) {
     this.handle = handle;
   }
 
-
-   /**
+  /**
    * Gravatar icon associated to the user.
+   *
    * @return icon
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "/path/to/matching/gravatar/icon", value = "Gravatar icon associated to the user.")
+  @ApiModelProperty(
+      example = "/path/to/matching/gravatar/icon",
+      value = "Gravatar icon associated to the user.")
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIcon() {
     return icon;
   }
-
-
-
 
   public User name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the user.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "test user", value = "The name of the user.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-   /**
+  /**
    * Whether or not the user logged in Datadog at least once.
+   *
    * @return verified
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Whether or not the user logged in Datadog at least once.")
+  @ApiModelProperty(
+      example = "true",
+      value = "Whether or not the user logged in Datadog at least once.")
   @JsonProperty(JSON_PROPERTY_VERIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getVerified() {
     return verified;
   }
 
-
-
-
-  /**
-   * Return true if this User object is equal to o.
-   */
+  /** Return true if this User object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -228,13 +203,13 @@ public class User {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.accessRole, user.accessRole) &&
-        Objects.equals(this.disabled, user.disabled) &&
-        Objects.equals(this.email, user.email) &&
-        Objects.equals(this.handle, user.handle) &&
-        Objects.equals(this.icon, user.icon) &&
-        Objects.equals(this.name, user.name) &&
-        Objects.equals(this.verified, user.verified);
+    return Objects.equals(this.accessRole, user.accessRole)
+        && Objects.equals(this.disabled, user.disabled)
+        && Objects.equals(this.email, user.email)
+        && Objects.equals(this.handle, user.handle)
+        && Objects.equals(this.icon, user.icon)
+        && Objects.equals(this.name, user.name)
+        && Objects.equals(this.verified, user.verified);
   }
 
   @Override
@@ -258,8 +233,7 @@ public class User {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -267,6 +241,4 @@ public class User {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.LogQueryDefinition;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * An updated geomap widget.
- */
+/** An updated geomap widget. */
 @ApiModel(description = "An updated geomap widget.")
 @JsonPropertyOrder({
   GeomapWidgetRequest.JSON_PROPERTY_LOG_QUERY,
@@ -47,82 +35,73 @@ public class GeomapWidgetRequest {
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
 
-
   public GeomapWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     return this;
   }
 
-   /**
+  /**
    * Get logQuery
+   *
    * @return logQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getLogQuery() {
     return logQuery;
   }
 
-
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
   }
-
 
   public GeomapWidgetRequest q(String q) {
     this.q = q;
     return this;
   }
 
-   /**
+  /**
    * The widget metrics query.
+   *
    * @return q
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The widget metrics query.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getQ() {
     return q;
   }
 
-
   public void setQ(String q) {
     this.q = q;
   }
-
 
   public GeomapWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     return this;
   }
 
-   /**
+  /**
    * Get rumQuery
+   *
    * @return rumQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getRumQuery() {
     return rumQuery;
   }
-
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
   }
 
-
-  /**
-   * Return true if this GeomapWidgetRequest object is equal to o.
-   */
+  /** Return true if this GeomapWidgetRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,9 +111,9 @@ public class GeomapWidgetRequest {
       return false;
     }
     GeomapWidgetRequest geomapWidgetRequest = (GeomapWidgetRequest) o;
-    return Objects.equals(this.logQuery, geomapWidgetRequest.logQuery) &&
-        Objects.equals(this.q, geomapWidgetRequest.q) &&
-        Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery);
+    return Objects.equals(this.logQuery, geomapWidgetRequest.logQuery)
+        && Objects.equals(this.q, geomapWidgetRequest.q)
+        && Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery);
   }
 
   @Override
@@ -154,8 +133,7 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -163,6 +141,4 @@ public class GeomapWidgetRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

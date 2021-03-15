@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.AWSNamespace;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A tag filter.
- */
+/** A tag filter. */
 @ApiModel(description = "A tag filter.")
 @JsonPropertyOrder({
   AWSTagFilter.JSON_PROPERTY_NAMESPACE,
@@ -43,58 +31,51 @@ public class AWSTagFilter {
   public static final String JSON_PROPERTY_TAG_FILTER_STR = "tag_filter_str";
   private String tagFilterStr;
 
-
   public AWSTagFilter namespace(AWSNamespace namespace) {
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * Get namespace
+   *
    * @return namespace
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AWSNamespace getNamespace() {
     return namespace;
   }
 
-
   public void setNamespace(AWSNamespace namespace) {
     this.namespace = namespace;
   }
-
 
   public AWSTagFilter tagFilterStr(String tagFilterStr) {
     this.tagFilterStr = tagFilterStr;
     return this;
   }
 
-   /**
+  /**
    * The tag filter string.
+   *
    * @return tagFilterStr
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "prod*", value = "The tag filter string.")
   @JsonProperty(JSON_PROPERTY_TAG_FILTER_STR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTagFilterStr() {
     return tagFilterStr;
   }
-
 
   public void setTagFilterStr(String tagFilterStr) {
     this.tagFilterStr = tagFilterStr;
   }
 
-
-  /**
-   * Return true if this AWSTagFilter object is equal to o.
-   */
+  /** Return true if this AWSTagFilter object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +85,8 @@ public class AWSTagFilter {
       return false;
     }
     AWSTagFilter awSTagFilter = (AWSTagFilter) o;
-    return Objects.equals(this.namespace, awSTagFilter.namespace) &&
-        Objects.equals(this.tagFilterStr, awSTagFilter.tagFilterStr);
+    return Objects.equals(this.namespace, awSTagFilter.namespace)
+        && Objects.equals(this.tagFilterStr, awSTagFilter.tagFilterStr);
   }
 
   @Override
@@ -124,8 +105,7 @@ public class AWSTagFilter {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +113,4 @@ public class AWSTagFilter {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

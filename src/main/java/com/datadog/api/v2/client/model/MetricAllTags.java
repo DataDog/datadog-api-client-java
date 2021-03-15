@@ -8,29 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.MetricAllTagsAttributes;
-import com.datadog.api.v2.client.model.MetricType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object for a single metric&#39;s indexed tags.
- */
+/** Object for a single metric&#39;s indexed tags. */
 @ApiModel(description = "Object for a single metric's indexed tags.")
 @JsonPropertyOrder({
   MetricAllTags.JSON_PROPERTY_ATTRIBUTES,
@@ -48,82 +35,73 @@ public class MetricAllTags {
   public static final String JSON_PROPERTY_TYPE = "type";
   private MetricType type = MetricType.METRICS;
 
-
   public MetricAllTags attributes(MetricAllTagsAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MetricAllTagsAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(MetricAllTagsAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public MetricAllTags id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The metric name for this resource.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "test.metric.latency", value = "The metric name for this resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public MetricAllTags type(MetricType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MetricType getType() {
     return type;
   }
-
 
   public void setType(MetricType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this MetricAllTags object is equal to o.
-   */
+  /** Return true if this MetricAllTags object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,9 +111,9 @@ public class MetricAllTags {
       return false;
     }
     MetricAllTags metricAllTags = (MetricAllTags) o;
-    return Objects.equals(this.attributes, metricAllTags.attributes) &&
-        Objects.equals(this.id, metricAllTags.id) &&
-        Objects.equals(this.type, metricAllTags.type);
+    return Objects.equals(this.attributes, metricAllTags.attributes)
+        && Objects.equals(this.id, metricAllTags.id)
+        && Objects.equals(this.type, metricAllTags.type);
   }
 
   @Override
@@ -155,8 +133,7 @@ public class MetricAllTags {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -164,6 +141,4 @@ public class MetricAllTags {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

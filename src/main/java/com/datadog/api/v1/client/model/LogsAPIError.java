@@ -8,29 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Error returned by the Logs API
- */
+/** Error returned by the Logs API */
 @ApiModel(description = "Error returned by the Logs API")
 @JsonPropertyOrder({
   LogsAPIError.JSON_PROPERTY_CODE,
@@ -48,30 +37,27 @@ public class LogsAPIError {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-
   public LogsAPIError code(String code) {
     this.code = code;
     return this;
   }
 
-   /**
+  /**
    * Code identifying the error
+   *
    * @return code
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Code identifying the error")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCode() {
     return code;
   }
 
-
   public void setCode(String code) {
     this.code = code;
   }
-
 
   public LogsAPIError details(List<LogsAPIError> details) {
     this.details = details;
@@ -86,52 +72,46 @@ public class LogsAPIError {
     return this;
   }
 
-   /**
+  /**
    * Additional error details
+   *
    * @return details
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Additional error details")
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<LogsAPIError> getDetails() {
     return details;
   }
 
-
   public void setDetails(List<LogsAPIError> details) {
     this.details = details;
   }
-
 
   public LogsAPIError message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * Error message
+   *
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Error message")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
-
 
   public void setMessage(String message) {
     this.message = message;
   }
 
-
-  /**
-   * Return true if this LogsAPIError object is equal to o.
-   */
+  /** Return true if this LogsAPIError object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,9 +121,9 @@ public class LogsAPIError {
       return false;
     }
     LogsAPIError logsAPIError = (LogsAPIError) o;
-    return Objects.equals(this.code, logsAPIError.code) &&
-        Objects.equals(this.details, logsAPIError.details) &&
-        Objects.equals(this.message, logsAPIError.message);
+    return Objects.equals(this.code, logsAPIError.code)
+        && Objects.equals(this.details, logsAPIError.details)
+        && Objects.equals(this.message, logsAPIError.message);
   }
 
   @Override
@@ -163,8 +143,7 @@ public class LogsAPIError {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -172,6 +151,4 @@ public class LogsAPIError {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

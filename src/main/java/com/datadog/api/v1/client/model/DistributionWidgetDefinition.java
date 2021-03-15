@@ -8,34 +8,27 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.DistributionWidgetDefinitionType;
-import com.datadog.api.v1.client.model.DistributionWidgetRequest;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
-import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
+ * The Distribution visualization is another way of showing metrics aggregated across one or several
+ * tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than
+ * time.
  */
-@ApiModel(description = "The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.")
+@ApiModel(
+    description =
+        "The Distribution visualization is another way of showing metrics aggregated across one or"
+            + " several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is"
+            + " quantity rather than time.")
 @JsonPropertyOrder({
   DistributionWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   DistributionWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -72,30 +65,31 @@ public class DistributionWidgetDefinition {
   public static final String JSON_PROPERTY_TYPE = "type";
   private DistributionWidgetDefinitionType type = DistributionWidgetDefinitionType.DISTRIBUTION;
 
-
   public DistributionWidgetDefinition legendSize(String legendSize) {
     this.legendSize = legendSize;
     return this;
   }
 
-   /**
-   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+  /**
+   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;,
+   * \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+   *
    * @return legendSize
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".")
+  @ApiModelProperty(
+      value =
+          "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\","
+              + " \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLegendSize() {
     return legendSize;
   }
 
-
   public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
   }
-
 
   public DistributionWidgetDefinition requests(List<DistributionWidgetRequest> requests) {
     this.requests = requests;
@@ -107,170 +101,163 @@ public class DistributionWidgetDefinition {
     return this;
   }
 
-   /**
-   * Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the &#x60;REQUEST_SCHEMA&#x60;.
+  /**
+   * Array of one request object to display in the widget. See the dedicated [Request JSON schema
+   * documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json) to learn how
+   * to build the &#x60;REQUEST_SCHEMA&#x60;.
+   *
    * @return requests
-  **/
-  @ApiModelProperty(example = "[{\"q\":\"host:X tags:Y\"}]", required = true, value = "Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.")
+   */
+  @ApiModelProperty(
+      example = "[{\"q\":\"host:X tags:Y\"}]",
+      required = true,
+      value =
+          "Array of one request object to display in the widget.  See the dedicated [Request JSON"
+              + " schema"
+              + " documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)"
+              + "  to learn how to build the `REQUEST_SCHEMA`.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<DistributionWidgetRequest> getRequests() {
     return requests;
   }
 
-
   public void setRequests(List<DistributionWidgetRequest> requests) {
     this.requests = requests;
   }
-
 
   public DistributionWidgetDefinition showLegend(Boolean showLegend) {
     this.showLegend = showLegend;
     return this;
   }
 
-   /**
+  /**
    * Whether or not to display the legend on this widget.
+   *
    * @return showLegend
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether or not to display the legend on this widget.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShowLegend() {
     return showLegend;
   }
 
-
   public void setShowLegend(Boolean showLegend) {
     this.showLegend = showLegend;
   }
-
 
   public DistributionWidgetDefinition time(WidgetTime time) {
     this.time = time;
     return this;
   }
 
-   /**
+  /**
    * Get time
+   *
    * @return time
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetTime getTime() {
     return time;
   }
 
-
   public void setTime(WidgetTime time) {
     this.time = time;
   }
-
 
   public DistributionWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Title of the widget.
+   *
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
-
 
   public DistributionWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     return this;
   }
 
-   /**
+  /**
    * Get titleAlign
+   *
    * @return titleAlign
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
-
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
   }
-
 
   public DistributionWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-   /**
+  /**
    * Size of the title.
+   *
    * @return titleSize
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitleSize() {
     return titleSize;
   }
 
-
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
 
   public DistributionWidgetDefinition type(DistributionWidgetDefinitionType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public DistributionWidgetDefinitionType getType() {
     return type;
   }
-
 
   public void setType(DistributionWidgetDefinitionType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this DistributionWidgetDefinition object is equal to o.
-   */
+  /** Return true if this DistributionWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -280,14 +267,14 @@ public class DistributionWidgetDefinition {
       return false;
     }
     DistributionWidgetDefinition distributionWidgetDefinition = (DistributionWidgetDefinition) o;
-    return Objects.equals(this.legendSize, distributionWidgetDefinition.legendSize) &&
-        Objects.equals(this.requests, distributionWidgetDefinition.requests) &&
-        Objects.equals(this.showLegend, distributionWidgetDefinition.showLegend) &&
-        Objects.equals(this.time, distributionWidgetDefinition.time) &&
-        Objects.equals(this.title, distributionWidgetDefinition.title) &&
-        Objects.equals(this.titleAlign, distributionWidgetDefinition.titleAlign) &&
-        Objects.equals(this.titleSize, distributionWidgetDefinition.titleSize) &&
-        Objects.equals(this.type, distributionWidgetDefinition.type);
+    return Objects.equals(this.legendSize, distributionWidgetDefinition.legendSize)
+        && Objects.equals(this.requests, distributionWidgetDefinition.requests)
+        && Objects.equals(this.showLegend, distributionWidgetDefinition.showLegend)
+        && Objects.equals(this.time, distributionWidgetDefinition.time)
+        && Objects.equals(this.title, distributionWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, distributionWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, distributionWidgetDefinition.titleSize)
+        && Objects.equals(this.type, distributionWidgetDefinition.type);
   }
 
   @Override
@@ -312,8 +299,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -321,6 +307,4 @@ public class DistributionWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,36 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.GeomapWidgetDefinitionStyle;
-import com.datadog.api.v1.client.model.GeomapWidgetDefinitionType;
-import com.datadog.api.v1.client.model.GeomapWidgetDefinitionView;
-import com.datadog.api.v1.client.model.GeomapWidgetRequest;
-import com.datadog.api.v1.client.model.WidgetCustomLink;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
-import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * This visualization displays a series of values by country on a world map.
- */
+/** This visualization displays a series of values by country on a world map. */
 @ApiModel(description = "This visualization displays a series of values by country on a world map.")
 @JsonPropertyOrder({
   GeomapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
@@ -79,7 +61,6 @@ public class GeomapWidgetDefinition {
   public static final String JSON_PROPERTY_VIEW = "view";
   private GeomapWidgetDefinitionView view;
 
-
   public GeomapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
     return this;
@@ -93,24 +74,22 @@ public class GeomapWidgetDefinition {
     return this;
   }
 
-   /**
+  /**
    * A list of custom links.
+   *
    * @return customLinks
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A list of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<WidgetCustomLink> getCustomLinks() {
     return customLinks;
   }
 
-
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
-
 
   public GeomapWidgetDefinition requests(List<GeomapWidgetRequest> requests) {
     this.requests = requests;
@@ -122,192 +101,184 @@ public class GeomapWidgetDefinition {
     return this;
   }
 
-   /**
-   * Array of one request object to display in the widget. The request must contain a &#x60;group-by&#x60; tag whose value is a country ISO code.  See the [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json) for information about building the &#x60;REQUEST_SCHEMA&#x60;.
+  /**
+   * Array of one request object to display in the widget. The request must contain a
+   * &#x60;group-by&#x60; tag whose value is a country ISO code. See the [Request JSON schema
+   * documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json) for
+   * information about building the &#x60;REQUEST_SCHEMA&#x60;.
+   *
    * @return requests
-  **/
-  @ApiModelProperty(example = "[{\"rum_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "Array of one request object to display in the widget. The request must contain a `group-by` tag whose value is a country ISO code.  See the [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json) for information about building the `REQUEST_SCHEMA`.")
+   */
+  @ApiModelProperty(
+      example = "[{\"rum_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
+      required = true,
+      value =
+          "Array of one request object to display in the widget. The request must contain a"
+              + " `group-by` tag whose value is a country ISO code.  See the [Request JSON schema"
+              + " documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)"
+              + " for information about building the `REQUEST_SCHEMA`.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<GeomapWidgetRequest> getRequests() {
     return requests;
   }
 
-
   public void setRequests(List<GeomapWidgetRequest> requests) {
     this.requests = requests;
   }
-
 
   public GeomapWidgetDefinition style(GeomapWidgetDefinitionStyle style) {
     this.style = style;
     return this;
   }
 
-   /**
+  /**
    * Get style
+   *
    * @return style
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public GeomapWidgetDefinitionStyle getStyle() {
     return style;
   }
 
-
   public void setStyle(GeomapWidgetDefinitionStyle style) {
     this.style = style;
   }
-
 
   public GeomapWidgetDefinition time(WidgetTime time) {
     this.time = time;
     return this;
   }
 
-   /**
+  /**
    * Get time
+   *
    * @return time
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetTime getTime() {
     return time;
   }
 
-
   public void setTime(WidgetTime time) {
     this.time = time;
   }
-
 
   public GeomapWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * The title of your widget.
+   *
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
-
 
   public GeomapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     return this;
   }
 
-   /**
+  /**
    * Get titleAlign
+   *
    * @return titleAlign
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
-
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
   }
-
 
   public GeomapWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-   /**
+  /**
    * The size of the title.
+   *
    * @return titleSize
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitleSize() {
     return titleSize;
   }
 
-
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
 
   public GeomapWidgetDefinition type(GeomapWidgetDefinitionType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public GeomapWidgetDefinitionType getType() {
     return type;
   }
 
-
   public void setType(GeomapWidgetDefinitionType type) {
     this.type = type;
   }
-
 
   public GeomapWidgetDefinition view(GeomapWidgetDefinitionView view) {
     this.view = view;
     return this;
   }
 
-   /**
+  /**
    * Get view
+   *
    * @return view
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_VIEW)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public GeomapWidgetDefinitionView getView() {
     return view;
   }
-
 
   public void setView(GeomapWidgetDefinitionView view) {
     this.view = view;
   }
 
-
-  /**
-   * Return true if this GeomapWidgetDefinition object is equal to o.
-   */
+  /** Return true if this GeomapWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -317,20 +288,21 @@ public class GeomapWidgetDefinition {
       return false;
     }
     GeomapWidgetDefinition geomapWidgetDefinition = (GeomapWidgetDefinition) o;
-    return Objects.equals(this.customLinks, geomapWidgetDefinition.customLinks) &&
-        Objects.equals(this.requests, geomapWidgetDefinition.requests) &&
-        Objects.equals(this.style, geomapWidgetDefinition.style) &&
-        Objects.equals(this.time, geomapWidgetDefinition.time) &&
-        Objects.equals(this.title, geomapWidgetDefinition.title) &&
-        Objects.equals(this.titleAlign, geomapWidgetDefinition.titleAlign) &&
-        Objects.equals(this.titleSize, geomapWidgetDefinition.titleSize) &&
-        Objects.equals(this.type, geomapWidgetDefinition.type) &&
-        Objects.equals(this.view, geomapWidgetDefinition.view);
+    return Objects.equals(this.customLinks, geomapWidgetDefinition.customLinks)
+        && Objects.equals(this.requests, geomapWidgetDefinition.requests)
+        && Objects.equals(this.style, geomapWidgetDefinition.style)
+        && Objects.equals(this.time, geomapWidgetDefinition.time)
+        && Objects.equals(this.title, geomapWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, geomapWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, geomapWidgetDefinition.titleSize)
+        && Objects.equals(this.type, geomapWidgetDefinition.type)
+        && Objects.equals(this.view, geomapWidgetDefinition.view);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customLinks, requests, style, time, title, titleAlign, titleSize, type, view);
+    return Objects.hash(
+        customLinks, requests, style, time, title, titleAlign, titleSize, type, view);
   }
 
   @Override
@@ -351,8 +323,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -360,6 +331,4 @@ public class GeomapWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

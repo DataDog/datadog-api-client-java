@@ -1,20 +1,16 @@
 package com.datadog.api.v2.client.api;
 
-import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
-
-import javax.ws.rs.core.GenericType;
-
-import com.datadog.api.v2.client.model.APIErrorResponse;
 import com.datadog.api.v2.client.model.ProcessSummariesResponse;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProcessesApi {
@@ -46,10 +42,11 @@ public class ProcessesApi {
     this.apiClient = apiClient;
   }
 
-
-private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String search, String tags, Long from, Long to, Integer pageLimit, String pageCursor) throws ApiException {
+  private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(
+      String search, String tags, Long from, Long to, Integer pageLimit, String pageCursor)
+      throws ApiException {
     Object localVarPostBody = null;
-    
+
     // create path and map variables
     String localVarPath = "/api/v2/processes";
 
@@ -69,26 +66,32 @@ private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String s
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listProcesses");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      
-    };
+    final String[] localVarContentTypes = {};
+
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<ProcessSummariesResponse> localVarReturnType = new GenericType<ProcessSummariesResponse>() {};
+    GenericType<ProcessSummariesResponse> localVarReturnType =
+        new GenericType<ProcessSummariesResponse>() {};
 
-    return apiClient.invokeAPI("ProcessesApi.listProcesses", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "ProcessesApi.listProcesses",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIlistProcessesRequest {
@@ -99,11 +102,11 @@ private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String s
     private Integer pageLimit;
     private String pageCursor;
 
-    private APIlistProcessesRequest() {
-    }
+    private APIlistProcessesRequest() {}
 
     /**
      * Set search
+     *
      * @param search String to search processes by. (optional)
      * @return APIlistProcessesRequest
      */
@@ -114,6 +117,7 @@ private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String s
 
     /**
      * Set tags
+     *
      * @param tags Comma-separated list of tags to filter processes by. (optional)
      * @return APIlistProcessesRequest
      */
@@ -124,7 +128,11 @@ private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String s
 
     /**
      * Set from
-     * @param from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the &#x60;to&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;. (optional)
+     *
+     * @param from Unix timestamp (number of seconds since epoch) of the start of the query window.
+     *     If not provided, the start of the query window will be 15 minutes before the
+     *     &#x60;to&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided,
+     *     the query window will be &#x60;[now - 15m, now]&#x60;. (optional)
      * @return APIlistProcessesRequest
      */
     public APIlistProcessesRequest from(Long from) {
@@ -134,7 +142,11 @@ private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String s
 
     /**
      * Set to
-     * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the &#x60;from&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;. (optional)
+     *
+     * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If
+     *     not provided, the end of the query window will be 15 minutes after the &#x60;from&#x60;
+     *     timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window
+     *     will be &#x60;[now - 15m, now]&#x60;. (optional)
      * @return APIlistProcessesRequest
      */
     public APIlistProcessesRequest to(Long to) {
@@ -144,6 +156,7 @@ private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String s
 
     /**
      * Set pageLimit
+     *
      * @param pageLimit Maximum number of results returned. (optional, default to 1000)
      * @return APIlistProcessesRequest
      */
@@ -154,7 +167,9 @@ private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String s
 
     /**
      * Set pageCursor
-     * @param pageCursor String to query the next page of results. This key is provided with each valid response from the API in &#x60;meta.page.after&#x60;. (optional)
+     *
+     * @param pageCursor String to query the next page of results. This key is provided with each
+     *     valid response from the API in &#x60;meta.page.after&#x60;. (optional)
      * @return APIlistProcessesRequest
      */
     public APIlistProcessesRequest pageCursor(String pageCursor) {
@@ -164,34 +179,33 @@ private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String s
 
     /**
      * Execute listProcesses request
+     *
      * @return ProcessSummariesResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public ProcessSummariesResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute listProcesses request with HTTP info returned
+     *
      * @return ApiResponse&lt;ProcessSummariesResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ProcessSummariesResponse> executeWithHttpInfo() throws ApiException {
       return listProcessesWithHttpInfo(search, tags, from, to, pageLimit, pageCursor);
@@ -199,12 +213,10 @@ private ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(String s
   }
 
   /**
-   * Get all processes
-   * Get all processes for your organization.
+   * Get all processes Get all processes for your organization.
+   *
    * @return listProcessesRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIlistProcessesRequest listProcesses() throws ApiException {
     return new APIlistProcessesRequest();

@@ -8,38 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The attributes associated with the archive order.
- */
+/** The attributes associated with the archive order. */
 @ApiModel(description = "The attributes associated with the archive order.")
-@JsonPropertyOrder({
-  LogsArchiveOrderAttributes.JSON_PROPERTY_ARCHIVE_IDS
-})
+@JsonPropertyOrder({LogsArchiveOrderAttributes.JSON_PROPERTY_ARCHIVE_IDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveOrderAttributes {
   public static final String JSON_PROPERTY_ARCHIVE_IDS = "archive_ids";
   private List<String> archiveIds = new ArrayList<>();
-
 
   public LogsArchiveOrderAttributes archiveIds(List<String> archiveIds) {
     this.archiveIds = archiveIds;
@@ -51,27 +37,30 @@ public class LogsArchiveOrderAttributes {
     return this;
   }
 
-   /**
-   * An ordered array of &#x60;&lt;ARCHIVE_ID&gt;&#x60; strings, the order of archive IDs in the array define the overall archives order for Datadog.
+  /**
+   * An ordered array of &#x60;&lt;ARCHIVE_ID&gt;&#x60; strings, the order of archive IDs in the
+   * array define the overall archives order for Datadog.
+   *
    * @return archiveIds
-  **/
-  @ApiModelProperty(example = "[\"a2zcMylnM4OCHpYusxIi1g\",\"a2zcMylnM4OCHpYusxIi2g\",\"a2zcMylnM4OCHpYusxIi3g\"]", required = true, value = "An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array define the overall archives order for Datadog.")
+   */
+  @ApiModelProperty(
+      example =
+          "[\"a2zcMylnM4OCHpYusxIi1g\",\"a2zcMylnM4OCHpYusxIi2g\",\"a2zcMylnM4OCHpYusxIi3g\"]",
+      required = true,
+      value =
+          "An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array"
+              + " define the overall archives order for Datadog.")
   @JsonProperty(JSON_PROPERTY_ARCHIVE_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<String> getArchiveIds() {
     return archiveIds;
   }
-
 
   public void setArchiveIds(List<String> archiveIds) {
     this.archiveIds = archiveIds;
   }
 
-
-  /**
-   * Return true if this LogsArchiveOrderAttributes object is equal to o.
-   */
+  /** Return true if this LogsArchiveOrderAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,8 +88,7 @@ public class LogsArchiveOrderAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -108,6 +96,4 @@ public class LogsArchiveOrderAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

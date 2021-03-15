@@ -8,36 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.v1.client.model.LogQueryDefinition;
-import com.datadog.api.v1.client.model.ProcessQueryDefinition;
-import com.datadog.api.v1.client.model.WidgetAggregator;
-import com.datadog.api.v1.client.model.WidgetConditionalFormat;
-import com.datadog.api.v1.client.model.WidgetFormula;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Updated query value widget.
- */
+/** Updated query value widget. */
 @ApiModel(description = "Updated query value widget.")
 @JsonPropertyOrder({
   QueryValueWidgetRequest.JSON_PROPERTY_AGGREGATOR,
@@ -99,61 +81,58 @@ public class QueryValueWidgetRequest {
   public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
   private LogQueryDefinition securityQuery;
 
-
   public QueryValueWidgetRequest aggregator(WidgetAggregator aggregator) {
     this.aggregator = aggregator;
     return this;
   }
 
-   /**
+  /**
    * Get aggregator
+   *
    * @return aggregator
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetAggregator getAggregator() {
     return aggregator;
   }
 
-
   public void setAggregator(WidgetAggregator aggregator) {
     this.aggregator = aggregator;
   }
-
 
   public QueryValueWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
     return this;
   }
 
-   /**
+  /**
    * Get apmQuery
+   *
    * @return apmQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getApmQuery() {
     return apmQuery;
   }
-
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
   }
 
-
-  public QueryValueWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
+  public QueryValueWidgetRequest conditionalFormats(
+      List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
     return this;
   }
 
-  public QueryValueWidgetRequest addConditionalFormatsItem(WidgetConditionalFormat conditionalFormatsItem) {
+  public QueryValueWidgetRequest addConditionalFormatsItem(
+      WidgetConditionalFormat conditionalFormatsItem) {
     if (this.conditionalFormats == null) {
       this.conditionalFormats = new ArrayList<>();
     }
@@ -161,48 +140,44 @@ public class QueryValueWidgetRequest {
     return this;
   }
 
-   /**
+  /**
    * List of conditional formats.
+   *
    * @return conditionalFormats
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of conditional formats.")
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<WidgetConditionalFormat> getConditionalFormats() {
     return conditionalFormats;
   }
 
-
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
   }
-
 
   public QueryValueWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     return this;
   }
 
-   /**
+  /**
    * Get eventQuery
+   *
    * @return eventQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getEventQuery() {
     return eventQuery;
   }
 
-
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
   }
-
 
   public QueryValueWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
@@ -217,144 +192,133 @@ public class QueryValueWidgetRequest {
     return this;
   }
 
-   /**
+  /**
    * List of formulas that operate on queries. **This feature is currently in beta.**
+   *
    * @return formulas
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of formulas that operate on queries. **This feature is currently in beta.**")
+  @ApiModelProperty(
+      value = "List of formulas that operate on queries. **This feature is currently in beta.**")
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<WidgetFormula> getFormulas() {
     return formulas;
   }
 
-
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
   }
-
 
   public QueryValueWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     return this;
   }
 
-   /**
+  /**
    * Get logQuery
+   *
    * @return logQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getLogQuery() {
     return logQuery;
   }
 
-
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
   }
-
 
   public QueryValueWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
     return this;
   }
 
-   /**
+  /**
    * Get networkQuery
+   *
    * @return networkQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getNetworkQuery() {
     return networkQuery;
   }
 
-
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
   }
-
 
   public QueryValueWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
     return this;
   }
 
-   /**
+  /**
    * Get processQuery
+   *
    * @return processQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ProcessQueryDefinition getProcessQuery() {
     return processQuery;
   }
 
-
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
   }
-
 
   public QueryValueWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
     return this;
   }
 
-   /**
+  /**
    * Get profileMetricsQuery
+   *
    * @return profileMetricsQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getProfileMetricsQuery() {
     return profileMetricsQuery;
   }
 
-
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
   }
-
 
   public QueryValueWidgetRequest q(String q) {
     this.q = q;
     return this;
   }
 
-   /**
+  /**
    * TODO.
+   *
    * @return q
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "TODO.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getQ() {
     return q;
   }
 
-
   public void setQ(String q) {
     this.q = q;
   }
-
 
   public QueryValueWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
@@ -369,100 +333,94 @@ public class QueryValueWidgetRequest {
     return this;
   }
 
-   /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently
+   * in beta.**
+   *
    * @return queries
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**")
+  @ApiModelProperty(
+      value =
+          "List of queries that can be returned directly or used in formulas. **This feature is"
+              + " currently in beta.**")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
     return queries;
   }
 
-
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
   }
-
 
   public QueryValueWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
     return this;
   }
 
-   /**
+  /**
    * Get responseFormat
+   *
    * @return responseFormat
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FormulaAndFunctionResponseFormat getResponseFormat() {
     return responseFormat;
   }
 
-
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
   }
-
 
   public QueryValueWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     return this;
   }
 
-   /**
+  /**
    * Get rumQuery
+   *
    * @return rumQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getRumQuery() {
     return rumQuery;
   }
 
-
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
   }
-
 
   public QueryValueWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
     return this;
   }
 
-   /**
+  /**
    * Get securityQuery
+   *
    * @return securityQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getSecurityQuery() {
     return securityQuery;
   }
-
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
   }
 
-
-  /**
-   * Return true if this QueryValueWidgetRequest object is equal to o.
-   */
+  /** Return true if this QueryValueWidgetRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -472,25 +430,39 @@ public class QueryValueWidgetRequest {
       return false;
     }
     QueryValueWidgetRequest queryValueWidgetRequest = (QueryValueWidgetRequest) o;
-    return Objects.equals(this.aggregator, queryValueWidgetRequest.aggregator) &&
-        Objects.equals(this.apmQuery, queryValueWidgetRequest.apmQuery) &&
-        Objects.equals(this.conditionalFormats, queryValueWidgetRequest.conditionalFormats) &&
-        Objects.equals(this.eventQuery, queryValueWidgetRequest.eventQuery) &&
-        Objects.equals(this.formulas, queryValueWidgetRequest.formulas) &&
-        Objects.equals(this.logQuery, queryValueWidgetRequest.logQuery) &&
-        Objects.equals(this.networkQuery, queryValueWidgetRequest.networkQuery) &&
-        Objects.equals(this.processQuery, queryValueWidgetRequest.processQuery) &&
-        Objects.equals(this.profileMetricsQuery, queryValueWidgetRequest.profileMetricsQuery) &&
-        Objects.equals(this.q, queryValueWidgetRequest.q) &&
-        Objects.equals(this.queries, queryValueWidgetRequest.queries) &&
-        Objects.equals(this.responseFormat, queryValueWidgetRequest.responseFormat) &&
-        Objects.equals(this.rumQuery, queryValueWidgetRequest.rumQuery) &&
-        Objects.equals(this.securityQuery, queryValueWidgetRequest.securityQuery);
+    return Objects.equals(this.aggregator, queryValueWidgetRequest.aggregator)
+        && Objects.equals(this.apmQuery, queryValueWidgetRequest.apmQuery)
+        && Objects.equals(this.conditionalFormats, queryValueWidgetRequest.conditionalFormats)
+        && Objects.equals(this.eventQuery, queryValueWidgetRequest.eventQuery)
+        && Objects.equals(this.formulas, queryValueWidgetRequest.formulas)
+        && Objects.equals(this.logQuery, queryValueWidgetRequest.logQuery)
+        && Objects.equals(this.networkQuery, queryValueWidgetRequest.networkQuery)
+        && Objects.equals(this.processQuery, queryValueWidgetRequest.processQuery)
+        && Objects.equals(this.profileMetricsQuery, queryValueWidgetRequest.profileMetricsQuery)
+        && Objects.equals(this.q, queryValueWidgetRequest.q)
+        && Objects.equals(this.queries, queryValueWidgetRequest.queries)
+        && Objects.equals(this.responseFormat, queryValueWidgetRequest.responseFormat)
+        && Objects.equals(this.rumQuery, queryValueWidgetRequest.rumQuery)
+        && Objects.equals(this.securityQuery, queryValueWidgetRequest.securityQuery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, apmQuery, conditionalFormats, eventQuery, formulas, logQuery, networkQuery, processQuery, profileMetricsQuery, q, queries, responseFormat, rumQuery, securityQuery);
+    return Objects.hash(
+        aggregator,
+        apmQuery,
+        conditionalFormats,
+        eventQuery,
+        formulas,
+        logQuery,
+        networkQuery,
+        processQuery,
+        profileMetricsQuery,
+        q,
+        queries,
+        responseFormat,
+        rumQuery,
+        securityQuery);
   }
 
   @Override
@@ -505,7 +477,9 @@ public class QueryValueWidgetRequest {
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
-    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ")
+        .append(toIndentedString(profileMetricsQuery))
+        .append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
@@ -516,8 +490,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -525,6 +498,4 @@ public class QueryValueWidgetRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

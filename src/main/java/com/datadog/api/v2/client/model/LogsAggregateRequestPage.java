@@ -8,64 +8,49 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Paging settings
- */
+/** Paging settings */
 @ApiModel(description = "Paging settings")
-@JsonPropertyOrder({
-  LogsAggregateRequestPage.JSON_PROPERTY_CURSOR
-})
+@JsonPropertyOrder({LogsAggregateRequestPage.JSON_PROPERTY_CURSOR})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateRequestPage {
   public static final String JSON_PROPERTY_CURSOR = "cursor";
   private String cursor;
-
 
   public LogsAggregateRequestPage cursor(String cursor) {
     this.cursor = cursor;
     return this;
   }
 
-   /**
+  /**
    * The returned paging point to use to get the next results
+   *
    * @return cursor
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==", value = "The returned paging point to use to get the next results")
+  @ApiModelProperty(
+      example =
+          "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
+      value = "The returned paging point to use to get the next results")
   @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCursor() {
     return cursor;
   }
-
 
   public void setCursor(String cursor) {
     this.cursor = cursor;
   }
 
-
-  /**
-   * Return true if this LogsAggregateRequest_page object is equal to o.
-   */
+  /** Return true if this LogsAggregateRequest_page object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,8 +78,7 @@ public class LogsAggregateRequestPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +86,4 @@ public class LogsAggregateRequestPage {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

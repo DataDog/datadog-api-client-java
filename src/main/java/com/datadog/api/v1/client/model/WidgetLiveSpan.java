@@ -8,54 +8,41 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * The available timeframes depend on the widget you are using.
- */
+/** The available timeframes depend on the widget you are using. */
 public enum WidgetLiveSpan {
-  
   PAST_ONE_MINUTE("1m"),
-  
+
   PAST_FIVE_MINUTES("5m"),
-  
+
   PAST_TEN_MINUTES("10m"),
-  
+
   PAST_FIFTEEN_MINUTES("15m"),
-  
+
   PAST_THIRTY_MINUTES("30m"),
-  
+
   PAST_ONE_HOUR("1h"),
-  
+
   PAST_FOUR_HOURS("4h"),
-  
+
   PAST_ONE_DAY("1d"),
-  
+
   PAST_TWO_DAYS("2d"),
-  
+
   PAST_ONE_WEEK("1w"),
-  
+
   PAST_ONE_MONTH("1mo"),
-  
+
   PAST_THREE_MONTHS("3mo"),
-  
+
   PAST_SIX_MONTHS("6mo"),
-  
+
   PAST_ONE_YEAR("1y"),
-  
+
   ALERT("alert");
 
   private String value;
@@ -84,4 +71,3 @@ public enum WidgetLiveSpan {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

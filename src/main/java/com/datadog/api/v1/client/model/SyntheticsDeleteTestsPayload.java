@@ -8,38 +8,25 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
- */
-@ApiModel(description = "A JSON list of the ID or IDs of the Synthetic tests that you want to delete.")
-@JsonPropertyOrder({
-  SyntheticsDeleteTestsPayload.JSON_PROPERTY_PUBLIC_IDS
-})
+/** A JSON list of the ID or IDs of the Synthetic tests that you want to delete. */
+@ApiModel(
+    description = "A JSON list of the ID or IDs of the Synthetic tests that you want to delete.")
+@JsonPropertyOrder({SyntheticsDeleteTestsPayload.JSON_PROPERTY_PUBLIC_IDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsDeleteTestsPayload {
   public static final String JSON_PROPERTY_PUBLIC_IDS = "public_ids";
   private List<String> publicIds = null;
-
 
   public SyntheticsDeleteTestsPayload publicIds(List<String> publicIds) {
     this.publicIds = publicIds;
@@ -54,28 +41,24 @@ public class SyntheticsDeleteTestsPayload {
     return this;
   }
 
-   /**
+  /**
    * An array of Synthetic test IDs you want to delete.
+   *
    * @return publicIds
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "[]", value = "An array of Synthetic test IDs you want to delete.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getPublicIds() {
     return publicIds;
   }
-
 
   public void setPublicIds(List<String> publicIds) {
     this.publicIds = publicIds;
   }
 
-
-  /**
-   * Return true if this SyntheticsDeleteTestsPayload object is equal to o.
-   */
+  /** Return true if this SyntheticsDeleteTestsPayload object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,8 +86,7 @@ public class SyntheticsDeleteTestsPayload {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -112,6 +94,4 @@ public class SyntheticsDeleteTestsPayload {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

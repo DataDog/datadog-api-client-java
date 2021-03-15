@@ -8,30 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.IncidentServiceRelationships;
-import com.datadog.api.v2.client.model.IncidentServiceType;
-import com.datadog.api.v2.client.model.IncidentServiceUpdateAttributes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Incident Service payload for update requests.
- */
+/** Incident Service payload for update requests. */
 @ApiModel(description = "Incident Service payload for update requests.")
 @JsonPropertyOrder({
   IncidentServiceUpdateData.JSON_PROPERTY_ATTRIBUTES,
@@ -53,104 +39,96 @@ public class IncidentServiceUpdateData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentServiceType type = IncidentServiceType.SERVICES;
 
-
   public IncidentServiceUpdateData attributes(IncidentServiceUpdateAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public IncidentServiceUpdateAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(IncidentServiceUpdateAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public IncidentServiceUpdateData id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The incident service&#39;s ID.
+   *
    * @return id
-  **/
-  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "The incident service's ID.")
+   */
+  @ApiModelProperty(
+      example = "00000000-0000-0000-0000-000000000000",
+      required = true,
+      value = "The incident service's ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public IncidentServiceUpdateData relationships(IncidentServiceRelationships relationships) {
     this.relationships = relationships;
     return this;
   }
 
-   /**
+  /**
    * Get relationships
+   *
    * @return relationships
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public IncidentServiceRelationships getRelationships() {
     return relationships;
   }
 
-
   public void setRelationships(IncidentServiceRelationships relationships) {
     this.relationships = relationships;
   }
-
 
   public IncidentServiceUpdateData type(IncidentServiceType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IncidentServiceType getType() {
     return type;
   }
-
 
   public void setType(IncidentServiceType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this IncidentServiceUpdateData object is equal to o.
-   */
+  /** Return true if this IncidentServiceUpdateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -160,10 +138,10 @@ public class IncidentServiceUpdateData {
       return false;
     }
     IncidentServiceUpdateData incidentServiceUpdateData = (IncidentServiceUpdateData) o;
-    return Objects.equals(this.attributes, incidentServiceUpdateData.attributes) &&
-        Objects.equals(this.id, incidentServiceUpdateData.id) &&
-        Objects.equals(this.relationships, incidentServiceUpdateData.relationships) &&
-        Objects.equals(this.type, incidentServiceUpdateData.type);
+    return Objects.equals(this.attributes, incidentServiceUpdateData.attributes)
+        && Objects.equals(this.id, incidentServiceUpdateData.id)
+        && Objects.equals(this.relationships, incidentServiceUpdateData.relationships)
+        && Objects.equals(this.type, incidentServiceUpdateData.type);
   }
 
   @Override
@@ -184,8 +162,7 @@ public class IncidentServiceUpdateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -193,6 +170,4 @@ public class IncidentServiceUpdateData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

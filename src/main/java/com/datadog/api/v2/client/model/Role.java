@@ -8,30 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.RoleAttributes;
-import com.datadog.api.v2.client.model.RoleResponseRelationships;
-import com.datadog.api.v2.client.model.RolesType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Role object returned by the API.
- */
+/** Role object returned by the API. */
 @ApiModel(description = "Role object returned by the API.")
 @JsonPropertyOrder({
   Role.JSON_PROPERTY_ATTRIBUTES,
@@ -53,105 +39,94 @@ public class Role {
   public static final String JSON_PROPERTY_TYPE = "type";
   private RolesType type = RolesType.ROLES;
 
-
   public Role attributes(RoleAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RoleAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(RoleAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public Role id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * ID of the role.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the role.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public Role relationships(RoleResponseRelationships relationships) {
     this.relationships = relationships;
     return this;
   }
 
-   /**
+  /**
    * Get relationships
+   *
    * @return relationships
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RoleResponseRelationships getRelationships() {
     return relationships;
   }
 
-
   public void setRelationships(RoleResponseRelationships relationships) {
     this.relationships = relationships;
   }
-
 
   public Role type(RolesType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public RolesType getType() {
     return type;
   }
-
 
   public void setType(RolesType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this Role object is equal to o.
-   */
+  /** Return true if this Role object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -161,10 +136,10 @@ public class Role {
       return false;
     }
     Role role = (Role) o;
-    return Objects.equals(this.attributes, role.attributes) &&
-        Objects.equals(this.id, role.id) &&
-        Objects.equals(this.relationships, role.relationships) &&
-        Objects.equals(this.type, role.type);
+    return Objects.equals(this.attributes, role.attributes)
+        && Objects.equals(this.id, role.id)
+        && Objects.equals(this.relationships, role.relationships)
+        && Objects.equals(this.type, role.type);
   }
 
   @Override
@@ -185,8 +160,7 @@ public class Role {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -194,6 +168,4 @@ public class Role {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-
