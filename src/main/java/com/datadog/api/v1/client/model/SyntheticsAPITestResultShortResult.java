@@ -32,12 +32,40 @@ import com.datadog.api.v1.client.JSON;
  */
 @ApiModel(description = "Result of the last API test run.")
 @JsonPropertyOrder({
+  SyntheticsAPITestResultShortResult.JSON_PROPERTY_PASSED,
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_TIMINGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestResultShortResult {
+  public static final String JSON_PROPERTY_PASSED = "passed";
+  private Boolean passed;
+
   public static final String JSON_PROPERTY_TIMINGS = "timings";
   private SyntheticsTiming timings;
+
+
+  public SyntheticsAPITestResultShortResult passed(Boolean passed) {
+    this.passed = passed;
+    return this;
+  }
+
+   /**
+   * Describes if the test run has passed or failed.
+   * @return passed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Describes if the test run has passed or failed.")
+  @JsonProperty(JSON_PROPERTY_PASSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPassed() {
+    return passed;
+  }
+
+
+  public void setPassed(Boolean passed) {
+    this.passed = passed;
+  }
 
 
   public SyntheticsAPITestResultShortResult timings(SyntheticsTiming timings) {
@@ -76,18 +104,20 @@ public class SyntheticsAPITestResultShortResult {
       return false;
     }
     SyntheticsAPITestResultShortResult syntheticsAPITestResultShortResult = (SyntheticsAPITestResultShortResult) o;
-    return Objects.equals(this.timings, syntheticsAPITestResultShortResult.timings);
+    return Objects.equals(this.passed, syntheticsAPITestResultShortResult.passed) &&
+        Objects.equals(this.timings, syntheticsAPITestResultShortResult.timings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timings);
+    return Objects.hash(passed, timings);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsAPITestResultShortResult {\n");
+    sb.append("    passed: ").append(toIndentedString(passed)).append("\n");
     sb.append("    timings: ").append(toIndentedString(timings)).append("\n");
     sb.append("}");
     return sb.toString();

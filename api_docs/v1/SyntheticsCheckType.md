@@ -27,5 +27,11 @@
 
 * `MATCH_REGEX` (value: `"matchRegex"`)
 
+* `BETWEEN` (value: `"between"`)
+
+* `IS_EMPTY` (value: `"isEmpty"`)
+
+* `NOT_IS_EMPTY` (value: `"notIsEmpty"`)
+
 
 
