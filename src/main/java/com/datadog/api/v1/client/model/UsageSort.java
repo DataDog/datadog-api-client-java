@@ -8,32 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * The field to sort by.
- */
+/** The field to sort by. */
 public enum UsageSort {
-  
   COMPUTED_ON("computed_on"),
-  
+
   SIZE("size"),
-  
+
   START_DATE("start_date"),
-  
+
   END_DATE("end_date");
 
   private String value;
@@ -62,4 +49,3 @@ public enum UsageSort {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

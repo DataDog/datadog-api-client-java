@@ -8,30 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Number of columns to display.
- */
+/** Number of columns to display. */
 public enum WidgetServiceSummaryDisplayFormat {
-  
   ONE_COLUMN("one_column"),
-  
+
   TWO_COLUMN("two_column"),
-  
+
   THREE_COLUMN("three_column");
 
   private String value;
@@ -60,4 +47,3 @@ public enum WidgetServiceSummaryDisplayFormat {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

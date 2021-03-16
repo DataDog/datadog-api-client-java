@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Pagination properties.
- */
+/** Pagination properties. */
 @ApiModel(description = "Pagination properties.")
 @JsonPropertyOrder({
   IncidentServicesResponseMetaPagination.JSON_PROPERTY_NEXT_OFFSET,
@@ -46,82 +35,78 @@ public class IncidentServicesResponseMetaPagination {
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
 
-
   public IncidentServicesResponseMetaPagination nextOffset(Long nextOffset) {
     this.nextOffset = nextOffset;
     return this;
   }
 
-   /**
-   * The index of the first element in the next page of results. Equal to page size added to the current offset.
+  /**
+   * The index of the first element in the next page of results. Equal to page size added to the
+   * current offset.
+   *
    * @return nextOffset
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "The index of the first element in the next page of results. Equal to page size added to the current offset.")
+  @ApiModelProperty(
+      example = "1000",
+      value =
+          "The index of the first element in the next page of results. Equal to page size added to"
+              + " the current offset.")
   @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getNextOffset() {
     return nextOffset;
   }
 
-
   public void setNextOffset(Long nextOffset) {
     this.nextOffset = nextOffset;
   }
-
 
   public IncidentServicesResponseMetaPagination offset(Long offset) {
     this.offset = offset;
     return this;
   }
 
-   /**
+  /**
    * The index of the first element in the results.
+   *
    * @return offset
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "10", value = "The index of the first element in the results.")
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getOffset() {
     return offset;
   }
 
-
   public void setOffset(Long offset) {
     this.offset = offset;
   }
-
 
   public IncidentServicesResponseMetaPagination size(Long size) {
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Maximum size of pages to return.
+   *
    * @return size
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1000", value = "Maximum size of pages to return.")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getSize() {
     return size;
   }
-
 
   public void setSize(Long size) {
     this.size = size;
   }
 
-
-  /**
-   * Return true if this IncidentServicesResponse_meta_pagination object is equal to o.
-   */
+  /** Return true if this IncidentServicesResponse_meta_pagination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,10 +115,11 @@ public class IncidentServicesResponseMetaPagination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentServicesResponseMetaPagination incidentServicesResponseMetaPagination = (IncidentServicesResponseMetaPagination) o;
-    return Objects.equals(this.nextOffset, incidentServicesResponseMetaPagination.nextOffset) &&
-        Objects.equals(this.offset, incidentServicesResponseMetaPagination.offset) &&
-        Objects.equals(this.size, incidentServicesResponseMetaPagination.size);
+    IncidentServicesResponseMetaPagination incidentServicesResponseMetaPagination =
+        (IncidentServicesResponseMetaPagination) o;
+    return Objects.equals(this.nextOffset, incidentServicesResponseMetaPagination.nextOffset)
+        && Objects.equals(this.offset, incidentServicesResponseMetaPagination.offset)
+        && Objects.equals(this.size, incidentServicesResponseMetaPagination.size);
   }
 
   @Override
@@ -153,8 +139,7 @@ public class IncidentServicesResponseMetaPagination {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -162,6 +147,4 @@ public class IncidentServicesResponseMetaPagination {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

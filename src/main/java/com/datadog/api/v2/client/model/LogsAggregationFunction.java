@@ -8,46 +8,34 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * An aggregation function
- */
+/** An aggregation function */
 public enum LogsAggregationFunction {
-  
   COUNT("count"),
-  
+
   CARDINALITY("cardinality"),
-  
+
   PERCENTILE_75("pc75"),
-  
+
   PERCENTILE_90("pc90"),
-  
+
   PERCENTILE_95("pc95"),
-  
+
   PERCENTILE_98("pc98"),
-  
+
   PERCENTILE_99("pc99"),
-  
+
   SUM("sum"),
-  
+
   MIN("min"),
-  
+
   MAX("max"),
-  
+
   AVG("avg");
 
   private String value;
@@ -76,4 +64,3 @@ public enum LogsAggregationFunction {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

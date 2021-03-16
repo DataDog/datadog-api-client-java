@@ -8,17 +8,7 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -27,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * The subtype of the Synthetic multistep API test step, currently only supporting &#x60;http&#x60;.
  */
 public enum SyntheticsAPIStepSubtype {
-  
   HTTP("http");
 
   private String value;
@@ -56,4 +45,3 @@ public enum SyntheticsAPIStepSubtype {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

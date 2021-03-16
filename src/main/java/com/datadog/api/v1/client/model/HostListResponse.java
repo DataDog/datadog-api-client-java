@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.Host;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response with Host information from Datadog.
- */
+/** Response with Host information from Datadog. */
 @ApiModel(description = "Response with Host information from Datadog.")
 @JsonPropertyOrder({
   HostListResponse.JSON_PROPERTY_HOST_LIST,
@@ -49,7 +37,6 @@ public class HostListResponse {
   public static final String JSON_PROPERTY_TOTAL_RETURNED = "total_returned";
   private Long totalReturned;
 
-
   public HostListResponse hostList(List<Host> hostList) {
     this.hostList = hostList;
     return this;
@@ -63,76 +50,68 @@ public class HostListResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of hosts.
+   *
    * @return hostList
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of hosts.")
   @JsonProperty(JSON_PROPERTY_HOST_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Host> getHostList() {
     return hostList;
   }
 
-
   public void setHostList(List<Host> hostList) {
     this.hostList = hostList;
   }
-
 
   public HostListResponse totalMatching(Long totalMatching) {
     this.totalMatching = totalMatching;
     return this;
   }
 
-   /**
+  /**
    * Number of host matching the query.
+   *
    * @return totalMatching
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Number of host matching the query.")
   @JsonProperty(JSON_PROPERTY_TOTAL_MATCHING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTotalMatching() {
     return totalMatching;
   }
 
-
   public void setTotalMatching(Long totalMatching) {
     this.totalMatching = totalMatching;
   }
-
 
   public HostListResponse totalReturned(Long totalReturned) {
     this.totalReturned = totalReturned;
     return this;
   }
 
-   /**
+  /**
    * Number of host returned.
+   *
    * @return totalReturned
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Number of host returned.")
   @JsonProperty(JSON_PROPERTY_TOTAL_RETURNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTotalReturned() {
     return totalReturned;
   }
-
 
   public void setTotalReturned(Long totalReturned) {
     this.totalReturned = totalReturned;
   }
 
-
-  /**
-   * Return true if this HostListResponse object is equal to o.
-   */
+  /** Return true if this HostListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,9 +121,9 @@ public class HostListResponse {
       return false;
     }
     HostListResponse hostListResponse = (HostListResponse) o;
-    return Objects.equals(this.hostList, hostListResponse.hostList) &&
-        Objects.equals(this.totalMatching, hostListResponse.totalMatching) &&
-        Objects.equals(this.totalReturned, hostListResponse.totalReturned);
+    return Objects.equals(this.hostList, hostListResponse.hostList)
+        && Objects.equals(this.totalMatching, hostListResponse.totalMatching)
+        && Objects.equals(this.totalReturned, hostListResponse.totalReturned);
   }
 
   @Override
@@ -164,8 +143,7 @@ public class HostListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -173,6 +151,4 @@ public class HostListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

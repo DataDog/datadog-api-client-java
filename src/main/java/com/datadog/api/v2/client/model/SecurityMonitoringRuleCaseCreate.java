@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Case when signal is generated.
- */
+/** Case when signal is generated. */
 @ApiModel(description = "Case when signal is generated.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_CONDITION,
@@ -53,54 +41,55 @@ public class SecurityMonitoringRuleCaseCreate {
   public static final String JSON_PROPERTY_STATUS = "status";
   private SecurityMonitoringRuleSeverity status;
 
-
   public SecurityMonitoringRuleCaseCreate condition(String condition) {
     this.condition = condition;
     return this;
   }
 
-   /**
-   * A rule case contains logical operations (&#x60;&gt;&#x60;,&#x60;&gt;&#x3D;&#x60;, &#x60;&amp;&amp;&#x60;, &#x60;||&#x60;) to determine if a signal should be generated based on the event counts in the previously defined queries.
+  /**
+   * A rule case contains logical operations (&#x60;&gt;&#x60;,&#x60;&gt;&#x3D;&#x60;,
+   * &#x60;&amp;&amp;&#x60;, &#x60;||&#x60;) to determine if a signal should be generated based on
+   * the event counts in the previously defined queries.
+   *
    * @return condition
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.")
+  @ApiModelProperty(
+      value =
+          "A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal"
+              + " should be generated based on the event counts in the previously defined"
+              + " queries.")
   @JsonProperty(JSON_PROPERTY_CONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCondition() {
     return condition;
   }
 
-
   public void setCondition(String condition) {
     this.condition = condition;
   }
-
 
   public SecurityMonitoringRuleCaseCreate name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the case.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the case.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public SecurityMonitoringRuleCaseCreate notifications(List<String> notifications) {
     this.notifications = notifications;
@@ -115,51 +104,45 @@ public class SecurityMonitoringRuleCaseCreate {
     return this;
   }
 
-   /**
+  /**
    * Notification targets for each rule case.
+   *
    * @return notifications
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Notification targets for each rule case.")
   @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getNotifications() {
     return notifications;
   }
 
-
   public void setNotifications(List<String> notifications) {
     this.notifications = notifications;
   }
-
 
   public SecurityMonitoringRuleCaseCreate status(SecurityMonitoringRuleSeverity status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
+   *
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SecurityMonitoringRuleSeverity getStatus() {
     return status;
   }
-
 
   public void setStatus(SecurityMonitoringRuleSeverity status) {
     this.status = status;
   }
 
-
-  /**
-   * Return true if this SecurityMonitoringRuleCaseCreate object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringRuleCaseCreate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -168,11 +151,12 @@ public class SecurityMonitoringRuleCaseCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleCaseCreate securityMonitoringRuleCaseCreate = (SecurityMonitoringRuleCaseCreate) o;
-    return Objects.equals(this.condition, securityMonitoringRuleCaseCreate.condition) &&
-        Objects.equals(this.name, securityMonitoringRuleCaseCreate.name) &&
-        Objects.equals(this.notifications, securityMonitoringRuleCaseCreate.notifications) &&
-        Objects.equals(this.status, securityMonitoringRuleCaseCreate.status);
+    SecurityMonitoringRuleCaseCreate securityMonitoringRuleCaseCreate =
+        (SecurityMonitoringRuleCaseCreate) o;
+    return Objects.equals(this.condition, securityMonitoringRuleCaseCreate.condition)
+        && Objects.equals(this.name, securityMonitoringRuleCaseCreate.name)
+        && Objects.equals(this.notifications, securityMonitoringRuleCaseCreate.notifications)
+        && Objects.equals(this.status, securityMonitoringRuleCaseCreate.status);
   }
 
   @Override
@@ -193,8 +177,7 @@ public class SecurityMonitoringRuleCaseCreate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -202,6 +185,4 @@ public class SecurityMonitoringRuleCaseCreate {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

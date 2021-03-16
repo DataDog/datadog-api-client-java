@@ -8,36 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * The duration in days after which a learned value is forgotten.
- */
+/** The duration in days after which a learned value is forgotten. */
 public enum SecurityMonitoringRuleNewValueOptionsForgetAfter {
-  
   ONE_DAY(1),
-  
+
   TWO_DAYS(2),
-  
+
   ONE_WEEK(7),
-  
+
   TWO_WEEKS(14),
-  
+
   THREE_WEEKS(21),
-  
+
   FOUR_WEEKS(28);
 
   private Integer value;
@@ -58,7 +46,8 @@ public enum SecurityMonitoringRuleNewValueOptionsForgetAfter {
 
   @JsonCreator
   public static SecurityMonitoringRuleNewValueOptionsForgetAfter fromValue(Integer value) {
-    for (SecurityMonitoringRuleNewValueOptionsForgetAfter b : SecurityMonitoringRuleNewValueOptionsForgetAfter.values()) {
+    for (SecurityMonitoringRuleNewValueOptionsForgetAfter b :
+        SecurityMonitoringRuleNewValueOptionsForgetAfter.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -66,4 +55,3 @@ public enum SecurityMonitoringRuleNewValueOptionsForgetAfter {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

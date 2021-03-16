@@ -8,29 +8,23 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.IFrameWidgetDefinitionType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
+ * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only
+ * available on FREE layout dashboards.
  */
-@ApiModel(description = "The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.")
+@ApiModel(
+    description =
+        "The iframe widget allows you to embed a portion of any other web page on your dashboard."
+            + " Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   IFrameWidgetDefinition.JSON_PROPERTY_TYPE,
   IFrameWidgetDefinition.JSON_PROPERTY_URL
@@ -43,56 +37,49 @@ public class IFrameWidgetDefinition {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-
   public IFrameWidgetDefinition type(IFrameWidgetDefinitionType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IFrameWidgetDefinitionType getType() {
     return type;
   }
 
-
   public void setType(IFrameWidgetDefinitionType type) {
     this.type = type;
   }
-
 
   public IFrameWidgetDefinition url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * URL of the iframe.
+   *
    * @return url
-  **/
+   */
   @ApiModelProperty(example = "", required = true, value = "URL of the iframe.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getUrl() {
     return url;
   }
-
 
   public void setUrl(String url) {
     this.url = url;
   }
 
-
-  /**
-   * Return true if this IFrameWidgetDefinition object is equal to o.
-   */
+  /** Return true if this IFrameWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,8 +89,8 @@ public class IFrameWidgetDefinition {
       return false;
     }
     IFrameWidgetDefinition iframeWidgetDefinition = (IFrameWidgetDefinition) o;
-    return Objects.equals(this.type, iframeWidgetDefinition.type) &&
-        Objects.equals(this.url, iframeWidgetDefinition.url);
+    return Objects.equals(this.type, iframeWidgetDefinition.type)
+        && Objects.equals(this.url, iframeWidgetDefinition.url);
   }
 
   @Override
@@ -122,8 +109,7 @@ public class IFrameWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -131,6 +117,4 @@ public class IFrameWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

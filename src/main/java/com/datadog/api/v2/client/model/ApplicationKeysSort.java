@@ -8,36 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Sorting options
- */
+/** Sorting options */
 public enum ApplicationKeysSort {
-  
   CREATED_AT_ASCENDING("created_at"),
-  
+
   CREATED_AT_DESCENDING("-created_at"),
-  
+
   LAST4_ASCENDING("last4"),
-  
+
   LAST4_DESCENDING("-last4"),
-  
+
   NAME_ASCENDING("name"),
-  
+
   NAME_DESCENDING("-name");
 
   private String value;
@@ -66,4 +54,3 @@ public enum ApplicationKeysSort {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

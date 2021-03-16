@@ -8,46 +8,34 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.DashboardListItemResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response containing a list of deleted dashboards.
- */
+/** Response containing a list of deleted dashboards. */
 @ApiModel(description = "Response containing a list of deleted dashboards.")
-@JsonPropertyOrder({
-  DashboardListDeleteItemsResponse.JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST
-})
+@JsonPropertyOrder({DashboardListDeleteItemsResponse.JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListDeleteItemsResponse {
-  public static final String JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST = "deleted_dashboards_from_list";
+  public static final String JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST =
+      "deleted_dashboards_from_list";
   private List<DashboardListItemResponse> deletedDashboardsFromList = null;
 
-
-  public DashboardListDeleteItemsResponse deletedDashboardsFromList(List<DashboardListItemResponse> deletedDashboardsFromList) {
+  public DashboardListDeleteItemsResponse deletedDashboardsFromList(
+      List<DashboardListItemResponse> deletedDashboardsFromList) {
     this.deletedDashboardsFromList = deletedDashboardsFromList;
     return this;
   }
 
-  public DashboardListDeleteItemsResponse addDeletedDashboardsFromListItem(DashboardListItemResponse deletedDashboardsFromListItem) {
+  public DashboardListDeleteItemsResponse addDeletedDashboardsFromListItem(
+      DashboardListItemResponse deletedDashboardsFromListItem) {
     if (this.deletedDashboardsFromList == null) {
       this.deletedDashboardsFromList = new ArrayList<>();
     }
@@ -55,28 +43,25 @@ public class DashboardListDeleteItemsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of dashboards deleted from the dashboard list.
+   *
    * @return deletedDashboardsFromList
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of dashboards deleted from the dashboard list.")
   @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DashboardListItemResponse> getDeletedDashboardsFromList() {
     return deletedDashboardsFromList;
   }
 
-
-  public void setDeletedDashboardsFromList(List<DashboardListItemResponse> deletedDashboardsFromList) {
+  public void setDeletedDashboardsFromList(
+      List<DashboardListItemResponse> deletedDashboardsFromList) {
     this.deletedDashboardsFromList = deletedDashboardsFromList;
   }
 
-
-  /**
-   * Return true if this DashboardListDeleteItemsResponse object is equal to o.
-   */
+  /** Return true if this DashboardListDeleteItemsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,8 +70,10 @@ public class DashboardListDeleteItemsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DashboardListDeleteItemsResponse dashboardListDeleteItemsResponse = (DashboardListDeleteItemsResponse) o;
-    return Objects.equals(this.deletedDashboardsFromList, dashboardListDeleteItemsResponse.deletedDashboardsFromList);
+    DashboardListDeleteItemsResponse dashboardListDeleteItemsResponse =
+        (DashboardListDeleteItemsResponse) o;
+    return Objects.equals(
+        this.deletedDashboardsFromList, dashboardListDeleteItemsResponse.deletedDashboardsFromList);
   }
 
   @Override
@@ -98,14 +85,15 @@ public class DashboardListDeleteItemsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DashboardListDeleteItemsResponse {\n");
-    sb.append("    deletedDashboardsFromList: ").append(toIndentedString(deletedDashboardsFromList)).append("\n");
+    sb.append("    deletedDashboardsFromList: ")
+        .append(toIndentedString(deletedDashboardsFromList))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -113,6 +101,4 @@ public class DashboardListDeleteItemsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

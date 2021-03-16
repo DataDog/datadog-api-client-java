@@ -8,39 +8,29 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageLogsByIndexHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
  * Response containing the number of indexed logs for each hour and index for a given organization.
  */
-@ApiModel(description = "Response containing the number of indexed logs for each hour and index for a given organization.")
-@JsonPropertyOrder({
-  UsageLogsByIndexResponse.JSON_PROPERTY_USAGE
-})
+@ApiModel(
+    description =
+        "Response containing the number of indexed logs for each hour and index for a given"
+            + " organization.")
+@JsonPropertyOrder({UsageLogsByIndexResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageLogsByIndexResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageLogsByIndexHour> usage = null;
-
 
   public UsageLogsByIndexResponse usage(List<UsageLogsByIndexHour> usage) {
     this.usage = usage;
@@ -55,28 +45,24 @@ public class UsageLogsByIndexResponse {
     return this;
   }
 
-   /**
+  /**
    * An array of objects regarding hourly usage of logs by index response.
+   *
    * @return usage
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of objects regarding hourly usage of logs by index response.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UsageLogsByIndexHour> getUsage() {
     return usage;
   }
-
 
   public void setUsage(List<UsageLogsByIndexHour> usage) {
     this.usage = usage;
   }
 
-
-  /**
-   * Return true if this UsageLogsByIndexResponse object is equal to o.
-   */
+  /** Return true if this UsageLogsByIndexResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +90,7 @@ public class UsageLogsByIndexResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -113,6 +98,4 @@ public class UsageLogsByIndexResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

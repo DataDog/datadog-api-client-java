@@ -8,29 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The response containing attributes for custom reports.
- */
+/** The response containing attributes for custom reports. */
 @ApiModel(description = "The response containing attributes for custom reports.")
 @JsonPropertyOrder({
   UsageCustomReportsAttributes.JSON_PROPERTY_COMPUTED_ON,
@@ -56,102 +45,93 @@ public class UsageCustomReportsAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
-
   public UsageCustomReportsAttributes computedOn(String computedOn) {
     this.computedOn = computedOn;
     return this;
   }
 
-   /**
+  /**
    * The date the specified custom report was computed.
+   *
    * @return computedOn
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date the specified custom report was computed.")
   @JsonProperty(JSON_PROPERTY_COMPUTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getComputedOn() {
     return computedOn;
   }
 
-
   public void setComputedOn(String computedOn) {
     this.computedOn = computedOn;
   }
-
 
   public UsageCustomReportsAttributes endDate(String endDate) {
     this.endDate = endDate;
     return this;
   }
 
-   /**
+  /**
    * The ending date of custom report.
+   *
    * @return endDate
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The ending date of custom report.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEndDate() {
     return endDate;
   }
 
-
   public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
-
 
   public UsageCustomReportsAttributes size(Long size) {
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * size
+   *
    * @return size
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "size")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getSize() {
     return size;
   }
 
-
   public void setSize(Long size) {
     this.size = size;
   }
-
 
   public UsageCustomReportsAttributes startDate(String startDate) {
     this.startDate = startDate;
     return this;
   }
 
-   /**
+  /**
    * The starting date of custom report.
+   *
    * @return startDate
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The starting date of custom report.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStartDate() {
     return startDate;
   }
 
-
   public void setStartDate(String startDate) {
     this.startDate = startDate;
   }
-
 
   public UsageCustomReportsAttributes tags(List<String> tags) {
     this.tags = tags;
@@ -166,28 +146,24 @@ public class UsageCustomReportsAttributes {
     return this;
   }
 
-   /**
+  /**
    * A list of tags to apply to custom reports.
+   *
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A list of tags to apply to custom reports.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getTags() {
     return tags;
   }
-
 
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
-
-  /**
-   * Return true if this UsageCustomReportsAttributes object is equal to o.
-   */
+  /** Return true if this UsageCustomReportsAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -197,11 +173,11 @@ public class UsageCustomReportsAttributes {
       return false;
     }
     UsageCustomReportsAttributes usageCustomReportsAttributes = (UsageCustomReportsAttributes) o;
-    return Objects.equals(this.computedOn, usageCustomReportsAttributes.computedOn) &&
-        Objects.equals(this.endDate, usageCustomReportsAttributes.endDate) &&
-        Objects.equals(this.size, usageCustomReportsAttributes.size) &&
-        Objects.equals(this.startDate, usageCustomReportsAttributes.startDate) &&
-        Objects.equals(this.tags, usageCustomReportsAttributes.tags);
+    return Objects.equals(this.computedOn, usageCustomReportsAttributes.computedOn)
+        && Objects.equals(this.endDate, usageCustomReportsAttributes.endDate)
+        && Objects.equals(this.size, usageCustomReportsAttributes.size)
+        && Objects.equals(this.startDate, usageCustomReportsAttributes.startDate)
+        && Objects.equals(this.tags, usageCustomReportsAttributes.tags);
   }
 
   @Override
@@ -223,8 +199,7 @@ public class UsageCustomReportsAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -232,6 +207,4 @@ public class UsageCustomReportsAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

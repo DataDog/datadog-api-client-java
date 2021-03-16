@@ -8,121 +8,100 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.api;
 
 import com.datadog.api.v2.client.*;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.model.APIErrorResponse;
-import com.datadog.api.v2.client.model.IncidentCreateRequest;
-import com.datadog.api.v2.client.model.IncidentResponse;
-import com.datadog.api.v2.client.model.IncidentUpdateRequest;
-import com.datadog.api.v2.client.model.IncidentsResponse;
-import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-/**
- * API tests for IncidentsApi
- */
+/** API tests for IncidentsApi */
 public class IncidentsApiTest {
 
-    private final IncidentsApi api = new IncidentsApi();
+  private final IncidentsApi api = new IncidentsApi();
 
-    /**
-     * Create an incident
-     *
-     * Create an incident.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createIncidentTest() throws ApiException {
-        //IncidentCreateRequest body = null;
-        //IncidentResponse response = api.createIncident()
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Create an incident
+   *
+   * <p>Create an incident.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void createIncidentTest() throws ApiException {
+    // IncidentCreateRequest body = null;
+    // IncidentResponse response = api.createIncident()
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Delete an existing incident
-     *
-     * Deletes an existing incident from the users organization.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteIncidentTest() throws ApiException {
-        //String incidentId = null;
-        //api.deleteIncident(incidentId)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Delete an existing incident
+   *
+   * <p>Deletes an existing incident from the users organization.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void deleteIncidentTest() throws ApiException {
+    // String incidentId = null;
+    // api.deleteIncident(incidentId)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Get the details of an incident
-     *
-     * Get the details of an incident by &#x60;incident_id&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getIncidentTest() throws ApiException {
-        //String incidentId = null;
-        //List<String> include = null;
-        //IncidentResponse response = api.getIncident(incidentId)
-        //        .include(include)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get the details of an incident
+   *
+   * <p>Get the details of an incident by &#x60;incident_id&#x60;.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getIncidentTest() throws ApiException {
+    // String incidentId = null;
+    // List<String> include = null;
+    // IncidentResponse response = api.getIncident(incidentId)
+    //        .include(include)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Get a list of incidents
-     *
-     * Get all incidents for the user&#39;s organization.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void listIncidentsTest() throws ApiException {
-        //List<String> include = null;
-        //Long pageSize = null;
-        //Long pageOffset = null;
-        //IncidentsResponse response = api.listIncidents()
-        //        .include(include)
-        //        .pageSize(pageSize)
-        //        .pageOffset(pageOffset)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get a list of incidents
+   *
+   * <p>Get all incidents for the user&#39;s organization.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listIncidentsTest() throws ApiException {
+    // List<String> include = null;
+    // Long pageSize = null;
+    // Long pageOffset = null;
+    // IncidentsResponse response = api.listIncidents()
+    //        .include(include)
+    //        .pageSize(pageSize)
+    //        .pageOffset(pageOffset)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Update an existing incident
-     *
-     * Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updateIncidentTest() throws ApiException {
-        //String incidentId = null;
-        //IncidentUpdateRequest body = null;
-        //IncidentResponse response = api.updateIncident(incidentId)
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
-
+  /**
+   * Update an existing incident
+   *
+   * <p>Updates an incident. Provide only the attributes that should be updated as this request is a
+   * partial update.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void updateIncidentTest() throws ApiException {
+    // String incidentId = null;
+    // IncidentUpdateRequest body = null;
+    // IncidentResponse response = api.updateIncident(incidentId)
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 }

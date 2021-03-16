@@ -8,33 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsAPIStepSubtype;
-import com.datadog.api.v1.client.model.SyntheticsAssertion;
-import com.datadog.api.v1.client.model.SyntheticsParsingOptions;
-import com.datadog.api.v1.client.model.SyntheticsTestRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The steps used in a Synthetics multistep API test.
- */
+/** The steps used in a Synthetics multistep API test. */
 @ApiModel(description = "The steps used in a Synthetics multistep API test.")
 @JsonPropertyOrder({
   SyntheticsAPIStep.JSON_PROPERTY_ASSERTIONS,
@@ -60,7 +45,6 @@ public class SyntheticsAPIStep {
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private SyntheticsAPIStepSubtype subtype;
 
-
   public SyntheticsAPIStep assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
     return this;
@@ -74,24 +58,22 @@ public class SyntheticsAPIStep {
     return this;
   }
 
-   /**
+  /**
    * Array of assertions used for the test.
+   *
    * @return assertions
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "[]", value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsAssertion> getAssertions() {
     return assertions;
   }
 
-
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
   }
-
 
   public SyntheticsAPIStep extractedValues(List<SyntheticsParsingOptions> extractedValues) {
     this.extractedValues = extractedValues;
@@ -106,100 +88,90 @@ public class SyntheticsAPIStep {
     return this;
   }
 
-   /**
+  /**
    * Array of values to parse and save as variables from the response.
+   *
    * @return extractedValues
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of values to parse and save as variables from the response.")
   @JsonProperty(JSON_PROPERTY_EXTRACTED_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsParsingOptions> getExtractedValues() {
     return extractedValues;
   }
 
-
   public void setExtractedValues(List<SyntheticsParsingOptions> extractedValues) {
     this.extractedValues = extractedValues;
   }
-
 
   public SyntheticsAPIStep name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the step.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The name of the step.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public SyntheticsAPIStep request(SyntheticsTestRequest request) {
     this.request = request;
     return this;
   }
 
-   /**
+  /**
    * Get request
+   *
    * @return request
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsTestRequest getRequest() {
     return request;
   }
 
-
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
   }
-
 
   public SyntheticsAPIStep subtype(SyntheticsAPIStepSubtype subtype) {
     this.subtype = subtype;
     return this;
   }
 
-   /**
+  /**
    * Get subtype
+   *
    * @return subtype
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsAPIStepSubtype getSubtype() {
     return subtype;
   }
-
 
   public void setSubtype(SyntheticsAPIStepSubtype subtype) {
     this.subtype = subtype;
   }
 
-
-  /**
-   * Return true if this SyntheticsAPIStep object is equal to o.
-   */
+  /** Return true if this SyntheticsAPIStep object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -209,11 +181,11 @@ public class SyntheticsAPIStep {
       return false;
     }
     SyntheticsAPIStep syntheticsAPIStep = (SyntheticsAPIStep) o;
-    return Objects.equals(this.assertions, syntheticsAPIStep.assertions) &&
-        Objects.equals(this.extractedValues, syntheticsAPIStep.extractedValues) &&
-        Objects.equals(this.name, syntheticsAPIStep.name) &&
-        Objects.equals(this.request, syntheticsAPIStep.request) &&
-        Objects.equals(this.subtype, syntheticsAPIStep.subtype);
+    return Objects.equals(this.assertions, syntheticsAPIStep.assertions)
+        && Objects.equals(this.extractedValues, syntheticsAPIStep.extractedValues)
+        && Objects.equals(this.name, syntheticsAPIStep.name)
+        && Objects.equals(this.request, syntheticsAPIStep.request)
+        && Objects.equals(this.subtype, syntheticsAPIStep.subtype);
   }
 
   @Override
@@ -235,8 +207,7 @@ public class SyntheticsAPIStep {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -244,6 +215,4 @@ public class SyntheticsAPIStep {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

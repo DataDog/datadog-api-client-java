@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.IncidentIntegrationMetadataType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A relationship reference for an integration metadata object.
- */
+/** A relationship reference for an integration metadata object. */
 @ApiModel(description = "A relationship reference for an integration metadata object.")
 @JsonPropertyOrder({
   RelationshipToIncidentIntegrationMetadataData.JSON_PROPERTY_ID,
@@ -41,58 +29,55 @@ public class RelationshipToIncidentIntegrationMetadataData {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentIntegrationMetadataType type = IncidentIntegrationMetadataType.INCIDENT_INTEGRATION_METADATA;
-
+  private IncidentIntegrationMetadataType type =
+      IncidentIntegrationMetadataType.INCIDENT_INTEGRATION_METADATA;
 
   public RelationshipToIncidentIntegrationMetadataData id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * A unique identifier that represents the integration metadata.
+   *
    * @return id
-  **/
-  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "A unique identifier that represents the integration metadata.")
+   */
+  @ApiModelProperty(
+      example = "00000000-0000-0000-0000-000000000000",
+      required = true,
+      value = "A unique identifier that represents the integration metadata.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public RelationshipToIncidentIntegrationMetadataData type(IncidentIntegrationMetadataType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IncidentIntegrationMetadataType getType() {
     return type;
   }
-
 
   public void setType(IncidentIntegrationMetadataType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this RelationshipToIncidentIntegrationMetadataData object is equal to o.
-   */
+  /** Return true if this RelationshipToIncidentIntegrationMetadataData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,9 +86,10 @@ public class RelationshipToIncidentIntegrationMetadataData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToIncidentIntegrationMetadataData relationshipToIncidentIntegrationMetadataData = (RelationshipToIncidentIntegrationMetadataData) o;
-    return Objects.equals(this.id, relationshipToIncidentIntegrationMetadataData.id) &&
-        Objects.equals(this.type, relationshipToIncidentIntegrationMetadataData.type);
+    RelationshipToIncidentIntegrationMetadataData relationshipToIncidentIntegrationMetadataData =
+        (RelationshipToIncidentIntegrationMetadataData) o;
+    return Objects.equals(this.id, relationshipToIncidentIntegrationMetadataData.id)
+        && Objects.equals(this.type, relationshipToIncidentIntegrationMetadataData.type);
   }
 
   @Override
@@ -122,8 +108,7 @@ public class RelationshipToIncidentIntegrationMetadataData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -131,6 +116,4 @@ public class RelationshipToIncidentIntegrationMetadataData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

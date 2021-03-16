@@ -8,40 +8,27 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Define a time window.
- */
+/** Define a time window. */
 public enum WidgetTimeWindows {
-  
   SEVEN_DAYS("7d"),
-  
+
   THIRTY_DAYS("30d"),
-  
+
   NINETY_DAYS("90d"),
-  
+
   WEEK_TO_DATE("week_to_date"),
-  
+
   PREVIOUS_WEEK("previous_week"),
-  
+
   MONTH_TO_DATE("month_to_date"),
-  
+
   PREVIOUS_MONTH("previous_month"),
-  
+
   GLOBAL_TIME("global_time");
 
   private String value;
@@ -70,4 +57,3 @@ public enum WidgetTimeWindows {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

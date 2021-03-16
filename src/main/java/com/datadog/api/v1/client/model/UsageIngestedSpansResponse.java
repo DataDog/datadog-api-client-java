@@ -8,39 +8,26 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageIngestedSpansHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response containing the ingested spans usage for each hour for a given organization.
- */
-@ApiModel(description = "Response containing the ingested spans usage for each hour for a given organization.")
-@JsonPropertyOrder({
-  UsageIngestedSpansResponse.JSON_PROPERTY_USAGE
-})
+/** Response containing the ingested spans usage for each hour for a given organization. */
+@ApiModel(
+    description =
+        "Response containing the ingested spans usage for each hour for a given organization.")
+@JsonPropertyOrder({UsageIngestedSpansResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageIngestedSpansResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageIngestedSpansHour> usage = null;
-
 
   public UsageIngestedSpansResponse usage(List<UsageIngestedSpansHour> usage) {
     this.usage = usage;
@@ -55,28 +42,24 @@ public class UsageIngestedSpansResponse {
     return this;
   }
 
-   /**
+  /**
    * Get hourly usage for ingested spans.
+   *
    * @return usage
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Get hourly usage for ingested spans.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UsageIngestedSpansHour> getUsage() {
     return usage;
   }
-
 
   public void setUsage(List<UsageIngestedSpansHour> usage) {
     this.usage = usage;
   }
 
-
-  /**
-   * Return true if this UsageIngestedSpansResponse object is equal to o.
-   */
+  /** Return true if this UsageIngestedSpansResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +87,7 @@ public class UsageIngestedSpansResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -113,6 +95,4 @@ public class UsageIngestedSpansResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

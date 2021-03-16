@@ -8,44 +8,35 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window.
+ * Once a signal is generated, the signal will remain “open” if a case is matched at least once
+ * within this keep alive window.
  */
 public enum SecurityMonitoringRuleKeepAlive {
-  
   ZERO_MINUTES(0),
-  
+
   ONE_MINUTE(60),
-  
+
   FIVE_MINUTES(300),
-  
+
   TEN_MINUTES(600),
-  
+
   FIFTEEN_MINUTES(900),
-  
+
   THIRTY_MINUTES(1800),
-  
+
   ONE_HOUR(3600),
-  
+
   TWO_HOURS(7200),
-  
+
   THREE_HOURS(10800),
-  
+
   SIX_HOURS(21600);
 
   private Integer value;
@@ -74,4 +65,3 @@ public enum SecurityMonitoringRuleKeepAlive {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

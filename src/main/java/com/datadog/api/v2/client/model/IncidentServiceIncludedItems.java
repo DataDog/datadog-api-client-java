@@ -8,43 +8,13 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.User;
-import com.datadog.api.v2.client.model.UserAttributes;
-import com.datadog.api.v2.client.model.UserResponseRelationships;
-import com.datadog.api.v2.client.model.UsersType;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.datadog.api.v2.client.JSON;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.Response;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -54,150 +24,174 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import com.datadog.api.v2.client.JSON;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-@JsonDeserialize(using = IncidentServiceIncludedItems.IncidentServiceIncludedItemsDeserializer.class)
+@JsonDeserialize(
+    using = IncidentServiceIncludedItems.IncidentServiceIncludedItemsDeserializer.class)
 @JsonSerialize(using = IncidentServiceIncludedItems.IncidentServiceIncludedItemsSerializer.class)
 public class IncidentServiceIncludedItems extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(IncidentServiceIncludedItems.class.getName());
+  private static final Logger log = Logger.getLogger(IncidentServiceIncludedItems.class.getName());
 
-    public static class IncidentServiceIncludedItemsSerializer extends StdSerializer<IncidentServiceIncludedItems> {
-        public IncidentServiceIncludedItemsSerializer(Class<IncidentServiceIncludedItems> t) {
-            super(t);
-        }
-
-        public IncidentServiceIncludedItemsSerializer() {
-            this(null);
-        }
-
-        @Override
-        public void serialize(IncidentServiceIncludedItems value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-            jgen.writeObject(value.getActualInstance());
-        }
+  public static class IncidentServiceIncludedItemsSerializer
+      extends StdSerializer<IncidentServiceIncludedItems> {
+    public IncidentServiceIncludedItemsSerializer(Class<IncidentServiceIncludedItems> t) {
+      super(t);
     }
 
-    public static class IncidentServiceIncludedItemsDeserializer extends StdDeserializer<IncidentServiceIncludedItems> {
-        public IncidentServiceIncludedItemsDeserializer() {
-            this(IncidentServiceIncludedItems.class);
-        }
-
-        public IncidentServiceIncludedItemsDeserializer(Class<?> vc) {
-            super(vc);
-        }
-
-        @Override
-        public IncidentServiceIncludedItems deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-            JsonNode tree = jp.readValueAsTree();
-            Object deserialized = null;
-            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
-            int match = 0;
-            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // deserialize User
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (User.class.equals(Integer.class) || User.class.equals(Long.class) || User.class.equals(Float.class) || User.class.equals(Double.class) || User.class.equals(Boolean.class) || User.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((User.class.equals(Integer.class) || User.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((User.class.equals(Float.class) || User.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (User.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (User.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(User.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'User'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'User'", e);
-            }
-
-            if (match == 1) {
-                IncidentServiceIncludedItems ret = new IncidentServiceIncludedItems();
-                ret.setActualInstance(deserialized);
-                return ret;
-            }
-            throw new IOException(String.format("Failed deserialization for IncidentServiceIncludedItems: %d classes match result, expected 1", match));
-        }
-
-        /**
-         * Handle deserialization of the 'null' value.
-         */
-        @Override
-        public IncidentServiceIncludedItems getNullValue(DeserializationContext ctxt) throws JsonMappingException {
-            throw new JsonMappingException(ctxt.getParser(), "IncidentServiceIncludedItems cannot be null");
-        }
-    }
-
-    // store a list of schema names defined in oneOf
-    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
-
-    public IncidentServiceIncludedItems() {
-        super("oneOf", Boolean.FALSE);
-    }
-
-    public IncidentServiceIncludedItems(User o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    static {
-        schemas.put("User", new GenericType<User>() {
-        });
-        JSON.registerDescendants(IncidentServiceIncludedItems.class, Collections.unmodifiableMap(schemas));
+    public IncidentServiceIncludedItemsSerializer() {
+      this(null);
     }
 
     @Override
-    public Map<String, GenericType> getSchemas() {
-        return IncidentServiceIncludedItems.schemas;
+    public void serialize(
+        IncidentServiceIncludedItems value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
+    }
+  }
+
+  public static class IncidentServiceIncludedItemsDeserializer
+      extends StdDeserializer<IncidentServiceIncludedItems> {
+    public IncidentServiceIncludedItemsDeserializer() {
+      this(IncidentServiceIncludedItems.class);
     }
 
-    /**
-     * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas:
-     * User
-     *
-     * It could be an instance of the 'oneOf' schemas.
-     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
-     */
+    public IncidentServiceIncludedItemsDeserializer(Class<?> vc) {
+      super(vc);
+    }
+
     @Override
-    public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(User.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
+    public IncidentServiceIncludedItems deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize User
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (User.class.equals(Integer.class)
+            || User.class.equals(Long.class)
+            || User.class.equals(Float.class)
+            || User.class.equals(Double.class)
+            || User.class.equals(Boolean.class)
+            || User.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((User.class.equals(Integer.class) || User.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((User.class.equals(Float.class) || User.class.equals(Double.class))
+                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+            attemptParsing |=
+                (User.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |= (User.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
         }
+        if (attemptParsing) {
+          deserialized = tree.traverse(jp.getCodec()).readValueAs(User.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          match++;
+          log.log(Level.FINER, "Input data matches schema 'User'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'User'", e);
+      }
 
-        throw new RuntimeException("Invalid instance type. Must be User");
+      if (match == 1) {
+        IncidentServiceIncludedItems ret = new IncidentServiceIncludedItems();
+        ret.setActualInstance(deserialized);
+        return ret;
+      }
+      throw new IOException(
+          String.format(
+              "Failed deserialization for IncidentServiceIncludedItems: %d classes match result,"
+                  + " expected 1",
+              match));
     }
 
-    /**
-     * Get the actual instance, which can be the following:
-     * User
-     *
-     * @return The actual instance (User)
-     */
+    /** Handle deserialization of the 'null' value. */
     @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
+    public IncidentServiceIncludedItems getNullValue(DeserializationContext ctxt)
+        throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "IncidentServiceIncludedItems cannot be null");
+    }
+  }
+
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public IncidentServiceIncludedItems() {
+    super("oneOf", Boolean.FALSE);
+  }
+
+  public IncidentServiceIncludedItems(User o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put("User", new GenericType<User>() {});
+    JSON.registerDescendants(
+        IncidentServiceIncludedItems.class, Collections.unmodifiableMap(schemas));
+  }
+
+  @Override
+  public Map<String, GenericType> getSchemas() {
+    return IncidentServiceIncludedItems.schemas;
+  }
+
+  /**
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: User
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
+   */
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(User.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
 
-    /**
-     * Get the actual instance of `User`. If the actual instanct is not `User`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `User`
-     * @throws ClassCastException if the instance is not `User`
-     */
-    public User getUser() throws ClassCastException {
-        return (User)super.getActualInstance();
-    }
+    throw new RuntimeException("Invalid instance type. Must be User");
+  }
 
+  /**
+   * Get the actual instance, which can be the following: User
+   *
+   * @return The actual instance (User)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `User`. If the actual instanct is not `User`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `User`
+   * @throws ClassCastException if the instance is not `User`
+   */
+  public User getUser() throws ClassCastException {
+    return (User) super.getActualInstance();
+  }
 }
-
