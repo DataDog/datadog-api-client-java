@@ -2375,11 +2375,11 @@ Name | Type | Description  | Notes
 
 ## getUsageTopAvgMetrics
 
-> UsageTopAvgMetricsResponse getUsageTopAvgMetrics().month(month).names(names).limit(limit).execute();
+> UsageTopAvgMetricsResponse getUsageTopAvgMetrics().month(month).day(day).names(names).limit(limit).execute();
 
 Get top custom metrics by hourly average
 
-Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
+Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
 
 ### Example
 
@@ -2412,11 +2412,13 @@ public class Example {
 
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         OffsetDateTime month = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
+        OffsetDateTime day = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour.
         List<String> names = Arrays.asList(); // List<String> | Comma-separated list of metric names.
         Integer limit = 500; // Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
         try {
             UsageTopAvgMetricsResponse result = apiInstance.getUsageTopAvgMetrics()
                 .month(month)
+                .day(day)
                 .names(names)
                 .limit(limit)
                 .execute();
@@ -2437,7 +2439,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **month** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. |
+ **month** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. | [optional]
+ **day** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. | [optional]
  **names** | **List&lt;String&gt;**| Comma-separated list of metric names. | [optional]
  **limit** | **Integer**| Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. | [optional] [default to 500]
 

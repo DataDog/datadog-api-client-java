@@ -24,11 +24,39 @@ import java.util.Objects;
     description =
         "Response containing the number of hourly recorded custom metrics for a given"
             + " organization.")
-@JsonPropertyOrder({UsageTopAvgMetricsResponse.JSON_PROPERTY_USAGE})
+@JsonPropertyOrder({
+  UsageTopAvgMetricsResponse.JSON_PROPERTY_METADATA,
+  UsageTopAvgMetricsResponse.JSON_PROPERTY_USAGE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageTopAvgMetricsResponse {
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private UsageTopAvgMetricsMetadata metadata;
+
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageTopAvgMetricsHour> usage = null;
+
+  public UsageTopAvgMetricsResponse metadata(UsageTopAvgMetricsMetadata metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  /**
+   * Get metadata
+   *
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageTopAvgMetricsMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(UsageTopAvgMetricsMetadata metadata) {
+    this.metadata = metadata;
+  }
 
   public UsageTopAvgMetricsResponse usage(List<UsageTopAvgMetricsHour> usage) {
     this.usage = usage;
@@ -70,18 +98,20 @@ public class UsageTopAvgMetricsResponse {
       return false;
     }
     UsageTopAvgMetricsResponse usageTopAvgMetricsResponse = (UsageTopAvgMetricsResponse) o;
-    return Objects.equals(this.usage, usageTopAvgMetricsResponse.usage);
+    return Objects.equals(this.metadata, usageTopAvgMetricsResponse.metadata)
+        && Objects.equals(this.usage, usageTopAvgMetricsResponse.usage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(usage);
+    return Objects.hash(metadata, usage);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageTopAvgMetricsResponse {\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();
