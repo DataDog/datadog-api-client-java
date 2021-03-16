@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **customLinks** | [**List&lt;WidgetCustomLink&gt;**](WidgetCustomLink.md) | List of custom links. |  [optional]
 **events** | [**List&lt;WidgetEvent&gt;**](WidgetEvent.md) | List of widget events. |  [optional]
+**legendColumns** | [**List&lt;LegendColumnsEnum&gt;**](#List&lt;LegendColumnsEnum&gt;) | Columns displayed in the legend. |  [optional]
+**legendLayout** | **TimeseriesWidgetLegendLayout** |  |  [optional]
 **legendSize** | **String** | Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;. |  [optional]
 **markers** | [**List&lt;WidgetMarker&gt;**](WidgetMarker.md) | List of markers. |  [optional]
 **requests** | [**List&lt;TimeseriesWidgetRequest&gt;**](TimeseriesWidgetRequest.md) | List of timeseries widget requests. | 
@@ -20,6 +22,18 @@ Name | Type | Description | Notes
 **titleSize** | **String** | Size of the title. |  [optional]
 **type** | **TimeseriesWidgetDefinitionType** |  | 
 **yaxis** | [**WidgetAxis**](WidgetAxis.md) |  |  [optional]
+
+
+
+## Enum: List&lt;LegendColumnsEnum&gt;
+
+Name | Value
+---- | -----
+VALUE | &quot;value&quot;
+AVG | &quot;avg&quot;
+SUM | &quot;sum&quot;
+MIN | &quot;min&quot;
+MAX | &quot;max&quot;
 
 
 
