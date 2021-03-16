@@ -8,28 +8,25 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * A metric SLI query. **Required if type is &#x60;metric&#x60;**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
+ * A metric SLI query. **Required if type is &#x60;metric&#x60;**. Note that Datadog only allows the
+ * sum by aggregator to be used because this will sum up all request counts instead of averaging
+ * them, or taking the max or min of all of those requests.
  */
-@ApiModel(description = "A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.")
+@ApiModel(
+    description =
+        "A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the"
+            + " sum by aggregator to be used because this will sum up all request counts instead"
+            + " of averaging them, or taking the max or min of all of those requests.")
 @JsonPropertyOrder({
   ServiceLevelObjectiveQuery.JSON_PROPERTY_DENOMINATOR,
   ServiceLevelObjectiveQuery.JSON_PROPERTY_NUMERATOR
@@ -42,56 +39,55 @@ public class ServiceLevelObjectiveQuery {
   public static final String JSON_PROPERTY_NUMERATOR = "numerator";
   private String numerator;
 
-
   public ServiceLevelObjectiveQuery denominator(String denominator) {
     this.denominator = denominator;
     return this;
   }
 
-   /**
+  /**
    * A Datadog metric query for total (valid) events.
+   *
    * @return denominator
-  **/
-  @ApiModelProperty(example = "", required = true, value = "A Datadog metric query for total (valid) events.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "A Datadog metric query for total (valid) events.")
   @JsonProperty(JSON_PROPERTY_DENOMINATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDenominator() {
     return denominator;
   }
 
-
   public void setDenominator(String denominator) {
     this.denominator = denominator;
   }
-
 
   public ServiceLevelObjectiveQuery numerator(String numerator) {
     this.numerator = numerator;
     return this;
   }
 
-   /**
+  /**
    * A Datadog metric query for good events.
+   *
    * @return numerator
-  **/
-  @ApiModelProperty(example = "", required = true, value = "A Datadog metric query for good events.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "A Datadog metric query for good events.")
   @JsonProperty(JSON_PROPERTY_NUMERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getNumerator() {
     return numerator;
   }
-
 
   public void setNumerator(String numerator) {
     this.numerator = numerator;
   }
 
-
-  /**
-   * Return true if this ServiceLevelObjectiveQuery object is equal to o.
-   */
+  /** Return true if this ServiceLevelObjectiveQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,8 +97,8 @@ public class ServiceLevelObjectiveQuery {
       return false;
     }
     ServiceLevelObjectiveQuery serviceLevelObjectiveQuery = (ServiceLevelObjectiveQuery) o;
-    return Objects.equals(this.denominator, serviceLevelObjectiveQuery.denominator) &&
-        Objects.equals(this.numerator, serviceLevelObjectiveQuery.numerator);
+    return Objects.equals(this.denominator, serviceLevelObjectiveQuery.denominator)
+        && Objects.equals(this.numerator, serviceLevelObjectiveQuery.numerator);
   }
 
   @Override
@@ -121,8 +117,7 @@ public class ServiceLevelObjectiveQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -130,6 +125,4 @@ public class ServiceLevelObjectiveQuery {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

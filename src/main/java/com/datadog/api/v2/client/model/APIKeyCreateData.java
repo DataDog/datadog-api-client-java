@@ -8,34 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.APIKeyCreateAttributes;
-import com.datadog.api.v2.client.model.APIKeysType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object used to create an API key.
- */
+/** Object used to create an API key. */
 @ApiModel(description = "Object used to create an API key.")
-@JsonPropertyOrder({
-  APIKeyCreateData.JSON_PROPERTY_ATTRIBUTES,
-  APIKeyCreateData.JSON_PROPERTY_TYPE
-})
+@JsonPropertyOrder({APIKeyCreateData.JSON_PROPERTY_ATTRIBUTES, APIKeyCreateData.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeyCreateData {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -44,56 +28,49 @@ public class APIKeyCreateData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private APIKeysType type = APIKeysType.API_KEYS;
 
-
   public APIKeyCreateData attributes(APIKeyCreateAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public APIKeyCreateAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(APIKeyCreateAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public APIKeyCreateData type(APIKeysType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public APIKeysType getType() {
     return type;
   }
-
 
   public void setType(APIKeysType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this APIKeyCreateData object is equal to o.
-   */
+  /** Return true if this APIKeyCreateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,8 +80,8 @@ public class APIKeyCreateData {
       return false;
     }
     APIKeyCreateData apIKeyCreateData = (APIKeyCreateData) o;
-    return Objects.equals(this.attributes, apIKeyCreateData.attributes) &&
-        Objects.equals(this.type, apIKeyCreateData.type);
+    return Objects.equals(this.attributes, apIKeyCreateData.attributes)
+        && Objects.equals(this.type, apIKeyCreateData.type);
   }
 
   @Override
@@ -123,8 +100,7 @@ public class APIKeyCreateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -132,6 +108,4 @@ public class APIKeyCreateData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

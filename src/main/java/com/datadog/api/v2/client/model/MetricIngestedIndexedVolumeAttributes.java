@@ -8,28 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object containing the definition of a metric&#39;s ingested and indexed volume.
- */
-@ApiModel(description = "Object containing the definition of a metric's ingested and indexed volume.")
+/** Object containing the definition of a metric&#39;s ingested and indexed volume. */
+@ApiModel(
+    description = "Object containing the definition of a metric's ingested and indexed volume.")
 @JsonPropertyOrder({
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INDEXED_VOLUME,
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME
@@ -42,58 +32,51 @@ public class MetricIngestedIndexedVolumeAttributes {
   public static final String JSON_PROPERTY_INGESTED_VOLUME = "ingested_volume";
   private Long ingestedVolume;
 
-
   public MetricIngestedIndexedVolumeAttributes indexedVolume(Long indexedVolume) {
     this.indexedVolume = indexedVolume;
     return this;
   }
 
-   /**
+  /**
    * Indexed volume for the given metric.
+   *
    * @return indexedVolume
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "10", value = "Indexed volume for the given metric.")
   @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getIndexedVolume() {
     return indexedVolume;
   }
 
-
   public void setIndexedVolume(Long indexedVolume) {
     this.indexedVolume = indexedVolume;
   }
-
 
   public MetricIngestedIndexedVolumeAttributes ingestedVolume(Long ingestedVolume) {
     this.ingestedVolume = ingestedVolume;
     return this;
   }
 
-   /**
+  /**
    * Ingested volume for the given metric.
+   *
    * @return ingestedVolume
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "20", value = "Ingested volume for the given metric.")
   @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getIngestedVolume() {
     return ingestedVolume;
   }
-
 
   public void setIngestedVolume(Long ingestedVolume) {
     this.ingestedVolume = ingestedVolume;
   }
 
-
-  /**
-   * Return true if this MetricIngestedIndexedVolumeAttributes object is equal to o.
-   */
+  /** Return true if this MetricIngestedIndexedVolumeAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,9 +85,11 @@ public class MetricIngestedIndexedVolumeAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricIngestedIndexedVolumeAttributes metricIngestedIndexedVolumeAttributes = (MetricIngestedIndexedVolumeAttributes) o;
-    return Objects.equals(this.indexedVolume, metricIngestedIndexedVolumeAttributes.indexedVolume) &&
-        Objects.equals(this.ingestedVolume, metricIngestedIndexedVolumeAttributes.ingestedVolume);
+    MetricIngestedIndexedVolumeAttributes metricIngestedIndexedVolumeAttributes =
+        (MetricIngestedIndexedVolumeAttributes) o;
+    return Objects.equals(this.indexedVolume, metricIngestedIndexedVolumeAttributes.indexedVolume)
+        && Objects.equals(
+            this.ingestedVolume, metricIngestedIndexedVolumeAttributes.ingestedVolume);
   }
 
   @Override
@@ -123,8 +108,7 @@ public class MetricIngestedIndexedVolumeAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -132,6 +116,4 @@ public class MetricIngestedIndexedVolumeAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

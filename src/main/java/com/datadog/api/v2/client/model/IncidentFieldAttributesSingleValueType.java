@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Type of the single value field definitions.
- */
+/** Type of the single value field definitions. */
 public enum IncidentFieldAttributesSingleValueType {
-  
   DROPDOWN("dropdown"),
-  
+
   TEXTBOX("textbox");
 
   private String value;
@@ -50,7 +38,8 @@ public enum IncidentFieldAttributesSingleValueType {
 
   @JsonCreator
   public static IncidentFieldAttributesSingleValueType fromValue(String value) {
-    for (IncidentFieldAttributesSingleValueType b : IncidentFieldAttributesSingleValueType.values()) {
+    for (IncidentFieldAttributesSingleValueType b :
+        IncidentFieldAttributesSingleValueType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -58,4 +47,3 @@ public enum IncidentFieldAttributesSingleValueType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

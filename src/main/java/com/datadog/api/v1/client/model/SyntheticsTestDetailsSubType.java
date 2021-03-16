@@ -8,34 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;, &#x60;dns&#x60; or &#x60;multi&#x60;.
+ * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;,
+ * &#x60;dns&#x60; or &#x60;multi&#x60;.
  */
 public enum SyntheticsTestDetailsSubType {
-  
   HTTP("http"),
-  
+
   SSL("ssl"),
-  
+
   TCP("tcp"),
-  
+
   DNS("dns"),
-  
+
   MULTI("multi");
 
   private String value;
@@ -64,4 +54,3 @@ public enum SyntheticsTestDetailsSubType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

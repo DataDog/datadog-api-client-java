@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Attributes of the created user.
- */
+/** Attributes of the created user. */
 @ApiModel(description = "Attributes of the created user.")
 @JsonPropertyOrder({
   UserCreateAttributes.JSON_PROPERTY_EMAIL,
@@ -46,81 +35,75 @@ public class UserCreateAttributes {
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
-
   public UserCreateAttributes email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email of the user.
+   *
    * @return email
-  **/
-  @ApiModelProperty(example = "jane.doe@example.com", required = true, value = "The email of the user.")
+   */
+  @ApiModelProperty(
+      example = "jane.doe@example.com",
+      required = true,
+      value = "The email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getEmail() {
     return email;
   }
 
-
   public void setEmail(String email) {
     this.email = email;
   }
-
 
   public UserCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the user.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The name of the user.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public UserCreateAttributes title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * The title of the user.
+   *
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The title of the user.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
-
 
   public void setTitle(String title) {
     this.title = title;
   }
 
-
-  /**
-   * Return true if this UserCreateAttributes object is equal to o.
-   */
+  /** Return true if this UserCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,9 +113,9 @@ public class UserCreateAttributes {
       return false;
     }
     UserCreateAttributes userCreateAttributes = (UserCreateAttributes) o;
-    return Objects.equals(this.email, userCreateAttributes.email) &&
-        Objects.equals(this.name, userCreateAttributes.name) &&
-        Objects.equals(this.title, userCreateAttributes.title);
+    return Objects.equals(this.email, userCreateAttributes.email)
+        && Objects.equals(this.name, userCreateAttributes.name)
+        && Objects.equals(this.title, userCreateAttributes.title);
   }
 
   @Override
@@ -152,8 +135,7 @@ public class UserCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -161,6 +143,4 @@ public class UserCreateAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

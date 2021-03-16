@@ -8,64 +8,46 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object containing the definition of a metric&#39;s distinct volume.
- */
+/** Object containing the definition of a metric&#39;s distinct volume. */
 @ApiModel(description = "Object containing the definition of a metric's distinct volume.")
-@JsonPropertyOrder({
-  MetricDistinctVolumeAttributes.JSON_PROPERTY_DISTINCT_VOLUME
-})
+@JsonPropertyOrder({MetricDistinctVolumeAttributes.JSON_PROPERTY_DISTINCT_VOLUME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricDistinctVolumeAttributes {
   public static final String JSON_PROPERTY_DISTINCT_VOLUME = "distinct_volume";
   private Long distinctVolume;
-
 
   public MetricDistinctVolumeAttributes distinctVolume(Long distinctVolume) {
     this.distinctVolume = distinctVolume;
     return this;
   }
 
-   /**
+  /**
    * Distinct volume for the given metric.
+   *
    * @return distinctVolume
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "10", value = "Distinct volume for the given metric.")
   @JsonProperty(JSON_PROPERTY_DISTINCT_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getDistinctVolume() {
     return distinctVolume;
   }
-
 
   public void setDistinctVolume(Long distinctVolume) {
     this.distinctVolume = distinctVolume;
   }
 
-
-  /**
-   * Return true if this MetricDistinctVolumeAttributes object is equal to o.
-   */
+  /** Return true if this MetricDistinctVolumeAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,7 +56,8 @@ public class MetricDistinctVolumeAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricDistinctVolumeAttributes metricDistinctVolumeAttributes = (MetricDistinctVolumeAttributes) o;
+    MetricDistinctVolumeAttributes metricDistinctVolumeAttributes =
+        (MetricDistinctVolumeAttributes) o;
     return Objects.equals(this.distinctVolume, metricDistinctVolumeAttributes.distinctVolume);
   }
 
@@ -93,8 +76,7 @@ public class MetricDistinctVolumeAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +84,4 @@ public class MetricDistinctVolumeAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

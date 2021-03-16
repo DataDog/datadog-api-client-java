@@ -8,40 +8,31 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+ * A time window is specified to match when at least one of the cases matches true. This is a
+ * sliding window and evaluates in real time.
  */
 public enum SecurityMonitoringRuleEvaluationWindow {
-  
   ZERO_MINUTES(0),
-  
+
   ONE_MINUTE(60),
-  
+
   FIVE_MINUTES(300),
-  
+
   TEN_MINUTES(600),
-  
+
   FIFTEEN_MINUTES(900),
-  
+
   THIRTY_MINUTES(1800),
-  
+
   ONE_HOUR(3600),
-  
+
   TWO_HOURS(7200);
 
   private Integer value;
@@ -62,7 +53,8 @@ public enum SecurityMonitoringRuleEvaluationWindow {
 
   @JsonCreator
   public static SecurityMonitoringRuleEvaluationWindow fromValue(Integer value) {
-    for (SecurityMonitoringRuleEvaluationWindow b : SecurityMonitoringRuleEvaluationWindow.values()) {
+    for (SecurityMonitoringRuleEvaluationWindow b :
+        SecurityMonitoringRuleEvaluationWindow.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -70,4 +62,3 @@ public enum SecurityMonitoringRuleEvaluationWindow {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

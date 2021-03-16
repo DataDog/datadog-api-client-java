@@ -8,42 +8,29 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * The frequency at which to run the Synthetic test (in seconds).
- */
+/** The frequency at which to run the Synthetic test (in seconds). */
 public enum SyntheticsTickInterval {
-  
   MINUTE(60l),
-  
+
   FIVE_MINUTES(300l),
-  
+
   FIFTEEN_MINUTES(900l),
-  
+
   THIRTY_MINUTES(1800l),
-  
+
   HOUR(3600l),
-  
+
   SIX_HOURS(21600l),
-  
+
   TWELVE_HOURS(43200l),
-  
+
   DAY(86400l),
-  
+
   WEEK(604800l);
 
   private Long value;
@@ -72,4 +59,3 @@ public enum SyntheticsTickInterval {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

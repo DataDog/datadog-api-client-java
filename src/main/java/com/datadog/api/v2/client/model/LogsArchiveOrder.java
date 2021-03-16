@@ -8,65 +8,46 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsArchiveOrderDefinition;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A ordered list of archive IDs.
- */
+/** A ordered list of archive IDs. */
 @ApiModel(description = "A ordered list of archive IDs.")
-@JsonPropertyOrder({
-  LogsArchiveOrder.JSON_PROPERTY_DATA
-})
+@JsonPropertyOrder({LogsArchiveOrder.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveOrder {
   public static final String JSON_PROPERTY_DATA = "data";
   private LogsArchiveOrderDefinition data;
-
 
   public LogsArchiveOrder data(LogsArchiveOrderDefinition data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsArchiveOrderDefinition getData() {
     return data;
   }
-
 
   public void setData(LogsArchiveOrderDefinition data) {
     this.data = data;
   }
 
-
-  /**
-   * Return true if this LogsArchiveOrder object is equal to o.
-   */
+  /** Return true if this LogsArchiveOrder object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,8 +75,7 @@ public class LogsArchiveOrder {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +83,4 @@ public class LogsArchiveOrder {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

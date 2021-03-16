@@ -8,31 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsMetricFilter;
-import com.datadog.api.v2.client.model.LogsMetricGroupBy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The log-based metric properties that will be updated.
- */
+/** The log-based metric properties that will be updated. */
 @ApiModel(description = "The log-based metric properties that will be updated.")
 @JsonPropertyOrder({
   LogsMetricUpdateAttributes.JSON_PROPERTY_FILTER,
@@ -46,30 +33,27 @@ public class LogsMetricUpdateAttributes {
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private List<LogsMetricGroupBy> groupBy = null;
 
-
   public LogsMetricUpdateAttributes filter(LogsMetricFilter filter) {
     this.filter = filter;
     return this;
   }
 
-   /**
+  /**
    * Get filter
+   *
    * @return filter
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsMetricFilter getFilter() {
     return filter;
   }
 
-
   public void setFilter(LogsMetricFilter filter) {
     this.filter = filter;
   }
-
 
   public LogsMetricUpdateAttributes groupBy(List<LogsMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
@@ -84,28 +68,24 @@ public class LogsMetricUpdateAttributes {
     return this;
   }
 
-   /**
+  /**
    * The rules for the group by.
+   *
    * @return groupBy
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The rules for the group by.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<LogsMetricGroupBy> getGroupBy() {
     return groupBy;
   }
-
 
   public void setGroupBy(List<LogsMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
 
-
-  /**
-   * Return true if this LogsMetricUpdateAttributes object is equal to o.
-   */
+  /** Return true if this LogsMetricUpdateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,8 +95,8 @@ public class LogsMetricUpdateAttributes {
       return false;
     }
     LogsMetricUpdateAttributes logsMetricUpdateAttributes = (LogsMetricUpdateAttributes) o;
-    return Objects.equals(this.filter, logsMetricUpdateAttributes.filter) &&
-        Objects.equals(this.groupBy, logsMetricUpdateAttributes.groupBy);
+    return Objects.equals(this.filter, logsMetricUpdateAttributes.filter)
+        && Objects.equals(this.groupBy, logsMetricUpdateAttributes.groupBy);
   }
 
   @Override
@@ -135,8 +115,7 @@ public class LogsMetricUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -144,6 +123,4 @@ public class LogsMetricUpdateAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

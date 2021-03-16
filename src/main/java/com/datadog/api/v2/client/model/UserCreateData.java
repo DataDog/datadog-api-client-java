@@ -8,30 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.UserCreateAttributes;
-import com.datadog.api.v2.client.model.UserRelationships;
-import com.datadog.api.v2.client.model.UsersType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object to create a user.
- */
+/** Object to create a user. */
 @ApiModel(description = "Object to create a user.")
 @JsonPropertyOrder({
   UserCreateData.JSON_PROPERTY_ATTRIBUTES,
@@ -49,80 +35,71 @@ public class UserCreateData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private UsersType type = UsersType.USERS;
 
-
   public UserCreateData attributes(UserCreateAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public UserCreateAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(UserCreateAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public UserCreateData relationships(UserRelationships relationships) {
     this.relationships = relationships;
     return this;
   }
 
-   /**
+  /**
    * Get relationships
+   *
    * @return relationships
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UserRelationships getRelationships() {
     return relationships;
   }
 
-
   public void setRelationships(UserRelationships relationships) {
     this.relationships = relationships;
   }
-
 
   public UserCreateData type(UsersType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public UsersType getType() {
     return type;
   }
-
 
   public void setType(UsersType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this UserCreateData object is equal to o.
-   */
+  /** Return true if this UserCreateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,9 +109,9 @@ public class UserCreateData {
       return false;
     }
     UserCreateData userCreateData = (UserCreateData) o;
-    return Objects.equals(this.attributes, userCreateData.attributes) &&
-        Objects.equals(this.relationships, userCreateData.relationships) &&
-        Objects.equals(this.type, userCreateData.type);
+    return Objects.equals(this.attributes, userCreateData.attributes)
+        && Objects.equals(this.relationships, userCreateData.relationships)
+        && Objects.equals(this.type, userCreateData.type);
   }
 
   @Override
@@ -154,8 +131,7 @@ public class UserCreateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -163,6 +139,4 @@ public class UserCreateData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

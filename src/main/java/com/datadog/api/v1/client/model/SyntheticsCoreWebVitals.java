@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Core Web Vitals attached to a browser test step.
- */
+/** Core Web Vitals attached to a browser test step. */
 @ApiModel(description = "Core Web Vitals attached to a browser test step.")
 @JsonPropertyOrder({
   SyntheticsCoreWebVitals.JSON_PROPERTY_CLS,
@@ -46,82 +35,73 @@ public class SyntheticsCoreWebVitals {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-
   public SyntheticsCoreWebVitals cls(Long cls) {
     this.cls = cls;
     return this;
   }
 
-   /**
+  /**
    * Cumulative Layout Shift.
+   *
    * @return cls
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Cumulative Layout Shift.")
   @JsonProperty(JSON_PROPERTY_CLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getCls() {
     return cls;
   }
 
-
   public void setCls(Long cls) {
     this.cls = cls;
   }
-
 
   public SyntheticsCoreWebVitals lcp(Long lcp) {
     this.lcp = lcp;
     return this;
   }
 
-   /**
+  /**
    * Largest Contentful Paint in milliseconds.
+   *
    * @return lcp
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Largest Contentful Paint in milliseconds.")
   @JsonProperty(JSON_PROPERTY_LCP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getLcp() {
     return lcp;
   }
 
-
   public void setLcp(Long lcp) {
     this.lcp = lcp;
   }
-
 
   public SyntheticsCoreWebVitals url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * URL attached to the metrics.
+   *
    * @return url
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "URL attached to the metrics.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
-
 
   public void setUrl(String url) {
     this.url = url;
   }
 
-
-  /**
-   * Return true if this SyntheticsCoreWebVitals object is equal to o.
-   */
+  /** Return true if this SyntheticsCoreWebVitals object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,9 +111,9 @@ public class SyntheticsCoreWebVitals {
       return false;
     }
     SyntheticsCoreWebVitals syntheticsCoreWebVitals = (SyntheticsCoreWebVitals) o;
-    return Objects.equals(this.cls, syntheticsCoreWebVitals.cls) &&
-        Objects.equals(this.lcp, syntheticsCoreWebVitals.lcp) &&
-        Objects.equals(this.url, syntheticsCoreWebVitals.url);
+    return Objects.equals(this.cls, syntheticsCoreWebVitals.cls)
+        && Objects.equals(this.lcp, syntheticsCoreWebVitals.lcp)
+        && Objects.equals(this.url, syntheticsCoreWebVitals.url);
   }
 
   @Override
@@ -153,8 +133,7 @@ public class SyntheticsCoreWebVitals {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -162,6 +141,4 @@ public class SyntheticsCoreWebVitals {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

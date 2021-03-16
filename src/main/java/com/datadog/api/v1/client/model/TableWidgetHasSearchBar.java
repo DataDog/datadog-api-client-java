@@ -8,30 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Controls the display of the search bar.
- */
+/** Controls the display of the search bar. */
 public enum TableWidgetHasSearchBar {
-  
   ALWAYS("always"),
-  
+
   NEVER("never"),
-  
+
   AUTO("auto");
 
   private String value;
@@ -60,4 +47,3 @@ public enum TableWidgetHasSearchBar {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

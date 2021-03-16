@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SlackIntegrationChannelDisplay;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The Slack channel configuration.
- */
+/** The Slack channel configuration. */
 @ApiModel(description = "The Slack channel configuration.")
 @JsonPropertyOrder({
   SlackIntegrationChannel.JSON_PROPERTY_DISPLAY,
@@ -43,58 +31,51 @@ public class SlackIntegrationChannel {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-
   public SlackIntegrationChannel display(SlackIntegrationChannelDisplay display) {
     this.display = display;
     return this;
   }
 
-   /**
+  /**
    * Get display
+   *
    * @return display
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SlackIntegrationChannelDisplay getDisplay() {
     return display;
   }
 
-
   public void setDisplay(SlackIntegrationChannelDisplay display) {
     this.display = display;
   }
-
 
   public SlackIntegrationChannel name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Your channel name.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "#general", value = "Your channel name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-  /**
-   * Return true if this SlackIntegrationChannel object is equal to o.
-   */
+  /** Return true if this SlackIntegrationChannel object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +85,8 @@ public class SlackIntegrationChannel {
       return false;
     }
     SlackIntegrationChannel slackIntegrationChannel = (SlackIntegrationChannel) o;
-    return Objects.equals(this.display, slackIntegrationChannel.display) &&
-        Objects.equals(this.name, slackIntegrationChannel.name);
+    return Objects.equals(this.display, slackIntegrationChannel.display)
+        && Objects.equals(this.name, slackIntegrationChannel.name);
   }
 
   @Override
@@ -124,8 +105,7 @@ public class SlackIntegrationChannel {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +113,4 @@ public class SlackIntegrationChannel {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

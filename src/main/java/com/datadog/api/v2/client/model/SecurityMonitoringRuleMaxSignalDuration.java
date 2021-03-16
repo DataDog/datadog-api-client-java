@@ -8,48 +8,39 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp.
+ * A signal will “close” regardless of the query being matched once the time exceeds the maximum
+ * duration. This time is calculated from the first seen timestamp.
  */
 public enum SecurityMonitoringRuleMaxSignalDuration {
-  
   ZERO_MINUTES(0),
-  
+
   ONE_MINUTE(60),
-  
+
   FIVE_MINUTES(300),
-  
+
   TEN_MINUTES(600),
-  
+
   FIFTEEN_MINUTES(900),
-  
+
   THIRTY_MINUTES(1800),
-  
+
   ONE_HOUR(3600),
-  
+
   TWO_HOURS(7200),
-  
+
   THREE_HOURS(10800),
-  
+
   SIX_HOURS(21600),
-  
+
   TWELVE_HOURS(43200),
-  
+
   ONE_DAY(86400);
 
   private Integer value;
@@ -70,7 +61,8 @@ public enum SecurityMonitoringRuleMaxSignalDuration {
 
   @JsonCreator
   public static SecurityMonitoringRuleMaxSignalDuration fromValue(Integer value) {
-    for (SecurityMonitoringRuleMaxSignalDuration b : SecurityMonitoringRuleMaxSignalDuration.values()) {
+    for (SecurityMonitoringRuleMaxSignalDuration b :
+        SecurityMonitoringRuleMaxSignalDuration.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -78,4 +70,3 @@ public enum SecurityMonitoringRuleMaxSignalDuration {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

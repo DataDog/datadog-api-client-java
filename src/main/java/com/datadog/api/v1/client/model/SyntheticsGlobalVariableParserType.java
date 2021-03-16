@@ -8,30 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Type of parser for a Synthetics global variable from a synthetics test.
- */
+/** Type of parser for a Synthetics global variable from a synthetics test. */
 public enum SyntheticsGlobalVariableParserType {
-  
   RAW("raw"),
-  
+
   JSON_PATH("json_path"),
-  
+
   REGEX("regex");
 
   private String value;
@@ -60,4 +47,3 @@ public enum SyntheticsGlobalVariableParserType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

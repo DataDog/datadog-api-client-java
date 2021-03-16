@@ -8,40 +8,28 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Sorting options
- */
+/** Sorting options */
 public enum APIKeysSort {
-  
   CREATED_AT_ASCENDING("created_at"),
-  
+
   CREATED_AT_DESCENDING("-created_at"),
-  
+
   LAST4_ASCENDING("last4"),
-  
+
   LAST4_DESCENDING("-last4"),
-  
+
   MODIFIED_AT_ASCENDING("modified_at"),
-  
+
   MODIFIED_AT_DESCENDING("-modified_at"),
-  
+
   NAME_ASCENDING("name"),
-  
+
   NAME_DESCENDING("-name");
 
   private String value;
@@ -70,4 +58,3 @@ public enum APIKeysSort {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

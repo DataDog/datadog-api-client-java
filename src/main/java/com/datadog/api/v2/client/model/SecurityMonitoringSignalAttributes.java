@@ -8,18 +8,11 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -27,13 +20,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The object containing all signal attributes and their associated values.
- */
+/** The object containing all signal attributes and their associated values. */
 @ApiModel(description = "The object containing all signal attributes and their associated values.")
 @JsonPropertyOrder({
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_ATTRIBUTES,
@@ -55,7 +44,6 @@ public class SecurityMonitoringSignalAttributes {
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private OffsetDateTime timestamp;
 
-
   public SecurityMonitoringSignalAttributes attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
@@ -69,48 +57,50 @@ public class SecurityMonitoringSignalAttributes {
     return this;
   }
 
-   /**
+  /**
    * A JSON object of attributes in the security signal.
+   *
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"workflow\":{\"first_seen\":\"2020-06-23T14:46:01.000Z\",\"last_seen\":\"2020-06-23T14:46:49.000Z\",\"rule\":{\"id\":\"0f5-e0c-805\",\"name\":\"Brute Force Attack Grouped By User \",\"version\":12}}}", value = "A JSON object of attributes in the security signal.")
+  @ApiModelProperty(
+      example =
+          "{\"workflow\":{\"first_seen\":\"2020-06-23T14:46:01.000Z\",\"last_seen\":\"2020-06-23T14:46:49.000Z\",\"rule\":{\"id\":\"0f5-e0c-805\",\"name\":\"Brute"
+              + " Force Attack Grouped By User \",\"version\":12}}}",
+      value = "A JSON object of attributes in the security signal.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, Object> getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
-
 
   public SecurityMonitoringSignalAttributes message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * The message in the security signal defined by the rule that generated the signal.
+   *
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Detect Account Take Over (ATO) through brute force attempts", value = "The message in the security signal defined by the rule that generated the signal.")
+  @ApiModelProperty(
+      example = "Detect Account Take Over (ATO) through brute force attempts",
+      value = "The message in the security signal defined by the rule that generated the signal.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
   public void setMessage(String message) {
     this.message = message;
   }
-
 
   public SecurityMonitoringSignalAttributes tags(List<Object> tags) {
     this.tags = tags;
@@ -125,52 +115,50 @@ public class SecurityMonitoringSignalAttributes {
     return this;
   }
 
-   /**
+  /**
    * An array of tags associated with the security signal.
+   *
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"security:attack\",\"technique:T1110-brute-force\"]", value = "An array of tags associated with the security signal.")
+  @ApiModelProperty(
+      example = "[\"security:attack\",\"technique:T1110-brute-force\"]",
+      value = "An array of tags associated with the security signal.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Object> getTags() {
     return tags;
   }
 
-
   public void setTags(List<Object> tags) {
     this.tags = tags;
   }
-
 
   public SecurityMonitoringSignalAttributes timestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
-   /**
+  /**
    * The timestamp of the security signal.
+   *
    * @return timestamp
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "The timestamp of the security signal.")
+  @ApiModelProperty(
+      example = "2019-01-02T09:42:36.320Z",
+      value = "The timestamp of the security signal.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getTimestamp() {
     return timestamp;
   }
-
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
   }
 
-
-  /**
-   * Return true if this SecurityMonitoringSignal_attributes object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringSignal_attributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -179,11 +167,12 @@ public class SecurityMonitoringSignalAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalAttributes securityMonitoringSignalAttributes = (SecurityMonitoringSignalAttributes) o;
-    return Objects.equals(this.attributes, securityMonitoringSignalAttributes.attributes) &&
-        Objects.equals(this.message, securityMonitoringSignalAttributes.message) &&
-        Objects.equals(this.tags, securityMonitoringSignalAttributes.tags) &&
-        Objects.equals(this.timestamp, securityMonitoringSignalAttributes.timestamp);
+    SecurityMonitoringSignalAttributes securityMonitoringSignalAttributes =
+        (SecurityMonitoringSignalAttributes) o;
+    return Objects.equals(this.attributes, securityMonitoringSignalAttributes.attributes)
+        && Objects.equals(this.message, securityMonitoringSignalAttributes.message)
+        && Objects.equals(this.tags, securityMonitoringSignalAttributes.tags)
+        && Objects.equals(this.timestamp, securityMonitoringSignalAttributes.timestamp);
   }
 
   @Override
@@ -204,8 +193,7 @@ public class SecurityMonitoringSignalAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -213,6 +201,4 @@ public class SecurityMonitoringSignalAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

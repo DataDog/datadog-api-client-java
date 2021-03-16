@@ -8,30 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.OrganizationBilling;
-import com.datadog.api.v1.client.model.OrganizationSettings;
-import com.datadog.api.v1.client.model.OrganizationSubscription;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Create, edit, and manage organizations.
- */
+/** Create, edit, and manage organizations. */
 @ApiModel(description = "Create, edit, and manage organizations.")
 @JsonPropertyOrder({
   Organization.JSON_PROPERTY_BILLING,
@@ -65,170 +51,156 @@ public class Organization {
   public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
   private OrganizationSubscription subscription;
 
-
   public Organization billing(OrganizationBilling billing) {
     this.billing = billing;
     return this;
   }
 
-   /**
+  /**
    * Get billing
+   *
    * @return billing
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OrganizationBilling getBilling() {
     return billing;
   }
-
 
   public void setBilling(OrganizationBilling billing) {
     this.billing = billing;
   }
 
-
-   /**
+  /**
    * Date of the organization creation.
+   *
    * @return created
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2019-09-26T17:28:28Z", value = "Date of the organization creation.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCreated() {
     return created;
   }
-
-
-
 
   public Organization description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the organization.
+   *
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "some description", value = "Description of the organization.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
-
 
   public Organization name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the new child-organization, limited to 32 characters.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "New child org", value = "The name of the new child-organization, limited to 32 characters.")
+  @ApiModelProperty(
+      example = "New child org",
+      value = "The name of the new child-organization, limited to 32 characters.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public Organization publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
-   /**
+  /**
    * The &#x60;public_id&#x60; of the organization you are operating within.
+   *
    * @return publicId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "abcdef12345", value = "The `public_id` of the organization you are operating within.")
+  @ApiModelProperty(
+      example = "abcdef12345",
+      value = "The `public_id` of the organization you are operating within.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPublicId() {
     return publicId;
   }
 
-
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
-
 
   public Organization settings(OrganizationSettings settings) {
     this.settings = settings;
     return this;
   }
 
-   /**
+  /**
    * Get settings
+   *
    * @return settings
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OrganizationSettings getSettings() {
     return settings;
   }
 
-
   public void setSettings(OrganizationSettings settings) {
     this.settings = settings;
   }
-
 
   public Organization subscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
     return this;
   }
 
-   /**
+  /**
    * Get subscription
+   *
    * @return subscription
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OrganizationSubscription getSubscription() {
     return subscription;
   }
-
 
   public void setSubscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
   }
 
-
-  /**
-   * Return true if this Organization object is equal to o.
-   */
+  /** Return true if this Organization object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -238,13 +210,13 @@ public class Organization {
       return false;
     }
     Organization organization = (Organization) o;
-    return Objects.equals(this.billing, organization.billing) &&
-        Objects.equals(this.created, organization.created) &&
-        Objects.equals(this.description, organization.description) &&
-        Objects.equals(this.name, organization.name) &&
-        Objects.equals(this.publicId, organization.publicId) &&
-        Objects.equals(this.settings, organization.settings) &&
-        Objects.equals(this.subscription, organization.subscription);
+    return Objects.equals(this.billing, organization.billing)
+        && Objects.equals(this.created, organization.created)
+        && Objects.equals(this.description, organization.description)
+        && Objects.equals(this.name, organization.name)
+        && Objects.equals(this.publicId, organization.publicId)
+        && Objects.equals(this.settings, organization.settings)
+        && Objects.equals(this.subscription, organization.subscription);
   }
 
   @Override
@@ -268,8 +240,7 @@ public class Organization {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -277,6 +248,4 @@ public class Organization {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

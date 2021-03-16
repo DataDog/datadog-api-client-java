@@ -8,32 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Category the SLO correction belongs to
- */
+/** Category the SLO correction belongs to */
 public enum SLOCorrectionCategory {
-  
   SCHEDULED_MAINTENANCE("Scheduled Maintenance"),
-  
+
   OUTSIDE_BUSINESS_HOURS("Outside Business Hours"),
-  
+
   DEPLOYMENT("Deployment"),
-  
+
   OTHER("Other");
 
   private String value;
@@ -62,4 +49,3 @@ public enum SLOCorrectionCategory {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-
