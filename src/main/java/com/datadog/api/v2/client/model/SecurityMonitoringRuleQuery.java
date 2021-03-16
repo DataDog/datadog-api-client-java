@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Query for matching rule. */
 @ApiModel(description = "Query for matching rule.")
 @JsonPropertyOrder({
+  SecurityMonitoringRuleQuery.JSON_PROPERTY_AGENT_RULE,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_AGGREGATION,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
@@ -31,6 +32,9 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleQuery {
+  public static final String JSON_PROPERTY_AGENT_RULE = "agentRule";
+  private SecurityMonitoringRuntimeAgentRule agentRule;
+
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private SecurityMonitoringRuleQueryAggregation aggregation;
 
@@ -48,6 +52,28 @@ public class SecurityMonitoringRuleQuery {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public SecurityMonitoringRuleQuery agentRule(SecurityMonitoringRuntimeAgentRule agentRule) {
+    this.agentRule = agentRule;
+    return this;
+  }
+
+  /**
+   * Get agentRule
+   *
+   * @return agentRule
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AGENT_RULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuntimeAgentRule getAgentRule() {
+    return agentRule;
+  }
+
+  public void setAgentRule(SecurityMonitoringRuntimeAgentRule agentRule) {
+    this.agentRule = agentRule;
+  }
 
   public SecurityMonitoringRuleQuery aggregation(
       SecurityMonitoringRuleQueryAggregation aggregation) {
@@ -209,7 +235,8 @@ public class SecurityMonitoringRuleQuery {
       return false;
     }
     SecurityMonitoringRuleQuery securityMonitoringRuleQuery = (SecurityMonitoringRuleQuery) o;
-    return Objects.equals(this.aggregation, securityMonitoringRuleQuery.aggregation)
+    return Objects.equals(this.agentRule, securityMonitoringRuleQuery.agentRule)
+        && Objects.equals(this.aggregation, securityMonitoringRuleQuery.aggregation)
         && Objects.equals(this.distinctFields, securityMonitoringRuleQuery.distinctFields)
         && Objects.equals(this.groupByFields, securityMonitoringRuleQuery.groupByFields)
         && Objects.equals(this.metric, securityMonitoringRuleQuery.metric)
@@ -219,13 +246,14 @@ public class SecurityMonitoringRuleQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, distinctFields, groupByFields, metric, name, query);
+    return Objects.hash(agentRule, aggregation, distinctFields, groupByFields, metric, name, query);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleQuery {\n");
+    sb.append("    agentRule: ").append(toIndentedString(agentRule)).append("\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");

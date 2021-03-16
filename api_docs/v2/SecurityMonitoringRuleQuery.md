@@ -7,6 +7,7 @@ Query for matching rule.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**agentRule** | [**SecurityMonitoringRuntimeAgentRule**](SecurityMonitoringRuntimeAgentRule.md) |  |  [optional]
 **aggregation** | **SecurityMonitoringRuleQueryAggregation** |  |  [optional]
 **distinctFields** | **List&lt;String&gt;** | Field for which the cardinality is measured. Sent as an array. |  [optional]
 **groupByFields** | **List&lt;String&gt;** | Fields to group by. |  [optional]

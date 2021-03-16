@@ -10381,6 +10381,9 @@ components:
             - groupByFields
             query: query
             name: name
+            agentRule:
+              expression: expression
+              agentRuleId: etc_shadow
           - distinctFields:
             - distinctFields
             - distinctFields
@@ -10390,6 +10393,9 @@ components:
             - groupByFields
             query: query
             name: name
+            agentRule:
+              expression: expression
+              agentRuleId: etc_shadow
           version: 1
           tags:
           - tags
@@ -10428,6 +10434,9 @@ components:
             - groupByFields
             query: query
             name: name
+            agentRule:
+              expression: expression
+              agentRuleId: etc_shadow
           - distinctFields:
             - distinctFields
             - distinctFields
@@ -10437,6 +10446,9 @@ components:
             - groupByFields
             query: query
             name: name
+            agentRule:
+              expression: expression
+              agentRuleId: etc_shadow
           version: 1
           tags:
           - tags
@@ -10739,7 +10751,12 @@ components:
         - groupByFields
         query: query
         name: name
+        agentRule:
+          expression: expression
+          agentRuleId: etc_shadow
       properties:
+        agentRule:
+          $ref: '#/components/schemas/SecurityMonitoringRuntimeAgentRule'
         aggregation:
           $ref: '#/components/schemas/SecurityMonitoringRuleQueryAggregation'
         distinctFields:
@@ -10784,6 +10801,8 @@ components:
     SecurityMonitoringRuleQueryCreate:
       description: Query for matching rule.
       properties:
+        agentRule:
+          $ref: '#/components/schemas/SecurityMonitoringRuntimeAgentRule'
         aggregation:
           $ref: '#/components/schemas/SecurityMonitoringRuleQueryAggregation'
         distinctFields:
@@ -10841,6 +10860,9 @@ components:
           - groupByFields
           query: query
           name: name
+          agentRule:
+            expression: expression
+            agentRuleId: etc_shadow
         - distinctFields:
           - distinctFields
           - distinctFields
@@ -10850,6 +10872,9 @@ components:
           - groupByFields
           query: query
           name: name
+          agentRule:
+            expression: expression
+            agentRuleId: etc_shadow
         version: 1
         tags:
         - tags
@@ -10965,6 +10990,9 @@ components:
           - groupByFields
           query: query
           name: name
+          agentRule:
+            expression: expression
+            agentRuleId: etc_shadow
         - distinctFields:
           - distinctFields
           - distinctFields
@@ -10974,6 +11002,9 @@ components:
           - groupByFields
           query: query
           name: name
+          agentRule:
+            expression: expression
+            agentRuleId: etc_shadow
         tags:
         - tags
         - tags
@@ -11011,6 +11042,23 @@ components:
             description: Tag.
             type: string
           type: array
+      type: object
+    SecurityMonitoringRuntimeAgentRule:
+      description: Agent Rule.
+      example:
+        expression: expression
+        agentRuleId: etc_shadow
+      properties:
+        agentRuleId:
+          description: The Agent Rule ID, must be unique within the rule.
+          example: etc_shadow
+          type: string
+        expression:
+          description: |-
+            A Runtime Security expression determines what activity should be collected by the Datadog agent.
+            These logical expressions can use predefined operators and attributes. Tags cannot be used in Runtime
+            Security expressions (instead, allow/deny based on tags under the advanced option).
+          type: string
       type: object
     SecurityMonitoringSignal:
       description: Object description of a security signal.
