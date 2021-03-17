@@ -54,7 +54,7 @@ public class SLOThreshold {
    * @return target
    */
   @ApiModelProperty(
-      example = "0.0",
+      example = "99.9",
       required = true,
       value =
           "The target value for the service level indicator within the corresponding timeframe.")
@@ -129,7 +129,7 @@ public class SLOThreshold {
    * @return warning
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The warning value for the service level objective.")
+  @ApiModelProperty(example = "90.0", value = "The warning value for the service level objective.")
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getWarning() {
@@ -154,6 +154,7 @@ public class SLOThreshold {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "90.0",
       value =
           "A string representation of the warning target (see the description of the"
               + " `target_display` field for details).  Included in service level objective"

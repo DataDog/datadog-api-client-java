@@ -78,7 +78,7 @@ public class SLOHistoryResponseData {
    * @return fromTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The `from` timestamp in epoch seconds.")
+  @ApiModelProperty(example = "1615323990", value = "The `from` timestamp in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_FROM_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFromTs() {
@@ -111,6 +111,7 @@ public class SLOHistoryResponseData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "[]",
       value =
           "For `metric` based SLOs where the query includes a group-by clause, this represents the"
               + " list of grouping parameters.  This is not included in responses for `monitor`"
@@ -146,6 +147,7 @@ public class SLOHistoryResponseData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "[]",
       value =
           "For grouped SLOs, this represents SLI data for specific groups.  This is not included"
               + " in the responses for `metric` based SLOs.")
@@ -180,6 +182,7 @@ public class SLOHistoryResponseData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "[]",
       value =
           "For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not"
               + " included in the responses for `metric` based SLOs.")
@@ -256,7 +259,7 @@ public class SLOHistoryResponseData {
    * @return thresholds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "mapping of string timeframe to the SLO threshold.")
+  @ApiModelProperty(example = "{}", value = "mapping of string timeframe to the SLO threshold.")
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, SLOThreshold> getThresholds() {
@@ -278,7 +281,7 @@ public class SLOHistoryResponseData {
    * @return toTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The `to` timestamp in epoch seconds.")
+  @ApiModelProperty(example = "1615928790", value = "The `to` timestamp in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_TO_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getToTs() {
