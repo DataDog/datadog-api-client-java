@@ -10,9 +10,11 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -30,6 +32,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   TimeseriesWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_EVENTS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_COLUMNS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_LAYOUT,
   TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   TimeseriesWidgetDefinition.JSON_PROPERTY_MARKERS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -49,6 +53,51 @@ public class TimeseriesWidgetDefinition {
 
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<WidgetEvent> events = null;
+
+  /** Legend column. */
+  public enum LegendColumnsEnum {
+    VALUE("value"),
+
+    AVG("avg"),
+
+    SUM("sum"),
+
+    MIN("min"),
+
+    MAX("max");
+
+    private String value;
+
+    LegendColumnsEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static LegendColumnsEnum fromValue(String value) {
+      for (LegendColumnsEnum b : LegendColumnsEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_LEGEND_COLUMNS = "legend_columns";
+  private List<LegendColumnsEnum> legendColumns = null;
+
+  public static final String JSON_PROPERTY_LEGEND_LAYOUT = "legend_layout";
+  private TimeseriesWidgetLegendLayout legendLayout;
 
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
@@ -141,6 +190,58 @@ public class TimeseriesWidgetDefinition {
 
   public void setEvents(List<WidgetEvent> events) {
     this.events = events;
+  }
+
+  public TimeseriesWidgetDefinition legendColumns(List<LegendColumnsEnum> legendColumns) {
+    this.legendColumns = legendColumns;
+    return this;
+  }
+
+  public TimeseriesWidgetDefinition addLegendColumnsItem(LegendColumnsEnum legendColumnsItem) {
+    if (this.legendColumns == null) {
+      this.legendColumns = new ArrayList<>();
+    }
+    this.legendColumns.add(legendColumnsItem);
+    return this;
+  }
+
+  /**
+   * Columns displayed in the legend.
+   *
+   * @return legendColumns
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Columns displayed in the legend.")
+  @JsonProperty(JSON_PROPERTY_LEGEND_COLUMNS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LegendColumnsEnum> getLegendColumns() {
+    return legendColumns;
+  }
+
+  public void setLegendColumns(List<LegendColumnsEnum> legendColumns) {
+    this.legendColumns = legendColumns;
+  }
+
+  public TimeseriesWidgetDefinition legendLayout(TimeseriesWidgetLegendLayout legendLayout) {
+    this.legendLayout = legendLayout;
+    return this;
+  }
+
+  /**
+   * Get legendLayout
+   *
+   * @return legendLayout
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LEGEND_LAYOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TimeseriesWidgetLegendLayout getLegendLayout() {
+    return legendLayout;
+  }
+
+  public void setLegendLayout(TimeseriesWidgetLegendLayout legendLayout) {
+    this.legendLayout = legendLayout;
   }
 
   public TimeseriesWidgetDefinition legendSize(String legendSize) {
@@ -415,6 +516,8 @@ public class TimeseriesWidgetDefinition {
     TimeseriesWidgetDefinition timeseriesWidgetDefinition = (TimeseriesWidgetDefinition) o;
     return Objects.equals(this.customLinks, timeseriesWidgetDefinition.customLinks)
         && Objects.equals(this.events, timeseriesWidgetDefinition.events)
+        && Objects.equals(this.legendColumns, timeseriesWidgetDefinition.legendColumns)
+        && Objects.equals(this.legendLayout, timeseriesWidgetDefinition.legendLayout)
         && Objects.equals(this.legendSize, timeseriesWidgetDefinition.legendSize)
         && Objects.equals(this.markers, timeseriesWidgetDefinition.markers)
         && Objects.equals(this.requests, timeseriesWidgetDefinition.requests)
@@ -433,6 +536,8 @@ public class TimeseriesWidgetDefinition {
     return Objects.hash(
         customLinks,
         events,
+        legendColumns,
+        legendLayout,
         legendSize,
         markers,
         requests,
@@ -452,6 +557,8 @@ public class TimeseriesWidgetDefinition {
     sb.append("class TimeseriesWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    legendColumns: ").append(toIndentedString(legendColumns)).append("\n");
+    sb.append("    legendLayout: ").append(toIndentedString(legendLayout)).append("\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    markers: ").append(toIndentedString(markers)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
