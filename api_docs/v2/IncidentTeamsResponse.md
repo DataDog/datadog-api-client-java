@@ -3,6 +3,7 @@
 # IncidentTeamsResponse
 
 Response with a list of incident team payloads.
+
 ## Properties
 
 Name | Type | Description | Notes

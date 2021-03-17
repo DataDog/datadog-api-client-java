@@ -3,6 +3,7 @@
 # SLOHistoryResponse
 
 A service level objective history response.
+
 ## Properties
 
 Name | Type | Description | Notes

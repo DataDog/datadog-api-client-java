@@ -3,6 +3,7 @@
 # SyntheticsTriggerCITestLocation
 
 Synthetics location.
+
 ## Properties
 
 Name | Type | Description | Notes

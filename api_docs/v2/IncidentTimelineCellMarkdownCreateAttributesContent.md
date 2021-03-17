@@ -3,6 +3,7 @@
 # IncidentTimelineCellMarkdownCreateAttributesContent
 
 The Markdown timeline cell contents.
+
 ## Properties
 
 Name | Type | Description | Notes

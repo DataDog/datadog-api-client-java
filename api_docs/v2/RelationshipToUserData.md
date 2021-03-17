@@ -3,6 +3,7 @@
 # RelationshipToUserData
 
 Relationship to user object.
+
 ## Properties
 
 Name | Type | Description | Notes

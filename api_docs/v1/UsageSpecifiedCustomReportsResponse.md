@@ -3,6 +3,7 @@
 # UsageSpecifiedCustomReportsResponse
 
 Returns available specified custom reports.
+
 ## Properties
 
 Name | Type | Description | Notes

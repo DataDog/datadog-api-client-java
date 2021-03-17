@@ -3,6 +3,7 @@
 # LogsIndex
 
 Object describing a Datadog Log index.
+
 ## Properties
 
 Name | Type | Description | Notes

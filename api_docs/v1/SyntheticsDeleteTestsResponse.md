@@ -3,6 +3,7 @@
 # SyntheticsDeleteTestsResponse
 
 Response object for deleting Synthetic tests.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -747,7 +747,7 @@ public class UsersApi {
     /**
      * Set pageSize
      *
-     * @param pageSize Size for a given page. (optional, default to 10l)
+     * @param pageSize Size for a given page. (optional, default to 10)
      * @return APIlistUsersRequest
      */
     public APIlistUsersRequest pageSize(Long pageSize) {
@@ -758,7 +758,7 @@ public class UsersApi {
     /**
      * Set pageNumber
      *
-     * @param pageNumber Specific page number to return. (optional, default to 0l)
+     * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return APIlistUsersRequest
      */
     public APIlistUsersRequest pageNumber(Long pageNumber) {
@@ -772,7 +772,7 @@ public class UsersApi {
      * @param sort User attribute to order results by. Sort order is ascending by default. Sort
      *     order is descending if the field is prefixed by a negative sign, for example
      *     &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;,
-     *     &#x60;user_count&#x60;. (optional, default to &quot;name&quot;)
+     *     &#x60;user_count&#x60;. (optional, default to name)
      * @return APIlistUsersRequest
      */
     public APIlistUsersRequest sort(String sort) {
@@ -783,8 +783,7 @@ public class UsersApi {
     /**
      * Set sortDir
      *
-     * @param sortDir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional,
-     *     default to desc)
+     * @param sortDir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional)
      * @return APIlistUsersRequest
      */
     public APIlistUsersRequest sortDir(QuerySortOrder sortDir) {

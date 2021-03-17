@@ -3,6 +3,7 @@
 # Organization
 
 Create, edit, and manage organizations.
+
 ## Properties
 
 Name | Type | Description | Notes

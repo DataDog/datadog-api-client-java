@@ -3,6 +3,7 @@
 # SecurityMonitoringSignal
 
 Object description of a security signal.
+
 ## Properties
 
 Name | Type | Description | Notes

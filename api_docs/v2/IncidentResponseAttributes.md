@@ -3,6 +3,7 @@
 # IncidentResponseAttributes
 
 The incident's attributes from a response.
+
 ## Properties
 
 Name | Type | Description | Notes

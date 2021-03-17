@@ -3,6 +3,7 @@
 # SyntheticsStepDetail
 
 Object describing a step for a Synthetic test.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # SyntheticsParsingOptions
 
 Parsing options for variables to extract.
+
 ## Properties
 
 Name | Type | Description | Notes

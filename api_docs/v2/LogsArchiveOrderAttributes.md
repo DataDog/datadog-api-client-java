@@ -3,6 +3,7 @@
 # LogsArchiveOrderAttributes
 
 The attributes associated with the archive order.
+
 ## Properties
 
 Name | Type | Description | Notes

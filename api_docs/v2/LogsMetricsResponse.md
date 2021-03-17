@@ -3,6 +3,7 @@
 # LogsMetricsResponse
 
 All the available log-based metric objects.
+
 ## Properties
 
 Name | Type | Description | Notes

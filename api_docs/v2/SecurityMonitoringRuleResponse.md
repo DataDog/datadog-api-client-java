@@ -3,6 +3,7 @@
 # SecurityMonitoringRuleResponse
 
 Detection rule.
+
 ## Properties
 
 Name | Type | Description | Notes

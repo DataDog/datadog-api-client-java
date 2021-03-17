@@ -3,6 +3,7 @@
 # LogsAPIError
 
 Error returned by the Logs API
+
 ## Properties
 
 Name | Type | Description | Notes

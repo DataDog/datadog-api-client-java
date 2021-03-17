@@ -3,6 +3,7 @@
 # SecurityMonitoringRuleCreatePayload
 
 Create a new rule.
+
 ## Properties
 
 Name | Type | Description | Notes

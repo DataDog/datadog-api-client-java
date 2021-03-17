@@ -3,6 +3,7 @@
 # SyntheticsSSLCertificateIssuer
 
 Object describing the issuer of a SSL certificate.
+
 ## Properties
 
 Name | Type | Description | Notes

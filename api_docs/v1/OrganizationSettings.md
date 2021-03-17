@@ -3,6 +3,7 @@
 # OrganizationSettings
 
 A JSON array of settings.
+
 ## Properties
 
 Name | Type | Description | Notes

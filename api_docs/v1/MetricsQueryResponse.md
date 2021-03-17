@@ -3,6 +3,7 @@
 # MetricsQueryResponse
 
 Response Object that includes your query and the list of metrics retrieved.
+
 ## Properties
 
 Name | Type | Description | Notes

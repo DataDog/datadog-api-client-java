@@ -421,7 +421,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize
      *
-     * @param pageSize Size for a given page. (optional, default to 10l)
+     * @param pageSize Size for a given page. (optional, default to 10)
      * @return APIlistSecurityMonitoringRulesRequest
      */
     public APIlistSecurityMonitoringRulesRequest pageSize(Long pageSize) {
@@ -432,7 +432,7 @@ public class SecurityMonitoringApi {
     /**
      * Set pageNumber
      *
-     * @param pageNumber Specific page number to return. (optional, default to 0l)
+     * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return APIlistSecurityMonitoringRulesRequest
      */
     public APIlistSecurityMonitoringRulesRequest pageNumber(Long pageNumber) {

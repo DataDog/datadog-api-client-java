@@ -3,6 +3,7 @@
 # MetricDistinctVolume
 
 Object for a single metric's distinct volume.
+
 ## Properties
 
 Name | Type | Description | Notes

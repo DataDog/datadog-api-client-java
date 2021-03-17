@@ -3,6 +3,7 @@
 # MetricAllTags
 
 Object for a single metric's indexed tags.
+
 ## Properties
 
 Name | Type | Description | Notes

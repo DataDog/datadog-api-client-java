@@ -3,6 +3,7 @@
 # SyntheticsLocations
 
 List of Synthetics locations.
+
 ## Properties
 
 Name | Type | Description | Notes

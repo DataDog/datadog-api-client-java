@@ -3,6 +3,7 @@
 # SyntheticsTriggerCITestRunResult
 
 Information about a single test run.
+
 ## Properties
 
 Name | Type | Description | Notes

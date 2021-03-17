@@ -3,6 +3,7 @@
 # LogsMetricResponseData
 
 The log-based metric properties.
+
 ## Properties
 
 Name | Type | Description | Notes

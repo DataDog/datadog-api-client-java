@@ -3,6 +3,7 @@
 # IncidentTeamResponseData
 
 Incident Team data from a response.
+
 ## Properties
 
 Name | Type | Description | Notes

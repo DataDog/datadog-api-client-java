@@ -3,6 +3,7 @@
 # RolesResponse
 
 Response containing information about multiple roles.
+
 ## Properties
 
 Name | Type | Description | Notes

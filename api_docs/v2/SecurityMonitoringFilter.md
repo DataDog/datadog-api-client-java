@@ -3,6 +3,7 @@
 # SecurityMonitoringFilter
 
 The rule's suppression filter.
+
 ## Properties
 
 Name | Type | Description | Notes

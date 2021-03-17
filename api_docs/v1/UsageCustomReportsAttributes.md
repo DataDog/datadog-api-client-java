@@ -3,6 +3,7 @@
 # UsageCustomReportsAttributes
 
 The response containing attributes for custom reports.
+
 ## Properties
 
 Name | Type | Description | Notes

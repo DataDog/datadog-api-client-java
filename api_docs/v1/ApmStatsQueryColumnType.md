@@ -3,6 +3,7 @@
 # ApmStatsQueryColumnType
 
 Column properties.
+
 ## Properties
 
 Name | Type | Description | Notes

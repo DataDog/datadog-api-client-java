@@ -3,6 +3,7 @@
 # SyntheticsBrowserTestResultFull
 
 Object returned describing a browser test result.
+
 ## Properties
 
 Name | Type | Description | Notes

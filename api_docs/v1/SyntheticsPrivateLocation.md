@@ -3,6 +3,7 @@
 # SyntheticsPrivateLocation
 
 Object containing information about the private location to create.
+
 ## Properties
 
 Name | Type | Description | Notes

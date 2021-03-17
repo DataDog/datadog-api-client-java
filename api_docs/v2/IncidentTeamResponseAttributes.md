@@ -3,6 +3,7 @@
 # IncidentTeamResponseAttributes
 
 The incident team's attributes from a response.
+
 ## Properties
 
 Name | Type | Description | Notes

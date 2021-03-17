@@ -3,6 +3,7 @@
 # UsageTopAvgMetricsHour
 
 Number of hourly recorded custom metrics for a given organization.
+
 ## Properties
 
 Name | Type | Description | Notes

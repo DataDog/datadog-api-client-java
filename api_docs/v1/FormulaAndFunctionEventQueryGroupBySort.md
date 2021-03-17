@@ -3,6 +3,7 @@
 # FormulaAndFunctionEventQueryGroupBySort
 
 Options for sorting group by results.
+
 ## Properties
 
 Name | Type | Description | Notes

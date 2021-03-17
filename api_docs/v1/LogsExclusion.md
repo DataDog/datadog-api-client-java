@@ -3,6 +3,7 @@
 # LogsExclusion
 
 Represents the index exclusion filter object from configuration API.
+
 ## Properties
 
 Name | Type | Description | Notes

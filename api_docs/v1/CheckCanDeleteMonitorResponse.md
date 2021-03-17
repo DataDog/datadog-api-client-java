@@ -3,6 +3,7 @@
 # CheckCanDeleteMonitorResponse
 
 Response of monitor IDs that can or can't be safely deleted.
+
 ## Properties
 
 Name | Type | Description | Notes

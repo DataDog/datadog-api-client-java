@@ -3,6 +3,7 @@
 # LogsListRequestPage
 
 Paging attributes for listing logs.
+
 ## Properties
 
 Name | Type | Description | Notes

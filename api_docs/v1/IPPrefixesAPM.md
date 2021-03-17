@@ -3,6 +3,7 @@
 # IPPrefixesAPM
 
 Available prefix information for the APM endpoints.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -483,7 +483,7 @@ public class IncidentServicesApi {
     /**
      * Set pageSize
      *
-     * @param pageSize Size for a given page. (optional, default to 10l)
+     * @param pageSize Size for a given page. (optional, default to 10)
      * @return APIlistIncidentServicesRequest
      */
     public APIlistIncidentServicesRequest pageSize(Long pageSize) {
@@ -495,7 +495,7 @@ public class IncidentServicesApi {
      * Set pageOffset
      *
      * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
-     *     default to 0l)
+     *     default to 0)
      * @return APIlistIncidentServicesRequest
      */
     public APIlistIncidentServicesRequest pageOffset(Long pageOffset) {

@@ -3,6 +3,7 @@
 # LogsArchiveIntegrationS3
 
 The S3 Archive's integration destination.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # LogsCompute
 
 A compute rule to compute metrics or timeseries
+
 ## Properties
 
 Name | Type | Description | Notes

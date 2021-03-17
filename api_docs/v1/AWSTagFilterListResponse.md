@@ -3,6 +3,7 @@
 # AWSTagFilterListResponse
 
 An array of tag filter rules by `namespace` and tag filter string.
+
 ## Properties
 
 Name | Type | Description | Notes

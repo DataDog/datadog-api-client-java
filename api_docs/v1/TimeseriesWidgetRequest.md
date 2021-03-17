@@ -3,6 +3,7 @@
 # TimeseriesWidgetRequest
 
 Updated timeseries widget.
+
 ## Properties
 
 Name | Type | Description | Notes

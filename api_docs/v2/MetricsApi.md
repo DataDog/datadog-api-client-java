@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterConfigured** | **Boolean**| Filter metrics that have configured tags. | [optional]
  **filterTagsConfigured** | **String**| Filter tag configurations by configured tags. | [optional]
- **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [default to gauge] [enum: gauge, count, distribution]
+ **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [enum: gauge, count, distribution]
  **filterIncludePercentiles** | **Boolean**| Filter distributions with additional percentile aggregations enabled or disabled. | [optional]
 
 ### Return type

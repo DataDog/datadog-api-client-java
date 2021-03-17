@@ -3,6 +3,7 @@
 # UserCreateData
 
 Object to create a user.
+
 ## Properties
 
 Name | Type | Description | Notes

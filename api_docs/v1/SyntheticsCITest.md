@@ -3,6 +3,7 @@
 # SyntheticsCITest
 
 Test configuration for Synthetics CI
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # RelationshipToRoleData
 
 Relationship to role object.
+
 ## Properties
 
 Name | Type | Description | Notes

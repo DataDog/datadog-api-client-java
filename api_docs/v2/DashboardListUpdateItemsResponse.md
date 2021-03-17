@@ -3,6 +3,7 @@
 # DashboardListUpdateItemsResponse
 
 Response containing a list of updated dashboards.
+
 ## Properties
 
 Name | Type | Description | Notes

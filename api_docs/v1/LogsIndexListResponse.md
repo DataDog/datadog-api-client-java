@@ -3,6 +3,7 @@
 # LogsIndexListResponse
 
 Object with all Index configurations for a given organization.
+
 ## Properties
 
 Name | Type | Description | Notes

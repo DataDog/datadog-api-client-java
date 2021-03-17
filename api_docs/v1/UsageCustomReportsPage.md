@@ -3,6 +3,7 @@
 # UsageCustomReportsPage
 
 The object containing page total count.
+
 ## Properties
 
 Name | Type | Description | Notes

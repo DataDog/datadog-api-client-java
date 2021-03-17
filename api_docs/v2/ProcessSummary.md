@@ -3,6 +3,7 @@
 # ProcessSummary
 
 Process summary object.
+
 ## Properties
 
 Name | Type | Description | Notes

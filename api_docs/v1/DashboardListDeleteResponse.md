@@ -3,6 +3,7 @@
 # DashboardListDeleteResponse
 
 Deleted dashboard details.
+
 ## Properties
 
 Name | Type | Description | Notes

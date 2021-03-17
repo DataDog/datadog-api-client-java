@@ -3,6 +3,7 @@
 # RoleAttributes
 
 Attributes of the role.
+
 ## Properties
 
 Name | Type | Description | Notes

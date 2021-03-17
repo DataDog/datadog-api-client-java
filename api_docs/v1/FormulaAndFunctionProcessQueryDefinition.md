@@ -3,6 +3,7 @@
 # FormulaAndFunctionProcessQueryDefinition
 
 Process query using formulas and functions.
+
 ## Properties
 
 Name | Type | Description | Notes

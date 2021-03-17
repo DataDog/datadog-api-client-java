@@ -3,6 +3,7 @@
 # UsageIncidentManagementResponse
 
 Response containing the incident management usage for each hour for a given organization.
+
 ## Properties
 
 Name | Type | Description | Notes

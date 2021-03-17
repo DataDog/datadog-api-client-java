@@ -3,6 +3,7 @@
 # ScatterPlotWidgetDefinition
 
 The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
+
 ## Properties
 
 Name | Type | Description | Notes

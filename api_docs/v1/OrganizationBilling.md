@@ -3,6 +3,7 @@
 # OrganizationBilling
 
 A JSON array of billing type.
+
 ## Properties
 
 Name | Type | Description | Notes

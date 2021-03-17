@@ -3,6 +3,7 @@
 # AzureAccount
 
 Datadog-Azure integrations configured for your organization.
+
 ## Properties
 
 Name | Type | Description | Notes

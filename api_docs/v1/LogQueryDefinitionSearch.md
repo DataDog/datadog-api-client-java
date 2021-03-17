@@ -3,6 +3,7 @@
 # LogQueryDefinitionSearch
 
 The query being made on the logs.
+
 ## Properties
 
 Name | Type | Description | Notes

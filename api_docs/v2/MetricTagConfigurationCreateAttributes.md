@@ -3,6 +3,7 @@
 # MetricTagConfigurationCreateAttributes
 
 Object containing the definition of a metric tag configuration to be created.
+
 ## Properties
 
 Name | Type | Description | Notes

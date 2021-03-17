@@ -3,6 +3,7 @@
 # TableWidgetRequest
 
 Updated table widget.
+
 ## Properties
 
 Name | Type | Description | Notes

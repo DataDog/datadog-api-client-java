@@ -3,6 +3,7 @@
 # TimeseriesWidgetExpressionAlias
 
 Define an expression alias.
+
 ## Properties
 
 Name | Type | Description | Notes
