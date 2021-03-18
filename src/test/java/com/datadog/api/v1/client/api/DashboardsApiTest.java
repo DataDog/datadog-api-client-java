@@ -572,7 +572,7 @@ public class DashboardsApiTest extends V1ApiTest {
                     .label("Test Custom Link label")
                     .link("https://app.datadoghq.com/dashboard/lists"))
             .legendLayout(TimeseriesWidgetLegendLayout.HORIZONTAL)
-            .addLegendColumnsItem(TimeseriesWidgetDefinition.LegendColumnsEnum.VALUE);
+            .addLegendColumnsItem(TimeseriesWidgetLegendColumn.VALUE);
     Widget timeseriesWidget =
         new Widget().definition(new WidgetDefinition(timeseriesWidgetDefinition));
     orderedWidgetList.add(timeseriesWidget);
