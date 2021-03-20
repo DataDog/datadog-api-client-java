@@ -103,7 +103,9 @@ public class SLOHistorySLIData {
    * @return errorBudgetRemaining
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A mapping of threshold `timeframe` to the remaining error budget.")
+  @ApiModelProperty(
+      example = "{\"7d\":100.0}",
+      value = "A mapping of threshold `timeframe` to the remaining error budget.")
   @JsonProperty(JSON_PROPERTY_ERROR_BUDGET_REMAINING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Double> getErrorBudgetRemaining() {
@@ -134,6 +136,7 @@ public class SLOHistorySLIData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "[]",
       value = "A list of errors while querying the history data for the service level objective.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +159,9 @@ public class SLOHistorySLIData {
    * @return group
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For groups in a grouped SLO, this is the group name.")
+  @ApiModelProperty(
+      example = "name",
+      value = "For groups in a grouped SLO, this is the group name.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGroup() {
@@ -211,6 +216,7 @@ public class SLOHistorySLIData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "1615867200",
       value =
           "For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the"
               + " monitor.")
@@ -235,7 +241,9 @@ public class SLOHistorySLIData {
    * @return monitorType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For `monitor` based SLOs, this describes the type of monitor.")
+  @ApiModelProperty(
+      example = "string",
+      value = "For `monitor` based SLOs, this describes the type of monitor.")
   @JsonProperty(JSON_PROPERTY_MONITOR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMonitorType() {
@@ -259,6 +267,7 @@ public class SLOHistorySLIData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "string",
       value =
           "For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor"
               + " SLO, this is the monitor name.")
@@ -293,6 +302,7 @@ public class SLOHistorySLIData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "{\"30d\":1,\"7d\":2}",
       value =
           "A mapping of threshold `timeframe` to number of accurate decimals, regardless of the"
               + " from && to timestamp.")
@@ -319,6 +329,7 @@ public class SLOHistorySLIData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "true",
       value =
           "For `monitor` based SLOs, when `true` this indicates that a replay is in progress to"
               + " give an accurate uptime calculation.")
@@ -369,6 +380,7 @@ public class SLOHistorySLIData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "2",
       value =
           "The amount of decimal places the SLI value is accurate to for the given from `&&` to"
               + " timestamp.")
@@ -393,7 +405,7 @@ public class SLOHistorySLIData {
    * @return uptime
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `sli_value` instead.")
+  @ApiModelProperty(example = "99.99", value = "Use `sli_value` instead.")
   @JsonProperty(JSON_PROPERTY_UPTIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getUptime() {

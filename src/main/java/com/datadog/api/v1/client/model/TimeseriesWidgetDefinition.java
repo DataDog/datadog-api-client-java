@@ -10,11 +10,9 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -54,47 +52,8 @@ public class TimeseriesWidgetDefinition {
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<WidgetEvent> events = null;
 
-  /** Legend column. */
-  public enum LegendColumnsEnum {
-    VALUE("value"),
-
-    AVG("avg"),
-
-    SUM("sum"),
-
-    MIN("min"),
-
-    MAX("max");
-
-    private String value;
-
-    LegendColumnsEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static LegendColumnsEnum fromValue(String value) {
-      for (LegendColumnsEnum b : LegendColumnsEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_LEGEND_COLUMNS = "legend_columns";
-  private List<LegendColumnsEnum> legendColumns = null;
+  private List<TimeseriesWidgetLegendColumn> legendColumns = null;
 
   public static final String JSON_PROPERTY_LEGEND_LAYOUT = "legend_layout";
   private TimeseriesWidgetLegendLayout legendLayout;
@@ -192,12 +151,14 @@ public class TimeseriesWidgetDefinition {
     this.events = events;
   }
 
-  public TimeseriesWidgetDefinition legendColumns(List<LegendColumnsEnum> legendColumns) {
+  public TimeseriesWidgetDefinition legendColumns(
+      List<TimeseriesWidgetLegendColumn> legendColumns) {
     this.legendColumns = legendColumns;
     return this;
   }
 
-  public TimeseriesWidgetDefinition addLegendColumnsItem(LegendColumnsEnum legendColumnsItem) {
+  public TimeseriesWidgetDefinition addLegendColumnsItem(
+      TimeseriesWidgetLegendColumn legendColumnsItem) {
     if (this.legendColumns == null) {
       this.legendColumns = new ArrayList<>();
     }
@@ -214,11 +175,11 @@ public class TimeseriesWidgetDefinition {
   @ApiModelProperty(value = "Columns displayed in the legend.")
   @JsonProperty(JSON_PROPERTY_LEGEND_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LegendColumnsEnum> getLegendColumns() {
+  public List<TimeseriesWidgetLegendColumn> getLegendColumns() {
     return legendColumns;
   }
 
-  public void setLegendColumns(List<LegendColumnsEnum> legendColumns) {
+  public void setLegendColumns(List<TimeseriesWidgetLegendColumn> legendColumns) {
     this.legendColumns = legendColumns;
   }
 
