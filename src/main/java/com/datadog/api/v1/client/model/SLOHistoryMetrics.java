@@ -122,7 +122,9 @@ public class SLOHistoryMetrics {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional message if there are specific query issues/warnings.")
+  @ApiModelProperty(
+      example = "",
+      value = "Optional message if there are specific query issues/warnings.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
