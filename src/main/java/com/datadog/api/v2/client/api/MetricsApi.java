@@ -801,9 +801,9 @@ public class MetricsApi {
   /**
    * List distinct metric volumes by metric name View distinct metrics volumes for the given metric
    * name. Custom distribution metrics will return both ingested and indexed custom metric volumes.
-   * For Metrics without Limits beta customers, all metrics will return both ingested/indexed
-   * volumes. Custom metrics generated in-app from other products will return &#x60;null&#x60; for
-   * ingested volumes.
+   * For Metrics without Limits&amp;trade; beta customers, all metrics will return both
+   * ingested/indexed volumes. Custom metrics generated in-app from other products will return
+   * &#x60;null&#x60; for ingested volumes.
    *
    * @param metricName The name of the metric. (required)
    * @return listVolumesByMetricNameRequest
