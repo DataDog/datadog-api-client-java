@@ -3,6 +3,7 @@
 # SyntheticsConfigVariable
 
 Object defining a variable that can be used in your test configuration.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # Permission
 
 Permission object.
+
 ## Properties
 
 Name | Type | Description | Notes

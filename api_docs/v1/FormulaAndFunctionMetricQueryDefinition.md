@@ -3,6 +3,7 @@
 # FormulaAndFunctionMetricQueryDefinition
 
 A formula and functions metrics query.
+
 ## Properties
 
 Name | Type | Description | Notes

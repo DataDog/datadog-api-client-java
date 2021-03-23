@@ -3,6 +3,7 @@
 # SyntheticsAssertionJSONPathTargetTarget
 
 Composed target for `validatesJSONPath` operator.
+
 ## Properties
 
 Name | Type | Description | Notes

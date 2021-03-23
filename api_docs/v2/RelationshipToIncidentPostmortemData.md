@@ -3,6 +3,7 @@
 # RelationshipToIncidentPostmortemData
 
 The postmortem relationship data.
+
 ## Properties
 
 Name | Type | Description | Notes
