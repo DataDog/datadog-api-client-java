@@ -3,6 +3,7 @@
 # DashboardDeleteResponse
 
 Response from the delete dashboard call.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # RoleUpdateRequest
 
 Update a role.
+
 ## Properties
 
 Name | Type | Description | Notes

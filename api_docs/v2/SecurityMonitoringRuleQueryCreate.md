@@ -3,6 +3,7 @@
 # SecurityMonitoringRuleQueryCreate
 
 Query for matching rule.
+
 ## Properties
 
 Name | Type | Description | Notes

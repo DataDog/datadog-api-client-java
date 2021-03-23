@@ -3,6 +3,7 @@
 # SyntheticsTestOptions
 
 Object describing the extra options for a Synthetic test.
+
 ## Properties
 
 Name | Type | Description | Notes

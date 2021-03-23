@@ -3,6 +3,7 @@
 # UsageHostsResponse
 
 Host usage response.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # RelationshipToOrganizationData
 
 Relationship to organization object.
+
 ## Properties
 
 Name | Type | Description | Notes

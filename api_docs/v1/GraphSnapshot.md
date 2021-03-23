@@ -3,6 +3,7 @@
 # GraphSnapshot
 
 Object representing a graph snapshot.
+
 ## Properties
 
 Name | Type | Description | Notes

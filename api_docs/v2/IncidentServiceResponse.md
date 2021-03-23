@@ -3,6 +3,7 @@
 # IncidentServiceResponse
 
 Response with an incident service payload.
+
 ## Properties
 
 Name | Type | Description | Notes

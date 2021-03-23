@@ -3,6 +3,7 @@
 # LogsAggregateResponseData
 
 The query results
+
 ## Properties
 
 Name | Type | Description | Notes

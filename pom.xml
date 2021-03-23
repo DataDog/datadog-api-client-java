@@ -93,7 +93,7 @@
                     <threadCount>1</threadCount>
                     <parallel>classes</parallel>
                     -->
-                    <argLine>-DloggerPath=conf/log4j.properties -Ddd.service=datadog-api-client-java -Ddd.integration.junit.enabled=true -Ddd.prioritization.type=EnsureTrace -Ddd.jmxfetch.enabled=false -javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
+                    <argLine>-DloggerPath=conf/log4j.properties -Ddd.integration.junit.enabled=true -Ddd.prioritization.type=ENSURE_TRACE -Ddd.jmxfetch.enabled=false -javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
                 </configuration>
             </plugin>
             <plugin>

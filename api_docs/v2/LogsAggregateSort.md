@@ -3,6 +3,7 @@
 # LogsAggregateSort
 
 A sort rule
+
 ## Properties
 
 Name | Type | Description | Notes

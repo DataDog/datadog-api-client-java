@@ -3,6 +3,7 @@
 # SLOHistoryResponseData
 
 An array of service level objective objects.
+
 ## Properties
 
 Name | Type | Description | Notes

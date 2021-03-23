@@ -3,6 +3,7 @@
 # ChangeWidgetRequest
 
 Updated change widget.
+
 ## Properties
 
 Name | Type | Description | Notes

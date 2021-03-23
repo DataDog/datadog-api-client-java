@@ -3,6 +3,7 @@
 # ProcessQueryDefinition
 
 The process query to use in the widget.
+
 ## Properties
 
 Name | Type | Description | Notes

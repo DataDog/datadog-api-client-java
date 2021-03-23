@@ -3,6 +3,7 @@
 # UsageBillableSummaryBody
 
 Response with properties for each aggregated usage type.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # MonitorUpdateRequest
 
 Object describing a monitor update request.
+
 ## Properties
 
 Name | Type | Description | Notes
