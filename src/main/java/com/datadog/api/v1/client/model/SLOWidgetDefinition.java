@@ -28,6 +28,7 @@ import java.util.Objects;
         "Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on"
             + " screenboards and timeboards.")
 @JsonPropertyOrder({
+  SLOWidgetDefinition.JSON_PROPERTY_GLOBAL_TIME_TARGET,
   SLOWidgetDefinition.JSON_PROPERTY_SHOW_ERROR_BUDGET,
   SLOWidgetDefinition.JSON_PROPERTY_SLO_ID,
   SLOWidgetDefinition.JSON_PROPERTY_TIME_WINDOWS,
@@ -40,6 +41,9 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOWidgetDefinition {
+  public static final String JSON_PROPERTY_GLOBAL_TIME_TARGET = "global_time_target";
+  private String globalTimeTarget;
+
   public static final String JSON_PROPERTY_SHOW_ERROR_BUDGET = "show_error_budget";
   private Boolean showErrorBudget;
 
@@ -66,6 +70,28 @@ public class SLOWidgetDefinition {
 
   public static final String JSON_PROPERTY_VIEW_TYPE = "view_type";
   private String viewType = "detail";
+
+  public SLOWidgetDefinition globalTimeTarget(String globalTimeTarget) {
+    this.globalTimeTarget = globalTimeTarget;
+    return this;
+  }
+
+  /**
+   * Defined global time target.
+   *
+   * @return globalTimeTarget
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Defined global time target.")
+  @JsonProperty(JSON_PROPERTY_GLOBAL_TIME_TARGET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGlobalTimeTarget() {
+    return globalTimeTarget;
+  }
+
+  public void setGlobalTimeTarget(String globalTimeTarget) {
+    this.globalTimeTarget = globalTimeTarget;
+  }
 
   public SLOWidgetDefinition showErrorBudget(Boolean showErrorBudget) {
     this.showErrorBudget = showErrorBudget;
@@ -284,7 +310,8 @@ public class SLOWidgetDefinition {
       return false;
     }
     SLOWidgetDefinition slOWidgetDefinition = (SLOWidgetDefinition) o;
-    return Objects.equals(this.showErrorBudget, slOWidgetDefinition.showErrorBudget)
+    return Objects.equals(this.globalTimeTarget, slOWidgetDefinition.globalTimeTarget)
+        && Objects.equals(this.showErrorBudget, slOWidgetDefinition.showErrorBudget)
         && Objects.equals(this.sloId, slOWidgetDefinition.sloId)
         && Objects.equals(this.timeWindows, slOWidgetDefinition.timeWindows)
         && Objects.equals(this.title, slOWidgetDefinition.title)
@@ -298,6 +325,7 @@ public class SLOWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
+        globalTimeTarget,
         showErrorBudget,
         sloId,
         timeWindows,
@@ -313,6 +341,7 @@ public class SLOWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SLOWidgetDefinition {\n");
+    sb.append("    globalTimeTarget: ").append(toIndentedString(globalTimeTarget)).append("\n");
     sb.append("    showErrorBudget: ").append(toIndentedString(showErrorBudget)).append("\n");
     sb.append("    sloId: ").append(toIndentedString(sloId)).append("\n");
     sb.append("    timeWindows: ").append(toIndentedString(timeWindows)).append("\n");
