@@ -32,6 +32,7 @@ Method | HTTP request | Description
 import {{.}};
 {{/vendorExtensions.x-java-import}}
 // Import classes:
+import java.util.*;
 import {{{invokerPackage}}}.ApiClient;
 import {{{invokerPackage}}}.ApiException;
 import {{{invokerPackage}}}.Configuration;{{#hasAuthMethods}}
@@ -42,26 +43,23 @@ import {{{package}}}.{{{classname}}};
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("{{{basePath}}}");
-        {{#hasAuthMethods}}
-        {{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
-        // Configure HTTP basic authorization: {{{name}}}
-        HttpBasicAuth {{{name}}} = (HttpBasicAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setUsername("YOUR USERNAME");
-        {{{name}}}.setPassword("YOUR PASSWORD");{{/isBasicBasic}}{{#isBasicBearer}}
-        // Configure HTTP bearer authorization: {{{name}}}
-        HttpBearerAuth {{{name}}} = (HttpBearerAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setBearerToken("BEARER TOKEN");{{/isBasicBearer}}{{/isBasic}}{{#isApiKey}}
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
         // Configure API key authorization: {{{name}}}
-        ApiKeyAuth {{{name}}} = (ApiKeyAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //{{{name}}}.setApiKeyPrefix("Token");{{/isApiKey}}{{#isOAuth}}
-        // Configure OAuth2 access token for authorization: {{{name}}}
-        OAuth {{{name}}} = (OAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setAccessToken("YOUR ACCESS TOKEN");{{/isOAuth}}
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        {{#hasAuthMethods}}
+        {{#authMethods}}
+        {{#isApiKey}}
+        secrets.put("{{{name}}}", System.getenv("{{{vendorExtensions.x-env-name}}}"));
+        {{/isApiKey}}
         {{/authMethods}}
         {{/hasAuthMethods}}
+        defaultClient.configureApiKeys(secrets);
 
         {{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
         {{#allParams}}
@@ -72,7 +70,7 @@ public class Example {
             {{#returnType}}{{{returnType}}} result = {{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
             {{/vendorExtensions.x-group-parameters}}
             {{#vendorExtensions.x-group-parameters}}
-            {{#returnType}}{{{returnType}}} result = {{/returnType}}api.{{operationId}}({{#pathParams}}{{paramName}}{{^-last}}, {{/-last}}{{/pathParams}}){{#allParams}}{{^isPathParam}}
+            {{#returnType}}{{{returnType}}} result = {{/returnType}}apiInstance.{{operationId}}({{#pathParams}}{{paramName}}{{^-last}}, {{/-last}}{{/pathParams}}){{#allParams}}{{^isPathParam}}
                 .{{paramName}}({{paramName}}){{/isPathParam}}{{/allParams}}
                 .execute();
             {{/vendorExtensions.x-group-parameters}}
