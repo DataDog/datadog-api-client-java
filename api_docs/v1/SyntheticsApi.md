@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**deletePrivateLocation**](SyntheticsApi.md#deletePrivateLocation) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 [**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 [**editGlobalVariable**](SyntheticsApi.md#editGlobalVariable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
+[**getAPITest**](SyntheticsApi.md#getAPITest) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test
 [**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
 [**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
 [**getBrowserTest**](SyntheticsApi.md#getBrowserTest) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
@@ -770,6 +771,88 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Invalid request |  -  |
 | **403** | Forbidden |  -  |
+
+
+## getAPITest
+
+> SyntheticsAPITest getAPITest(publicId).execute();
+
+Get an API test
+
+Get the detailed configuration associated with
+a Synthetic API test.
+
+### Example
+
+```java
+// Import classes:
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure the Datadog site to send API calls to
+        HashMap<String, String> serverVariables = new HashMap<String, String>();
+        String site = System.getenv("DD_SITE");
+        if (site != null) {
+            serverVariables.put("site", site);
+            defaultClient.setServerVariables(serverVariables);
+        }
+        // Configure API key authorization: 
+        HashMap<String, String> secrets = new HashMap<String, String>();
+        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
+        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
+        defaultClient.configureApiKeys(secrets);
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        String publicId = "publicId_example"; // String | The public ID of the test to get details from.
+        try {
+            SyntheticsAPITest result = apiInstance.getAPITest(publicId)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#getAPITest");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicId** | **String**| The public ID of the test to get details from. |
+
+### Return type
+
+[**SyntheticsAPITest**](SyntheticsAPITest.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | - Synthetic Monitoring is not activated for the user - Test is not owned by the user |  -  |
 
 
 ## getAPITestLatestResults
