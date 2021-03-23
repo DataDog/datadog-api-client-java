@@ -3,6 +3,7 @@
 # RelationshipToRole
 
 Relationship to role.
+
 ## Properties
 
 Name | Type | Description | Notes

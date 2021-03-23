@@ -3,6 +3,7 @@
 # RoleUpdateData
 
 Data related to the update of a role.
+
 ## Properties
 
 Name | Type | Description | Notes

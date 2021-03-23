@@ -3,6 +3,7 @@
 # PagerDutyService
 
 The PagerDuty service that is available for integration with Datadog.
+
 ## Properties
 
 Name | Type | Description | Notes

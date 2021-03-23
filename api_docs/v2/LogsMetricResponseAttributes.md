@@ -3,6 +3,7 @@
 # LogsMetricResponseAttributes
 
 The object describing a Datadog log-based metric.
+
 ## Properties
 
 Name | Type | Description | Notes

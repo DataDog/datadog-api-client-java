@@ -3,6 +3,7 @@
 # MonitorThresholds
 
 List of the different monitor threshold available.
+
 ## Properties
 
 Name | Type | Description | Notes

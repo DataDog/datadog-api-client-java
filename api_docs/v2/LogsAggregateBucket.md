@@ -3,6 +3,7 @@
 # LogsAggregateBucket
 
 A bucket values
+
 ## Properties
 
 Name | Type | Description | Notes

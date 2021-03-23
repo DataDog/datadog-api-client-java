@@ -3,6 +3,7 @@
 # SyntheticsPrivateLocationSecretsAuthentication
 
 Authentication part of the secrets.
+
 ## Properties
 
 Name | Type | Description | Notes

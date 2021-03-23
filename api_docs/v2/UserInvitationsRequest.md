@@ -3,6 +3,7 @@
 # UserInvitationsRequest
 
 Object to invite users to join the organization.
+
 ## Properties
 
 Name | Type | Description | Notes

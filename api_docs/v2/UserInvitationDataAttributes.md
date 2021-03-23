@@ -3,6 +3,7 @@
 # UserInvitationDataAttributes
 
 Attributes of a user invitation.
+
 ## Properties
 
 Name | Type | Description | Notes

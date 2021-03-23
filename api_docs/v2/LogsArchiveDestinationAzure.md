@@ -3,6 +3,7 @@
 # LogsArchiveDestinationAzure
 
 The Azure archive destination.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # UsageBillableSummaryHour
 
 Response with monthly summary of data billed by Datadog.
+
 ## Properties
 
 Name | Type | Description | Notes
