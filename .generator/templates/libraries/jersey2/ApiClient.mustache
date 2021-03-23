@@ -1226,7 +1226,8 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
         queryParams,
         allHeaderParams,
         cookieParams,
-        serializeToString(body, formParams, contentType, isBodyNullable),
+        // NOTE: this is not used in ApiKeyAuthentication anyway, so we comment it out to enable multipart requests
+        "", // serializeToString(body, formParams, contentType, isBodyNullable),
         method,
         target.getUri());
 
