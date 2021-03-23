@@ -137,6 +137,9 @@ public class {{classname}} {
     localVarQueryParams.addAll(apiClient.parameterToPairs("{{#collectionFormat}}{{{collectionFormat}}}{{/collectionFormat}}", "{{baseName}}", {{paramName}}));
     {{/queryParams}}
 
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "{{operationId}}");
+
     {{#headerParams}}if ({{paramName}} != null)
       localVarHeaderParams.put("{{baseName}}", apiClient.parameterToString({{paramName}}));
     {{/headerParams}}
