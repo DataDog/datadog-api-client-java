@@ -254,6 +254,14 @@ public class {{classname}} {
   @Deprecated
   {{/isDeprecated}}
   public API{{operationId}}Request {{operationId}}({{#pathParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/pathParams}}) throws ApiException {
+    {{#vendorExtensions.x-unstable}}
+    String operationId = "{{operationId}}";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    {{/vendorExtensions.x-unstable}}
     return new API{{operationId}}Request({{#pathParams}}{{paramName}}{{^-last}}, {{/-last}}{{/pathParams}});
   }
   {{/vendorExtensions.x-group-parameters}}
