@@ -8,6 +8,7 @@ Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**globalTimeTarget** | **String** | Defined global time target. |  [optional]
 **showErrorBudget** | **Boolean** | Defined error budget. |  [optional]
 **sloId** | **String** | ID of the SLO displayed. |  [optional]
 **timeWindows** | **List&lt;WidgetTimeWindows&gt;** | Times being monitored. |  [optional]
