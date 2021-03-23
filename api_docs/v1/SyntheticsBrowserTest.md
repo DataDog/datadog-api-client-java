@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **config** | [**SyntheticsBrowserTestConfig**](SyntheticsBrowserTestConfig.md) |  |  [optional]
 **locations** | **List&lt;String&gt;** | Array of locations used to run the test. |  [optional]
-**message** | **String** | Notification message associated with the test. |  [optional]
+**message** | **String** | Notification message associated with the test. Message can either be text or an empty string. | 
 **monitorId** | **Long** | The associated monitor ID. |  [optional]
 **name** | **String** | Name of the test. |  [optional]
 **options** | [**SyntheticsTestOptions**](SyntheticsTestOptions.md) |  |  [optional]
