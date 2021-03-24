@@ -30,9 +30,11 @@ import java.util.Objects;
   UsageHostHour.JSON_PROPERTY_AZURE_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_CONTAINER_COUNT,
   UsageHostHour.JSON_PROPERTY_GCP_HOST_COUNT,
+  UsageHostHour.JSON_PROPERTY_HEROKU_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_HOUR,
-  UsageHostHour.JSON_PROPERTY_INFRA_AZURE_APP_SERVICE
+  UsageHostHour.JSON_PROPERTY_INFRA_AZURE_APP_SERVICE,
+  UsageHostHour.JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageHostHour {
@@ -61,6 +63,9 @@ public class UsageHostHour {
   public static final String JSON_PROPERTY_GCP_HOST_COUNT = "gcp_host_count";
   private Long gcpHostCount;
 
+  public static final String JSON_PROPERTY_HEROKU_HOST_COUNT = "heroku_host_count";
+  private Long herokuHostCount;
+
   public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
   private Long hostCount;
 
@@ -69,6 +74,9 @@ public class UsageHostHour {
 
   public static final String JSON_PROPERTY_INFRA_AZURE_APP_SERVICE = "infra_azure_app_service";
   private Long infraAzureAppService;
+
+  public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT = "opentelemetry_host_count";
+  private Long opentelemetryHostCount;
 
   public UsageHostHour agentHostCount(Long agentHostCount) {
     this.agentHostCount = agentHostCount;
@@ -273,6 +281,29 @@ public class UsageHostHour {
     this.gcpHostCount = gcpHostCount;
   }
 
+  public UsageHostHour herokuHostCount(Long herokuHostCount) {
+    this.herokuHostCount = herokuHostCount;
+    return this;
+  }
+
+  /**
+   * Contains the total number of Heroku dynos reported by the Datadog Agent.
+   *
+   * @return herokuHostCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "Contains the total number of Heroku dynos reported by the Datadog Agent.")
+  @JsonProperty(JSON_PROPERTY_HEROKU_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getHerokuHostCount() {
+    return herokuHostCount;
+  }
+
+  public void setHerokuHostCount(Long herokuHostCount) {
+    this.herokuHostCount = herokuHostCount;
+  }
+
   public UsageHostHour hostCount(Long hostCount) {
     this.hostCount = hostCount;
     return this;
@@ -349,6 +380,32 @@ public class UsageHostHour {
     this.infraAzureAppService = infraAzureAppService;
   }
 
+  public UsageHostHour opentelemetryHostCount(Long opentelemetryHostCount) {
+    this.opentelemetryHostCount = opentelemetryHostCount;
+    return this;
+  }
+
+  /**
+   * Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry
+   * Collector.
+   *
+   * @return opentelemetryHostCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry"
+              + " Collector.")
+  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOpentelemetryHostCount() {
+    return opentelemetryHostCount;
+  }
+
+  public void setOpentelemetryHostCount(Long opentelemetryHostCount) {
+    this.opentelemetryHostCount = opentelemetryHostCount;
+  }
+
   /** Return true if this UsageHostHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -368,9 +425,11 @@ public class UsageHostHour {
         && Objects.equals(this.azureHostCount, usageHostHour.azureHostCount)
         && Objects.equals(this.containerCount, usageHostHour.containerCount)
         && Objects.equals(this.gcpHostCount, usageHostHour.gcpHostCount)
+        && Objects.equals(this.herokuHostCount, usageHostHour.herokuHostCount)
         && Objects.equals(this.hostCount, usageHostHour.hostCount)
         && Objects.equals(this.hour, usageHostHour.hour)
-        && Objects.equals(this.infraAzureAppService, usageHostHour.infraAzureAppService);
+        && Objects.equals(this.infraAzureAppService, usageHostHour.infraAzureAppService)
+        && Objects.equals(this.opentelemetryHostCount, usageHostHour.opentelemetryHostCount);
   }
 
   @Override
@@ -384,9 +443,11 @@ public class UsageHostHour {
         azureHostCount,
         containerCount,
         gcpHostCount,
+        herokuHostCount,
         hostCount,
         hour,
-        infraAzureAppService);
+        infraAzureAppService,
+        opentelemetryHostCount);
   }
 
   @Override
@@ -403,10 +464,14 @@ public class UsageHostHour {
     sb.append("    azureHostCount: ").append(toIndentedString(azureHostCount)).append("\n");
     sb.append("    containerCount: ").append(toIndentedString(containerCount)).append("\n");
     sb.append("    gcpHostCount: ").append(toIndentedString(gcpHostCount)).append("\n");
+    sb.append("    herokuHostCount: ").append(toIndentedString(herokuHostCount)).append("\n");
     sb.append("    hostCount: ").append(toIndentedString(hostCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    infraAzureAppService: ")
         .append(toIndentedString(infraAzureAppService))
+        .append("\n");
+    sb.append("    opentelemetryHostCount: ")
+        .append(toIndentedString(opentelemetryHostCount))
         .append("\n");
     sb.append("}");
     return sb.toString();
