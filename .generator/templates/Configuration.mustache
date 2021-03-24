@@ -24,14 +24,16 @@ public class Configuration {
         }
         // Configure API key authorization
         HashMap<String, String> secrets = new HashMap<String, String>();
-        String apiKey = System.getenv("DD_API_KEY");
-        if (apiKey != null) {
-            secrets.put("apiKeyAuth", apiKey);
+        {{#authMethods}}
+        {{#isApiKey}}
+        {{#isKeyInHeader}}
+        String {{name}} = System.getenv("{{vendorExtensions.x-env-name}}");
+        if ({{name}} != null) {
+            secrets.put("{{name}}", {{name}});
         }
-        String appKey = System.getenv("DD_APP_KEY");
-        if (appKey != null) {
-            secrets.put("appKeyAuth", appKey);
-        }
+        {{/isKeyInHeader}}
+        {{/isApiKey}}
+        {{/authMethods}}
         defaultApiClient.configureApiKeys(secrets);
 
         return defaultApiClient;
