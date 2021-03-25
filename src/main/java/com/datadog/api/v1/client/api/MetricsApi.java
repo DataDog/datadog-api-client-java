@@ -150,8 +150,8 @@ public class MetricsApi {
     return new APIgetMetricMetadataRequest(metricName);
   }
 
-  private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(Long from, String host)
-      throws ApiException {
+  private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(
+      Long from, String host, String tagFilter) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'from' is set
@@ -171,6 +171,7 @@ public class MetricsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "host", host));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tag_filter", tagFilter));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listActiveMetrics");
@@ -205,6 +206,7 @@ public class MetricsApi {
   public class APIlistActiveMetricsRequest {
     private Long from;
     private String host;
+    private String tagFilter;
 
     private APIlistActiveMetricsRequest() {}
 
@@ -228,6 +230,18 @@ public class MetricsApi {
      */
     public APIlistActiveMetricsRequest host(String host) {
       this.host = host;
+      return this;
+    }
+
+    /**
+     * Set tagFilter
+     *
+     * @param tagFilter Filter metrics that have been submitted with the given tags. Supports
+     *     boolean and wildcard expressions. Cannot be combined with other filters. (optional)
+     * @return APIlistActiveMetricsRequest
+     */
+    public APIlistActiveMetricsRequest tagFilter(String tagFilter) {
+      this.tagFilter = tagFilter;
       return this;
     }
 
@@ -262,7 +276,7 @@ public class MetricsApi {
      * </table>
      */
     public ApiResponse<MetricsListResponse> executeWithHttpInfo() throws ApiException {
-      return listActiveMetricsWithHttpInfo(from, host);
+      return listActiveMetricsWithHttpInfo(from, host, tagFilter);
     }
   }
 
