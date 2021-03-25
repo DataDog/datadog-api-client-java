@@ -417,7 +417,9 @@ public class MetricsApi {
       Boolean filterConfigured,
       String filterTagsConfigured,
       MetricTagConfigurationMetricTypes filterMetricType,
-      Boolean filterIncludePercentiles)
+      Boolean filterIncludePercentiles,
+      String filterTags,
+      Long windowSeconds)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -438,6 +440,8 @@ public class MetricsApi {
         apiClient.parameterToPairs("", "filter[metric_type]", filterMetricType));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listTagConfigurations");
@@ -475,6 +479,8 @@ public class MetricsApi {
     private String filterTagsConfigured;
     private MetricTagConfigurationMetricTypes filterMetricType;
     private Boolean filterIncludePercentiles;
+    private String filterTags;
+    private Long windowSeconds;
 
     private APIlistTagConfigurationsRequest() {}
 
@@ -527,6 +533,30 @@ public class MetricsApi {
     }
 
     /**
+     * Set filterTags
+     *
+     * @param filterTags Filter metrics that have been submitted with the given tags. Supports
+     *     boolean and wildcard expressions. Cannot be combined with other filters. (optional)
+     * @return APIlistTagConfigurationsRequest
+     */
+    public APIlistTagConfigurationsRequest filterTags(String filterTags) {
+      this.filterTags = filterTags;
+      return this;
+    }
+
+    /**
+     * Set windowSeconds
+     *
+     * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag]
+     *     query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). (optional)
+     * @return APIlistTagConfigurationsRequest
+     */
+    public APIlistTagConfigurationsRequest windowSeconds(Long windowSeconds) {
+      this.windowSeconds = windowSeconds;
+      return this;
+    }
+
+    /**
      * Execute listTagConfigurations request
      *
      * @return MetricsAndMetricTagConfigurationsResponse
@@ -561,7 +591,12 @@ public class MetricsApi {
     public ApiResponse<MetricsAndMetricTagConfigurationsResponse> executeWithHttpInfo()
         throws ApiException {
       return listTagConfigurationsWithHttpInfo(
-          filterConfigured, filterTagsConfigured, filterMetricType, filterIncludePercentiles);
+          filterConfigured,
+          filterTagsConfigured,
+          filterMetricType,
+          filterIncludePercentiles,
+          filterTags,
+          windowSeconds);
     }
   }
 
