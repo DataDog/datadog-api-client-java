@@ -3,6 +3,7 @@
 # IncidentTeamRelationships
 
 The incident team's relationships.
+
 ## Properties
 
 Name | Type | Description | Notes

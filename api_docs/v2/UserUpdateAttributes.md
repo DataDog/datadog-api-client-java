@@ -3,6 +3,7 @@
 # UserUpdateAttributes
 
 Attributes of the edited user.
+
 ## Properties
 
 Name | Type | Description | Notes

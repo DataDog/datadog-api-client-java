@@ -3,6 +3,7 @@
 # UserResponse
 
 Response containing information about a single user.
+
 ## Properties
 
 Name | Type | Description | Notes

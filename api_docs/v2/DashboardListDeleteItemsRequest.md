@@ -3,6 +3,7 @@
 # DashboardListDeleteItemsRequest
 
 Request containing a list of dashboards to delete.
+
 ## Properties
 
 Name | Type | Description | Notes

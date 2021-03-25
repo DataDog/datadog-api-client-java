@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ## listActiveMetrics
 
-> MetricsListResponse listActiveMetrics().from(from).host(host).execute();
+> MetricsListResponse listActiveMetrics().from(from).host(host).tagFilter(tagFilter).execute();
 
 Get active metrics list
 
@@ -132,10 +132,12 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         Long from = 56L; // Long | Seconds since the Unix epoch.
         String host = "host_example"; // String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+        String tagFilter = "env IN (staging,test) AND service:web"; // String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
         try {
             MetricsListResponse result = apiInstance.listActiveMetrics()
                 .from(from)
                 .host(host)
+                .tagFilter(tagFilter)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -156,6 +158,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **from** | **Long**| Seconds since the Unix epoch. |
  **host** | **String**| Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. | [optional]
+ **tagFilter** | **String**| Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional]
 
 ### Return type
 

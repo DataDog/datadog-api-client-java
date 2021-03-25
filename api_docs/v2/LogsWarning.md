@@ -3,6 +3,7 @@
 # LogsWarning
 
 A warning message indicating something that went wrong with the query
+
 ## Properties
 
 Name | Type | Description | Notes

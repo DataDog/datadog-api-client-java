@@ -126,6 +126,7 @@ Class | Method | HTTP request | Description
 *SyntheticsApi* | [**deletePrivateLocation**](SyntheticsApi.md#deletePrivateLocation) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 *SyntheticsApi* | [**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 *SyntheticsApi* | [**editGlobalVariable**](SyntheticsApi.md#editGlobalVariable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
+*SyntheticsApi* | [**getAPITest**](SyntheticsApi.md#getAPITest) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test
 *SyntheticsApi* | [**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
 *SyntheticsApi* | [**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
 *SyntheticsApi* | [**getBrowserTest**](SyntheticsApi.md#getBrowserTest) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
@@ -631,6 +632,7 @@ Class | Method | HTTP request | Description
  - [UsageTimeseriesHour](UsageTimeseriesHour.md)
  - [UsageTimeseriesResponse](UsageTimeseriesResponse.md)
  - [UsageTopAvgMetricsHour](UsageTopAvgMetricsHour.md)
+ - [UsageTopAvgMetricsMetadata](UsageTopAvgMetricsMetadata.md)
  - [UsageTopAvgMetricsResponse](UsageTopAvgMetricsResponse.md)
  - [UsageTraceHour](UsageTraceHour.md)
  - [UsageTraceResponse](UsageTraceResponse.md)

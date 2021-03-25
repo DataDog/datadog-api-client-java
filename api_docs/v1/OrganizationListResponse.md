@@ -3,6 +3,7 @@
 # OrganizationListResponse
 
 Response with the list of organizations.
+
 ## Properties
 
 Name | Type | Description | Notes

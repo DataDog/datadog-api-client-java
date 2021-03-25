@@ -3,6 +3,7 @@
 # ApplicationKeyUpdateData
 
 Object used to update an application key.
+
 ## Properties
 
 Name | Type | Description | Notes

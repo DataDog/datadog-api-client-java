@@ -3,6 +3,7 @@
 # UsageSummaryDate
 
 Response with hourly report of all data billed by Datadog all organizations.
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -22,6 +23,7 @@ Name | Type | Description | Notes
 **fargateTasksCountAvg** | **Long** | Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations. |  [optional]
 **fargateTasksCountHwm** | **Long** | Shows the average of all Fargate tasks over all hours in the current date for all organizations. |  [optional]
 **gcpHostTop99p** | **Long** | Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations. |  [optional]
+**herokuHostTop99pSum** | **Long** | Shows the 99th percentile of all Heroku dynos over all hours in the current date for all organizations. |  [optional]
 **incidentManagementMonthlyActiveUsersHwm** | **Long** | Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations. |  [optional]
 **indexedEventsCountSum** | **Long** | Shows the sum of all log events indexed over all hours in the current date for all organizations. |  [optional]
 **infraHostTop99p** | **Long** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations. |  [optional]
@@ -33,6 +35,7 @@ Name | Type | Description | Notes
 **mobileRumSessionCountSum** | **Long** | Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations |  [optional]
 **netflowIndexedEventsCountSum** | **Long** | Shows the sum of all Network flows indexed over all hours in the current date for all organizations. |  [optional]
 **npmHostTop99p** | **Long** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations. |  [optional]
+**opentelemetryHostTop99pSum** | **Long** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations. |  [optional]
 **orgs** | [**List&lt;UsageSummaryDateOrg&gt;**](UsageSummaryDateOrg.md) | Organizations associated with a user. |  [optional]
 **profilingHostTop99p** | **Long** | Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations. |  [optional]
 **rumSessionCountSum** | **Long** | Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations |  [optional]

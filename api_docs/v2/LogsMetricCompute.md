@@ -3,6 +3,7 @@
 # LogsMetricCompute
 
 The compute rule to compute the log-based metric.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,6 +3,7 @@
 # SyntheticsBrowserTest
 
 Object containing details about a Synthetic browser test.
+
 ## Properties
 
 Name | Type | Description | Notes

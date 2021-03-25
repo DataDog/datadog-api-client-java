@@ -3652,14 +3652,9 @@ public class UsageMeteringApi {
   }
 
   private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInfo(
-      OffsetDateTime month, List<String> names, Integer limit) throws ApiException {
+      OffsetDateTime month, OffsetDateTime day, List<String> names, Integer limit)
+      throws ApiException {
     Object localVarPostBody = null;
-
-    // verify the required parameter 'month' is set
-    if (month == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'month' when calling getUsageTopAvgMetrics");
-    }
 
     // create path and map variables
     String localVarPath = "/api/v1/usage/top_avg_metrics";
@@ -3671,6 +3666,7 @@ public class UsageMeteringApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "day", day));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "names", names));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
@@ -3707,6 +3703,7 @@ public class UsageMeteringApi {
 
   public class APIgetUsageTopAvgMetricsRequest {
     private OffsetDateTime month;
+    private OffsetDateTime day;
     private List<String> names;
     private Integer limit;
 
@@ -3716,11 +3713,24 @@ public class UsageMeteringApi {
      * Set month
      *
      * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage
-     *     beginning at this hour. (required)
+     *     beginning at this hour. (Either month or day should be specified, but not both)
+     *     (optional)
      * @return APIgetUsageTopAvgMetricsRequest
      */
     public APIgetUsageTopAvgMetricsRequest month(OffsetDateTime month) {
       this.month = month;
+      return this;
+    }
+
+    /**
+     * Set day
+     *
+     * @param day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning
+     *     at this hour. (Either month or day should be specified, but not both) (optional)
+     * @return APIgetUsageTopAvgMetricsRequest
+     */
+    public APIgetUsageTopAvgMetricsRequest day(OffsetDateTime day) {
+      this.day = day;
       return this;
     }
 
@@ -3778,13 +3788,15 @@ public class UsageMeteringApi {
      * </table>
      */
     public ApiResponse<UsageTopAvgMetricsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageTopAvgMetricsWithHttpInfo(month, names, limit);
+      return getUsageTopAvgMetricsWithHttpInfo(month, day, names, limit);
     }
   }
 
   /**
    * Get top custom metrics by hourly average Get top [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
+   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
+   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
+   * daily resolution. One of the two is required, and only one of the two is allowed.
    *
    * @return getUsageTopAvgMetricsRequest
    * @throws ApiException if fails to make API call
