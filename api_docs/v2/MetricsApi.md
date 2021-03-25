@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## listTagConfigurations
 
-> MetricsAndMetricTagConfigurationsResponse listTagConfigurations().filterConfigured(filterConfigured).filterTagsConfigured(filterTagsConfigured).filterMetricType(filterMetricType).filterIncludePercentiles(filterIncludePercentiles).execute();
+> MetricsAndMetricTagConfigurationsResponse listTagConfigurations().filterConfigured(filterConfigured).filterTagsConfigured(filterTagsConfigured).filterMetricType(filterMetricType).filterIncludePercentiles(filterIncludePercentiles).filterTags(filterTags).windowSeconds(windowSeconds).execute();
 
 List tag configurations
 
@@ -307,12 +307,16 @@ public class Example {
         String filterTagsConfigured = "app"; // String | Filter tag configurations by configured tags.
         MetricTagConfigurationMetricTypes filterMetricType = MetricTagConfigurationMetricTypes.fromValue("gauge"); // MetricTagConfigurationMetricTypes | Filter tag configurations by metric type.
         Boolean filterIncludePercentiles = true; // Boolean | Filter distributions with additional percentile aggregations enabled or disabled.
+        String filterTags = "env IN (staging,test) AND service:web"; // String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+        Long windowSeconds = 3600L; // Long | The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
         try {
             MetricsAndMetricTagConfigurationsResponse result = apiInstance.listTagConfigurations()
                 .filterConfigured(filterConfigured)
                 .filterTagsConfigured(filterTagsConfigured)
                 .filterMetricType(filterMetricType)
                 .filterIncludePercentiles(filterIncludePercentiles)
+                .filterTags(filterTags)
+                .windowSeconds(windowSeconds)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -335,6 +339,8 @@ Name | Type | Description  | Notes
  **filterTagsConfigured** | **String**| Filter tag configurations by configured tags. | [optional]
  **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [default to gauge] [enum: gauge, count, distribution]
  **filterIncludePercentiles** | **Boolean**| Filter distributions with additional percentile aggregations enabled or disabled. | [optional]
+ **filterTags** | **String**| Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional]
+ **windowSeconds** | **Long**| The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). | [optional]
 
 ### Return type
 
