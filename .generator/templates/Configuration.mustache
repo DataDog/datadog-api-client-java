@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 {{>generatedAnnotation}}
 public class Configuration {
-    private static ApiClient defaultApiClient = new ApiClient();
+    private static ApiClient defaultApiClient;
 
     /**
      * Get the default API client, which would be used when creating API
@@ -15,6 +15,11 @@ public class Configuration {
      * @return Default API client
      */
     public static ApiClient getDefaultApiClient() {
+        if (defaultApiClient != null) {
+            return defaultApiClient;
+        }
+        defaultApiClient = new ApiClient();
+
         // Configure the Datadog site to send API calls to
         String site = System.getenv("DD_SITE");
         if (site != null) {
