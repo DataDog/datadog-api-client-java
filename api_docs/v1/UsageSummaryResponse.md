@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **azureAppServiceTop99pSum** | **Long** | Shows the 99th percentile of all Azure app services over all hours in the current months for all organizations. |  [optional]
 **azureHostTop99pSum** | **Long** | Shows the 99th percentile of all Azure hosts over all hours in the current months for all organizations. |  [optional]
 **billableIngestedBytesAggSum** | **Long** | Shows the sum of all log bytes ingested over all hours in the current months for all organizations. |  [optional]
+**complianceContainerAggSum** | **Object** | Shows the sum of all compliance containers over all hours in the current months for all organizations. |  [optional]
+**complianceHostAggSum** | **Long** | Shows the sum of all compliance hosts over all hours in the current months for all organizations. |  [optional]
 **containerAvgSum** | **Long** | Shows the average of all distinct containers over all hours in the current months for all organizations. |  [optional]
 **containerHwmSum** | **Long** | Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations. |  [optional]
 **customTsSum** | **Long** | Shows the average number of distinct custom metrics over all hours in the current months for all organizations. |  [optional]
