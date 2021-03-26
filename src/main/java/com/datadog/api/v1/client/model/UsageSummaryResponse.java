@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -19,6 +20,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Response with hourly report of all data billed by Datadog all organizations. */
 @ApiModel(
@@ -33,6 +35,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AZURE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_COMPLIANCE_HOST_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_TS_SUM,
@@ -101,6 +105,13 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_AGG_SUM =
       "billable_ingested_bytes_agg_sum";
   private Long billableIngestedBytesAggSum;
+
+  public static final String JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM =
+      "compliance_container_agg_sum";
+  private JsonNullable<Object> complianceContainerAggSum = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_COMPLIANCE_HOST_AGG_SUM = "compliance_host_agg_sum";
+  private Long complianceHostAggSum;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG_SUM = "container_avg_sum";
   private Long containerAvgSum;
@@ -461,6 +472,69 @@ public class UsageSummaryResponse {
 
   public void setBillableIngestedBytesAggSum(Long billableIngestedBytesAggSum) {
     this.billableIngestedBytesAggSum = billableIngestedBytesAggSum;
+  }
+
+  public UsageSummaryResponse complianceContainerAggSum(Object complianceContainerAggSum) {
+    this.complianceContainerAggSum = JsonNullable.<Object>of(complianceContainerAggSum);
+    return this;
+  }
+
+  /**
+   * Shows the sum of all compliance containers over all hours in the current months for all
+   * organizations.
+   *
+   * @return complianceContainerAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all compliance containers over all hours in the current months for all"
+              + " organizations.")
+  @JsonIgnore
+  public Object getComplianceContainerAggSum() {
+    return complianceContainerAggSum.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Object> getComplianceContainerAggSum_JsonNullable() {
+    return complianceContainerAggSum;
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM)
+  public void setComplianceContainerAggSum_JsonNullable(
+      JsonNullable<Object> complianceContainerAggSum) {
+    this.complianceContainerAggSum = complianceContainerAggSum;
+  }
+
+  public void setComplianceContainerAggSum(Object complianceContainerAggSum) {
+    this.complianceContainerAggSum = JsonNullable.<Object>of(complianceContainerAggSum);
+  }
+
+  public UsageSummaryResponse complianceHostAggSum(Long complianceHostAggSum) {
+    this.complianceHostAggSum = complianceHostAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all compliance hosts over all hours in the current months for all
+   * organizations.
+   *
+   * @return complianceHostAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all compliance hosts over all hours in the current months for all"
+              + " organizations.")
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getComplianceHostAggSum() {
+    return complianceHostAggSum;
+  }
+
+  public void setComplianceHostAggSum(Long complianceHostAggSum) {
+    this.complianceHostAggSum = complianceHostAggSum;
   }
 
   public UsageSummaryResponse containerAvgSum(Long containerAvgSum) {
@@ -1404,6 +1478,9 @@ public class UsageSummaryResponse {
         && Objects.equals(this.azureHostTop99pSum, usageSummaryResponse.azureHostTop99pSum)
         && Objects.equals(
             this.billableIngestedBytesAggSum, usageSummaryResponse.billableIngestedBytesAggSum)
+        && Objects.equals(
+            this.complianceContainerAggSum, usageSummaryResponse.complianceContainerAggSum)
+        && Objects.equals(this.complianceHostAggSum, usageSummaryResponse.complianceHostAggSum)
         && Objects.equals(this.containerAvgSum, usageSummaryResponse.containerAvgSum)
         && Objects.equals(this.containerHwmSum, usageSummaryResponse.containerHwmSum)
         && Objects.equals(this.customTsSum, usageSummaryResponse.customTsSum)
@@ -1482,6 +1559,8 @@ public class UsageSummaryResponse {
         azureAppServiceTop99pSum,
         azureHostTop99pSum,
         billableIngestedBytesAggSum,
+        complianceContainerAggSum,
+        complianceHostAggSum,
         containerAvgSum,
         containerHwmSum,
         customTsSum,
@@ -1539,6 +1618,12 @@ public class UsageSummaryResponse {
     sb.append("    azureHostTop99pSum: ").append(toIndentedString(azureHostTop99pSum)).append("\n");
     sb.append("    billableIngestedBytesAggSum: ")
         .append(toIndentedString(billableIngestedBytesAggSum))
+        .append("\n");
+    sb.append("    complianceContainerAggSum: ")
+        .append(toIndentedString(complianceContainerAggSum))
+        .append("\n");
+    sb.append("    complianceHostAggSum: ")
+        .append(toIndentedString(complianceHostAggSum))
         .append("\n");
     sb.append("    containerAvgSum: ").append(toIndentedString(containerAvgSum)).append("\n");
     sb.append("    containerHwmSum: ").append(toIndentedString(containerHwmSum)).append("\n");

@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **awsLambdaInvocationsSum** | **Long** | Shows the sum of all AWS Lambda invocations over all hours in the current date for all organizations. |  [optional]
 **azureAppServiceTop99p** | **Long** | Shows the 99th percentile of all Azure app services over all hours in the current date for all organizations. |  [optional]
 **billableIngestedBytesSum** | **Long** | Shows the sum of all log bytes ingested over all hours in the current date for all organizations. |  [optional]
+**complianceContainerCountSum** | **Object** | Shows the sum of compliance containers over all hours in the current date for all organizations. |  [optional]
+**complianceHostCountSum** | **Long** | Shows the sum of compliance hosts over all hours in the current date for all organizations. |  [optional]
 **containerAvg** | **Long** | Shows the average of all distinct containers over all hours in the current date for all organizations. |  [optional]
 **containerHwm** | **Long** | Shows the high-water mark of all distinct containers over all hours in the current date for all organizations. |  [optional]
 **customTsAvg** | **Long** | Shows the average number of distinct custom metrics over all hours in the current date for all organizations. |  [optional]
