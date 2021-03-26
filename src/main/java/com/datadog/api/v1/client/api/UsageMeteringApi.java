@@ -9,6 +9,7 @@ import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
 import com.datadog.api.v1.client.model.UsageAttributionResponse;
 import com.datadog.api.v1.client.model.UsageAttributionSort;
 import com.datadog.api.v1.client.model.UsageBillableSummaryResponse;
+import com.datadog.api.v1.client.model.UsageComplianceResponse;
 import com.datadog.api.v1.client.model.UsageCustomReportsResponse;
 import com.datadog.api.v1.client.model.UsageFargateResponse;
 import com.datadog.api.v1.client.model.UsageHostsResponse;
@@ -1422,6 +1423,135 @@ public class UsageMeteringApi {
    */
   public APIgetUsageBillableSummaryRequest getUsageBillableSummary() throws ApiException {
     return new APIgetUsageBillableSummaryRequest();
+  }
+
+  private ApiResponse<UsageComplianceResponse> getUsageComplianceMonitoringWithHttpInfo(
+      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'startHr' when calling getUsageComplianceMonitoring");
+    }
+
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/compliance-monitoring";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageComplianceMonitoring");
+
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UsageComplianceResponse> localVarReturnType =
+        new GenericType<UsageComplianceResponse>() {};
+
+    return apiClient.invokeAPI(
+        "UsageMeteringApi.getUsageComplianceMonitoring",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  public class APIgetUsageComplianceMonitoringRequest {
+    private OffsetDateTime startHr;
+    private OffsetDateTime endHr;
+
+    private APIgetUsageComplianceMonitoringRequest() {}
+
+    /**
+     * Set startHr
+     *
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage beginning at this hour. (required)
+     * @return APIgetUsageComplianceMonitoringRequest
+     */
+    public APIgetUsageComplianceMonitoringRequest startHr(OffsetDateTime startHr) {
+      this.startHr = startHr;
+      return this;
+    }
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return APIgetUsageComplianceMonitoringRequest
+     */
+    public APIgetUsageComplianceMonitoringRequest endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Execute getUsageComplianceMonitoring request
+     *
+     * @return UsageComplianceResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+     * </table>
+     */
+    public UsageComplianceResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getUsageComplianceMonitoring request with HTTP info returned
+     *
+     * @return ApiResponse&lt;UsageComplianceResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<UsageComplianceResponse> executeWithHttpInfo() throws ApiException {
+      return getUsageComplianceMonitoringWithHttpInfo(startHr, endHr);
+    }
+  }
+
+  /**
+   * Get hourly usage for Compliance Monitoring Get hourly usage for Compliance Monitoring.
+   *
+   * @return getUsageComplianceMonitoringRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIgetUsageComplianceMonitoringRequest getUsageComplianceMonitoring() throws ApiException {
+    return new APIgetUsageComplianceMonitoringRequest();
   }
 
   private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(
