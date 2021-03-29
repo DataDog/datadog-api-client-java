@@ -35,7 +35,13 @@ public enum SyntheticsCheckType {
 
   LOWER_EQUALS("lowerEquals"),
 
-  MATCH_REGEX("matchRegex");
+  MATCH_REGEX("matchRegex"),
+
+  BETWEEN("between"),
+
+  IS_EMPTY("isEmpty"),
+
+  NOT_IS_EMPTY("notIsEmpty");
 
   private String value;
 
