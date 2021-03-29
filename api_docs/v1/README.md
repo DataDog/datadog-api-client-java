@@ -158,6 +158,7 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 *UsageMeteringApi* | [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 *UsageMeteringApi* | [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
+*UsageMeteringApi* | [**getUsageComplianceMonitoring**](UsageMeteringApi.md#getUsageComplianceMonitoring) | **GET** /api/v1/usage/compliance-monitoring | Get hourly usage for Compliance Monitoring
 *UsageMeteringApi* | [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *UsageMeteringApi* | [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *UsageMeteringApi* | [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -578,6 +579,8 @@ Class | Method | HTTP request | Description
  - [UsageBillableSummaryHour](UsageBillableSummaryHour.md)
  - [UsageBillableSummaryKeys](UsageBillableSummaryKeys.md)
  - [UsageBillableSummaryResponse](UsageBillableSummaryResponse.md)
+ - [UsageComplianceHour](UsageComplianceHour.md)
+ - [UsageComplianceResponse](UsageComplianceResponse.md)
  - [UsageCustomReportsAttributes](UsageCustomReportsAttributes.md)
  - [UsageCustomReportsData](UsageCustomReportsData.md)
  - [UsageCustomReportsMeta](UsageCustomReportsMeta.md)
