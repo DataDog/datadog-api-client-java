@@ -35,18 +35,6 @@ import com.datadog.api.v2.client.api.IncidentServicesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         IncidentServiceCreateRequest body = new IncidentServiceCreateRequest(); // IncidentServiceCreateRequest | Incident Service Payload.
@@ -119,18 +107,6 @@ import com.datadog.api.v2.client.api.IncidentServicesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
@@ -202,18 +178,6 @@ import com.datadog.api.v2.client.api.IncidentServicesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
@@ -288,18 +252,6 @@ import com.datadog.api.v2.client.api.IncidentServicesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         IncidentRelatedObject include = IncidentRelatedObject.fromValue("users"); // IncidentRelatedObject | Specifies which types of related objects should be included in the response.
@@ -381,18 +333,6 @@ import com.datadog.api.v2.client.api.IncidentServicesApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
