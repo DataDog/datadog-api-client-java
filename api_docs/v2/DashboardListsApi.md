@@ -34,18 +34,6 @@ import com.datadog.api.v2.client.api.DashboardListsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long dashboardListId = 56L; // Long | ID of the dashboard list to add items to.
@@ -119,18 +107,6 @@ import com.datadog.api.v2.client.api.DashboardListsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long dashboardListId = 56L; // Long | ID of the dashboard list to delete items from.
@@ -204,18 +180,6 @@ import com.datadog.api.v2.client.api.DashboardListsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long dashboardListId = 56L; // Long | ID of the dashboard list to get items from.
@@ -285,18 +249,6 @@ import com.datadog.api.v2.client.api.DashboardListsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long dashboardListId = 56L; // Long | ID of the dashboard list to update items from.

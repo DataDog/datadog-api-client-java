@@ -35,18 +35,6 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
         SLOCorrectionCreateRequest body = new SLOCorrectionCreateRequest(); // SLOCorrectionCreateRequest | Create an SLO Correction
@@ -117,18 +105,6 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
         String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object
@@ -197,18 +173,6 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
         String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object
@@ -278,18 +242,6 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
         try {
@@ -354,18 +306,6 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
         String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object

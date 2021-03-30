@@ -43,18 +43,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         APIKeyCreateRequest body = new APIKeyCreateRequest(); // APIKeyCreateRequest | 
@@ -125,18 +113,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         ApplicationKeyCreateRequest body = new ApplicationKeyCreateRequest(); // ApplicationKeyCreateRequest | 
@@ -207,18 +183,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String apiKeyId = "apiKeyId_example"; // String | The ID of the API key.
@@ -287,18 +251,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
@@ -367,18 +319,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
@@ -447,18 +387,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String apiKeyId = "apiKeyId_example"; // String | The ID of the API key.
@@ -531,18 +459,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
@@ -612,18 +528,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         Long pageSize = 10l; // Long | Size for a given page.
@@ -718,18 +622,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         Long pageSize = 10l; // Long | Size for a given page.
@@ -816,18 +708,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         Long pageSize = 10l; // Long | Size for a given page.
@@ -914,18 +794,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String apiKeyId = "apiKeyId_example"; // String | The ID of the API key.
@@ -999,18 +867,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
@@ -1084,18 +940,6 @@ import com.datadog.api.v2.client.api.KeyManagementApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
