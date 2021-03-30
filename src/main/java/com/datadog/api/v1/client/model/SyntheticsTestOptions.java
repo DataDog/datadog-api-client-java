@@ -25,10 +25,12 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
   SyntheticsTestOptions.JSON_PROPERTY_ALLOW_INSECURE,
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
+  SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CORS,
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
   SyntheticsTestOptions.JSON_PROPERTY_MONITOR_OPTIONS,
+  SyntheticsTestOptions.JSON_PROPERTY_NO_SCREENSHOT,
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
@@ -43,6 +45,9 @@ public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
   private List<SyntheticsDeviceID> deviceIds = null;
 
+  public static final String JSON_PROPERTY_DISABLE_CORS = "disableCors";
+  private Boolean disableCors;
+
   public static final String JSON_PROPERTY_FOLLOW_REDIRECTS = "follow_redirects";
   private Boolean followRedirects;
 
@@ -54,6 +59,9 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_MONITOR_OPTIONS = "monitor_options";
   private SyntheticsTestOptionsMonitorOptions monitorOptions;
+
+  public static final String JSON_PROPERTY_NO_SCREENSHOT = "noScreenshot";
+  private Boolean noScreenshot;
 
   public static final String JSON_PROPERTY_RETRY = "retry";
   private SyntheticsTestOptionsRetry retry;
@@ -135,6 +143,28 @@ public class SyntheticsTestOptions {
 
   public void setDeviceIds(List<SyntheticsDeviceID> deviceIds) {
     this.deviceIds = deviceIds;
+  }
+
+  public SyntheticsTestOptions disableCors(Boolean disableCors) {
+    this.disableCors = disableCors;
+    return this;
+  }
+
+  /**
+   * Whether or not to disable CORS mechanism.
+   *
+   * @return disableCors
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not to disable CORS mechanism.")
+  @JsonProperty(JSON_PROPERTY_DISABLE_CORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDisableCors() {
+    return disableCors;
+  }
+
+  public void setDisableCors(Boolean disableCors) {
+    this.disableCors = disableCors;
   }
 
   public SyntheticsTestOptions followRedirects(Boolean followRedirects) {
@@ -225,6 +255,28 @@ public class SyntheticsTestOptions {
     this.monitorOptions = monitorOptions;
   }
 
+  public SyntheticsTestOptions noScreenshot(Boolean noScreenshot) {
+    this.noScreenshot = noScreenshot;
+    return this;
+  }
+
+  /**
+   * Prevents saving screenshots of the steps.
+   *
+   * @return noScreenshot
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Prevents saving screenshots of the steps.")
+  @JsonProperty(JSON_PROPERTY_NO_SCREENSHOT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getNoScreenshot() {
+    return noScreenshot;
+  }
+
+  public void setNoScreenshot(Boolean noScreenshot) {
+    this.noScreenshot = noScreenshot;
+  }
+
   public SyntheticsTestOptions retry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
     return this;
@@ -282,10 +334,12 @@ public class SyntheticsTestOptions {
     return Objects.equals(this.acceptSelfSigned, syntheticsTestOptions.acceptSelfSigned)
         && Objects.equals(this.allowInsecure, syntheticsTestOptions.allowInsecure)
         && Objects.equals(this.deviceIds, syntheticsTestOptions.deviceIds)
+        && Objects.equals(this.disableCors, syntheticsTestOptions.disableCors)
         && Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects)
         && Objects.equals(this.minFailureDuration, syntheticsTestOptions.minFailureDuration)
         && Objects.equals(this.minLocationFailed, syntheticsTestOptions.minLocationFailed)
         && Objects.equals(this.monitorOptions, syntheticsTestOptions.monitorOptions)
+        && Objects.equals(this.noScreenshot, syntheticsTestOptions.noScreenshot)
         && Objects.equals(this.retry, syntheticsTestOptions.retry)
         && Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery);
   }
@@ -296,10 +350,12 @@ public class SyntheticsTestOptions {
         acceptSelfSigned,
         allowInsecure,
         deviceIds,
+        disableCors,
         followRedirects,
         minFailureDuration,
         minLocationFailed,
         monitorOptions,
+        noScreenshot,
         retry,
         tickEvery);
   }
@@ -311,10 +367,12 @@ public class SyntheticsTestOptions {
     sb.append("    acceptSelfSigned: ").append(toIndentedString(acceptSelfSigned)).append("\n");
     sb.append("    allowInsecure: ").append(toIndentedString(allowInsecure)).append("\n");
     sb.append("    deviceIds: ").append(toIndentedString(deviceIds)).append("\n");
+    sb.append("    disableCors: ").append(toIndentedString(disableCors)).append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
     sb.append("    minFailureDuration: ").append(toIndentedString(minFailureDuration)).append("\n");
     sb.append("    minLocationFailed: ").append(toIndentedString(minLocationFailed)).append("\n");
     sb.append("    monitorOptions: ").append(toIndentedString(monitorOptions)).append("\n");
+    sb.append("    noScreenshot: ").append(toIndentedString(noScreenshot)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    tickEvery: ").append(toIndentedString(tickEvery)).append("\n");
     sb.append("}");

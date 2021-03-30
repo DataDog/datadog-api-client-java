@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **headers** | **Map&lt;String, String&gt;** | Headers to include when performing the test. |  [optional]
 **host** | **String** | Host name to perform the test with. |  [optional]
 **method** | **HTTPMethod** |  |  [optional]
+**noSavingResponseBody** | **Boolean** | Determines whether or not to save the response body. |  [optional]
 **port** | **Long** | Port to use when performing the test. |  [optional]
 **query** | **Object** | Query to use for the test. |  [optional]
 **timeout** | **Double** | Timeout in seconds for the test. |  [optional]
