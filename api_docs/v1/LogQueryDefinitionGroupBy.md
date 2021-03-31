@@ -3,6 +3,7 @@
 # LogQueryDefinitionGroupBy
 
 Defined items in the group.
+
 ## Properties
 
 Name | Type | Description | Notes

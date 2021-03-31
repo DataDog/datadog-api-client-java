@@ -3,6 +3,7 @@
 # FormulaAndFunctionEventQueryDefinitionSearch
 
 Search options.
+
 ## Properties
 
 Name | Type | Description | Notes

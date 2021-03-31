@@ -3,6 +3,7 @@
 # SecurityMonitoringRuleUpdatePayload
 
 Update an existing rule.
+
 ## Properties
 
 Name | Type | Description | Notes

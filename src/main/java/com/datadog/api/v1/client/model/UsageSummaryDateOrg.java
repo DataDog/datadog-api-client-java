@@ -10,12 +10,14 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Global hourly report of all data billed by Datadog for a given organization. */
 @ApiModel(
@@ -29,12 +31,15 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_COMPLIANCE_HOST_AGG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CUSTOM_TS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_GCP_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_HEROKU_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
@@ -48,6 +53,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_NAME,
   UsageSummaryDateOrg.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NPM_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PUBLIC_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
@@ -86,6 +92,13 @@ public class UsageSummaryDateOrg {
       "billable_ingested_bytes_sum";
   private Long billableIngestedBytesSum;
 
+  public static final String JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM =
+      "compliance_container_agg_sum";
+  private JsonNullable<Object> complianceContainerAggSum = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_COMPLIANCE_HOST_AGG_SUM = "compliance_host_agg_sum";
+  private Long complianceHostAggSum;
+
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
 
@@ -103,6 +116,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_GCP_HOST_TOP99P = "gcp_host_top99p";
   private Long gcpHostTop99p;
+
+  public static final String JSON_PROPERTY_HEROKU_HOST_TOP99P = "heroku_host_top99p";
+  private Long herokuHostTop99p;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -147,6 +163,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P = "npm_host_top99p";
   private Long npmHostTop99p;
+
+  public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P = "opentelemetry_host_top99p";
+  private Long opentelemetryHostTop99p;
 
   public static final String JSON_PROPERTY_PROFILING_HOST_TOP99P = "profiling_host_top99p";
   private Long profilingHostTop99p;
@@ -384,6 +403,68 @@ public class UsageSummaryDateOrg {
     this.billableIngestedBytesSum = billableIngestedBytesSum;
   }
 
+  public UsageSummaryDateOrg complianceContainerAggSum(Object complianceContainerAggSum) {
+    this.complianceContainerAggSum = JsonNullable.<Object>of(complianceContainerAggSum);
+    return this;
+  }
+
+  /**
+   * Shows the sum of all compliance containers over all hours in the current date for the given
+   * org.
+   *
+   * @return complianceContainerAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all compliance containers over all hours in the current date for the"
+              + " given org.")
+  @JsonIgnore
+  public Object getComplianceContainerAggSum() {
+    return complianceContainerAggSum.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Object> getComplianceContainerAggSum_JsonNullable() {
+    return complianceContainerAggSum;
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM)
+  public void setComplianceContainerAggSum_JsonNullable(
+      JsonNullable<Object> complianceContainerAggSum) {
+    this.complianceContainerAggSum = complianceContainerAggSum;
+  }
+
+  public void setComplianceContainerAggSum(Object complianceContainerAggSum) {
+    this.complianceContainerAggSum = JsonNullable.<Object>of(complianceContainerAggSum);
+  }
+
+  public UsageSummaryDateOrg complianceHostAggSum(Long complianceHostAggSum) {
+    this.complianceHostAggSum = complianceHostAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all compliance hosts over all hours in the current date for the given org.
+   *
+   * @return complianceHostAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all compliance hosts over all hours in the current date for the given"
+              + " org.")
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getComplianceHostAggSum() {
+    return complianceHostAggSum;
+  }
+
+  public void setComplianceHostAggSum(Long complianceHostAggSum) {
+    this.complianceHostAggSum = complianceHostAggSum;
+  }
+
   public UsageSummaryDateOrg containerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
     return this;
@@ -534,6 +615,32 @@ public class UsageSummaryDateOrg {
 
   public void setGcpHostTop99p(Long gcpHostTop99p) {
     this.gcpHostTop99p = gcpHostTop99p;
+  }
+
+  public UsageSummaryDateOrg herokuHostTop99p(Long herokuHostTop99p) {
+    this.herokuHostTop99p = herokuHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Heroku dynos over all hours in the current date for the given
+   * org.
+   *
+   * @return herokuHostTop99p
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Heroku dynos over all hours in the current date for"
+              + " the given org.")
+  @JsonProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getHerokuHostTop99p() {
+    return herokuHostTop99p;
+  }
+
+  public void setHerokuHostTop99p(Long herokuHostTop99p) {
+    this.herokuHostTop99p = herokuHostTop99p;
   }
 
   public UsageSummaryDateOrg id(String id) {
@@ -863,6 +970,32 @@ public class UsageSummaryDateOrg {
     this.npmHostTop99p = npmHostTop99p;
   }
 
+  public UsageSummaryDateOrg opentelemetryHostTop99p(Long opentelemetryHostTop99p) {
+    this.opentelemetryHostTop99p = opentelemetryHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry
+   * Collector over all hours in the current date for the given org.
+   *
+   * @return opentelemetryHostTop99p
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all hosts reported by the Datadog exporter for the"
+              + " OpenTelemetry Collector over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOpentelemetryHostTop99p() {
+    return opentelemetryHostTop99p;
+  }
+
+  public void setOpentelemetryHostTop99p(Long opentelemetryHostTop99p) {
+    this.opentelemetryHostTop99p = opentelemetryHostTop99p;
+  }
+
   public UsageSummaryDateOrg profilingHostTop99p(Long profilingHostTop99p) {
     this.profilingHostTop99p = profilingHostTop99p;
     return this;
@@ -1087,12 +1220,16 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.azureAppServiceTop99p, usageSummaryDateOrg.azureAppServiceTop99p)
         && Objects.equals(
             this.billableIngestedBytesSum, usageSummaryDateOrg.billableIngestedBytesSum)
+        && Objects.equals(
+            this.complianceContainerAggSum, usageSummaryDateOrg.complianceContainerAggSum)
+        && Objects.equals(this.complianceHostAggSum, usageSummaryDateOrg.complianceHostAggSum)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
         && Objects.equals(this.customTsAvg, usageSummaryDateOrg.customTsAvg)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDateOrg.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDateOrg.fargateTasksCountHwm)
         && Objects.equals(this.gcpHostTop99p, usageSummaryDateOrg.gcpHostTop99p)
+        && Objects.equals(this.herokuHostTop99p, usageSummaryDateOrg.herokuHostTop99p)
         && Objects.equals(this.id, usageSummaryDateOrg.id)
         && Objects.equals(
             this.incidentManagementMonthlyActiveUsersHwm,
@@ -1113,6 +1250,7 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.netflowIndexedEventsCountSum, usageSummaryDateOrg.netflowIndexedEventsCountSum)
         && Objects.equals(this.npmHostTop99p, usageSummaryDateOrg.npmHostTop99p)
+        && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDateOrg.opentelemetryHostTop99p)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDateOrg.profilingHostTop99p)
         && Objects.equals(this.publicId, usageSummaryDateOrg.publicId)
         && Objects.equals(this.rumSessionCountSum, usageSummaryDateOrg.rumSessionCountSum)
@@ -1140,12 +1278,15 @@ public class UsageSummaryDateOrg {
         awsLambdaInvocationsSum,
         azureAppServiceTop99p,
         billableIngestedBytesSum,
+        complianceContainerAggSum,
+        complianceHostAggSum,
         containerAvg,
         containerHwm,
         customTsAvg,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
         gcpHostTop99p,
+        herokuHostTop99p,
         id,
         incidentManagementMonthlyActiveUsersHwm,
         indexedEventsCountSum,
@@ -1159,6 +1300,7 @@ public class UsageSummaryDateOrg {
         name,
         netflowIndexedEventsCountSum,
         npmHostTop99p,
+        opentelemetryHostTop99p,
         profilingHostTop99p,
         publicId,
         rumSessionCountSum,
@@ -1189,6 +1331,12 @@ public class UsageSummaryDateOrg {
     sb.append("    billableIngestedBytesSum: ")
         .append(toIndentedString(billableIngestedBytesSum))
         .append("\n");
+    sb.append("    complianceContainerAggSum: ")
+        .append(toIndentedString(complianceContainerAggSum))
+        .append("\n");
+    sb.append("    complianceHostAggSum: ")
+        .append(toIndentedString(complianceHostAggSum))
+        .append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
     sb.append("    customTsAvg: ").append(toIndentedString(customTsAvg)).append("\n");
@@ -1199,6 +1347,7 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(fargateTasksCountHwm))
         .append("\n");
     sb.append("    gcpHostTop99p: ").append(toIndentedString(gcpHostTop99p)).append("\n");
+    sb.append("    herokuHostTop99p: ").append(toIndentedString(herokuHostTop99p)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    incidentManagementMonthlyActiveUsersHwm: ")
         .append(toIndentedString(incidentManagementMonthlyActiveUsersHwm))
@@ -1226,6 +1375,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(netflowIndexedEventsCountSum))
         .append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
+    sb.append("    opentelemetryHostTop99p: ")
+        .append(toIndentedString(opentelemetryHostTop99p))
+        .append("\n");
     sb.append("    profilingHostTop99p: ")
         .append(toIndentedString(profilingHostTop99p))
         .append("\n");

@@ -3,6 +3,7 @@
 # DashboardTemplateVariablePresetValue
 
 Template variables saved views.
+
 ## Properties
 
 Name | Type | Description | Notes

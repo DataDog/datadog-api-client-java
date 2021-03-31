@@ -1578,6 +1578,7 @@ components:
       enum:
       - count
       - cardinality
+      - median
       - pc75
       - pc90
       - pc95
@@ -1592,6 +1593,7 @@ components:
       x-enum-varnames:
       - COUNT
       - CARDINALITY
+      - MEDIAN
       - PC75
       - PC90
       - PC95
@@ -5395,6 +5397,8 @@ components:
         format: double
         type: number
       description: A mapping of threshold `timeframe` to the remaining error budget.
+      example:
+        7d: 100.0
       type: object
     SLOErrorTimeframe:
       description: 'The timeframe of the threshold associated with this error
@@ -5427,6 +5431,7 @@ components:
           type: integer
         message:
           description: Optional message if there are specific query issues/warnings.
+          example: ''
           type: string
         numerator:
           $ref: '#/components/schemas/SLOHistoryMetricsSeries'
@@ -5563,6 +5568,7 @@ components:
           properties:
             from_ts:
               description: The `from` timestamp in epoch seconds.
+              example: 1615323990
               format: int64
               type: integer
             group_by:
@@ -5571,6 +5577,7 @@ components:
 
 
                 This is not included in responses for `monitor` based SLOs.'
+              example: []
               items:
                 description: A grouping parameter.
                 type: string
@@ -5581,6 +5588,7 @@ components:
 
 
                 This is not included in the responses for `metric` based SLOs.'
+              example: []
               items:
                 $ref: '#/components/schemas/SLOHistorySLIData'
               type: array
@@ -5590,6 +5598,7 @@ components:
 
 
                 This is not included in the responses for `metric` based SLOs.'
+              example: []
               items:
                 $ref: '#/components/schemas/SLOHistorySLIData'
               type: array
@@ -5601,9 +5610,11 @@ components:
               additionalProperties:
                 $ref: '#/components/schemas/SLOThreshold'
               description: mapping of string timeframe to the SLO threshold.
+              example: {}
               type: object
             to_ts:
               description: The `to` timestamp in epoch seconds.
+              example: 1615928790
               format: int64
               type: integer
             type:
@@ -5637,20 +5648,28 @@ components:
         errors:
           description: A list of errors while querying the history data for the service
             level objective.
+          example: []
           items:
             $ref: '#/components/schemas/SLOHistoryResponseError'
           type: array
         group:
           description: For groups in a grouped SLO, this is the group name.
+          example: name
           type: string
         history:
           description: For `monitor` based SLOs, this includes the aggregated history
             uptime time series.
           items:
             description: Represents an array time series data.
+            example:
+            - - 1579212382
+              - 0
             items:
               description: A time series data point which is a tuple of (timestamp,
                 value).
+              example:
+              - 1579212382
+              - 0
               format: double
               type: number
             maxItems: 2
@@ -5660,14 +5679,17 @@ components:
         monitor_modified:
           description: For `monitor` based SLOs, this is the last modified timestamp
             in epoch seconds of the monitor.
+          example: 1615867200
           format: int64
           type: integer
         monitor_type:
           description: For `monitor` based SLOs, this describes the type of monitor.
+          example: string
           type: string
         name:
           description: For groups in a grouped SLO, this is the group name. For monitors
             in a multi-monitor SLO, this is the monitor name.
+          example: string
           type: string
         precision:
           additionalProperties:
@@ -5676,12 +5698,16 @@ components:
             type: number
           description: A mapping of threshold `timeframe` to number of accurate decimals,
             regardless of the from && to timestamp.
+          example:
+            30d: 1
+            7d: 2
           type: object
         preview:
           description: 'For `monitor` based SLOs, when `true` this indicates that
             a replay is in progress to give an accurate uptime
 
             calculation.'
+          example: true
           type: boolean
         sli_value:
           description: The current SLI value of the SLO over the history window.
@@ -5691,11 +5717,13 @@ components:
         span_precision:
           description: The amount of decimal places the SLI value is accurate to for
             the given from `&&` to timestamp.
+          example: 2
           format: double
           type: number
         uptime:
           deprecated: true
           description: Use `sli_value` instead.
+          example: 99.99
           format: double
           type: number
       type: object
@@ -5742,7 +5770,7 @@ components:
             corresponding
 
             timeframe.'
-          example: 0.0
+          example: 99.9
           format: double
           type: number
         target_display:
@@ -5760,6 +5788,7 @@ components:
           $ref: '#/components/schemas/SLOTimeframe'
         warning:
           description: The warning value for the service level objective.
+          example: 90.0
           format: double
           type: number
         warning_display:
@@ -5772,6 +5801,7 @@ components:
             Included in service level objective responses if a warning target exists.
 
             Ignored in create/update requests.'
+          example: '90.0'
           type: string
       required:
       - timeframe
@@ -5793,6 +5823,7 @@ components:
       enum:
       - metric
       - monitor
+      example: metric
       type: string
       x-enum-varnames:
       - METRIC
@@ -5817,6 +5848,9 @@ components:
       description: Use the SLO and uptime widget to track your SLOs (Service Level
         Objectives) and uptime on screenboards and timeboards.
       properties:
+        global_time_target:
+          description: Defined global time target.
+          type: string
         show_error_budget:
           description: Defined error budget.
           type: boolean
@@ -6524,6 +6558,9 @@ components:
         result:
           description: Result of the last API test run.
           properties:
+            passed:
+              description: Describes if the test run has passed or failed.
+              type: boolean
             timings:
               $ref: '#/components/schemas/SyntheticsTiming'
           type: object
@@ -6716,7 +6753,9 @@ components:
             type: string
           type: array
         message:
-          description: Notification message associated with the test.
+          description: Notification message associated with the test. Message can
+            either be text or an empty string.
+          example: ''
           type: string
         monitor_id:
           description: The associated monitor ID.
@@ -6745,6 +6784,8 @@ components:
           type: array
         type:
           $ref: '#/components/schemas/SyntheticsBrowserTestType'
+      required:
+      - message
       type: object
     SyntheticsBrowserTestConfig:
       description: Configuration object for a Synthetic browser test.
@@ -7027,6 +7068,9 @@ components:
       - greaterEquals
       - lowerEquals
       - matchRegex
+      - between
+      - isEmpty
+      - notIsEmpty
       type: string
       x-enum-varnames:
       - EQUALS
@@ -7040,6 +7084,9 @@ components:
       - GREATER_EQUALS
       - LOWER_EQUALS
       - MATCH_REGEX
+      - BETWEEN
+      - IS_EMPTY
+      - NOT_IS_EMPTY
     SyntheticsConfigVariable:
       description: Object defining a variable that can be used in your test configuration.
       properties:
@@ -7823,6 +7870,9 @@ components:
           items:
             $ref: '#/components/schemas/SyntheticsDeviceID'
           type: array
+        disableCors:
+          description: Whether or not to disable CORS mechanism.
+          type: boolean
         follow_redirects:
           description: For API HTTP test, whether or not the test should follow redirects.
           type: boolean
@@ -7851,6 +7901,9 @@ components:
               minimum: 0
               type: integer
           type: object
+        noScreenshot:
+          description: Prevents saving screenshots of the steps.
+          type: boolean
         retry:
           $ref: '#/components/schemas/SyntheticsTestOptionsRetry'
         tick_every:
@@ -7921,6 +7974,9 @@ components:
           type: string
         method:
           $ref: '#/components/schemas/HTTPMethod'
+        noSavingResponseBody:
+          description: Determines whether or not to save the response body.
+          type: boolean
         port:
           description: Port to use when performing the test.
           format: int64
@@ -8260,7 +8316,10 @@ components:
             $ref: '#/components/schemas/WidgetEvent'
           type: array
         legend_columns:
-          $ref: '#/components/schemas/TimeseriesWidgetLegendColumns'
+          description: Columns displayed in the legend.
+          items:
+            $ref: '#/components/schemas/TimeseriesWidgetLegendColumn'
+          type: array
         legend_layout:
           $ref: '#/components/schemas/TimeseriesWidgetLegendLayout'
         legend_size:
@@ -8323,24 +8382,21 @@ components:
       required:
       - expression
       type: object
-    TimeseriesWidgetLegendColumns:
-      description: Columns displayed in the legend.
-      items:
-        description: Legend column.
-        enum:
-        - value
-        - avg
-        - sum
-        - min
-        - max
-        type: string
-        x-enum-varnames:
-        - VALUE
-        - AVG
-        - SUM
-        - MIN
-        - MAX
-      type: array
+    TimeseriesWidgetLegendColumn:
+      description: Legend column.
+      enum:
+      - value
+      - avg
+      - sum
+      - min
+      - max
+      type: string
+      x-enum-varnames:
+      - VALUE
+      - AVG
+      - SUM
+      - MIN
+      - MAX
     TimeseriesWidgetLegendLayout:
       description: Layout of the legend.
       enum:
@@ -8869,6 +8925,35 @@ components:
             $ref: '#/components/schemas/UsageBillableSummaryHour'
           type: array
       type: object
+    UsageComplianceHour:
+      description: Compliance Monitoring usage for a given organization for a given
+        hour.
+      properties:
+        compliance_container_count:
+          description: The total number of compliance container hours from the start
+            of the given hour's month until the given hour.
+          format: int64
+          type: integer
+        compliance_host_count:
+          description: The total number of compliance hosts hours from the start of
+            the given hour's month until the given hour.
+          format: int64
+          type: integer
+        hour:
+          description: The hour for the usage.
+          format: date-time
+          type: string
+      type: object
+    UsageComplianceResponse:
+      description: The response containing the Compliance Monitoring usage for each
+        hour for a given organization.
+      properties:
+        usage:
+          description: Get hourly usage for Compliance Monitoring.
+          items:
+            $ref: '#/components/schemas/UsageComplianceHour'
+          type: array
+      type: object
     UsageCustomReportsAttributes:
       description: The response containing attributes for custom reports.
       properties:
@@ -9005,6 +9090,11 @@ components:
             (and were NOT running the Datadog Agent).'
           format: int64
           type: integer
+        heroku_host_count:
+          description: Contains the total number of Heroku dynos reported by the Datadog
+            Agent.
+          format: int64
+          type: integer
         host_count:
           description: 'Contains the total number of billable infrastructure hosts
             reporting during a given hour.
@@ -9021,6 +9111,11 @@ components:
             App Services integration
 
             (and were NOT running the Datadog Agent).'
+          format: int64
+          type: integer
+        opentelemetry_host_count:
+          description: Contains the total number of hosts reported by Datadog exporter
+            for the OpenTelemetry Collector.
           format: int64
           type: integer
       type: object
@@ -9509,6 +9604,14 @@ components:
             current date for all organizations.
           format: int64
           type: integer
+        compliance_container_count_sum:
+          description: Shows the sum of compliance containers over all hours in the
+            current date for all organizations.
+        compliance_host_count_sum:
+          description: Shows the sum of compliance hosts over all hours in the current
+            date for all organizations.
+          format: int64
+          type: integer
         container_avg:
           description: Shows the average of all distinct containers over all hours
             in the current date for all organizations.
@@ -9541,6 +9644,11 @@ components:
         gcp_host_top99p:
           description: Shows the 99th percentile of all GCP hosts over all hours in
             the current date for all organizations.
+          format: int64
+          type: integer
+        heroku_host_top99p_sum:
+          description: Shows the 99th percentile of all Heroku dynos over all hours
+            in the current date for all organizations.
           format: int64
           type: integer
         incident_management_monthly_active_users_hwm:
@@ -9596,6 +9704,12 @@ components:
         npm_host_top99p:
           description: Shows the 99th percentile of all distinct Networks hosts over
             all hours in the current date for all organizations.
+          format: int64
+          type: integer
+        opentelemetry_host_top99p_sum:
+          description: Shows the 99th percentile of all hosts reported by the Datadog
+            exporter for the OpenTelemetry Collector over all hours in the current
+            date for all organizations.
           format: int64
           type: integer
         orgs:
@@ -9683,6 +9797,14 @@ components:
             current date for the given org.
           format: int64
           type: integer
+        compliance_container_agg_sum:
+          description: Shows the sum of all compliance containers over all hours in
+            the current date for the given org.
+        compliance_host_agg_sum:
+          description: Shows the sum of all compliance hosts over all hours in the
+            current date for the given org.
+          format: int64
+          type: integer
         container_avg:
           description: Shows the average of all distinct containers over all hours
             in the current date for the given org.
@@ -9710,6 +9832,11 @@ components:
         gcp_host_top99p:
           description: Shows the 99th percentile of all GCP hosts over all hours in
             the current date for the given org.
+          format: int64
+          type: integer
+        heroku_host_top99p:
+          description: Shows the 99th percentile of all Heroku dynos over all hours
+            in the current date for the given org.
           format: int64
           type: integer
         id:
@@ -9771,6 +9898,12 @@ components:
         npm_host_top99p:
           description: Shows the 99th percentile of all distinct Networks hosts over
             all hours in the current date for the given org.
+          format: int64
+          type: integer
+        opentelemetry_host_top99p:
+          description: Shows the 99th percentile of all hosts reported by the Datadog
+            exporter for the OpenTelemetry Collector over all hours in the current
+            date for the given org.
           format: int64
           type: integer
         profiling_host_top99p:
@@ -9860,6 +9993,14 @@ components:
             current months for all organizations.
           format: int64
           type: integer
+        compliance_container_agg_sum:
+          description: Shows the sum of all compliance containers over all hours in
+            the current months for all organizations.
+        compliance_host_agg_sum:
+          description: Shows the sum of all compliance hosts over all hours in the
+            current months for all organizations.
+          format: int64
+          type: integer
         container_avg_sum:
           description: Shows the average of all distinct containers over all hours
             in the current months for all organizations.
@@ -9893,6 +10034,11 @@ components:
         gcp_host_top99p_sum:
           description: Shows the 99th percentile of all GCP hosts over all hours in
             the current months for all organizations.
+          format: int64
+          type: integer
+        heroku_host_top99p_sum:
+          description: Shows the 99th percentile of all Heroku dynos over all hours
+            in the current months for all organizations.
           format: int64
           type: integer
         incident_management_monthly_active_users_hwm_sum:
@@ -9965,6 +10111,12 @@ components:
         npm_host_top99p_sum:
           description: Shows the 99th percentile of all distinct Networks hosts over
             all hours in the current months for all organizations.
+          format: int64
+          type: integer
+        opentelemetry_host_top99p_sum:
+          description: Shows the 99th percentile of all hosts reported by the Datadog
+            exporter for the OpenTelemetry Collector over all hours in the current
+            months for all organizations.
           format: int64
           type: integer
         profiling_container_agent_count_avg:
@@ -10146,10 +10298,24 @@ components:
           description: Contains the custom metric name.
           type: string
       type: object
+    UsageTopAvgMetricsMetadata:
+      description: The object containing document metadata.
+      properties:
+        day:
+          description: The day value from the user request that contains the returned
+            usage data. (If day was used the request)
+        month:
+          description: The month value from the user request that contains the returned
+            usage data. (If month was used the request)
+        pagination:
+          $ref: '#/components/schemas/UsageAttributionPagination'
+      type: object
     UsageTopAvgMetricsResponse:
       description: Response containing the number of hourly recorded custom metrics
         for a given organization.
       properties:
+        metadata:
+          $ref: '#/components/schemas/UsageTopAvgMetricsMetadata'
         usage:
           description: Number of hourly recorded custom metrics for a given organization.
           items:
@@ -10933,27 +11099,27 @@ components:
       in: header
       name: DD-API-KEY
       type: apiKey
-      x-env-name: DD_CLIENT_API_KEY
+      x-env-name: DD_API_KEY
     apiKeyAuthQuery:
       description: Deprecated API Key as query argument.
       in: query
       name: api_key
       type: apiKey
       x-auth-id-alias: apiKeyAuth
-      x-env-name: DD_CLIENT_API_KEY
+      x-env-name: DD_API_KEY
     appKeyAuth:
       description: Your Datadog APP Key.
       in: header
       name: DD-APPLICATION-KEY
       type: apiKey
-      x-env-name: DD_CLIENT_APP_KEY
+      x-env-name: DD_APP_KEY
     appKeyAuthQuery:
       description: Deprecated APP Key as query argument.
       in: query
       name: application_key
       type: apiKey
       x-auth-id-alias: appKeyAuth
-      x-env-name: DD_CLIENT_APP_KEY
+      x-env-name: DD_APP_KEY
 info:
   contact:
     email: support@datadoghq.com
@@ -14410,6 +14576,16 @@ paths:
         required: false
         schema:
           type: string
+      - description: 'Filter metrics that have been submitted with the given tags.
+          Supports boolean and wildcard expressions.
+
+          Cannot be combined with other filters.'
+        example: env IN (staging,test) AND service:web
+        in: query
+        name: tag_filter
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           content:
@@ -16397,7 +16573,49 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-undo:
+        operationId: TODO
+        parameters: []
+        type: unsafe
   /api/v1/synthetics/tests/api/{public_id}:
+    get:
+      description: 'Get the detailed configuration associated with
+
+        a Synthetic API test.'
+      operationId: GetAPITest
+      parameters:
+      - description: The public ID of the test to get details from.
+        in: path
+        name: public_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyntheticsAPITest'
+          description: OK
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: '- Synthetic Monitoring is not activated for the user
+
+            - Test is not owned by the user'
+      summary: Get an API test
+      tags:
+      - Synthetics
+      x-undo:
+        type: safe
     put:
       description: Edit the configuration of a Synthetic API test.
       operationId: UpdateAPITest
@@ -16494,6 +16712,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-undo:
+        operationId: TODO
+        parameters: []
+        type: unsafe
   /api/v1/synthetics/tests/browser/{public_id}:
     get:
       description: 'Get the detailed configuration (including steps) associated with
@@ -17597,6 +17819,53 @@ paths:
       - Usage Metering
       x-undo:
         type: safe
+  /api/v1/usage/compliance-monitoring:
+    get:
+      description: Get hourly usage for Compliance Monitoring.
+      operationId: GetUsageComplianceMonitoring
+      parameters:
+      - description: 'Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]`
+          for usage beginning at this hour.'
+        in: query
+        name: start_hr
+        required: true
+        schema:
+          format: date-time
+          type: string
+      - description: 'Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]`
+          for usage ending
+
+          **before** this hour.'
+        in: query
+        name: end_hr
+        required: false
+        schema:
+          format: date-time
+          type: string
+      responses:
+        '200':
+          content:
+            application/json;datetime-format=rfc3339:
+              schema:
+                $ref: '#/components/schemas/UsageComplianceResponse'
+          description: OK
+        '400':
+          content:
+            application/json;datetime-format=rfc3339:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json;datetime-format=rfc3339:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden - User is not authorized
+      summary: Get hourly usage for Compliance Monitoring
+      tags:
+      - Usage Metering
+      x-undo:
+        type: safe
   /api/v1/usage/fargate:
     get:
       description: Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
@@ -18447,14 +18716,24 @@ paths:
   /api/v1/usage/top_avg_metrics:
     get:
       description: Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/)
-        by hourly average.
+        by hourly average. Use the month parameter to get a month-to-date data resolution
+        or use the day parameter to get a daily resolution. One of the two is required,
+        and only one of the two is allowed.
       operationId: GetUsageTopAvgMetrics
       parameters:
       - description: 'Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM]
-          for usage beginning at this hour.'
+          for usage beginning at this hour. (Either month or day should be specified,
+          but not both)'
         in: query
         name: month
-        required: true
+        schema:
+          format: date-time
+          type: string
+      - description: 'Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD]
+          for usage beginning at this hour. (Either month or day should be specified,
+          but not both)'
+        in: query
+        name: day
         schema:
           format: date-time
           type: string

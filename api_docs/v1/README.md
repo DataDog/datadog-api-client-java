@@ -126,6 +126,7 @@ Class | Method | HTTP request | Description
 *SyntheticsApi* | [**deletePrivateLocation**](SyntheticsApi.md#deletePrivateLocation) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 *SyntheticsApi* | [**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 *SyntheticsApi* | [**editGlobalVariable**](SyntheticsApi.md#editGlobalVariable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
+*SyntheticsApi* | [**getAPITest**](SyntheticsApi.md#getAPITest) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test
 *SyntheticsApi* | [**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
 *SyntheticsApi* | [**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
 *SyntheticsApi* | [**getBrowserTest**](SyntheticsApi.md#getBrowserTest) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
@@ -157,6 +158,7 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 *UsageMeteringApi* | [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 *UsageMeteringApi* | [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
+*UsageMeteringApi* | [**getUsageComplianceMonitoring**](UsageMeteringApi.md#getUsageComplianceMonitoring) | **GET** /api/v1/usage/compliance-monitoring | Get hourly usage for Compliance Monitoring
 *UsageMeteringApi* | [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *UsageMeteringApi* | [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *UsageMeteringApi* | [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -558,6 +560,7 @@ Class | Method | HTTP request | Description
  - [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
  - [TimeseriesWidgetDefinitionType](TimeseriesWidgetDefinitionType.md)
  - [TimeseriesWidgetExpressionAlias](TimeseriesWidgetExpressionAlias.md)
+ - [TimeseriesWidgetLegendColumn](TimeseriesWidgetLegendColumn.md)
  - [TimeseriesWidgetLegendLayout](TimeseriesWidgetLegendLayout.md)
  - [TimeseriesWidgetRequest](TimeseriesWidgetRequest.md)
  - [ToplistWidgetDefinition](ToplistWidgetDefinition.md)
@@ -576,6 +579,8 @@ Class | Method | HTTP request | Description
  - [UsageBillableSummaryHour](UsageBillableSummaryHour.md)
  - [UsageBillableSummaryKeys](UsageBillableSummaryKeys.md)
  - [UsageBillableSummaryResponse](UsageBillableSummaryResponse.md)
+ - [UsageComplianceHour](UsageComplianceHour.md)
+ - [UsageComplianceResponse](UsageComplianceResponse.md)
  - [UsageCustomReportsAttributes](UsageCustomReportsAttributes.md)
  - [UsageCustomReportsData](UsageCustomReportsData.md)
  - [UsageCustomReportsMeta](UsageCustomReportsMeta.md)
@@ -630,6 +635,7 @@ Class | Method | HTTP request | Description
  - [UsageTimeseriesHour](UsageTimeseriesHour.md)
  - [UsageTimeseriesResponse](UsageTimeseriesResponse.md)
  - [UsageTopAvgMetricsHour](UsageTopAvgMetricsHour.md)
+ - [UsageTopAvgMetricsMetadata](UsageTopAvgMetricsMetadata.md)
  - [UsageTopAvgMetricsResponse](UsageTopAvgMetricsResponse.md)
  - [UsageTraceHour](UsageTraceHour.md)
  - [UsageTraceResponse](UsageTraceResponse.md)

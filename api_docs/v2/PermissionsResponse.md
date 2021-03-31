@@ -3,6 +3,7 @@
 # PermissionsResponse
 
 Payload with API-returned permissions.
+
 ## Properties
 
 Name | Type | Description | Notes

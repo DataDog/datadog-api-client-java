@@ -127,14 +127,18 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Notification message associated with the test.
+   * Notification message associated with the test. Message can either be text or an empty string.
    *
    * @return message
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Notification message associated with the test.")
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value =
+          "Notification message associated with the test. Message can either be text or an empty"
+              + " string.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
     return message;
   }

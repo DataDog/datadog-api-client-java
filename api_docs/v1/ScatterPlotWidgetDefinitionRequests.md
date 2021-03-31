@@ -3,6 +3,7 @@
 # ScatterPlotWidgetDefinitionRequests
 
 Widget definition.
+
 ## Properties
 
 Name | Type | Description | Notes

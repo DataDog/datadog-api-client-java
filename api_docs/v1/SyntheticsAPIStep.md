@@ -3,6 +3,7 @@
 # SyntheticsAPIStep
 
 The steps used in a Synthetics multistep API test.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -29,6 +29,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
+  SyntheticsTestRequest.JSON_PROPERTY_NO_SAVING_RESPONSE_BODY,
   SyntheticsTestRequest.JSON_PROPERTY_PORT,
   SyntheticsTestRequest.JSON_PROPERTY_QUERY,
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
@@ -56,6 +57,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_METHOD = "method";
   private HTTPMethod method;
+
+  public static final String JSON_PROPERTY_NO_SAVING_RESPONSE_BODY = "noSavingResponseBody";
+  private Boolean noSavingResponseBody;
 
   public static final String JSON_PROPERTY_PORT = "port";
   private Long port;
@@ -231,6 +235,28 @@ public class SyntheticsTestRequest {
     this.method = method;
   }
 
+  public SyntheticsTestRequest noSavingResponseBody(Boolean noSavingResponseBody) {
+    this.noSavingResponseBody = noSavingResponseBody;
+    return this;
+  }
+
+  /**
+   * Determines whether or not to save the response body.
+   *
+   * @return noSavingResponseBody
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Determines whether or not to save the response body.")
+  @JsonProperty(JSON_PROPERTY_NO_SAVING_RESPONSE_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getNoSavingResponseBody() {
+    return noSavingResponseBody;
+  }
+
+  public void setNoSavingResponseBody(Boolean noSavingResponseBody) {
+    this.noSavingResponseBody = noSavingResponseBody;
+  }
+
   public SyntheticsTestRequest port(Long port) {
     this.port = port;
     return this;
@@ -336,6 +362,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
         && Objects.equals(this.method, syntheticsTestRequest.method)
+        && Objects.equals(this.noSavingResponseBody, syntheticsTestRequest.noSavingResponseBody)
         && Objects.equals(this.port, syntheticsTestRequest.port)
         && Objects.equals(this.query, syntheticsTestRequest.query)
         && Objects.equals(this.timeout, syntheticsTestRequest.timeout)
@@ -345,7 +372,18 @@ public class SyntheticsTestRequest {
   @Override
   public int hashCode() {
     return Objects.hash(
-        basicAuth, body, certificate, dnsServer, headers, host, method, port, query, timeout, url);
+        basicAuth,
+        body,
+        certificate,
+        dnsServer,
+        headers,
+        host,
+        method,
+        noSavingResponseBody,
+        port,
+        query,
+        timeout,
+        url);
   }
 
   @Override
@@ -359,6 +397,9 @@ public class SyntheticsTestRequest {
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
+    sb.append("    noSavingResponseBody: ")
+        .append(toIndentedString(noSavingResponseBody))
+        .append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");

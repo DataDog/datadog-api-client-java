@@ -1061,6 +1061,110 @@ public class SyntheticsApi {
     return new APIeditGlobalVariableRequest(variableId);
   }
 
+  private ApiResponse<SyntheticsAPITest> getAPITestWithHttpInfo(String publicId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling getAPITest");
+    }
+
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/synthetics/tests/api/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getAPITest");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SyntheticsAPITest> localVarReturnType = new GenericType<SyntheticsAPITest>() {};
+
+    return apiClient.invokeAPI(
+        "SyntheticsApi.getAPITest",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  public class APIgetAPITestRequest {
+    private String publicId;
+
+    private APIgetAPITestRequest(String publicId) {
+      this.publicId = publicId;
+    }
+
+    /**
+     * Execute getAPITest request
+     *
+     * @return SyntheticsAPITest
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+     * </table>
+     */
+    public SyntheticsAPITest execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getAPITest request with HTTP info returned
+     *
+     * @return ApiResponse&lt;SyntheticsAPITest&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<SyntheticsAPITest> executeWithHttpInfo() throws ApiException {
+      return getAPITestWithHttpInfo(publicId);
+    }
+  }
+
+  /**
+   * Get an API test Get the detailed configuration associated with a Synthetic API test.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return getAPITestRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIgetAPITestRequest getAPITest(String publicId) throws ApiException {
+    return new APIgetAPITestRequest(publicId);
+  }
+
   private ApiResponse<SyntheticsGetAPITestLatestResultsResponse>
       getAPITestLatestResultsWithHttpInfo(
           String publicId, Long fromTs, Long toTs, List<String> probeDc) throws ApiException {

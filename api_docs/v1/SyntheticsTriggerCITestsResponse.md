@@ -3,6 +3,7 @@
 # SyntheticsTriggerCITestsResponse
 
 Object containing information about the tests triggered.
+
 ## Properties
 
 Name | Type | Description | Notes

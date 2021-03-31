@@ -3,6 +3,7 @@
 # ProcessSummaryAttributes
 
 Attributes for a process summary.
+
 ## Properties
 
 Name | Type | Description | Notes

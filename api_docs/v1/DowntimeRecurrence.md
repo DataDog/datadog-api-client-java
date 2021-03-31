@@ -3,6 +3,7 @@
 # DowntimeRecurrence
 
 An object defining the recurrence of the downtime.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -19,6 +19,8 @@ public enum FormulaAndFunctionEventAggregation {
 
   CARDINALITY("cardinality"),
 
+  MEDIAN("median"),
+
   PC75("pc75"),
 
   PC90("pc90"),
