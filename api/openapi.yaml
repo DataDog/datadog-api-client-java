@@ -11227,6 +11227,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           disabled: true
           handle: handle
+          modified_at: 2000-01-23T04:56:07.000+00:00
           title: title
           email: email
           status: status
@@ -11252,6 +11253,7 @@ components:
         created_at: 2000-01-23T04:56:07.000+00:00
         disabled: true
         handle: handle
+        modified_at: 2000-01-23T04:56:07.000+00:00
         title: title
         email: email
         status: status
@@ -11271,6 +11273,10 @@ components:
           type: string
         icon:
           description: URL of the user's icon.
+          type: string
+        modified_at:
+          description: Time that the user was last modified.
+          format: date-time
           type: string
         name:
           description: Name of the user.
@@ -11516,6 +11522,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             disabled: true
             handle: handle
+            modified_at: 2000-01-23T04:56:07.000+00:00
             title: title
             email: email
             status: status
@@ -11649,6 +11656,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             disabled: true
             handle: handle
+            modified_at: 2000-01-23T04:56:07.000+00:00
             title: title
             email: email
             status: status
@@ -11676,6 +11684,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             disabled: true
             handle: handle
+            modified_at: 2000-01-23T04:56:07.000+00:00
             title: title
             email: email
             status: status
