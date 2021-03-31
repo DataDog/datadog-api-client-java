@@ -1,0 +1,85 @@
+[{
+  "id" : "1a41d172-1000-4d99-bd7d-d3292746ee13",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/dashboard",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes" ],
+      "DD-OPERATION-ID" : [ "createDashboard" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"is_read_only\":false,\"layout_type\":\"ordered\",\"title\":\"java-Create_a_new_dashboa-1617190643 with timeseries widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"on_right_yaxis\":false,\"q\":\"sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"warm\"}}],\"type\":\"timeseries\"}}]}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Wed, 31 Mar 2021 11:37:27 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4208004" ],
+      "x-dd-debug" : [ "twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "759" ]
+    },
+    "body" : "{\"notify_list\":null,\"description\":null,\"author_name\":\"CI Account\",\"template_variables\":null,\"is_read_only\":false,\"id\":\"xxj-jvs-ihx\",\"title\":\"java-Create_a_new_dashboa-1617190643 with timeseries widget\",\"url\":\"/dashboard/xxj-jvs-ihx/java-createanewdashboa-1617190643-with-timeseries-widget\",\"created_at\":\"2021-03-31T11:37:27.702307+00:00\",\"modified_at\":\"2021-03-31T11:37:27.702307+00:00\",\"author_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"widgets\":[{\"definition\":{\"requests\":[{\"q\":\"sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()\",\"on_right_yaxis\":false,\"style\":{\"line_width\":\"normal\",\"palette\":\"warm\",\"line_type\":\"solid\"},\"display_type\":\"bars\"}],\"type\":\"timeseries\"},\"id\":7260052607862111}],\"layout_type\":\"ordered\"}"
+  }
+}, {
+  "id" : "61dde9df-2ae3-46a1-b356-c2e3be7c58fa",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/dashboard/xxj-jvs-ihx",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes" ],
+      "DD-OPERATION-ID" : [ "deleteDashboard" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Wed, 31 Mar 2021 11:37:28 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4208004" ],
+      "x-dd-debug" : [ "HbtaOKlJ6OCrx9tMXO6ivMTrEM+g0c93HDp08trmOmgdHozC5J+vn10F0H4WPjCU" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "38" ]
+    },
+    "body" : "{\"deleted_dashboard_id\":\"xxj-jvs-ihx\"}"
+  }
+}]
