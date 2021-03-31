@@ -26,6 +26,7 @@ import java.util.Objects;
   UserAttributes.JSON_PROPERTY_EMAIL,
   UserAttributes.JSON_PROPERTY_HANDLE,
   UserAttributes.JSON_PROPERTY_ICON,
+  UserAttributes.JSON_PROPERTY_MODIFIED_AT,
   UserAttributes.JSON_PROPERTY_NAME,
   UserAttributes.JSON_PROPERTY_STATUS,
   UserAttributes.JSON_PROPERTY_TITLE,
@@ -47,6 +48,9 @@ public class UserAttributes {
 
   public static final String JSON_PROPERTY_ICON = "icon";
   private String icon;
+
+  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+  private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -170,6 +174,28 @@ public class UserAttributes {
     this.icon = icon;
   }
 
+  public UserAttributes modifiedAt(OffsetDateTime modifiedAt) {
+    this.modifiedAt = modifiedAt;
+    return this;
+  }
+
+  /**
+   * Time that the user was last modified.
+   *
+   * @return modifiedAt
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Time that the user was last modified.")
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
+  public void setModifiedAt(OffsetDateTime modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
+
   public UserAttributes name(String name) {
     this.name = name;
     return this;
@@ -273,6 +299,7 @@ public class UserAttributes {
         && Objects.equals(this.email, userAttributes.email)
         && Objects.equals(this.handle, userAttributes.handle)
         && Objects.equals(this.icon, userAttributes.icon)
+        && Objects.equals(this.modifiedAt, userAttributes.modifiedAt)
         && Objects.equals(this.name, userAttributes.name)
         && Objects.equals(this.status, userAttributes.status)
         && Objects.equals(this.title, userAttributes.title)
@@ -281,7 +308,8 @@ public class UserAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, disabled, email, handle, icon, name, status, title, verified);
+    return Objects.hash(
+        createdAt, disabled, email, handle, icon, modifiedAt, name, status, title, verified);
   }
 
   @Override
@@ -293,6 +321,7 @@ public class UserAttributes {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
