@@ -1430,7 +1430,7 @@ public class SyntheticsApi {
     return new APIgetAPITestResultRequest(publicId, resultId);
   }
 
-  private ApiResponse<SyntheticsTestDetails> getBrowserTestWithHttpInfo(String publicId)
+  private ApiResponse<SyntheticsBrowserTest> getBrowserTestWithHttpInfo(String publicId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -1463,8 +1463,8 @@ public class SyntheticsApi {
 
     String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<SyntheticsTestDetails> localVarReturnType =
-        new GenericType<SyntheticsTestDetails>() {};
+    GenericType<SyntheticsBrowserTest> localVarReturnType =
+        new GenericType<SyntheticsBrowserTest>() {};
 
     return apiClient.invokeAPI(
         "SyntheticsApi.getBrowserTest",
@@ -1492,7 +1492,7 @@ public class SyntheticsApi {
     /**
      * Execute getBrowserTest request
      *
-     * @return SyntheticsTestDetails
+     * @return SyntheticsBrowserTest
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table summary="Response Details" border="1">
@@ -1502,14 +1502,14 @@ public class SyntheticsApi {
      * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
      * </table>
      */
-    public SyntheticsTestDetails execute() throws ApiException {
+    public SyntheticsBrowserTest execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute getBrowserTest request with HTTP info returned
      *
-     * @return ApiResponse&lt;SyntheticsTestDetails&gt;
+     * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
      *     <table summary="Response Details" border="1">
@@ -1519,7 +1519,7 @@ public class SyntheticsApi {
      * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
+    public ApiResponse<SyntheticsBrowserTest> executeWithHttpInfo() throws ApiException {
       return getBrowserTestWithHttpInfo(publicId);
     }
   }
