@@ -74,7 +74,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
   @After
   public void cleanup() {
     try {
-      api.deleteGCPIntegration().body(uniqueGCPAccount).execute();
+      api.deleteGCPIntegration(uniqueGCPAccount);
     } catch (ApiException e) {
       System.out.printf(
           "Couldn't uninstall GCP account %s, may have been removed as part of another test",
@@ -82,7 +82,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
       e.printStackTrace();
     }
     try {
-      api.deleteGCPIntegration().body(uniqueUpdateGCPAccount).execute();
+      api.deleteGCPIntegration(uniqueUpdateGCPAccount);
     } catch (ApiException e) {
       System.out.printf(
           "Couldn't uninstall GCP account %s, may have been removed as part of another test",
@@ -120,7 +120,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
    */
   @Test
   public void createGCPIntegrationTest() throws ApiException {
-    Object response = api.createGCPIntegration().body(uniqueGCPAccount).execute();
+    Object response = api.createGCPIntegration(uniqueGCPAccount);
     assertEquals(response, new java.util.LinkedHashMap<>());
   }
 
@@ -137,9 +137,9 @@ public class GcpIntegrationApiTest extends V1ApiTest {
   @Test
   public void listAndDeleteGCPIntegrationTest() throws ApiException {
     // Setup Gcp Account to List
-    api.createGCPIntegration().body(uniqueGCPAccount).execute();
+    api.createGCPIntegration(uniqueGCPAccount);
 
-    List<GCPAccount> listAccounts = api.listGCPIntegration().execute();
+    List<GCPAccount> listAccounts = api.listGCPIntegration();
     GCPAccount retrievedAccount =
         retrieveAccountInList(listAccounts, uniqueGCPAccount.getProjectId());
 
@@ -149,8 +149,8 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     assertTrue(listAccounts.size() >= 1);
 
     // Test account deletion as well
-    api.deleteGCPIntegration().body(uniqueGCPAccount).execute();
-    listAccounts = api.listGCPIntegration().execute();
+    api.deleteGCPIntegration(uniqueGCPAccount);
+    listAccounts = api.listGCPIntegration();
     retrievedAccount = retrieveAccountInList(listAccounts, uniqueGCPAccount.getProjectId());
     assertEquals(new GCPAccount(), retrievedAccount);
   }
@@ -175,10 +175,10 @@ public class GcpIntegrationApiTest extends V1ApiTest {
   @Test
   public void updateGCPIntegrationTest() throws ApiException {
     // Setup Gcp Account to Update
-    api.createGCPIntegration().body(uniqueGCPAccount).execute();
-    api.updateGCPIntegration().body(uniqueUpdateGCPAccount).execute();
+    api.createGCPIntegration(uniqueGCPAccount);
+    api.updateGCPIntegration(uniqueUpdateGCPAccount);
 
-    List<GCPAccount> listAccounts = api.listGCPIntegration().execute();
+    List<GCPAccount> listAccounts = api.listGCPIntegration();
     GCPAccount retrievedAccount =
         retrieveAccountInList(listAccounts, uniqueUpdateGCPAccount.getProjectId());
     assertEquals(retrievedAccount.getAutomute(), true);
@@ -203,7 +203,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     // the case on test org
     // and it can't be done through the API
     try {
-      unitApi.listGCPIntegration().execute();
+      unitApi.listGCPIntegration();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -215,7 +215,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
   @Test
   public void gCPListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listGCPIntegration().execute();
+      fakeAuthApi.listGCPIntegration();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -227,7 +227,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
   @Test
   public void gCPCreateErrorsTest() throws IOException {
     try {
-      api.createGCPIntegration().body(new GCPAccount()).execute();
+      api.createGCPIntegration(new GCPAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -236,7 +236,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createGCPIntegration().body(new GCPAccount()).execute();
+      fakeAuthApi.createGCPIntegration(new GCPAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -248,7 +248,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
   @Test
   public void gCPDeleteErrorsTest() throws IOException {
     try {
-      api.deleteGCPIntegration().body(new GCPAccount()).execute();
+      api.deleteGCPIntegration(new GCPAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -257,7 +257,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.deleteGCPIntegration().body(new GCPAccount()).execute();
+      fakeAuthApi.deleteGCPIntegration(new GCPAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -269,7 +269,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
   @Test
   public void gCPUpdateErrorsTest() throws IOException {
     try {
-      api.updateGCPIntegration().body(new GCPAccount()).execute();
+      api.updateGCPIntegration(new GCPAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -278,7 +278,7 @@ public class GcpIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateGCPIntegration().body(new GCPAccount()).execute();
+      fakeAuthApi.updateGCPIntegration(new GCPAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
