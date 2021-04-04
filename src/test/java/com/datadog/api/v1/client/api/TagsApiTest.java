@@ -95,14 +95,17 @@ public class TagsApiTest extends V1ApiTest {
     // test methods
     HostTags hostTags = new HostTags().tags(new ArrayList<String>());
     hostTags.addTagsItem(commonHostTag);
-    HostTags addTagsResp = api.createHostTags(hostname, hostTags, api.new CreateHostTagsParameters().source("datadog"));
+    HostTags addTagsResp =
+        api.createHostTags(
+            hostname, hostTags, api.new CreateHostTagsParameters().source("datadog"));
 
     // Confirm we can add host tags
     assertEquals(hostname, addTagsResp.getHost());
     assertEquals(hostTags.getTags(), addTagsResp.getTags());
 
     // Confirm we can get host tags
-    HostTags getTagsResp = api.getHostTags(hostname, api.new GetHostTagsParameters().source("datadog"));
+    HostTags getTagsResp =
+        api.getHostTags(hostname, api.new GetHostTagsParameters().source("datadog"));
     assertEquals(hostTags.getTags(), getTagsResp.getTags());
 
     // Test getting tags for an unknown source
@@ -116,7 +119,8 @@ public class TagsApiTest extends V1ApiTest {
         () -> {
           MetricsListResponse metrics;
           try {
-            TagToHosts hostTagsResp = api.listHostTags(api.new ListHostTagsParameters().source("datadog"));
+            TagToHosts hostTagsResp =
+                api.listHostTags(api.new ListHostTagsParameters().source("datadog"));
             return hostTagsResp.getTags().containsKey(commonHostTag);
           } catch (ApiException e) {
             System.out.println(String.format("Error getting list of host tags: %s", e));
@@ -133,7 +137,8 @@ public class TagsApiTest extends V1ApiTest {
     updatedHostTags.addTagsItem("foo:bar");
     updatedHostTags.addTagsItem("toto:tata");
     HostTags updateTagsResp =
-        api.updateHostTags(hostname, updatedHostTags, api.new UpdateHostTagsParameters().source("datadog"));
+        api.updateHostTags(
+            hostname, updatedHostTags, api.new UpdateHostTagsParameters().source("datadog"));
     assertEquals(updatedHostTags.getTags(), updateTagsResp.getTags());
     assertEquals(hostname, updateTagsResp.getHost());
 

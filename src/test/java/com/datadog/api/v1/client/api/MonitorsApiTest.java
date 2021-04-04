@@ -251,8 +251,8 @@ public class MonitorsApiTest extends V1ApiTest {
 
     // Delete synthetics test
     try {
-      syntheticsApi
-          .deleteTests(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(synt.getPublicId())));
+      syntheticsApi.deleteTests(
+          new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(synt.getPublicId())));
     } catch (ApiException e) {
       if (e.getCode() == 404) {
         // doesn't exist => ok
@@ -395,7 +395,8 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getMonitor(new Long(1234), api.new GetMonitorParameters().groupStates("notagroupstate"));
+      fakeAuthApi.getMonitor(
+          new Long(1234), api.new GetMonitorParameters().groupStates("notagroupstate"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

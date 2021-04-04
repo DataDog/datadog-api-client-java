@@ -89,7 +89,7 @@ public class MetricsApiTest extends V1ApiTest {
         () -> {
           MetricsListResponse metrics;
           try {
-            metrics = api.listActiveMetrics().from(nowSeconds).execute();
+            metrics = api.listActiveMetrics(nowSeconds);
           } catch (ApiException e) {
             System.out.println(String.format("Error getting list of active metrics: %s", e));
             return false;
@@ -106,7 +106,7 @@ public class MetricsApiTest extends V1ApiTest {
 
     // Test query
     MetricsQueryResponse queryResult =
-        api.queryMetrics().from(nowSeconds - 100).to(nowSeconds + 100).query(testQuery).execute();
+        api.queryMetrics(nowSeconds - 100, nowSeconds + 100, testQuery);
     assertEquals(1, queryResult.getGroupBy().size());
     assertEquals("host", queryResult.getGroupBy().get(0));
     assertEquals(testQuery, queryResult.getQuery());
@@ -127,13 +127,13 @@ public class MetricsApiTest extends V1ApiTest {
 
     // Test search
     String searchQuery = String.format("metrics:%s", testMetric);
-    MetricSearchResponse searchResult = api.listMetrics().q(searchQuery).execute();
+    MetricSearchResponse searchResult = api.listMetrics(searchQuery);
     List<String> metrics = searchResult.getResults().getMetrics();
     assertEquals(1, metrics.size());
     assertEquals(testMetric, metrics.get(0));
 
     // Test metric metadata
-    MetricMetadata metadata = api.getMetricMetadata(testMetric).execute();
+    MetricMetadata metadata = api.getMetricMetadata(testMetric);
     assertNull(metadata.getDescription());
     assertNull(metadata.getIntegration());
     assertNull(metadata.getPerUnit());
@@ -150,7 +150,7 @@ public class MetricsApiTest extends V1ApiTest {
             .shortName("short_name")
             .statsdInterval(20L)
             .type("count");
-    metadata = api.updateMetricMetadata(testMetric).body(newMetadata).execute();
+    metadata = api.updateMetricMetadata(testMetric, newMetadata);
     assertEquals("description", metadata.getDescription());
     assertNull(metadata.getIntegration());
     assertEquals("second", metadata.getPerUnit());
@@ -172,7 +172,8 @@ public class MetricsApiTest extends V1ApiTest {
             .withQueryParam("from", equalTo("1"))
             .withQueryParam("host", equalTo("host"))
             .willReturn(okJson(expectedJSON)));
-    MetricsListResponse r = unitApi.listActiveMetrics().from(1L).host("host").execute();
+    MetricsListResponse r =
+        unitApi.listActiveMetrics(1L, api.new ListActiveMetricsParameters().host("host"));
 
     assertEquals(expected, r);
   }
@@ -183,7 +184,7 @@ public class MetricsApiTest extends V1ApiTest {
     stubFor(get(urlPathEqualTo(apiUri)).willReturn(okJson(fixtureData).withStatus(400)));
     // Error 400 cannot be triggered from the client due to client side validation, so mock it
     try {
-      unitApi.listActiveMetrics().from(new Long(-1)).execute();
+      unitApi.listActiveMetrics(new Long(-1));
       throw new AssertionError();
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -195,7 +196,7 @@ public class MetricsApiTest extends V1ApiTest {
   @Test
   public void metricsListActiveErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listActiveMetrics().from(new Long(-1)).execute();
+      fakeAuthApi.listActiveMetrics(new Long(-1));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -207,7 +208,7 @@ public class MetricsApiTest extends V1ApiTest {
   @Test
   public void metricsMetadataGetErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getMetricMetadata("ametric").execute();
+      fakeAuthApi.getMetricMetadata("ametric");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -216,7 +217,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     try {
-      api.getMetricMetadata("ametric").execute();
+      api.getMetricMetadata("ametric");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -233,7 +234,7 @@ public class MetricsApiTest extends V1ApiTest {
     //         Error 400 cannot be triggered from the client due to client side validation, so mock
     // it
     try {
-      unitApi.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
+      unitApi.updateMetricMetadata("ametric", new MetricMetadata());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -245,7 +246,7 @@ public class MetricsApiTest extends V1ApiTest {
   @Test
   public void metricsMetadataUpdateErrorsTest() throws IOException {
     try {
-      fakeAuthApi.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
+      fakeAuthApi.updateMetricMetadata("ametric", new MetricMetadata());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -254,7 +255,7 @@ public class MetricsApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateMetricMetadata("ametric").body(new MetricMetadata()).execute();
+      api.updateMetricMetadata("ametric", new MetricMetadata());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -269,7 +270,7 @@ public class MetricsApiTest extends V1ApiTest {
     stubFor(get(urlPathEqualTo("/api/v1/search")).willReturn(okJson(fixtureData).withStatus(400)));
     // Error 400 cannot be triggered from the client due to client side validation, so mock it
     try {
-      unitApi.listMetrics().q("").execute();
+      unitApi.listMetrics("");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -281,7 +282,7 @@ public class MetricsApiTest extends V1ApiTest {
   @Test
   public void metricsListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listMetrics().q("somequery").execute();
+      fakeAuthApi.listMetrics("somequery");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -296,7 +297,7 @@ public class MetricsApiTest extends V1ApiTest {
     stubFor(get(urlPathEqualTo("/api/v1/query")).willReturn(okJson(fixtureData).withStatus(400)));
     // Error 400 cannot be triggered from the client due to client side validation, so mock it
     try {
-      unitApi.queryMetrics().query("").from(new Long(9)).to(new Long(9)).execute();
+      unitApi.queryMetrics(new Long(9), new Long(9), "");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -308,7 +309,7 @@ public class MetricsApiTest extends V1ApiTest {
   @Test
   public void metricsQueryErrorsTest() throws IOException {
     try {
-      fakeAuthApi.queryMetrics().query("").from(new Long(9)).to(new Long(9)).execute();
+      fakeAuthApi.queryMetrics(new Long(9), new Long(9), "");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

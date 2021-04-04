@@ -85,8 +85,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     // Edit the dashboard list
     DashboardList editedDashboardList =
         new DashboardList().name(getUniqueEntityName() + "-updated");
-    dashboardList =
-        api.updateDashboardList(dashboardList.getId(), editedDashboardList);
+    dashboardList = api.updateDashboardList(dashboardList.getId(), editedDashboardList);
     assertEquals(dashboardList.getName(), editedDashboardList.getName());
 
     // Get all dashboard lists

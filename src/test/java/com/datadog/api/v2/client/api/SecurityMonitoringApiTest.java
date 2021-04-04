@@ -104,15 +104,15 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     // get single rule
     SecurityMonitoringRuleResponse createdRule = ruleCreateResponses.get(0);
-    SecurityMonitoringRuleResponse fetchedRule =
-        api.getSecurityMonitoringRule(createdRule.getId());
+    SecurityMonitoringRuleResponse fetchedRule = api.getSecurityMonitoringRule(createdRule.getId());
     assertEquals(createdRule, fetchedRule);
 
     //// get all rules
     // get total count
     long pageSize = 1L;
     SecurityMonitoringListRulesResponse getCountResponse =
-        api.listSecurityMonitoringRules(api.new ListSecurityMonitoringRulesParameters().pageSize(pageSize).pageNumber(0L));
+        api.listSecurityMonitoringRules(
+            api.new ListSecurityMonitoringRulesParameters().pageSize(pageSize).pageNumber(0L));
     long ruleCount = getCountResponse.getMeta().getPage().getTotalCount();
     assertTrue(ruleCount > 5);
     assertEquals(
@@ -122,7 +122,8 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     // created rules are in all rules
     SecurityMonitoringListRulesResponse getAllRules =
-        api.listSecurityMonitoringRules(api.new ListSecurityMonitoringRulesParameters().pageSize(ruleCount));
+        api.listSecurityMonitoringRules(
+            api.new ListSecurityMonitoringRulesParameters().pageSize(ruleCount));
     // this could be flaky if another test is run at the same time
     // assertEquals(ruleCount, getAllRules.getData().size());
     Set<String> ids =
@@ -137,10 +138,12 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     // paging
     SecurityMonitoringListRulesResponse firstPage =
-        api.listSecurityMonitoringRules(api.new ListSecurityMonitoringRulesParameters().pageSize(2L).pageNumber(0L));
+        api.listSecurityMonitoringRules(
+            api.new ListSecurityMonitoringRulesParameters().pageSize(2L).pageNumber(0L));
     assertEquals(2, firstPage.getData().size());
     SecurityMonitoringListRulesResponse secondPage =
-        api.listSecurityMonitoringRules(api.new ListSecurityMonitoringRulesParameters().pageSize(2L).pageNumber(1L));
+        api.listSecurityMonitoringRules(
+            api.new ListSecurityMonitoringRulesParameters().pageSize(2L).pageNumber(1L));
     assertEquals(2, secondPage.getData().size());
 
     Set<String> firstPageIds =
@@ -158,15 +161,16 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
     //// update rule
     SecurityMonitoringRuleResponse updatedRule =
-        api.updateSecurityMonitoringRule(createdRule.getId(),
-                new SecurityMonitoringRuleUpdatePayload()
-                    .name(createdRule.getName())
-                    .isEnabled(false)
-                    .queries(createdRule.getQueries())
-                    .options(createdRule.getOptions())
-                    .cases(createdRule.getCases())
-                    .message(createdRule.getMessage())
-                    .tags(createdRule.getTags()));
+        api.updateSecurityMonitoringRule(
+            createdRule.getId(),
+            new SecurityMonitoringRuleUpdatePayload()
+                .name(createdRule.getName())
+                .isEnabled(false)
+                .queries(createdRule.getQueries())
+                .options(createdRule.getOptions())
+                .cases(createdRule.getCases())
+                .message(createdRule.getMessage())
+                .tags(createdRule.getTags()));
     assertEquals(createdRule.getName(), updatedRule.getName());
     assertEquals(false, updatedRule.getIsEnabled());
 
@@ -210,7 +214,8 @@ public class SecurityMonitoringApiTest extends V2APITest {
         () -> {
           try {
             SecurityMonitoringSignalsListResponse response =
-                api.searchSecurityMonitoringSignals(api.new SearchSecurityMonitoringSignalsParameters().body(bothSignalsRequest));
+                api.searchSecurityMonitoringSignals(
+                    api.new SearchSecurityMonitoringSignalsParameters().body(bothSignalsRequest));
             return response.getData() != null && response.getData().size() == 2;
           } catch (ApiException ignored) {
             return false;
@@ -227,10 +232,11 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             responseAscending.set(
                 api.searchSecurityMonitoringSignals(
-                    api.new SearchSecurityMonitoringSignalsParameters().body(
-                        new SecurityMonitoringSignalListRequest()
-                            .filter(allSignalsFilter)
-                            .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING))));
+                    api.new SearchSecurityMonitoringSignalsParameters()
+                        .body(
+                            new SecurityMonitoringSignalListRequest()
+                                .filter(allSignalsFilter)
+                                .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING))));
 
             return responseAscending.get().getData() != null
                 && responseAscending.get().getData().size() >= 2;
@@ -254,10 +260,11 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             responseDescending.set(
                 api.searchSecurityMonitoringSignals(
-                    api.new SearchSecurityMonitoringSignalsParameters().body(
-                        new SecurityMonitoringSignalListRequest()
-                            .filter(allSignalsFilter)
-                            .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING))));
+                    api.new SearchSecurityMonitoringSignalsParameters()
+                        .body(
+                            new SecurityMonitoringSignalListRequest()
+                                .filter(allSignalsFilter)
+                                .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING))));
 
             return responseDescending.get().getData() != null
                 && responseDescending.get().getData().size() >= 2;
@@ -281,10 +288,11 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             pageOneResponse.set(
                 api.searchSecurityMonitoringSignals(
-                    api.new SearchSecurityMonitoringSignalsParameters().body(
-                        new SecurityMonitoringSignalListRequest()
-                            .filter(allSignalsFilter)
-                            .page(new SecurityMonitoringSignalListRequestPage().limit(1)))));
+                    api.new SearchSecurityMonitoringSignalsParameters()
+                        .body(
+                            new SecurityMonitoringSignalListRequest()
+                                .filter(allSignalsFilter)
+                                .page(new SecurityMonitoringSignalListRequestPage().limit(1)))));
 
             if (pageOneResponse.get().getData() == null
                 || pageOneResponse.get().getData().size() < 1) {
@@ -293,13 +301,15 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
             pageTwoResponse.set(
                 api.searchSecurityMonitoringSignals(
-                    api.new SearchSecurityMonitoringSignalsParameters().body(
-                        new SecurityMonitoringSignalListRequest()
-                            .filter(allSignalsFilter)
-                            .page(
-                                new SecurityMonitoringSignalListRequestPage()
-                                    .cursor(pageOneResponse.get().getMeta().getPage().getAfter())
-                                    .limit(1)))));
+                    api.new SearchSecurityMonitoringSignalsParameters()
+                        .body(
+                            new SecurityMonitoringSignalListRequest()
+                                .filter(allSignalsFilter)
+                                .page(
+                                    new SecurityMonitoringSignalListRequestPage()
+                                        .cursor(
+                                            pageOneResponse.get().getMeta().getPage().getAfter())
+                                        .limit(1)))));
             return pageTwoResponse.get().getData() != null
                 && pageTwoResponse.get().getData().size() >= 1;
           } catch (ApiException ignored) {
@@ -334,10 +344,10 @@ public class SecurityMonitoringApiTest extends V2APITest {
             SecurityMonitoringSignalsListResponse response =
                 api.listSecurityMonitoringSignals(
                     api.new ListSecurityMonitoringSignalsParameters()
-		    .filterQuery(uniqueName)
-                    .filterFrom(now.minus(Duration.ofHours(1)))
-                    .filterTo(now.plus(Duration.ofHours(1)))
-                    .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING));
+                        .filterQuery(uniqueName)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING));
             return response.getData() != null && response.getData().size() == 2;
           } catch (ApiException ignored) {
             return false;
@@ -355,10 +365,10 @@ public class SecurityMonitoringApiTest extends V2APITest {
             responseAscending.set(
                 api.listSecurityMonitoringSignals(
                     api.new ListSecurityMonitoringSignalsParameters()
-                    .filterQuery(uniqueName)
-                    .filterFrom(now.minus(Duration.ofHours(1)))
-                    .filterTo(now.plus(Duration.ofHours(1)))
-                    .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING)));
+                        .filterQuery(uniqueName)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_ASCENDING)));
 
             return responseAscending.get().getData() != null
                 && responseAscending.get().getData().size() >= 2;
@@ -383,10 +393,10 @@ public class SecurityMonitoringApiTest extends V2APITest {
             responseDescending.set(
                 api.listSecurityMonitoringSignals(
                     api.new ListSecurityMonitoringSignalsParameters()
-                    .filterQuery(uniqueName)
-                    .filterFrom(now.minus(Duration.ofHours(1)))
-                    .filterTo(now.plus(Duration.ofHours(1)))
-                    .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING)));
+                        .filterQuery(uniqueName)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(SecurityMonitoringSignalsSort.TIMESTAMP_DESCENDING)));
 
             return responseDescending.get().getData() != null
                 && responseDescending.get().getData().size() >= 2;
@@ -412,10 +422,10 @@ public class SecurityMonitoringApiTest extends V2APITest {
             pageOneResponse.set(
                 api.listSecurityMonitoringSignals(
                     api.new ListSecurityMonitoringSignalsParameters()
-                    .filterQuery(uniqueName)
-                    .filterFrom(now.minus(Duration.ofHours(1)))
-                    .filterTo(now.plus(Duration.ofHours(1)))
-                    .pageLimit(1)));
+                        .filterQuery(uniqueName)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .pageLimit(1)));
 
             if (pageOneResponse.get().getData() == null
                 || pageOneResponse.get().getData().size() < 1) {
@@ -426,11 +436,11 @@ public class SecurityMonitoringApiTest extends V2APITest {
             pageTwoResponse.set(
                 api.listSecurityMonitoringSignals(
                     api.new ListSecurityMonitoringSignalsParameters()
-                    .filterQuery(uniqueName)
-                    .filterFrom(now.minus(Duration.ofHours(1)))
-                    .filterTo(now.plus(Duration.ofHours(1)))
-                    .pageLimit(1)
-                    .pageCursor(pageOneResponse.get().getMeta().getPage().getAfter())));
+                        .filterQuery(uniqueName)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .pageLimit(1)
+                        .pageCursor(pageOneResponse.get().getMeta().getPage().getAfter())));
 
             return pageTwoResponse.get().getData() != null
                 && pageTwoResponse.get().getData().size() >= 1;

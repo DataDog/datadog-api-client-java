@@ -172,8 +172,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            AWSAccountCreateResponse createResponse =
-                api.createAWSAccount(awsAccount);
+            AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccount);
             accountsToDelete.add(awsAccount);
             assertNotNull(createResponse.getExternalId());
           } catch (ApiException e) {
@@ -205,8 +204,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            AWSAccountCreateResponse createResponse =
-                api.createAWSAccount(awsAccountFull);
+            AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccountFull);
             accountsToDelete.add(awsAccountFull);
             assertNotNull(createResponse.getExternalId());
           } catch (ApiException e) {
@@ -297,8 +295,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            AWSAccountCreateResponse createResponse =
-                api.createAWSAccount(awsAccount);
+            AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccount);
             accountsToDelete.add(awsAccount);
             assertNotNull(createResponse.getExternalId());
           } catch (ApiException e) {
@@ -324,9 +321,10 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         () -> {
           try {
             api.updateAWSAccount(
-                awsAccount, api.new UpdateAWSAccountParameters()
-                .accountId(awsAccount.getAccountId())
-                .roleName(awsAccount.getRoleName()));
+                awsAccount,
+                api.new UpdateAWSAccountParameters()
+                    .accountId(awsAccount.getAccountId())
+                    .roleName(awsAccount.getRoleName()));
           } catch (ApiException e) {
             System.out.println(String.format("Error updating AWS Account: %s", e));
             return false;
@@ -335,9 +333,10 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         });
 
     AWSAccount newAccount =
-        api.listAWSAccounts(api.new ListAWSAccountsParameters()
-            .accountId(awsAccount.getAccountId())
-            .roleName(awsAccount.getRoleName()))
+        api.listAWSAccounts(
+                api.new ListAWSAccountsParameters()
+                    .accountId(awsAccount.getAccountId())
+                    .roleName(awsAccount.getRoleName()))
             .getAccounts()
             .get(0);
     // collection fields are intialized to null on the objects, but returned as empty list/map by
@@ -358,8 +357,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            AWSAccountCreateResponse createResponse =
-                api.createAWSAccount(awsAccount);
+            AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccount);
             accountsToDelete.add(awsAccount);
             assertNotNull(createResponse.getExternalId());
           } catch (ApiException e) {
@@ -369,8 +367,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           return true;
         });
 
-    AWSAccountCreateResponse generateNewID =
-        api.createNewAWSExternalID(awsAccount);
+    AWSAccountCreateResponse generateNewID = api.createNewAWSExternalID(awsAccount);
     assertNotEquals(generateNewID.getExternalId(), "");
   }
 
@@ -544,8 +541,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           return true;
         });
 
-    AWSLogsAsyncResponse response =
-        logsApi.checkAWSLogsLambdaAsync(uniqueAWSAccountLambdaRequest);
+    AWSLogsAsyncResponse response = logsApi.checkAWSLogsLambdaAsync(uniqueAWSAccountLambdaRequest);
     assertNull(response.getErrors());
     assertEquals(response.getStatus(), "created");
 
@@ -557,8 +553,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         () -> {
           AWSLogsAsyncResponse retryResponse;
           try {
-            retryResponse =
-                logsApi.checkAWSLogsLambdaAsync(uniqueAWSAccountLambdaRequest);
+            retryResponse = logsApi.checkAWSLogsLambdaAsync(uniqueAWSAccountLambdaRequest);
           } catch (ApiException e) {
             System.out.println(String.format("Error checking the lambda status: %s", e));
             return false;
@@ -612,8 +607,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           }
           return true;
         });
-    AWSLogsAsyncResponse response =
-        logsApi.checkAWSLogsServicesAsync(uniqueAWSLogsServicesRequest);
+    AWSLogsAsyncResponse response = logsApi.checkAWSLogsServicesAsync(uniqueAWSLogsServicesRequest);
     assertNotEquals(response.getErrors().get(0).getCode(), "");
     assertNotEquals(response.getErrors().get(0).getMessage(), "");
   }

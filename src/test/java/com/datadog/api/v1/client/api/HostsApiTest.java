@@ -193,14 +193,14 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI
-            .listHosts(unitAPI.new ListHostsParameters()
-            .filter("filter string")
-            .count(4L)
-            .from(123L)
-            .sortDir("asc")
-            .sortField("status")
-            .start(3L));
+        unitAPI.listHosts(
+            unitAPI.new ListHostsParameters()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L));
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -319,15 +319,15 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI
-            .listHosts(unitAPI.new ListHostsParameters()
-            .filter("filter string")
-            .count(4L)
-            .from(123L)
-            .sortDir("asc")
-            .sortField("status")
-            .start(3L)
-            .includeMutedHostsData(false));
+        unitAPI.listHosts(
+            unitAPI.new ListHostsParameters()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L)
+                .includeMutedHostsData(false));
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -352,15 +352,15 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI
-            .listHosts(unitAPI.new ListHostsParameters()
-            .filter("filter string")
-            .count(4L)
-            .from(123L)
-            .sortDir("asc")
-            .sortField("status")
-            .start(3L)
-            .includeMutedHostsData(true));
+        unitAPI.listHosts(
+            unitAPI.new ListHostsParameters()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L)
+                .includeMutedHostsData(true));
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -384,14 +384,14 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI
-            .listHosts(unitAPI.new ListHostsParameters()
-            .filter("filter string")
-            .count(4L)
-            .from(123L)
-            .sortDir("asc")
-            .sortField("status")
-            .start(3L));
+        unitAPI.listHosts(
+            unitAPI.new ListHostsParameters()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L));
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -415,15 +415,15 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI
-            .listHosts(unitAPI.new ListHostsParameters()
-            .filter("filter string")
-            .count(4L)
-            .from(123L)
-            .sortDir("asc")
-            .sortField("status")
-            .start(3L)
-            .includeHostsMetadata(false));
+        unitAPI.listHosts(
+            unitAPI.new ListHostsParameters()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L)
+                .includeHostsMetadata(false));
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -448,15 +448,15 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI
-            .listHosts(unitAPI.new ListHostsParameters()
-            .filter("filter string")
-            .count(4L)
-            .from(123L)
-            .sortDir("asc")
-            .sortField("status")
-            .start(3L)
-            .includeHostsMetadata(true));
+        unitAPI.listHosts(
+            unitAPI.new ListHostsParameters()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L)
+                .includeHostsMetadata(true));
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -480,14 +480,14 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI
-            .listHosts(unitAPI.new ListHostsParameters()
-            .filter("filter string")
-            .count(4L)
-            .from(123L)
-            .sortDir("asc")
-            .sortField("status")
-            .start(3L));
+        unitAPI.listHosts(
+            unitAPI.new ListHostsParameters()
+                .filter("filter string")
+                .count(4L)
+                .from(123L)
+                .sortDir("asc")
+                .sortField("status")
+                .start(3L));
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);

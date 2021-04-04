@@ -110,7 +110,8 @@ public class LogsApiTest extends V2APITest {
         10,
         () -> {
           try {
-            LogsListResponse response = api.listLogs().body(bothMessagesRequest).execute();
+            LogsListResponse response =
+                api.listLogs(api.new ListLogsParameters().body(bothMessagesRequest));
             return response.getData() != null && response.getData().size() == 2;
           } catch (ApiException ignored) {
             return false;
@@ -126,12 +127,12 @@ public class LogsApiTest extends V2APITest {
           try {
             // Sort works correctly
             responseAscending.set(
-                api.listLogs()
-                    .body(
-                        new LogsListRequest()
-                            .filter(allLogsFilter)
-                            .sort(LogsSort.TIMESTAMP_ASCENDING))
-                    .execute());
+                api.listLogs(
+                    api.new ListLogsParameters()
+                        .body(
+                            new LogsListRequest()
+                                .filter(allLogsFilter)
+                                .sort(LogsSort.TIMESTAMP_ASCENDING))));
             return responseAscending.get().getData() != null
                 && responseAscending.get().getData().size() == 2;
           } catch (ApiException ignored) {
@@ -154,12 +155,12 @@ public class LogsApiTest extends V2APITest {
         () -> {
           try {
             responseDescending.set(
-                api.listLogs()
-                    .body(
-                        new LogsListRequest()
-                            .filter(allLogsFilter)
-                            .sort(LogsSort.TIMESTAMP_DESCENDING))
-                    .execute());
+                api.listLogs(
+                    api.new ListLogsParameters()
+                        .body(
+                            new LogsListRequest()
+                                .filter(allLogsFilter)
+                                .sort(LogsSort.TIMESTAMP_DESCENDING))));
             return responseDescending.get().getData() != null
                 && responseDescending.get().getData().size() == 2;
           } catch (ApiException ignored) {
@@ -177,24 +178,24 @@ public class LogsApiTest extends V2APITest {
 
     // Paging
     LogsListResponse pageOneResponse =
-        api.listLogs()
-            .body(
-                new LogsListRequest()
-                    .filter(allLogsFilter)
-                    .page(new LogsListRequestPage().limit(1)))
-            .execute();
+        api.listLogs(
+            api.new ListLogsParameters()
+                .body(
+                    new LogsListRequest()
+                        .filter(allLogsFilter)
+                        .page(new LogsListRequestPage().limit(1))));
     assertEquals(1, pageOneResponse.getData().size());
 
     String cursor = pageOneResponse.getMeta().getPage().getAfter();
     assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
 
     LogsListResponse pageTwoResponse =
-        api.listLogs()
-            .body(
-                new LogsListRequest()
-                    .filter(allLogsFilter)
-                    .page(new LogsListRequestPage().cursor(cursor).limit(1)))
-            .execute();
+        api.listLogs(
+            api.new ListLogsParameters()
+                .body(
+                    new LogsListRequest()
+                        .filter(allLogsFilter)
+                        .page(new LogsListRequestPage().cursor(cursor).limit(1))));
     assertEquals(1, pageTwoResponse.getData().size());
 
     assertNotEquals(
@@ -218,12 +219,12 @@ public class LogsApiTest extends V2APITest {
           try {
             // Sort works correctly
             responseAscending.set(
-                api.listLogsGet()
-                    .filterQuery(suffix)
-                    .filterFrom(now.minus(Duration.ofHours(1)))
-                    .filterTo(now.plus(Duration.ofHours(1)))
-                    .sort(LogsSort.TIMESTAMP_ASCENDING)
-                    .execute());
+                api.listLogsGet(
+                    api.new ListLogsGetParameters()
+                        .filterQuery(suffix)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(LogsSort.TIMESTAMP_ASCENDING)));
             return responseAscending.get().getData() != null
                 && responseAscending.get().getData().size() == 2;
           } catch (ApiException ignored) {
@@ -248,12 +249,12 @@ public class LogsApiTest extends V2APITest {
           try {
             // Sort works correctly
             responseDescending.set(
-                api.listLogsGet()
-                    .filterQuery(suffix)
-                    .filterFrom(now.minus(Duration.ofHours(1)))
-                    .filterTo(now.plus(Duration.ofHours(1)))
-                    .sort(LogsSort.TIMESTAMP_DESCENDING)
-                    .execute());
+                api.listLogsGet(
+                    api.new ListLogsGetParameters()
+                        .filterQuery(suffix)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .sort(LogsSort.TIMESTAMP_DESCENDING)));
             return responseDescending.get().getData() != null
                 && responseDescending.get().getData().size() == 2;
           } catch (ApiException ignored) {
@@ -277,12 +278,12 @@ public class LogsApiTest extends V2APITest {
         () -> {
           try {
             pageOneResponse.set(
-                api.listLogsGet()
-                    .filterQuery(suffix)
-                    .filterFrom(now.minus(Duration.ofHours(1)))
-                    .filterTo(now.plus(Duration.ofHours(1)))
-                    .pageLimit(1)
-                    .execute());
+                api.listLogsGet(
+                    api.new ListLogsGetParameters()
+                        .filterQuery(suffix)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .pageLimit(1)));
             return pageOneResponse.get().getData() != null
                 && pageOneResponse.get().getData().size() == 1;
           } catch (ApiException ignored) {
@@ -302,13 +303,13 @@ public class LogsApiTest extends V2APITest {
         () -> {
           try {
             pageTwoResponse.set(
-                api.listLogsGet()
-                    .filterQuery(suffix)
-                    .filterFrom(now.minus(Duration.ofHours(1)))
-                    .filterTo(now.plus(Duration.ofHours(1)))
-                    .pageLimit(1)
-                    .pageCursor(cursor)
-                    .execute());
+                api.listLogsGet(
+                    api.new ListLogsGetParameters()
+                        .filterQuery(suffix)
+                        .filterFrom(now.minus(Duration.ofHours(1)))
+                        .filterTo(now.plus(Duration.ofHours(1)))
+                        .pageLimit(1)
+                        .pageCursor(cursor)));
             return pageTwoResponse.get().getData() != null
                 && pageTwoResponse.get().getData().size() == 1;
           } catch (ApiException ignored) {

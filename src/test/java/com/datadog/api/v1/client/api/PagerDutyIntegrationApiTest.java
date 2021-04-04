@@ -113,8 +113,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
         new PagerDutyService().serviceKey("lalaa").serviceName(getUniqueEntityName());
 
     try {
-      PagerDutyServiceName service =
-          api.createPagerDutyIntegrationService(new PagerDutyService());
+      PagerDutyServiceName service = api.createPagerDutyIntegrationService(new PagerDutyService());
       removeServices.add(service.getServiceName());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {

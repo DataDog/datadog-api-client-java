@@ -65,12 +65,12 @@ public class DowntimesApiTest extends V1ApiTest {
     if (deleteDowntimes != null) {
       for (Long id : deleteDowntimes) {
         try {
-          api.getDowntime(id).execute();
+          api.getDowntime(id);
         } catch (ApiException e) {
           // doesn't exist => continue
           continue;
         }
-        api.cancelDowntime(id).execute();
+        api.cancelDowntime(id);
       }
     }
   }
@@ -94,12 +94,12 @@ public class DowntimesApiTest extends V1ApiTest {
             .recurrence(recurrence);
 
     // test creating downtime
-    Downtime obtained = api.createDowntime().body(downtime).execute();
+    Downtime obtained = api.createDowntime(downtime);
     Long downtimeId = obtained.getId();
     deleteDowntimes.add(downtimeId);
 
     // test getting downtime
-    obtained = api.getDowntime(downtimeId).execute();
+    obtained = api.getDowntime(downtimeId);
     assertEquals(testingDowntimeScope, obtained.getScope());
     assertEquals(testingDowntimeMessage, obtained.getMessage());
     assertEquals(testingDowntimeStart, obtained.getStart());
@@ -114,7 +114,7 @@ public class DowntimesApiTest extends V1ApiTest {
 
     // test updating downtime
     downtime.setMessage(testingDowntimeMessage + "-updated");
-    obtained = api.updateDowntime(downtimeId).body(downtime).execute();
+    obtained = api.updateDowntime(downtimeId, downtime);
 
     assertEquals(testingDowntimeScope, obtained.getScope());
     assertEquals(testingDowntimeMessage + "-updated", obtained.getMessage());
@@ -129,8 +129,8 @@ public class DowntimesApiTest extends V1ApiTest {
     assertTrue(obtained.getUpdaterId_JsonNullable().isPresent());
 
     // test canceling downtime
-    api.cancelDowntime(downtimeId).execute();
-    obtained = api.getDowntime(downtimeId).execute();
+    api.cancelDowntime(downtimeId);
+    obtained = api.getDowntime(downtimeId);
     assertNotNull(obtained.getCanceled());
   }
 
@@ -144,10 +144,11 @@ public class DowntimesApiTest extends V1ApiTest {
                 getUniqueEntityName("1"), getUniqueEntityName("2"), getUniqueEntityName("3")));
     for (String message : messages) {
       Downtime downtime = new Downtime().scope(testingDowntimeScope).message(message);
-      Downtime created = api.createDowntime().body(downtime).execute();
+      Downtime created = api.createDowntime(downtime);
       deleteDowntimes.add(created.getId());
     }
-    List<Downtime> allDowntimes = api.listDowntimes().currentOnly(false).execute();
+    List<Downtime> allDowntimes =
+        api.listDowntimes(api.new ListDowntimesParameters().currentOnly(false));
     for (String message : messages) {
       boolean found = false;
       for (Downtime downtime : allDowntimes) {
@@ -174,17 +175,17 @@ public class DowntimesApiTest extends V1ApiTest {
           new Downtime()
               .scope(message.equals(messages.get(2)) ? differentScope : testingDowntimeScope)
               .message(message);
-      Downtime created = api.createDowntime().body(downtime).execute();
+      Downtime created = api.createDowntime(downtime);
       deleteDowntimes.add(created.getId());
     }
 
     // cancel downtimes 1 and 2
-    api.cancelDowntimesByScope()
-        .body(new CancelDowntimesByScopeRequest().scope(testingDowntimeScope.get(0)))
-        .execute();
+    api.cancelDowntimesByScope(
+        new CancelDowntimesByScopeRequest().scope(testingDowntimeScope.get(0)));
 
     // verify that downtimes 1 and 2 are canceled
-    List<Downtime> allDowntimes = api.listDowntimes().currentOnly(false).execute();
+    List<Downtime> allDowntimes =
+        api.listDowntimes(api.new ListDowntimesParameters().currentOnly(false));
     for (String message : messages) {
       boolean found = false;
       for (Downtime downtime : allDowntimes) {
@@ -209,7 +210,7 @@ public class DowntimesApiTest extends V1ApiTest {
   @Test
   public void downtimeListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listDowntimes().execute();
+      fakeAuthApi.listDowntimes();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -221,7 +222,7 @@ public class DowntimesApiTest extends V1ApiTest {
   @Test
   public void downtimeCreateErrorsTest() throws IOException {
     try {
-      api.createDowntime().body(new Downtime()).execute();
+      api.createDowntime(new Downtime());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -230,7 +231,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createDowntime().body(new Downtime()).execute();
+      fakeAuthApi.createDowntime(new Downtime());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -242,7 +243,7 @@ public class DowntimesApiTest extends V1ApiTest {
   @Test
   public void downtimeCancelByScopeErrorsTest() throws IOException {
     try {
-      api.cancelDowntimesByScope().body(new CancelDowntimesByScopeRequest()).execute();
+      api.cancelDowntimesByScope(new CancelDowntimesByScopeRequest());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -251,7 +252,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.cancelDowntimesByScope().body(new CancelDowntimesByScopeRequest()).execute();
+      fakeAuthApi.cancelDowntimesByScope(new CancelDowntimesByScopeRequest());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -260,9 +261,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     try {
-      api.cancelDowntimesByScope()
-          .body(new CancelDowntimesByScopeRequest().scope("nonexistent"))
-          .execute();
+      api.cancelDowntimesByScope(new CancelDowntimesByScopeRequest().scope("nonexistent"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -274,7 +273,7 @@ public class DowntimesApiTest extends V1ApiTest {
   @Test
   public void downtimeCancelErrorsTest() throws IOException {
     try {
-      fakeAuthApi.cancelDowntime(new Long(1234)).execute();
+      fakeAuthApi.cancelDowntime(new Long(1234));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -283,7 +282,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     try {
-      api.cancelDowntime(new Long(1234)).execute();
+      api.cancelDowntime(new Long(1234));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -295,7 +294,7 @@ public class DowntimesApiTest extends V1ApiTest {
   @Test
   public void downtimeGetErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getDowntime(new Long(1234)).execute();
+      fakeAuthApi.getDowntime(new Long(1234));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -304,7 +303,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     try {
-      api.getDowntime(new Long(1234)).execute();
+      api.getDowntime(new Long(1234));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -316,7 +315,7 @@ public class DowntimesApiTest extends V1ApiTest {
   @Test
   public void downtimeUpdateErrorsTest() throws IOException {
     try {
-      api.updateDowntime(new Long(1234)).body(new Downtime().start(new Long(1234))).execute();
+      api.updateDowntime(new Long(1234), new Downtime().start(new Long(1234)));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -325,7 +324,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateDowntime(new Long(1234)).body(new Downtime()).execute();
+      fakeAuthApi.updateDowntime(new Long(1234), new Downtime());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -334,7 +333,7 @@ public class DowntimesApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateDowntime(new Long(1234)).body(new Downtime()).execute();
+      api.updateDowntime(new Long(1234), new Downtime());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

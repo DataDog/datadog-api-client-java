@@ -214,8 +214,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     pipeline.setIsEnabled(false);
     pipeline.setFilter(new LogsFilter().query("updated query"));
     pipeline.setName(name + "-updated");
-    LogsPipeline updatedPipeline =
-        api.updateLogsPipeline(createdPipeline.getId(), pipeline);
+    LogsPipeline updatedPipeline = api.updateLogsPipeline(createdPipeline.getId(), pipeline);
     assertEquals(name + "-updated", updatedPipeline.getName());
     assertFalse(updatedPipeline.getIsEnabled());
     assertEquals("updated query", updatedPipeline.getFilter().getQuery());

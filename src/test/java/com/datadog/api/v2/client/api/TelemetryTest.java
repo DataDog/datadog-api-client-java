@@ -38,8 +38,7 @@ public class TelemetryTest extends V2APITest {
                         + " .*?; os_version .*?; arch .*?\\)$"))
             .willReturn(status(299)));
 
-    ApiResponse<DashboardListItems> httpresp =
-        api.getDashboardListItems(1234L).executeWithHttpInfo();
+    ApiResponse<DashboardListItems> httpresp = api.getDashboardListItemsWithHttpInfo(1234L);
     assertEquals(299, httpresp.getStatusCode());
   }
 }

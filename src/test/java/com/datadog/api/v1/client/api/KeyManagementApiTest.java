@@ -54,7 +54,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     if (deleteAppKeys != null) {
       for (ApplicationKeyResponse apiKeyResponse : deleteAppKeys) {
         try {
-          api.deleteApplicationKey(apiKeyResponse.getApplicationKey().getHash()).execute();
+          api.deleteApplicationKey(apiKeyResponse.getApplicationKey().getHash());
           ;
         } catch (ApiException e) {
           // doesn't exist => continue
@@ -80,7 +80,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     stubFor(stub);
 
     ApiKey apiKey = new ApiKey().name(apiKeyName);
-    ApiKeyResponse response = unitApi.createAPIKey().body(apiKey).execute();
+    ApiKeyResponse response = unitApi.createAPIKey(apiKey);
 
     // Assert values match whats in create_api_key.json
     assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -105,7 +105,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     stubFor(stub);
 
     ApplicationKey applicationKey = new ApplicationKey().name(appKeyName);
-    ApplicationKeyResponse response = unitApi.createApplicationKey().body(applicationKey).execute();
+    ApplicationKeyResponse response = unitApi.createApplicationKey(applicationKey);
 
     // Assert values match whats in create_app_key.json
     assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -128,7 +128,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     MappingBuilder stub =
         setupStub(apiUri + "/" + apiKeyName, fixturePrefix + "/delete_api_key.json", "delete");
     stubFor(stub);
-    ApiKeyResponse response = unitApi.deleteAPIKey(apiKeyName).execute();
+    ApiKeyResponse response = unitApi.deleteAPIKey(apiKeyName);
 
     // Assert values match whats in delete_api_key.json
     assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -152,7 +152,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     MappingBuilder stub =
         setupStub(appUri + "/" + appKeyName, fixturePrefix + "/delete_app_key.json", "delete");
     stubFor(stub);
-    ApplicationKeyResponse response = unitApi.deleteApplicationKey(appKeyName).execute();
+    ApplicationKeyResponse response = unitApi.deleteApplicationKey(appKeyName);
 
     // Assert values match whats in delete_api_key.json
     assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -179,7 +179,7 @@ public class KeyManagementApiTest extends V1ApiTest {
 
     // We're mocking the response so the query param we select can be anything
     ApiKey apiKey = new ApiKey().name("TestName");
-    ApiKeyResponse response = unitApi.updateAPIKey(apiKeyName).body(apiKey).execute();
+    ApiKeyResponse response = unitApi.updateAPIKey(apiKeyName, apiKey);
 
     // Assert values match whats in edit_api_key.json
     assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -206,8 +206,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     stubFor(stub);
 
     ApplicationKey applicationKey = new ApplicationKey().name("<NEW_APP_KEY_NAME>");
-    ApplicationKeyResponse response =
-        unitApi.updateApplicationKey(appKeyName).body(applicationKey).execute();
+    ApplicationKeyResponse response = unitApi.updateApplicationKey(appKeyName, applicationKey);
 
     // Assert values match whats in edit_api_key.json
     assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -231,7 +230,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     MappingBuilder stub = setupStub(apiUri + "/" + key, fixturePrefix + "/get_api_key.json", "get");
     stubFor(stub);
 
-    ApiKeyResponse response = unitApi.getAPIKey(key).execute();
+    ApiKeyResponse response = unitApi.getAPIKey(key);
 
     // Assert values match whats in get_api_key.json
     assertEquals(response.getApiKey().getCreatedBy(), "john@example.com");
@@ -254,7 +253,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_all_api_keys.json", "get");
     stubFor(stub);
 
-    ApiKeyListResponse response = unitApi.listAPIKeys().execute();
+    ApiKeyListResponse response = unitApi.listAPIKeys();
 
     // Assert values match whats in get_all_api_keys.json
     assertEquals(response.getApiKeys().size(), 2);
@@ -284,7 +283,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     MappingBuilder stub = setupStub(appUri, fixturePrefix + "/get_all_app_keys.json", "get");
     stubFor(stub);
 
-    ApplicationKeyListResponse response = unitApi.listApplicationKeys().execute();
+    ApplicationKeyListResponse response = unitApi.listApplicationKeys();
 
     // Assert values match whats in get_app_key.json
     assertEquals(response.getApplicationKeys().size(), 2);
@@ -316,7 +315,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     MappingBuilder stub = setupStub(appUri + "/" + key, fixturePrefix + "/get_app_key.json", "get");
     stubFor(stub);
 
-    ApplicationKeyResponse response = unitApi.getApplicationKey(key).execute();
+    ApplicationKeyResponse response = unitApi.getApplicationKey(key);
 
     // Assert values match whats in get_app_key.json
     assertEquals(response.getApplicationKey().getOwner(), "john@example.com");
@@ -328,7 +327,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   @Test
   public void aPIKeysMgmtListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listAPIKeys().execute();
+      fakeAuthApi.listAPIKeys();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -340,7 +339,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   @Test
   public void aPIKeysMgmtCreateErrorsTest() throws IOException {
     try {
-      api.createAPIKey().body(new ApiKey()).execute();
+      api.createAPIKey(new ApiKey());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -349,7 +348,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createAPIKey().body(new ApiKey()).execute();
+      fakeAuthApi.createAPIKey(new ApiKey());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -361,7 +360,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   @Test
   public void aPIKeysMgmtGetErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getAPIKey("whatever").execute();
+      fakeAuthApi.getAPIKey("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -370,7 +369,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      api.getAPIKey("whatever").execute();
+      api.getAPIKey("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -382,7 +381,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   @Test
   public void aPIKeysMgmtUpdateErrorsTest() throws IOException {
     try {
-      api.updateAPIKey("whatever").body(new ApiKey()).execute();
+      api.updateAPIKey("whatever", new ApiKey());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -391,7 +390,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateAPIKey("whatever").body(new ApiKey()).execute();
+      fakeAuthApi.updateAPIKey("whatever", new ApiKey());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -400,7 +399,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateAPIKey("whatever").body(new ApiKey().name("nonexistent key")).execute();
+      api.updateAPIKey("whatever", new ApiKey().name("nonexistent key"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -417,7 +416,7 @@ public class KeyManagementApiTest extends V1ApiTest {
             .willReturn(okJson(fixtureData).withStatus(400)));
     // Mocked because we need 0 API keys to trigger the 400
     try {
-      unitApi.deleteAPIKey("whatever").execute();
+      unitApi.deleteAPIKey("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -429,7 +428,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   @Test
   public void aPIKeysMgmtDeleteErrorsTest() throws IOException {
     try {
-      fakeAuthApi.deleteAPIKey("whatever").execute();
+      fakeAuthApi.deleteAPIKey("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -438,7 +437,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      api.deleteAPIKey("whatever").execute();
+      api.deleteAPIKey("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -450,7 +449,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   @Test
   public void aPPKeysMgmtListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listApplicationKeys().execute();
+      fakeAuthApi.listApplicationKeys();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -462,7 +461,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   @Test
   public void aPPKeysMgmtCreateErrorsTest() throws IOException {
     try {
-      api.createApplicationKey().body(new ApplicationKey()).execute();
+      api.createApplicationKey(new ApplicationKey());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -471,7 +470,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createApplicationKey().body(new ApplicationKey()).execute();
+      fakeAuthApi.createApplicationKey(new ApplicationKey());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -483,7 +482,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   @Test
   public void aPPKeysMgmtGetErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getApplicationKey("whatever").execute();
+      fakeAuthApi.getApplicationKey("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -492,7 +491,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      api.getApplicationKey("whatever").execute();
+      api.getApplicationKey("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -504,7 +503,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   @Test
   public void aPPKeysMgmtUpdateErrorsTest() throws IOException {
     try {
-      api.updateApplicationKey("whatever").body(new ApplicationKey()).execute();
+      api.updateApplicationKey("whatever", new ApplicationKey());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -513,7 +512,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateApplicationKey("whatever").body(new ApplicationKey()).execute();
+      fakeAuthApi.updateApplicationKey("whatever", new ApplicationKey());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -522,9 +521,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateApplicationKey("whatever")
-          .body(new ApplicationKey().name("nonexistent key"))
-          .execute();
+      api.updateApplicationKey("whatever", new ApplicationKey().name("nonexistent key"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -537,7 +534,7 @@ public class KeyManagementApiTest extends V1ApiTest {
   public void aPPKeysMgmtDeleteErrorsTest() throws IOException {
     // This test case does not support reply from recording
     try {
-      fakeAuthApi.deleteApplicationKey("whatever").execute();
+      fakeAuthApi.deleteApplicationKey("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -546,7 +543,7 @@ public class KeyManagementApiTest extends V1ApiTest {
     }
 
     try {
-      api.deleteApplicationKey("whatever").execute();
+      api.deleteApplicationKey("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
