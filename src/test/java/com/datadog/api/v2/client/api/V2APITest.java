@@ -54,8 +54,8 @@ public abstract class V2APITest extends TestUtils.APITest {
         if (site != null) {
           HashMap<String, String> serverVariables = new HashMap<String, String>();
           serverVariables.put("site", site);
-          generalApiClient.setServerVariables(serverVariables);
           generalApiClient.setServerIndex(2);
+          generalApiClient.setServerVariables(serverVariables);
         }
       }
     } else {
