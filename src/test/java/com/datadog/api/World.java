@@ -81,6 +81,17 @@ public class World {
 
     TestUtils.APITest.trustProxyCertsStatic();
 
+    String site = System.getenv("DD_TEST_SITE");
+    if (site != null) {
+      HashMap<String, String> serverVariables = new HashMap<String, String>();
+      serverVariables.put("site", site);
+
+      clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 2);
+      clientClass.getMethod("setServerVariables", Map.class).invoke(client, serverVariables);
+    } else {
+      clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
+    }
+
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
       // Set proxy to the "mockServer" for recording
       // ClientConfig config = (ClientConfig)
@@ -99,14 +110,6 @@ public class World {
       config.connectorProvider(
           new HttpUrlConnectorProvider()
               .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
-
-      // client.setServerIndex(null)
-      // clientClass.getMethod("setServerIndex", Integer.class).invoke(client, null);
-      Field f = clientClass.getDeclaredField("serverIndex");
-      f.setAccessible(true);
-      f.set(client, null);
-      // When recording, use the server URL
-      clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
     } else if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
       // Set base path to the mock server for replaying
       // client.setBasePath(...)
