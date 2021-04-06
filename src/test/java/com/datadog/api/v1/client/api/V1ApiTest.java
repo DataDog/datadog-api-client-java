@@ -47,6 +47,14 @@ public abstract class V1ApiTest extends TestUtils.APITest {
         config.connectorProvider(
             new HttpUrlConnectorProvider()
                 .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+      } else {
+        String site = System.getenv("DD_TEST_SITE");
+        if (site != null) {
+          HashMap<String, String> serverVariables = new HashMap<String, String>();
+          serverVariables.put("site", site);
+          generalApiClient.setServerIndex(2);
+          generalApiClient.setServerVariables(serverVariables);
+        }
       }
     } else {
       // Set base path to the mock server for replaying
